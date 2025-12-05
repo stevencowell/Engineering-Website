@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 4: Evaluation, folio & presentation for the geared lolly dispenser – testing against criteria, self-assessment, communication and future improvements." />
+  <meta name="keywords" content="Year 9, Engineering, evaluation, folio, reflection, presentation, geared lolly dispenser" />
+  <title>Toolkit 4: Evaluation, Folio &amp; Presentation | Year 9 Term 4</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6c7a96;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 0.4rem 0 0;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    nav a.active {
+      background: #e6f0fb;
+      color: #0b63c3;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.75rem 1rem 3rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card h2 {
+      margin: 0 0 0.5rem;
+      color: var(--brand);
+    }
+
+    .card h3 {
+      margin: 1.2rem 0 0.35rem;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .card p {
+      margin: 0.3rem 0 0.6rem;
+      color: var(--muted);
+    }
+
+    .card ul {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.15rem;
+      color: var(--muted);
+    }
+
+    .card ol {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.3rem;
+      color: var(--muted);
+    }
+
+    .card li + li {
+      margin-top: 0.35rem;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 0.5rem;
+      margin-top: 0.4rem;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: #edf2ff;
+      color: #374151;
+      font-size: 0.75rem;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 0.6rem;
+    }
+
+    .grid-two-column {
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 0.9rem;
+      border: 1px solid var(--border);
+    }
+
+    .grid-two-column h3 {
+      margin-top: 0;
+    }
+
+    .checklist li::marker {
+      content: "▢ ";
+      font-size: 0.8rem;
+    }
+
+    /* Quiz / Q&A styles */
+
+    .qa-list {
+      margin-top: 0.5rem;
+    }
+
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      margin: 0.65rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .qa-question span {
+      flex: 1;
+    }
+
+    .qa-toggle {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .qa-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+
+    .qa-answer {
+      margin-top: 0.55rem;
+      color: var(--muted);
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+      main {
+        padding: 1.25rem 0.75rem 2.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 4: Evaluation, Folio &amp; Presentation</h1>
+    <p>Bringing the geared lolly dispenser project together – evidence, reflection and communication</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term4.html">&#8592; T4 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a class="active" href="module4.html">Toolkit 4</a>
+  </nav>
+
+  <main id="main-content" role="main">
+    <a class="back-link" href="../year9_term4.html">&#8592; Back to Year 9 T4 Toolkits</a>
+
+    <!-- Learning Focus -->
+    <article class="card">
+      <div class="pill">Evaluation</div>
+      <h2>Learning Focus</h2>
+      <p>By the end of this toolkit, you should be able to:</p>
+      <ul>
+        <li>Evaluate your geared lolly dispenser against agreed design criteria and constraints.</li>
+        <li>Use evidence (tests, data, photos, user feedback) to support your evaluation statements.</li>
+        <li>Identify strengths and weaknesses in your design, construction and testing process.</li>
+        <li>Propose realistic future improvements and justify them using engineering language.</li>
+        <li>Present a clear, organised folio that communicates your process from concept to tested product.</li>
+      </ul>
+
+      <div class="tag-row">
+        <span class="tag">design criteria</span>
+        <span class="tag">evidence-based</span>
+        <span class="tag">self-assessment</span>
+        <span class="tag">future improvements</span>
+        <span class="tag">folio structure</span>
+        <span class="tag">presentation</span>
+      </div>
+    </article>
+
+    <!-- Core Concepts -->
+    <article class="card">
+      <div class="pill">Core Concepts</div>
+      <h2>Design Criteria, Evidence &amp; Reflection</h2>
+      <p>This toolkit focuses on how you judge the success of your dispenser and how well you communicate your learning in your folio.</p>
+
+      <div class="grid-two">
+        <div class="grid-two-column">
+          <h3>Design Criteria &amp; Constraints</h3>
+          <ul>
+            <li><strong>Function:</strong> Does it reliably dispense the intended quantity of lollies when operated correctly?</li>
+            <li><strong>Safety:</strong> Are moving parts guarded, and are pinch points minimised?</li>
+            <li><strong>Ergonomics:</strong> Is the handle comfortable, and is the required effort suitable for the target user?</li>
+            <li><strong>Durability:</strong> Does it survive repeated use without loosening, cracking or wearing out quickly?</li>
+            <li><strong>Aesthetics &amp; finish:</strong> Is it visually appealing, with a consistent and appropriate finish?</li>
+            <li><strong>Sustainability:</strong> Were material and process choices reasonably sustainable?</li>
+          </ul>
+        </div>
+
+        <div class="grid-two-column">
+          <h3>Evidence-Based Judgements</h3>
+          <ul>
+            <li>Use data (success rates, number of jams, user feedback) to support each evaluation statement.</li>
+            <li>Refer to specific tests from Toolkit 3 and decisions from Toolkits 1–2.</li>
+            <li>Avoid generic comments like “it’s good” – explain how you know it performs well (or not).</li>
+            <li>Include photos or diagrams that clearly show features you are discussing.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Reflection &amp; Improvement</h3>
+      <ul>
+        <li>Reflection is more than listing steps – it explains what worked, what did not, and what you would change.</li>
+        <li>Improvements should be realistic (could actually be built in a school workshop) and linked to a problem you observed.</li>
+        <li>Use engineering language: refer to forces, materials, mechanisms, tolerances and clearances where relevant.</li>
+      </ul>
+    </article>
+
+    <!-- Folio Structure & Checkpoints -->
+    <article class="card">
+      <div class="pill">Folio</div>
+      <h2>Folio Structure &amp; Checkpoints</h2>
+      <p>Use this structure as a guide for your final folio or digital submission. Some sections may already exist from earlier terms.</p>
+
+      <ol>
+        <li>
+          <strong>Front cover &amp; overview.</strong>
+          <ul>
+            <li>Project title, your name, class and year.</li>
+            <li>1–2 sentences describing the purpose of the dispenser and the target user.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Design brief &amp; criteria.</strong>
+          <ul>
+            <li>Short design brief explaining the problem being solved.</li>
+            <li>Dot-point list of design criteria and constraints (function, safety, ergonomics, aesthetics, sustainability, etc.).</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Key stages summary.</strong>
+          <ul>
+            <li>Brief outline of major stages (materials selection, CAD modelling, prototyping, testing).</li>
+            <li>Use 1–2 images per stage with captions rather than long blocks of text.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Testing &amp; results (link to Toolkit 3).</strong>
+          <ul>
+            <li>Include your main test table (success/jam/double dispense data).</li>
+            <li>Add at least one graph or clearly presented table if possible.</li>
+            <li>Summarise key findings in a few sentences.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Evaluation against criteria.</strong>
+          <ul>
+            <li>For each criterion, write a short paragraph stating how well your design meets it.</li>
+            <li>Refer to specific evidence (data, photos, user comments) in each paragraph.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Improvements &amp; future development.</strong>
+          <ul>
+            <li>List at least two realistic improvements (design or process) explaining why each would help.</li>
+            <li>Optionally sketch a quick concept or annotate a photo showing where the improvement would be made.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Personal reflection.</strong>
+          <ul>
+            <li>Reflect on what you learned about mechanisms, materials and CAD this year.</li>
+            <li>Describe at least one challenge you faced and how you worked through it.</li>
+          </ul>
+        </li>
+      </ol>
+    </article>
+
+    <!-- Activities & Evidence -->
+    <article class="card">
+      <div class="pill">Activities &amp; Evidence</div>
+      <h2>Activities &amp; Evidence</h2>
+      <p>These items should be clearly visible in your folio or attached to your final submission.</p>
+      <ul class="checklist">
+        <li>Completed <strong>evaluation table</strong> or set of paragraphs addressing each key design criterion.</li>
+        <li>At least one <strong>annotated photo</strong> of the finished dispenser, labelling important design or safety features.</li>
+        <li>A copy of your <strong>test data summary</strong> from Toolkit 3, linked to your evaluation statements.</li>
+        <li>A short <strong>improvements list</strong> (2–4 dot points) with brief justification for each improvement.</li>
+        <li>A 1–2 paragraph <strong>personal reflection</strong> on what you learned and how your skills developed.</li>
+        <li>All major sections of the folio are in a logical order with headings and page numbers (if printed).</li>
+      </ul>
+    </article>
+
+    <!-- Presentation & Communication -->
+    <article class="card">
+      <div class="pill">Presentation</div>
+      <h2>Presentation &amp; Communication</h2>
+
+      <div class="grid-two">
+        <div class="grid-two-column">
+          <h3>Visual Communication</h3>
+          <ul>
+            <li>Use clear, well-lit photos; avoid cluttered backgrounds.</li>
+            <li>Crop images so the dispenser and key features are the focus.</li>
+            <li>Use simple annotations (arrows, labels) instead of long paragraphs where possible.</li>
+          </ul>
+        </div>
+
+        <div class="grid-two-column">
+          <h3>Written Communication</h3>
+          <ul>
+            <li>Write in short paragraphs and use headings/subheadings.</li>
+            <li>Use correct engineering terms (e.g. torque, clearance, cam, gear ratio) where appropriate.</li>
+            <li>Avoid slang; be clear and specific rather than vague.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Marking Readiness Check</h3>
+      <ul>
+        <li>Can someone who was not in your class understand what you built, why and how it performs?</li>
+        <li>Is there enough evidence to justify the mark you think you deserve?</li>
+        <li>Are key documents (drawings, test tables, evaluation paragraphs) easy to find and read?</li>
+      </ul>
+    </article>
+
+    <!-- Key Notes & Common Mistakes -->
+    <article class="card">
+      <div class="pill">Key Notes</div>
+      <h2>Key Notes &amp; Common Mistakes</h2>
+
+      <h3>Stronger Evaluations</h3>
+      <ul>
+        <li>Good evaluations connect <strong>criteria + evidence + judgement</strong>.</li>
+        <li>Use phrases like “because”, “as shown in”, and “this means that” to link your points.</li>
+        <li>Being honest about weaknesses can show deeper understanding than pretending everything is perfect.</li>
+      </ul>
+
+      <h3>Common Mistakes</h3>
+      <ul>
+        <li>Only describing what you did (a timeline) instead of judging how well it met the criteria.</li>
+        <li>Making big claims (“it’s perfect”, “never jams”) with no test data or user feedback to back them up.</li>
+        <li>Leaving improvements too vague (“make it better”, “use stronger material”) without specifics.</li>
+        <li>Submitting a folio with missing sections or unlabelled photos, making it hard to follow your process.</li>
+      </ul>
+    </article>
+
+    <!-- Quiz / Self-check with revealable answers -->
+    <article class="card">
+      <div class="pill">Quiz</div>
+      <h2>Check Your Understanding – Evaluation &amp; Folio</h2>
+      <p>Use these questions to test your understanding. Click “Show answer” to reveal one possible solution or explanation.</p>
+
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>1. What is the difference between describing your project and evaluating it?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q1">
+            Describing your project tells the story of what you did (steps, tools, timeline).
+            Evaluating your project judges how well it met the design criteria using evidence (tests, data, feedback) and explains why.
+            A strong folio includes both, but evaluation focuses on quality and performance, not just process.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>2. Give an example of a weak evaluation statement and then improve it using evidence.</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q2">
+            Weak: “My dispenser works well and doesn’t jam.”
+            <br><br>
+            Improved: “My dispenser met the reliability criterion in 9 out of 10 test cycles, with only one minor jam when the hopper was almost empty.
+            This suggests it is generally reliable, but feed shape and slope could still be improved for low-fill conditions.”
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>3. Why is it useful to link evaluation comments back to specific design criteria?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q3">
+            Linking comments to specific criteria shows that you are judging the design against the agreed success measures, not random opinions.
+            It keeps your evaluation organised and makes it easier for a teacher or marker to see how well you understood and met the brief.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>4. Your dispenser is reliable but hard to turn for younger users. Give one realistic improvement and justify it.</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q4">
+            One improvement could be to increase the gear ratio so the handle turns further but requires less force.
+            This would keep the same basic mechanism but make it easier for younger users to operate, improving ergonomics without reducing reliability.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>5. What makes an annotated photo more useful than an unlabelled one in a folio?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q5">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q5">
+            An annotated photo directs the viewer’s attention to specific features or issues with labels and arrows.
+            It explains why the image is important (e.g. showing a safety guard, clearance, or improvement),
+            instead of forcing the reader to guess what they are meant to notice.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>6. Why can honestly identifying weaknesses and future improvements actually strengthen your overall evaluation?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q6">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q6">
+            It shows that you understand engineering trade-offs and can think critically about your own work.
+            Recognising limitations and suggesting realistic improvements demonstrates deeper learning than pretending everything is perfect,
+            and it shows how you would move towards a more refined solution next time.
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    // Simple show/hide behaviour for quiz answers
+    document.querySelectorAll('.qa-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const answer = document.getElementById(btn.getAttribute('aria-controls'));
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        btn.textContent = isOpen ? 'Show answer' : 'Hide answer';
+        answer.style.display = isOpen ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>

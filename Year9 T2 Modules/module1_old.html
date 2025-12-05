@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toolkit 1 | Tensegrity & Materials</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .card p { color: var(--muted); margin: 0.4rem 0; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .qa-item { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; margin: 0.65rem 0; background: #fff; box-shadow: var(--shadow); }
+    .qa-question { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; font-weight: 700; color: var(--text); }
+    .qa-toggle { padding: 0.45rem 0.85rem; border-radius: 999px; border: 1px solid var(--border); background: #e6f0fb; color: var(--brand); font-weight: 700; cursor: pointer; box-shadow: var(--shadow); }
+    .qa-toggle:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+    .qa-answer { margin-top: 0.65rem; color: var(--muted); display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 1: Tensegrity & Materials</h1>
+    <p>Forces in balance, material selection and safe construction tips</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term2.html">&#8592; T2 Overview</a>
+    <a class="active" href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../year9_term2.html">&#8592; Back to Year 9 T2 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Structures</div>
+      <h2>Learning Focus</h2>
+      <ul>
+        <li>Explore tensegrity (tensional integrity) where compression struts are suspended by a network of tensioned cables.</li>
+        <li>Compare tension versus compression forces and link them to material properties and design choices.</li>
+        <li>Identify suitable materials for struts and cables, considering preload, equilibrium and safety.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Key Notes</h2>
+      <h3>Why engineers care about tensegrity</h3>
+      <p>Engineers design structures so loads flow safely to the ground. In a timber frame, beams and columns touch and share compression; in a tensegrity, isolated compression struts are suspended by tensioned cables so none of the struts touch. Stability comes from the balance of continuous tension and discrete compression, making tensegrity a powerful visual for understanding equilibrium and the path of forces.</p>
+      <h3>Forces, equilibrium and stability in tensegrity</h3>
+      <p>When you look at any structure, ask three questions: what forces act on it, how are they balanced, and what keeps it stable if something changes? In tensegrity, struts carry compression while cables carry tension, and the forces at every joint must add to zero for equilibrium. Pre-tensioned cables stiffen the shape, resisting small disturbances, and material choices deliberately separate compression members (stiff dowels or tubes) from tension elements (high-tensile cords).</p>
+      <h3>Materials in tension and compression</h3>
+      <p>Compression members need stiffness to avoid buckling, so straight, rigid struts matter just as much as the material itself. Tension members need high tensile strength and low stretch so preload holds. Try experiments: compare cotton string to braided fishing line under the same load, or test how quickly a thin skewer buckles compared with a thicker dowel of the same length to see how geometry affects stability.</p>
+      <h3>From theory to the phone-stand project</h3>
+      <p>The tensegrity phone stand follows an engineering process: define the problem (hold a phone at eye level), analyse the loads, pick a triangular prism form, then select materials based on your tension and compression tests. As you build, link each decision to forces and materials—how does changing strut length, cable type or drilling angle alter the balance? Troubleshoot by observing where joints twist or cables slacken, then refine until the stand holds the phone steadily.</p>
+      <h3>Safety, risk and sustainability</h3>
+      <p>Apply Stage 5 risk management by identifying hazards when cutting and drilling struts or tensioning cables. Use eye protection, clamp workpieces and keep the workspace tidy to prevent trips and cuts. Sustainability connects directly to tensegrity because it achieves strength with minimal material; compare renewable options like bamboo to plastics or metals and discuss embodied energy, waste and opportunities to reuse offcuts.</p>
+    </article>
+
+    <article class="card">
+      <h2>Activities & Evidence</h2>
+      <ul>
+        <li>Build a three-strut tensegrity prism, record preload steps and photograph the final model from multiple angles.</li>
+        <li>Measure load and deflection for the prism, noting when the structure distorts or cables slacken.</li>
+        <li>Test tensile and compressive strength of sample materials to justify strut and cable choices.</li>
+        <li>Extension: design a four- or six-strut tensegrity or model the structure in a simulation tool.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Q&amp;A</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What balance of forces keeps a tensegrity structure stable?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa1">Stability comes from compression in the struts being balanced by continuous tension in the cables. Preload sets the initial balance so small movements are resisted and the struts stay separated.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why should struts never touch?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa2">If struts touch, the force path changes, friction can appear and loads bypass the tension network. This removes the tensional integrity and can cause buckling or sudden collapse.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How does preload affect stability?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa3">Preload tightens the cable network so the structure holds its geometry before external loads are applied. Too little preload leads to slack cables; too much can overstress connections or bend struts.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Which materials work best for cables?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa4">Use low-stretch cord or braided fishing line that holds knots securely. Soft string creeps under load, while wire needs careful bending and protection against fraying or sharp ends.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li>Dowels or aluminium tube (struts), fishing line or braided cord (cables), eye screws or drilled holes with knots.</li>
+        <li>Jigs for drilling, pliers and clamps for tensioning, hot glue or caps for connection points.</li>
+        <li>Links to tensegrity build videos or animations; SWMS templates for drilling and cable tension hazards.</li>
+      </ul>
+    </article>
+  </main>
+  <script>
+    document.querySelectorAll('.qa-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const answer = document.getElementById(btn.getAttribute('aria-controls'));
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        btn.textContent = isOpen ? 'Show answer' : 'Hide answer';
+        answer.style.display = isOpen ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toolkit 3 | Geared Lolly Dispenser</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .card p { color: var(--muted); margin: 0.4rem 0; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .qa-item { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; margin: 0.65rem 0; background: #fff; box-shadow: var(--shadow); }
+    .qa-question { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; font-weight: 700; color: var(--text); }
+    .qa-toggle { padding: 0.45rem 0.85rem; border-radius: 999px; border: 1px solid var(--border); background: #e6f0fb; color: var(--brand); font-weight: 700; cursor: pointer; box-shadow: var(--shadow); }
+    .qa-toggle:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+    .qa-answer { margin-top: 0.65rem; color: var(--muted); display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 3: Geared Lolly Dispenser</h1>
+    <p>Compound gear trains, cams, reliability testing and user-focused design</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term3.html">&#8592; T3 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a class="active" href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../year9_term3.html">&#8592; Back to Year 9 T3 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Mechanisms</div>
+      <h2>Learning Focus</h2>
+      <ul>
+        <li>Design compound mechanisms that dispense lollies reliably and safely.</li>
+        <li>Calculate overall gear ratios and link them to torque, speed and dispensing amounts.</li>
+        <li>Plan for user experience, tolerance control and risk management in small machines.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Key Notes</h2>
+      <h3>From simple to compound mechanisms</h3>
+      <p>Compound gear trains, cams, ratchets and springs combine simple machines to perform controlled sequences. The design challenge is to store lollies and dispense them reliably, safely and controllably.</p>
+      <h3>Gear trains in more detail</h3>
+      <p>Multi-stage gear trains multiply ratios; the overall ratio is the product of each stage. Calculate tooth-count ratios to set how many handle turns dispense one compartment, balancing speed and torque.</p>
+      <h3>Cams, followers and motion profiles</h3>
+      <p>Cams convert rotary motion into custom follower movement. Use displacement diagrams to plan when the gate opens; a radial or snail cam can keep the gate closed until alignment, then lift to release lollies.</p>
+      <h3>Reliability, jamming and tolerance</h3>
+      <p>Clearances prevent jams while maintaining control. Select materials to reduce friction and wear, and test prototypes with different lollies. Track jam frequency, wear points and how tolerances affect performance.</p>
+      <h3>Aesthetics, user interaction and ethics</h3>
+      <p>Consider ergonomic handles, viewing windows and appealing graphics. Address hygiene, sustainability of materials and ethical questions about encouraging sugar consumption.</p>
+      <h3>Risk management in dispenser construction</h3>
+      <p>Hazards include cutting and drilling materials, pinch points in gears and choking risks from small parts. Use enclosed gearboxes, clamps and safe storage to control risks.</p>
+    </article>
+
+    <article class="card">
+      <h2>Activities &amp; Evidence</h2>
+      <ul>
+        <li>Sketch the gear train, cam or ratchet layout and calculate the overall ratio for one dispense cycle.</li>
+        <li>Prototype the dispensing gate, record jam frequency with different lollies and adjust tolerances.</li>
+        <li>Measure handle torque and output speed to confirm design targets; document with photos.</li>
+        <li>Prepare a user feedback survey on ergonomics, hygiene and clarity of operation.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Q&amp;A</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How is overall gear ratio calculated?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa1">Multiply the ratio of each gear pair. For example, a 20:40 pair (1:2) driving a 15:45 pair (1:3) gives an overall 1:6 reduction.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What causes gear trains to jam?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa2">Tight tolerances, misalignment, debris or sticky lollies can jam gears. Providing clearance, smooth surfaces and guards reduces jamming.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How do cams control dispensing?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa3">A cam profile lifts a follower at a set point in the rotation, opening the gate only when compartments align. The dwell keeps the gate closed for the rest of the cycle.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why consider ethics in a lolly dispenser?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa4">Design choices affect hygiene, waste and user health. Selecting sustainable materials and discussing sugar consumption aligns with EGT5-ENV-01 and responsible engineering.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li>Gear kits, cams, ratchets, springs, acrylic or timber sheets, adhesives and fasteners.</li>
+        <li>Files, drills and sanding tools for fitting parts; 3D printing or laser cutting for precision components.</li>
+        <li>Templates for user surveys, jam log sheets and risk assessments for cutting and assembly tasks.</li>
+      </ul>
+    </article>
+  </main>
+  <script>
+    document.querySelectorAll('.qa-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const answer = document.getElementById(btn.getAttribute('aria-controls'));
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        btn.textContent = isOpen ? 'Show answer' : 'Hide answer';
+        answer.style.display = isOpen ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>

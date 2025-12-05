@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 2: Materials & Corrosion. Investigate metals, polymers, concrete, corrosion protection, and damp-proofing through practical experiments and analysis." />
+  <meta name="keywords" content="materials, corrosion, metals, polymers, concrete, damp proof course, engineering materials" />
+  <title>Toolkit 2: Materials & Corrosion | Year 9 Term 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --brand: #0056b3; --bg: #f6f8fb; --card: #ffffff; --text: #1f2a3d; --muted: #5c667a; --border: #e2e8f0; --shadow: 0 12px 30px rgba(0,0,0,0.08); --radius: 12px; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    header { background: linear-gradient(135deg, #0b63c3, #0a4f93); color: #fff; padding: 2.25rem 1.25rem 2rem; text-align: center; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; background: #fff; border-bottom: 1px solid var(--border); padding: 0.5rem 1rem; }
+    nav a { padding: 0.4rem 0.75rem; border-radius: 10px; color: var(--brand); font-weight: 600; }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem; margin-bottom: 1.25rem; }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .pill { display: inline-block; padding: 0.25rem 0.6rem; border-radius: 999px; background: #e6f0fb; color: var(--brand); font-weight: 600; font-size: 0.8rem; }
+    .pdf-embed { width: 100%; height: 420px; border: 1px solid var(--border); border-radius: 10px; }
+    .pdf-embed-note { font-size: 0.9rem; color: var(--muted); margin-top: 0.35rem; }
+    .qa-list details {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      margin: 0.5rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .qa-list summary {
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--text);
+      list-style: none;
+    }
+    .qa-list summary::-webkit-details-marker { display: none; }
+    .qa-list .answer {
+      margin-top: 0.5rem;
+      color: var(--muted);
+    }
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      margin: 0.65rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .qa-toggle {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+    .qa-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .qa-answer {
+      margin-top: 0.65rem;
+      color: var(--muted);
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 2: Materials & Corrosion</h1>
+    <p>Metals, polymers, concrete, saltwater tests, damp-proofing</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term1.html">&#8592; T1 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a class="active" href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a href="tutorial.html">Tutorial</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../year9_term1.html">&#8592; Back to Year 9 T1 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Experiments</div>
+      <h2>Learning Focus</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Classify materials:</strong> Accurately identify and categorise materials into groups: ferrous/non-ferrous metals, polymers, ceramics, composites, and concrete. Understanding material families helps you make informed engineering choices.</li>
+        <li><strong>Investigate corrosion:</strong> Explore how materials degrade over time and compare different protection methods. This knowledge is crucial for designing structures that last.</li>
+        <li><strong>Understand moisture management:</strong> Explore damp-proofing and moisture management in basic structures. Learn why buildings need protection from water - a fundamental engineering challenge.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <div class="pill">Theory</div>
+      <h2>Key Notes</h2>
+      <p><strong>Connecting theory to practice:</strong> Use these notes to explain why each experiment matters. When you write up the tower, beam, and materials tests, show the link between three key factors:</p>
+      <ul style="margin-top: 0.75rem;">
+        <li><strong>The structure</strong> (shape and form) - How does the design affect performance?</li>
+        <li><strong>The material choice</strong> (what it's made from) - Why was this material selected?</li>
+        <li><strong>The protection methods</strong> (how it's protected from damage and corrosion) - What keeps it working over time?</li>
+      </ul>
+      <p style="margin-top: 1rem;">Understanding these connections is what separates an engineer from someone who just builds things. You're learning to think systematically about design decisions.</p>
+
+      <h3>Material groups & properties</h3>
+      <p>Before testing, classify each sample into a material group:</p>
+      <ul>
+        <li><strong>Metals and alloys</strong><br>Ferrous (contain iron) – e.g. mild steel: strong, tough, can rust.<br>Non-ferrous (minimal iron) – e.g. aluminium, copper: often lighter and more corrosion-resistant.</li>
+        <li><strong>Polymers (plastics)</strong><br>Thermoplastics – soften with heat and can be remoulded (e.g. PVC, acrylic).<br>Thermosets – once set, they do not melt again (e.g. epoxy).<br>Usually good insulators and low density, but can slowly deform under load (creep).</li>
+        <li><strong>Ceramics</strong> – e.g. bricks, tiles: very hard and strong in compression, but brittle (snap without much warning).</li>
+        <li><strong>Composites</strong> – two or more materials combined to get improved properties (e.g. fibreglass; carbon fibre; reinforced concrete).</li>
+        <li><strong>Concrete</strong> – a composite of cement paste, sand, aggregate and water. It is strong in compression but weak in tension, so we often add steel reinforcement.</li>
+      </ul>
+      <p>When you test materials, focus on these key properties:</p>
+      <ul>
+        <li><strong>Tensile strength</strong> – resistance to being pulled apart.</li>
+        <li><strong>Compressive strength</strong> – resistance to being squashed.</li>
+        <li><strong>Hardness</strong> – resistance to scratching and surface wear.</li>
+        <li><strong>Toughness</strong> – ability to absorb impact without cracking or breaking.</li>
+        <li><strong>Ductility</strong> – how far a material can bend or stretch before it fractures.</li>
+        <li><strong>Density</strong> – how heavy it is for its size (mass per unit volume).</li>
+        <li><strong>Corrosion resistance</strong> – how well it resists rusting and chemical attack.</li>
+      </ul>
+      <p>When choosing a material, think about: load case (compression, tension, bending, shear), environment (dry/wet, inside/outside, coastal/inland), safety and failure mode (ductile bending vs brittle snapping), workability (cut, drill, weld, glue, bolt), cost and sustainability (affordable, available, recyclable). Use this language in your tower and beam reports to justify why a particular material is suitable.</p>
+
+      <h3>Corrosion essentials</h3>
+      <p>Corrosion of steel is an electrochemical process: some areas become anodes where iron atoms lose electrons and dissolve; other areas become cathodes where oxygen and water gain electrons; water with ions (especially salt) allows charge to move. Over time, iron + oxygen + water → iron oxide (rust), which flakes off and exposes fresh metal.</p>
+      <p>Corrosion is worse when there is salt in water/air (coastal), water sits in crevices or under dirt/failed paint, coatings are chipped or thin, or dissimilar metals touch in a wet environment (galvanic corrosion). Galvanic corrosion happens when two different metals touch in saltwater: the more active metal sacrifices itself (anode) while the more noble metal is protected (e.g. zinc protecting steel in galvanised steel).</p>
+      <p><strong>Common control methods:</strong> barrier coatings (paint, powder coat, epoxy, bitumen, galvanising), sacrificial protection (zinc anodes), good detailing (smooth, drainable shapes; no water traps), isolation (plastic washers/spacers between dissimilar metals), and dry storage.</p>
+      <p><strong>In the saltwater tests, focus on:</strong> how quickly bare mild steel rusts and what it looks like; how long galvanised steel takes before red rust appears; how plastic and concrete samples change (or don’t change). Link results to real structures and the protection they need to survive their environment.</p>
+
+      <h3>Concrete & reinforcement</h3>
+      <p>In reinforced concrete, different materials do different jobs: concrete is strong in compression; steel reinforcement is strong and ductile in tension and bending. When water is added to cement, hydration forms a hard, stone-like paste. Concrete gains strength over time (often measured at 28 days) and shrinks slightly as water is used in hydration and excess water evaporates.</p>
+      <p>Fresh concrete is highly alkaline, which forms a protective passive film on the steel. This protection can fail if cover is too thin, cracks reach the steel, the surface carbonates (CO₂ lowers pH), or chlorides (salts) enter the concrete. Poor compaction leaves voids that invite water and air.</p>
+      <p>When steel rusts inside concrete, iron oxide expands, cracking and spalling the cover, reducing bond and bar cross-section. <strong>Cover guidance:</strong> around 20 mm for internal/non-aggressive environments; 30–50 mm or more for harsher exposures (follow the specified class).</p>
+      <p><strong>Signs of problems:</strong> rust staining, map cracking or cracks along rebar lines, spalled cover with exposed steel, honeycombing/voids from poor compaction. Use the beam test to show how concrete and steel work together and why cover, compaction and mix quality matter.</p>
+
+      <h3>Damp-proofing</h3>
+      <p>Rising damp happens when water is drawn up through porous materials by capillary action. A damp-proof course (DPC) is a continuous, impermeable layer that blocks that path. It can be plastic, bitumen, metal or special DPC bricks.</p>
+      <p><strong>Problems occur when:</strong> there is no DPC, sections are missing, or it is bridged by render, soil or flooring. If rising damp is not controlled, moisture and salts move up, then evaporate; salts crystallise (efflorescence), weakening mortar and finishes; paint/plaster bubble and flake; embedded steel corrodes faster.</p>
+      <p><strong>Brick stack demo:</strong> Stack without a membrane will gain more mass, show tide marks, salt crystals and possible surface damage. Stack with a membrane should show moisture and salt damage stopping at the DPC layer. Use this to explain why DPCs, drainage and ventilation are essential for durable buildings.</p>
+
+      <h3>Environmental & safety links</h3>
+      <p>Design and test with safety and sustainability in mind.</p>
+      <ul>
+        <li><strong>Waste and resources:</strong> refuse unnecessary material; reduce offcuts with careful planning; reuse safe offcuts for tests/jigs; recycle metals/concrete where possible. Consider embodied energy (metals high; some polymers/timber lower) and design for durability to avoid frequent replacement.</li>
+        <li><strong>Safety and SWMS:</strong> write a SWMS for each experiment. Hazards: cement dust/wet concrete, sharp coupons, slippery floors from spills, lifting beams/water. PPE: glasses, gloves, enclosed footwear, protective clothing. Procedures: safe mixing/cleanup of concrete, handling saltwater, cutting/drilling samples.</li>
+        <li><strong>Disposal:</strong> contain/neutralise salt solutions per school guidelines; separate metal scraps for recycling; keep cement slurry out of stormwater.</li>
+      </ul>
+      <p>In reports, explain how good design, material choice and maintenance reduce risk and environmental impact over a structure’s life.</p>
+      <p class="pdf-embed-note">Reference: <a href="../Year 9 T1 Theory Notes/Concrete Information and Quiz.pdf" target="_blank" rel="noopener">Concrete Information & Quiz (PDF)</a> and <a href="../Year 9 T1 Theory Notes/Concrete and Rebar Rust.pdf" target="_blank" rel="noopener">Concrete & Rebar Rust (PDF)</a>.</p>
+    </article>
+
+    <article class="card">
+      <h2>Concrete & Rebar Rust - Q&A</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Concrete provides strength against what force?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans1">Concrete is strongest in compression – it is very good at resisting squeezing forces.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Steel provides strength against what force?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans2">Steel reinforcement is strongest in tension and bending tension, so it resists pulling and bending forces that concrete alone cannot handle.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is the most common form of concrete deterioration?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans3">A very common problem is corrosion of the steel reinforcement inside the concrete, which leads to cracking and spalling (pieces of concrete breaking off).</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What does iron oxide do inside concrete?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans4">Iron oxide (rust) takes up more space than the original steel. As it forms, it expands, which cracks and breaks the surrounding concrete and weakens the bond.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is the minimum cover used in Australia when concreting?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans5">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans5">The required cover depends on the environment, but a common minimum is around 20 mm for internal, non-aggressive conditions, with 30–50 mm or more used in harsher external environments.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Does concrete shrink or expand when curing? Why?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans6">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans6">Concrete generally shrinks as it cures. Water is used in hydration reactions and excess water evaporates, so the overall volume reduces slightly, which can cause shrinkage cracking if not controlled.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Does the weather affect concrete in any way?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans7">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans7">Yes. Weather affects how concrete cures and its long-term durability. Hot, dry weather can cause rapid drying and cracking; cold weather slows down strength gain; and wet conditions can change surface quality and finish.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How long can concrete take to cure completely?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans8">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans8">Concrete gains strength over a long period. Design strength is often based on about 28 days, but hydration and strength gain can continue for months under good curing conditions.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What different materials make concrete?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans9">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans9">Concrete is made from cement, water, fine aggregate (sand), coarse aggregate (gravel or crushed rock) and sometimes admixtures to modify its behaviour.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What can happen if air bubbles settle inside the concrete?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans10">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans10">Trapped air bubbles form voids or honeycombing, which reduce strength and stiffness, allow water to enter, and increase the risk of steel reinforcement corroding.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Activities & Evidence</h2>
+      <h3>1) Corrosion & Protection</h3>
+      <ul>
+        <li>Set up saltwater soak tests using: bare mild steel, galvanised steel, a plastic sample, and a concrete offcut.</li>
+        <li>Label each sample and record its starting condition (notes and photos).</li>
+        <li>Check samples regularly over at least 3 weeks, recording colour changes, rust or other deposits, any flaking, pitting or surface breakdown.</li>
+        <li>Compare the behaviour of each material and recommend protection methods (coatings, cladding, material choice) based on results.</li>
+        <li>Complete the <a href="../Year 9 T1 Theory Notes/Concrete Information and Quiz.pdf" target="_blank" rel="noopener">Concrete Information & Quiz (PDF)</a> and use your answers to support your explanations.</li>
+      </ul>
+      <h3>Google Classroom Check-in</h3>
+      <ul>
+        <li>Finish the <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc0" target="_blank" rel="noopener">Materials &amp; Corrosion</a> activity and bring your notes to the lab.</li>
+      </ul>
+      <h3>2) Damp-Proof Course Demo</h3>
+      <ul>
+        <li>Build two brick stacks in trays of salt water: Stack A without a membrane; Stack B with an impervious membrane between lower and upper bricks.</li>
+        <li>Over time, record mass changes, height of visible moisture/tide marks, and where salts crystallise or surface damage appears.</li>
+        <li>Use observations to explain how a DPC blocks rising damp and the costs/implications of moisture and salt damage in real buildings.</li>
+      </ul>
+      <h3>3) Materials Brief</h3>
+      <ul>
+        <li>Create a one-page materials brief for the water tower and concrete beam.</li>
+        <li>For each key material, comment on: strength-to-weight, corrosion resistance, workability (cutting, joining, casting), durability/maintenance, and sustainability (embodied energy, recyclability, service life).</li>
+        <li>Link choices to safety, durability and environmental impact; include the brief in your project folio.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li>Saltwater containers and labelled sample coupons (mild steel, galvanised steel, plastic).</li>
+        <li>Concrete offcuts and mixing equipment as needed.</li>
+        <li>Bricks and an impervious membrane for the DPC demonstration.</li>
+        <li>Material data sheets (strength, density, corrosion behaviour) for steel and alternative materials.</li>
+        <li><a href="../Year 9 T1 Theory Notes/Concrete Information and Quiz.pdf" target="_blank" rel="noopener">Concrete Information & Quiz (PDF)</a> and <a href="../Year 9 T1 Theory Notes/Concrete and Rebar Rust.pdf" target="_blank" rel="noopener">Concrete & Rebar Rust (PDF)</a>.</li>
+      </ul>
+    </article>
+  </main>
+  <script>
+    document.querySelectorAll('.qa-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const answer = document.getElementById(btn.getAttribute('aria-controls'));
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        btn.textContent = isOpen ? 'Show answer' : 'Hide answer';
+        answer.style.display = isOpen ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>

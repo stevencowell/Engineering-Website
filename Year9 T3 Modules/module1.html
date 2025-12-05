@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toolkit 1 | Engineered Mechanisms</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .card p { color: var(--muted); margin: 0.4rem 0; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .qa-item { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; margin: 0.65rem 0; background: #fff; box-shadow: var(--shadow); }
+    .qa-question { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; font-weight: 700; color: var(--text); }
+    .qa-toggle { padding: 0.45rem 0.85rem; border-radius: 999px; border: 1px solid var(--border); background: #e6f0fb; color: var(--brand); font-weight: 700; cursor: pointer; box-shadow: var(--shadow); }
+    .qa-toggle:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+    .qa-answer { margin-top: 0.65rem; color: var(--muted); display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 1: Engineered Mechanisms</h1>
+    <p>Simple machines, motion transfer, efficiency and safe dismantling tasks</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term3.html">&#8592; T3 Overview</a>
+    <a class="active" href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../year9_term3.html">&#8592; Back to Year 9 T3 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Mechanisms</div>
+      <h2>Learning Focus</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Understand mechanisms:</strong> Explain why mechanisms matter in engineered products and how they transfer and transform energy and motion.</li>
+        <li><strong>Calculate mechanical systems:</strong> Calculate and experiment with mechanical advantage (MA), velocity ratio (VR) and efficiency for levers and gear trains.</li>
+        <li><strong>Investigate and manage risk:</strong> Investigate energy sources, dismantle mechanisms to map motion and apply risk management when working with moving systems.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Key Notes</h2>
+      <h3>1. Why mechanisms matter in engineering</h3>
+      <p>Almost every engineered product contains at least one mechanism converting an input motion or force into a different output. Door closers, bicycle drivetrains, car jacks, lift doors, excavator arms and lolly dispensers all use carefully arranged levers, gears, linkages and cams.</p>
+      <p>The syllabus describes mechanisms as systems that transfer and transform energy and motion, and asks Stage 5 students to understand components, analyse their operation and carry out experiments to demonstrate engineering principles. In this toolkit, we build that foundation so later projects like the hydraulic digger and geared lolly dispenser are based on genuine understanding, not trial-and-error.</p>
+      <h3>2. Simple machines and mechanical advantage</h3>
+      <p>Engineers often talk about simple machines – idealised models that make analysis easier. The most important for this course are:</p>
+      <ul>
+        <li><strong>Levers</strong> – rotate around a fulcrum, trading force for distance.</li>
+        <li><strong>Pulleys</strong> – redirect force and can multiply it when combined.</li>
+        <li><strong>Gears</strong> – interlocking toothed wheels that change speed, torque and direction.</li>
+        <li><strong>Inclined planes, wedges and screws</strong> – transform small forces over long distances into large forces over short distances.</li>
+      </ul>
+      <p>The key quantity is mechanical advantage (MA) – the ratio of output force to input force:</p>
+      <p><strong>MA = F<sub>out</sub> / F<sub>in</sub></strong></p>
+      <p>An MA greater than 1 means the machine multiplies force; an MA less than 1 means the machine sacrifices force to gain speed or distance.</p>
+      <p>For a lever, MA depends on the distances from the fulcrum:</p>
+      <p><strong>MA = effort arm length / load arm length</strong></p>
+      <p>Students quickly see this when they move the fulcrum closer to the load and find they can lift more with the same effort.</p>
+      <p>For gear trains, we often use velocity ratio (VR) – the ratio of input speed to output speed – and show that MA is closely related:</p>
+      <p><strong>VR = speed<sub>in</sub> / speed<sub>out</sub></strong></p>
+      <p>For ideal gears: <strong>VR ≈ MA</strong></p>
+      <p>If a small gear with 10 teeth drives a larger gear with 40 teeth, the output turns one quarter as fast as the input, but with roughly four times the torque. Students calculate:</p>
+      <p><strong>Gear ratio = 40 / 10 = 4:1</strong></p>
+      <p><strong>VR = 4</strong>, so the mechanism trades speed for force.</p>
+      <h3>3. Efficiency, friction and real-world losses</h3>
+      <p>Real mechanisms never reach the ideal MA or VR because of friction, deformation and other losses. To quantify this, we introduce efficiency (η):</p>
+      <p><strong>Efficiency η = (useful output work / input work) × 100%</strong></p>
+      <p>Work is force × distance. If a jack should ideally give an MA of 5 but only manages an effective MA of 4 due to friction, we can calculate its efficiency. Students perform experiments:</p>
+      <ul>
+        <li>Measure input force and distance, output force and distance.</li>
+        <li>Calculate theoretical MA from dimensions or tooth counts.</li>
+        <li>Calculate actual MA from measured forces.</li>
+        <li>Derive efficiency and discuss sources of loss (friction at pivots, misalignment, flexing parts, poor lubrication).</li>
+      </ul>
+      <p>The Industrial Technology syllabus explicitly expects students to experiment to understand properties such as toughness, strength and friction, and to investigate energy sources and their relationship to components in complex mechanisms. These experiments directly satisfy that requirement.</p>
+      <h3>4. Energy sources and driving mechanisms</h3>
+      <p>A mechanism does nothing until it is driven by an energy source. In school-scale projects we use:</p>
+      <ul>
+        <li><strong>Motors and batteries</strong> – electrical energy → rotational kinetic energy.</li>
+        <li><strong>Gravity</strong> – e.g. weights in a counter-balanced mechanism.</li>
+        <li><strong>Rubber bands or springs</strong> – stored elastic potential energy.</li>
+      </ul>
+      <p>Students investigate each energy source by building and testing small rigs:</p>
+      <ul>
+        <li>A geared motor driving a wheel through different gear ratios.</li>
+        <li>A spring-powered mechanism where winding distance controls operating time.</li>
+        <li>A gravity-driven system such as a weight lifting a gate.</li>
+      </ul>
+      <p>The program document emphasises investigating energy sources, combining mechanisms and designing for specific purposes. Here, theory and experiment are tightly coupled.</p>
+      <h3>5. Analysing and dismantling mechanisms</h3>
+      <p>A powerful way to understand engineering is to dismantle real devices. Students carefully disassemble items such as tape measures, hand drills, staple guns or cheap toys, sketching the arrangement of levers, springs and gears and identifying:</p>
+      <ul>
+        <li>Input and output motions (linear/rotational).</li>
+        <li>Where force is multiplied vs where speed is increased.</li>
+        <li>How components are joined (pins, screws, rivets, press-fits).</li>
+      </ul>
+      <p>The Industrial Technology Engineering module explicitly lists “dismantle and assemble mechanisms to understand how they work” as a learning expectation. With supervision, this becomes a structured investigation, not random tinkering.</p>
+      <h3>6. Safety and risk management in mechanisms work</h3>
+      <p>Working with mechanisms often means:</p>
+      <ul>
+        <li>Sharp edges on dismantled metal parts.</li>
+        <li>Stored energy in springs and tensioned components.</li>
+        <li>Pinch points where fingers can be trapped.</li>
+        <li>Electrical hazards around motors and batteries.</li>
+      </ul>
+      <p>Students link these hazards to risk-management steps (identify, assess, control, review). They practise using PPE, isolating power supplies, clamping workpieces and maintaining tidy benches. This aligns with EGT5-SAF-01: applying risk management and safe work practices and with Industrial Technology outcomes that require identifying and managing WHS issues when using tools and mechanisms.</p>
+      <h3>7. Connecting Toolkit 1 to the later projects</h3>
+      <p>Everything in this toolkit feeds directly into the hydraulic digger and geared lolly dispenser:</p>
+      <ul>
+        <li>Lever analysis underpins the digger’s arms and bucket linkages.</li>
+        <li>Gear trains and friction concepts apply to powering and controlling the dispenser.</li>
+        <li>Energy sources and efficiency help students choose motors or springs and understand performance limits.</li>
+      </ul>
+      <p>By the time they begin those builds, students should already be fluent with MA, VR, efficiency and the language of mechanisms.</p>
+    </article>
+
+    <article class="card">
+      <h2>Activities &amp; Evidence</h2>
+      <ul>
+        <li>Identify mechanisms in everyday products and map input vs output motion with sketches and labels.</li>
+        <li>Calculate MA and VR for lever setups and gear pairs, then measure forces and speeds to compare theory to reality.</li>
+        <li>Run efficiency experiments by recording input/output force and distance, then analysing losses and proposing improvements.</li>
+        <li>Dismantle a device (e.g., tape measure, hand drill, toy) safely, photograph components, and annotate how motion flows through the system.</li>
+        <li>Build and test rigs that use motors, gravity or springs as energy sources to see how input choice changes speed, torque and operating time.</li>
+        <li>Extension: prototype a cam or linkage that converts rotary motion into linear motion and document MA/VR impacts.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Q&amp;A</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is mechanical advantage?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa1">Mechanical advantage compares the output force to the input force. It increases when effort arms or driven gears are larger relative to the input side.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How does velocity ratio link to gears?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa2">Velocity ratio is the speed relationship between driver and driven parts. In gears it equals the ratio of teeth counts, so a 10-tooth gear driving a 40-tooth gear creates a 4:1 reduction.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why measure efficiency instead of only theoretical MA?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa3">Friction and deformation reduce real performance. Measuring input/output forces shows the actual MA and efficiency so designs can be improved with lubrication, alignment or better materials.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What safety controls limit pinch-point injuries?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa4">Use guards where possible, clamp work, keep fingers clear when testing motion, isolate power sources and wear PPE to meet EGT5-SAF-01 expectations.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li>Sample levers, pulley blocks, gear pairs, cams and spring toys for demonstrations.</li>
+        <li>Force gauges, rulers and protractors for MA/VR measurements and angle checks.</li>
+        <li>SWMS templates for cutting/drilling, plus checklists for dismantling powered devices safely.</li>
+      </ul>
+    </article>
+  </main>
+  <script>
+    document.querySelectorAll('.qa-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const answer = document.getElementById(btn.getAttribute('aria-controls'));
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        btn.textContent = isOpen ? 'Show answer' : 'Hide answer';
+        answer.style.display = isOpen ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>

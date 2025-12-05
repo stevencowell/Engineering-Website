@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 4: CAD & Onshape. Learn engineering drawings, costing, project planning and folio writing for Year 9 Term 2." />
+  <meta name="keywords" content="CAD, Onshape, engineering drawings, costing, folio, communication, year 9, stage 5" />
+  <title>Toolkit 4: CAD & Onshape | Year 9 Term 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    nav a.active {
+      background: #e6f0fb;
+      color: #0b63c3;
+    }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .card p { color: var(--muted); margin: 0.4rem 0; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .meta-badge {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #f1f5f9;
+      border: 1px solid #d4e1f5;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      margin: 0.65rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .qa-toggle {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+    .qa-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .qa-answer {
+      margin-top: 0.65rem;
+      color: var(--muted);
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="sr-only" style="position: absolute; top: 0; left: 0; background: #0b63c3; color: #fff; padding: 0.75rem 1rem; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0;">Skip to main content</a>
+  <header role="banner">
+    <h1>Toolkit 4: Engineering Design, Costing, CAD &amp; Communication</h1>
+    <p>This toolkit brings together drawing interpretation, costing, simple project planning and folio writing so students can present their engineering projects clearly, accurately and professionally against Stage 5 outcomes.</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term2.html">&#8592; T2 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a class="active" href="module4.html">Toolkit 4</a>
+  </nav>
+
+  <main id="main-content" role="main">
+    <a class="back-link" href="../year9_term2.html">&#8592; Back to Year 9 T2 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Communication &amp; Design</div>
+      <h2>Learning Focus</h2>
+      <ul>
+        <li>Interpret and create orthographic engineering drawings for class projects such as the water tower, concrete beam, hydraulic digger and lolly dispenser.</li>
+        <li>Use CAD (Onshape) to generate clear multi-view drawings with correct dimensions, annotations and title blocks.</li>
+        <li>Build simple costing sheets that calculate quantities, unit costs, waste allowances and total project cost.</li>
+        <li>Plan project stages using checklists or basic timelines so work moves from concept to finished build in a logical order.</li>
+        <li>Develop concise engineering folio pages that explain the brief, show evidence, evaluate results and justify design and material choices.</li>
+        <li>Connect decisions about materials and design to sustainability, safety and real engineering careers.</li>
+      </ul>
+      <div class="meta-row">
+        <span class="meta-badge">Stage 5 – Engineering Communication &amp; Design</span>
+        <span class="meta-badge">EGT5-COM-01 • EGT5-GRP-01 • EGT5-MEA-01 • EGT5-USE-01 • EGT5-ENV-01</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Key Notes</h2>
+
+      <h3>Why engineering communication matters</h3>
+      <p>Engineering is never just building things. Projects need to be costed, documented and explained so they can be reproduced, maintained and improved. A project that is built but not measured, costed or recorded in a clear folio is hard to assess and nearly impossible to repeat. Strong communication links directly to Stage 5 outcomes: students show what they understand about forces, mechanisms and materials by how they draw, label, cost and evaluate their projects.</p>
+
+      <h3>Reading and creating engineering drawings</h3>
+      <p>Students should be able to read an orthographic drawing of a classroom project and answer three basic questions: what is the overall size, how do the parts fit together, and what details must not be changed? Emphasise front, top and side views; centre lines; hidden detail; dimension placement; and simple tolerances where appropriate. When creating drawings in Onshape, students use proper title blocks, scales and units so someone else could build the part from their work.</p>
+
+      <h3>Costing and simple project planning</h3>
+      <p>Costing sheets turn a pile of materials into data. Students list each item (for example pine, screws, acrylic, syringes, tubing), record units and unit price, then use formulas to calculate extended cost and total project cost. Add a small waste allowance (for example 10–15%) and compare two options on both price and durability. A simple checklist or timeline for lessons helps students see which tasks belong at research, build, testing and evaluation stages.</p>
+
+      <h3>Folio and reporting expectations</h3>
+      <p>A folio should read like a short engineering report, not a diary. At minimum it should include: a clear design brief and constraints; 2–3 concept sketches with notes; final working drawings or screenshots; a short build log; test results (tables, simple graphs or annotated photos); and an evaluation that comments on function, appearance, safety, cost and sustainability. Encourage students to write in short, factual sentences that link back to the brief.</p>
+
+      <h3>Sustainability and materials choices</h3>
+      <p>When students choose materials they should consider more than what is in the storeroom. Compare common options such as pine, hardwood, steel, aluminium and acrylic on strength, workability, cost, waste and environmental impact. Ask where the material comes from, how long it is likely to last in use, and what happens at end-of-life. Small changes such as nesting parts more efficiently or reusing offcuts can be built into the folio as evidence for EGT5-ENV-01.</p>
+
+      <h3>Linking to real engineering careers</h3>
+      <p>Civil, mechanical, mechatronic and industrial engineers all rely on accurate drawings, costing and reports. Use short case studies or images of real projects (bridges, packaging lines, mining machines) to show that the same skills used for a school project are scaled up in industry. Draw simple connections between classroom tools (Onshape, spreadsheets, SWMS) and the tools used in TAFE, apprenticeships and university courses.</p>
+    </article>
+
+    <article class="card">
+      <h2>Activities &amp; Evidence</h2>
+      <ul>
+        <li>Interpret a supplied orthographic drawing for the water tower, beam, digger or lolly dispenser and label overall dimensions, key features and materials.</li>
+        <li>Create or update an Onshape drawing for one project part, including title block, three views, basic dimensions and a short note about tolerances if relevant.</li>
+        <li>Build a costing spreadsheet that lists all materials and hardware for a chosen project and calculates total cost with a waste allowance.</li>
+        <li>Write a one-page folio section that states the brief, shows a final design sketch or screenshot, summarises test results and evaluates how well the solution met the criteria.</li>
+        <li>Add a short paragraph or bullet list explaining one sustainability improvement (material choice, waste reduction, reuse, or more efficient manufacturing).</li>
+        <li>Complete a quick pathways snapshot that links your project to at least one engineering or trade career and notes one relevant post-school course or apprenticeship.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Q&amp;A</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What makes an engineering drawing "good enough to build from"?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa1">A usable drawing clearly shows all necessary views, includes overall and key feature dimensions, uses one consistent unit and scale, and avoids clutter. Someone who has never seen the project before should be able to identify material thickness, hole locations and critical lengths without guessing. Neatness helps, but clarity and completeness are more important than artistic skill.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why do we bother costing small classroom projects?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa2">Costing teaches students to think like engineers and project managers. Even a simple phone stand or lolly dispenser uses real resources that someone has to pay for. By calculating quantities, unit prices and waste, students learn how design choices affect budget and how to compare two options on more than just appearance.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How does the folio link to Stage 5 outcomes?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa3">The folio is where students communicate their ideas (EGT5-COM-01), present drawings and visuals (EGT5-GRP-01), show test data and basic analysis (EGT5-MEA-01), justify material choices (EGT5-USE-01) and comment on sustainability (EGT5-ENV-01). If it is missing, most of their understanding stays in their head and cannot be assessed.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What should students do if their test results show the design didn't work well?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa4">Honest evaluation is more valuable than trying to hide problems. Students should describe what happened, suggest likely causes (for example weak joints, poor alignment or underestimating loads) and outline one practical improvement. This shows real engineering thinking and can be scored highly, even if the first version of the project failed.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li>Existing project drawings for the water tower, concrete beam, hydraulic digger and geared lolly dispenser (paper or PDF).</li>
+        <li>Onshape student accounts with drawing templates including school logo and title block.</li>
+        <li>Costing spreadsheet template with example formulas for quantities, extended cost and totals.</li>
+        <li>Sample folio pages or report extracts that show an effective layout and level of detail for Stage 5.</li>
+        <li>SWMS templates and risk assessment examples for cutting, drilling, gluing and using workshop tools.</li>
+        <li>Short videos or case studies of real engineering projects that highlight drawings, costing and reporting.</li>
+      </ul>
+    </article>
+  </main>
+  <script>
+    document.querySelectorAll('.qa-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const answer = document.getElementById(btn.getAttribute('aria-controls'));
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        btn.textContent = isOpen ? 'Show answer' : 'Hide answer';
+        answer.style.display = isOpen ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>

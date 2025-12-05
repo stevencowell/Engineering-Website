@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 2: Onshape & CAD Mastery for the geared lolly dispenser – assemblies, mates, configurations, drawings, exports and CAD packs ready for manufacture." />
+  <meta name="keywords" content="Year 9, Engineering, Onshape, CAD, assemblies, drawings, DXF, geared lolly dispenser" />
+  <title>Toolkit 2: Onshape &amp; CAD Mastery | Year 9 Term 4</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6c7a96;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 0.4rem 0 0;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    nav a.active {
+      background: #e6f0fb;
+      color: #0b63c3;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.75rem 1rem 3rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card h2 {
+      margin: 0 0 0.5rem;
+      color: var(--brand);
+    }
+
+    .card h3 {
+      margin: 1.2rem 0 0.35rem;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .card p {
+      margin: 0.3rem 0 0.6rem;
+      color: var(--muted);
+    }
+
+    .card ul {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.15rem;
+      color: var(--muted);
+    }
+
+    .card ol {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.3rem;
+      color: var(--muted);
+    }
+
+    .card li + li {
+      margin-top: 0.35rem;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 0.5rem;
+      margin-top: 0.4rem;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: #edf2ff;
+      color: #374151;
+      font-size: 0.75rem;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 0.6rem;
+    }
+
+    .grid-two-column {
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 0.9rem;
+      border: 1px solid var(--border);
+    }
+
+    .grid-two-column h3 {
+      margin-top: 0;
+    }
+
+    .checklist li::marker {
+      content: "▢ ";
+      font-size: 0.8rem;
+    }
+
+    /* Quiz / Q&A styles */
+
+    .qa-list {
+      margin-top: 0.5rem;
+    }
+
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      margin: 0.65rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .qa-question span {
+      flex: 1;
+    }
+
+    .qa-toggle {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .qa-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+
+    .qa-answer {
+      margin-top: 0.55rem;
+      color: var(--muted);
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+      main {
+        padding: 1.25rem 0.75rem 2.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 2: Onshape &amp; CAD Mastery</h1>
+    <p>Assemblies, mates, drawings and exports ready for manufacture of the geared lolly dispenser</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term4.html">&#8592; T4 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a class="active" href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+  </nav>
+
+  <main id="main-content" role="main">
+    <a class="back-link" href="../year9_term4.html">&#8592; Back to Year 9 T4 Toolkits</a>
+
+    <!-- Learning Focus -->
+    <article class="card">
+      <div class="pill">CAD</div>
+      <h2>Learning Focus</h2>
+      <p>By the end of this toolkit, you should be able to:</p>
+      <ul>
+        <li>Build clean Onshape assemblies of the geared lolly dispenser with sensible mates and sub-assemblies.</li>
+        <li>Use configurations and variables to control key dimensions (thicknesses, shaft diameters, clearances) without rebuilding parts.</li>
+        <li>Create clear, build-ready drawings with appropriate views, dimensions, tolerances and title blocks.</li>
+        <li>Export DXF/DWG for laser/CNC and manage versions so your physical parts match your latest CAD.</li>
+        <li>Compile a simple CAD pack that another person could use to manufacture and assemble your dispenser.</li>
+      </ul>
+
+      <div class="tag-row">
+        <span class="tag">Onshape</span>
+        <span class="tag">assemblies &amp; mates</span>
+        <span class="tag">configs &amp; variables</span>
+        <span class="tag">drawings</span>
+        <span class="tag">DXF / DWG exports</span>
+        <span class="tag">CAD pack</span>
+      </div>
+    </article>
+
+    <!-- Core Concepts -->
+    <article class="card">
+      <div class="pill">Core Concepts</div>
+      <h2>Assemblies, Mates &amp; Configurations</h2>
+      <p>This toolkit extends your work from earlier terms by taking the lolly dispenser from a collection of parts to a fully defined, buildable digital product.</p>
+
+      <div class="grid-two">
+        <div class="grid-two-column">
+          <h3>Assembly Strategy</h3>
+          <ul>
+            <li><strong>Sub-assemblies:</strong> Group related parts into logical sub-assemblies: e.g. <em>gear train</em>, <em>cam/gate mechanism</em>, <em>frame &amp; base</em>, <em>guard &amp; lid</em>.</li>
+            <li><strong>Mate references:</strong> Use simple, robust mates (fasten, revolute, slider) referencing flat faces and axes, not random edges.</li>
+            <li><strong>Motion check:</strong> Use limits and interference checking to ensure gears, cams and gates operate without collisions.</li>
+          </ul>
+        </div>
+
+        <div class="grid-two-column">
+          <h3>Configurations &amp; Variables</h3>
+          <ul>
+            <li><strong>Variables:</strong> Define global variables for thickness, shaft diameters, key clearances (e.g. <code>#shaft_dia</code>, <code>#ply_thickness</code>).</li>
+            <li><strong>Configurations:</strong> Use configs for different versions (e.g. small/medium/large, gear ratio options) without cloning entire models.</li>
+            <li><strong>Naming:</strong> Name configurations and variables clearly so someone else can read and adjust your model later.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Drawings &amp; Communication</h3>
+      <ul>
+        <li>Use <strong>front/top/side</strong> views plus a suitable isometric view for assemblies.</li>
+        <li>Dimension overall size first, then critical fits (shaft centres, gear spacing, guard clearances).</li>
+        <li>Add <strong>section views</strong> where internal features matter (e.g., shaft through frame, cam profile, overlapping plates).</li>
+        <li>Complete the <strong>title block</strong>: part/assembly name, scale, units, material, revision, drafter.</li>
+      </ul>
+
+      <h3>Exports &amp; Files</h3>
+      <ul>
+        <li>Export 2D profiles (DXF/DWG) from sketches for laser/CNC cutting.</li>
+        <li>Check units (mm) and line types, and note any kerf allowance or offset needed.</li>
+        <li>Save exports into clearly named folders (e.g. <em>LaserExports</em>, <em>DrawingsPDF</em>, <em>SourceCAD</em>).</li>
+      </ul>
+    </article>
+
+    <!-- Practical Workflow & Checkpoints -->
+    <article class="card">
+      <div class="pill">Workflow</div>
+      <h2>Practical Workflow &amp; Checkpoints</h2>
+      <p>Use this sequence as a checklist while you work through the CAD tasks. Capture screenshots and short clips as evidence.</p>
+
+      <ol>
+        <li>
+          <strong>Organise your Onshape document.</strong>
+          <ul>
+            <li>Rename your document and main tabs (Part Studios, Assemblies, Drawings) using clear, consistent names.</li>
+            <li>Group dispenser-related tabs together; archive tests/old versions into a separate folder or tab group.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Complete key parts and name features.</strong>
+          <ul>
+            <li>Finish modelling any missing parts (e.g., gate, handle, guard, spacers) using sensible feature trees.</li>
+            <li>Name important features (e.g., <em>gear_boss</em>, <em>shaft_holes</em>, <em>guard_cutout</em>) so you can find them later.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Build sub-assemblies.</strong>
+          <ul>
+            <li>Create assemblies for the <strong>gear train</strong> and <strong>cam/gate mechanism</strong>.</li>
+            <li>Apply mates so the parts move realistically (revolute for shafts, fasten for fixed joints).</li>
+            <li>Use limits if needed to prevent over-travel that would break the mechanism.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Assemble the full dispenser.</strong>
+          <ul>
+            <li>Insert sub-assemblies into a top-level assembly.</li>
+            <li>Mate to the frame/base and check clearances: nothing should collide or bind through a full cycle.</li>
+            <li>Capture a short motion study or screen recording of the gears/cam operating.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Create build-ready drawings.</strong>
+          <ul>
+            <li>Create drawings for at least: the main frame, base, gear train sub-assembly, and cam/gate mechanism.</li>
+            <li>Dimension critical features and include at least one section or detail view where needed.</li>
+            <li>Fill in the title block fully, including revision and material details.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Export DXF/DWG and compile your CAD pack.</strong>
+          <ul>
+            <li>Export DXF/DWG profiles for parts likely to be laser/CNC cut (plates, guards, side panels).</li>
+            <li>Save PDFs of your drawings and link them in a short “Readme” or cover sheet.</li>
+            <li>Check that file names match the part/drawing titles to avoid confusion in the workshop.</li>
+          </ul>
+        </li>
+      </ol>
+    </article>
+
+    <!-- Activities & Evidence -->
+    <article class="card">
+      <div class="pill">Folio & Evidence</div>
+      <h2>Activities &amp; Evidence</h2>
+      <p>These items should appear in your folio or digital submission for this toolkit.</p>
+      <ul class="checklist">
+        <li>Screenshots of your <strong>top-level assembly</strong> and at least one <strong>sub-assembly</strong>, with mates and motion clearly visible.</li>
+        <li>A short written explanation (or annotated screenshot) of your <strong>assembly strategy</strong> and why you grouped certain parts together.</li>
+        <li>A simple table listing <strong>variables and configurations</strong> used (name, purpose, typical value).</li>
+        <li>PDF exports of at least two <strong>build-ready drawings</strong> (one part, one assembly) with title blocks completed.</li>
+        <li>A small folder or zip containing your <strong>DXF/DWG exports</strong>, named to match the part/drawing titles.</li>
+        <li>A one-paragraph reflection: <em>If someone else had to build my dispenser from this CAD pack, what would they find easy, and what might still be confusing?</em></li>
+      </ul>
+    </article>
+
+    <!-- Key Notes & Common Mistakes -->
+    <article class="card">
+      <div class="pill">Key Notes</div>
+      <h2>Key Notes &amp; Common Mistakes</h2>
+
+      <h3>Assembly &amp; Mates</h3>
+      <ul>
+        <li><strong>Keep it simple:</strong> Use the simplest mate that does the job. Over-complicated mate schemes are harder to debug when something breaks.</li>
+        <li><strong>Reference good geometry:</strong> Mate to main faces, axes and planes rather than small edges or corners that may change later.</li>
+        <li><strong>Test motion early:</strong> After each mate, drag parts to check for unexpected locking or collisions.</li>
+      </ul>
+
+      <h3>Drawings &amp; Dimensions</h3>
+      <ul>
+        <li>Avoid “dimension overload” – show enough to build the part accurately, not every single edge.</li>
+        <li>Dimension from consistent <strong>datums</strong> (e.g., base edge, centreline) to avoid accumulated error.</li>
+        <li>Check that your views are not hiding critical features behind other parts; use section/detail views where needed.</li>
+      </ul>
+
+      <h3>Exports &amp; Version Control</h3>
+      <ul>
+        <li>Always export after you finish major edits – otherwise the CAD and physical parts will not match.</li>
+        <li>Include the revision or date in file names (e.g., <em>FramePlate_R1.dxf</em> or <em>FramePlate_2025-T4.dxf</em>).</li>
+        <li>Run a test import into the target software (laser/CNC) before committing to a full class set of parts.</li>
+      </ul>
+
+      <h3>Common Mistakes</h3>
+      <ul>
+        <li>Leaving parts “floating” in the assembly with no fixed reference, leading to random movement.</li>
+        <li>Stacking too many mates on the same pair of parts, causing conflicts or over-constrained assemblies.</li>
+        <li>Dimensioning to hidden or temporary features instead of stable faces or centre marks.</li>
+        <li>Exporting DXF from the wrong view or without checking units, leading to parts at the wrong scale.</li>
+      </ul>
+    </article>
+
+    <!-- Quiz / Self-check with revealable answers -->
+    <article class="card">
+      <div class="pill">Quiz</div>
+      <h2>Check Your Understanding – Onshape &amp; CAD</h2>
+      <p>Use these questions to test your understanding. Click “Show answer” to reveal one possible solution or explanation.</p>
+
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>1. Why is it good practice to create sub-assemblies (e.g., gear train, cam/gate) instead of putting every part directly into one giant assembly?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="a1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="a1">
+            Sub-assemblies make the model easier to manage, understand and troubleshoot.
+            They allow you to test and fix smaller mechanisms (like the gear train) before combining everything.
+            This leads to clearer mates, faster performance and simpler drawings for each mechanism.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>2. Give one advantage of using variables and configurations instead of manually editing dimensions every time you want a new size or version.</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="a2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="a2">
+            Variables and configurations keep all versions linked to a single “master” design.
+            Changing the variable updates all related features, reducing the chance of forgetting a dimension and creating inconsistent parts.
+            It saves time and reduces errors when trying alternative sizes or gear ratios.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>3. What are two things that must be clear on a build-ready drawing for a frame plate?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="a3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="a3">
+            Example answers:
+            <ul>
+              <li>Overall dimensions (height, width, thickness) of the plate.</li>
+              <li>Exact positions and diameters of shaft holes and fixing holes.</li>
+              <li>Material and thickness noted in the title block or as a note.</li>
+              <li>Any critical tolerances or fits for shafts and bearings.</li>
+            </ul>
+            Any two of these, clearly shown, help the builder avoid guesswork.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>4. Why is it risky to export DXF/DWG files early and then keep changing the model without updating the exports?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="a4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="a4">
+            The exported files will no longer match the latest version of the CAD model.
+            If you cut parts from old DXF files, they may not fit with the updated design, wasting material and time.
+            Always re-export after major changes and clearly label the latest revision.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>5. A mate in your assembly is over-constraining a gear and causing it to “lock up”. What are two reasonable troubleshooting steps?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="a5">Show answer</button>
+          </div>
+          <div class="qa-answer" id="a5">
+            Possible steps include:
+            <ul>
+              <li>Suppress or delete mates one at a time until the gear moves freely; then rebuild using fewer, simpler mates.</li>
+              <li>Check that you have not combined multiple mates that control the same degree of freedom (for example, two different mates trying to set the same angle).</li>
+              <li>Ensure the gear is mated to appropriate reference geometry (axes and flat faces) rather than edges that move or change.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>6. What is one thing you can do in your CAD pack to make life easier for a technician or teacher who wants to cut your parts on a laser or CNC?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="a6">Show answer</button>
+          </div>
+          <div class="qa-answer" id="a6">
+            Example answers:
+            <ul>
+              <li>Include a short “Readme” or cover sheet explaining which files to cut, what material/thickness to use, and any kerf or offset notes.</li>
+              <li>Use clear, consistent file names that match the drawing titles (e.g., <em>FramePlate.dxf</em> + <em>FramePlate.pdf</em>).</li>
+              <li>Organise exports into labelled folders (e.g., <em>LaserExports</em>, <em>DrawingsPDF</em>) so they do not have to search through unrelated files.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    // Simple show/hide behaviour for quiz answers
+    document.querySelectorAll('.qa-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const answer = document.getElementById(btn.getAttribute('aria-controls'));
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        btn.textContent = isOpen ? 'Show answer' : 'Hide answer';
+        answer.style.display = isOpen ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>

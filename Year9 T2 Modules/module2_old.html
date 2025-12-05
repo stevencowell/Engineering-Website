@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toolkit 2 | Fluid Power & Hydraulic Digger</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --brand: #0056b3; --bg: #f6f8fb; --card: #ffffff; --text: #1f2a3d; --muted: #5c667a; --border: #e2e8f0; --shadow: 0 12px 30px rgba(0, 0, 0, 0.08); --radius: 12px; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    header { background: linear-gradient(135deg, #003f80, #0b63c3); color: #fff; padding: 2.25rem 1.25rem 2rem; text-align: center; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; background: #fff; border-bottom: 1px solid var(--border); padding: 0.5rem 1rem; }
+    nav a { padding: 0.4rem 0.75rem; border-radius: 10px; color: var(--brand); font-weight: 600; }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem; margin-bottom: 1.25rem; }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .card p { color: var(--muted); margin: 0.4rem 0; }
+    .pill { display: inline-block; padding: 0.25rem 0.6rem; border-radius: 999px; background: #e6f0fb; color: var(--brand); font-weight: 600; font-size: 0.8rem; }
+    .qa-item { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; margin: 0.65rem 0; background: #fff; box-shadow: var(--shadow); }
+    .qa-question { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; font-weight: 700; color: var(--text); }
+    .qa-toggle { padding: 0.45rem 0.85rem; border-radius: 999px; border: 1px solid var(--border); background: #e6f0fb; color: var(--brand); font-weight: 700; cursor: pointer; box-shadow: var(--shadow); }
+    .qa-toggle:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+    .qa-answer { margin-top: 0.65rem; color: var(--muted); display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 2: Fluid Power and the Hydraulic Digger</h1>
+    <p>Hydraulic fundamentals, force calculations and a working digger build</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term2.html">&#8592; T2 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a class="active" href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../year9_term2.html">&#8592; Back to Year 9 T2 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Fluid Power</div>
+      <h2>Learning Focus</h2>
+      <ul>
+        <li>Explain hydraulic and pneumatic systems as methods of transmitting force using fluids.</li>
+        <li>Apply Pascal's principle and area ratios to calculate force changes in hydraulic circuits.</li>
+        <li>Design, build and evaluate a hydraulic digger that demonstrates mechanical analysis and safe workshop practice.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Key Notes</h2>
+      <h3>1. Introduction to fluid power</h3>
+      <p>Fluids transmit force where gears and levers may not be practical. Car brakes, excavator arms and manufacturing presses all rely on hydraulic or pneumatic circuits that move force through enclosed liquids or gases. Hydraulics typically use incompressible fluids, allowing a pressure change at one piston to be transmitted throughout the system according to Pascal’s principle.</p>
+      <p><strong>Pressure = Force / Area (P = F / A)</strong>. A smaller input piston area paired with a larger output piston keeps pressure nearly constant while magnifying force.</p>
+      <h3>2. Calculating force in hydraulic systems</h3>
+      <p>In a simple press with input area A<sub>1</sub> and force F<sub>1</sub>, and output area A<sub>2</sub> and force F<sub>2</sub>, equal pressures mean F<sub>1</sub>/A<sub>1</sub> = F<sub>2</sub>/A<sub>2</sub>. Rearranging gives F<sub>2</sub> = F<sub>1</sub> × (A<sub>2</sub> / A<sub>1</sub>), so the mechanical advantage is the ratio of piston areas. Students can feel this by linking syringes of different diameters: pushing a small syringe produces a larger force in a bigger one over a shorter travel.</p>
+      <h3>3. Building and analysing the hydraulic digger</h3>
+      <p>The project combines lever linkages from Toolkit 1 with hydraulic circuits, asking students to sketch an excavator arm, set pivot points for boom, dipper and bucket, and choose cylinder locations that avoid dead spots. They calculate approximate bucket forces using syringe areas and lever geometry, then test by measuring plunger input force, plunger travel, load lifted at the bucket and bucket movement. Comparing predicted and actual performance addresses EGT5-MEA-01 through mechanical analysis and practical testing.</p>
+      <h3>4. Fluid behaviour, friction and leakage</h3>
+      <p>Real systems show lag from slight fluid compressibility and flexible tubing, extra force to overcome static friction, and losses from leaks or poor seals. Classroom discussion links these observations to industry solutions such as specialised seals, rigid pipework, high-quality fluids and tuned valves. An easy extension compares hydraulics with pneumatics, highlighting how compressible air feels springy and fast while liquids enable heavier, precise movements.</p>
+      <h3>5. Risk management in fluid-power projects</h3>
+      <p>Even classroom hydraulics carry hazards: syringes or tubing can pop and spray water, spills make floors slippery, and frames can have sharp edges. SWMS-style risk assessments help students rate likelihood and consequence, then choose controls—use water instead of oil, limit maximum plunger force, keep electrical gear away from wet areas and wear safety glasses during pressure testing. This reinforces EGT5-SAF-01 and OHS expectations in Industrial Technology.</p>
+      <h3>6. Communication and evaluation</h3>
+      <p>Students document the digger build as a concise engineering report: design brief and requirements, sketches and linkage diagrams, syringe size reasoning, photos or drawings, data tables and graphs for force and reach, plus evaluation and improvement ideas. Linking material choices and energy use to EGT5-COM-01 and EGT5-ENV-01 ensures communication and sustainability remain part of the build.</p>
+    </article>
+
+    <article class="card">
+      <h2>Activities & Evidence</h2>
+      <ul>
+        <li>Build paired-syringe rigs to measure force multiplication and plunger travel for different bore sizes.</li>
+        <li>Design and construct a tabletop hydraulic digger using syringes, tubing, timber and linkage arms.</li>
+        <li>Record test data: input plunger force and distance, load lifted at the bucket, movement achieved and estimated efficiency.</li>
+        <li>Complete a SWMS-style risk assessment and reflect on how controls reduced hazards during testing.</li>
+        <li>Submit a mini engineering report with calculations, diagrams, photos and evaluation of performance.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Q&amp;A</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why do hydraulics multiply force instead of pressure?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa1">Pressure stays roughly constant throughout the fluid. Changing piston area changes the force needed to create that pressure, so a small input area can drive a larger output force at a larger piston.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What makes pneumatics feel “springy” compared to hydraulics?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa2">Air compresses more than liquids. As pressure builds, compressed air stores energy and pushes back like a spring, while an incompressible fluid moves pistons with less elastic feel.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How do engineers minimise friction in cylinders?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa3">They use polished cylinder walls, matched seals and appropriate lubricants or fluids so the piston slides smoothly without excessive leak paths.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>When is a hydraulic digger most likely to lose lifting power?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa4">If a cylinder aligns too closely with the linkage, torque at the pivot drops. Repositioning cylinders to maintain leverage and checking for leaks or air bubbles restores performance.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li>Syringes of different diameters, flexible tubing, water, hose clamps or cable ties, timber or cardboard for frames.</li>
+        <li>Scales, spring balances or force gauges, rulers, protractors and graph paper for measurements.</li>
+        <li>Safety glasses, towels and trays to manage spills during pressure testing.</li>
+        <li>Links to Google Classroom topics for Fluid Power plus worked examples of hydraulic calculations.</li>
+      </ul>
+    </article>
+  </main>
+  <script>
+    document.querySelectorAll('.qa-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const answer = document.getElementById(btn.getAttribute('aria-controls'));
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        btn.textContent = isOpen ? 'Show answer' : 'Hide answer';
+        answer.style.display = isOpen ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>

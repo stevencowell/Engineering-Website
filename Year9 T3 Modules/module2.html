@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toolkit 2 | Fluid Power & Hydraulic Digger</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .card p { color: var(--muted); margin: 0.4rem 0; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .qa-item { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; margin: 0.65rem 0; background: #fff; box-shadow: var(--shadow); }
+    .qa-question { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; font-weight: 700; color: var(--text); }
+    .qa-toggle { padding: 0.45rem 0.85rem; border-radius: 999px; border: 1px solid var(--border); background: #e6f0fb; color: var(--brand); font-weight: 700; cursor: pointer; box-shadow: var(--shadow); }
+    .qa-toggle:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+    .qa-answer { margin-top: 0.65rem; color: var(--muted); display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 2: Fluid Power &amp; the Hydraulic Digger</h1>
+    <p>Pascal's principle, syringe maths, force measurement and safe construction</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term3.html">&#8592; T3 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a class="active" href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../year9_term3.html">&#8592; Back to Year 9 T3 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Fluids</div>
+      <h2>Learning Focus</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Differentiate fluid power systems:</strong> Understand the difference between hydraulics and pneumatics using Pascal's principle and pressure calculations.</li>
+        <li><strong>Calculate hydraulic forces:</strong> Calculate output forces in hydraulic systems using piston areas and real syringe data.</li>
+        <li><strong>Build and test:</strong> Plan, build and test a hydraulic digger while managing leaks, friction and safety controls.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Key Notes</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;"><strong>Why this matters:</strong> Understanding fluid power systems is essential for many engineering applications, from construction equipment to manufacturing automation.</p>
+      
+      <h3>1. Introduction to Fluid Power</h3>
+      <p><strong>Hydraulics</strong> use liquids and <strong>pneumatics</strong> use gases, but both rely on <strong>Pascal's principle:</strong> pressure applied to an enclosed fluid is transmitted equally in all directions. Pressure is defined as <strong>P = F/A</strong>, meaning a force on a small piston can generate a larger force on a bigger piston.</p>
+      
+      <h3>2. Calculating Force in Hydraulic Systems</h3>
+      <p>Different piston areas create mechanical advantage following <strong>F2 = F1 × (A2/A1)</strong>. Syringes with larger diameters on the load side multiply the input force, while travel distances change according to the area ratio.</p>
+      
+      <h3>3. Building and Analysing the Hydraulic Digger</h3>
+      <p>Design the excavator arm by selecting lever lengths and cylinder placements that create the desired reach and bucket motion. Measure input force and displacement at the syringes, record output force and movement at the bucket, and evaluate efficiency.</p>
+      
+      <h3>4. Fluid Behaviour, Friction and Leakage</h3>
+      <p>Liquids are nearly incompressible, but air bubbles or flexible tubing absorb movement and reduce responsiveness. <strong>Friction</strong> between plungers and barrels plus <strong>leakage</strong> at joints lowers efficiency; compare hydraulics to pneumatics for response and control.</p>
+      
+      <h3>5. Risk Management in Fluid-Power Projects</h3>
+      <p><strong>Hazards include:</strong> popping syringes, water spills and sharp edges during frame construction. Use water instead of oil, limit plunger force, keep electrical equipment away from spills, and wear safety glasses.</p>
+      
+      <h3>6. Communication and Evaluation</h3>
+      <p>Document the hydraulic digger with a design brief, sketches, hydraulic calculations, photos, test data tables/graphs, and reflective evaluation. Summarise how design changes affect force, reach and control.</p>
+    </article>
+
+    <article class="card">
+      <h2>Activities &amp; Evidence</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">Complete these activities to demonstrate your understanding:</p>
+      <ul>
+        <li><strong>Design phase:</strong> Sketch cylinder placement options and calculate expected output forces using syringe diameters.</li>
+        <li><strong>Construction phase:</strong> Assemble the digger frame, bleed air from the system and record travel distances for each joint.</li>
+        <li><strong>Testing phase:</strong> Test load lifting capacity, compare theoretical vs measured forces and calculate efficiency.</li>
+        <li><strong>Documentation:</strong> Create a mini-report with risk controls, photos, data tables and a reflection on improvements.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Q&amp;A</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How does Pascal's principle apply to hydraulics?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa1">Any pressure applied at one point in the enclosed fluid is transmitted equally throughout, so a small force on a small piston can generate a larger force on a larger piston.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why use different syringe diameters?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa2">Changing piston area changes the force and distance trade-off. A larger output syringe multiplies force but moves a shorter distance compared with the input syringe.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What reduces efficiency in a hydraulic digger?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa3">Air bubbles, flexible tubing, plunger friction and leaks reduce force transfer and responsiveness, lowering actual output compared with theory.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How should hazards be managed during testing?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa4">Use clamps, keep electrics away from water, avoid over-pressurising syringes, wear safety glasses and clean spills immediately to maintain WHS compliance.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li>Syringes and tubing sets, timber/metal for frames, fasteners, clamps and buckets or loads for testing.</li>
+        <li>Rulers, protractors and scales for displacement and force measurements; spreadsheets for calculations.</li>
+        <li>SWMS templates for cutting/drilling materials and for water handling; cleanup materials for spills.</li>
+      </ul>
+    </article>
+  </main>
+  <script>
+    document.querySelectorAll('.qa-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const answer = document.getElementById(btn.getAttribute('aria-controls'));
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        btn.textContent = isOpen ? 'Show answer' : 'Hide answer';
+        answer.style.display = isOpen ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>

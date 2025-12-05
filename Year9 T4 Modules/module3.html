@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 3: Mechanism testing & tuning for the geared lolly dispenser – gear ratios, torque, fault-finding, user trials and performance improvement." />
+  <meta name="keywords" content="Year 9, Engineering, mechanisms, gears, cams, testing, tuning, fault finding, geared lolly dispenser" />
+  <title>Toolkit 3: Mechanism Testing &amp; Tuning | Year 9 Term 4</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6c7a96;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0b63c3, #0a4f93);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 0.4rem 0 0;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    nav a.active {
+      background: #e6f0fb;
+      color: #0b63c3;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.75rem 1rem 3rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card h2 {
+      margin: 0 0 0.5rem;
+      color: var(--brand);
+    }
+
+    .card h3 {
+      margin: 1.2rem 0 0.35rem;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .card p {
+      margin: 0.3rem 0 0.6rem;
+      color: var(--muted);
+    }
+
+    .card ul {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.15rem;
+      color: var(--muted);
+    }
+
+    .card ol {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.3rem;
+      color: var(--muted);
+    }
+
+    .card li + li {
+      margin-top: 0.35rem;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 0.5rem;
+      margin-top: 0.4rem;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: #edf2ff;
+      color: #374151;
+      font-size: 0.75rem;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 0.6rem;
+    }
+
+    .grid-two-column {
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 0.9rem;
+      border: 1px solid var(--border);
+    }
+
+    .grid-two-column h3 {
+      margin-top: 0;
+    }
+
+    .checklist li::marker {
+      content: "▢ ";
+      font-size: 0.8rem;
+    }
+
+    /* Quiz / Q&A styles */
+
+    .qa-list {
+      margin-top: 0.5rem;
+    }
+
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      margin: 0.65rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .qa-question span {
+      flex: 1;
+    }
+
+    .qa-toggle {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .qa-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+
+    .qa-answer {
+      margin-top: 0.55rem;
+      color: var(--muted);
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+      main {
+        padding: 1.25rem 0.75rem 2.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 3: Mechanism Testing &amp; Tuning</h1>
+    <p>Gears, cams, fault-finding, user trials and performance improvement for the geared lolly dispenser</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term4.html">&#8592; T4 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a class="active" href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+  </nav>
+
+  <main id="main-content" role="main">
+    <a class="back-link" href="../year9_term4.html">&#8592; Back to Year 9 T4 Toolkits</a>
+
+    <!-- Learning Focus -->
+    <article class="card">
+      <div class="pill">Mechanisms</div>
+      <h2>Learning Focus</h2>
+      <p>By the end of this toolkit, you should be able to:</p>
+      <ul>
+        <li>Explain how gear ratios, torque and speed affect the operation of your lolly dispenser.</li>
+        <li>Systematically test the mechanism, collect data and identify where jams, misfeeds or failures occur.</li>
+        <li>Adjust clearances, alignments and materials to improve reliability and user experience.</li>
+        <li>Conduct simple user trials and record feedback on ergonomics, effort, speed and consistency.</li>
+        <li>Document changes and justify design decisions using engineering language and evidence.</li>
+      </ul>
+
+      <div class="tag-row">
+        <span class="tag">gear ratios</span>
+        <span class="tag">torque &amp; speed</span>
+        <span class="tag">cams &amp; gates</span>
+        <span class="tag">testing &amp; data</span>
+        <span class="tag">fault finding</span>
+        <span class="tag">user trials</span>
+      </div>
+    </article>
+
+    <!-- Core Concepts -->
+    <article class="card">
+      <div class="pill">Core Concepts</div>
+      <h2>Performance, Reliability &amp; User Experience</h2>
+      <p>This toolkit focuses on how well your dispenser actually works in real use, not just whether it matches the drawing.</p>
+
+      <div class="grid-two">
+        <div class="grid-two-column">
+          <h3>Gear Ratio, Torque &amp; Speed</h3>
+          <ul>
+            <li><strong>Gear ratio:</strong> Input gear teeth : output gear teeth. A higher ratio can increase torque but reduce output speed.</li>
+            <li><strong>Torque vs effort:</strong> More torque makes it easier to turn under load, but the handle may need more turns per dispense.</li>
+            <li><strong>Smooth rotation:</strong> Good alignment, low friction and correct clearances are as important as the ratio itself.</li>
+          </ul>
+        </div>
+
+        <div class="grid-two-column">
+          <h3>Cams, Gates &amp; Feed</h3>
+          <ul>
+            <li><strong>Cam profile:</strong> Controls how quickly and how far the gate moves. Steep profiles can cause sudden forces and jams.</li>
+            <li><strong>Gate clearance:</strong> Too tight and it jams; too loose and multiple lollies may escape at once.</li>
+            <li><strong>Gravity &amp; friction:</strong> Surface finish, slope angles and material choice affect how reliably lollies feed.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Systematic Testing</h3>
+      <ul>
+        <li>Test the mechanism in <strong>small steps</strong>: no load (empty), partial load, full load.</li>
+        <li>Record what happens, not just “works” or “doesn’t work” – note sounds, sticking points, extra effort, misalignment.</li>
+        <li>Change only <strong>one variable at a time</strong> (e.g. clearance, spring tension, finish) so you know what caused improvement.</li>
+      </ul>
+
+      <h3>User Experience &amp; Safety</h3>
+      <ul>
+        <li>Consider how it feels to use: handle size, required force, number of turns for a dispense.</li>
+        <li>Check that moving parts are guarded and that fingers are kept clear of pinch points.</li>
+        <li>Observe how users naturally interact with the dispenser – do they instinctively use it correctly?</li>
+      </ul>
+    </article>
+
+    <!-- Practical Testing Workflow -->
+    <article class="card">
+      <div class="pill">Testing Workflow</div>
+      <h2>Mechanism Testing &amp; Tuning – Step-by-Step</h2>
+      <p>Use this sequence as a structured process. Record test runs and changes in your folio.</p>
+
+      <ol>
+        <li>
+          <strong>Pre-test inspection.</strong>
+          <ul>
+            <li>Check all screws, shafts and fixings are tight; no obvious cracks or loose parts.</li>
+            <li>Rotate the mechanism slowly by hand with no lollies to feel for rough spots or binding.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Baseline test – no load.</strong>
+          <ul>
+            <li>Count how many turns of the handle are required for one full cycle of the cam/gate.</li>
+            <li>Note any positions where resistance increases or the mechanism “clicks” or jumps.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Loaded test – realistic conditions.</strong>
+          <ul>
+            <li>Load the dispenser with the intended lollies (or an agreed test object) to a normal level.</li>
+            <li>Run at least 10 dispense cycles and record for each: success, partial dispense, jam, double dispense.</li>
+            <li>Take photos or a short video if a particular failure repeats.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Identify patterns &amp; possible causes.</strong>
+          <ul>
+            <li>Look for patterns (e.g. jamming only when nearly empty, or only when the handle is turned quickly).</li>
+            <li>Link each symptom to a possible cause: clearance, alignment, surface finish, gear ratio, cam profile.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Plan and apply adjustments.</strong>
+          <ul>
+            <li>Choose one change at a time (e.g. adjust gate clearance, add chamfers, slightly reposition a pivot).</li>
+            <li>Record the change clearly in your folio, including measurements or notes on what was altered.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Re-test and compare results.</strong>
+          <ul>
+            <li>Repeat the same 10-cycle test and compare success rates to your baseline.</li>
+            <li>Decide whether to keep the change, modify it further, or revert to the previous version.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>User trials.</strong>
+          <ul>
+            <li>Have at least 3 other people try the dispenser (under supervision).</li>
+            <li>Ask them about ease of use, comfort, effort required and how predictable the dispense is.</li>
+            <li>Note any unexpected behaviours (e.g. trying to turn backwards, pulling instead of turning, etc.).</li>
+          </ul>
+        </li>
+      </ol>
+    </article>
+
+    <!-- Activities & Evidence -->
+    <article class="card">
+      <div class="pill">Folio & Evidence</div>
+      <h2>Activities &amp; Evidence</h2>
+      <p>Include the following in your folio or digital submission for Toolkit 3.</p>
+      <ul class="checklist">
+        <li>A simple <strong>test table</strong> showing at least 10 baseline dispense attempts (success, jam, double dispense, other).</li>
+        <li>Annotated photos or screenshots showing at least <strong>two problem areas</strong> in the mechanism (e.g. jam points, misalignment, scuffing).</li>
+        <li>A short <strong>cause-and-effect table</strong> linking each symptom to a likely cause and one planned adjustment.</li>
+        <li>Before-and-after notes or images for at least <strong>one successful adjustment</strong> (e.g. improved clearance, chamfered edge, guide added).</li>
+        <li>A summary of <strong>user trial feedback</strong> (3+ users) covering effort, comfort, predictability and overall satisfaction.</li>
+        <li>A short reflection paragraph: <em>What is the main limitation of my current design, and what would be my next improvement if I had more time?</em></li>
+      </ul>
+    </article>
+
+    <!-- Key Notes & Common Mistakes -->
+    <article class="card">
+      <div class="pill">Key Notes</div>
+      <h2>Key Notes &amp; Common Mistakes</h2>
+
+      <h3>Mechanism Behaviour</h3>
+      <ul>
+        <li><strong>Consistent motion:</strong> Mechanisms should feel smooth and predictable; sudden jumps often indicate a geometry or clearance issue.</li>
+        <li><strong>Free vs controlled:</strong> Too much friction causes jams; too little control can cause double dispenses or uncontrolled motion.</li>
+        <li><strong>Loads change things:</strong> A mechanism that feels fine empty may behave very differently under load.</li>
+      </ul>
+
+      <h3>Testing &amp; Data</h3>
+      <ul>
+        <li>“It works” is not enough – you need numbers (success rate) and observations to support your design decisions.</li>
+        <li>Always repeat tests using the <strong>same procedure</strong> so results are comparable.</li>
+        <li>Record adjustments and re-test; don’t make multiple big changes at once if you want to know what actually helped.</li>
+      </ul>
+
+      <h3>Reliability &amp; User Experience</h3>
+      <ul>
+        <li>Users will often operate the dispenser faster or harder than you do – design with that in mind.</li>
+        <li>Handles should be comfortable and provide enough leverage for the smallest or least-strong user in your target group.</li>
+        <li>Guards and covers should prevent fingers from reaching pinch points while still allowing the mechanism to be seen.</li>
+      </ul>
+
+      <h3>Common Mistakes</h3>
+      <ul>
+        <li>Blaming the lollies or “bad luck” instead of looking for a design cause (geometry, finish, alignment).</li>
+        <li>Not recording changes, so you forget what you altered or cannot undo a change that made things worse.</li>
+        <li>Ignoring user feedback because “it works for me” – engineering solutions need to work for others, not just the designer.</li>
+      </ul>
+    </article>
+
+    <!-- Quiz / Self-check with revealable answers -->
+    <article class="card">
+      <div class="pill">Quiz</div>
+      <h2>Check Your Understanding – Mechanism Testing &amp; Tuning</h2>
+      <p>Use these questions to test your understanding. Click “Show answer” to reveal one possible solution or explanation.</p>
+
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>1. Your dispenser works well when it is half full, but jams frequently when almost empty. Give one possible reason.</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q1">
+            When the dispenser is nearly empty, there may not be enough weight or pressure to feed lollies consistently into the gate.
+            They may sit in corners or flat spots instead of rolling into position.
+            Adjusting the slope, surface finish or hopper shape can help guide them correctly, even at low levels.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>2. Explain how changing the gear ratio could make the dispenser easier to use for a younger child.</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q2">
+            Increasing the gear ratio (more turns of the handle per cycle) can increase torque at the mechanism,
+            which means less force is needed to turn the handle.
+            The trade-off is that the user may need to turn the handle further, but it will feel lighter and more controllable for a younger user.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>3. What does it mean to “change one variable at a time” during testing, and why is it important?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q3">
+            It means you only adjust one thing (e.g. a clearance, spring tension or surface finish) between tests.
+            If you change multiple things at once, you cannot tell which change caused the improvement (or the problem).
+            Changing one variable at a time makes your results more reliable and easier to explain.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>4. Give two examples of data you could collect in a 10-cycle test that would help you judge reliability.</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q4">
+            Examples:
+            <ul>
+              <li>Number of successful dispenses out of 10.</li>
+              <li>Number of jams or partial dispenses out of 10.</li>
+              <li>Number of double dispenses (more than one lolly released).</li>
+              <li>Approximate handle force or number of “stiff” points per cycle.</li>
+            </ul>
+            Any two of these, recorded systematically, help you compare before/after changes.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>5. A user reports that the handle feels “jerky” at one point each turn. What are two potential causes you might investigate?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q5">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q5">
+            Possible causes include:
+            <ul>
+              <li>A high spot or misalignment on one gear tooth or cam surface.</li>
+              <li>Insufficient clearance where a cam or gate contacts another part.</li>
+              <li>A bent shaft or off-centre hole causing uneven rotation.</li>
+            </ul>
+            You would inspect these areas visually and by slowly rotating the mechanism to confirm.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>6. Why is user feedback an important part of mechanism testing, even if the mechanism “works” in your own trials?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q6">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q6">
+            Users may have different strength, hand size and expectations.
+            They might operate the mechanism differently (faster, slower, at an angle), revealing issues you did not notice.
+            Feedback helps you design a dispenser that is comfortable, safe and reliable for a wider range of people, not just the designer.
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    // Simple show/hide behaviour for quiz answers
+    document.querySelectorAll('.qa-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const answer = document.getElementById(btn.getAttribute('aria-controls'));
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        btn.textContent = isOpen ? 'Show answer' : 'Hide answer';
+        answer.style.display = isOpen ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>

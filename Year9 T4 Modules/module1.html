@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 1: Timber Materials for the geared lolly dispenser – selection of solid timber and sheet goods, WHS, nesting, waste control, sustainability and finishing." />
+  <meta name="keywords" content="Year 9, Engineering, timber, plywood, MDF, nesting, waste reduction, finishing, sustainability, geared lolly dispenser" />
+  <title>Toolkit 1: Timber Materials | Year 9 Term 4</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6c7a96;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0b63c3, #0a4f93);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 0.4rem 0 0;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    nav a.active {
+      background: #e6f0fb;
+      color: #0b63c3;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.75rem 1rem 3rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card h2 {
+      margin: 0 0 0.5rem;
+      color: var(--brand);
+    }
+
+    .card h3 {
+      margin: 1.2rem 0 0.35rem;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .card p {
+      margin: 0.3rem 0 0.6rem;
+      color: var(--muted);
+    }
+
+    .card ul {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.15rem;
+      color: var(--muted);
+    }
+
+    .card ol {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.3rem;
+      color: var(--muted);
+    }
+
+    .card li + li {
+      margin-top: 0.35rem;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 0.5rem;
+      margin-top: 0.4rem;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: #edf2ff;
+      color: #374151;
+      font-size: 0.75rem;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 0.6rem;
+    }
+
+    .grid-two-column {
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 0.9rem;
+      border: 1px solid var(--border);
+    }
+
+    .grid-two-column h3 {
+      margin-top: 0;
+    }
+
+    .checklist li::marker {
+      content: "▢ ";
+      font-size: 0.8rem;
+    }
+
+    /* Quiz / Q&A styles */
+
+    .qa-list {
+      margin-top: 0.5rem;
+    }
+
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      margin: 0.65rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .qa-question span {
+      flex: 1;
+    }
+
+    .qa-toggle {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .qa-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+
+    .qa-answer {
+      margin-top: 0.55rem;
+      color: var(--muted);
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+      main {
+        padding: 1.25rem 0.75rem 2.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 1: Timber Materials</h1>
+    <p>Timber, sheet goods, nesting, waste control and finishing for the geared lolly dispenser</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term4.html">&#8592; T4 Overview</a>
+    <a class="active" href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+  </nav>
+
+  <main id="main-content" role="main">
+    <a class="back-link" href="../year9_term4.html">&#8592; Back to Year 9 T4 Toolkits</a>
+
+    <!-- Learning Focus -->
+    <article class="card">
+      <div class="pill">Materials</div>
+      <h2>Learning Focus</h2>
+      <p>By the end of this toolkit, you should be able to:</p>
+      <ul>
+        <li>Compare solid timber and sheet products (ply, MDF, particleboard, acrylic) for use in the geared lolly dispenser.</li>
+        <li>Select appropriate materials for frames, guards and moving parts based on strength, stability, machinability and finish quality.</li>
+        <li>Plan efficient nesting and cut lists that minimise waste and keep parts referenced to the same datum.</li>
+        <li>Apply safe working procedures for sawing, drilling, sanding and edge preparation of timber and sheet goods.</li>
+        <li>Choose and apply suitable surface finishes and explain the sustainability of your material and finish choices.</li>
+      </ul>
+
+      <div class="tag-row">
+        <span class="tag">solid timber</span>
+        <span class="tag">plywood</span>
+        <span class="tag">MDF / particleboard</span>
+        <span class="tag">acrylic guards</span>
+        <span class="tag">finishing</span>
+        <span class="tag">sustainability</span>
+      </div>
+    </article>
+
+    <!-- Core Concepts -->
+    <article class="card">
+      <div class="pill">Core Concepts</div>
+      <h2>Timber & Sheet Goods for the Dispenser</h2>
+      <p>This toolkit links directly to the Term 4 geared lolly dispenser build. The focus is on choosing the right material for each job and understanding how that choice affects safety, accuracy, durability and sustainability.</p>
+
+      <div class="grid-two">
+        <div class="grid-two-column">
+          <h3>Solid Timber</h3>
+          <ul>
+            <li><strong>Advantages:</strong> Strong in bending, looks good, can be repaired and refinished, good for visible parts (front frame, side panels, handles).</li>
+            <li><strong>Limitations:</strong> Moves with humidity (expands/contracts), can twist or bow, grain direction matters around holes and narrow strips.</li>
+            <li><strong>Best uses:</strong> Frames and parts where grain can be aligned with the load or longest span; parts that are regularly handled.</li>
+          </ul>
+        </div>
+
+        <div class="grid-two-column">
+          <h3>Plywood &amp; Other Sheet Products</h3>
+          <ul>
+            <li><strong>Plywood:</strong> Layers with alternating grain directions – more stable, less likely to cup or twist; good for backs, bases, guard panels and jigs.</li>
+            <li><strong>MDF / particleboard:</strong> Flat and smooth for painting; edges are weak and dusty when machined; best in internal panels, not exposed edges.</li>
+            <li><strong>Acrylic / clear sheet:</strong> Useful for guards so users can see gears; must be de-burred and supported to avoid cracking.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Moisture, Movement &amp; Stability</h3>
+      <ul>
+        <li>Timber takes in and loses moisture – this can cause bowing, cupping and joint gaps if not considered in your design.</li>
+        <li>Long, thin strips with short grain around holes are most at risk of snapping or twisting out of alignment.</li>
+        <li>Plywood is generally more dimensionally stable, but edges must be sealed to prevent moisture uptake and splintering.</li>
+      </ul>
+
+      <h3>Sustainability &amp; Ethical Choices</h3>
+      <ul>
+        <li>Prefer plantation-grown species and products with certification where possible.</li>
+        <li>Use nesting and cut planning to reduce waste; design parts to use offcuts from other components when sensible.</li>
+        <li>Choose finishes with lower VOCs (volatile organic compounds) and plan for safe disposal of rags and solvents.</li>
+      </ul>
+    </article>
+
+    <!-- Practical Sequence & Checkpoints -->
+    <article class="card">
+      <div class="pill">Workshop Practice</div>
+      <h2>Practical Sequence &amp; Checkpoints</h2>
+      <p>Use this sequence as a guide through the practical work. Tick off checkpoints as you go and record evidence in your folio.</p>
+
+      <ol>
+        <li>
+          <strong>Read the working drawing and exploded view.</strong>
+          <ul>
+            <li>Highlight which parts are structural (frames, base) and which are mainly cosmetic (front panel, trims).</li>
+            <li>Decide which parts are best in solid timber vs sheet products and note your reasons.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Create a cut list and nesting plan.</strong>
+          <ul>
+            <li>List each part, quantity, material, thickness and finished dimensions.</li>
+            <li>Sketch a nesting layout on the timber or sheet showing grain direction and part orientation.</li>
+            <li>Leave safe margins for the saw kerf and clamping.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Prepare and test on scrap.</strong>
+          <ul>
+            <li>Use scrap pieces to test saw settings, drill sizes, countersinks and sanding before cutting real parts.</li>
+            <li>Check fit of joints (e.g., dowels, screws, rebates) on scrap to minimise mistakes in finished pieces.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Cut, drill, label and store parts.</strong>
+          <ul>
+            <li>Cut in logical order, starting with the longest/straightest reference edges.</li>
+            <li>Clearly label all parts with pencil (name, orientation, reference face) and store flat to avoid warping.</li>
+            <li>Keep offcuts sorted – usable strips and panels in one box, true waste in another for bin/compost.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Dry assemble and check alignment.</strong>
+          <ul>
+            <li>Assemble without glue first; check frames are square and moving parts have clearance.</li>
+            <li>Shim or adjust if the frame has twisted or if parts bind when rotating.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Surface preparation and finishing.</strong>
+          <ul>
+            <li>Sand with the grain; progressively move through grits as required (e.g., 120 → 180 → 240).</li>
+            <li>Seal exposed end grain and ply edges first; wipe off dust before applying finish.</li>
+            <li>Record the type of finish (oil, lacquer, paint) and safety requirements in your folio.</li>
+          </ul>
+        </li>
+      </ol>
+    </article>
+
+    <!-- Activities & Evidence -->
+    <article class="card">
+      <div class="pill">Folio & Evidence</div>
+      <h2>Activities &amp; Evidence</h2>
+      <p>These activities should appear in your folio with photos, screenshots and brief written reflection.</p>
+      <ul class="checklist">
+        <li>Completed <strong>materials comparison table</strong> (solid timber vs ply vs MDF/particleboard vs acrylic) with at least three criteria: strength, stability, finish quality, sustainability.</li>
+        <li>A clearly annotated <strong>cut list and nesting diagram</strong> for your dispenser components, showing grain direction and part labels.</li>
+        <li>Photographic evidence of <strong>test pieces</strong> (e.g., drilled, countersunk, finished scrap) with a short note about what you learned from each test.</li>
+        <li>A short paragraph explaining <strong>how you minimised waste</strong> (offcuts used, nesting decisions, reuse of scrap for jigs or fixtures).</li>
+        <li>A brief reflection on your <strong>finish choice</strong> (what you used, why, any WHS requirements, and how it affects durability and appearance).</li>
+      </ul>
+    </article>
+
+    <!-- Key Notes & Common Mistakes -->
+    <article class="card">
+      <div class="pill">Key Notes</div>
+      <h2>Key Notes &amp; Common Mistakes</h2>
+
+      <h3>Material Selection &amp; Structure</h3>
+      <ul>
+        <li><strong>Ply vs solid:</strong> Plywood generally stays flatter; solid timber can move with humidity and twist frames or guards if badly chosen.</li>
+        <li><strong>Sheet thickness:</strong> Use the thinnest sheet that is still stiff enough. Too thick adds unnecessary weight and inertia to moving parts.</li>
+        <li><strong>Grain direction:</strong> Align grain along the longest span. Avoid holes near short grain corners where parts are likely to snap.</li>
+      </ul>
+
+      <h3>Guards, Jigs &amp; Interfaces</h3>
+      <ul>
+        <li>Use thin ply or acrylic for guards; avoid sharp corners and leave clear sight lines to gears and cams.</li>
+        <li>Design simple jigs from offcuts to hold repetitive parts while drilling or sanding.</li>
+        <li>Allow clearance around rotating parts and fixings so nothing rubs once assembled.</li>
+      </ul>
+
+      <h3>Common Mistakes</h3>
+      <ul>
+        <li>Cutting parts before planning the nesting, leading to wasted material and parts that do not reference from the same straight edge.</li>
+        <li>Ignoring grain direction and then wondering why parts twist or split around screw holes.</li>
+        <li>Leaving ply/MDF edges unsealed so they swell, fluff up or chip during use.</li>
+        <li>Forcing warped parts into the frame instead of re-cutting or bracing them, which builds twist into the whole dispenser.</li>
+      </ul>
+    </article>
+
+    <!-- Quiz / Self-check with revealable answers -->
+    <article class="card">
+      <div class="pill">Quiz</div>
+      <h2>Check Your Understanding – Timber Materials</h2>
+      <p>Use these questions to test yourself. Click “Show answer” to reveal one possible solution or explanation.</p>
+
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>1. Why might you choose plywood instead of solid pine for the back panel and base of the dispenser?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans1">
+            Plywood is more dimensionally stable and less likely to warp or twist, especially in larger flat panels.
+            It keeps the whole frame squarer over time and still has good strength in bending, making it ideal for backs and bases.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>2. What are two disadvantages of using MDF for exposed edges and high-wear parts?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans2">
+            MDF edges are weak and crumbly when machined, so they damage easily, and they soak up moisture and finish very quickly,
+            often giving a rough or “fluffy” edge unless heavily sealed. It is better suited to hidden panels that will be fully painted.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>3. Explain why nesting parts tightly on a board can improve both sustainability and accuracy.</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans3">
+            Nesting reduces waste because you use more of the board and throw out fewer offcuts.
+            It also keeps parts referenced from the same straight edge and datum, so dimensions are more consistent and joints line up more easily in assembly.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>4. A long frame piece is slightly bowed after cutting. Give two reasonable options for dealing with this.</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans4">
+            Possible options include:
+            <ul>
+              <li>Re-cut the part from straighter stock and use the bowed piece as scrap or for smaller components.</li>
+              <li>Brace the bowed piece as a non-critical internal part where the bow will not affect movement or alignment.</li>
+            </ul>
+            Avoid forcing the bowed piece into the frame, as it builds twist into the whole dispenser.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>5. Why is it important to seal end grain and ply edges before or during finishing?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans5">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans5">
+            End grain and ply edges absorb finish much faster than flat grain surfaces.
+            If you do not seal them, they become rough and patchy, and they can take in more moisture over time,
+            leading to swelling, splintering and a lower-quality, less durable finish.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>6. Give one example of a more sustainable material or design decision you could make for the dispenser.</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans6">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans6">
+            Example answers might include:
+            <ul>
+              <li>Using plantation-grown pine or certified ply instead of an unsourced hardwood.</li>
+              <li>Designing parts to reuse offcuts from other components instead of cutting from fresh stock.</li>
+              <li>Choosing a low-VOC finish and applying it carefully so you do not waste product.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    // Simple show/hide behaviour for quiz answers
+    document.querySelectorAll('.qa-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const answer = document.getElementById(btn.getAttribute('aria-controls'));
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        btn.textContent = isOpen ? 'Show answer' : 'Hide answer';
+        answer.style.display = isOpen ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>
