@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Year 9 Term 2 Engineering: Materials, Tensegrity & Renewable Systems. Explore tension vs compression, renewable energy, buoyancy, CAD and Onshape through hands-on projects." />
+  <meta name="keywords" content="engineering, tensegrity, renewable energy, buoyancy, CAD, Onshape, materials, year 9, stage 5" />
+  <title>Year 9 Term 2 - Materials & Tensegrity | Stage 5 Engineering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --brand-2: #0a7e2a;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.75rem 1.25rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1rem 0 0.5rem;
+    }
+    .top-nav a {
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.12);
+      color: #e8f2ff;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .top-nav a.active {
+      background: #fff;
+      color: #0b63c3;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+    .hero-title { margin: 0.25rem 0; font-size: clamp(2.1rem, 4vw, 2.8rem); font-weight: 700; }
+    .hero-sub { margin: 0.3rem 0; opacity: 0.9; font-size: 1.05rem; }
+    main { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+    .crumbs { display: inline-flex; gap: 0.75rem; margin: 1rem 0 1.5rem; align-items: center; }
+    .crumbs a { color: var(--brand); font-weight: 600; }
+    .panel {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+    }
+    .panel h3 { margin-top: 0; color: var(--brand); font-size: 1.35rem; }
+    .panel ul { margin: 0; padding-left: 1.1rem; color: var(--muted); }
+    .panel li + li { margin-top: 0.35rem; }
+    .panel a { color: var(--brand); text-decoration: underline; }
+    .panel a:hover { color: #003f80; text-decoration: underline; }
+    .modules { margin-top: 2rem; text-align: center; }
+    .modules h2 { margin: 0 0 1rem; color: var(--brand); }
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+    .module-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .module-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.12); }
+    .module-card:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      transform: translateY(-2px);
+    }
+    .thumb-container {
+      background: #e6f0fb;
+      padding: 0.75rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .module-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, var(--brand), #0e7adf);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(0, 86, 179, 0.2);
+    }
+    .module-title { font-weight: 600; color: var(--text); }
+    .module-sub { font-size: 0.95rem; color: var(--muted); }
+    .tutorial-card, .checklist-card {
+      border: 2px solid #0b63c3;
+      background: linear-gradient(135deg, #0b63c3, #0a4f93);
+      color: #fff;
+    }
+    .tutorial-card:hover, .checklist-card:hover {
+      background: linear-gradient(135deg, #0a4f93, #073a6a);
+      color: #fff;
+    }
+    .tutorial-thumb, .checklist-thumb {
+      background: linear-gradient(135deg, #d9e8ff, #c7dcff);
+    }
+    .tutorial-thumb span, .checklist-thumb span {
+      color: #0b63c3;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .tutorial-card .module-title,
+    .checklist-card .module-title,
+    .tutorial-card .module-sub,
+    .checklist-card .module-sub {
+      color: #fff;
+    }
+    .pill {
+      display: inline-block;
+      align-self: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .resources {
+      margin-top: 2rem;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .resource-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 0.35rem;
+    }
+    .resource-card h4 { margin: 0; color: var(--brand); }
+    .resource-card p { margin: 0; color: var(--muted); }
+    .resource-card a { color: var(--brand); font-weight: 600; }
+    .footer {
+      margin-top: 3rem;
+      background: #fff;
+      border: 1px solid #f1c40f;
+      border-left: 4px solid #d9534f;
+      border-radius: 10px;
+      padding: 1.25rem 1rem;
+      box-shadow: var(--shadow);
+      color: #8a6d3b;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 600px) {
+      header { padding-top: 2rem; }
+      .top-nav { justify-content: flex-start; }
+      .modules-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="sr-only" style="position: absolute; top: 0; left: 0; background: #0b63c3; color: #fff; padding: 0.75rem 1rem; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0;">Skip to main content</a>
+  <header role="banner">
+    <h1 class="hero-title">Year 9 Engineering Term 2 – Materials, Tensegrity & Renewable Systems</h1>
+    <p class="hero-sub">Tension vs compression, renewable energy, buoyancy, CAD & Onshape</p>
+    <div class="top-nav">
+      <a href="index.html">Back to Engineering Home</a>
+      <a href="year9_term1.html">Term 1 – Structures</a>
+      <a class="active" href="#">Term 2 – Materials, Tensegrity &amp; Renewable Systems</a>
+      <a href="year9_term3.html">Term 3 – Mechanisms &amp; Structures</a>
+      <a href="year9_term4.html">Term 4 – Mechanisms</a>
+    </div>
+  </header>
+  <main id="main-content" role="main">
+    <div class="crumbs">
+      <a href="index.html">&#8592; Back to Main Index</a>
+      <span>/</span>
+      <span>Year 9 Term 2</span>
+    </div>
+
+    <section class="panel" aria-labelledby="term2-intro">
+      <h3 id="term2-intro">Term 2 Focus and Syllabus Alignment</h3>
+      <p>Term 2 builds on your foundational knowledge from Term 1, introducing deeper engineering concepts through engaging, hands-on projects. The toolkits connect directly to the NSW Stage 5 syllabus, covering:</p>
+      <ul style="margin-top: 0.75rem;">
+        <li><strong>Structures:</strong> Tensegrity systems - understanding how tension and compression work together</li>
+        <li><strong>Mechanisms & Control Systems:</strong> Renewable energy devices - exploring how we harness natural forces</li>
+        <li><strong>Fluid Systems:</strong> Buoyancy and submarine design - applying physics principles to real-world challenges</li>
+        <li><strong>Engineering Specialisation:</strong> CAD and Onshape - developing digital design skills</li>
+      </ul>
+      <p style="margin-top: 1rem;">Throughout Term 2, you'll practice essential Stage 5 outcomes including risk management, clear technical communication, critical evaluation, materials selection, mechanical analysis, and sustainability thinking. Each toolkit builds these skills progressively.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="classroom-term2">
+      <h3 id="classroom-term2">Google Classroom Topics (Term 2)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;"><strong>Preparation is key:</strong> Each Google Classroom topic contains essential starter activities, resources, and background information for the corresponding topic. Complete these tasks <em>before</em> or <em>during</em> the matching practical session to get the most out of your hands-on work. These activities help you understand the "why" behind what you're building.</p>
+      <ul>
+        <li><strong>CAD Tutorials:</strong> <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc2" target="_blank" rel="noopener">Google Classroom Topic</a></li>
+        <li><strong>Alternate Energies:</strong> <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc3" target="_blank" rel="noopener">Google Classroom Topic</a></li>
+        <li><strong>Submarine Design:</strong> <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc4" target="_blank" rel="noopener">Google Classroom Topic</a></li>
+        <li><strong>Onshape Tutorials:</strong> <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc5" target="_blank" rel="noopener">Google Classroom Topic</a></li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Scope & Lesson Plans</h3>
+      <ul>
+        <li><a href="Year9_Engineering_T2_scope_sequence.docx" target="_blank" rel="noopener">Year 9 Industrial Tech T2 Scope and Sequence (DOCX)</a></li>
+        <li><a href="Year9_Engineering_T2_LessonPlans_REDESIGNED.docx" target="_blank" rel="noopener">Term 2 Lesson Plans (DOCX)</a></li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Overview of Requirements</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">Term 2 challenges you to think like an engineer across multiple disciplines. Here's what you'll accomplish:</p>
+      <ul>
+        <li><strong>Tensegrity Structure:</strong> Design, build and document a tensegrity structure that demonstrates the balance between tension and compression. Learn to classify materials by their suitability for tension vs compression applications - a crucial engineering skill.</li>
+        <li><strong>Renewable Energy Investigation:</strong> Explore alternate energy devices (wind, solar, hydro) through hands-on experiments. Record efficiency data and develop sustainability thinking - understanding how engineering solutions impact our environment.</li>
+        <li><strong>Submarine Design Challenge:</strong> Create and test a bottle submarine that demonstrates ballast control, buoyancy principles, and density calculations. This project brings physics to life!</li>
+        <li><strong>CAD Development:</strong> Develop parametric CAD models and technical drawings for tensegrity components or renewable energy parts. Learn professional design software used by engineers worldwide.</li>
+        <li><strong>Comprehensive Folio:</strong> Maintain a detailed folio covering forces in equilibrium, material properties, energy transformations, and buoyancy data. Your folio demonstrates your engineering thinking and problem-solving process.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Outcomes Alignment (IND5)</h3>
+      <ul>
+        <li>IND5-1, IND5-3, IND5-4: WHS and SWMS for tensegrity builds, soldering/heat use, water testing and tool setup.</li>
+        <li>IND5-2, IND5-5, IND5-7: Iterative design of tensegrity and renewable devices with sketches, CAD, BOM and testing evidence.</li>
+        <li>IND5-6: Collaboration in small teams for energy experiments and submarine trials; shared risk controls and data collection.</li>
+        <li>IND5-8, IND5-9, IND5-10: Evaluate sustainability, embodied energy, material choice, buoyancy impacts and emerging renewable technologies.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Assessment & Folio Checklist</h3>
+      <ul>
+        <li>SWMS and safety evidence for cutting/drilling struts, tensioning cables, electrical testing and water-based labs.</li>
+        <li>Project report for tensegrity build with load/deflection measurements, materials rationale and photos.</li>
+        <li>Energy investigation logs (wind/solar/hydro) with voltage/current data, efficiency calculations and sustainability reflections.</li>
+        <li>Buoyancy experiments: density calculations, ballast tank notes, depth vs air-volume data and stability commentary.</li>
+        <li>CAD outputs: annotated sketches, Onshape screenshots, assembly steps and engineering drawings of key parts.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Hands-on & Theory (Term 2 Program)</h3>
+      <ul>
+        <li>Tensegrity prism build: tension/compression investigation, preload sequence and materials comparison.</li>
+        <li>Alternate energy challenges: wind turbine blade design, solar oven or panel mini-lab, hydro or wave car test.</li>
+        <li>Buoyancy labs: bottle submarine with ballast control, neutral buoyancy challenge, density measurements.</li>
+        <li>Forces and energy theory: tension vs compression, stress/strain basics, energy transformations and efficiency.</li>
+        <li>CAD & Onshape: model struts/caps, add cables, assemble tensegrity and generate drawings for the folio.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Resources & Differentiation</h3>
+      <ul>
+        <li>Materials: dowels/rod for struts, cord/wire for cables, DC motors/fans, solar cells, bottles/balloons/tubing, syringes and scales.</li>
+        <li>Digital: Onshape accounts, Google Classroom topics for CAD Tutorials, Alternate Energies, Submarine Design and Onshape Tutorials.</li>
+        <li>Scaffolds: vocab dictionaries for forces/energy/buoyancy, SWMS templates, sentence starters for data analysis and sustainability reflection.</li>
+        <li>Differentiation: hands-on demos, multilingual captions/translations, optional extension to multi-strut tensegrity or advanced CAD features.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Week Plan Snapshot (Guide)</h3>
+      <ul>
+        <li>W1: Introduce tensegrity concept; build mini model; review tension vs compression and material options.</li>
+        <li>W2: Full tensegrity prism build; preload and test; collect load/deflection evidence.</li>
+        <li>W3: Alternate energies intro; wind turbine blade experiments with voltage/current logging.</li>
+        <li>W4: Solar oven/panel task; sustainability discussion and embodied energy audit.</li>
+        <li>W5: Hydro or wave device build; compare outputs; folio update.</li>
+        <li>W6: Buoyancy theory; density calculations; start bottle submarine prototype.</li>
+        <li>W7: Submarine ballast experiments; dive/surface trials; record depth vs air volume.</li>
+        <li>W8: CAD introduction; model tensegrity strut/caps; explore variables and mates.</li>
+        <li>W9: Assemble CAD tensegrity or renewable component; produce drawings; folio consolidation.</li>
+        <li>W10: Reflection, quiz and catch-up; finalise reports, SWMS and evidence.</li>
+      </ul>
+    </section>
+
+    <section class="modules">
+      <h2>Toolkits</h2>
+      <div class="modules-grid">
+        <a class="module-card" id="term2-toolkit1" href="Year9%20T2%20Modules/module1.html">
+          <div class="module-num">1</div>
+          <div class="module-title">Tensegrity &amp; Materials</div>
+          <div class="module-sub">Forces, struts vs cables, material testing</div>
+          <span class="pill">Structures</span>
+        </a>
+        <a class="module-card" id="term2-toolkit2" href="Year9%20T2%20Modules/module2.html">
+          <div class="module-num">2</div>
+          <div class="module-title">Alternate Energies</div>
+          <div class="module-sub">Wind, solar, hydro and sustainability</div>
+          <span class="pill">Energy</span>
+        </a>
+        <a class="module-card" id="term2-toolkit3" href="Year9%20T2%20Modules/module3.html">
+          <div class="module-num">3</div>
+          <div class="module-title">Geared Lolly Dispenser</div>
+          <div class="module-sub">Compound gears, cams and controlled dispensing</div>
+          <span class="pill">Mechanisms</span>
+        </a>
+        <a class="module-card" id="term2-toolkit4" href="Year9%20T2%20Modules/module4.html">
+          <div class="module-num">4</div>
+          <div class="module-title">CAD &amp; Onshape</div>
+          <div class="module-sub">Parametric modelling for tensegrity</div>
+          <span class="pill">CAD</span>
+        </a>
+      </div>
+    </section>
+    <section class="panel">
+      <h3>Key Document</h3>
+      <ul>
+        <li><a href="9%20Structures_Mechanism%20Program%20draft.pdf" target="_blank">Year 9 Structures &amp; Mechanisms Program (PDF)</a></li>
+        <li><a href="9%20Structures_Mechanism%20Program%20draft.docx" target="_blank" rel="noopener">Year 9 Structures &amp; Mechanisms Program (DOCX)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20(S4,%20S5,%20LS).docx" target="_blank">NESA Engineering Technology 7-10 Syllabus (Stage 4/5)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20syllabus%20support%20(S4,%20S5,%20LS).docx" target="_blank">NESA Syllabus Support (Stage 4/5)</a></li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      <strong>Notice:</strong> All images and resources are provided solely for teaching and learning with our enrolled students.<br />
+      <strong>WARNING:</strong> This material has been reproduced and communicated by or on behalf of Wagga Wagga High School pursuant to Part VB of the Copyright Act 1968 (Cth). Further copying or communication may be subject to copyright protection under the Act.
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,634 @@
+TERM 2 LESSON PLANS
+Year 9 Industrial Technology – Engineering
+Materials, Tensegrity & Renewable Systems
+
+================================================================================
+WEEK 1: Introduction to Tensegrity & Forces in Equilibrium
+================================================================================
+
+LESSON OBJECTIVES:
+- Understand the concept of tensegrity structures
+- Identify tension and compression forces in equilibrium
+- Begin material selection thinking for tension vs compression applications
+- Review workshop safety for Term 2 projects
+
+STARTER ACTIVITY (10 min):
+- Show images/video of tensegrity structures (sculptures, bridges, architectural applications)
+- Discussion: "What do you notice about these structures? How do they stay up?"
+- Introduce key terms: tensegrity, tension, compression, equilibrium, preload
+
+MAIN ACTIVITIES:
+
+Theory Session (20 min):
+- PPT: Forces in equilibrium – how tension and compression work together
+- Material properties: why cables work in tension, struts in compression
+- Examples: suspension bridges (cables in tension), columns (compression)
+- Worksheet: Identify tension/compression in everyday structures
+
+Practical Session (30 min):
+- Mini tensegrity model build: simple 3-strut model using dowels and string
+- Students work in pairs to construct basic tensegrity structure
+- Observe how preload creates stability
+- Document process with photos
+
+Workshop Safety Review (10 min):
+- Walk-through of hazards for Term 2: cutting struts, drilling holes, tensioning cables
+- Review PPE requirements: safety glasses, dust masks, gloves
+- Discuss heat sources if soldering will be used
+
+PLENARY (10 min):
+- Share observations from mini model builds
+- Key takeaway: "Tensegrity structures balance tension and compression"
+- Preview Week 2: Full tensegrity prism build
+
+ASSESSMENT:
+- Formative: Participation in discussion, completion of tension/compression worksheet
+- Start vocab dictionary: tensegrity, preload, tension, compression, equilibrium
+
+RESOURCES:
+- PPT on tensegrity structures
+- Mini model materials: dowels, string, drill
+- Tension/compression worksheet
+- Vocab dictionary template
+
+================================================================================
+WEEK 2: Tensegrity Prism Build
+================================================================================
+
+LESSON OBJECTIVES:
+- Build a complete tensegrity prism structure
+- Apply safe cutting and drilling techniques
+- Understand preload sequence and its importance
+- Document build process with photos and notes
+
+STARTER ACTIVITY (10 min):
+- Review tensegrity geometry: strut placement, cable routing
+- Discuss material choices: what makes a good strut? What makes a good cable?
+- Show example of completed tensegrity prism
+
+MAIN ACTIVITIES:
+
+Workshop Session (50 min):
+- Cut struts to length: use saw, measure accurately, file smooth edges
+- Drill holes for cable attachment: mark positions, drill carefully, deburr holes
+- Attach cables: route cables correctly, tie secure knots or use hardware
+- Apply preload: tension cables systematically, check for stability
+- Test structure: apply small loads, measure deflection, observe behaviour
+
+Documentation (10 min):
+- Take photos of construction steps
+- Record preload sequence: which cables were tensioned first, how much tension
+- Note any challenges or modifications made during build
+
+PLENARY (10 min):
+- Compare structures: which designs are most stable? Why?
+- Discuss preload importance: "What happens if cables aren't tensioned enough?"
+- Preview Week 3: Renewable energy investigations
+
+ASSESSMENT:
+- Evidence: Tensegrity build photos, preload sequence notes, load/deflection measurements
+- Draft SWMS for cutting/drilling struts and tensioning cables
+
+RESOURCES:
+- Workshop tools: saws, drills, files, measuring tools
+- Materials: dowels/rod for struts, cord/wire for cables
+- Scales for load testing
+- Camera/phone for photos
+
+================================================================================
+WEEK 3: Alternate Energies – Wind Energy
+================================================================================
+
+LESSON OBJECTIVES:
+- Understand energy transformations (mechanical to electrical)
+- Explore wind energy principles and blade design
+- Conduct wind turbine experiments with data collection
+- Calculate power output and efficiency
+
+STARTER ACTIVITY (10 min):
+- Video: Wind farms and how they work
+- Discussion: "Where have you seen wind turbines? Why are they important?"
+- Introduce energy transformation: kinetic energy → electrical energy
+
+MAIN ACTIVITIES:
+
+Theory Session (15 min):
+- PPT: Wind energy basics – how turbines convert wind to electricity
+- Blade design principles: angle of attack, number of blades, blade shape
+- Electrical concepts: voltage, current, power (P = VI)
+- Efficiency: what affects how much energy we can capture?
+
+Practical Investigation (35 min):
+- Set up wind turbine: DC motor as generator, fan as wind source, multimeter
+- Test different blade designs: 
+  * Design 1: 3 blades, flat shape
+  * Design 2: 3 blades, curved shape
+  * Design 3: 6 blades, flat shape
+- Record data: voltage (V), current (A) for each design
+- Calculate power: P = V × I for each design
+- Compare results: which design produces most power? Why?
+
+Data Analysis (10 min):
+- Create data table: blade design, voltage, current, power
+- Discuss results: what factors affected power output?
+- Efficiency reflection: how could we improve the design?
+
+PLENARY (10 min):
+- Share results: which blade design was most effective?
+- Key takeaway: "Blade design affects energy capture efficiency"
+- Preview Week 4: Solar energy investigation
+
+ASSESSMENT:
+- Evidence: Wind turbine test data table, power calculations, energy investigation log entry
+
+RESOURCES:
+- DC motors (as generators), fans, multimeters
+- Materials for blades: card, balsa, plastic
+- Data recording sheets
+- Calculators
+
+================================================================================
+WEEK 4: Solar Energy Investigation
+================================================================================
+
+LESSON OBJECTIVES:
+- Understand solar photovoltaic principles
+- Investigate factors affecting solar panel performance
+- Evaluate sustainability of solar energy
+- Conduct solar panel experiments with systematic data collection
+
+STARTER ACTIVITY (10 min):
+- Video: Solar farms and rooftop solar installations
+- Discussion: "How does sunlight become electricity?"
+- Introduce PV (photovoltaic) cells
+
+MAIN ACTIVITIES:
+
+Theory Session (15 min):
+- PPT: Solar photovoltaic principles – how solar cells work
+- Factors affecting performance: angle to sun, shading, temperature, light intensity
+- Solar applications: panels, solar ovens, concentrated solar power
+- Sustainability: embodied energy, lifecycle analysis, recycling
+
+Practical Investigation (35 min):
+- Set up solar panel experiment: small PV cells, multimeter, variable light source (lamp)
+- Test 1: Angle to light source
+  * Measure voltage/current at 0°, 30°, 45°, 60°, 90° angles
+  * Record data for each angle
+- Test 2: Distance from light source
+  * Measure voltage/current at different distances (10cm, 20cm, 30cm, 40cm)
+  * Record data for each distance
+- Test 3: Light intensity (if possible)
+  * Vary lamp brightness, measure output
+- Calculate power for each test condition
+
+Optional: Solar Oven Build (if time):
+- Build simple solar oven: reflectors, insulation, temperature measurement
+- Test temperature achieved, compare to ambient temperature
+
+Data Analysis (10 min):
+- Create data tables: angle vs output, distance vs output
+- Graph results: identify optimal angle and distance
+- Discuss: "What conditions give best solar panel performance?"
+
+Sustainability Reflection (10 min):
+- Discuss embodied energy: energy used to manufacture solar panels
+- Lifecycle analysis: manufacturing, use, end-of-life
+- Recycling considerations: what happens to old solar panels?
+- Reflection: "Is solar energy truly sustainable?"
+
+PLENARY (10 min):
+- Share findings: optimal angle and distance for solar panels
+- Key takeaway: "Solar panel performance depends on positioning and conditions"
+- Preview Week 5: Hydro/wave energy
+
+ASSESSMENT:
+- Evidence: Solar panel test data tables, efficiency calculations, sustainability reflection notes
+- Folio updated: solar energy section added to energy investigation log
+
+RESOURCES:
+- Small PV cells, multimeters, lamps/variable light sources
+- Protractors for angle measurement, rulers for distance
+- Data recording sheets
+- Optional: Materials for solar oven (cardboard, foil, insulation)
+
+================================================================================
+WEEK 5: Hydro/Wave Energy & Energy Comparison
+================================================================================
+
+LESSON OBJECTIVES:
+- Understand hydroelectric and wave energy principles
+- Build and test a simple hydro device
+- Compare renewable energy sources (wind, solar, hydro)
+- Create energy transformation diagrams
+
+STARTER ACTIVITY (10 min):
+- Video: Hydroelectric dams and wave energy devices
+- Discussion: "How does moving water create electricity?"
+- Introduce potential energy → kinetic energy → electrical energy
+
+MAIN ACTIVITIES:
+
+Theory Session (15 min):
+- PPT: Hydroelectric principles – dams vs run-of-river systems
+- Wave energy concepts: how wave motion drives generators
+- Energy transformations: potential → kinetic → electrical
+- Power calculations review: P = VI, efficiency calculations
+
+Practical Investigation (35 min):
+- Build simple hydro device: water wheel or wave car
+  * Option 1: Water wheel with DC motor/generator
+  * Option 2: Wave car (floating device that moves with waves)
+- Test hydro device:
+  * Vary water flow rate (for water wheel)
+  * Test in wave tank or container (for wave car)
+  * Measure voltage and current output
+- Record data: flow rate vs voltage/current, calculate power
+- Compare to wind and solar: create comparison table
+
+Energy Comparison Activity (15 min):
+- Create comparison table: Wind vs Solar vs Hydro
+  * Energy source, how it works, advantages, disadvantages, efficiency, real-world applications
+- Energy transformation diagrams: sketch energy flow for each source
+- Discussion: "Which renewable energy source is best? Why?"
+
+PLENARY (10 min):
+- Share comparison tables and transformation diagrams
+- Key takeaway: "Different renewable energy sources suit different locations and applications"
+- Complete energy investigation log: all three sources documented
+
+ASSESSMENT:
+- Evidence: Hydro device test data, energy comparison table, energy transformation diagrams
+- Complete energy investigation log with all three energy sources
+
+RESOURCES:
+- Materials for hydro device: DC motors, water wheels, containers, water
+- Multimeters, data recording sheets
+- Comparison table template
+- Energy transformation diagram templates
+
+================================================================================
+WEEK 6: Buoyancy Theory & Submarine Introduction
+================================================================================
+
+LESSON OBJECTIVES:
+- Understand Archimedes' principle and buoyancy
+- Calculate density and buoyancy forces
+- Research submarine design and ballast systems
+- Begin submarine design sketches
+
+STARTER ACTIVITY (10 min):
+- Video: Submarines diving and surfacing
+- Discussion: "How do submarines control their depth?"
+- Introduce key terms: buoyancy, ballast, density, displacement
+
+MAIN ACTIVITIES:
+
+Theory Session (25 min):
+- PPT: Buoyancy principles – Archimedes' principle
+- Density calculations: ρ = m/V
+- Buoyancy force: F_b = ρ_fluid × V_displaced × g
+- Neutral buoyancy: when weight equals buoyancy force
+- Pressure and depth: how water pressure increases with depth
+- Submarine ballast control: how ballast tanks work
+
+Worksheet Activity (20 min):
+- Density calculations: calculate density for various materials (water, air, wood, metal, etc.)
+- Buoyancy force calculations: practice problems
+- Compare densities: which materials float? Which sink? Why?
+
+Research Activity (15 min):
+- "Submarines Around the World" research task
+- Identify key features: ballast systems, depth capabilities, uses
+- Research: How do different submarines control depth?
+- Record findings in notes
+
+Design Activity (10 min):
+- Begin submarine design: sketch bottle submarine
+- Include: ballast tank, air volume control mechanism, weight distribution
+- Label key features: ballast system, air volume control, trim weights
+
+PLENARY (10 min):
+- Share density calculations: discuss which materials float/sink
+- Key takeaway: "Density determines whether objects float or sink"
+- Preview Week 7: Submarine build and ballast experiments
+
+ASSESSMENT:
+- Evidence: Buoyancy calculations worksheet, submarine research notes, initial submarine design sketch
+
+RESOURCES:
+- PPT on buoyancy and submarines
+- Density calculations worksheet
+- Research resources: internet access, books
+- Design paper, pencils, rulers
+
+================================================================================
+WEEK 7: Submarine Build & Ballast Experiments
+================================================================================
+
+LESSON OBJECTIVES:
+- Build a functional bottle submarine with ballast control
+- Conduct systematic ballast experiments
+- Measure density and calculate buoyancy
+- Test stability and trim
+
+STARTER ACTIVITY (10 min):
+- Review submarine design sketches
+- Discuss ballast control mechanisms: syringes, air bladders, weights
+- Show example of completed submarine
+
+MAIN ACTIVITIES:
+
+Workshop Session (40 min):
+- Build bottle submarine:
+  * Prepare bottle: clean, mark waterline
+  * Attach ballast system: syringe or air bladder for air volume control
+  * Add weights: attach weights for trim and stability
+  * Test basic function: does it float? Can you control depth?
+- Ballast experiments:
+  * Test 1: Air volume vs depth
+    - Record air volume (ml) and corresponding depth (cm)
+    - Create data table: air volume, depth, observations
+  * Test 2: Dive/surface cycles
+    - Test multiple dive/surface cycles
+    - Observe: does it return to same depth? Is it consistent?
+  * Test 3: Neutral buoyancy
+    - Find the air volume where submarine neither sinks nor rises
+    - Record this neutral buoyancy point
+
+Density Experiments (15 min):
+- Measure mass and volume of submarine components
+- Calculate density: ρ = m/V for each component
+- Calculate overall submarine density
+- Compare to water density: why does it float/sink?
+
+Stability Tests (10 min):
+- Observe submarine behaviour: pitch (nose up/down), roll (side to side), yaw (rotation)
+- Adjust weight distribution: move weights to improve stability
+- Test trim: does submarine sit level? Adjust if needed
+
+PLENARY (10 min):
+- Share results: air volume vs depth data, neutral buoyancy points
+- Discuss stability: what weight distribution worked best?
+- Key takeaway: "Ballast control requires understanding density and buoyancy"
+- Preview Week 8: CAD introduction
+
+ASSESSMENT:
+- Evidence: Submarine build photos, ballast test data (air volume vs depth), density calculations, stability notes
+- SWMS for water-based experiments completed
+
+RESOURCES:
+- Materials: plastic bottles, syringes/air bladders, weights, tubing
+- Water containers/tanks for testing
+- Scales, rulers, measuring cylinders
+- Camera/phone for photos
+
+================================================================================
+WEEK 8: CAD Introduction & Onshape Basics
+================================================================================
+
+LESSON OBJECTIVES:
+- Understand CAD fundamentals and parametric modelling
+- Navigate Onshape interface
+- Create basic sketches and features
+- Model tensegrity components (struts, caps)
+
+STARTER ACTIVITY (10 min):
+- Video: CAD in engineering and manufacturing
+- Discussion: "Why do engineers use CAD? What are the advantages?"
+- Introduce Onshape: cloud-based CAD software
+
+MAIN ACTIVITIES:
+
+ICT Session – Onshape Setup (10 min):
+- Create Onshape accounts (if not already done)
+- Navigate interface: documents, parts, assemblies, drawings
+- Explore workspace: sketch tools, feature tools, view controls
+
+Tutorial Session (30 min):
+- Complete Onshape tutorials:
+  * Tutorial 1: Basic sketching (lines, circles, rectangles, dimensions)
+  * Tutorial 2: Extruding sketches to create 3D parts
+  * Tutorial 3: Adding features (holes, fillets, chamfers)
+- Practice: Follow step-by-step tutorial to create simple part
+
+Practical Modelling (20 min):
+- Model tensegrity components:
+  * Part 1: Tensegrity strut
+    - Sketch: circular profile, dimension diameter and length
+    - Extrude: create cylindrical strut
+    - Add holes: drill holes for cable attachment (if modelling detail)
+  * Part 2: Tensegrity cap/end piece
+    - Sketch: profile for cap
+    - Extrude: create cap shape
+    - Add features: holes, fillets as needed
+- Document process: take screenshots of sketches, features, final parts
+
+PLENARY (10 min):
+- Share CAD models: show struts and caps created
+- Discuss challenges: "What was difficult? What was easy?"
+- Key takeaway: "CAD allows us to model designs before building"
+- Preview Week 9: CAD assembly and technical drawings
+
+ASSESSMENT:
+- Evidence: Onshape account setup, tutorial completion, CAD model screenshots (struts, caps)
+- CAD log started in folio
+
+RESOURCES:
+- Computer access with internet
+- Onshape accounts (free educational accounts)
+- Onshape tutorials (built-in or provided)
+- Screenshot tools
+
+================================================================================
+WEEK 9: CAD Assembly & Technical Drawings
+================================================================================
+
+LESSON OBJECTIVES:
+- Create CAD assemblies using mates and constraints
+- Generate technical drawings with orthographic views
+- Add dimensions and annotations to drawings
+- Compare CAD models to physical builds
+
+STARTER ACTIVITY (10 min):
+- Review CAD models from Week 8
+- Discuss assemblies: "How do we put parts together in CAD?"
+- Introduce technical drawings: "How do engineers communicate designs?"
+
+MAIN ACTIVITIES:
+
+Assembly Session (25 min):
+- Create new assembly in Onshape
+- Insert parts: add struts and caps to assembly
+- Add mates: constrain parts together
+  * Coincident mates: align parts
+  * Parallel mates: keep parts parallel
+  * Distance mates: set distances between parts
+- Create simplified tensegrity assembly: represent struts and cable connections
+- Test assembly: move parts to check constraints work correctly
+
+Technical Drawing Session (25 min):
+- Generate technical drawings:
+  * Create new drawing from part
+  * Add orthographic views: front, top, side views
+  * Add isometric view: 3D view for clarity
+  * Add dimensions: length, diameter, hole positions
+  * Add annotations: notes, title block
+- Create drawings for key components: strut, cap
+- Optional: Create drawing for renewable energy component (wind turbine blade, solar panel mount)
+
+Comparison Activity (10 min):
+- Measure actual parts: use calipers/rulers to measure physical tensegrity components
+- Compare to CAD: check CAD dimensions match actual dimensions
+- Discuss differences: "Why might there be differences? How accurate is CAD?"
+
+PLENARY (10 min):
+- Share technical drawings: show orthographic views with dimensions
+- Discuss: "How do technical drawings help communicate designs?"
+- Key takeaway: "CAD and technical drawings are essential engineering communication tools"
+- Complete CAD section in folio
+
+ASSESSMENT:
+- Evidence: CAD assembly screenshots, technical drawings (orthographic views with dimensions), comparison notes
+- CAD section completed in folio
+
+RESOURCES:
+- Onshape access
+- CAD models from Week 8
+- Measuring tools: calipers, rulers
+- Technical drawing standards reference
+
+================================================================================
+WEEK 10: Folio Completion, Reflection & Industry Links
+================================================================================
+
+LESSON OBJECTIVES:
+- Complete all folio sections for Term 2
+- Reflect on learning and connections to real-world engineering
+- Explore industry applications of Term 2 concepts
+- Prepare for Term 3
+
+STARTER ACTIVITY (10 min):
+- Review Term 2 projects: tensegrity, renewable energy, submarine, CAD
+- Discussion: "What have we learned? How does this connect to real engineering?"
+
+MAIN ACTIVITIES:
+
+Folio Completion Session (40 min):
+- Complete folio sections:
+  * Tensegrity project report: build process, test data, evaluation
+  * Energy investigation log: wind, solar, hydro data and reflections
+  * Submarine design & testing: build, ballast experiments, density calculations
+  * CAD documentation: models, assemblies, technical drawings
+  * SWMS: all safety documentation
+  * Final evaluation: what worked well? What could be improved?
+  * Sustainability reflection: material choices, energy efficiency, environmental impacts
+- Check checklist: ensure all required evidence is included
+- Polish presentations: improve photos, clarify explanations, check spelling/grammar
+
+Industry Links Activity (15 min):
+- Research industry applications:
+  * Tensegrity: architectural applications, bridges, sculptures
+  * Renewable energy: wind farms, solar installations, hydroelectric dams
+  * Naval engineering: submarine design, ballast systems
+  * CAD: manufacturing, product design, engineering firms
+- Create industry links section: connect Term 2 projects to real-world engineering
+- Discuss career pathways: "What jobs use these skills?"
+
+Reflection Activity (15 min):
+- Personal reflection: "What I learned about materials, energy, and design in Term 2"
+- Connections: "How does Term 2 connect to Term 1? What's next in Term 3?"
+- Write reflection paragraph: include key learnings, challenges, interests
+
+Optional Quiz/Exit Ticket (10 min):
+- Short quiz on core theory: forces, energy, buoyancy, CAD
+- Exit ticket: "One thing I learned today" or "One question I still have"
+
+PLENARY (10 min):
+- Share reflections: students share key learnings
+- Preview Term 3: mechanisms, control systems (if time allows)
+- Key takeaway: "Engineering connects theory, design, and real-world applications"
+- Final reminders: folio submission date, expectations
+
+ASSESSMENT:
+- Summative: Final Term 2 Folio submitted (all sections complete)
+- Optional: Quiz/exit ticket on core theory
+
+RESOURCES:
+- Folio checklist
+- Industry links resources: internet access, career information
+- Reflection template
+- Optional: Quiz questions
+
+================================================================================
+DIFFERENTIATION STRATEGIES
+================================================================================
+
+For students needing support:
+- Vocab dictionaries with images and definitions
+- Scaffolded worksheets with sentence starters
+- Step-by-step guides for practical tasks
+- Simplified calculations with worked examples
+- Multilingual support: translations, captions
+
+For students needing extension:
+- Advanced tensegrity structures (multi-strut designs)
+- Extended energy investigations (efficiency optimization)
+- Advanced CAD features (surfaces, advanced mates)
+- Research projects on emerging technologies
+- Design challenges: optimize designs for specific criteria
+
+For all students:
+- Visual demonstrations and videos
+- Hands-on practical activities
+- Collaborative group work
+- Clear success criteria
+- Regular feedback and check-ins
+
+================================================================================
+RESOURCES CHECKLIST
+================================================================================
+
+Materials:
+- Tensegrity: dowels/rod, cord/wire, drills, saws, files
+- Renewable energy: DC motors, fans, solar cells, multimeters, materials for blades
+- Submarine: plastic bottles, syringes/air bladders, weights, tubing, water containers
+- CAD: Computer access, Onshape accounts
+
+Digital:
+- PPTs: Tensegrity, Forces, Renewable Energy, Buoyancy, CAD
+- Videos: Tensegrity structures, wind farms, solar installations, submarines, CAD
+- Worksheets: Tension/compression, density calculations, buoyancy calculations
+- Onshape tutorials and resources
+
+Safety:
+- SWMS templates for cutting/drilling, water experiments, electrical testing
+- PPE: Safety glasses, dust masks, gloves
+- First aid kit, supervision requirements
+
+================================================================================
+ASSESSMENT OVERVIEW
+================================================================================
+
+Formative Assessment (ongoing):
+- Participation in discussions
+- Completion of worksheets and activities
+- Practical skill observations
+- Folio progress checks
+
+Summative Assessment:
+- Final Term 2 Folio including:
+  * Tensegrity project report with build and test evidence
+  * Energy investigation log (wind, solar, hydro)
+  * Submarine design and testing documentation
+  * CAD models, assemblies, and technical drawings
+  * SWMS for all practical activities
+  * Evaluation and sustainability reflection
+
+Outcomes Coverage:
+- IND5-1, IND5-3, IND5-4: WHS and SWMS
+- IND5-2, IND5-5, IND5-7: Design and production
+- IND5-6: Collaboration
+- IND5-8, IND5-10: Evaluation and sustainability
+- IND5-9: Emerging technologies (CAD, renewable energy)
+

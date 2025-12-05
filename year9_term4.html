@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Year 9 Term 4 Engineering: Geared Lolly Dispenser capstone with timber materials, advanced CAD, CAM/manufacture, testing and showcase." />
+  <title>Year 9 Term 4 - Mechanisms &amp; Manufacture | Stage 5 Engineering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --brand-2: #0a7e2a;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+    }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.75rem 1.25rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1rem 0 0.5rem;
+    }
+    .top-nav a {
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.12);
+      color: #e8f2ff;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .top-nav a.active {
+      background: #fff;
+      color: #0b63c3;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+    .hero-title { margin: 0.25rem 0; font-size: clamp(2.1rem, 4vw, 2.8rem); font-weight: 700; }
+    .hero-sub { margin: 0.3rem 0; opacity: 0.9; font-size: 1.05rem; }
+    main { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+    .crumbs { display: inline-flex; gap: 0.75rem; margin: 1rem 0 1.5rem; align-items: center; }
+    .crumbs a { color: var(--brand); font-weight: 600; }
+    .panel {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+    }
+    .panel h3 { margin-top: 0; color: var(--brand); font-size: 1.35rem; }
+    .panel ul { margin: 0; padding-left: 1.1rem; color: var(--muted); }
+    .panel li + li { margin-top: 0.35rem; }
+    .panel a { color: var(--brand); text-decoration: underline; }
+    .panel a:hover { color: #003f80; text-decoration: underline; }
+    .modules { margin-top: 2rem; text-align: center; }
+    .modules h2 { margin: 0 0 1rem; color: var(--brand); }
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+    .module-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .module-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.12); }
+    .module-card:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      transform: translateY(-2px);
+    }
+    .module-title { font-weight: 600; color: var(--text); }
+    .module-sub { font-size: 0.95rem; color: var(--muted); }
+    .footer {
+      margin-top: 3rem;
+      background: #fff;
+      border: 1px solid #f1c40f;
+      border-left: 4px solid #d9534f;
+      border-radius: 10px;
+      padding: 1.25rem 1rem;
+      box-shadow: var(--shadow);
+      color: #8a6d3b;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 600px) {
+      header { padding-top: 2rem; }
+      .top-nav { justify-content: flex-start; }
+      .modules-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <h1 class="hero-title">Year 9 Engineering Term 4 – Mechanisms &amp; Manufacture</h1>
+    <p class="hero-sub">Geared Lolly Dispenser | Materials, CAD, CAM, testing and showcase</p>
+    <div class="top-nav">
+      <a href="index.html">Back to Engineering Home</a>
+      <a href="year9_term1.html">Term 1 – Structures</a>
+      <a href="year9_term2.html">Term 2 – Materials, Tensegrity &amp; Renewable Systems</a>
+      <a href="year9_term3.html">Term 3 – Mechanisms &amp; Structures</a>
+      <a class="active" href="#">Term 4 – Mechanisms</a>
+    </div>
+  </header>
+  <main id="main-content" role="main">
+    <div class="crumbs">
+      <a href="index.html">&#8592; Back to Main Index</a>
+      <span>/</span>
+      <span>Year 9 Term 4</span>
+    </div>
+
+    <section class="panel" aria-labelledby="classroom-term4">
+      <h3 id="classroom-term4">Google Classroom Topics (Term 4)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;"><strong>How to use these links:</strong> Complete the Classroom tasks alongside the matching topic so your CAD, CAM and build work stays aligned. Upload screenshots, exports and test notes as you go.</p>
+      <ul>
+        <li><strong>Topic 1 – Timber Materials:</strong> <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDcz" target="_blank" rel="noopener">Timber Materials</a></li>
+        <li><strong>Topic 2 – Onshape &amp; CAD Mastery:</strong> <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc9" target="_blank" rel="noopener">Onshape Tutorials</a></li>
+        <li><strong>Topic 3 – CAMs &amp; Gears:</strong> <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDgy" target="_blank" rel="noopener">CAMs &amp; Gears</a></li>
+        <li><strong>Topic 4 – Testing &amp; Showcase:</strong> Upload final dispense tests, QA checklists and showcase assets via your class stream.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Scope &amp; Lesson Plans</h3>
+      <ul>
+        <li><a href="9%20Structures_Mechanism%20Program%20draft.pdf" target="_blank" rel="noopener">Year 9 Structures &amp; Mechanisms Program (PDF)</a></li>
+        <li><a href="9%20Structures_Mechanism%20Program%20draft.docx" target="_blank" rel="noopener">Year 9 Structures &amp; Mechanisms Program (DOCX)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20(S4,%20S5,%20LS).docx" target="_blank" rel="noopener">NESA Engineering Technology 7-10 Syllabus (Stage 4/5)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20syllabus%20support%20(S4,%20S5,%20LS).docx" target="_blank" rel="noopener">NESA Syllabus Support (Stage 4/5)</a></li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Overview of Requirements</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">Term 4 is your capstone build for the geared lolly dispenser. You will take a design from CAD through manufacture, assembly, testing and showcase.</p>
+      <ul>
+        <li><strong>Material readiness:</strong> Select timber/sheet goods, create cut lists, and plan safe fabrication with PPE, jigs and clamping.</li>
+        <li><strong>CAD-to-make:</strong> Produce assemblies with configs/variables, then generate production drawings and DXF/DWG exports.</li>
+        <li><strong>CAM &amp; manufacture:</strong> Prepare kerf/fit allowances, toolpaths and machine setups; cut/print parts and assemble mechanisms.</li>
+        <li><strong>Testing &amp; QA:</strong> Run dispense, torque/effort and durability tests; capture data and iterate fixes.</li>
+        <li><strong>Folio &amp; showcase:</strong> Finalise drawings, costing, sustainability and safety summaries; present a working dispenser.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Outcomes Alignment (IND5)</h3>
+      <ul>
+        <li><strong>IND5-1, IND5-3, IND5-4:</strong> WHS, SWMS, tool/machine setup, safe CAM/laser/CNC use and guarded mechanisms.</li>
+        <li><strong>IND5-2, IND5-5, IND5-7:</strong> Advanced CAD, assemblies, BOMs, costing, production drawings and build sequencing.</li>
+        <li><strong>IND5-6:</strong> Collaborative build/test cycles; peer QA and shared risk controls during fabrication.</li>
+        <li><strong>IND5-8, IND5-9, IND5-10:</strong> Sustainability of materials and processes, design evaluation, communication and showcase presentation.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Assessment &amp; Folio Checklist</h3>
+      <ul>
+        <li>SWMS and machine setup checklists (laser/CNC, drill press, sanding) plus PPE evidence.</li>
+        <li>CAD pack: assemblies, drawings, DXF/DWG exports with title blocks and revision notes.</li>
+        <li>Manufacturing evidence: cut files, kerf notes, fit checks, photos of assembly/guards.</li>
+        <li>Testing data: dispense counts, jams, torque/effort, durability observations with photos/video.</li>
+        <li>Folio sections: costing, sustainability, safety, QA sign-offs, and a short showcase script/board.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Hands-on &amp; Theory (Term 4 Program)</h3>
+      <ul>
+        <li>Timber/material prep: select stock, plan cuts, practise safe sawing/drilling/sanding.</li>
+        <li>CAD refinement: configs/variables, mates, drawings, export-ready DXF/DWG.</li>
+        <li>CAM &amp; fabrication: kerf allowances, toolpaths, safe machine setup, part cutting/printing.</li>
+        <li>Assembly &amp; tuning: gears/cams/ratchet alignment, guards, fasteners/adhesives.</li>
+        <li>Testing &amp; iteration: dispense trials, jam fixes, torque/effort checks, durability runs.</li>
+        <li>Folio &amp; showcase: data tables/graphs, sustainability + safety summaries, presentation assets.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Resources &amp; Differentiation</h3>
+      <ul>
+        <li>Materials: ply/timber sheets, acrylic guards, shafts/dowels, fasteners, adhesives.</li>
+        <li>Digital: Onshape accounts, laser/CNC software, DXF/DWG export guides.</li>
+        <li>Scaffolds: SWMS templates, kerf/fit checklist, costing spreadsheet, folio structure.</li>
+        <li>Differentiation: exemplar CAD packs, simplified cut files, multilingual captions, extension to multi-flavour/dual-cam mechanisms.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Week Plan Snapshot (Guide)</h3>
+      <ul>
+        <li><strong>W1:</strong> Timber/material selection, cut lists, WHS refresh, jigs/clamping.</li>
+        <li><strong>W2:</strong> CAD updates (assemblies/configs); prep drawings and export DXF/DWG.</li>
+        <li><strong>W3:</strong> Kerf/fit checks; generate toolpaths; machine setup briefings.</li>
+        <li><strong>W4:</strong> Cut/print parts; begin sub-assemblies; start guards.</li>
+        <li><strong>W5:</strong> Main assembly of gears/cams/ratchet; alignment and fasteners.</li>
+        <li><strong>W6:</strong> Testing cycle 1: dispense counts, jams, torque/effort; log data.</li>
+        <li><strong>W7:</strong> Iteration: adjust fits, add guides/guards; re-test and update folio.</li>
+        <li><strong>W8:</strong> Durability testing; QA checklist; costing and sustainability notes.</li>
+        <li><strong>W9:</strong> Finalise folio, drawings, and showcase board/script; polish device.</li>
+        <li><strong>W10:</strong> Showcase/demo, reflection, final submissions (CAD pack, folio, SWMS).</li>
+      </ul>
+    </section>
+
+    <section class="modules">
+      <h2>Toolkits</h2>
+      <div class="modules-grid">
+        <a class="module-card" id="term4-toolkit1" href="Year9%20T4%20Modules/module1.html">
+          <div class="module-title">Timber Materials</div>
+          <div class="module-sub">Selection, WHS, finishing, sustainability</div>
+        </a>
+        <a class="module-card" id="term4-toolkit2" href="Year9%20T4%20Modules/module2.html">
+          <div class="module-title">Onshape &amp; CAD Mastery</div>
+          <div class="module-sub">Assemblies, configs, drawings, exports</div>
+        </a>
+        <a class="module-card" id="term4-toolkit3" href="Year9%20T4%20Modules/module3.html">
+          <div class="module-title">CAMs, Gears &amp; Manufacture</div>
+          <div class="module-sub">Kerf, toolpaths, fabrication, assembly</div>
+        </a>
+        <a class="module-card" id="term4-toolkit4" href="Year9%20T4%20Modules/module4.html">
+          <div class="module-title">Testing, Folios &amp; Showcase</div>
+          <div class="module-sub">QA, data, sustainability, presentation</div>
+        </a>
+      </div>
+    </section>
+
+    <div class="footer">
+      <strong>Notice:</strong> All images and resources are provided solely for teaching and learning with our enrolled students.<br />
+      <strong>WARNING:</strong> This material has been reproduced and communicated by or on behalf of Wagga Wagga High School pursuant to Part VB of the Copyright Act 1968 (Cth). Further copying or communication may be subject to copyright protection under the Act.
+    </div>
+  </main>
+</body>
+</html>
