@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 1: WHS & Risk Control. Learn workplace health and safety, OnGuard training, PPE, hierarchy of control, DRABC, and safe tool operation for engineering projects." />
+  <meta name="keywords" content="WHS, safety, OnGuard, PPE, risk management, hierarchy of control, DRABC, engineering safety" />
+  <title>Toolkit 1: WHS & Risk Control | Year 9 Term 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    nav a.active {
+      background: #e6f0fb;
+      color: #0b63c3;
+    }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .pdf-embed {
+      width: 100%;
+      height: 420px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .pdf-embed-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+    }
+    .image-embed {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+    .image-embed img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+    }
+    .card-note { color: var(--muted); }
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      margin: 0.65rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .qa-toggle {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+    .qa-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .qa-answer {
+      margin-top: 0.65rem;
+      color: var(--muted);
+      display: none;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="sr-only" style="position: absolute; top: 0; left: 0; background: #0b63c3; color: #fff; padding: 0.75rem 1rem; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0;">Skip to main content</a>
+  <header role="banner">
+    <h1>Toolkit 1: WHS & Risk Control</h1>
+    <p>OnGuard, PPE, hierarchy of control, DRABC</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term1.html">&#8592; T1 Overview</a>
+    <a class="active" href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a href="tutorial.html">Tutorial</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main id="main-content" role="main">
+    <a class="back-link" href="../year9_term1.html">&#8592; Back to Year 9 T1 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Safety</div>
+      <h2>Learning Focus</h2>
+      <img src="../images/Students%20using%20tools%20safely.jpg" alt="Students working safely in the engineering workshop" class="content-image" />
+      <p style="color: var(--muted); margin-bottom: 1rem;">By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Complete OnGuard training:</strong> Successfully finish safety training for hand tools and power tools/machinery, then apply this knowledge confidently in class. This certification is your ticket to using tools safely.</li>
+        <li><strong>Set up work safely:</strong> Use the correct PPE (Personal Protective Equipment), proper clamping techniques, and maintain line of fire awareness for all tower and beam work. Safety starts before you pick up a tool.</li>
+        <li><strong>Understand safety signs:</strong> Recognise and obey workshop safety signs instantly. These visual cues protect you and your classmates - learn to read them like a professional.</li>
+        <li><strong>Operate core tools:</strong> Safely operate a corded drill and hot glue gun - two essential tools you'll use throughout the course. Master these, and you'll be ready for more advanced projects.</li>
+        <li><strong>Apply risk management:</strong> Use the hierarchy of control and DRABC (Danger, Response, Airway, Breathing, Circulation) as part of a simple first response. These frameworks help you think like a safety-conscious engineer.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Why This Matters</h2>
+      <p><strong>Workplace Health and Safety (WHS) is not just "rules to remember"</strong> - it's a mindset that protects you, your classmates, and your work. Think of WHS as your engineering superpower: it helps you:</p>
+      <ul style="margin-top: 0.75rem;">
+        <li>Protect yourself and others while working with tools and machines</li>
+        <li>Look after equipment and the workshop so it stays safe for everyone</li>
+        <li>Build and test your tower, beam, and other projects without avoidable risk</li>
+        <li>Develop professional habits that will serve you throughout your engineering career</li>
+      </ul>
+      <p style="margin-top: 1rem;"><strong>How to use this module:</strong> Apply these ideas when you complete OnGuard tests, plan and write your SWMS (Safe Work Method Statements) for tower/beam construction and testing, and choose appropriate PPE and safe methods for drilling, gluing, and cutting in later modules. This knowledge becomes second nature with practice.</p>
+    </article>
+
+    <article class="card" id="hand-tools">
+      <h2>Hand Tools - Safe Use</h2>
+      <img src="../images/t1_tk1_handtools_collage.jpg" alt="Various hand tools used in the workshop" class="content-image" />
+      <h3>General Rules</h3>
+      <ul>
+        <li>Only use tools you have been trained and approved to use.</li>
+        <li>Wear required PPE: safety glasses at all times in the workshop; apron/overalls; hearing protection if the area is noisy.</li>
+      </ul>
+      <img src="../images/t1_tk1_ppe_set.png" alt="Standard Personal Protective Equipment (PPE) set" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0; width: 250px;" />
+      <ul>
+        <li>Inspect before use: no cracks in handles or bodies; no loose heads, bent blades or missing parts; cutting edges sharp and not chipped.</li>
+        <li>Keep your non-working hand out of the line of fire: cut, chisel and plane away from your body; always clamp the work.</li>
+        <li>Carry sharp tools with the edge down or covered; return tools to the correct rack or drawer; no tools hanging off bench edges.</li>
+      </ul>
+      <img src="../images/t1_tk1_handtool_saw_safety.jpg" alt="Safe hand saw usage showing clamping and hand position" class="content-image" />
+      <h3>By Tool Type</h3>
+      <ul>
+        <li><strong>Measuring / Marking:</strong> do not let tape blades snap back uncontrolled; keep compass/divider points closed or covered.</li>
+        <li><strong>Cutting (saws, knives):</strong> clamp or support work; never cut toward your hand or body; keep fingers a hand's width from saw blades; use a cutting mat or scrap under knife cuts; retract or sheath blades when not in use.</li>
+        <li><strong>Chisels / Planes:</strong> use a bench hook or vice; use a mallet on wooden handles; never push toward hand or body; fit caps or guards on sharp edges when storing.</li>
+        <li><strong>Striking (hammers, mallets):</strong> check heads and handles for cracks or looseness; grip near the end for control; keep fingers away from nail heads when starting nails.</li>
+        <li><strong>Clamping / Holding:</strong> adjust clamps to grip firmly without crushing material; keep jaws clean and screws smooth so they do not slip.</li>
+        <li><strong>Boring / Driving (hand drills, screwdrivers):</strong> use the correct size/type of screwdriver or bit; apply firm, controlled pressure; support and clamp work so it does not spin.</li>
+      </ul>
+    </article>
+
+    <article class="card" id="power-tools">
+      <h2>Power Tools - Core Rules</h2>
+      <img src="../images/t1_tk1_power_tools_setup.jpg" alt="Power tools setup on workbench" class="content-image" />
+      <h3>Before You Start</h3>
+      <ul>
+        <li>Only use power tools after teacher demonstration, any required theory/OnGuard test, and permission from your teacher that lesson.</li>
+      </ul>
+      <h3>PPE (minimum)</h3>
+      <ul>
+        <li>Safety glasses.</li>
+        <li>Hearing protection for noisy tools or long sessions.</li>
+        <li>Tie long hair back; remove jewellery/cords; no loose clothing.</li>
+      </ul>
+      <h3>Inspect the tool</h3>
+      <ul>
+        <li>Cord and plug intact; no cuts or exposed wires.</li>
+        <li>Body not cracked; vents clear; guards or covers in place.</li>
+        <li>Switch and trigger operate smoothly.</li>
+      </ul>
+      <h3>Setting Up</h3>
+      <ul>
+        <li>Clamp or support work securely—never hold small pieces by hand when drilling or cutting.</li>
+        <li>One operator per power tool unless specifically supervised as a two-person task.</li>
+        <li>Plan your stance and cord path so you are balanced and will not trip or bump other students.</li>
+      </ul>
+      <img src="../images/t1_tk1_machine_setup_closeup.jpg" alt="Close-up of machine setup showing clamping and safety guards" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0;" />
+      <h3>During Use</h3>
+      <ul>
+        <li>Keep hands out of the danger zone around bit, blade or hot surfaces.</li>
+        <li>Use the correct bit, speed and mode for the material (low speed for metal; impact mode only for masonry).</li>
+        <li>Do not force the tool; let it cut or drill at its own rate.</li>
+        <li>If vibration, burning smell, smoke or unusual noise: stop, switch off/unplug if safe, and inform the teacher. Do not try to fix it yourself.</li>
+      </ul>
+      <h3>After Use</h3>
+      <ul>
+        <li>Release the trigger and wait for a complete stop before setting the tool down.</li>
+        <li>Switch off and unplug before changing bits or cleaning.</li>
+        <li>Wipe off dust when cool; store with the cord loosely coiled, not tightly wrapped.</li>
+      </ul>
+    </article>
+
+    <article class="card" id="safety-signs">
+      <h2>Safety Signs - Know the Categories</h2>
+      <img src="../images/t1_tk1_safety_sign_categories.png" alt="Safety sign categories: Mandatory, Prohibition, Warning, Emergency" class="content-image" />
+      <ul>
+        <li><strong>Mandatory (Blue circle) - things you must do:</strong> eye protection, hearing protection, safety footwear.</li>
+        <li><strong>Prohibition (Red circle with slash) - things you must not do:</strong> no running, no unauthorised entry, no food or drink.</li>
+        <li><strong>Warning (Yellow triangle) - hazards present:</strong> high noise level, flammable liquids, hot surfaces.</li>
+        <li><strong>Emergency Information (Green rectangle) - help and escape:</strong> first aid station, emergency exit, eye wash or safety shower.</li>
+        <li><strong>Fire (Red rectangle or square) - fire-fighting equipment:</strong> fire extinguishers, hose reels. Use only if trained or instructed.</li>
+      </ul>
+      <p class="card-note">Application: obey every sign, every time. Report any missing, damaged or unclear signs to your teacher.</p>
+    </article>
+
+    <article class="card" id="hierarchy-control">
+      <h2>Risk Management & Hierarchy of Control</h2>
+      <img src="../Engineering Pictures/hierarchy-of-controls.png" alt="Hierarchy of Controls diagram" class="content-image" />
+      <p>You will use the hierarchy of control when writing your SWMS and risk activities. From most effective to least effective:</p>
+      <ul>
+        <li><strong>Elimination</strong> - remove the hazard completely (e.g. pre-cut materials off-site so students do not use a particular machine).</li>
+        <li><strong>Substitution</strong> - replace with something safer (e.g. use a smaller drill bit or lower-voltage tool where possible).</li>
+        <li><strong>Engineering controls</strong> - isolate people from the hazard (e.g. machine guards, clamps, jigs, barriers).</li>
+        <li><strong>Administrative controls</strong> - change the way people work (e.g. training, clear procedures, signage, restricted access).</li>
+        <li><strong>PPE</strong> - protect the person (e.g. glasses, hearing protection, gloves).</li>
+      </ul>
+      <p>When you plan tower and beam tasks, aim to use higher-level controls first, then support them with admin and PPE rather than relying on PPE alone. See the Hierarchy of Controls diagram and Risk Management Plan template (PDF) before completing your SWMS.</p>
+      <p class="pdf-embed-note"><a href="../Year 9 T1 Theory Notes/Hierarchy of Control of WH&S Hazards.pdf" target="_blank" rel="noopener">Open full PDF</a></p>
+    </article>
+
+    <article class="card" id="drabc">
+      <h2>DRABC & First Response (Overview)</h2>
+      <img src="../images/t1_tk1_drabc_flowchart.png" alt="DRABC First Aid Action Plan Flowchart" class="content-image" />
+      <ul>
+        <li><strong>D - Danger:</strong> check for danger to you, the casualty and others. Make the area safe before approaching.</li>
+        <li><strong>R - Response:</strong> check if the person is conscious and responsive. Call for help.</li>
+        <li><strong>A - Airway:</strong> gently open the airway (if trained) and check it is clear.</li>
+        <li><strong>B - Breathing:</strong> look, listen and feel for normal breathing.</li>
+        <li><strong>C - CPR / Circulation:</strong> if not breathing normally and you are trained, begin CPR. If not trained, immediately get the teacher or first aider and call emergency services.</li>
+        <li><strong>For minor injuries:</strong> report all cuts, burns and eye injuries to your teacher immediately; follow teacher instructions for first aid, bandaging and reporting.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Corded Drill (Variable Speed / Impact)</h2>
+      <img src="../images/corded%20Drill.jpg" alt="Corded drill safety check" class="content-image" />
+      <h3>Hazards & PPE</h3>
+      <ul>
+        <li>Hazards: flying chips, entanglement in rotating parts, spinning work, kickback, electric shock, noise and vibration.</li>
+        <li>PPE: safety glasses; hearing protection for long or heavy drilling; dust mask for fine dust; enclosed leather footwear.</li>
+      </ul>
+      <h3>Pre-Operation Checks</h3>
+      <ul>
+        <li>Cord and plug intact; casing not cracked; vents clear.</li>
+        <li>Correct drill bit for material; bit straight, sharp and firmly tightened in chuck.</li>
+        <li>Chuck key removed before starting.</li>
+        <li>Workpiece clamped; no hands behind or under the drilling area; cord routed so no one can trip.</li>
+      </ul>
+      <h3>Safe Use</h3>
+      <ul>
+        <li>Choose speed: low speed for metal/large bits; higher speed for timber/small bits. Use impact mode only for masonry.</li>
+        <li>Use two hands on the drill (side handle if fitted). Start slowly to position the bit, then increase speed; do not force the drill.</li>
+        <li>Lift slightly in deep holes to clear swarf; keep fingers clear of rotating parts; do not touch hot bits after use.</li>
+      </ul>
+      <h3>Post-Operation</h3>
+      <ul>
+        <li>Release trigger and wait for full stop before setting the drill down.</li>
+        <li>Switch off and unplug to change bits or when finished.</li>
+        <li>Wipe off dust; store with cord loosely coiled and off the floor.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Hot Melt Glue Gun (Corded)</h2>
+      <img src="../images/hot%20melt%20glue%20gun.jpg" alt="Hot melt glue gun safety" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0;" />
+      <h3>Hazards & PPE</h3>
+      <ul>
+        <li>Hazards: burns from nozzle and glue (approx. 150-200 C), dripping glue, fire risk, electric shock from damaged cords.</li>
+        <li>PPE: safety glasses; clear, uncluttered bench; drip tray or scrap under nozzle; use the stand at all times.</li>
+      </ul>
+      <h3>Pre-Operation & Setup</h3>
+      <ul>
+        <li>Cord and plug intact; stand stable; correct glue sticks available and dry.</li>
+        <li>Insert glue stick before power-on if required by the model.</li>
+        <li>Heat the gun on its stand; do not test by touching the nozzle.</li>
+      </ul>
+      <h3>Safe Use</h3>
+      <ul>
+        <li>Hold by the insulated handle only.</li>
+        <li>Use gentle trigger pressure; do not over-apply glue; keep your other hand clear of the glue path.</li>
+        <li>Press parts together lightly and adjust quickly before the glue sets.</li>
+        <li>If hot glue contacts skin: do not wipe. Cool under running water and inform the teacher immediately.</li>
+        <li>Always return the gun to its stand when not in use; keep cords out of walkways; do not pull partially melted sticks out of the back.</li>
+      </ul>
+      <h3>Post-Operation</h3>
+      <ul>
+        <li>Switch off/unplug if the gun will not be used for a while.</li>
+        <li>Leave it on its stand to cool; do not lay it on its side.</li>
+        <li>Remove glue strings only when cool; store upright.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Activities & Evidence</h2>
+      <h3 id="onguard">OnGuard Completion</h3>
+      <ul>
+        <li>Complete the required OnGuard modules (hand tools, power tools/machinery).</li>
+        <li>Capture proof of completion (certificate, screenshot or teacher record).</li>
+      </ul>
+      <h3 id="google-classroom">Google Classroom Check-in</h3>
+      <ul>
+        <li>Complete the <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDcy" target="_blank" rel="noopener">Work, Health &amp; Safety</a> starter activity.</li>
+        <li>Finish the <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg2" target="_blank" rel="noopener">Safety &amp; OnGuard</a> module before practical work.</li>
+        <li>Submit your responses to the <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDgx" target="_blank" rel="noopener">WHS &amp; Risk Management</a> task alongside your SWMS draft.</li>
+      </ul>
+      <h3 id="swms">SWMS for Tower/Beam Work</h3>
+      <ul>
+        <li>Using the Risk Management Plan template (PDF): identify hazards for hand tools, the corded drill and the hot glue gun.</li>
+        <li>Apply the hierarchy of control to each hazard.</li>
+        <li>Write clear, step-by-step safe work methods for tower and beam tasks.</li>
+        <li><a href="../Year 9 T1 Theory Notes/Risk Management Plan.pdf" target="_blank" rel="noopener">Risk Management Plan template (PDF)</a></li>
+      </ul>
+      <h3 id="safety-sign-task">Workshop Safety Sign</h3>
+      <ul>
+        <li>Design a safety sign for a real workshop hazard (e.g. eye protection, hot surfaces, no running).</li>
+        <li>Use the correct category (mandatory, prohibition, warning) and include text and symbol.</li>
+      </ul>
+      <h3 id="photo-evidence">Photo Evidence</h3>
+      <ul>
+        <li>Take or use photos (teacher-approved) showing: correct PPE in use; work clamped for drilling; glue gun on its stand with drip tray.</li>
+        <li>Use these as part of your folio or reflection.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Student Responsibilities</h2>
+      <ul>
+        <li>Follow all teacher instructions and workshop rules. No shortcuts.</li>
+        <li>Only one operator per power tool unless your teacher sets up a supervised two-person task.</li>
+        <li>Report any damaged tools, faulty cords, missing guards or unsafe behaviour immediately.</li>
+        <li>Never attempt repairs yourself; stop, isolate, report.</li>
+        <li>Respect shared equipment: return tools clean, sharp and stored correctly; leave benches and machines clean for the next class.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>WHS Q&A</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why do you need teacher permission and OnGuard completion before using power tools?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa1">They confirm you have the knowledge, training and supervision required. Without them, you may not recognise hazards, use the wrong setup, or bypass controls, increasing risk of injury.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is the minimum PPE expected in the workshop?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa2">Safety glasses at all times. Add hearing protection for noisy work, enclosed footwear, and tie back hair/remove jewellery or cords to avoid entanglement.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What does “line of fire” mean when using hand tools?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa3">It is the path a tool or workpiece will travel if it slips or breaks. Keep hands and body out of that path, and clamp work so you are not holding material where the tool is moving.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is the first control to consider in the hierarchy of control?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa4">Elimination—remove the hazard entirely. If that is not possible, work down through substitution, engineering, administrative controls, then PPE.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What should you do if a tool vibrates, smells burnt or sounds wrong?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa5">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa5">Stop immediately, switch off and unplug if safe, and inform the teacher. Do not attempt repairs yourself.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why must small work be clamped instead of held by hand when drilling or cutting?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa6">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa6">Clamping prevents the piece from spinning, kicking back or moving into the line of fire, protecting your hands and improving accuracy.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is the correct response if hot glue contacts skin?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa7">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa7">Do not wipe. Cool the burn under running water immediately and inform the teacher so first aid can be given.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>In DRABC, what is the first step and why?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa8">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa8">Danger. You must ensure the area is safe for you, the casualty and others before approaching; otherwise you could become a second casualty.</div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <script>
+    document.querySelectorAll('.qa-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const answer = document.getElementById(btn.getAttribute('aria-controls'));
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        btn.textContent = isOpen ? 'Show answer' : 'Hide answer';
+        answer.style.display = isOpen ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>
