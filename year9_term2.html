@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Year 9 Term 2 Engineering: Mechanisms & Fluid Power. Build a hydraulic digger (formative) and a geared lolly dispenser (summative) with MA/VR testing, reliability logs and CAD support." />
+  <meta name="keywords" content="engineering, hydraulic digger, geared dispenser, mechanisms, gears, cams, linkages, MA, VR, CAD, Onshape, year 9, stage 5" />
+  <title>Year 9 Term 2 - Mechanisms & Fluid Power | Stage 5 Engineering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --brand-2: #0a7e2a;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.75rem 1.25rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1rem 0 0.5rem;
+    }
+    .top-nav a {
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.12);
+      color: #e8f2ff;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .top-nav a.active {
+      background: #fff;
+      color: #0b63c3;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+    .hero-title { margin: 0.25rem 0; font-size: clamp(2.1rem, 4vw, 2.8rem); font-weight: 700; }
+    .hero-sub { margin: 0.3rem 0; opacity: 0.9; font-size: 1.05rem; }
+    main { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+    .crumbs { display: inline-flex; gap: 0.75rem; margin: 1rem 0 1.5rem; align-items: center; }
+    .crumbs a { color: var(--brand); font-weight: 600; }
+    .panel {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+    }
+    .panel h3 { margin-top: 0; color: var(--brand); font-size: 1.35rem; }
+    .panel ul { margin: 0; padding-left: 1.1rem; color: var(--muted); }
+    .panel li + li { margin-top: 0.35rem; }
+    .panel a { color: var(--brand); text-decoration: underline; }
+    .panel a:hover { color: #003f80; text-decoration: underline; }
+    .modules { margin-top: 2rem; text-align: center; }
+    .modules h2 { margin: 0 0 1rem; color: var(--brand); }
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+    .module-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .module-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.12); }
+    .module-card:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      transform: translateY(-2px);
+    }
+    .thumb-container {
+      background: #e6f0fb;
+      padding: 0.75rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .module-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, var(--brand), #0e7adf);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(0, 86, 179, 0.2);
+    }
+    .module-title { font-weight: 600; color: var(--text); }
+    .module-sub { font-size: 0.95rem; color: var(--muted); }
+    .tutorial-card, .checklist-card {
+      border: 2px solid #0b63c3;
+      background: linear-gradient(135deg, #0b63c3, #0a4f93);
+      color: #fff;
+    }
+    .tutorial-card:hover, .checklist-card:hover {
+      background: linear-gradient(135deg, #0a4f93, #073a6a);
+      color: #fff;
+    }
+    .tutorial-thumb, .checklist-thumb {
+      background: linear-gradient(135deg, #d9e8ff, #c7dcff);
+    }
+    .tutorial-thumb span, .checklist-thumb span {
+      color: #0b63c3;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .tutorial-card .module-title,
+    .checklist-card .module-title,
+    .tutorial-card .module-sub,
+    .checklist-card .module-sub {
+      color: #fff;
+    }
+    .pill {
+      display: inline-block;
+      align-self: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .resources {
+      margin-top: 2rem;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .resource-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 0.35rem;
+    }
+    .resource-card h4 { margin: 0; color: var(--brand); }
+    .resource-card p { margin: 0; color: var(--muted); }
+    .resource-card a { color: var(--brand); font-weight: 600; }
+    .assessment-panel {
+      background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+      border: 2px solid #28a745;
+      border-left: 5px solid #1e7e34;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+    }
+    .assessment-panel h3 {
+      margin-top: 0;
+      color: #155724;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .assessment-panel h3::before {
+      content: "📋";
+      font-size: 1.5rem;
+    }
+    .assessment-header {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+      background: rgba(255,255,255,0.6);
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .assessment-header-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .assessment-header-item strong {
+      color: #155724;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .assessment-header-item span {
+      color: #333;
+      font-weight: 600;
+    }
+    .assessment-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #28a745;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .assessment-link:hover {
+      background: #1e7e34;
+      color: #fff;
+    }
+    .footer {
+      margin-top: 3rem;
+      background: #fff;
+      border: 1px solid #f1c40f;
+      border-left: 4px solid #d9534f;
+      border-radius: 10px;
+      padding: 1.25rem 1rem;
+      box-shadow: var(--shadow);
+      color: #8a6d3b;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 600px) {
+      header { padding-top: 2rem; }
+      .top-nav { justify-content: flex-start; }
+      .modules-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="sr-only" style="position: absolute; top: 0; left: 0; background: #0b63c3; color: #fff; padding: 0.75rem 1rem; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0;">Skip to main content</a>
+  <header role="banner">
+    <h1 class="hero-title">Year 9 Engineering Term 2 – Concrete Beam Project</h1>
+    <p class="hero-sub">Materials, concrete & composites, design, casting, testing and evaluation</p>
+    <div class="top-nav">
+      <a href="index.html">Back to Engineering Home</a>
+      <a href="year9_term1.html">Term 1 – Water Tower Project</a>
+      <a class="active" href="#">Term 2 – Concrete Beam Project</a>
+      <a href="year9_term3.html">Term 3 – Hydraulic Digger Project</a>
+      <a href="year9_term4.html">Term 4 – Geared Lolly Dispenser Project</a>
+    </div>
+  </header>
+  <main id="main-content" role="main">
+    <div class="crumbs">
+      <a href="index.html">&#8592; Back to Main Index</a>
+      <span>/</span>
+      <span>Year 9 Term 2</span>
+    </div>
+
+    <!-- Assessment Task Notification -->
+    <section class="assessment-panel" aria-labelledby="assessment-heading">
+      <h3 id="assessment-heading">Term 2 Assessment Task: Task 1 - Concrete Beam Project</h3>
+      <p style="color: #155724; margin-bottom: 1rem; font-weight: 600;">This is a <strong>summative assessment task</strong> worth 30% of your Year 9 Engineering grade. Submit your complete Concrete Beam project folio by Week 7, Term 2.</p>
+      
+      <div class="assessment-header">
+        <div class="assessment-header-item">
+          <strong>Date of Issue</strong>
+          <span>Week 1, Term 2</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Casting</strong>
+          <span>Weeks 2-4, Term 2</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Testing</strong>
+          <span>Weeks 5-6, Term 2</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Folio Submission</strong>
+          <span>Week 7, Term 2</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Task Weighting</strong>
+          <span>30% (Task 1)</span>
+        </div>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.7); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+        <h4 style="margin-top: 0; color: #155724; font-size: 1.1rem;">Task Overview</h4>
+        <p style="margin-bottom: 0.75rem; color: #333;">Design, cast, and test a reinforced concrete beam. Document your complete process from materials selection through casting, testing, and evaluation in a comprehensive project folio.</p>
+        <p style="margin-bottom: 0.75rem; color: #333;"><strong>Key Requirements:</strong></p>
+        <ul style="margin-bottom: 0; color: #333; padding-left: 1.5rem;">
+          <li>Understand materials properties and concrete as a composite material</li>
+          <li>Design beam geometry and reinforcement layout</li>
+          <li>Cast concrete beam following proper procedures</li>
+          <li>Conduct destructive testing after curing (minimum 7 days)</li>
+          <li>Analyse failure modes and evaluate performance</li>
+        </ul>
+      </div>
+
+      <a href="year9_term2_assessment.html" class="assessment-link" target="_blank" rel="noopener">View Full Assessment Notification →</a>
+    </section>
+
+    <section class="panel" aria-labelledby="term2-intro">
+      <h3 id="term2-intro">Term 2 Focus and Syllabus Alignment</h3>
+      <p>Term 2 focuses on materials, concrete and composite materials: understanding material properties, concrete as a composite, and designing, casting, testing and evaluating concrete beams. The toolkits connect directly to the NSW Stage 5 syllabus, covering:</p>
+      <ul style="margin-top: 0.75rem;">
+        <li><strong>Materials &amp; Corrosion:</strong> Material properties, corrosion mechanisms, protection methods, and material selection for structural applications.</li>
+        <li><strong>Concrete &amp; Composites:</strong> Concrete as a composite material, mix design, reinforcement, curing, and structural behaviour.</li>
+        <li><strong>Design &amp; Testing:</strong> Beam design principles, casting procedures, destructive testing, data analysis, and evaluation.</li>
+      </ul>
+      <p style="margin-top: 1rem;">You will practice WHS and risk management, technical communication, testing and evaluation, data analysis, and iterative improvement throughout your concrete beam project.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="classroom-term2">
+      <h3 id="classroom-term2">Google Classroom Topics (Term 2)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;"><strong>Preparation is key:</strong> Each Google Classroom topic contains essential starter activities, resources, and background information for the corresponding topic. Complete these tasks <em>before</em> or <em>during</em> the matching practical session to get the most out of your hands-on work. These activities help you understand the "why" behind what you're building.</p>
+      <ul>
+        <li><strong>CAD Tutorials:</strong> <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc2" target="_blank" rel="noopener">Google Classroom Topic</a></li>
+        <li><strong>Onshape Tutorials:</strong> <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc5" target="_blank" rel="noopener">Google Classroom Topic</a></li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Scope & Lesson Plans</h3>
+      <ul>
+        <li><a href="Year9_Engineering_T2_scope_sequence.docx" target="_blank" rel="noopener">Year 9 Industrial Tech T2 Scope and Sequence (legacy – mechanisms scope here is current)</a></li>
+        <li><a href="Year9_Engineering_T2_LessonPlans_REDESIGNED.docx" target="_blank" rel="noopener">Term 2 Lesson Plans (legacy – mechanisms scope here is current)</a></li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Overview of Requirements</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">Term 2 focuses on materials, concrete and structural testing. Here's what you'll accomplish:</p>
+      <ul>
+        <li><strong>Materials &amp; Corrosion Investigation:</strong> Explore material properties through corrosion experiments; understand why engineers choose specific materials; investigate protection methods.</li>
+        <li><strong>Concrete &amp; Composite Materials:</strong> Understand concrete as a composite material; learn about mix design, reinforcement, curing, and structural behaviour.</li>
+        <li><strong>Concrete Beam Design &amp; Planning:</strong> Design your beam (span, cross-section, reinforcement); plan mix proportions; develop casting sequence; prepare test procedures.</li>
+        <li><strong>Concrete Beam Casting, Test &amp; Evaluate:</strong> Cast beams following proper procedures; allow proper curing time; conduct destructive testing; analyse results and evaluate performance.</li>
+        <li><strong>Comprehensive Folio:</strong> WHS documentation, design rationale, build log/photos, test data tables/graphs, analysis (predicted vs actual), and specific improvements.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Outcomes Alignment (IND5)</h3>
+      <ul>
+        <li>IND5-1, IND5-3, IND5-4: WHS and SWMS for cutting/drilling, hydraulic setup/pressure hazards, and guarding pinch points in gear trains.</li>
+        <li>IND5-2, IND5-5, IND5-7: Iterative design of digger/dispenser with sketches/CAD, BOM, testing evidence and collaboration.</li>
+        <li>IND5-6: Teamwork on build/testing cycles; shared controls for water/pressure and rotating mechanisms.</li>
+        <li>IND5-8, IND5-9, IND5-10: Evaluate material choice, hygiene/guarding, sustainability and emerging mechanisms/CAD practices.</li>
+      </ul>
+      <p style="margin-top: 1rem;">
+        <a href="#post-2027-outcomes" style="color: #2563eb; text-decoration: underline;">View the post-2027 outcomes alignment (new syllabus)</a>
+      </p>
+    </section>
+
+    <section class="panel" id="post-2027-outcomes" aria-labelledby="post-2027-outcomes-heading">
+      <h3 id="post-2027-outcomes-heading">Post-2027 Outcomes Alignment (EGT5)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">As the syllabus transitions, these post-2027 Engineering Technology outcomes connect directly to the work you complete in Term 2 (digger/dispenser, mechanisms, CAD):</p>
+      <ul>
+        <li><strong>EGT5-SAF-01 &amp; EGT5-ENV-01:</strong> Apply WHS controls for cutting/drilling, water/pressure hazards, rotating mechanisms and guarding; embed sustainable choices in materials and manufacture.</li>
+        <li><strong>EGT5-COM-01 &amp; EGT5-GRP-01:</strong> Communicate design intent and test results via folios, CAD screenshots and data tables; collaborate on build/test cycles.</li>
+        <li><strong>EGT5-EVL-01:</strong> Investigate and evaluate mechanical performance by comparing predicted vs measured MA/VR, turns-per-candy, jam data and reliability logs.</li>
+        <li><strong>EGT5-MEA-01:</strong> Analyse mechanical performance by tracking effort, stroke, load, ratios and efficiency; use data to improve designs.</li>
+        <li><strong>EGT5-USE-01:</strong> Select and justify materials/components for linkages, gears, cams and guards based on properties and suitability.</li>
+        <li><strong>EGT5-IVT-01:</strong> Link classroom mechanisms to industry examples (packaging, dispensing, small-scale automation, fluid power).</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Assessment & Folio Checklist</h3>
+      <ul>
+        <li>SWMS and safety evidence for cutting/drilling, hydraulic setup/pressure hazards, and rotating mechanisms/guarding.</li>
+        <li>Hydraulic digger (formative) evidence: photos (min 3–4), syringe sizes/areas, lever lengths, predicted vs measured MA/VR, effort/travel/load data, brief reflection.</li>
+        <li>Geared dispenser (summative) evidence: photos (key stages), gear teeth counts, predicted vs measured turns-per-candy, reliability/jam log (e.g. 20+ cycles), notes on cam/ratchet/guarding.</li>
+        <li>Mechanism experiments: short MA/VR/friction tests (gears/levers/cams/linkages) with tables and a brief summary.</li>
+        <li>CAD outputs: annotated sketches and/or Onshape screenshots/drawings of layouts/assemblies; optional DXF exports if available.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Hands-on & Theory (Term 2 Program)</h3>
+      <ul>
+        <li>Hydraulic digger: Pascal’s law, syringe sizing, lever geometry; build, plumb, de‑air; measure effort/travel/load; compare predicted vs measured MA/VR.</li>
+        <li>Geared dispenser: design compound gear train (optional cam/ratchet); build and test; log turns-per-candy vs theory; reliability/jam tracking; guarding/hygiene considerations.</li>
+        <li>Mechanism experiments: short MA/VR/friction tests on simple mechanisms (gears, levers, cams/linkages); motion mapping; data tables/summary.</li>
+        <li>Forces/mechanisms theory: MA, VR, efficiency, friction, cam/gear/linkage basics applied to the builds.</li>
+        <li>CAD & Onshape: sketch/model layouts/assemblies; create drawings/screenshots; optional DXF for cutting if available.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Resources & Differentiation</h3>
+      <ul>
+        <li>Materials: timber/ply for bases and arms, bolts/pivots, syringes/tubing, gears, cams/ratchets, fasteners, guards.</li>
+        <li>Digital: Onshape accounts for layouts and simple assemblies; optional DXF exports for laser/CNC if available.</li>
+        <li>Scaffolds: SWMS templates, MA/VR gear-ratio sheets, reliability log templates, jam/fit checklist, sentence starters for data analysis.</li>
+        <li>Differentiation: exemplar gear trains, simplified arm layouts, multilingual captions, optional extension to multi-stage or cam-triggered gates.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Week Plan Snapshot (Guide)</h3>
+      <ul>
+        <li>W1: Hydraulic digger fundamentals – Pascal’s law, syringe sizing, lever layout; sketch and plan.</li>
+        <li>W2: Build and plumb the digger; remove air; basic lift test; record force/stroke.</li>
+        <li>W3: Mechanism focus – gear ratio basics; plan geared dispenser layout (handle to gate/scoop).</li>
+        <li>W4: Build dispenser frame, mount gears, add gate/cam/ratchet if used.</li>
+        <li>W5: Reliability testing and jam log (20+ cycles); measure turns-per-candy vs theoretical ratio.</li>
+        <li>W6: Iterate: adjust spacing, guides, guards; retest; update folio.</li>
+        <li>W7: CAD support (optional) and folio consolidation; add drawings/screenshots.</li>
+        <li>W8: Catch-up, reflection, and polish: data tables, graphs/summary, safety evidence.</li>
+        <li>W9–W10: Buffer for build/test overruns; finalise folio and submissions.</li>
+      </ul>
+    </section>
+
+    <section class="modules">
+      <h2>Toolkits</h2>
+      <div class="modules-grid">
+        <a class="module-card" id="term2-toolkit1" href="Year9%20T2%20Modules/module1.html">
+          <div class="module-num">1</div>
+          <div class="module-title">Materials &amp; Corrosion</div>
+          <div class="module-sub">Material properties, corrosion, protection methods</div>
+          <span class="pill">Materials</span>
+        </a>
+        <a class="module-card" id="term2-toolkit2" href="Year9%20T2%20Modules/module2.html">
+          <div class="module-num">2</div>
+          <div class="module-title">Concrete &amp; Composite Materials</div>
+          <div class="module-sub">Concrete as composite, mix design, reinforcement</div>
+          <span class="pill">Materials</span>
+        </a>
+        <a class="module-card" id="term2-toolkit3" href="Year9%20T2%20Modules/module3.html">
+          <div class="module-num">3</div>
+          <div class="module-title">Concrete Beam Design &amp; Planning</div>
+          <div class="module-sub">Beam design, mix planning, casting sequence</div>
+          <span class="pill">Design</span>
+        </a>
+        <a class="module-card" id="term2-toolkit4" href="Year9%20T2%20Modules/module4.html">
+          <div class="module-num">4</div>
+          <div class="module-title">Concrete Beam Casting, Test &amp; Evaluate</div>
+          <div class="module-sub">Casting, curing, destructive testing, evaluation</div>
+          <span class="pill">Project</span>
+        </a>
+      </div>
+    </section>
+    <section class="panel">
+      <h3>Key Document</h3>
+      <ul>
+        <li><a href="9%20Structures_Mechanism%20Program%20draft.pdf" target="_blank">Year 9 Structures &amp; Mechanisms Program (PDF)</a></li>
+        <li><a href="9%20Structures_Mechanism%20Program%20draft.docx" target="_blank" rel="noopener">Year 9 Structures &amp; Mechanisms Program (DOCX)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20(S4,%20S5,%20LS).docx" target="_blank">NESA Engineering Technology 7-10 Syllabus (Stage 4/5)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20syllabus%20support%20(S4,%20S5,%20LS).docx" target="_blank">NESA Syllabus Support (Stage 4/5)</a></li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      <strong>Notice:</strong> All images and resources are provided solely for teaching and learning with our enrolled students.<br />
+      <strong>WARNING:</strong> This material has been reproduced and communicated by or on behalf of Wagga Wagga High School pursuant to Part VB of the Copyright Act 1968 (Cth). Further copying or communication may be subject to copyright protection under the Act.
+    </div>
+  </main>
+</body>
+</html>
