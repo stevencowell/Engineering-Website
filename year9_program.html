@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Year 9 Scope & Sequence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      text-align: center;
+      padding: 2.5rem 1rem 2rem;
+    }
+    header h1 { margin: 0; font-size: clamp(2rem, 4vw, 2.8rem); }
+    header p { margin: 0.5rem 0 0; opacity: 0.9; }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+    .intro {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+    .term-section {
+      margin-bottom: 2.5rem;
+    }
+    .term-section h2 {
+      margin: 0 0 0.5rem;
+      color: var(--brand);
+    }
+    .term-section p {
+      margin: 0 0 1.25rem;
+      color: var(--muted);
+    }
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+    .entry {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 1.25rem 1.5rem;
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 1rem;
+    }
+    .entry-label {
+      font-weight: 700;
+      color: var(--brand);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .entry h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+    .entry p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+    }
+    .entry ul {
+      margin: 0.6rem 0 0;
+      padding-left: 1.2rem;
+      color: var(--muted);
+    }
+    .entry a {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .entry a:hover {
+      text-decoration: underline;
+    }
+    /* Assessment card */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+    /* Assessment hero card on blue */
+    .card.assessment-hero {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      border: none;
+    }
+    .card.assessment-hero .card-header .eyebrow,
+    .card.assessment-hero .card-header h2,
+    .card.assessment-hero .card-header p {
+      color: #fff;
+    }
+    .card.assessment-hero .task-badge {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.35);
+    }
+    .card-header .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--brand);
+      margin-bottom: 0.35rem;
+    }
+    .card-header h2 {
+      margin: 0 0 0.35rem 0;
+      color: var(--text);
+    }
+    .card-header p {
+      margin: 0;
+      color: var(--muted);
+    }
+    .assessment-links {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .assessment-links a {
+      color: var(--brand);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    .assessment-links h3,
+    .assessment-links li {
+      color: var(--text);
+    }
+    .assessment-links .entry {
+      grid-template-columns: 120px 1fr;
+    }
+    .task-badge {
+      display: inline-block;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      border: 1px solid #d4e1f5;
+      text-decoration: none;
+    }
+    @media (max-width: 700px) {
+      .entry {
+        grid-template-columns: 1fr;
+      }
+      .entry-label {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Year 9 Engineering Program</h1>
+    <p>Scope &amp; sequence with direct links to each toolkit focus on the website</p>
+  </header>
+  <main>
+    <div class="intro">
+      <p>This guide mirrors the website flow—Term&nbsp;1 Toolkit&nbsp;1 through Term&nbsp;4 Toolkit&nbsp;4—so you can walk the program “one step at a time”. Each link jumps straight to the matching toolkit section on the term pages.</p>
+    </div>
+
+    <section class="term-section">
+      <h2>Term 1 – Structures</h2>
+      <p>Build WHS foundations, investigate materials, analyse structural behaviour and document tower/beam testing.</p>
+      <div class="timeline">
+        <div class="entry">
+          <div class="entry-label">Toolkit 1</div>
+          <div>
+            <h3><a href="year9_term1.html#term1-toolkit1">WHS &amp; Risk Control</a></h3>
+            <p>OnGuard certifications, hierarchy of control, PPE routines for hand and power tools, DRABC first response, and SWMS drafting before practical work.</p>
+            <ul>
+              <li>Complete safety induction, PPE checks and SWMS drafts for tower/beam tasks</li>
+              <li>Workshop signage activity, DRABC overview and first-aid practice</li>
+              <li>Safe setup and use of core hand tools, drills and glue guns</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-label">Toolkit 2</div>
+          <div>
+            <h3><a href="year9_term1.html#term1-toolkit2">Materials &amp; Corrosion</a></h3>
+            <p>Classify engineering materials, run corrosion and damp-proof experiments, and gather evidence for reports.</p>
+            <ul>
+              <li>Saltwater soak tests on mild steel, gal steel, plastic and concrete</li>
+              <li>Damp-proof course brick stack experiment with membrane control</li>
+              <li>Materials brief on properties, appearance, durability and sustainability</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-label">Toolkit 3</div>
+          <div>
+            <h3><a href="year9_term1.html#term1-toolkit3">Structural Concepts</a></h3>
+            <p>Analyse loads, SI units, struts vs ties and triangulation before scaling your tower builds.</p>
+            <ul>
+              <li>Force types, reactions, point vs distributed loading</li>
+              <li>Strength-to-weight and slenderness for compression vs tension members</li>
+              <li>Bridge basics, truss forms and PBS simulator practice</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-label">Toolkit 4</div>
+          <div>
+            <h3><a href="year9_term1.html#term1-toolkit4">Build, Test &amp; Evaluate</a></h3>
+            <p>Construct and destructively test the water tower and concrete beam, recording data and evaluations for the folio.</p>
+            <ul>
+              <li>Planned build sequence, quality checks and SWMS sign-off</li>
+              <li>Load testing to first crack and failure with video/photo evidence</li>
+              <li>Folio sections on data tables, graphs, evaluation and improvements</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="term-section">
+      <h2>Term 2 – Mechanisms & Fluid Power</h2>
+      <p>Move from fluid power and lever linkages to compound gear trains and reliable dispensing, with CAD/Onshape support.</p>
+      <div class="timeline">
+        <div class="entry">
+          <div class="entry-label">Toolkit 1</div>
+          <div>
+            <h3><a href="year9_term2.html#term2-toolkit1">Hydraulic Digger</a></h3>
+            <p>Fluid power, syringe sizing, lever geometry; build and test a tabletop digger.</p>
+            <ul>
+              <li>Pascal’s principle, force/area ratios, MA/VR predicted vs measured</li>
+              <li>Build, plumb, de‑air; measure effort, travel, load; basic efficiency notes</li>
+              <li>SWMS for water/pressure hazards; photos + data for folio</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-label">Toolkit 2</div>
+          <div>
+            <h3><a href="year9_term2.html#term2-toolkit2">Geared Lolly Dispenser</a></h3>
+            <p>Compound gears, optional cam/ratchet, reliability and user‑centred design.</p>
+            <ul>
+              <li>Design gear trains; predict vs measure turns‑per‑candy</li>
+              <li>Prototype gate/drum; add ratchet/anti‑backdrive if needed</li>
+              <li>Reliability/jam log (e.g., 20+ cycles); hygiene/safety/guarding considerations</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-label">Toolkit 3</div>
+          <div>
+            <h3><a href="year9_term2.html#term2-toolkit3">Mechanism Experiments</a></h3>
+            <p>MA/VR tests, cams/linkages, friction/reliability investigations.</p>
+            <ul>
+              <li>Simple gear pair/lever/pulley/cam tests; collect ratios/efficiency data</li>
+              <li>Motion mapping of inputs/outputs; note friction effects</li>
+              <li>Short data tables and reflections for folio</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-label">Toolkit 4</div>
+          <div>
+            <h3><a href="year9_term2.html#term2-toolkit4">CAD & Onshape (Support)</a></h3>
+            <p>Layouts/assemblies/drawings to support digger/dispenser builds.</p>
+            <ul>
+              <li>Sketch/assemble key parts; mates/configs as needed</li>
+              <li>Create drawings/screenshots for folio with dimensions and notes</li>
+              <li>Export and organise evidence to integrate with practical builds</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="term-section">
+      <h2>Term 3 – Project Realisation</h2>
+      <p>Dedicated workshop time to build, test and refine the Hydraulic Digger and Geared Lolly Dispenser.</p>
+      <div class="timeline">
+        <div class="entry">
+          <div class="entry-label">Toolkit 1</div>
+          <div>
+            <h3><a href="year9_term3.html#term3-toolkit1">Hydraulic Digger Build</a></h3>
+            <p>Finalise construction and conduct performance testing for the formative project.</p>
+            <ul>
+              <li>Assemble frame and arms; mount syringes securely</li>
+              <li>Conduct lifting tests; record input force vs load lifted</li>
+              <li>Evaluate control smoothness and hydraulic efficiency</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-label">Toolkit 2</div>
+          <div>
+            <h3><a href="year9_term3.html#term3-toolkit2">Lolly Dispenser Build</a></h3>
+            <p>Construct the summative project with compound gears and reliable dispensing.</p>
+            <ul>
+              <li>Fabricate frame and mount gear train with correct spacing</li>
+              <li>Install dispensing drum, gate, and optional cam/ratchet</li>
+              <li>Test for jams and consistency; adjust tolerances</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-label">Toolkit 3</div>
+          <div>
+            <h3><a href="year9_term3.html#term3-toolkit3">Mechanism Experiments</a></h3>
+            <p>Support your builds with targeted experiments on simple machines.</p>
+            <ul>
+              <li>Verify gear ratios and lever MA calculations with rig tests</li>
+              <li>Investigate friction losses and efficiency improvements</li>
+              <li>Document experimental data for the folio</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-label">Toolkit 4</div>
+          <div>
+            <h3><a href="year9_term3.html#term3-toolkit4">Folio & CAD</a></h3>
+            <p>Compile all design, construction, and testing evidence into the final assessment folio.</p>
+            <ul>
+              <li>Finalise CAD drawings and assembly views</li>
+              <li>Collate testing data, graphs, and reliability logs</li>
+              <li>Write evaluations and sustainability reflections</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="term-section">
+      <h2>Term 4 – Mechanisms & Manufacture</h2>
+      <p>Capstone term focusing on digital manufacture, advanced CAD and showcase preparation for the geared dispenser.</p>
+      <div class="timeline">
+        <div class="entry">
+          <div class="entry-label">Toolkit 1</div>
+          <div>
+            <h3><a href="year9_term4.html#term4-toolkit1">Timber Materials</a></h3>
+            <p>Material selection, fabrication WHS and sustainable sourcing for mechanism casings.</p>
+            <ul>
+              <li>Compare timber species and sheet goods for strength, machinability and finish quality</li>
+              <li>Plan cut lists, jigs and clamping with PPE for sawing, drilling and sanding</li>
+              <li>Apply surface prep/finishes and manage waste, offcuts and dust safely</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-label">Toolkit 2</div>
+          <div>
+            <h3><a href="year9_term4.html#term4-toolkit2">Onshape &amp; CAD Mastery</a></h3>
+            <p>Advanced modelling workflows, configurations and production-ready drawings.</p>
+            <ul>
+              <li>Build assemblies with mates, variables/configurations and clear naming/BOMs</li>
+              <li>Create multi-sheet drawings with section/detail views, tolerances and title blocks</li>
+              <li>Export DXF/DWG for laser/CNC and capture part callouts for manufacture</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-label">Toolkit 3</div>
+          <div>
+            <h3><a href="year9_term4.html#term4-toolkit3">CAMs, Gears &amp; Manufacture</a></h3>
+            <p>Laser/CNC prep, CAM toolpaths and assembly of final dispenser components.</p>
+            <ul>
+              <li>Set kerf/allowances for laser/CNC files; verify fits for gears, cams and shafts</li>
+              <li>Generate and simulate toolpaths; organise cut files and safe machine setups</li>
+              <li>Assemble mechanisms with fasteners/adhesives, guards and alignment checks</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-label">Toolkit 4</div>
+          <div>
+            <h3><a href="year9_term4.html#term4-toolkit4">Testing, Folios &amp; Showcase</a></h3>
+            <p>System testing, data capture, sustainability reporting and expo-ready presentation.</p>
+            <ul>
+              <li>Test dispense counts, jams, torque/effort and durability; log data with photos/video</li>
+              <li>Iterate fixes and document changes; update folio with graphs, tables and QA checks</li>
+              <li>Prepare sustainability and safety summaries plus final boards/demo for showcase</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card assessment-hero" aria-labelledby="assessments-title">
+      <header class="card-header">
+        <div class="eyebrow">Assessment</div>
+        <h2 id="assessments-title">Year 9 Engineering – Assessment Tasks</h2>
+        <p>Access official NESA-aligned assessment notifications and marking criteria for this course.</p>
+      </header>
+      <div class="assessment-links">
+        <div class="entry">
+          <div class="entry-label"><a class="task-badge" href="year9_term2_assessment.html">Task 1</a></div>
+          <div>
+            <h3>Projects &amp; Reports 1</h3>
+            <ul>
+              <li><a href="year9_term2_assessment.html">Assessment Task Notification</a></li>
+              <li><a href="year9_task1_marking_criteria.html">Marking Criteria</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-label"><a class="task-badge" href="year9_term4_assessment.html">Task 2</a></div>
+          <div>
+            <h3>Projects &amp; Reports 2</h3>
+            <ul>
+              <li><a href="year9_term4_assessment.html">Assessment Task Notification</a></li>
+              <li><a href="year9_task2_marking_criteria.html">Marking Criteria</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-label"><a class="task-badge" href="year9_task3_notice_detailed.html">Task 3</a></div>
+          <div>
+            <h3>Final Examination</h3>
+            <ul>
+              <li><a href="year9_task3_notice_detailed.html">Assessment Task Notification</a></li>
+              <li><a href="year9_task3_marking_criteria.html">Marking Criteria</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

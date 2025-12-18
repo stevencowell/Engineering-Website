@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Task 1 – Water Tower (Student Guide)</title>
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --ink:#0f172a;
+      --muted:#475569;
+      --border:#e2e8f0;
+      --brand:#0b5ed7;
+      --ok:#15803d;
+      --warn:#a16207;
+      --bad:#b91c1c;
+      --radius:14px;
+      --shadow:0 10px 25px rgba(2,6,23,.08);
+      --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.5;
+    }
+
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      background:rgba(246,248,251,.95);
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid var(--border);
+      padding:10px 14px;
+    }
+    .topbar .row{
+      max-width:980px; margin:0 auto;
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      justify-content:space-between;
+    }
+    .topbar a{
+      text-decoration:none;
+      color:var(--brand);
+      font-weight:650;
+      font-size:14px;
+    }
+    .topbar .links{
+      display:flex; gap:12px; flex-wrap:wrap;
+    }
+    .topbar .links a{
+      font-weight:600;
+      color:var(--ink);
+      padding:7px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:#fff;
+    }
+
+    .wrap{max-width:980px; margin:18px auto 60px; padding:0 14px;}
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      margin:14px 0;
+    }
+
+    h1{margin:0 0 6px; font-size:26px; letter-spacing:-.2px;}
+    .sub{margin:0; color:var(--muted);}
+
+    .bigbrief{
+      border-left:7px solid var(--brand);
+      padding-left:14px;
+    }
+
+    .must{
+      margin:12px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    .must li{
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:12px 12px;
+      background:#fff;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .tag{
+      min-width:70px;
+      font-weight:800;
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      padding:6px 8px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:#f8fafc;
+      color:var(--muted);
+      text-align:center;
+    }
+
+    .two{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width:760px){ .two{grid-template-columns:1fr;} }
+
+    .mini h2{margin:0 0 8px; font-size:18px;}
+    .mini ul{margin:10px 0 0 18px;}
+    .mini li{margin:6px 0; color:var(--ink);}
+
+    .steps{
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+      counter-reset:step;
+      display:grid;
+      gap:10px;
+    }
+    .steps li{
+      counter-increment:step;
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:12px 12px;
+      background:#fff;
+    }
+    .steps li b{
+      display:block;
+      margin-bottom:4px;
+    }
+    .steps li::before{
+      content:"Step " counter(step);
+      display:inline-block;
+      margin-bottom:6px;
+      font-weight:850;
+      color:var(--brand);
+    }
+    .hint{color:var(--muted); margin:0;}
+
+    .check{
+      display:grid; gap:10px;
+      margin-top:10px;
+    }
+    .check label{
+      display:flex; gap:10px; align-items:flex-start;
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:12px;
+      background:#fff;
+      cursor:pointer;
+    }
+    .check input{margin-top:3px; transform:scale(1.1);}
+    .check small{display:block; color:var(--muted); margin-top:4px;}
+
+    details{
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:10px 12px;
+      background:#fff;
+      margin-top:10px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:750;
+      color:var(--ink);
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none;}
+    details p, details li{color:var(--muted);}
+    details ul{margin:8px 0 0 18px;}
+
+    .banner{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .pill{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:999px;
+      padding:7px 10px;
+      font-weight:700;
+      font-size:13px;
+      color:var(--ink);
+    }
+    .pill.ok{border-color:rgba(21,128,61,.25); }
+    .pill.warn{border-color:rgba(161,98,7,.25); }
+    .pill.bad{border-color:rgba(185,28,28,.25); }
+
+    @media print{
+      .topbar{display:none;}
+      body{background:#fff;}
+      .card{box-shadow:none;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="row">
+      <a href="year9_term1.html">← Back to Term 1</a>
+      <div class="links">
+        <a href="year9_term1_assessment.html">Assessment</a>
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <div class="card">
+      <h1>Task 1 – Water Tower</h1>
+      <p class="sub">Student guide. This is the “do this, not that” version.</p>
+
+      <div class="banner">
+        <div class="pill ok">Work in groups of 4</div>
+        <div class="pill">Design + build + test</div>
+        <div class="pill warn">Stay under the mass limit</div>
+      </div>
+    </div>
+
+    <div class="card bigbrief">
+      <h2 style="margin:0 0 8px; font-size:20px;">The Brief (what your tower must do)</h2>
+      <p class="sub" style="margin-top:0;">
+        Build a tower that holds heavy weight safely and efficiently using the supplied material.
+      </p>
+
+      <ul class="must" aria-label="Non-negotiable requirements">
+        <li><div class="tag">Height</div><div><b>At least 300 mm tall.</b></div></li>
+        <li><div class="tag">Mass</div><div><b>No more than 60 g.</b></div></li>
+        <li><div class="tag">Load</div><div><b>Must hold at least 25 kg.</b></div></li>
+        <li><div class="tag">Time</div><div><b>Must hold that load for at least 5 seconds.</b></div></li>
+        <li><div class="tag">Top</div><div><b>Top must support a 300 mm square board during testing.</b></div></li>
+      </ul>
+
+      <details>
+        <summary>What does “good” look like?</summary>
+        <ul>
+          <li>Triangles/bracing so it doesn’t rack sideways.</li>
+          <li>Neat, strong joints (most failures happen here).</li>
+          <li>Clear load path: top → legs/columns → base.</li>
+          <li>Stable base so it doesn’t wobble.</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="card">
+      <div class="two">
+        <div class="mini">
+          <h2>Materials you must use</h2>
+          <ul>
+            <li><b>4 mm square cross-section plywood</b> (structural members supplied).</li>
+            <li><b>300 mm square board</b> sits on top during testing.</li>
+            <li><b>Cast iron weights</b> placed on top during testing.</li>
+          </ul>
+          <details>
+            <summary>Mass planning tip (optional)</summary>
+            <p>There’s a mass guide in the project info (~10.6 g per metre). Use it to estimate your timber length so you don’t blow the 60 g limit.</p>
+          </details>
+        </div>
+
+        <div class="mini">
+          <h2>What you hand in</h2>
+          <ul>
+            <li><b>Your tower</b> (built and ready to test).</li>
+            <li><b>Your folio/report</b> with evidence of your process.</li>
+            <li><b>Testing results</b> (mass, load held, hold time).</li>
+          </ul>
+          <details>
+            <summary>How you’re marked (optional)</summary>
+            <ul>
+              <li><b>Project / build quality:</b> 70%</li>
+              <li><b>Load-to-mass ratio:</b> 10%</li>
+              <li><b>Report/folio:</b> 20%</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 style="margin:0 0 8px; font-size:20px;">Build steps</h2>
+      <ol class="steps">
+        <li>
+          <b>Sketch 2–3 ideas</b>
+          <p class="hint">Pick a design that is strong but light. Triangles help.</p>
+        </li>
+        <li>
+          <b>Draw your final design (with measurements)</b>
+          <p class="hint">Show height and where the top board will sit.</p>
+        </li>
+        <li>
+          <b>Plan your cuts BEFORE you cut</b>
+          <p class="hint">Long pieces are heavy and can buckle.</p>
+        </li>
+        <li>
+          <b>Build it square and straight</b>
+          <p class="hint">Use clamps/jigs. Wobbly towers die early.</p>
+        </li>
+        <li>
+          <b>Check stability</b>
+          <p class="hint">Does it rock? Are joints tight? Is the top platform stable?</p>
+        </li>
+        <li>
+          <b>Test and record results</b>
+          <p class="hint">Record mass (g), load (kg), hold time (s), and what failed (if it failed).</p>
+        </li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2 style="margin:0 0 8px; font-size:20px;">Bench checklist (tick as you go)</h2>
+      <div class="check">
+        <label><input type="checkbox" /> <div><b>I can say the brief from memory.</b><small>300 mm tall, ≤60 g, holds ≥25 kg for ≥5 s, supports a 300 mm square board.</small></div></label>
+        <label><input type="checkbox" /> <div><b>I used triangles/bracing.</b><small>Stops sideways collapse (racking).</small></div></label>
+        <label><input type="checkbox" /> <div><b>My tower is square and doesn’t wobble.</b><small>Wobble = stress = failure.</small></div></label>
+        <label><input type="checkbox" /> <div><b>I recorded my test data.</b><small>Mass, load, hold time, and what failed (if it failed).</small></div></label>
+        <label><input type="checkbox" /> <div><b>I have photos/evidence for my folio.</b><small>Build progress + final tower.</small></div></label>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

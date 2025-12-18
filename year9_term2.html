@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Year 9 Term 2 &ndash; Concrete Beam Project covering materials & corrosion, concrete as a composite material, beam design, casting, destructive testing and evaluation. Access toolkits, checklists and assessment resources." />
+  <meta name="keywords" content="engineering, concrete beam, materials, corrosion, composite materials, reinforcement, casting, testing, evaluation, year 9, stage 5" />
+  <title>Year 9 Term 2 &ndash; Concrete Beam Project | Stage 5 Engineering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <script src="collapsible-panels.js" defer></script>
+  <script src="page-nav.js" defer></script>
+  <style>
+    :root {
+      --brand: #0056b3;
+      --brand-2: #0a7e2a;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.75rem 1.25rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1rem 0 0.5rem;
+    }
+    .top-nav a {
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.12);
+      color: #e8f2ff;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .top-nav a.active {
+      background: #fff;
+      color: #0b63c3;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+    .hero-title { margin: 0.25rem 0; font-size: clamp(2.1rem, 4vw, 2.8rem); font-weight: 700; }
+    .hero-sub { margin: 0.3rem 0; opacity: 0.9; font-size: 1.05rem; }
+    main { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+    .crumbs { display: inline-flex; gap: 0.75rem; margin: 1rem 0 1.5rem; align-items: center; }
+    .crumbs a { color: var(--brand); font-weight: 600; }
+    .panel {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+    }
+    .panel h3 { margin-top: 0; color: var(--brand); font-size: 1.35rem; }
+    .panel ul { margin: 0; padding-left: 1.1rem; color: var(--muted); }
+    .panel li + li { margin-top: 0.35rem; }
+    .panel a { color: var(--brand); text-decoration: underline; }
+    .panel a:hover { color: #003f80; text-decoration: underline; }
+    .project-instructions h4 { margin: 0 0 0.35rem; color: var(--text); }
+    .instruction-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 1rem;
+    }
+    .instruction-grid ul { color: var(--muted); }
+    .instruction-grid li + li { margin-top: 0.25rem; }
+    .requirements-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.35rem 0 0;
+      display: grid;
+      gap: 0.25rem;
+    }
+    .requirements-list li {
+      background: #f6f8fb;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.5rem 0.75rem;
+      color: var(--text);
+    }
+    .build-steps-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.35rem;
+    }
+    .build-step-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.06);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .build-step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--brand);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(0, 86, 179, 0.18);
+      flex: 0 0 auto;
+    }
+    .build-step-body h5 {
+      margin: 0 0 0.25rem;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+    .build-step-body p { margin: 0 0 0.4rem; color: var(--muted); }
+    .step-details summary {
+      cursor: pointer;
+      user-select: none;
+      color: var(--brand);
+      font-weight: 700;
+      list-style: none;
+      display: inline-flex;
+      gap: 0.4rem;
+      align-items: center;
+      padding: 0;
+    }
+    .step-details summary::-webkit-details-marker { display: none; }
+    .step-details summary::before {
+      content: "\25BE";
+      font-weight: 900;
+      transform: translateY(-1px);
+    }
+    .step-details[open] summary::before { content: "\25B4"; }
+    .step-details[open] summary { margin-bottom: 0.4rem; }
+    .step-details ul { margin: 0 0 0.4rem 1rem; color: var(--muted); padding-left: 1rem; }
+    .step-details li + li { margin-top: 0.25rem; }
+    .quick-check { margin: 0; color: #223044; font-weight: 600; font-size: 0.97rem; }
+    .instruction-note { color: var(--muted); margin: 0.25rem 0 0; }
+    .instruction-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .instruction-links a { text-decoration: underline; color: var(--brand); font-weight: 600; }
+    .instruction-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.9rem;
+    }
+    .instruction-gallery figure {
+      background: #f6f8fb;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.6rem;
+      margin: 0;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+    .instruction-gallery img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+      object-fit: cover;
+    }
+    .instruction-gallery figcaption {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .youtube-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 1.35rem 1.5rem;
+      margin: 0 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .youtube-card-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 0;
+    }
+    .youtube-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #ff2a2a, #b10000);
+      color: #fff;
+      font-weight: 900;
+      flex: 0 0 auto;
+      box-shadow: 0 10px 20px rgba(177, 0, 0, 0.18);
+    }
+    .youtube-card-title {
+      margin: 0;
+      color: var(--text);
+      font-size: 1.35rem;
+    }
+    .youtube-card-sub {
+      margin: 0.25rem 0 0;
+      color: var(--muted);
+    }
+    .youtube-action {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 86, 179, 0.22);
+      background: rgba(0, 86, 179, 0.06);
+      color: rgba(0, 86, 179, 0.95);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      flex: 0 0 auto;
+      box-shadow: var(--shadow);
+    }
+    .youtube-action:hover {
+      background: rgba(0, 86, 179, 0.11);
+      border-color: rgba(0, 86, 179, 0.32);
+    }
+    .youtube-action:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 3px;
+    }
+    .modules { margin-top: 2rem; text-align: center; }
+    .modules h2 { margin: 0 0 1rem; color: var(--brand); }
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+    .module-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .module-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.12); }
+    .module-card:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      transform: translateY(-2px);
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 420px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+    .thumb-container {
+      background: #e6f0fb;
+      padding: 0.75rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .module-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, var(--brand), #0e7adf);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(0, 86, 179, 0.2);
+    }
+    .module-title { font-weight: 600; color: var(--text); }
+    .module-sub { font-size: 0.95rem; color: var(--muted); }
+    .tutorial-card, .checklist-card {
+      border: 2px solid #0b63c3;
+      background: linear-gradient(135deg, #0b63c3, #0a4f93);
+      color: #fff;
+    }
+    .tutorial-card:hover, .checklist-card:hover {
+      background: linear-gradient(135deg, #0a4f93, #073a6a);
+      color: #fff;
+    }
+    .tutorial-thumb, .checklist-thumb {
+      background: linear-gradient(135deg, #d9e8ff, #c7dcff);
+    }
+    .tutorial-thumb span, .checklist-thumb span {
+      color: #0b63c3;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .tutorial-card .module-title,
+    .checklist-card .module-title,
+    .tutorial-card .module-sub,
+    .checklist-card .module-sub {
+      color: #fff;
+    }
+    .pill {
+      display: inline-block;
+      align-self: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .resources {
+      margin-top: 2rem;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .resource-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 0.35rem;
+    }
+    .resource-card h4 { margin: 0; color: var(--brand); }
+    .resource-card p { margin: 0; color: var(--muted); }
+    .resource-card a { color: var(--brand); font-weight: 600; }
+    .assessment-panel {
+      background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+      border: 2px solid #28a745;
+      border-left: 5px solid #1e7e34;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+    }
+    .assessment-panel h3 {
+      margin-top: 0;
+      color: #155724;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .assessment-panel h3::before {
+      content: "\2714";
+      font-size: 1.5rem;
+    }
+    .assessment-header {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+      background: rgba(255,255,255,0.6);
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .assessment-header-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .assessment-header-item strong {
+      color: #155724;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .assessment-header-item span {
+      color: #333;
+      font-weight: 600;
+    }
+    .assessment-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #28a745;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .assessment-link:hover {
+      background: #1e7e34;
+      color: #fff;
+    }
+    .footer {
+      margin-top: 3rem;
+      background: #fff;
+      border: 1px solid #f1c40f;
+      border-left: 4px solid #d9534f;
+      border-radius: 10px;
+      padding: 1.25rem 1rem;
+      box-shadow: var(--shadow);
+      color: #8a6d3b;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 600px) {
+      header { padding-top: 2rem; }
+      .top-nav { justify-content: flex-start; }
+      .modules-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="sr-only" style="position: absolute; top: 0; left: 0; background: #0b63c3; color: #fff; padding: 0.75rem 1rem; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0;">Skip to main content</a>
+  <header role="banner">
+    <h1 class="hero-title">Year 9 Engineering Term 2 &ndash; Concrete Beam Project</h1>
+    <p class="hero-sub">Materials, concrete & composites, design, casting, testing and evaluation</p>
+    <div class="top-nav">
+      <a href="index.html">Back to Engineering Home</a>
+      <a href="year9_term1.html">Term 1 &ndash; Water Tower Project</a>
+      <a class="active" href="#">Term 2 &ndash; Concrete Beam Project</a>
+      <a href="year9_term3.html">Term 3 &ndash; Hydraulic Digger Project</a>
+      <a href="year9_term4.html">Term 4 &ndash; Geared Lolly Dispenser Project</a>
+    </div>
+  </header>
+  <main id="main-content" role="main">
+    <div class="crumbs">
+      <a href="index.html">&#8592; Back to Main Index</a>
+      <span>/</span>
+      <span>Year 9 Term 2</span>
+    </div>
+
+    <section class="panel project-instructions" aria-labelledby="project-instructions-heading">
+      <div class="instruction-grid">
+        <div>
+          <h3 id="project-instructions-heading">Concrete Beam Project Instructions</h3>
+          <h4>Project brief</h4>
+          <p style="color: #4b5563; margin: 0 0 0.5rem;">Design, cast, cure and destructively test a reinforced concrete beam, then evaluate how materials and design decisions affected performance.</p>
+          <ul class="requirements-list" aria-label="Key requirements">
+            <li><strong>Curing:</strong> Minimum 7 days before testing.</li>
+            <li><strong>Reinforcement:</strong> Place steel on the tension face with 15-20 mm cover.</li>
+            <li><strong>Mould:</strong> Build a 19 mm form-ply mould (ends 200 × 200; sides ~500 × 200; base form ply).</li>
+            <li><strong>Test method:</strong> Load in measured steps; record deflection and observations.</li>
+            <li><strong>Evidence:</strong> Photos + build log of mould, reinforcement, casting and curing.</li>
+            <li><strong>Evaluation:</strong> Identify the failure mode and propose improvements.</li>
+          </ul>
+          <p class="instruction-note"><strong>What "good" looks like:</strong> accurate reinforcement placement, well-compacted mix, consistent test setup, and clear, labelled evidence in your folio.</p>
+        </div>
+
+        <div>
+          <h4>Materials &amp; evidence</h4>
+          <ul>
+            <li>Concrete ingredients (cement, sand, aggregate, water) and a planned mix ratio.</li>
+            <li>Reinforcement (wire/mesh/bar) plus spacers/supports for correct cover.</li>
+            <li><strong>Mould (19 mm form ply):</strong> base 500 × 200; 2 sides 500 × 200; 2 ends 200 × 200.</li>
+            <li>Release agent, curing cover/wrap, and a beam ID label.</li>
+          </ul>
+          <p class="instruction-note"><strong>Hand in:</strong> a folio/report with design drawings, casting log, test results (table/graph), and evaluation.</p>
+          <div class="instruction-gallery" aria-label="Concrete beam example photo">
+            <figure>
+              <img src="images/Concrete%20beam%20test.jpg" alt="Concrete beam destructive test setup" loading="lazy">
+              <figcaption>Destructive test: record load and deflection, then photograph the failure.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="instruction-grid" style="margin-top: 1.25rem;">
+        <div>
+          <h4>Build steps</h4>
+          <div class="build-steps-card-grid" role="list">
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">1</div>
+              <div class="build-step-body">
+                <h5>Interpret the brief</h5>
+                <p>Identify the mould size, test span, reinforcement rules, and what data you must collect.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Highlight requirements: span, cross-section, load method, curing time, and safety.</li>
+                    <li>Start a checklist and tick it off as you go.</li>
+                    <li>Plan how you will label your beam (beam ID) and record dates.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Have you listed every requirement and constraint?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">2</div>
+              <div class="build-step-body">
+                <h5>Design beam geometry &amp; reinforcement</h5>
+                <p>Draw a cross-section showing dimensions, reinforcement position and cover.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>For simply-supported testing, tension is usually on the bottom face.</li>
+                    <li>Keep 15-20 mm cover to protect reinforcement and avoid cracking at the surface.</li>
+                    <li>Predict a failure mode (tension, compression, shear) and justify your design.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Does your drawing show dimensions and cover?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">3</div>
+              <div class="build-step-body">
+                <h5>Plan mix &amp; casting sequence</h5>
+                <p>Calculate volume, choose a mix ratio, and write a step-by-step casting plan.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Measure consistently: record cement:sand:aggregate:water (and why you chose it).</li>
+                    <li>Prepare tools before mixing (mould ready, reinforcement in place, PPE on).</li>
+                    <li>Plan compaction (tapping/vibration) to reduce air voids.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Is your casting plan clear enough for another group to follow?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">4</div>
+              <div class="build-step-body">
+                <h5>Prepare mould &amp; place reinforcement</h5>
+                <p>Clean the mould, apply release (if used), then position reinforcement accurately.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li><strong>Mould dimensions:</strong> ends 200 × 200; sides ~500 × 200; base 500 × 200 (all 19 mm form ply).</li>
+                    <li><strong>Assembly:</strong> screw/glue sides to the base, then fit the ends inside the side walls (internal length becomes ~462 mm because of 19 mm ply thickness).</li>
+                    <li>If you need an internal length closer to 500 mm, cut the base and side panels ~538 mm long (500 + 2×19).</li>
+                    <li>Use spacers/supports so reinforcement doesn't sink to the bottom.</li>
+                    <li>Secure reinforcement so it can't move during placement and compaction.</li>
+                    <li>Check cover at multiple points before pouring concrete.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Is reinforcement locked in and centred with correct cover?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">5</div>
+              <div class="build-step-body">
+                <h5>Mix, cast &amp; cure</h5>
+                <p>Mix safely, place concrete, compact, finish the surface, label, and cure for 7+ days.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Add water gradually; too much water weakens concrete and increases shrinkage.</li>
+                    <li>Compact in layers to reduce voids and improve strength.</li>
+                    <li>Keep concrete moist during curing (cover/wrap) to reduce cracking.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Have you recorded the mix and curing start date?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">6</div>
+              <div class="build-step-body">
+                <h5>Test, record &amp; evaluate</h5>
+                <p>Set the span, measure deflection, load in steps, then analyse the failure and improvements.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Keep supports level and load placement consistent (usually at mid-span).</li>
+                    <li>Record: first crack load, failure load, deflection at each step, and observations.</li>
+                    <li>Photograph the beam before, during and after failure; label the tension/compression faces.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Do your results include a table (and graph if possible)?</p>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4>Quick checks</h4>
+          <ul>
+            <li>Does your design show span, cross-section, and reinforcement layout?</li>
+            <li>Is reinforcement on the tension side with correct cover?</li>
+            <li>Is your mix ratio recorded and consistent?</li>
+            <li>Have you labelled the beam ID and curing time?</li>
+          </ul>
+          <div class="instruction-gallery" aria-label="Concrete testing reference">
+            <figure>
+              <img src="images/term234/concrete-testing.gif" alt="Concrete beam testing apparatus" loading="lazy">
+              <figcaption>Use the same increments and measurement point each step (typically mid-span).</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="youtube-card" role="region" aria-label="Term 2 YouTube clips">
+      <div class="youtube-card-left">
+        <div class="youtube-badge" aria-hidden="true">&#9654;</div>
+        <div style="min-width:0;">
+          <h2 class="youtube-card-title">YouTube clips</h2>
+          <p class="youtube-card-sub">Watch the curated Term 2 video clips for this project.</p>
+        </div>
+      </div>
+      <a class="youtube-action" href="Youtube%20clips/term%202%20youtube%20clips.html" target="_blank" rel="noopener" aria-label="Open Term 2 YouTube clips">&#9654;</a>
+    </div>
+
+    <!-- Assessment Task Notification -->
+    <section class="assessment-panel" aria-labelledby="assessment-heading">
+      <h3 id="assessment-heading">Term 2 &ndash; Concrete Beam Project</h3>
+      <p style="color: #155724; margin-bottom: 1rem; font-weight: 600;">This is a <strong>summative assessment task</strong> worth 30% of your Year 9 Engineering grade. Submit your complete Concrete Beam project folio by Week 7, Term 2.</p>
+      
+      <div class="assessment-header">
+        <div class="assessment-header-item">
+          <strong>Date of Issue</strong>
+          <span>Week 1, Term 2</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Casting</strong>
+          <span>Weeks 2-4, Term 2</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Testing</strong>
+          <span>Weeks 5-6, Term 2</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Folio Submission</strong>
+          <span>Week 7, Term 2</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Task Weighting</strong>
+          <span>30% (Task 1)</span>
+        </div>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.7); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+        <h4 style="margin-top: 0; color: #155724; font-size: 1.1rem;">Task Overview</h4>
+        <p style="margin-bottom: 0.75rem; color: #333;">Design, cast, and test a reinforced concrete beam. Document your complete process from materials selection through casting, testing, and evaluation in a comprehensive project folio.</p>
+        <p style="margin-bottom: 0.75rem; color: #333;"><strong>Key Requirements:</strong></p>
+        <ul style="margin-bottom: 0; color: #333; padding-left: 1.5rem;">
+          <li>Understand materials properties and concrete as a composite material</li>
+          <li>Design beam geometry and reinforcement layout</li>
+          <li>Cast concrete beam following proper procedures</li>
+          <li>Conduct destructive testing after curing (minimum 7 days)</li>
+          <li>Analyse failure modes and evaluate performance</li>
+        </ul>
+      </div>
+
+      <a href="year9_term2_assessment.html" class="assessment-link" target="_blank" rel="noopener">View Full Assessment Notification &rarr;</a>
+    </section>
+
+    <section class="panel" aria-labelledby="term2-intro">
+      <h3 id="term2-intro">Term 2 Focus and Syllabus Alignment</h3>
+      <img src="images/term234/concrete-testing.gif" alt="Concrete beam testing example" class="content-image" />
+      <p>Term 2 focuses on materials, concrete and composite materials: understanding material properties, concrete as a composite, and designing, casting, testing and evaluating concrete beams. The toolkits connect directly to the NSW Stage 5 syllabus, covering:</p>
+      <ul style="margin-top: 0.75rem;">
+        <li><strong>Materials &amp; Corrosion:</strong> Material properties, corrosion mechanisms, protection methods, and material selection for structural applications.</li>
+        <li><strong>Concrete &amp; Composites:</strong> Concrete as a composite material, mix design, reinforcement, curing, and structural behaviour.</li>
+        <li><strong>Design &amp; Testing:</strong> Beam design principles, casting procedures, destructive testing, data analysis, and evaluation.</li>
+      </ul>
+      <p style="margin-top: 1rem;">You will practice WHS and risk management, technical communication, testing and evaluation, data analysis, and iterative improvement throughout your concrete beam project.</p>
+    </section>
+
+
+
+    <section class="panel" aria-labelledby="classroom-term2">
+      <h3 id="classroom-term2">Key Links (Term 2)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">Use these pages while you work to keep your design, casting and testing on track.</p>
+      <ul>
+        <li><a href="Year9%20T2%20Modules/module1.html">Toolkit 1: Materials &amp; Corrosion</a></li>
+        <li><a href="Year9%20T2%20Modules/module2.html">Toolkit 2: Concrete &amp; Composite Materials</a></li>
+        <li><a href="Year9%20T2%20Modules/module3.html">Toolkit 3: Concrete Beam Design &amp; Planning</a></li>
+        <li><a href="Year9%20T2%20Modules/module4.html">Toolkit 4: Concrete Beam Casting, Test &amp; Evaluate</a></li>
+        <li><a href="Year9%20T2%20Modules/observation-checklist.html">Testing Checklist</a></li>
+        <li><a href="year9_term2_assessment.html" target="_blank" rel="noopener">Assessment notification</a></li>
+      </ul>
+    </section>
+
+
+    <section class="panel">
+      <h3>Scope &amp; Lesson Plans</h3>
+      <ul>
+        <li><a href="Year9_Engineering_T2_scope_sequence.docx" target="_blank" rel="noopener">Year 9 Term 2 Scope and Sequence (DOCX)</a></li>
+        <li><a href="Year9_Engineering_T2_LessonPlans_REDESIGNED.docx" target="_blank" rel="noopener">Term 2 Lesson Plans (DOCX)</a></li>
+        <li><a href="Term%202%20Lesson%20Plans.txt" target="_blank" rel="noopener">Term 2 Lesson Plans (TXT)</a></li>
+      </ul>
+    </section>
+<section class="panel">
+      <h3>Overview of Requirements</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">Term 2 focuses on materials, concrete and structural testing. Here's what you'll accomplish:</p>
+      <ul>
+        <li><strong>Materials &amp; Corrosion Investigation:</strong> Explore material properties through corrosion experiments; understand why engineers choose specific materials; investigate protection methods.</li>
+        <li><strong>Concrete &amp; Composite Materials:</strong> Understand concrete as a composite material; learn about mix design, reinforcement, curing, and structural behaviour.</li>
+        <li><strong>Concrete Beam Design &amp; Planning:</strong> Design your beam (span, cross-section, reinforcement); plan mix proportions; develop casting sequence; prepare test procedures.</li>
+        <li><strong>Concrete Beam Casting, Test &amp; Evaluate:</strong> Cast beams following proper procedures; allow proper curing time; conduct destructive testing; analyse results and evaluate performance.</li>
+        <li><strong>Comprehensive Folio:</strong> WHS documentation, design rationale, build log/photos, test data tables/graphs, analysis (predicted vs actual), and specific improvements.</li>
+      </ul>
+    </section>
+
+
+
+    <section class="panel">
+      <h3>Outcomes Alignment (IND5)</h3>
+      <ul>
+        <li><strong>IND5-1:</strong> Apply WHS and manage risks during mixing, casting, curing and destructive testing.</li>
+        <li><strong>IND5-2:</strong> Apply design principles to beam geometry and reinforcement decisions.</li>
+        <li><strong>IND5-3:</strong> Select and use tools/equipment safely for formwork, mixing and test setup.</li>
+        <li><strong>IND5-4:</strong> Select and justify materials (concrete mix, reinforcement, mould materials) for performance.</li>
+        <li><strong>IND5-5:</strong> Communicate using drawings, tables/graphs and labelled photos in your folio.</li>
+        <li><strong>IND5-8:</strong> Evaluate against criteria using test data and propose specific improvements.</li>
+        <li><strong>IND5-9 &amp; IND5-10:</strong> Discuss concrete technologies and impacts (environmental, sustainability) in your evaluation.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Assessment & Folio Checklist</h3>
+      <img src="images/term234/ppe-poster.jpg" alt="Workshop PPE poster" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0; width: 320px; max-width: 45%;" />
+      <p style="color: #4b5563; margin-bottom: 1rem;">Your Term 2 folio should be a clear record of your learning and your Concrete Beam project. Use this checklist to ensure you've captured the required evidence:</p>
+      <ul>
+        <li><strong>Safety Documentation:</strong> Completed SWMS and safety evidence for mixing/casting (cement dust and wet concrete), curing/storage, and destructive testing procedures.</li>
+        <li><strong>Materials &amp; Corrosion Notes:</strong> Material properties and selection (strength, ductility, toughness), corrosion basics, and practical protection methods (coatings, galvanising, isolation).</li>
+        <li><strong>Concrete Design &amp; Planning:</strong> Mix plan and rationale, reinforcement layout, mould plan, curing plan, and a clear build sequence.</li>
+        <li><strong>Testing Data:</strong> Load test table (increments, first crack, failure load), observations/deflection notes, and labelled photos of crack development/failure.</li>
+        <li><strong>Evaluation:</strong> Failure mode analysis (tension/compression/shear), what caused it, and at least one justified improvement (mix, compaction, reinforcement placement, curing time).</li>
+        <li><strong>Communication:</strong> Neat data tables/graphs, correct engineering vocabulary, and references/sources where used.</li>
+      </ul>
+    </section>
+
+
+
+    <section class="panel">
+      <h3>Hands-on &amp; Theory (Term 2 Program)</h3>
+      <ul>
+        <li>Materials properties: strength, ductility, toughness; why material choice matters in structures.</li>
+        <li>Corrosion: causes, prevention strategies, and how reinforcement protection relates to concrete cover.</li>
+        <li>Concrete as a composite: aggregates, cement paste, water ratio, curing, and how this affects strength.</li>
+        <li>Beam behaviour: bending stress, tension/compression faces, cracking, and reinforcement action.</li>
+        <li>Testing &amp; data: load steps, deflection measurement, first crack vs failure, tables/graphs and analysis.</li>
+      </ul>
+    </section>
+    <section class="panel">
+      <h3>Resources &amp; Differentiation</h3>
+      <ul>
+        <li>Materials: cement, sand, aggregate, water; reinforcement (wire/mesh/bar); moulds/formwork; spacers; curing covers.</li>
+        <li>Equipment: scales/buckets for measuring, mixing tubs, PPE (gloves/eye protection/dust masks), and test rig with load/deflection measurement.</li>
+        <li>Scaffolds: casting checklist, data table template (load vs deflection), and evaluation sentence starters for failure mode analysis.</li>
+        <li>Differentiation: optional design extensions (reinforcement variations, cross-section changes, curing comparisons) with controlled-variable testing.</li>
+      </ul>
+    </section>
+    <section class="panel">
+      <h3>Week Plan Snapshot (Guide)</h3>
+      <ul>
+        <li>W1: Materials &amp; corrosion investigation (Toolkit 1); start folio notes and safety evidence.</li>
+        <li>W2: Concrete &amp; composites (Toolkit 2); plan mix ratio and reinforcement options.</li>
+        <li>W3: Beam design &amp; planning (Toolkit 3); drawings, reinforcement layout, casting sequence.</li>
+        <li>W2-W4: Casting (Toolkit 4); mould prep, reinforcement placement, pour, label, cure.</li>
+        <li>W5-W6: Destructive testing (Toolkit 4); load steps, deflection, first crack and failure data.</li>
+        <li>W7: Finish folio and submit assessment evidence.</li>
+      </ul>
+    </section>
+<section class="modules">
+      <h2>Toolkits</h2>
+      <div class="modules-grid">
+        <a class="module-card" id="term2-toolkit1" href="Year9%20T2%20Modules/module1.html">
+          <div class="module-num">1</div>
+          <div class="module-title">Materials &amp; Corrosion</div>
+          <div class="module-sub">Material properties, corrosion, protection methods</div>
+          <span class="pill">Materials</span>
+        </a>
+        <a class="module-card" id="term2-toolkit2" href="Year9%20T2%20Modules/module2.html">
+          <div class="module-num">2</div>
+          <div class="module-title">Concrete &amp; Composite Materials</div>
+          <div class="module-sub">Concrete as composite, mix design, reinforcement</div>
+          <span class="pill">Materials</span>
+        </a>
+        <a class="module-card" id="term2-toolkit3" href="Year9%20T2%20Modules/module3.html">
+          <div class="module-num">3</div>
+          <div class="module-title">Concrete Beam Design &amp; Planning</div>
+          <div class="module-sub">Beam design, mix planning, casting sequence</div>
+          <span class="pill">Design</span>
+        </a>
+        <a class="module-card" id="term2-toolkit4" href="Year9%20T2%20Modules/module4.html">
+          <div class="module-num">4</div>
+          <div class="module-title">Concrete Beam Casting, Test &amp; Evaluate</div>
+          <div class="module-sub">Casting, curing, destructive testing, evaluation</div>
+          <span class="pill">Project</span>
+        </a>
+        <a class="module-card checklist-card" href="Year9%20T2%20Modules/observation-checklist.html">
+          <div class="thumb-container checklist-thumb"><span>Checklist</span></div>
+          <div class="module-title">Testing Checklist</div>
+          <div class="module-sub">Safety, measurements, photos/video prompts</div>
+        </a>
+      </div>
+    </section>
+    <section class="panel">
+      <h3>Key Document</h3>
+      <ul>
+        <li><a href="9%20Structures_Mechanism%20Program%20draft.pdf" target="_blank">Year 9 Structures &amp; Mechanisms Program (PDF)</a></li>
+        <li><a href="9%20Structures_Mechanism%20Program%20draft.docx" target="_blank" rel="noopener">Year 9 Structures &amp; Mechanisms Program (DOCX)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20(S4,%20S5,%20LS).docx" target="_blank">NESA Engineering Technology 7-10 Syllabus (Stage 4/5)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20syllabus%20support%20(S4,%20S5,%20LS).docx" target="_blank">NESA Syllabus Support (Stage 4/5)</a></li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      <strong>Notice:</strong> All images and resources are provided solely for teaching and learning with our enrolled students.<br />
+      <strong>WARNING:</strong> This material has been reproduced and communicated by or on behalf of Wagga Wagga High School pursuant to Part VB of the Copyright Act 1968 (Cth). Further copying or communication may be subject to copyright protection under the Act.
+    </div>
+  </main>
+</body>
+</html>

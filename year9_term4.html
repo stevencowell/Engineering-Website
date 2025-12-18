@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Year 9 Term 4 Engineering: Geared Lolly Dispenser capstone with timber materials, advanced CAD, CAM/manufacture, testing and showcase." />
+  <title>Year 9 Term 4 - Mechanisms &amp; Manufacture | Stage 5 Engineering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <script src="collapsible-panels.js" defer></script>
+  <script src="page-nav.js" defer></script>
+  <style>
+    :root {
+      --brand: #0056b3;
+      --brand-2: #0a7e2a;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+    }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.75rem 1.25rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1rem 0 0.5rem;
+    }
+    .top-nav a {
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.12);
+      color: #e8f2ff;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .top-nav a.active {
+      background: #fff;
+      color: #0b63c3;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+    .hero-title { margin: 0.25rem 0; font-size: clamp(2.1rem, 4vw, 2.8rem); font-weight: 700; }
+    .hero-sub { margin: 0.3rem 0; opacity: 0.9; font-size: 1.05rem; }
+    main { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+    .crumbs { display: inline-flex; gap: 0.75rem; margin: 1rem 0 1.5rem; align-items: center; }
+    .crumbs a { color: var(--brand); font-weight: 600; }
+    .panel {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+    }
+    .panel h3 { margin-top: 0; color: var(--brand); font-size: 1.35rem; }
+    .panel ul { margin: 0; padding-left: 1.1rem; color: var(--muted); }
+    .panel li + li { margin-top: 0.35rem; }
+    .panel a { color: var(--brand); text-decoration: underline; }
+    .panel a:hover { color: #003f80; text-decoration: underline; }
+    .project-instructions h4 { margin: 0 0 0.35rem; color: var(--text); }
+    .instruction-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 1rem;
+    }
+    .instruction-grid ul { color: var(--muted); }
+    .instruction-grid li + li { margin-top: 0.25rem; }
+    .requirements-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.35rem 0 0;
+      display: grid;
+      gap: 0.25rem;
+    }
+    .requirements-list li {
+      background: #f6f8fb;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.5rem 0.75rem;
+      color: var(--text);
+    }
+    .build-steps-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.35rem;
+    }
+    .build-step-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.06);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .build-step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--brand);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(0, 86, 179, 0.18);
+      flex: 0 0 auto;
+    }
+    .build-step-body h5 {
+      margin: 0 0 0.25rem;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+    .build-step-body p { margin: 0 0 0.4rem; color: var(--muted); }
+    .step-details summary {
+      cursor: pointer;
+      user-select: none;
+      color: var(--brand);
+      font-weight: 700;
+      list-style: none;
+      display: inline-flex;
+      gap: 0.4rem;
+      align-items: center;
+      padding: 0;
+    }
+    .step-details summary::-webkit-details-marker { display: none; }
+    .step-details summary::before {
+      content: "\25BE";
+      font-weight: 900;
+      transform: translateY(-1px);
+    }
+    .step-details[open] summary::before { content: "\25B4"; }
+    .step-details[open] summary { margin-bottom: 0.4rem; }
+    .step-details ul { margin: 0 0 0.4rem 1rem; color: var(--muted); padding-left: 1rem; }
+    .step-details li + li { margin-top: 0.25rem; }
+    .quick-check { margin: 0; color: #223044; font-weight: 600; font-size: 0.97rem; }
+    .instruction-note { color: var(--muted); margin: 0.25rem 0 0; }
+    .instruction-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .instruction-links a { text-decoration: underline; color: var(--brand); font-weight: 600; }
+    .instruction-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.9rem;
+    }
+    .instruction-gallery figure {
+      background: #f6f8fb;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.6rem;
+      margin: 0;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+    .instruction-gallery img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+      object-fit: cover;
+    }
+    .instruction-gallery figcaption {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .youtube-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 1.35rem 1.5rem;
+      margin: 0 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .youtube-card-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 0;
+    }
+    .youtube-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #ff2a2a, #b10000);
+      color: #fff;
+      font-weight: 900;
+      flex: 0 0 auto;
+      box-shadow: 0 10px 20px rgba(177, 0, 0, 0.18);
+    }
+    .youtube-card-title {
+      margin: 0;
+      color: var(--text);
+      font-size: 1.35rem;
+    }
+    .youtube-card-sub {
+      margin: 0.25rem 0 0;
+      color: var(--muted);
+    }
+    .youtube-action {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 86, 179, 0.22);
+      background: rgba(0, 86, 179, 0.06);
+      color: rgba(0, 86, 179, 0.95);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      flex: 0 0 auto;
+      box-shadow: var(--shadow);
+    }
+    .youtube-action:hover {
+      background: rgba(0, 86, 179, 0.11);
+      border-color: rgba(0, 86, 179, 0.32);
+    }
+    .youtube-action:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 3px;
+    }
+    .modules { margin-top: 2rem; text-align: center; }
+    .modules h2 { margin: 0 0 1rem; color: var(--brand); }
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+    .module-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .module-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.12); }
+    .module-card:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      transform: translateY(-2px);
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 420px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+    .thumb-container {
+      background: #e6f0fb;
+      padding: 0.75rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .module-num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--brand);
+      margin-bottom: 0.25rem;
+    }
+    .module-title { font-weight: 600; color: var(--text); }
+    .module-sub { font-size: 0.95rem; color: var(--muted); }
+    .checklist-card {
+      border: 2px solid #0b63c3;
+      background: linear-gradient(135deg, #0b63c3, #0a4f93);
+      color: #fff;
+    }
+    .checklist-card:hover {
+      background: linear-gradient(135deg, #0a4f93, #073a6a);
+      color: #fff;
+    }
+    .checklist-thumb {
+      background: linear-gradient(135deg, #d9e8ff, #c7dcff);
+    }
+    .checklist-thumb span {
+      color: #0b63c3;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .checklist-card .module-title,
+    .checklist-card .module-sub {
+      color: #fff;
+    }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+    }
+    .assessment-panel {
+      background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+      border: 2px solid #28a745;
+      border-left: 5px solid #1e7e34;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+    }
+    .assessment-panel h3 {
+      margin-top: 0;
+      color: #155724;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .assessment-panel h3::before {
+      content: "\2714";
+      font-size: 1.5rem;
+    }
+    .assessment-header {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+      background: rgba(255,255,255,0.7);
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .assessment-header-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .assessment-header-item strong {
+      color: #155724;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .assessment-header-item span {
+      color: #333;
+      font-weight: 600;
+    }
+    .assessment-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #28a745;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .assessment-link:hover {
+      background: #1e7e34;
+      color: #fff;
+    }
+    .footer {
+      margin-top: 3rem;
+      background: #fff;
+      border: 1px solid #f1c40f;
+      border-left: 4px solid #d9534f;
+      border-radius: 10px;
+      padding: 1.25rem 1rem;
+      box-shadow: var(--shadow);
+      color: #8a6d3b;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 600px) {
+      header { padding-top: 2rem; }
+      .top-nav { justify-content: flex-start; }
+      .modules-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <h1 class="hero-title">Year 9 Engineering Term 4 &ndash; Geared Lolly Dispenser Project</h1>
+    <p class="hero-sub">Compound gears, cams, reliability testing, CAD-CAM, and showcase</p>
+    <div class="top-nav">
+      <a href="index.html">Back to Engineering Home</a>
+      <a href="year9_term1.html">Term 1 &ndash; Water Tower Project</a>
+      <a href="year9_term2.html">Term 2 &ndash; Concrete Beam Project</a>
+      <a href="year9_term3.html">Term 3 &ndash; Hydraulic Digger Project</a>
+      <a class="active" href="#">Term 4 &ndash; Geared Lolly Dispenser Project</a>
+    </div>
+  </header>
+  <main id="main-content" role="main">
+    <div class="crumbs">
+      <a href="index.html">&#8592; Back to Main Index</a>
+      <span>/</span>
+      <span>Year 9 Term 4</span>
+    </div>
+
+    <section class="panel project-instructions" aria-labelledby="project-instructions-heading">
+      <div class="instruction-grid">
+        <div>
+          <h3 id="project-instructions-heading">Geared Lolly Dispenser Project Instructions</h3>
+          <h4>Project brief</h4>
+          <p style="color: #4b5563; margin: 0 0 0.5rem;">Design and build a geared lolly dispenser that reliably dispenses one lolly per handle cycle. Use gear ratios/cams/ratchets to control motion, then test reliability and improve the mechanism using evidence.</p>
+          <ul class="requirements-list" aria-label="Key requirements">
+            <li><strong>Function:</strong> Dispense one lolly per cycle (no doubles) with consistent operation.</li>
+            <li><strong>Gear train:</strong> Calculate and justify gear ratio (turns-per-dispense) and layout.</li>
+            <li><strong>Safety:</strong> Stable base, retained shafts, guards where needed, and safe testing procedure.</li>
+            <li><strong>Reliability:</strong> Run 50-100+ cycles and calculate reliability % with a jam/failure log.</li>
+            <li><strong>Evidence:</strong> CAD screenshots/drawings, build photos, and test data tables/graphs.</li>
+          </ul>
+          <p class="instruction-note"><strong>What \"good\" looks like:</strong> smooth gear mesh, correct clearances, controlled one-at-a-time gating, and improvements justified with test results.</p>
+        </div>
+
+        <div>
+          <h4>Materials &amp; evidence</h4>
+          <ul>
+            <li>Materials: timber/sheet goods for frame, acrylic/ply guards (if used), shafts/axles, fasteners.</li>
+            <li>Mechanism: gears, cams/ratchet parts, hopper/gate, handle and any guides to prevent jams.</li>
+            <li>Testing: same lolly type/size, cycle counter, jam log, and (optional) effort measurement.</li>
+          </ul>
+          <p class="instruction-note"><strong>Hand in:</strong> a folio/report with design brief &amp; criteria, gear ratio calculations, CAD pack, build log, and reliability results with evaluation.</p>
+          <div class="instruction-gallery" aria-label="Dispenser reference images">
+            <figure>
+              <img src="images/term234/Lollie%20dispenser.jpeg" alt="Geared lolly dispenser example" loading="lazy">
+              <figcaption>Project goal: controlled, repeatable dispensing with a reliable mechanism.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/term234/Gear%2BTrain%2BPic.jpeg" alt="Gear train example" loading="lazy">
+              <figcaption>Gear train: calculate ratio, set centre distances accurately, and tune for smooth mesh.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="instruction-grid" style="margin-top: 1.25rem;">
+        <div>
+          <h4>Build steps</h4>
+          <div class="build-steps-card-grid" role="list">
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">1</div>
+              <div class="build-step-body">
+                <h5>Interpret the brief</h5>
+                <p>Confirm success criteria (one-per-cycle, safety, size/constraints) and how reliability will be tested.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Turn the brief into a checklist (function, reliability target, safety/guarding, ergonomics).</li>
+                    <li>Decide what counts as a failure (jam, double dispense, partial dispense, dropped lolly).</li>
+                    <li>Plan evidence capture early: CAD screenshots, photos at key build stages, test tables.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Do you know exactly how "one cycle" will be defined and measured?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">2</div>
+              <div class="build-step-body">
+                <h5>Design the gear train &amp; gate</h5>
+                <p>Choose gear tooth counts and a mechanism (gate/cam/ratchet) that releases one lolly per cycle.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Calculate turns-per-dispense from your ratio and show working.</li>
+                    <li>Design for clearance: allow lollies to pass without catching, but prevent doubles.</li>
+                    <li>Include a stop/limit so the mechanism returns to a consistent "home" position.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Can your design prevent doubles even when lollies are stacked?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">3</div>
+              <div class="build-step-body">
+                <h5>CAD pack &amp; drawings</h5>
+                <p>Model the assembly, check motion/clearances, then produce cutting lists and drawings.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Group parts logically (frame, gear train, hopper/gate, guards) and label clearly.</li>
+                    <li>Dimension shaft holes and centre distances carefully (gear mesh depends on it).</li>
+                    <li>Export what you need for manufacture (DXF/prints) and keep versions organised.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Could someone else build it using only your CAD pack?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">4</div>
+              <div class="build-step-body">
+                <h5>Cut and prepare parts</h5>
+                <p>Cut accurately, drill square holes, and finish edges so parts assemble without binding.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Accuracy matters most for shafts and gear centres&mdash;measure twice, drill once.</li>
+                    <li>Deburr and sand edges to reduce friction and snag points in the hopper/gate.</li>
+                    <li>Dry-fit early so errors are caught before final assembly.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Do gears spin freely on shafts without wobble?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">5</div>
+              <div class="build-step-body">
+                <h5>Assemble and tune</h5>
+                <p>Align shafts, set gear mesh, add guides/guards, and tune clearances for smooth operation.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Use spacers/washers to prevent rubbing and keep gears aligned.</li>
+                    <li>Fix binding by correcting alignment/centre distance&mdash;not by forcing the handle.</li>
+                    <li>Secure the hopper and gate so it can't shift during repeated cycles.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Does the handle turn smoothly with consistent resistance?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">6</div>
+              <div class="build-step-body">
+                <h5>Reliability test &amp; evaluate</h5>
+                <p>Run 50-100+ cycles, log failures, calculate reliability %, then propose improvements.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Start unloaded to find high-friction points, then run loaded cycles.</li>
+                    <li>Track failures by type (jam/double/partial) to target improvements.</li>
+                    <li>Support evaluation with data, photos, and user feedback (3-5 testers).</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Do you have a table of results and a calculated reliability %?</p>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4>Quick checks</h4>
+          <ul>
+            <li>Are shafts aligned and retained (no wobble, no loose fasteners)?</li>
+            <li>Is gear mesh smooth (no binding) and centre distances correct?</li>
+            <li>Does the gate reliably dispense one lolly per cycle (no doubles)?</li>
+            <li>Have you recorded gear teeth counts, predicted ratio, and turns-per-dispense?</li>
+            <li>Have you run 50-100+ cycles and logged jams/failures?</li>
+          </ul>
+          <div class="instruction-gallery" aria-label="Reliability testing reference">
+            <figure>
+              <img src="images/term234/reliability%20testing.jpg" alt="Reliability testing setup" loading="lazy">
+              <figcaption>Reliability: run repeated cycles with the same lolly type and record every failure.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/term234/two-stage-gear-train.jpg" alt="Two-stage gear train example" loading="lazy">
+              <figcaption>Compound gears: higher ratios reduce effort but increase turns-per-dispense.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="youtube-card" role="region" aria-label="Term 4 YouTube clips">
+      <div class="youtube-card-left">
+        <div class="youtube-badge" aria-hidden="true">&#9654;</div>
+        <div style="min-width:0;">
+          <h2 class="youtube-card-title">YouTube clips</h2>
+          <p class="youtube-card-sub">Watch the curated Term 4 video clips for this project.</p>
+        </div>
+      </div>
+      <a class="youtube-action" href="Youtube%20clips/term%204%20youtube%20clips.html" target="_blank" rel="noopener" aria-label="Open Term 4 YouTube clips">&#9654;</a>
+    </div>
+
+    <!-- Assessment Task Notification -->
+    <section class="assessment-panel" aria-labelledby="assessment-heading">
+      <h3 id="assessment-heading">Term 4 Assessment Task: Task 2 - Geared Lolly Dispenser Project</h3>
+      <p style="color: #155724; margin-bottom: 1rem; font-weight: 600;">This is a <strong>summative assessment task</strong> worth 40% of your Year 9 Engineering grade. Submit your complete Geared Lolly Dispenser project folio by Week 6, Term 4.</p>
+      
+      <div class="assessment-header">
+        <div class="assessment-header-item">
+          <strong>Date of Issue</strong>
+          <span>Week 1, Term 4</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Build & Testing</strong>
+          <span>Weeks 1-6, Term 4</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Folio Submission</strong>
+          <span>Week 6, Term 4</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Task Weighting</strong>
+          <span>40% (Summative)</span>
+        </div>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.8); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+        <h4 style="margin-top: 0; color: #155724; font-size: 1.1rem;">Task Overview</h4>
+        <p style="margin-bottom: 0.75rem; color: #333;">Design, build, and test a geared lolly dispenser with compound gears, cams, and ratchets. Document your complete process from design through testing and evaluation in a comprehensive project folio.</p>
+        <p style="margin-bottom: 0.75rem; color: #333;"><strong>Key Requirements:</strong></p>
+        <ul style="margin-bottom: 0; color: #333; padding-left: 1.5rem;">
+          <li>Design dispenser with gear systems, cams, and ratchets</li>
+          <li>Use CAD/Onshape for design and production drawings</li>
+          <li>Build dispenser using CAD-CAM workflows</li>
+          <li>Conduct systematic reliability testing (50-100+ cycles)</li>
+          <li>Compare predicted vs measured performance</li>
+          <li>Evaluate and propose realistic improvements</li>
+        </ul>
+      </div>
+
+      <a href="year9_term4_assessment.html" class="assessment-link" target="_blank" rel="noopener">View Full Assessment Notification &rarr;</a>
+    </section>
+
+    <section class="panel" aria-labelledby="classroom-term4">
+      <h3 id="classroom-term4">Google Classroom Topics (Term 4)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;"><strong>How to use these links:</strong> Complete the Classroom tasks alongside the matching topic so your CAD, CAM and build work stays aligned. Upload screenshots, exports and test notes as you go.</p>
+      <ul>
+        <li><strong>Topic 1 &ndash; Timber Materials:</strong> <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDcz" target="_blank" rel="noopener">Timber Materials</a></li>
+        <li><strong>Topic 2 &ndash; Onshape &amp; CAD Mastery:</strong> <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc9" target="_blank" rel="noopener">Onshape Tutorials</a></li>
+        <li><strong>Topic 3 &ndash; CAMs &amp; Gears:</strong> <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDgy" target="_blank" rel="noopener">CAMs &amp; Gears</a></li>
+        <li><strong>Topic 4 &ndash; Testing &amp; Showcase:</strong> Upload final dispense tests, QA checklists and showcase assets via your class stream.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Scope &amp; Lesson Plans</h3>
+      <ul>
+        <li><a href="9%20Structures_Mechanism%20Program%20draft.pdf" target="_blank" rel="noopener">Year 9 Structures &amp; Mechanisms Program (PDF)</a></li>
+        <li><a href="9%20Structures_Mechanism%20Program%20draft.docx" target="_blank" rel="noopener">Year 9 Structures &amp; Mechanisms Program (DOCX)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20(S4,%20S5,%20LS).docx" target="_blank" rel="noopener">NESA Engineering Technology 7-10 Syllabus (Stage 4/5)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20syllabus%20support%20(S4,%20S5,%20LS).docx" target="_blank" rel="noopener">NESA Syllabus Support (Stage 4/5)</a></li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Overview of Requirements</h3>
+      <img src="images/term234/big-overview-of-gears.jpg" alt="Overview diagram of common gear types" class="content-image" />
+      <p style="color: #4b5563; margin-bottom: 1rem;">Term 4 focuses on the Geared Lolly Dispenser project - your capstone mechanism build. You will design, build, test, and showcase a functional geared dispenser with compound gears, cams, and reliability testing.</p>
+      <ul>
+        <li><strong>Gear Systems & Mechanisms:</strong> Understand compound gear trains, gear ratios, cams, ratchets, and how they work together in a dispensing mechanism.</li>
+        <li><strong>Design & Planning:</strong> Design your dispenser layout, calculate gear ratios, plan cam profiles, and develop build sequences.</li>
+        <li><strong>Materials & Manufacture:</strong> Select appropriate materials (timber, sheet goods), plan fabrication, and use CAD-CAM workflows for production.</li>
+        <li><strong>Build & Assembly:</strong> Construct frame, mount gears, install cams/ratchets, add guards, and assemble complete dispenser.</li>
+        <li><strong>Testing & Reliability:</strong> Conduct systematic reliability testing (50-100+ cycles), log jams and failures, measure torque/effort, and iterate improvements.</li>
+        <li><strong>Evaluation & Showcase:</strong> Complete comprehensive folio, evaluate performance, and present your working dispenser.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Outcomes Alignment (IND5)</h3>
+      <ul>
+        <li><strong>IND5-1, IND5-3, IND5-4:</strong> WHS, SWMS, tool/machine setup, safe CAM/laser/CNC use and guarded mechanisms.</li>
+        <li><strong>IND5-2, IND5-5, IND5-7:</strong> Advanced CAD, assemblies, BOMs, costing, production drawings and build sequencing.</li>
+        <li><strong>IND5-6:</strong> Collaborative build/test cycles; peer QA and shared risk controls during fabrication.</li>
+        <li><strong>IND5-8, IND5-9, IND5-10:</strong> Sustainability of materials and processes, design evaluation, communication and showcase presentation.</li>
+      </ul>
+      <p style="margin-top: 1rem;">
+        <a href="#post-2027-outcomes" style="color: #2563eb; text-decoration: underline;">View the post-2027 outcomes alignment (new syllabus)</a>
+      </p>
+    </section>
+
+    <section class="panel" id="post-2027-outcomes" aria-labelledby="post-2027-outcomes-heading">
+      <h3 id="post-2027-outcomes-heading">Post-2027 Outcomes Alignment (EGT5)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">As the syllabus transitions, these post-2027 Engineering Technology outcomes connect to the advanced manufacturing and showcase phases of your capstone project:</p>
+      <ul>
+        <li><strong>EGT5-SAF-01 &amp; EGT5-ENV-01:</strong> <em>Student-friendly summary (not official wording):</em> Apply WHS procedures for CAM machinery (laser/CNC) and finishing tools while evaluating material sustainability and minimising waste during production.<br><em>Official wording:</em> EGT5-SAF-01 &mdash; applies risk management and safe work practices in engineering contexts; EGT5-ENV-01 &mdash; analyses relationships between engineering design, production and sustainability.</li>
+        <li><strong>EGT5-COM-01 &amp; EGT5-GRP-01:</strong> <em>Student-friendly summary (not official wording):</em> Communicate professional engineering solutions through complex CAD assemblies, production drawings and BOMs, supported by clear technical graphics and documentation for manufacture and presentation.<br><em>Official wording:</em> EGT5-COM-01 &mdash; communicates ideas, concepts and solutions for engineering practice; EGT5-GRP-01 &mdash; develops and applies technical graphics in engineering contexts.</li>
+        <li><strong>EGT5-EVL-01:</strong> <em>Student-friendly summary (not official wording):</em> Investigate and evaluate the manufacturing process and final product quality by analysing tolerance data, dispense consistency and user feedback.<br><em>Official wording:</em> investigates and evaluates engineering systems and solutions.</li>
+        <li><strong>EGT5-MEA-01:</strong> <em>Student-friendly summary (not official wording):</em> Analyse the mechanical performance of the completed gear train and dispensing mechanism, calculating torque requirements and identifying friction points.<br><em>Official wording:</em> applies mechanical analysis and practical testing to investigate engineering concepts.</li>
+        <li><strong>EGT5-USE-01:</strong> <em>Student-friendly summary (not official wording):</em> Select and justify timber and sheet materials for specific structural and mechanical roles, considering grain direction, finish and manufacturability.<br><em>Official wording:</em> selects and applies materials for engineering projects.</li>
+        <li><strong>EGT5-IVT-01:</strong> <em>Student-friendly summary (not official wording):</em> Connect classroom manufacturing to industry practice by applying CAD-CAM workflows, tolerance checks and quality control standards used in engineering production.<br><em>Official wording:</em> explains engineering practices and the influence of technologies used in engineering industries.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Assessment &amp; Folio Checklist</h3>
+      <img src="images/term234/quality-control-flowchart.jpg" alt="Manufacturing quality control flowchart" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0; width: 320px; max-width: 45%;" />
+      <p style="color: #4b5563; margin-bottom: 1rem;">Your Term 4 folio should clearly show your CAD-CAM workflow, build quality, reliability testing, and evaluation for the Geared Lolly Dispenser project.</p>
+      <ul>
+        <li><strong>Safety Documentation:</strong> Completed SWMS and safety evidence for CAM machinery (laser/CNC), drill press/sanding, and safe handling of moving/pinch-point mechanisms.</li>
+        <li><strong>CAD Pack:</strong> Onshape assemblies, drawings, and DXF/DWG exports with clear labels, title blocks and revision notes.</li>
+        <li><strong>Manufacturing Evidence:</strong> Cut files/toolpaths (where used), kerf/fit checks, photos of assembly steps and guarding.</li>
+        <li><strong>Testing Data:</strong> Predicted vs measured performance (gear ratio/turns-per-dispense), reliability/jam log (50&ndash;100+ cycles), and observations on effort/torque and durability.</li>
+        <li><strong>Evaluation &amp; Showcase:</strong> What failed first (and why), improvements made (or proposed), plus a short showcase script/board with final photos/video.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Hands-on &amp; Theory (Term 4 Program)</h3>
+      <img src="images/term234/exploded-isometric-drawing.jpg" alt="Exploded isometric drawing example for assembly documentation" class="content-image" />
+      <ul>
+        <li>Timber/material prep: select stock, plan cuts, practise safe sawing/drilling/sanding.</li>
+        <li>CAD refinement: configs/variables, mates, drawings, export-ready DXF/DWG.</li>
+        <li>CAM &amp; fabrication: kerf allowances, toolpaths, safe machine setup, part cutting/printing.</li>
+        <li>Assembly &amp; tuning: gears/cams/ratchet alignment, guards, fasteners/adhesives.</li>
+        <li>Testing &amp; iteration: dispense trials, jam fixes, torque/effort checks, durability runs.</li>
+        <li>Folio &amp; showcase: data tables/graphs, sustainability + safety summaries, presentation assets.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Resources &amp; Differentiation</h3>
+      <ul>
+        <li>Materials: ply/timber sheets, acrylic guards, shafts/dowels, fasteners, adhesives.</li>
+        <li>Digital: Onshape accounts, laser/CNC software, DXF/DWG export guides.</li>
+        <li>Scaffolds: SWMS templates, kerf/fit checklist, costing spreadsheet, folio structure.</li>
+        <li>Differentiation: exemplar CAD packs, simplified cut files, multilingual captions, extension to multi-flavour/dual-cam mechanisms.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Week Plan Snapshot (Guide)</h3>
+      <img src="images/term234/two-stage-gear-train.jpg" alt="Two-stage gear train example" class="content-image" />
+      <ul>
+        <li><strong>Weeks 1-2:</strong> Complete Toolkit 1 (Gear Systems & Mechanisms theory) and Toolkit 2 (Geared Lolly Dispenser Design). Understand compound gears, cams, ratchets, and design your dispenser.</li>
+        <li><strong>Weeks 2-4:</strong> Build your dispenser (Toolkit 3). Select materials, use CAD-CAM workflows, fabricate parts, and assemble mechanisms.</li>
+        <li><strong>Weeks 4-6:</strong> Testing and reliability (Toolkit 4). Conduct systematic reliability testing, log jams and failures, measure performance, and iterate improvements.</li>
+        <li><strong>Weeks 7-8:</strong> Complete folio and evaluation. Document your entire project, evaluate performance, and prepare showcase presentation.</li>
+        <li><strong>Weeks 9-10:</strong> Showcase and final submissions. Present your working dispenser and submit final folio, CAD pack, and SWMS documentation.</li>
+      </ul>
+    </section>
+
+    <section class="modules">
+      <h2>Toolkits</h2>
+      <div class="modules-grid">
+        <a class="module-card" id="term4-toolkit1" href="Year9%20T4%20Modules/module1.html">
+          <div class="module-num">1</div>
+          <div class="module-title">Gear Systems &amp; Mechanisms</div>
+          <div class="module-sub">Compound gears, cams, ratchets, gear ratios</div>
+          <span class="pill">Theory</span>
+        </a>
+        <a class="module-card" id="term4-toolkit2" href="Year9%20T4%20Modules/module2.html">
+          <div class="module-num">2</div>
+          <div class="module-title">Geared Lolly Dispenser Design</div>
+          <div class="module-sub">Design brief, gear train, materials, CAD</div>
+          <span class="pill">Design</span>
+        </a>
+        <a class="module-card" id="term4-toolkit3" href="Year9%20T4%20Modules/module3.html">
+          <div class="module-num">3</div>
+          <div class="module-title">Build &amp; Manufacture</div>
+          <div class="module-sub">CAD-CAM, fabrication, assembly, guards</div>
+          <span class="pill">Build</span>
+        </a>
+        <a class="module-card" id="term4-toolkit4" href="Year9%20T4%20Modules/module4.html">
+          <div class="module-num">4</div>
+          <div class="module-title">Testing, Reliability &amp; Evaluation</div>
+          <div class="module-sub">Reliability testing, data analysis, folio, showcase</div>
+          <span class="pill">Project</span>
+        </a>
+        <a class="module-card checklist-card" href="Year9%20T4%20Modules/observation-checklist.html">
+          <div class="thumb-container checklist-thumb"><span>Checklist</span></div>
+          <div class="module-title">Testing Checklist</div>
+          <div class="module-sub">Safety, measurements, photos/video prompts</div>
+        </a>
+      </div>
+    </section>
+
+    <div class="footer">
+      <strong>Notice:</strong> All images and resources are provided solely for teaching and learning with our enrolled students.<br />
+      <strong>WARNING:</strong> This material has been reproduced and communicated by or on behalf of Wagga Wagga High School pursuant to Part VB of the Copyright Act 1968 (Cth). Further copying or communication may be subject to copyright protection under the Act.
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Year 9 Term 3 Engineering: Hydraulic Digger Project covering fluid power, Pascal's principle, lever linkages, syringe sizing, building, testing and evaluation. Access toolkits, checklists and project resources." />
+  <meta name="keywords" content="engineering, hydraulic digger, fluid power, hydraulics, pascal, syringes, levers, mechanical advantage, velocity ratio, testing, evaluation, year 9, stage 5" />
+  <title>Year 9 Term 3 - Hydraulic Digger Project | Stage 5 Engineering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <script src="collapsible-panels.js" defer></script>
+  <script src="page-nav.js" defer></script>
+  <style>
+    :root {
+      --brand: #0056b3;
+      --brand-2: #0a7e2a;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.75rem 1.25rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1rem 0 0.5rem;
+    }
+    .top-nav a {
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.12);
+      color: #e8f2ff;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .top-nav a.active {
+      background: #fff;
+      color: #0b63c3;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+    .hero-title { margin: 0.25rem 0; font-size: clamp(2.1rem, 4vw, 2.8rem); font-weight: 700; }
+    .hero-sub { margin: 0.3rem 0; opacity: 0.9; font-size: 1.05rem; }
+    main { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+    .crumbs { display: inline-flex; gap: 0.75rem; margin: 1rem 0 1.5rem; align-items: center; }
+    .crumbs a { color: var(--brand); font-weight: 600; }
+    .panel {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+    }
+    .panel h3 { margin-top: 0; color: var(--brand); font-size: 1.35rem; }
+    .panel ul { margin: 0; padding-left: 1.1rem; color: var(--muted); }
+    .panel li + li { margin-top: 0.35rem; }
+    .panel a { color: var(--brand); text-decoration: underline; }
+    .panel a:hover { color: #003f80; text-decoration: underline; }
+    .project-instructions h4 { margin: 0 0 0.35rem; color: var(--text); }
+    .instruction-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 1rem;
+    }
+    .instruction-grid ul { color: var(--muted); }
+    .instruction-grid li + li { margin-top: 0.25rem; }
+    .requirements-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.35rem 0 0;
+      display: grid;
+      gap: 0.25rem;
+    }
+    .requirements-list li {
+      background: #f6f8fb;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.5rem 0.75rem;
+      color: var(--text);
+    }
+    .build-steps-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.35rem;
+    }
+    .build-step-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.06);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .build-step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--brand);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(0, 86, 179, 0.18);
+      flex: 0 0 auto;
+    }
+    .build-step-body h5 {
+      margin: 0 0 0.25rem;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+    .build-step-body p { margin: 0 0 0.4rem; color: var(--muted); }
+    .step-details summary {
+      cursor: pointer;
+      user-select: none;
+      color: var(--brand);
+      font-weight: 700;
+      list-style: none;
+      display: inline-flex;
+      gap: 0.4rem;
+      align-items: center;
+      padding: 0;
+    }
+    .step-details summary::-webkit-details-marker { display: none; }
+    .step-details summary::before {
+      content: "\25BE";
+      font-weight: 900;
+      transform: translateY(-1px);
+    }
+    .step-details[open] summary::before { content: "\25B4"; }
+    .step-details[open] summary { margin-bottom: 0.4rem; }
+    .step-details ul { margin: 0 0 0.4rem 1rem; color: var(--muted); padding-left: 1rem; }
+    .step-details li + li { margin-top: 0.25rem; }
+    .quick-check { margin: 0; color: #223044; font-weight: 600; font-size: 0.97rem; }
+    .instruction-note { color: var(--muted); margin: 0.25rem 0 0; }
+    .instruction-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .instruction-links a { text-decoration: underline; color: var(--brand); font-weight: 600; }
+    .instruction-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.9rem;
+    }
+    .instruction-gallery figure {
+      background: #f6f8fb;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.6rem;
+      margin: 0;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+    .instruction-gallery img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+      object-fit: cover;
+    }
+    .instruction-gallery figcaption {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .youtube-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 1.35rem 1.5rem;
+      margin: 0 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .youtube-card-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 0;
+    }
+    .youtube-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #ff2a2a, #b10000);
+      color: #fff;
+      font-weight: 900;
+      flex: 0 0 auto;
+      box-shadow: 0 10px 20px rgba(177, 0, 0, 0.18);
+    }
+    .youtube-card-title {
+      margin: 0;
+      color: var(--text);
+      font-size: 1.35rem;
+    }
+    .youtube-card-sub {
+      margin: 0.25rem 0 0;
+      color: var(--muted);
+    }
+    .youtube-action {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 86, 179, 0.22);
+      background: rgba(0, 86, 179, 0.06);
+      color: rgba(0, 86, 179, 0.95);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      flex: 0 0 auto;
+      box-shadow: var(--shadow);
+    }
+    .youtube-action:hover {
+      background: rgba(0, 86, 179, 0.11);
+      border-color: rgba(0, 86, 179, 0.32);
+    }
+    .youtube-action:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 3px;
+    }
+    .modules { margin-top: 2rem; text-align: center; }
+    .modules h2 { margin: 0 0 1rem; color: var(--brand); }
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+    .module-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .module-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.12); }
+    .module-card:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      transform: translateY(-2px);
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 420px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+    .thumb-container {
+      background: #e6f0fb;
+      padding: 0.75rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .module-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, var(--brand), #0e7adf);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(0, 86, 179, 0.2);
+    }
+    .module-title { font-weight: 600; color: var(--text); }
+    .module-sub { font-size: 0.95rem; color: var(--muted); }
+    .tutorial-card, .checklist-card {
+      border: 2px solid #0b63c3;
+      background: linear-gradient(135deg, #0b63c3, #0a4f93);
+      color: #fff;
+    }
+    .tutorial-card:hover, .checklist-card:hover {
+      background: linear-gradient(135deg, #0a4f93, #073a6a);
+      color: #fff;
+    }
+    .tutorial-thumb, .checklist-thumb {
+      background: linear-gradient(135deg, #d9e8ff, #c7dcff);
+    }
+    .tutorial-thumb span, .checklist-thumb span {
+      color: #0b63c3;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .tutorial-card .module-title,
+    .checklist-card .module-title,
+    .tutorial-card .module-sub,
+    .checklist-card .module-sub {
+      color: #fff;
+    }
+    .pill {
+      display: inline-block;
+      align-self: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .resources {
+      margin-top: 2rem;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .resource-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 0.35rem;
+    }
+    .resource-card h4 { margin: 0; color: var(--brand); }
+    .resource-card p { margin: 0; color: var(--muted); }
+    .resource-card a { color: var(--brand); font-weight: 600; }
+    .assessment-panel {
+      background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+      border: 2px solid #ffc107;
+      border-left: 5px solid #ff9800;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+    }
+    .assessment-panel h3 {
+      margin-top: 0;
+      color: #856404;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .assessment-panel h3::before {
+      content: "\26A0";
+      font-size: 1.5rem;
+    }
+    .assessment-header {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+      background: rgba(255,255,255,0.6);
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .assessment-header-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .assessment-header-item strong {
+      color: #856404;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .assessment-header-item span {
+      color: #333;
+      font-weight: 600;
+    }
+    .assessment-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #ff9800;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .assessment-link:hover {
+      background: #f57c00;
+      color: #fff;
+    }
+    .footer {
+      margin-top: 3rem;
+      background: #fff;
+      border: 1px solid #f1c40f;
+      border-left: 4px solid #d9534f;
+      border-radius: 10px;
+      padding: 1.25rem 1rem;
+      box-shadow: var(--shadow);
+      color: #8a6d3b;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 600px) {
+      header { padding-top: 2rem; }
+      .top-nav { justify-content: flex-start; }
+      .modules-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="sr-only" style="position: absolute; top: 0; left: 0; background: #0b63c3; color: #fff; padding: 0.75rem 1rem; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0;">Skip to main content</a>
+  <header role="banner">
+    <h1 class="hero-title">Year 9 Engineering Term 3 &ndash; Hydraulic Digger Project</h1>
+    <p class="hero-sub">Fluid power, Pascal's principle, lever linkages, build and test</p>
+    <div class="top-nav">
+      <a href="index.html">Back to Engineering Home</a>
+      <a href="year9_term1.html">Term 1 &ndash; Water Tower Project</a>
+      <a href="year9_term2.html">Term 2 &ndash; Concrete Beam Project</a>
+      <a class="active" href="#">Term 3 &ndash; Hydraulic Digger Project</a>
+      <a href="year9_term4.html">Term 4 &ndash; Geared Lolly Dispenser Project</a>
+    </div>
+  </header>
+  <main id="main-content" role="main">
+    <div class="crumbs">
+      <a href="index.html">&#8592; Back to Main Index</a>
+      <span>/</span>
+      <span>Year 9 Term 3</span>
+    </div>
+
+    <section class="panel project-instructions" aria-labelledby="project-instructions-heading">
+      <div class="instruction-grid">
+        <div>
+          <h3 id="project-instructions-heading">Hydraulic Digger Project Instructions</h3>
+          <h4>Project brief</h4>
+          <p style="color: #4b5563; margin: 0 0 0.5rem;">Design and build a tabletop hydraulic digger using syringes, tubing and lever linkages. Then test performance and evaluate how syringe sizing and lever geometry affected force and movement.</p>
+          <ul class="requirements-list" aria-label="Key requirements">
+            <li><strong>Functions:</strong> 3 separate hydraulic circuits (boom, dipper, bucket).</li>
+            <li><strong>Reach:</strong> Meet the class reach target (e.g., 300-400 mm).</li>
+            <li><strong>Lifting:</strong> Meet the class lift target (e.g., 50-100 g) with controlled motion.</li>
+            <li><strong>Hydraulics:</strong> Leak-free, secured syringes/tubing, and de-aired for smooth control.</li>
+            <li><strong>Evidence:</strong> Photos/video + build log; calculations for syringe areas and MA/VR.</li>
+          </ul>
+          <p class="instruction-note"><strong>What \"good\" looks like:</strong> smooth motion with minimal air, repeatable tests, clear calculations, and specific improvements linked to theory.</p>
+        </div>
+
+        <div>
+          <h4>Materials &amp; evidence</h4>
+          <ul>
+            <li>Syringes (e.g., 5 mL, 10 mL, 20 mL) + tubing, water, and clamps/zip ties.</li>
+            <li>Frame materials: timber/ply, fasteners, brackets, pivots (bolts/dowels), and bucket.</li>
+            <li>Testing items: small masses, ruler/tape, spring balance (if used), and a clear test setup.</li>
+          </ul>
+          <p class="instruction-note"><strong>Hand in:</strong> a folio/report with design sketches, lever/syringe sizing notes, build photos, test data tables and evaluation.</p>
+          <div class="instruction-gallery" aria-label="Hydraulic digger example images">
+            <figure>
+              <img src="images/term234/laser-cut-hydraulic-crane.jpg" alt="Hydraulic digger style example build" loading="lazy">
+              <figcaption>Example build style: focus on clean pivots, stiff arms, and tidy hose routing.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/term234/basic-hydraulic-system.jpeg" alt="Basic syringe hydraulic system diagram" loading="lazy">
+              <figcaption>Hydraulics: pressure transfers through fluid (P = F/A). Remove air for control.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="instruction-grid" style="margin-top: 1.25rem;">
+        <div>
+          <h4>Build steps</h4>
+          <div class="build-steps-card-grid" role="list">
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">1</div>
+              <div class="build-step-body">
+                <h5>Interpret the brief</h5>
+                <p>Confirm reach, lifting target, number of functions, and what test data you must collect.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Write a checklist: reach, lift, smooth control, leak-free, evidence required.</li>
+                    <li>Decide how you will measure reach (horizontal distance) and lift (mass/force).</li>
+                    <li>Plan safety: cutting/drilling, water spills, pinch points, and syringe handling.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Do you know exactly how your digger will be tested?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">2</div>
+              <div class="build-step-body">
+                <h5>Design the arm geometry</h5>
+                <p>Sketch the base, boom, dipper and bucket with pivot points and cylinder attachment locations.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Link geometry to behaviour: cylinder closer to fulcrum increases force but reduces movement.</li>
+                    <li>Plan bucket motion so it curls and dumps without binding.</li>
+                    <li>Keep pivots aligned and arms stiff to reduce friction and twisting.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Does your sketch show pivots and cylinder mounts?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">3</div>
+              <div class="build-step-body">
+                <h5>Select syringe sizes and layout</h5>
+                <p>Choose input/output syringes for each function and plan hose routing.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Record syringe sizes and calculate piston areas (show units).</li>
+                    <li>Bigger output syringes increase force but reduce travel; balance force vs reach.</li>
+                    <li>Keep hoses short, smooth and protected from sharp edges.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Have you predicted the force/travel trade-off?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">4</div>
+              <div class="build-step-body">
+                <h5>Build the frame and arms</h5>
+                <p>Cut, drill and assemble the base, boom and dipper with accurate pivots.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Drill square holes; use spacers/washers so parts move freely without wobble.</li>
+                    <li>Test dry movement first (no hydraulics) to check for binding.</li>
+                    <li>Reinforce joints where bending occurs (especially boom-base pivot).</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Do the arms move smoothly by hand?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">5</div>
+              <div class="build-step-body">
+                <h5>Plumb and de-air the hydraulics</h5>
+                <p>Fill syringes/tubing with water, connect circuits, and cycle until motion is smooth.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Fill slowly to avoid bubbles; keep plungers within safe travel.</li>
+                    <li>Secure syringes so they don't rotate or flex under load.</li>
+                    <li>Fix leaks immediately: re-seat tubing, tighten clamps, replace damaged parts.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Is motion smooth (not spongy) and leak-free?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">6</div>
+              <div class="build-step-body">
+                <h5>Test, record and evaluate</h5>
+                <p>Measure reach and lifting capacity; record input/output motion; compare predicted vs actual MA/VR.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Use a consistent setup: same start position, same measurement points, same loads.</li>
+                    <li>Record a table of results (and a short video showing each function).</li>
+                    <li>Suggest specific improvements (e.g., change lever ratio or syringe pairing) and explain the trade-offs.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Do you have enough evidence to justify your evaluation?</p>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4>Quick checks</h4>
+          <ul>
+            <li>Do you have 3 working circuits (boom, dipper, bucket)?</li>
+            <li>Are syringes secured and hoses routed safely (no kinks/leaks)?</li>
+            <li>Have you removed air (smooth, repeatable motion)?</li>
+            <li>Have you recorded syringe sizes/areas and test data (reach, lift, movement)?</li>
+          </ul>
+          <div class="instruction-links">
+            <a href="assets/hydraulic-digger-working-drawing-v1.pdf" target="_blank" rel="noopener">Download schematic (PDF)</a>
+          </div>
+          <div class="instruction-gallery" aria-label="Hydraulic digger schematic">
+            <figure>
+              <img src="images/term234/hydraulic-digger-drawing-p1.png" alt="Hydraulic digger schematic drawing (page 1)" loading="lazy">
+              <figcaption>Schematic (page 1): parts layout for cutting and assembly reference.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/term234/hydraulic-digger-drawing-p2.png" alt="Hydraulic digger schematic drawing (page 2)" loading="lazy">
+              <figcaption>Schematic (page 2): assembled views to verify linkages and motion.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="youtube-card" role="region" aria-label="Term 3 YouTube clips">
+      <div class="youtube-card-left">
+        <div class="youtube-badge" aria-hidden="true">&#9654;</div>
+        <div style="min-width:0;">
+          <h2 class="youtube-card-title">YouTube clips</h2>
+          <p class="youtube-card-sub">Watch the curated Term 3 video clips for this project.</p>
+        </div>
+      </div>
+      <a class="youtube-action" href="Youtube%20clips/term%203%20youtube%20clips.html" target="_blank" rel="noopener" aria-label="Open Term 3 YouTube clips">&#9654;</a>
+    </div>
+
+    <!-- Assessment Task Notification -->
+    <section class="assessment-panel" aria-labelledby="assessment-heading">
+      <h3 id="assessment-heading">Term 3 Assessment Task: Hydraulic Digger Project</h3>
+      <p style="color: #856404; margin-bottom: 1rem; font-weight: 600;">This is a formative learning task completed during Term 3. Formative assessments are for learning and skill development - they are not graded and do not contribute to your final mark.</p>
+      
+      <div class="assessment-header">
+        <div class="assessment-header-item">
+          <strong>Date of Issue</strong>
+          <span>Week 1, Term 3</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Build & Testing</strong>
+          <span>Weeks 1-4, Term 3</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Folio Submission</strong>
+          <span>End of Term 3</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Task Type</strong>
+          <span>Formative (Not Graded)</span>
+        </div>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.7); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+        <h4 style="margin-top: 0; color: #856404; font-size: 1.1rem;">Task Overview</h4>
+        <p style="margin-bottom: 0.75rem; color: #333;">Design, build, and test a hydraulic digger with lever linkages. Document your complete process from design through testing and evaluation in a comprehensive project folio.</p>
+        <p style="margin-bottom: 0.75rem; color: #333;"><strong>Key Requirements:</strong></p>
+        <ul style="margin-bottom: 0; color: #333; padding-left: 1.5rem;">
+          <li>Understand fluid power principles (Pascal's principle, pressure, force)</li>
+          <li>Design digger with lever linkages and hydraulic system</li>
+          <li>Build digger following your design plan</li>
+          <li>Conduct systematic testing and calculate MA/VR</li>
+          <li>Compare predicted vs measured performance</li>
+        </ul>
+      </div>
+
+      <a href="year9_term3_assessment.html" class="assessment-link" target="_blank" rel="noopener">View Full Assessment Notification &rarr;</a>
+    </section>
+
+    <section class="panel" aria-labelledby="term3-intro">
+      <h3 id="term3-intro">Term 3 Focus: Hydraulic Digger Project</h3>
+      <img src="images/term234/pascal-pressure-principle.jpg" alt="Pascal's principle showing pressure and force" class="content-image" />
+      <p>Term 3 focuses on fluid power and mechanisms through the <strong>Hydraulic Digger</strong> project. You will learn about Pascal's principle, lever linkages, mechanical advantage, and velocity ratio while building and testing a functional hydraulic control system.</p>
+      <p style="margin-top: 1rem;">Key goals for this term:</p>
+      <ul style="margin-top: 0.5rem;">
+        <li>Understand fluid power systems and Pascal's principle (P = F/A).</li>
+        <li>Design and build a hydraulic digger with lever linkages.</li>
+        <li>Calculate and measure mechanical advantage (MA) and velocity ratio (VR).</li>
+        <li>Conduct systematic testing and compare predicted vs measured performance.</li>
+        <li>Document your project in a comprehensive folio.</li>
+      </ul>
+    </section>
+
+    <section class="panel" aria-labelledby="classroom-term3">
+      <h3 id="classroom-term3">Google Classroom Topics (Term 3)</h3>
+      <img src="images/term234/hydraulic-vs-pneumatic.jpg" alt="Hydraulic system versus pneumatic system comparison table" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0; width: 340px; max-width: 45%;" />
+      <p style="color: #4b5563; margin-bottom: 1rem;">Use these topics to submit your progressive work and access build guides.</p>
+      <ul>
+        <li><strong>Fluid Power & Mechanisms:</strong> <a href="#" target="_blank" rel="noopener">Hydraulic Systems & Pascal's Principle</a></li>
+        <li><strong>Project Submission:</strong> <a href="#" target="_blank" rel="noopener">Hydraulic Digger Evidence</a></li>
+        <li><strong>Folio Checkpoint:</strong> <a href="#" target="_blank" rel="noopener">Draft Folio Review</a></li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Overview of Requirements</h3>
+      <img src="images/term234/basic-hydraulic-system.jpeg" alt="Basic hydraulic system diagram" class="content-image" />
+      <p style="color: #4b5563; margin-bottom: 1rem;">Term 3 focuses on fluid power and mechanisms through the Hydraulic Digger project. Here's what you'll accomplish:</p>
+      <ul>
+        <li><strong>Fluid Power Theory:</strong> Understand Pascal's principle, hydraulic vs pneumatic systems, and pressure calculations.</li>
+        <li><strong>Lever Linkages:</strong> Design and build lever systems that convert small movements into large forces.</li>
+        <li><strong>Hydraulic Digger Build:</strong> Construct a tabletop digger with hydraulic control system, removing air and ensuring proper operation.</li>
+        <li><strong>Testing & Analysis:</strong> Measure effort, travel, and load; calculate MA and VR; compare predicted vs measured performance.</li>
+        <li><strong>Comprehensive Folio:</strong> Document design, build process, test data, analysis, and evaluation.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Assessment & Folio Checklist</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">Your Term 3 folio should clearly show your design thinking, build process, test data, and evaluation for the Hydraulic Digger project.</p>
+      <ul>
+        <li><strong>Safety Documentation:</strong> Completed SWMS and safety evidence for cutting/drilling, syringes/tubing, pinch points, and safe testing procedures.</li>
+        <li><strong>Design Evidence:</strong> Design brief analysis, labelled sketches, linkage layout, syringe sizing choices, and a build sequence (step-by-step).</li>
+        <li><strong>Fluid Power Calculations:</strong> Pascal's principle work shown (P = F/A), syringe areas, predicted forces, and clear units.</li>
+        <li><strong>Testing Data:</strong> Measurements of effort/load and travel; MA and VR calculations; predicted vs measured comparison table.</li>
+        <li><strong>Evidence Capture:</strong> Photos of key build stages, plumbing/de-airing, final assembly, and testing setup; optional short video of operation.</li>
+        <li><strong>Evaluation:</strong> What worked, what failed first (leaks, air, friction, flex), and at least one justified improvement you made (or would make).</li>
+      </ul>
+    </section>
+
+    <section class="modules">
+      <h2>Toolkits</h2>
+      <div class="modules-grid">
+        <a class="module-card" id="term3-toolkit1" href="Year9%20T3%20Modules/module1.html">
+          <div class="module-num">1</div>
+          <div class="module-title">Fluid Power & Mechanisms</div>
+          <div class="module-sub">Pascal's principle, MA/VR, lever systems</div>
+          <span class="pill">Theory</span>
+        </a>
+        <a class="module-card" id="term3-toolkit2" href="Year9%20T3%20Modules/module2.html">
+          <div class="module-num">2</div>
+          <div class="module-title">Hydraulic Digger Design</div>
+          <div class="module-sub">Design brief, linkages, syringe sizing</div>
+          <span class="pill">Design</span>
+        </a>
+        <a class="module-card" id="term3-toolkit3" href="Year9%20T3%20Modules/module3.html">
+          <div class="module-num">3</div>
+          <div class="module-title">Hydraulic Digger Build</div>
+          <div class="module-sub">Construction, plumbing, de-airing</div>
+          <span class="pill">Build</span>
+        </a>
+        <a class="module-card" id="term3-toolkit4" href="Year9%20T3%20Modules/module4.html">
+          <div class="module-num">4</div>
+          <div class="module-title">Testing & Evaluation</div>
+          <div class="module-sub">MA/VR testing, data analysis, folio</div>
+          <span class="pill">Project</span>
+        </a>
+        <a class="module-card checklist-card" href="Year9%20T3%20Modules/observation-checklist.html">
+          <div class="thumb-container checklist-thumb"><span>Checklist</span></div>
+          <div class="module-title">Testing Checklist</div>
+          <div class="module-sub">Safety, measurements, photos/video prompts</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3>Week Plan Snapshot (Guide)</h3>
+      <img src="images/term234/laser-cut-hydraulic-crane.jpg" alt="Example laser-cut hydraulic crane build" class="content-image" />
+      <ul>
+        <li><strong>Weeks 1-2:</strong> Complete Toolkit 1 (Fluid Power & Mechanisms theory) and Toolkit 2 (Hydraulic Digger Design). Understand Pascal's principle, lever systems, and design your digger.</li>
+        <li><strong>Weeks 2-4:</strong> Build your hydraulic digger (Toolkit 3). Construct frame, install hydraulic system, plumb syringes, remove air, test basic operation.</li>
+        <li><strong>Weeks 4-6:</strong> Testing and evaluation (Toolkit 4). Measure forces, calculate MA/VR, compare predicted vs measured, iterate on design improvements.</li>
+        <li><strong>Weeks 7-8:</strong> Complete folio documentation. Collate photos, data tables, analysis, and reflection. Polish design drawings and technical communication.</li>
+        <li><strong>Weeks 9-10:</strong> Finalise folio and submit. Review and consolidation of fluid power and mechanism concepts.</li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      <strong>Notice:</strong> All images and resources are provided solely for teaching and learning with our enrolled students.<br />
+      <strong>WARNING:</strong> This material has been reproduced and communicated by or on behalf of Wagga Wagga High School pursuant to Part VB of the Copyright Act 1968 (Cth). Further copying or communication may be subject to copyright protection under the Act.
+    </div>
+  </main>
+</body>
+</html>

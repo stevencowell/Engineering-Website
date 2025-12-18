@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Comprehensive Stage 5 Engineering course materials for Year 9 and Year 10 students. Access modules, toolkits, theory notes, and resources for structures, mechanisms, control systems, and engineering specialisation." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="engineering, stage 5, year 9, year 10, structures, mechanisms, control systems, engineering technology, NESA syllabus" />
+  <title>Stage 5 Engineering - Course Materials & Resources</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      font-family: 'Roboto', Arial, sans-serif; 
+      background-color: #f9fafb; 
+      color: #333; 
+      line-height: 1.6; 
+    }
+    a { 
+      text-decoration: none; 
+      color: inherit; 
+    }
+    a:focus-visible {
+      outline: 3px solid #0056b3;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    button:focus-visible {
+      outline: 3px solid #0056b3;
+      outline-offset: 2px;
+    }
+    .skip-link {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #0056b3;
+      color: #fff;
+      padding: 0.75rem 1rem;
+      z-index: 10000;
+      text-decoration: none;
+      border-radius: 0 0 10px 0;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+      transform: translateY(-120%);
+      transition: transform 0.18s ease;
+    }
+    .skip-link:focus,
+    .skip-link:focus-visible {
+      transform: translateY(0);
+    }
+    header {
+      background: url('Engineering Banner.jpg') center center/cover;
+      color: #003366;
+      padding: 5rem 1rem 3rem;
+      text-align: center;
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+    }
+    header p { 
+      margin: 0.25rem 0 0 0; 
+      font-size: 1.125rem; 
+      opacity: 0.9; 
+      text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+    }
+    main { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      padding: 2rem 1rem; 
+      position: relative;
+      z-index: 15;
+    }
+    .overview {
+      background-color: #ffffff;
+      border-left: 5px solid #0056b3;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .overview h3 {
+      margin-top: 0;
+      color: #0056b3;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .overview p, .overview ul {
+      margin-bottom: 1rem;
+      line-height: 1.7;
+      color: #555;
+    }
+    .program-hero {
+      background: linear-gradient(135deg, #0056b3 0%, #003f80 100%);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 12px 32px rgba(0, 86, 179, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .program-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .program-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .program-hero h3 {
+      margin: 0 0 0.75rem 0;
+      color: #ffffff;
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+    .program-hero p {
+      margin: 0.5rem 0 1.25rem 0;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .program-hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #ffffff;
+      color: #0056b3;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .program-hero-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      color: #003f80;
+    }
+    .program-hero-link::after {
+      content: '→';
+      font-size: 1.3rem;
+      transition: transform 0.2s ease;
+    }
+    .program-hero-link:hover::after {
+      transform: translateX(4px);
+    }
+    .program-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .program-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.95rem;
+    }
+    .program-feature::before {
+      content: '✓';
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      .program-hero {
+        padding: 1.5rem;
+      }
+      .program-hero h3 {
+        font-size: 1.5rem;
+      }
+      .program-hero-link {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+        width: 100%;
+        justify-content: center;
+      }
+      .program-features {
+        grid-template-columns: 1fr;
+      }
+    }
+    .modules-section h2 { 
+      font-size: 2rem; 
+      color: #0056b3; 
+      text-align: center; 
+      margin-bottom: 2.5rem; 
+      position: relative; 
+      margin-top: 3rem;
+    }
+    .modules-section h2::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: #0056b3;
+      position: absolute; 
+      left: 50%; 
+      transform: translateX(-50%); 
+      bottom: -0.75rem; 
+      border-radius: 2px; 
+    }
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .classroom-section {
+      margin-top: 3rem;
+      background: linear-gradient(135deg, #f8fbff 0%, #eef2f7 100%);
+      border: 1px solid #e0e0e0;
+      border-radius: 16px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+      padding: 2rem;
+    }
+    .classroom-section h3 {
+      margin: 0;
+      color: #0056b3;
+      font-size: 1.45rem;
+    }
+    .classroom-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid #d7e3f4;
+    }
+    .classroom-header p {
+      margin: 0.25rem 0 0;
+      color: #4b5563;
+    }
+    .classroom-note {
+      background: #0b63c3;
+      color: #fff;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(11,99,195,0.2);
+      min-width: 240px;
+      text-align: center;
+    }
+    .classroom-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .classroom-card {
+      background: #ffffff;
+      border: 1px solid #e3e7ed;
+      border-radius: 12px;
+      padding: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .classroom-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .classroom-card h4 {
+      margin: 0 -0.35rem 0.85rem;
+      padding: 0.9rem 1rem;
+      background: linear-gradient(135deg, #0b63c3, #094f9c);
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(11, 99, 195, 0.18);
+    }
+    .classroom-card summary {
+      list-style: none;
+      cursor: pointer;
+      display: block;
+      padding: 0;
+      margin: 0;
+    }
+    .classroom-card summary::-webkit-details-marker {
+      display: none;
+    }
+    .classroom-card summary:focus-visible {
+      outline: 3px solid #0056b3;
+      outline-offset: 2px;
+      border-radius: 12px;
+    }
+    .classroom-card summary h4 {
+      margin: 0 -0.35rem 0;
+      padding: 0.9rem 2.75rem 0.9rem 1rem;
+      position: relative;
+    }
+    .classroom-card[open] summary h4 {
+      margin: 0 -0.35rem 0.85rem;
+    }
+    .classroom-card summary h4::after {
+      content: '▾';
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.1rem;
+      opacity: 0.95;
+      transition: transform 0.18s ease;
+    }
+    .classroom-card:not([open]) summary h4::after {
+      transform: translateY(-50%) rotate(-90deg);
+    }
+    .term-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #e6f0fa;
+      color: #0056b3;
+      border-radius: 999px;
+      padding: 0.25rem 0.75rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      line-height: 1;
+      white-space: nowrap;
+      flex: 0 0 auto;
+      letter-spacing: 0.02em;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .classroom-card h4 .term-chip {
+      background: rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    }
+    .classroom-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+    .classroom-links li a {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.65rem 0.8rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      background: #f8fafc;
+      color: #0b63c3;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+    .classroom-links li a:hover {
+      transform: translateX(3px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      background: #eef3ff;
+    }
+    .classroom-links li a:focus-visible {
+      outline: 3px solid #0056b3;
+      outline-offset: 2px;
+      transform: translateX(3px);
+    }
+    .teacher-link-box {
+      background: #ffffff;
+      border-left: 5px solid #0b63c3;
+      padding: 1.1rem 1.25rem;
+      margin: 0 0 2rem 0;
+      border-radius: 0 10px 10px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .teacher-link-content {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .teacher-link-box img.teacher-link-img {
+      height: 50px;
+      width: auto;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .teacher-link-box a {
+      color: #0b63c3;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+    .teacher-link-box small {
+      display: block;
+      margin-top: 0.35rem;
+      color: #6b7280;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    .topic-icon {
+      display: none;
+    }
+    .topic-title {
+      display: block;
+      line-height: 1.3;
+    }
+    .topic-subtitle {
+      font-weight: 500;
+      color: #4b5563;
+      font-size: 0.9rem;
+      display: block;
+    }
+    .module-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: 0.25s;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+    }
+    .module-card.highlight {
+      border: 2px solid #0b63c3;
+      box-shadow: 0 6px 16px rgba(11, 99, 195, 0.2);
+      background: linear-gradient(135deg, #e6f0fb, #ffffff);
+    }
+    .module-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .module-card:focus-visible {
+      outline: 3px solid #0056b3;
+      outline-offset: 2px;
+      transform: translateY(-2px);
+    }
+    .thumb-container {
+      background: #e6f0fa;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .thumb-container span {
+      font-size: 2.5rem;
+      color: #0056b3;
+      font-weight: 700;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    .module-title { 
+      padding: 1.25rem 1rem; 
+      color: #333; 
+      font-weight: 500; 
+      flex-grow: 1; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      flex-direction: column;
+    }
+    .module-subtitle {
+        font-size: 0.85rem;
+        color: #666;
+        margin-top: 0.5rem;
+        font-weight: normal;
+    }
+    footer { 
+      text-align: center; 
+      padding: 1.5rem;
+      margin-top: 2rem; 
+      background: #fff; 
+      border-top: 1px solid #e0e0e0; 
+      font-size: 0.9rem; 
+      color: #555; 
+    }
+    .copyright-footer {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-top: 3px solid #0056b3;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+    .copyright-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .copyright-notice {
+      text-align: left;
+      margin-bottom: 1.5rem;
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: 8px;
+      border-left: 4px solid #dc3545;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .copyright-notice p {
+      margin: 0.75rem 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    .copyright-warning {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-top: 1rem !important;
+      color: #856404 !important;
+    }
+    .footer-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #0056b3, transparent);
+      margin: 1.5rem 0;
+    }
+    .footer-info {
+      text-align: center;
+      color: #6c757d;
+      font-size: 0.85rem;
+    }
+    .syllabus-section {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-left: 6px solid #0b63c3;
+      border-radius: 10px;
+      padding: 1.75rem;
+      margin: 2.5rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .syllabus-header h2 {
+      margin: 0 0 0.35rem 0;
+      color: #0b63c3;
+      font-size: 1.6rem;
+    }
+    .syllabus-header p {
+      margin: 0;
+      color: #4b5563;
+    }
+    .syllabus-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    .syllabus-groups {
+      display: grid;
+      gap: 1rem;
+    }
+    .syllabus-group {
+      border: none;
+      padding: 0;
+      background: transparent;
+    }
+    .syllabus-group summary {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.1rem;
+      background: linear-gradient(135deg, #f8fbff 0%, #eef2f7 100%);
+      border: 1px solid #d5deeb;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 700;
+      color: #0b63c3;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      list-style: none;
+    }
+    .syllabus-group summary::-webkit-details-marker {
+      display: none;
+    }
+    .syllabus-group[open] summary {
+      background: linear-gradient(135deg, #e9f3ff 0%, #dfe8f4 100%);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .syllabus-group summary:focus-visible {
+      outline: 3px solid #0056b3;
+      outline-offset: 3px;
+    }
+    .syllabus-card {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 1rem 1.1rem;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+    .syllabus-card:hover {
+      background: #eef2f7;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .syllabus-card:focus-visible {
+      outline: 3px solid #0056b3;
+      outline-offset: 2px;
+      transform: translateY(-3px);
+    }
+    .syllabus-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0b63c3, #0e7adf);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      font-size: 0.9rem;
+    }
+    .syllabus-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .syllabus-title {
+      font-weight: 600;
+      color: #1f2937;
+    }
+    .syllabus-subtitle {
+      color: #6b7280;
+      font-size: 0.93rem;
+      margin-top: 0.15rem;
+    }
+    .syllabus-tag {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+      color: #1f2937;
+      background: #e5e7eb;
+    }
+    .assessments-section {
+      margin-top: 3rem;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      padding: 2rem;
+    }
+    .assessments-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 1.5rem;
+    }
+    .assessments-header h2 {
+      margin: 0;
+      color: #0056b3;
+      font-size: 2rem;
+    }
+    .assessment-note {
+      color: #4b5563;
+      max-width: 820px;
+    }
+    .assessment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    .assessment-card {
+      background: linear-gradient(135deg, #f8fbff 0%, #f1f5f9 100%);
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+    .assessment-card h3 {
+      margin: 0 0 0.4rem;
+      color: #0b63c3;
+      font-size: 1.35rem;
+    }
+    .assessment-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.75rem;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .assessment-table th, .assessment-table td {
+      padding: 0.8rem;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+    .assessment-table th {
+      background: #0b63c3;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .assessment-table tr:last-child td {
+      border-bottom: none;
+    }
+    .assessment-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: #e6f0fa;
+      color: #0b63c3;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+    .notification-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .notification-header {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 0.75rem;
+    }
+    .notification-field {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 0.65rem 0.75rem;
+    }
+    .notification-label {
+      display: block;
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-bottom: 0.15rem;
+      letter-spacing: 0.01em;
+    }
+    .notification-value {
+      font-weight: 700;
+      color: #111827;
+    }
+    .notification-body {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .notification-panel {
+      background: #f8fbff;
+      border: 1px solid #e3e7ed;
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+    }
+    .notification-panel h4 {
+      margin: 0 0 0.35rem;
+      color: #0b63c3;
+      font-size: 1.05rem;
+    }
+    .notification-panel ul {
+      margin: 0.25rem 0 0 1.1rem;
+      padding: 0;
+      color: #374151;
+      line-height: 1.55;
+    }
+    .notification-panel p {
+      margin: 0.35rem 0;
+      color: #374151;
+    }
+    .criteria-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .criteria-table th, .criteria-table td {
+      padding: 0.7rem;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+    .criteria-table th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: #1f2937;
+    }
+    .criteria-table tr:last-child td { border-bottom: none; }
+    @media (max-width: 768px) {
+      .search-container {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      #search-input {
+        width: 100%;
+        max-width: none;
+      }
+      #search-btn {
+        width: 100%;
+        max-width: 200px;
+      }
+      .syllabus-card {
+        padding: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header role="banner">
+    <h1 style="color: #0056b3; font-size: 3.5rem; margin: 1rem 0;">STAGE 5 ENGINEERING</h1>
+    <p style="color: #003366; font-size: 1.2rem; margin: 0.5rem 0;">Course Material & Resources</p>
+    <p style="color: #003366;">Select a topic below to access materials</p>
+  </header>
+  <main id="main-content" role="main">
+    <section class="overview" aria-labelledby="welcome-heading">
+      <h3 id="welcome-heading">Welcome to the Stage 5 Engineering Hub</h3>
+      <p>This page is your central access point for all learning materials for the Stage 5 Engineering course (Year 9 & 10). The course covers four key focus areas: <strong>Structures</strong>, <strong>Mechanisms</strong>, <strong>Control Systems</strong>, and <strong>Engineering Specialisation</strong>.</p>
+      <p>Navigate through the modules below to access specific unit content, including:</p>
+      <ul style="margin-top: 0.75rem; padding-left: 1.5rem;">
+        <li>Comprehensive theory notes and explanations</li>
+        <li>Hands-on design tasks and practical projects</li>
+        <li>Assessment requirements and folio checklists</li>
+        <li>Safety guidelines and risk management resources</li>
+        <li>Links to Google Classroom activities</li>
+      </ul>
+      <p style="margin-top: 1rem;"><strong>Getting Started:</strong> Begin with Term 1 to build foundational knowledge in structures, materials, and workplace health and safety. Each term builds upon previous learning, so we recommend following the sequence.</p>
+    </section>
+
+    <section class="program-hero" aria-labelledby="program-heading">
+      <div class="program-hero-content">
+        <h3 id="program-heading">Complete Year 9 Engineering Program</h3>
+        <p>Access the comprehensive week-by-week scope and sequence document with direct links to all toolkit sections, outcomes mapping, assessment schedules, and resources. This is your central hub for planning and navigating the entire Year 9 Engineering course.</p>
+        <a href="year9_program_complete.html" class="program-hero-link">
+          View Complete Program Document
+        </a>
+        <div class="program-features">
+          <div class="program-feature">Week-by-week breakdown for all 4 terms</div>
+          <div class="program-feature">Direct links to toolkit sections</div>
+          <div class="program-feature">Complete outcomes mapping</div>
+          <div class="program-feature">Assessment schedules & requirements</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="teacher-link-box" aria-label="Teacher tools">
+      <div class="teacher-link-content">
+        <img class="teacher-link-img" src="Chatbot%20Teacher%20Only.jpg" alt="Stage 5 Engineering Custom GPT" />
+        <div>
+          <a href="https://chatgpt.com/g/g-6937a3082ebc8191b7883007c41d12e1-engineering-stage-5" target="_blank" rel="noopener">
+            Stage 5 Engineering Custom GPT
+          </a>
+          <small>Teachers Only</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="syllabus-section" id="syllabus">
+      <div class="syllabus-header">
+        <h2>Syllabus & Support Documents</h2>
+        <p>Download the official NESA syllabus and companion support material for Stage 4 and Stage 5 Engineering Technology.</p>
+      </div>
+      <div class="syllabus-groups">
+        <details class="syllabus-group">
+          <summary>
+            <div class="syllabus-icon" aria-hidden="true">DOC</div>
+            <span>Pre-2027 Syllabus &amp; Support Documents</span>
+          </summary>
+          <div class="syllabus-links">
+            <a class="syllabus-card" href="industrial-technology-years-7-10-syllabus-2019%20(4).pdf" target="_blank" rel="noopener">
+              <div class="syllabus-icon">PDF</div>
+              <div class="syllabus-content">
+                <div class="syllabus-title">Industrial Technology Years 7–10 Syllabus (2019)</div>
+                <div class="syllabus-subtitle">Official 2019 syllabus reference document (PDF)</div>
+                <span class="syllabus-tag">Pre-2027</span>
+              </div>
+            </a>
+            <a class="syllabus-card" href="9%20Structures_Mechanism%20Program%20draft.docx" target="_blank" rel="noopener">
+              <div class="syllabus-icon">DOC</div>
+              <div class="syllabus-content">
+                <div class="syllabus-title">Stage 5 Industrial Technology – Engineering (2019 Syllabus)</div>
+                <div class="syllabus-subtitle">Current Year 9/10 Structures &amp; Mechanisms program – used until end of 2026 (DOCX)</div>
+                <span class="syllabus-tag">Pre-2027</span>
+              </div>
+            </a>
+            <a class="syllabus-card" href="year9_program.html">
+              <div class="syllabus-icon">WEB</div>
+              <div class="syllabus-content">
+                <div class="syllabus-title">Year 9 Scope &amp; Sequence (Interactive)</div>
+                <div class="syllabus-subtitle">Jump straight to each toolkit focus area</div>
+                <span class="syllabus-tag">Pre-2027</span>
+              </div>
+            </a>
+            <a class="syllabus-card" href="year9_program_complete.html">
+              <div class="syllabus-icon">WEB</div>
+              <div class="syllabus-content">
+                <div class="syllabus-title">Year 9 Complete Program - Scope &amp; Sequence</div>
+                <div class="syllabus-subtitle">Comprehensive week-by-week program with outcomes mapping and website links</div>
+                <span class="syllabus-tag">Pre-2027</span>
+              </div>
+            </a>
+          </div>
+        </details>
+        <details class="syllabus-group">
+          <summary>
+            <div class="syllabus-icon" aria-hidden="true">DOC</div>
+            <span>Post-2027 Syllabus &amp; Support Documents</span>
+          </summary>
+          <div class="syllabus-links">
+            <a class="syllabus-card" href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20(S4,%20S5,%20LS).docx" target="_blank" rel="noopener">
+              <div class="syllabus-icon">DOC</div>
+              <div class="syllabus-content">
+                <div class="syllabus-title">NESA Engineering Technology 7-10 Syllabus</div>
+                <div class="syllabus-subtitle">Stage 4/5 and Life Skills program</div>
+                <span class="syllabus-tag">Post-2027</span>
+              </div>
+            </a>
+            <a class="syllabus-card" href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20syllabus%20support%20(S4,%20S5,%20LS).docx" target="_blank" rel="noopener">
+              <div class="syllabus-icon">DOC</div>
+              <div class="syllabus-content">
+                <div class="syllabus-title">NESA Syllabus Support Pack</div>
+                <div class="syllabus-subtitle">Guidance and resources for Stage 4/5</div>
+                <span class="syllabus-tag">Post-2027</span>
+              </div>
+            </a>
+            <a class="syllabus-card" href="New%20Engineering%20Program%20from%20new%20syllabus.docx" target="_blank" rel="noopener">
+              <div class="syllabus-icon">DOC</div>
+              <div class="syllabus-content">
+                <div class="syllabus-title">Stage 5 Engineering Technology 7–10 – Program (2024 Syllabus, from 2027)</div>
+                <div class="syllabus-subtitle">Draft Year 9/10 Engineering Technology program – for implementation from 2027 (DOCX)</div>
+                <span class="syllabus-tag">Post-2027</span>
+              </div>
+            </a>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="assessments-section" aria-labelledby="assessments-heading">
+      <div class="assessments-header">
+        <h2 id="assessments-heading">Assessments</h2>
+        <p class="assessment-note">Plan ahead with the published schedule. In-class activities also contribute to a student’s overall grade.</p>
+      </div>
+
+      <div class="assessment-grid">
+        <div class="assessment-card" aria-labelledby="assessment-schedule-heading">
+          <h3 id="assessment-schedule-heading">Assessment Schedule</h3>
+          <table class="assessment-table" aria-describedby="assessment-schedule-heading">
+            <thead>
+              <tr>
+                <th scope="col">Task</th>
+                <th scope="col">Nature of Task</th>
+                <th scope="col">Due Date</th>
+                <th scope="col">Outcomes</th>
+                <th scope="col">Weighting</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a class="assessment-badge" href="year9_term2_assessment.html">Task 1</a></td>
+                <td>Projects &amp; Reports 1</td>
+                <td>Term 2, Week 7</td>
+                <td>All</td>
+                <td>30%</td>
+              </tr>
+              <tr>
+                <td><a class="assessment-badge" href="year9_term4_assessment.html">Task 2</a></td>
+                <td>Projects &amp; Reports 2</td>
+                <td>Term 4, Week 6</td>
+                <td>All</td>
+                <td>40%</td>
+              </tr>
+              <tr>
+                <td><a class="assessment-badge" href="year9_task3_notice_detailed.html">Task 3</a></td>
+                <td>Final Examination</td>
+                <td>Term 4, Week 5</td>
+                <td>IND5-1, IND5-5, IND5-6, IND5-9, IND5-10</td>
+                <td>30%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Year 9 Section -->
+    <section class="modules-section" aria-labelledby="year9-heading">
+      <h2 id="year9-heading">Year 9</h2>
+      <div class="modules-grid">
+        <a href="year9_term1.html" class="module-card" aria-label="Year 9 Term 1 - Water Tower Project">
+          <div class="thumb-container"><span>T1</span></div>
+          <div class="module-title">
+            Term 1 – Water Tower Project
+            <div class="module-subtitle">WHS, structural concepts, design, build and test</div>
+          </div>
+        </a>
+        <a href="year9_term2.html" class="module-card" aria-label="Year 9 Term 2 - Concrete Beam Project">
+          <div class="thumb-container"><span>T2</span></div>
+          <div class="module-title">
+            Term 2 – Concrete Beam Project
+            <div class="module-subtitle">Materials, concrete, composite materials, casting and testing</div>
+          </div>
+        </a>
+        <a href="year9_term3.html" class="module-card" aria-label="Year 9 Term 3 - Hydraulic Digger Project">
+          <div class="thumb-container"><span>T3</span></div>
+          <div class="module-title">
+            Term 3 – Hydraulic Digger Project
+            <div class="module-subtitle">Fluid power, mechanisms, lever linkages, build and test</div>
+          </div>
+        </a>
+        <a href="year9_term4.html" class="module-card" aria-label="Year 9 Term 4 - Geared Lolly Dispenser Project">
+          <div class="thumb-container"><span>T4</span></div>
+          <div class="module-title">
+            Term 4 – Geared Lolly Dispenser Project
+            <div class="module-subtitle">Gear systems, CAD, mechanisms, build, test and evaluate</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="classroom-section" aria-labelledby="year9-classroom-links">
+        <div class="classroom-header">
+          <div>
+            <h3 id="year9-classroom-links">Year 9 Google Classroom Topics</h3>
+            <p>Quick links to the Google Classroom topics for each term. All links open in a new tab.</p>
+          </div>
+          <div class="classroom-note">Browse topics by term to jump straight into Google Classroom.</div>
+        </div>
+
+        <div class="classroom-grid">
+          <details class="classroom-card">
+            <summary>
+              <h4><span class="term-chip">Term 1</span> Foundations &amp; WHS</h4>
+            </summary>
+            <ul class="classroom-links">
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg4" target="_blank" rel="noopener"><span class="topic-icon">T1</span> <span class="topic-title">Welcome &amp; Course Overview</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDcy" target="_blank" rel="noopener"><span class="topic-icon">WHS</span> <span class="topic-title">Work, Health &amp; Safety</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDcx" target="_blank" rel="noopener"><span class="topic-icon">F&L</span> <span class="topic-title">Forces &amp; Loads</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc0" target="_blank" rel="noopener"><span class="topic-icon">MAT</span> <span class="topic-title">Materials &amp; Corrosion</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg1" target="_blank" rel="noopener"><span class="topic-icon">PM</span> <span class="topic-title">Precision Measurement</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg2" target="_blank" rel="noopener"><span class="topic-icon">SAFE</span> <span class="topic-title">Safety &amp; OnGuard</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg3" target="_blank" rel="noopener"><span class="topic-icon">STR</span> <span class="topic-title">Structure Theory &amp; Projects</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDgx" target="_blank" rel="noopener"><span class="topic-icon">RISK</span> <span class="topic-title">WHS &amp; Risk Management</span></a></li>
+            </ul>
+          </details>
+
+          <details class="classroom-card">
+            <summary>
+              <h4><span class="term-chip">Term 2</span> Emerging Technologies</h4>
+            </summary>
+            <ul class="classroom-links">
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc3" target="_blank" rel="noopener"><span class="topic-icon">ALT</span> <span class="topic-title">Alternate Energies</span></a></li>
+            </ul>
+          </details>
+
+          <details class="classroom-card">
+            <summary>
+              <h4><span class="term-chip">Term 3</span> Mechanisms</h4>
+            </summary>
+            <ul class="classroom-links">
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDgw" target="_blank" rel="noopener"><span class="topic-icon">CTRL</span> <span class="topic-title">Control Systems</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDgz" target="_blank" rel="noopener"><span class="topic-icon">LEV</span> <span class="topic-title">Mechanisms &amp; Levers</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg0" target="_blank" rel="noopener"><span class="topic-icon">HYD</span> <span class="topic-title">Hydraulic Digger</span></a></li>
+            </ul>
+          </details>
+
+          <details class="classroom-card">
+            <summary>
+              <h4><span class="term-chip">Term 4</span> CAD &amp; Materials</h4>
+            </summary>
+            <ul class="classroom-links">
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDcz" target="_blank" rel="noopener"><span class="topic-icon">TIM</span> <span class="topic-title">Timber Materials</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc9" target="_blank" rel="noopener"><span class="topic-icon">CAD</span> <span class="topic-title">Onshape Tutorials</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDgy" target="_blank" rel="noopener"><span class="topic-icon">CAM</span> <span class="topic-title">CAMs &amp; Gears</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc2" target="_blank" rel="noopener"><span class="topic-icon">3D</span> <span class="topic-title">CAD Tutorials</span></a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Year 10 Section -->
+    <section class="modules-section" aria-labelledby="year10-heading">
+      <h2 id="year10-heading">Year 10</h2>
+      <p style="text-align: center; color: #6c757d; margin-bottom: 2rem; font-style: italic;">Year 10 content is currently under development. Check back soon for Control Systems modules covering robotics, automation, and advanced engineering projects.</p>
+      <div class="modules-grid">
+        <div class="module-card" style="opacity: 0.6; cursor: not-allowed;" aria-label="Year 10 Term 1 - Coming Soon">
+          <div class="thumb-container"><span>T1</span></div>
+          <div class="module-title">
+            Control Systems
+            <div class="module-subtitle">Soccer Bot & Controller</div>
+            <div style="font-size: 0.85rem; color: #999; margin-top: 0.5rem; font-weight: normal;">Coming Soon</div>
+          </div>
+        </div>
+        <div class="module-card" style="opacity: 0.6; cursor: not-allowed;" aria-label="Year 10 Term 2 - Coming Soon">
+          <div class="thumb-container"><span>T2</span></div>
+          <div class="module-title">
+            Control Systems
+            <div class="module-subtitle">Garden Watering System</div>
+            <div style="font-size: 0.85rem; color: #999; margin-top: 0.5rem; font-weight: normal;">Coming Soon</div>
+          </div>
+        </div>
+        <div class="module-card" style="opacity: 0.6; cursor: not-allowed;" aria-label="Year 10 Term 3 - Coming Soon">
+          <div class="thumb-container"><span>T3</span></div>
+          <div class="module-title">
+            Control Systems
+            <div class="module-subtitle">Mechanisms & CAD Support</div>
+            <div style="font-size: 0.85rem; color: #999; margin-top: 0.5rem; font-weight: normal;">Coming Soon</div>
+          </div>
+        </div>
+        <div class="module-card" style="opacity: 0.6; cursor: not-allowed;" aria-label="Year 10 Term 4 - Coming Soon">
+          <div class="thumb-container"><span>T4</span></div>
+          <div class="module-title">
+            Control Systems
+            <div class="module-subtitle">Mechanism Experiments & Testing</div>
+            <div style="font-size: 0.85rem; color: #999; margin-top: 0.5rem; font-weight: normal;">Coming Soon</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="copyright-footer">
+    <div class="copyright-content">
+      <div class="copyright-notice">
+        <p><strong>Notice:</strong> All images found throughout this site are provided solely for teaching and learning with our enrolled students.</p>
+        <p class="copyright-warning"><strong>WARNING:</strong> This material has been reproduced and communicated to you by or on behalf of Wagga Wagga High School pursuant to Part VB of the Copyright Act 1968 (Cth). This material may be subject to copyright. Any further copying or communication may be the subject of copyright protection under the Act.</p>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-info">
+        <p>&copy; 2026 Wagga Wagga High School - Engineering Resources</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

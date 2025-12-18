@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Year 9 Term 1 Engineering: Structures module covering water tower and concrete beam projects, WHS, forces, materials, and structural testing. Access toolkits, theory notes, and assessment resources." />
+  <meta name="keywords" content="engineering, structures, water tower, concrete beam, WHS, forces, materials, year 9, stage 5" />
+  <title>Year 9 Term 1 - Structures | Stage 5 Engineering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <script src="collapsible-panels.js" defer></script>
+  <script src="page-nav.js" defer></script>
+  <style>
+    :root {
+      --brand: #0056b3;
+      --brand-2: #0a7e2a;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+    }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.75rem 1.25rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1rem 0 0.5rem;
+    }
+    .top-nav a {
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.12);
+      color: #e8f2ff;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .top-nav a.active {
+      background: #fff;
+      color: #0b63c3;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+    .hero-title { margin: 0.25rem 0; font-size: clamp(2.1rem, 4vw, 2.8rem); font-weight: 700; }
+    .hero-sub { margin: 0.3rem 0; opacity: 0.9; font-size: 1.05rem; }
+    main { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+    .crumbs { display: inline-flex; gap: 0.75rem; margin: 1rem 0 1.5rem; align-items: center; }
+    .crumbs a { color: var(--brand); font-weight: 600; }
+    .panel {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+    }
+    .panel h3 { margin-top: 0; color: var(--brand); font-size: 1.35rem; }
+    .panel ul { margin: 0; padding-left: 1.1rem; color: var(--muted); }
+    .panel li + li { margin-top: 0.35rem; }
+    .panel a { color: var(--brand); text-decoration: underline; }
+    .panel a:hover { color: #003f80; text-decoration: underline; }
+    .project-instructions h4 { margin: 0 0 0.35rem; color: var(--text); }
+    .instruction-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 1rem;
+    }
+    .instruction-grid ul { color: var(--muted); }
+    .instruction-grid li + li { margin-top: 0.25rem; }
+    .requirements-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.35rem 0 0;
+      display: grid;
+      gap: 0.25rem;
+    }
+    .requirements-list li {
+      background: #f6f8fb;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.5rem 0.75rem;
+      color: var(--text);
+    }
+    .build-steps-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.35rem;
+    }
+    .build-step-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.06);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .build-step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--brand);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(0, 86, 179, 0.18);
+      flex: 0 0 auto;
+    }
+    .build-step-body h5 {
+      margin: 0 0 0.25rem;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+    .build-step-body p {
+      margin: 0 0 0.5rem;
+      color: var(--muted);
+    }
+    .step-details summary {
+      cursor: pointer;
+      color: var(--brand);
+      font-weight: 700;
+      list-style: none;
+      display: inline-flex;
+      gap: 0.4rem;
+      align-items: center;
+      padding: 0;
+    }
+    .step-details summary::-webkit-details-marker { display: none; }
+    .step-details summary::before {
+      content: "▸";
+      font-weight: 900;
+      transform: translateY(-1px);
+    }
+    .step-details[open] summary::before { content: "▾"; }
+    .step-details[open] summary { margin-bottom: 0.4rem; }
+    .step-details ul { margin: 0 0 0.4rem 1rem; color: var(--muted); padding-left: 1rem; }
+    .step-details li + li { margin-top: 0.25rem; }
+    .quick-check { margin: 0; color: #223044; font-weight: 600; font-size: 0.97rem; }
+    .instruction-note { color: var(--muted); margin: 0.25rem 0 0; }
+    .instruction-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .instruction-links a { text-decoration: underline; color: var(--brand); font-weight: 600; }
+    .instruction-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.9rem;
+    }
+    .instruction-gallery figure {
+      background: #f6f8fb;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.6rem;
+      margin: 0;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+    .instruction-gallery img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+      object-fit: cover;
+    }
+    .instruction-gallery figcaption {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .youtube-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 1.35rem 1.5rem;
+      margin: 0 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .youtube-card-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 0;
+    }
+    .youtube-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #ff2a2a, #b10000);
+      color: #fff;
+      font-weight: 900;
+      flex: 0 0 auto;
+      box-shadow: 0 10px 20px rgba(177, 0, 0, 0.18);
+    }
+    .youtube-card-title {
+      margin: 0;
+      color: var(--text);
+      font-size: 1.35rem;
+    }
+    .youtube-card-sub {
+      margin: 0.25rem 0 0;
+      color: var(--muted);
+    }
+    .youtube-action {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 86, 179, 0.22);
+      background: rgba(0, 86, 179, 0.06);
+      color: rgba(0, 86, 179, 0.95);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      flex: 0 0 auto;
+      box-shadow: var(--shadow);
+    }
+    .youtube-action:hover {
+      background: rgba(0, 86, 179, 0.11);
+      border-color: rgba(0, 86, 179, 0.32);
+    }
+    .youtube-action:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 3px;
+    }
+    .modules { margin-top: 2rem; text-align: center; }
+    .modules h2 { margin: 0 0 1rem; color: var(--brand); }
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+    .module-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .module-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.12); }
+    .module-card:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      transform: translateY(-2px);
+    }
+    .thumb-container {
+      background: #e6f0fb;
+      padding: 0.75rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .module-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, var(--brand), #0e7adf);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(0, 86, 179, 0.2);
+    }
+    .module-title { font-weight: 600; color: var(--text); }
+    .module-sub { font-size: 0.95rem; color: var(--muted); }
+    .tutorial-card, .checklist-card {
+      border: 2px solid #0b63c3;
+      background: linear-gradient(135deg, #0b63c3, #0a4f93);
+      color: #fff;
+    }
+    .tutorial-card:hover, .checklist-card:hover {
+      background: linear-gradient(135deg, #0a4f93, #073a6a);
+      color: #fff;
+    }
+    .tutorial-thumb, .checklist-thumb {
+      background: linear-gradient(135deg, #d9e8ff, #c7dcff);
+    }
+    .tutorial-thumb span, .checklist-thumb span {
+      color: #0b63c3;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .tutorial-card .module-title,
+    .checklist-card .module-title,
+    .tutorial-card .module-sub,
+    .checklist-card .module-sub {
+      color: #fff;
+    }
+    .pill {
+      display: inline-block;
+      align-self: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .resources {
+      margin-top: 2rem;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .resource-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 0.35rem;
+    }
+    .resource-card h4 { margin: 0; color: var(--brand); }
+    .resource-card p { margin: 0; color: var(--muted); }
+    .resource-card a { color: var(--brand); font-weight: 600; }
+    .assessment-panel {
+      background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+      border: 2px solid #ffc107;
+      border-left: 5px solid #ff9800;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+    }
+    .assessment-panel h3 {
+      margin-top: 0;
+      color: #856404;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .assessment-panel h3::before {
+      content: "📋";
+      font-size: 1.5rem;
+    }
+    .assessment-header {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+      background: rgba(255,255,255,0.6);
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .assessment-header-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .assessment-header-item strong {
+      color: #856404;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .assessment-header-item span {
+      color: #333;
+      font-weight: 600;
+    }
+    .assessment-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #ff9800;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .assessment-link:hover {
+      background: #f57c00;
+      color: #fff;
+    }
+    .footer {
+      margin-top: 3rem;
+      background: #fff;
+      border: 1px solid #f1c40f;
+      border-left: 4px solid #d9534f;
+      border-radius: 10px;
+      padding: 1.25rem 1rem;
+      box-shadow: var(--shadow);
+      color: #8a6d3b;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 600px) {
+      header { padding-top: 2rem; }
+      .top-nav { justify-content: flex-start; }
+      .modules-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="sr-only" style="position: absolute; top: 0; left: 0; background: #0b63c3; color: #fff; padding: 0.75rem 1rem; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0;">Skip to main content</a>
+  <header role="banner">
+    <h1 class="hero-title">Year 9 Term 1: Water Tower Project</h1>
+    <p class="hero-sub">WHS, structural concepts, design, build and test your water tower</p>
+    <div class="top-nav">
+      <a href="index.html">Back to Engineering Home</a>
+      <a class="active" href="#">Term 1 – Water Tower Project</a>
+      <a href="year9_term2.html">Term 2 – Concrete Beam Project</a>
+      <a href="year9_term3.html">Term 3 – Hydraulic Digger Project</a>
+      <a href="year9_term4.html">Term 4 – Geared Lolly Dispenser Project</a>
+    </div>
+  </header>
+  <main id="main-content" role="main">
+    <div class="crumbs">
+      <a href="index.html">&#8592; Back to Main Index</a>
+      <span>/</span>
+      <span>Year 9 Term 1</span>
+    </div>
+
+    <section class="panel project-instructions" aria-labelledby="project-instructions-heading">
+      <div class="instruction-grid">
+        <div>
+          <h3 id="project-instructions-heading">Water Tower Project Instructions</h3>
+          <h4>Project brief</h4>
+          <p style="color: #4b5563; margin: 0 0 0.5rem;">Build a tower that safely carries heavy weight using the supplied materials.</p>
+          <ul class="requirements-list" aria-label="Non-negotiable requirements">
+            <li><strong>Height:</strong> At least 300 mm tall.</li>
+            <li><strong>Mass:</strong> No more than 60 g.</li>
+            <li><strong>Load:</strong> Must hold at least 25 kg.</li>
+            <li><strong>Time:</strong> Must hold that load for at least 5 seconds.</li>
+            <li><strong>Top support:</strong> Must hold a 300 mm square board during testing.</li>
+          </ul>
+          <p class="instruction-note"><strong>What “good” looks like:</strong> triangles/bracing to stop racking, neat strong joints, a clear load path (top → legs/columns → base) and a stable base.</p>
+        </div>
+
+        <div>
+          <h4>Materials & evidence</h4>
+          <ul>
+            <li>4 mm square cross-section plywood members.</li>
+            <li>300 mm square board for the test platform.</li>
+            <li>Cast iron weights placed on top during testing.</li>
+          </ul>
+          <p class="instruction-note"><strong>Hand in:</strong> your built tower, folio/report showing your process, and testing results (mass, load held, hold time).</p>
+          <div class="instruction-gallery" aria-label="Water tower build photo">
+            <figure>
+              <img src="images/water%20tower%20build.jpg" alt="Water tower build example" loading="lazy">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="instruction-grid" style="margin-top: 1.25rem;">
+        <div>
+          <h4>Build steps</h4>
+          <div class="build-steps-card-grid" role="list">
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">1</div>
+              <div class="build-step-body">
+                <h5>Sketch 2–3 ideas</h5>
+                <p>Choose a design that is strong and light. Use triangles.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Sketch a few tower shapes to avoid locking in too early.</li>
+                    <li>Show the load path: top plate → legs → base.</li>
+                    <li>Avoid long, unsupported pieces (they bend and twist).</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Can you point to at least six triangles?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">2</div>
+              <div class="build-step-body">
+                <h5>Draw your final design with measurements</h5>
+                <p>Show height and where the top board will sit.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Add key measurements: height, base width, brace lengths.</li>
+                    <li>Label important parts: legs, braces, gussets, top support.</li>
+                    <li>Mark where the top board sits and how it is supported.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Could someone else build it from your drawing?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">3</div>
+              <div class="build-step-body">
+                <h5>Plan your cuts</h5>
+                <p>Work out what pieces you need before you start cutting.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Write a cut list: piece name, quantity, length (mm).</li>
+                    <li>Plan build order: base → legs → braces → top support.</li>
+                    <li>Allow a little extra length for trimming and squaring.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Do you have bracing to stop sideways wobble?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">4</div>
+              <div class="build-step-body">
+                <h5>Build the base and frame</h5>
+                <p>Start square and straight. Bad bases make bad towers.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Dry-fit first (no glue) to check alignment.</li>
+                    <li>Use a try-square / set square to keep corners true.</li>
+                    <li>Glue and clamp — don’t rush the cure time.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Is your base flat on the bench with no rocking?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">5</div>
+              <div class="build-step-body">
+                <h5>Add bracing and gussets</h5>
+                <p>Triangles = strength. Gussets = strong joints.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Add braces where members are long or unsupported.</li>
+                    <li>Gussets should cover the joint properly (not tiny stickers).</li>
+                    <li>Keep both sides symmetrical where possible.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: If you gently twist it, does it resist twisting?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">6</div>
+              <div class="build-step-body">
+                <h5>Test and record</h5>
+                <p>Load it safely, record results, and learn from the failure mode.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Test in small steps (don’t jump straight to max load).</li>
+                    <li>Record: load, deflection, and where it bends or cracks first.</li>
+                    <li>Use correct words: compression, tension, bending, buckling.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Did you write down results as you went (not later)?</p>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4>Quick checks</h4>
+          <ul>
+            <li>Can you point to at least six triangles in your design?</li>
+            <li>Is the base flat on the bench with no rocking?</li>
+            <li>Does the tower resist twisting when you gently check it?</li>
+            <li>Have you captured photos and test data for your folio?</li>
+          </ul>
+          <div class="instruction-links">
+            <a href="water%20tower%20project.html" target="_blank" rel="noopener">Open the full student guide</a>
+          </div>
+          <div class="instruction-gallery" aria-label="Students building">
+            <figure>
+              <img src="images/term234/students%20building%20tank%20stand.jpeg" alt="Students building the tank stand" loading="lazy">
+              <figcaption>Students building the tank stand.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="youtube-card" role="region" aria-label="Term 1 YouTube clips">
+      <div class="youtube-card-left">
+        <div class="youtube-badge" aria-hidden="true">▶</div>
+        <div style="min-width:0;">
+          <h2 class="youtube-card-title">YouTube clips</h2>
+          <p class="youtube-card-sub">Watch the curated Term 1 video clips for this project.</p>
+        </div>
+      </div>
+      <a class="youtube-action" href="Youtube%20clips/term%201%20youtube%20clips.html" target="_blank" rel="noopener" aria-label="Open Term 1 YouTube clips">▶</a>
+    </div>
+
+    <!-- Assessment Task Notification -->
+    <section class="assessment-panel" aria-labelledby="assessment-heading">
+      <h3 id="assessment-heading">Term 1 Assessment Task: Water Tower Project</h3>
+      <p style="color: #856404; margin-bottom: 1rem; font-weight: 600;">This is a formative learning task completed during Term 1. Formative assessments are for learning and skill development - they are not graded and do not contribute to your final mark.</p>
+      
+      <div class="assessment-header">
+        <div class="assessment-header-item">
+          <strong>Date of Issue</strong>
+          <span>Week 1, Term 1</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Build & Testing</strong>
+          <span>Weeks 2-5, Term 1</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Folio Submission</strong>
+          <span>End of Term 1</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Task Type</strong>
+          <span>Formative (Not Graded)</span>
+        </div>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.7); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+        <h4 style="margin-top: 0; color: #856404; font-size: 1.1rem;">Task Overview</h4>
+        <p style="margin-bottom: 0.75rem; color: #333;">Design, build, and test a structural water tower. Document your complete process from design through testing and evaluation in a comprehensive project folio.</p>
+        <p style="margin-bottom: 0.75rem; color: #333;"><strong>Key Requirements:</strong></p>
+        <ul style="margin-bottom: 0; color: #333; padding-left: 1.5rem;">
+          <li>Complete WHS training and apply safe work practices</li>
+          <li>Design tower using structural concepts (forces, loads, truss geometry)</li>
+          <li>Build tower following your design plan</li>
+          <li>Conduct systematic load testing and record data</li>
+          <li>Evaluate performance and document in folio</li>
+        </ul>
+      </div>
+
+      <a href="year9_term1_assessment.html" class="assessment-link" target="_blank" rel="noopener">View Full Assessment Notification →</a>
+    </section>
+
+    <section class="panel" aria-labelledby="classroom-term1">
+      <h3 id="classroom-term1">Google Classroom Topics (Term 1)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;"><strong>How to use these links:</strong> Each Google Classroom topic contains starter activities and resources for the corresponding topic. Complete the Classroom task <em>before</em> or <em>during</em> the matching practical session to maximise your learning. These activities help you prepare for hands-on work and deepen your understanding of key concepts.</p>
+      <ul>
+        <li><strong>Orientation:</strong> <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg4" target="_blank" rel="noopener">Welcome &amp; Course Overview</a></li>
+        <li><strong>Topic 1 – WHS &amp; Risk Control:</strong> <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDcy" target="_blank" rel="noopener">Work, Health &amp; Safety</a>, <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg2" target="_blank" rel="noopener">Safety &amp; OnGuard</a>, <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDgx" target="_blank" rel="noopener">WHS &amp; Risk Management</a></li>
+        <li><strong>Topic 2 – Structural Concepts:</strong> <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDcx" target="_blank" rel="noopener">Forces &amp; Loads</a>, <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg3" target="_blank" rel="noopener">Structure Theory &amp; Projects</a></li>
+        <li><strong>Topic 3 – Water Tower Design &amp; Planning:</strong> Design brief analysis, tower layouts, joint planning</li>
+        <li><strong>Topic 4 – Build, Test &amp; Evaluate:</strong> <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg1" target="_blank" rel="noopener">Precision Measurement</a></li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Scope & Lesson Plans</h3>
+      <ul>
+        <li><a href="Year%209%20Industrial%20Tech%20T1%20scope%20and%20sequence.docx" target="_blank" rel="noopener">Year 9 Industrial Tech T1 Scope and Sequence (DOCX)</a></li>
+        <li><a href="Term%201%20Lesson%20Plans.docx" target="_blank" rel="noopener">Term 1 Lesson Plans (DOCX)</a></li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Overview of Requirements</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">Throughout Term 1, you will develop essential engineering skills through hands-on projects and investigations. Here's what you'll accomplish:</p>
+      <ul>
+        <li><strong>Safety First:</strong> Complete WHS onboarding (OnGuard safety tests) and learn to apply the hierarchy of control in all workshop tasks. Safety is your foundation for everything else.</li>
+        <li><strong>Structural Concepts (Weeks 2-3):</strong> Master forces, SI units, truss geometry, and load paths. These concepts form the foundation for your tower design.</li>
+        <li><strong>Water Tower Design & Planning (Weeks 2-3):</strong> Create detailed tower layouts, plan joints, select materials, and develop build sequences. Good planning here saves time and improves build quality.</li>
+        <li><strong>Water Tower Build, Test & Evaluate (Weeks 3-5):</strong> Build your tower based on your design, conduct systematic load tests, and document everything in a comprehensive folio. This is your main Term 1 project.</li>
+        <li><strong>Project Documentation:</strong> Maintain a comprehensive project folio covering design rationale, technical sketches, build log, test data, evaluation, and reflection. This demonstrates your engineering thinking and understanding of structural concepts.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Outcomes Alignment (IND5)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">This term's work addresses multiple Stage 5 Engineering Technology outcomes. Understanding these helps you see how your learning connects to the broader engineering discipline:</p>
+      <ul>
+        <li><strong>IND5-1, IND5-3, IND5-4:</strong> Workplace Health & Safety outcomes - You'll demonstrate competency through OnGuard tests, SWMS development, proper tool setup, and safe construction of your water tower project.</li>
+        <li><strong>IND5-2, IND5-5, IND5-7:</strong> Design and production outcomes - Your work will show design iterations, technical sketches/orthogonal drawings, bill of materials, sequencing, and comprehensive testing evidence.</li>
+        <li><strong>IND5-6:</strong> Collaboration outcomes - You'll work in teams on tower builds and testing, developing collaborative risk controls and sign-off procedures.</li>
+        <li><strong>IND5-8, IND5-10:</strong> Evaluation outcomes - You'll critically evaluate strength-to-weight ratios, load paths, failure modes, and environmental/ethical considerations for materials and structures.</li>
+        <li><strong>IND5-9:</strong> Emerging technologies - You'll explore emerging technologies in structural design and testing, including using online bridge simulators like PBS Building Big.</li>
+      </ul>
+      <p style="margin-top: 1rem;">
+        <a href="#post-2027-outcomes" style="color: #2563eb; text-decoration: underline;">View the post-2027 outcomes alignment (new syllabus)</a>
+      </p>
+    </section>
+
+    <section class="panel" id="post-2027-outcomes" aria-labelledby="post-2027-outcomes-heading">
+      <h3 id="post-2027-outcomes-heading">Post-2027 Outcomes Alignment (EGT5)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">As the syllabus transitions to the new Engineering Technology structure, these outcomes from the post-2027 program align with the same learning you complete in Term 1:</p>
+      <ul>
+        <li><strong>EGT5-SAF-01 &amp; EGT5-ENV-01:</strong> <em>Student-friendly summary (not official wording):</em> Apply risk management, PPE, OnGuard certification and SWMS writing while also embedding sustainable workshop practices and material choices throughout your tower project.<br><em>Official wording:</em> EGT5-SAF-01 — applies risk management and safe work practices in engineering contexts; EGT5-ENV-01 — analyses relationships between engineering design, production and sustainability.</li>
+        <li><strong>EGT5-COM-01 &amp; EGT5-GRP-01:</strong> <em>Student-friendly summary (not official wording):</em> Communicate engineering ideas through logbooks, reports, design justifications and showcase presentations supported by orthogonal drawings and assembly documentation.<br><em>Official wording:</em> EGT5-COM-01 — communicates ideas, concepts and solutions for engineering practice; EGT5-GRP-01 — develops and applies technical graphics in engineering contexts.</li>
+        <li><strong>EGT5-EVL-01:</strong> <em>Student-friendly summary (not official wording):</em> Investigate and evaluate engineering systems through tower testing to collect data for evidence-based conclusions about structural performance.<br><em>Official wording:</em> investigates and evaluates engineering systems and solutions.</li>
+        <li><strong>EGT5-MEA-01:</strong> <em>Student-friendly summary (not official wording):</em> Analyse mechanical performance by tracking load paths, strength-to-weight and tension/compression behaviour in your tower build, supported by experimental data.<br><em>Official wording:</em> applies mechanical analysis and practical testing to investigate engineering concepts.</li>
+        <li><strong>EGT5-USE-01:</strong> <em>Student-friendly summary (not official wording):</em> Classify and justify material selections for your tower, considering strength-to-weight, workability, durability and structural suitability.<br><em>Official wording:</em> selects and applies materials for engineering projects.</li>
+        <li><strong>EGT5-IVT-01:</strong> <em>Student-friendly summary (not official wording):</em> Connect classroom projects to industry practices by exploring how engineering technologies are applied across structural design and testing.<br><em>Official wording:</em> explains engineering practices and the influence of technologies used in engineering industries.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Assessment & Folio Checklist</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">Your assessment folio should be a comprehensive record of your learning journey. Use this checklist to ensure you've included all required evidence:</p>
+      <ul>
+        <li><strong>Safety Documentation:</strong> Completed SWMS (Safe Work Method Statements) covering hand/power tools used in your tower project. These demonstrate your risk management skills.</li>
+        <li><strong>Project Report:</strong> Detailed project folio with design sketches/orthogonal views, build log, load test data, materials selection rationale, and safety evidence (photos/video). This is your main assessment piece.</li>
+        <li><strong>Design Documentation:</strong> Design brief analysis, preliminary sketches, final design drawings with annotations (load paths, member roles, joint details), cutting list, and build sequence.</li>
+        <li><strong>Critical Reflection:</strong> Evaluation covering what worked well, what failed first and why, improvements you would make, and links back to structural concepts from Toolkit 2. Show you understand the broader implications of engineering decisions.</li>
+        <li><strong>Vocabulary Development:</strong> Updated glossary including WHS signage, forces terminology, joint types, and structural terms. Engineering communication requires precise language.</li>
+        <li><strong>Certification Evidence:</strong> Proof of OnGuard/WHS test completion and any scaffolded responses used. Keep certificates and screenshots as evidence.</li>
+      </ul>
+      <p style="color: #4b5563; margin-top: 1rem; font-style: italic;"><strong>Tip:</strong> Start your folio early and update it regularly. Don't leave documentation until the end - it's much easier to record observations as you work!</p>
+    </section>
+
+    <section class="panel">
+      <h3>Hands-on & Theory (Term 1 Program)</h3>
+      <p style="color: #4b5563; margin-bottom: 0.75rem;"><strong>Project Sequence:</strong> Projects are sequenced to allow focused learning and complete folio documentation for each before moving to the next.</p>
+      <ul>
+        <li><strong>Weeks 2-3:</strong> Structural concepts (Toolkit 2) - forces, SI units, truss geometry, PBS "Building Big" basics and online challenge. Water tower design & planning (Toolkit 3) - design brief analysis, layouts, joint planning, materials selection.</li>
+        <li><strong>Weeks 3-5:</strong> Water tower build, test and evaluation (Toolkit 4) - construct tower, conduct load tests, document everything in comprehensive folio.</li>
+        <li><strong>Weeks 6-10:</strong> Consolidation, folio completion, reflection, and review of structural concepts.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Resources & Differentiation</h3>
+      <ul>
+        <li>Workshop access: hand tools, hot glue guns, scales, concrete mixer/moulds; CAD for drawings.</li>
+        <li>Links: <a href="http://www.pbs.org/wgbh/buildingbig/bridge/basics.html" target="_blank" rel="noopener">Bridge basics</a> | <a href="http://www.pbs.org/wgbh/buildingbig/bridge/challenge/index.html" target="_blank" rel="noopener">Bridge challenge</a>.</li>
+        <li>Differentiation: vocab dictionary with images; split-screen translate for EAL/D; scaffolded responses; varied delivery (8 Ways).</li>
+        <li>Safety signage builder for workshop hazard task; SWMS templates and risk plan PDFs linked in modules.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Week Plan Snapshot (Guide)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">This timeline provides a guide for what to expect each week. The schedule is designed to space out major projects, allowing you to complete each one thoroughly before moving to the next. Remember, learning is flexible - your teacher may adjust timing based on class needs:</p>
+      <ul>
+        <li><strong>Week 1:</strong> Introduction to engineering fields and career pathways. Complete Toolkit 1 (WHS & Risk Control) foundation work - OnGuard tests, PPE, hierarchy of control, SWMS development.</li>
+        <li><strong>Weeks 2-3:</strong> Complete Toolkit 2 (Structural Concepts) - forces, SI units, truss geometry, load paths, tension/compression, buckling. Use PBS Bridge Basics/Challenge simulators. Complete Toolkit 3 (Water Tower Design & Planning) - design brief analysis, create tower layouts, plan joints, select materials, develop build sequence, produce technical sketches.</li>
+        <li><strong>Weeks 3-5:</strong> Complete Toolkit 4 (Water Tower Build, Test & Evaluate) - build tower based on your design, conduct systematic load tests, record data, document everything in comprehensive folio. Complete your tower folio by end of Week 5.</li>
+        <li><strong>Weeks 6-10:</strong> Consolidation and review - polish folio, complete any outstanding documentation, reflect on learning, review structural concepts, submit final reports and SWMS documentation.</li>
+      </ul>
+      <p style="color: #4b5563; margin-top: 1rem; font-style: italic;"><strong>Note:</strong> The water tower is your main Term 1 project. Complete Toolkits 1-3 before starting your build in Toolkit 4. This sequential approach ensures you have the knowledge and planning in place before construction. Complete your tower folio by the end of Week 5.</p>
+    </section>
+
+    <section class="modules">
+      <h2>Toolkits</h2>
+      <div class="modules-grid">
+        <a class="module-card" id="term1-toolkit1" href="Year9%20T1%20Modules/module1.html">
+          <div class="module-num">1</div>
+          <div class="module-title">WHS & Risk Control</div>
+          <div class="module-sub">OnGuard, PPE, hierarchy of control, DRABC</div>
+          <span class="pill">Safety</span>
+        </a>
+        <a class="module-card" id="term1-toolkit2" href="Year9%20T1%20Modules/module2.html">
+          <div class="module-num">2</div>
+          <div class="module-title">Structural Concepts</div>
+          <div class="module-sub">Forces, SI units, truss geometry, bridge challenges</div>
+          <span class="pill">Theory</span>
+        </a>
+        <a class="module-card" id="term1-toolkit3" href="Year9%20T1%20Modules/module3.html">
+          <div class="module-num">3</div>
+          <div class="module-title">Water Tower Design & Planning</div>
+          <div class="module-sub">Design brief, layouts, joints, materials, build sequence</div>
+          <span class="pill">Design</span>
+        </a>
+        <a class="module-card" id="term1-toolkit4" href="Year9%20T1%20Modules/module4.html">
+          <div class="module-num">4</div>
+          <div class="module-title">Water Tower Build, Test & Evaluate</div>
+          <div class="module-sub">Build, test, evaluate and document your tower project</div>
+          <span class="pill">Project</span>
+        </a>
+        <a class="module-card tutorial-card" href="Year9%20T1%20Modules/tutorial.html">
+          <div class="thumb-container tutorial-thumb"><span>Guide</span></div>
+          <div class="module-title">Design & Test Tutorial</div>
+          <div class="module-sub">Tower layout, joints, test setup & evidence</div>
+        </a>
+        <a class="module-card checklist-card" href="Year9%20T1%20Modules/observation-checklist.html">
+          <div class="thumb-container checklist-thumb"><span>Checklist</span></div>
+          <div class="module-title">Testing Checklist</div>
+          <div class="module-sub">Safety, measurements, photos/video prompts</div>
+        </a>
+      </div>
+    </section>
+    <section class="panel">
+      <h3>Key Document</h3>
+      <ul>
+        <li><a href="9%20Structures_Mechanism%20Program%20draft.pdf" target="_blank">Year 9 Structures & Mechanisms Program (PDF)</a></li>
+        <li><a href="9%20Structures_Mechanism%20Program%20draft.docx" target="_blank" rel="noopener">Year 9 Structures & Mechanisms Program (DOCX)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20(S4,%20S5,%20LS).docx" target="_blank">NESA Engineering Technology 7-10 Syllabus (Stage 4/5)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20syllabus%20support%20(S4,%20S5,%20LS).docx" target="_blank">NESA Syllabus Support (Stage 4/5)</a></li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      <strong>Notice:</strong> All images and resources are provided solely for teaching and learning with our enrolled students.<br />
+      <strong>WARNING:</strong> This material has been reproduced and communicated by or on behalf of Wagga Wagga High School pursuant to Part VB of the Copyright Act 1968 (Cth). Further copying or communication may be subject to copyright protection under the Act.
+    </div>
+  </main>
+</body>
+</html>

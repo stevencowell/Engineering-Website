@@ -1,0 +1,132 @@
+Year 9 Industrial Tech – Engineering Unit: Tensegrity Structures / Alternate Energies / Submarine Design / CAD & Onshape (T2)
+
+Modules:
+Toolkit 1 – Tensegrity & Materials
+Toolkit 2 – Alternate Energies
+Toolkit 3 – Submarine Design & Buoyancy
+Toolkit 4 – CAD & Onshape
+
+10-Week Scope & Sequence (T2)
+
+Week	Focus & Module Link	Key Theory / Learning	Practical / Activities	Assessment & Evidence
+
+1	Unit intro & tensegrity concept (Toolkit 1)	- Overview of Term 2: tensegrity structures, renewable energy, submarine design, CAD development, folio expectations.
+- Introduction to tensegrity: tension + compression working together in equilibrium.
+- Forces in equilibrium: how tension and compression balance in tensegrity systems.
+- Material properties for tension vs compression: why cables work in tension, struts in compression.
+- Workshop safety review: cutting/drilling struts, tensioning cables, heat sources (if soldering).
+- Classroom: Intro PPT/video on tensegrity structures (sculptures, bridges, architectural applications).
+- Discussion: where students see tension/compression in everyday structures; brainstorm "what makes structures stable?"
+- Workshop walk-through: identify hazards for cutting struts, drilling holes, tensioning cables.
+- Mini tensegrity model build: simple 3-strut model to understand preload concept.
+- Formative: Participation in discussion; completion of tensegrity concept worksheet.
+- Start vocab dictionary for key terms (tensegrity, preload, tension, compression, equilibrium).
+- Outcomes focus: IND5-1, IND5-3, IND5-5, IND5-6.
+
+2	Tensegrity prism build (Toolkit 1)	- Detailed tensegrity geometry: strut placement, cable routing, preload sequence.
+- Material selection: choosing struts (dowels/rod) and cables (cord/wire) based on strength-to-weight.
+- Preload importance: why initial tension creates stability and prevents buckling.
+- WHS for cutting/drilling: safe use of saws, drills, files; PPE for metal/wood dust.
+- Workshop: Cut struts to length; drill holes for cable attachment points; file smooth edges.
+- Build tensegrity prism: attach cables, apply preload systematically, check for stability.
+- Test structure: apply small loads, measure deflection, observe force distribution.
+- Document build process: photos of construction steps, notes on preload sequence.
+- Evidence: Tensegrity build photos; preload sequence notes; load/deflection measurements.
+- Draft SWMS for cutting/drilling struts and tensioning cables.
+- Outcomes focus: IND5-1, IND5-2, IND5-3, IND5-7.
+
+3	Alternate energies introduction (Toolkit 2)	- Energy transformations: mechanical to electrical (wind, hydro), radiant to electrical (solar), chemical to electrical (batteries).
+- Renewable vs non-renewable: sustainability thinking and embodied energy concepts.
+- Wind energy basics: how wind turbines convert kinetic energy to electricity; blade design principles.
+- Voltage, current, power: basic electrical concepts and efficiency calculations.
+- ICT: Research task on renewable energy types (wind, solar, hydro, geothermal); compare advantages/disadvantages.
+- Theory: PPT/notes on energy transformations; video of wind farms, solar installations, hydroelectric dams.
+- Set up wind turbine experiment: DC motor as generator, fan as wind source, multimeter for voltage/current measurement.
+- Test different blade designs: record voltage and current for each design; calculate power output.
+- Evidence: Renewable energy research notes; wind turbine test data (voltage, current, power calculations).
+- Energy investigation log started in folio.
+- Outcomes focus: IND5-2, IND5-4, IND5-8, IND5-10.
+
+4	Solar energy investigation (Toolkit 2)	- Solar photovoltaic principles: how solar cells convert light to electricity.
+- Solar oven/panel concepts: concentrating vs direct conversion methods.
+- Efficiency factors: angle to sun, shading, temperature effects on solar cell performance.
+- Sustainability evaluation: embodied energy of solar panels, lifecycle analysis, recycling considerations.
+- Lab/bench: Set up solar panel experiment: small PV cells, multimeter, variable light source (lamp).
+- Test solar panel output: measure voltage/current at different angles, distances, light intensities.
+- Optional: Build simple solar oven: reflectors, insulation, temperature measurement.
+- Record data: voltage/current vs angle, voltage/current vs distance, efficiency calculations.
+- Sustainability reflection: discuss embodied energy, manufacturing impacts, end-of-life considerations.
+- Evidence: Solar panel test data table; efficiency calculations; sustainability reflection notes.
+- Folio updated: solar energy section added to energy investigation log.
+- Outcomes focus: IND5-4, IND5-7, IND5-8, IND5-10.
+
+5	Hydro/wave energy & energy comparison (Toolkit 2)	- Hydroelectric principles: potential energy to kinetic to electrical; dam vs run-of-river systems.
+- Wave energy concepts: how wave motion can drive generators.
+- Energy efficiency comparison: comparing wind, solar, hydro outputs and real-world applications.
+- Power calculations: P = VI, efficiency = (output/input) × 100%.
+- Lab/bench: Build simple hydro device: water wheel or wave car; connect to DC motor/generator.
+- Test hydro device: measure voltage/current output; vary water flow rate, record data.
+- Compare energy sources: create comparison table (wind vs solar vs hydro) with efficiency data.
+- Energy transformation diagrams: sketch energy flow for each renewable source.
+- Evidence: Hydro device test data; energy comparison table; energy transformation diagrams.
+- Complete energy investigation log: all three energy sources documented with data and reflections.
+- Outcomes focus: IND5-2, IND5-4, IND5-7, IND5-8, IND5-10.
+
+6	Buoyancy theory & submarine introduction (Toolkit 3)	- Buoyancy principles: Archimedes' principle, density, displacement, neutral buoyancy.
+- Submarine ballast control: how submarines dive and surface using ballast tanks.
+- Density calculations: ρ = m/V; comparing densities of water, air, materials.
+- Pressure and depth: how water pressure increases with depth; effects on buoyancy.
+- Theory: PPT/notes on buoyancy and submarines; video of submarine operations, ballast control.
+- Worksheet: density calculations for various materials; buoyancy force calculations.
+- Research: "Submarines Around the World" – identify key features, ballast systems, depth capabilities.
+- Begin submarine design: sketch bottle submarine with ballast tank, air volume control mechanism.
+- Evidence: Buoyancy calculations worksheet; submarine research notes; initial submarine design sketch.
+- Outcomes focus: IND5-2, IND5-4, IND5-7, IND5-9.
+
+7	Submarine build & ballast experiments (Toolkit 3)	- Ballast control mechanisms: syringes, air bladders, weight systems for neutral buoyancy.
+- Stability concepts: centre of gravity, centre of buoyancy, trim.
+- Testing methodology: systematic testing of dive/surface cycles, depth control, stability.
+- WHS for water experiments: safe handling of water, electrical components near water, supervision requirements.
+- Workshop/lab: Build bottle submarine: attach ballast system (syringe/air bladder), add weights for trim.
+- Test ballast control: record air volume vs depth; test dive/surface cycles; measure neutral buoyancy point.
+- Density experiments: measure mass and volume of submarine components; calculate overall density.
+- Stability tests: observe submarine behaviour (pitch, roll, yaw); adjust weight distribution.
+- Evidence: Submarine build photos; ballast test data (air volume vs depth); density calculations; stability notes.
+- SWMS for water-based experiments completed.
+- Outcomes focus: IND5-1, IND5-2, IND5-3, IND5-4, IND5-7.
+
+8	CAD introduction & Onshape basics (Toolkit 4)	- CAD fundamentals: parametric modelling, sketches, features, assemblies.
+- Onshape interface: navigation, sketch tools, feature tools, assembly mates.
+- Technical drawing standards: orthographic projections, dimensions, tolerances.
+- Engineering communication: how CAD models communicate design intent.
+- ICT: Set up Onshape accounts; complete Onshape tutorials (sketching, extruding, basic features).
+- Tutorial: Model simple part (tensegrity strut or cap): sketch profile, extrude, add holes.
+- Practice: Model multiple components (struts, caps, cable attachments) for tensegrity structure.
+- Document CAD process: screenshots of sketches, features, final parts.
+- Evidence: Onshape account setup; tutorial completion; CAD model screenshots (struts, caps).
+- CAD log started in folio.
+- Outcomes focus: IND5-2, IND5-5, IND5-7, IND5-9.
+
+9	CAD assembly & technical drawings (Toolkit 4)	- Assembly techniques: mates, constraints, degrees of freedom.
+- Technical drawing generation: creating orthographic views, adding dimensions, annotations.
+- Design iteration: using CAD to test different configurations, dimensions, materials.
+- Linking CAD to physical build: comparing CAD model to actual tensegrity structure.
+- ICT: Assemble tensegrity components in Onshape: add mates between struts and cables (simplified representation).
+- Generate technical drawings: create orthographic views of key components (strut, cap); add dimensions.
+- Optional: Model renewable energy component (wind turbine blade, solar panel mount) in CAD.
+- Compare CAD to physical: measure actual parts, compare to CAD dimensions; discuss differences.
+- Evidence: CAD assembly screenshots; technical drawings (orthographic views with dimensions); comparison notes.
+- CAD section completed in folio.
+- Outcomes focus: IND5-2, IND5-5, IND5-7, IND5-9.
+
+10	Folio completion, reflection & industry links (wrap-up)	- Engineering design process: how Term 2 projects demonstrate iterative design, testing, evaluation.
+- Industry applications: tensegrity in architecture, renewable energy engineering, naval engineering, CAD in manufacturing.
+- Sustainability thinking: evaluating material choices, energy efficiency, environmental impacts across all projects.
+- Revision of key concepts: forces in equilibrium, energy transformations, buoyancy principles, CAD communication.
+- Class: Complete folio sections (tensegrity project report, energy investigation log, submarine design & testing, CAD documentation, final evaluation, sustainability reflection).
+- Short reflection: "What I learned about materials, energy, and design in Term 2, and how it connects to real-world engineering."
+- If time: Quick preview/demo of Term 3 topics (mechanisms, control systems) to show continuity.
+- Summative: Final Term 2 Folio submitted (including tensegrity build, energy investigations, submarine design, CAD models/drawings, SWMS, evaluation, sustainability considerations).
+- Optional short quiz/exit ticket on core theory (forces, energy, buoyancy, CAD).
+- Outcomes focus: IND5-1 to IND5-10 sampled across folio and reflection.
+

@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Year 9 Engineering Program - Complete Scope and Sequence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      text-align: center;
+      padding: 2.5rem 1rem 2rem;
+    }
+    header h1 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.5rem); }
+    header p { margin: 0.5rem 0 0; opacity: 0.9; font-size: 1.1rem; }
+    .back-link {
+      display: inline-block;
+      margin: 1rem 0 0 1rem;
+      color: var(--brand);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .back-link:hover { text-decoration: underline; }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+    .intro {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 2rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+    .intro h2 {
+      margin-top: 0;
+      color: var(--brand);
+      font-size: 1.8rem;
+    }
+    .intro h3 {
+      color: var(--muted);
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-top: 0.5rem;
+    }
+    .intro p {
+      color: var(--muted);
+      margin: 0.75rem 0;
+    }
+    .intro ul {
+      margin: 0.75rem 0;
+      padding-left: 1.5rem;
+    }
+    .intro li {
+      margin: 0.5rem 0;
+    }
+    .section {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .section h2 {
+      margin-top: 0;
+      color: var(--brand);
+      font-size: 1.8rem;
+      border-bottom: 3px solid var(--brand);
+      padding-bottom: 0.5rem;
+    }
+    .section h3 {
+      color: var(--text);
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    .section h4 {
+      color: var(--text);
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .section h5 {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .section p {
+      color: var(--muted);
+      margin: 0.75rem 0;
+    }
+    .section ul, .section ol {
+      margin: 0.75rem 0;
+      padding-left: 1.5rem;
+    }
+    .section li {
+      margin: 0.5rem 0;
+      color: var(--muted);
+    }
+    .section strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+    .week-block {
+      background: #f8f9fa;
+      border-left: 4px solid var(--brand);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .week-block h4 {
+      margin-top: 0;
+      color: var(--brand);
+    }
+    .week-block h5 {
+      margin-top: 1rem;
+      color: var(--text);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: var(--card);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    table th {
+      background: var(--brand);
+      color: #fff;
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    table tr:last-child td {
+      border-bottom: none;
+    }
+    table tr:hover {
+      background: #f8f9fa;
+    }
+    a {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .outcome-block {
+      background: #f0f7ff;
+      border-left: 4px solid var(--brand);
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+    .outcome-block h5 {
+      margin-top: 0;
+      color: var(--brand);
+    }
+    .outcome-block ul {
+      margin: 0.5rem 0 0 0;
+    }
+    .toc {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+    .toc h3 {
+      margin-top: 0;
+      color: var(--brand);
+    }
+    .toc ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .toc li {
+      margin: 0.5rem 0;
+    }
+    .toc a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+    .toc a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      main {
+        padding: 1rem 0.5rem 2rem;
+      }
+      .section {
+        padding: 1.5rem;
+      }
+      .week-block {
+        padding: 1rem;
+      }
+      table {
+        font-size: 0.9rem;
+      }
+      table th, table td {
+        padding: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-link">← Back to Main Index</a>
+  <header>
+    <h1>Year 9 Industrial Technology – Engineering</h1>
+    <p>Complete Scope and Sequence Program</p>
+    <p style="font-size: 0.95rem; opacity: 0.8;">Stage 5 Industrial Technology – Engineering Syllabus (2019)</p>
+  </header>
+  <main>
+    <div class="intro">
+      <p><strong>Course:</strong> Year 9 Engineering</p>
+      <p><strong>Subject:</strong> Industrial Technology – Engineering</p>
+      <p><strong>Syllabus:</strong> Stage 5 Industrial Technology Years 7-10 Syllabus (2019)</p>
+      <p><strong>Program Version:</strong> 2025 (Reorganized Structure)</p>
+      <p><strong>Teacher:</strong> Mr Cowell</p>
+    </div>
+
+    <div class="toc">
+      <h3>Table of Contents</h3>
+      <ul>
+        <li><a href="#overview">Program Overview</a></li>
+        <li><a href="#term1">Term 1: Water Tower Project</a></li>
+        <li><a href="#term2">Term 2: Concrete Beam Project</a></li>
+        <li><a href="#term3">Term 3: Hydraulic Digger Project</a></li>
+        <li><a href="#term4">Term 4: Geared Lolly Dispenser Project</a></li>
+        <li><a href="#outcomes">Outcomes Mapping</a></li>
+        <li><a href="#assessment">Assessment Schedule</a></li>
+        <li><a href="#resources">Resources and Support Materials</a></li>
+        <li><a href="#notes">Program Notes</a></li>
+      </ul>
+    </div>
+
+    <section class="section" id="overview">
+      <h2>PROGRAM OVERVIEW</h2>
+      <p>This program provides a comprehensive week-by-week scope and sequence for Year 9 Engineering, aligned with the Stage 5 Industrial Technology – Engineering syllabus. The program has been reorganized to focus each term on a single major project, ensuring deep learning and skill development.</p>
+      
+      <h3>Course Structure</h3>
+      <ul>
+        <li><strong>Term 1:</strong> Water Tower Project (Formative Assessment)</li>
+        <li><strong>Term 2:</strong> Concrete Beam Project (Summative Assessment - Task 1, 30%)</li>
+        <li><strong>Term 3:</strong> Hydraulic Digger Project (Formative Assessment)</li>
+        <li><strong>Term 4:</strong> Geared Lolly Dispenser Project (Summative Assessment - Task 2, 40%)</li>
+      </ul>
+
+      <h3>Assessment Schedule</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Nature of Task</th>
+            <th>Due Date</th>
+            <th>Outcomes</th>
+            <th>Weighting</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Task 1</td>
+            <td>Projects & Reports 1</td>
+            <td>Term 2, Week 7</td>
+            <td>All</td>
+            <td>30%</td>
+          </tr>
+          <tr>
+            <td>Task 2</td>
+            <td>Projects & Reports 2</td>
+            <td>Term 4, Week 6</td>
+            <td>All</td>
+            <td>40%</td>
+          </tr>
+          <tr>
+            <td>Task 3</td>
+            <td>Final Examination</td>
+            <td>Term 4, Week 5</td>
+            <td>IND5-1, IND5-5, IND5-6, IND5-9, IND5-10</td>
+            <td>30%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Website Links</h3>
+      <ul>
+        <li><strong>Main Index:</strong> <a href="index.html">index.html</a></li>
+        <li><strong>Term 1 Overview:</strong> <a href="year9_term1.html">year9_term1.html</a></li>
+        <li><strong>Term 2 Overview:</strong> <a href="year9_term2.html">year9_term2.html</a></li>
+        <li><strong>Term 3 Overview:</strong> <a href="year9_term3.html">year9_term3.html</a></li>
+        <li><strong>Term 4 Overview:</strong> <a href="year9_term4.html">year9_term4.html</a></li>
+      </ul>
+    </section>
+
+    <section class="section" id="term1">
+      <h2>TERM 1: WATER TOWER PROJECT</h2>
+      <p><strong>Focus:</strong> WHS, Structural Concepts, Design, Build and Test</p>
+      <p><strong>Assessment:</strong> Formative (Learning Task - Due End of Term 1)</p>
+      <p><strong>Website:</strong> <a href="year9_term1.html">year9_term1.html</a></p>
+
+      <h3>Term 1 Overview</h3>
+      <p>Term 1 introduces students to engineering through the Water Tower project. Students develop foundational skills in workplace health and safety, structural concepts, design planning, and systematic testing. This formative assessment builds essential skills for future summative tasks.</p>
+
+      <p><strong>Key Learning Areas:</strong></p>
+      <ul>
+        <li>Workplace Health & Safety (WHS) and risk management</li>
+        <li>Structural concepts: forces, loads, trusses, tension, compression</li>
+        <li>Design and planning processes</li>
+        <li>Build, test, and evaluation procedures</li>
+      </ul>
+
+      <p><strong>Toolkits:</strong></p>
+      <ol>
+        <li><strong>Toolkit 1:</strong> WHS & Risk Control → <a href="Year9%20T1%20Modules/module1.html">Year9 T1 Modules/module1.html</a></li>
+        <li><strong>Toolkit 2:</strong> Structural Concepts → <a href="Year9%20T1%20Modules/module2.html">Year9 T1 Modules/module2.html</a></li>
+        <li><strong>Toolkit 3:</strong> Water Tower Design & Planning → <a href="Year9%20T1%20Modules/module3.html">Year9 T1 Modules/module3.html</a></li>
+        <li><strong>Toolkit 4:</strong> Water Tower Build, Test & Evaluate → <a href="Year9%20T1%20Modules/module4.html">Year9 T1 Modules/module4.html</a></li>
+      </ol>
+
+      <h3>TERM 1 - WEEK-BY-WEEK SCOPE AND SEQUENCE</h3>
+
+      <div class="week-block">
+        <h4>Week 1: Course Introduction & WHS Foundation</h4>
+        <p><strong>Focus:</strong> Toolkit 1 - WHS & Risk Control</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T1%20Modules/module1.html">Year9 T1 Modules/module1.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Course overview: Introduction to engineering fields, career pathways, and Year 9 program structure</li>
+          <li>Workplace Health & Safety fundamentals: WHS legislation, responsibilities, hazard identification</li>
+          <li>OnGuard safety training: Complete OnGuard safety certification tests</li>
+          <li>Hierarchy of Control: Elimination, substitution, engineering controls, administrative controls, PPE</li>
+          <li>DRABC first aid response: Danger, Response, Airway, Breathing, Circulation</li>
+          <li>PPE requirements: Eye protection, hearing protection, respiratory protection, protective clothing</li>
+          <li>Risk management: SWMS (Safe Work Method Statements) development and documentation</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Classroom:</strong> Course introduction presentation, engineering career exploration, OnGuard safety modules</li>
+          <li><strong>Workshop:</strong> Workshop orientation walk-through, hazard identification activity, PPE fitting and inspection</li>
+          <li><strong>Theory:</strong> Complete OnGuard safety tests, DRABC first aid overview, hierarchy of control worksheet</li>
+          <li><strong>Planning:</strong> Begin SWMS draft for water tower project (cutting, drilling, gluing operations)</li>
+          <li><strong>Google Classroom:</strong> Complete <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg4" target="_blank">Welcome & Course Overview</a>, <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDcy" target="_blank">Work, Health & Safety</a>, <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg2" target="_blank">Safety & OnGuard</a></li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>OnGuard safety certification completion</li>
+          <li>SWMS draft for water tower project</li>
+          <li>PPE checklist and inspection log</li>
+          <li>Hazard identification worksheet</li>
+          <li><strong>Formative:</strong> Participation in safety activities, completion of OnGuard tests</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-1:</strong> Identifies, assesses, applies, and manages risks and WHS issues</li>
+          <li><strong>IND5-5:</strong> Selects, interprets, and applies communication techniques (SWMS documentation)</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T1%20Modules/module1.html">Toolkit 1: WHS & Risk Control</a> - Complete module</li>
+          <li><a href="year9_term1_assessment.html">Term 1 Assessment Notification</a></li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 2: Structural Concepts & Design Planning</h4>
+        <p><strong>Focus:</strong> Toolkit 2 (Structural Concepts) + Toolkit 3 (Water Tower Design & Planning)</p>
+        <p><strong>Website Links:</strong> <a href="Year9%20T1%20Modules/module2.html">Year9 T1 Modules/module2.html</a>, <a href="Year9%20T1%20Modules/module3.html">Year9 T1 Modules/module3.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Forces and Loads:</strong> Types of forces (tension, compression, shear, bending), dead loads, live loads, wind loads</li>
+          <li><strong>SI Units:</strong> Force (N), mass (kg), length (m), pressure (Pa), stress (Pa)</li>
+          <li><strong>Structural Forms:</strong> Trusses, frames, beams, columns, triangulation principles</li>
+          <li><strong>Load Paths:</strong> How forces flow through structures from point of application to foundation</li>
+          <li><strong>Tension and Compression:</strong> Material behaviour under different loading conditions</li>
+          <li><strong>Buckling:</strong> Compression failure modes, slenderness ratio, bracing strategies</li>
+          <li><strong>Strength-to-Weight Ratio:</strong> Optimising structural efficiency</li>
+          <li><strong>Design Brief Analysis:</strong> Understanding requirements, constraints, and specifications</li>
+          <li><strong>Tower Layouts:</strong> Base design, leg arrangement, bracing patterns, joint planning</li>
+          <li><strong>Materials Selection:</strong> Timber properties, joint types, material efficiency</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Theory:</strong> Forces worksheet practice (<a href="Year%209%20T1%20Theory%20Notes/Forces%20worksheet.pdf">Forces worksheet.pdf</a>, <a href="Year%209%20T1%20Theory%20Notes/forces2.pdf">forces2.pdf</a>, <a href="Year%209%20T1%20Theory%20Notes/forces3.pdf">forces3.pdf</a>)</li>
+          <li><strong>Simulation:</strong> PBS Building Big Bridge Challenge - explore truss geometry and load paths</li>
+          <li><strong>Design:</strong> Analyse water tower design brief, create preliminary tower sketches</li>
+          <li><strong>Planning:</strong> Develop tower layouts showing leg positions, bracing, joint locations</li>
+          <li><strong>Materials:</strong> Select materials based on strength-to-weight, workability, availability</li>
+          <li><strong>Google Classroom:</strong> Complete <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDcx" target="_blank">Forces & Loads</a>, <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg3" target="_blank">Structure Theory & Projects</a></li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Forces practice worksheets completed</li>
+          <li>Bridge simulator analysis notes</li>
+          <li>Design brief annotation highlighting requirements and constraints</li>
+          <li>Preliminary tower layout sketches (top view, side view)</li>
+          <li>Materials selection justification</li>
+          <li>Joint planning sketches</li>
+          <li><strong>Formative:</strong> Design planning documentation, structural concept understanding</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-2:</strong> Applies design principles in project development</li>
+          <li><strong>IND5-4:</strong> Selects, justifies, and uses materials for specific applications</li>
+          <li><strong>IND5-5:</strong> Applies communication techniques (sketches, technical drawings)</li>
+          <li><strong>IND5-7:</strong> Applies and transfers skills to engineering contexts</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T1%20Modules/module2.html">Toolkit 2: Structural Concepts</a> - Forces, loads, structural forms</li>
+          <li><a href="Year9%20T1%20Modules/module3.html">Toolkit 3: Water Tower Design & Planning</a> - Design brief, layouts, materials</li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 3: Design Refinement & Build Preparation</h4>
+        <p><strong>Focus:</strong> Toolkit 3 (Design & Planning) + Toolkit 4 (Build Preparation)</p>
+        <p><strong>Website Links:</strong> <a href="Year9%20T1%20Modules/module3.html">Year9 T1 Modules/module3.html</a>, <a href="Year9%20T1%20Modules/module4.html">Year9 T1 Modules/module4.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Design Refinement:</strong> Finalising tower geometry, joint details, build sequence</li>
+          <li><strong>Technical Sketches:</strong> Orthographic views, isometric sketches, detail views</li>
+          <li><strong>Build Sequence:</strong> Logical order of construction, sub-assembly planning</li>
+          <li><strong>Cutting Lists:</strong> Material requirements, dimensions, quantities</li>
+          <li><strong>Tool Selection:</strong> Appropriate tools for cutting, drilling, joining</li>
+          <li><strong>WHS for Building:</strong> Safe tool use, workspace organisation, material handling</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Design:</strong> Refine tower design based on structural concepts, create final technical sketches</li>
+          <li><strong>Planning:</strong> Develop detailed build sequence, cutting list, tool list</li>
+          <li><strong>WHS:</strong> Complete SWMS for all building operations (cutting, drilling, gluing, assembly)</li>
+          <li><strong>Preparation:</strong> Organise materials, prepare workspace, set up tools</li>
+          <li><strong>Tutorial:</strong> Review <a href="Year9%20T1%20Modules/tutorial.html">tutorial.html</a> for planning, jointing, and assembly guidance</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Final tower design sketches (orthographic views)</li>
+          <li>Detailed build sequence plan</li>
+          <li>Cutting list with dimensions and quantities</li>
+          <li>Tool list and SWMS for all operations</li>
+          <li>Materials organised and workspace prepared</li>
+          <li><strong>Formative:</strong> Design documentation, planning quality</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-1:</strong> Manages WHS issues (SWMS completion)</li>
+          <li><strong>IND5-2:</strong> Applies design principles (design refinement)</li>
+          <li><strong>IND5-3:</strong> Selects and uses tools appropriately</li>
+          <li><strong>IND5-5:</strong> Communicates design intent (technical sketches)</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T1%20Modules/module3.html">Toolkit 3: Water Tower Design & Planning</a> - Complete design work</li>
+          <li><a href="Year9%20T1%20Modules/tutorial.html">Tutorial: Planning, Jointing & Assembly</a> - Build guidance</li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 4: Water Tower Construction</h4>
+        <p><strong>Focus:</strong> Toolkit 4 - Build Phase</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T1%20Modules/module4.html">Year9 T1 Modules/module4.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Construction Techniques:</strong> Cutting to length, drilling holes, joint preparation</li>
+          <li><strong>Assembly Methods:</strong> Gluing, clamping, alignment checks</li>
+          <li><strong>Quality Control:</strong> Checking dimensions, squareness, joint integrity</li>
+          <li><strong>Workshop Safety:</strong> Safe tool operation, material handling, workspace management</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Workshop:</strong> Cut tower components to length according to cutting list</li>
+          <li><strong>Workshop:</strong> Drill holes for joints, prepare joint surfaces</li>
+          <li><strong>Workshop:</strong> Assemble tower following build sequence plan</li>
+          <li><strong>Workshop:</strong> Apply joints (gluing, clamping), check alignment and squareness</li>
+          <li><strong>Documentation:</strong> Build log with photos of key stages (cutting, drilling, assembly, joints)</li>
+          <li><strong>Google Classroom:</strong> Complete <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg1" target="_blank">Precision Measurement</a> task</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Build log with dated entries</li>
+          <li>Photos of construction stages (minimum 5 key stages)</li>
+          <li>Notes on problems encountered and solutions</li>
+          <li>Quality checks: dimensions, squareness, joint integrity</li>
+          <li><strong>Formative:</strong> Build quality, following design plan, safe work practices</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-1:</strong> Applies WHS practices during construction</li>
+          <li><strong>IND5-3:</strong> Uses tools and processes to produce quality project</li>
+          <li><strong>IND5-6:</strong> Works collaboratively and safely</li>
+          <li><strong>IND5-7:</strong> Transfers skills to practical construction</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T1%20Modules/module4.html">Toolkit 4: Water Tower Build, Test & Evaluate</a> - Build protocol section</li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 5: Testing & Evaluation</h4>
+        <p><strong>Focus:</strong> Toolkit 4 - Test & Evaluate Phase</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T1%20Modules/module4.html">Year9 T1 Modules/module4.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Testing Procedures:</strong> Systematic load testing, data collection, observation</li>
+          <li><strong>Failure Modes:</strong> Buckling, joint failure, material failure, base failure</li>
+          <li><strong>Data Analysis:</strong> Load vs deflection, failure load, failure mode identification</li>
+          <li><strong>Evaluation Methods:</strong> PMI (Plus, Minus, Interesting) analysis, criteria-based evaluation</li>
+          <li><strong>Folio Structure:</strong> Organising evidence, presenting data, writing evaluation</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Testing:</strong> Set up test rig, conduct systematic load testing</li>
+          <li><strong>Data Collection:</strong> Record tower height, mass, load at failure, failure mode, deflection measurements</li>
+          <li><strong>Analysis:</strong> Create data table, graph load vs deflection (if applicable)</li>
+          <li><strong>Evaluation:</strong> Evaluate tower against design criteria (function, safety, aesthetics, sustainability)</li>
+          <li><strong>Reflection:</strong> PMI analysis with specific improvements identified</li>
+          <li><strong>Folio:</strong> Complete water tower folio using <a href="Year%209%20T1%20Theory%20Notes/Water%20Tower%20Folio.pdf">Water Tower Folio template</a></li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Test data table with measurements</li>
+          <li>Graph showing load vs deflection (if applicable)</li>
+          <li>Photos of testing setup and failure</li>
+          <li>Evaluation against design criteria</li>
+          <li>PMI analysis with improvements</li>
+          <li>Complete folio with all sections</li>
+          <li><strong>Formative:</strong> Folio submission (End of Term 1)</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-8:</strong> Evaluates products in terms of functional, economic, aesthetic, and environmental qualities</li>
+          <li><strong>IND5-5:</strong> Communicates project development (folio documentation)</li>
+          <li><strong>IND5-7:</strong> Applies skills to testing and evaluation context</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T1%20Modules/module4.html">Toolkit 4: Water Tower Build, Test & Evaluate</a> - Testing protocol, evaluation sections</li>
+          <li><a href="Year%209%20T1%20Theory%20Notes/Tower_Evaluation_Scaffolded_Response.pdf">Tower Evaluation Scaffold</a> - Evaluation guidance</li>
+          <li><a href="Year%209%20T1%20Theory%20Notes/Year_9_Essay_Guide.pdf">Year 9 Essay Guide</a> - Folio writing guidance</li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Weeks 6-10: Consolidation & Review</h4>
+        <p><strong>Focus:</strong> Folio completion, skill consolidation, preparation for Term 2</p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Folio Refinement:</strong> Polishing documentation, improving presentation</li>
+          <li><strong>Concept Review:</strong> Revisiting structural concepts, forces, load paths</li>
+          <li><strong>Skill Consolidation:</strong> Reflecting on learning, identifying strengths and areas for improvement</li>
+          <li><strong>Term 2 Preparation:</strong> Introduction to materials and concrete concepts</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Complete and submit water tower folio</li>
+          <li>Review structural concepts through practice problems</li>
+          <li>Reflect on Term 1 learning journey</li>
+          <li>Preview Term 2 materials and concrete topics</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Final folio submission</li>
+          <li>Reflection on learning</li>
+          <li><strong>Formative:</strong> Complete folio demonstrates understanding</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-1 to IND5-10:</strong> Comprehensive coverage through folio and reflection</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Note: Due to length, I'll include a summary for Terms 2-4 and link to full details -->
+    <section class="section" id="term2">
+      <h2>TERM 2: CONCRETE BEAM PROJECT</h2>
+      <p><strong>Focus:</strong> Materials, Concrete & Composites, Design, Casting, Testing and Evaluation</p>
+      <p><strong>Assessment:</strong> Summative - Task 1 (30% - Due Week 7, Term 2)</p>
+      <p><strong>Website:</strong> <a href="year9_term2.html">year9_term2.html</a></p>
+
+      <h3>Term 2 Overview</h3>
+      <p>Term 2 focuses on materials science and concrete as a composite material. Students investigate material properties, understand concrete behaviour, design reinforced concrete beams, and conduct destructive testing. This is the first summative assessment task.</p>
+
+      <p><strong>Key Learning Areas:</strong></p>
+      <ul>
+        <li>Material classification and properties</li>
+        <li>Corrosion mechanisms and protection</li>
+        <li>Concrete as a composite material</li>
+        <li>Mix design and reinforcement</li>
+        <li>Casting procedures and curing</li>
+        <li>Destructive testing and failure analysis</li>
+      </ul>
+
+      <p><strong>Toolkits:</strong></p>
+      <ol>
+        <li><strong>Toolkit 1:</strong> Materials & Corrosion → <a href="Year9%20T2%20Modules/module1.html">Year9 T2 Modules/module1.html</a></li>
+        <li><strong>Toolkit 2:</strong> Concrete & Composite Materials → <a href="Year9%20T2%20Modules/module2.html">Year9 T2 Modules/module2.html</a></li>
+        <li><strong>Toolkit 3:</strong> Concrete Beam Design & Planning → <a href="Year9%20T2%20Modules/module3.html">Year9 T2 Modules/module3.html</a></li>
+        <li><strong>Toolkit 4:</strong> Concrete Beam Casting, Test & Evaluate → <a href="Year9%20T2%20Modules/module4.html">Year9 T2 Modules/module4.html</a></li>
+      </ol>
+
+      <h3>TERM 2 - WEEK-BY-WEEK SCOPE AND SEQUENCE</h3>
+
+      <div class="week-block">
+        <h4>Week 1: Materials & Corrosion Introduction</h4>
+        <p><strong>Focus:</strong> Toolkit 1 - Materials & Corrosion</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T2%20Modules/module1.html">Year9 T2 Modules/module1.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Material Classification:</strong> Metals, polymers, ceramics, composites, natural materials</li>
+          <li><strong>Material Properties:</strong> Strength, stiffness, toughness, hardness, workability, durability</li>
+          <li><strong>Corrosion Mechanisms:</strong> Oxidation, galvanic corrosion, environmental factors</li>
+          <li><strong>Corrosion Protection:</strong> Coatings, galvanising, cathodic protection, material selection</li>
+          <li><strong>Damp-Proof Course (DPC):</strong> Purpose, materials, installation in construction</li>
+          <li><strong>Material Selection:</strong> Choosing materials based on application requirements</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Theory:</strong> Material classification worksheet, property comparison tables</li>
+          <li><strong>Experiments:</strong> Corrosion experiments (saltwater exposure, galvanic corrosion demonstration)</li>
+          <li><strong>Investigation:</strong> Damp-proofing investigation, material property testing</li>
+          <li><strong>Google Classroom:</strong> Complete <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc4" target="_blank">Materials & Corrosion</a> activity</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Material classification notes</li>
+          <li>Corrosion experiment results and observations</li>
+          <li>Damp-proofing investigation notes</li>
+          <li>Material property comparison table</li>
+          <li><strong>Formative:</strong> Understanding of material properties and corrosion</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-4:</strong> Selects, justifies, and uses materials for specific applications</li>
+          <li><strong>IND5-8:</strong> Evaluates materials in terms of functional and environmental qualities</li>
+          <li><strong>IND5-10:</strong> Evaluates impact of material choices on environment</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T2%20Modules/module1.html">Toolkit 1: Materials & Corrosion</a> - Complete module</li>
+          <li><a href="year9_term2_assessment.html">Term 2 Assessment Notification</a></li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 2: Concrete & Composite Materials</h4>
+        <p><strong>Focus:</strong> Toolkit 2 - Concrete & Composite Materials</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T2%20Modules/module2.html">Year9 T2 Modules/module2.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Concrete as Composite:</strong> Cement, aggregate, water, admixtures working together</li>
+          <li><strong>Mix Design:</strong> Cement:sand:aggregate:water ratios, water-cement ratio importance</li>
+          <li><strong>Reinforcement:</strong> Steel reinforcement purpose, placement, tension vs compression</li>
+          <li><strong>Curing:</strong> Hydration process, curing time, strength development over time</li>
+          <li><strong>Concrete Properties:</strong> Compressive strength, tensile strength, workability, durability</li>
+          <li><strong>Failure Modes:</strong> Tension failure, compression failure, shear failure</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Theory:</strong> Concrete mix design calculations, reinforcement placement principles</li>
+          <li><strong>Investigation:</strong> Concrete information and quiz (<a href="Year%209%20T1%20Theory%20Notes/Concrete%20Information%20and%20Quiz.pdf">Concrete Information and Quiz.pdf</a>)</li>
+          <li><strong>Planning:</strong> Begin concrete beam mix design planning</li>
+          <li><strong>Research:</strong> Investigate concrete reinforcement types and applications</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Concrete mix design calculations</li>
+          <li>Reinforcement placement planning</li>
+          <li>Concrete properties notes</li>
+          <li>Mix design justification</li>
+          <li><strong>Formative:</strong> Understanding of concrete as composite material</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-4:</strong> Selects and justifies materials (concrete mix design)</li>
+          <li><strong>IND5-9:</strong> Describes and analyses emerging technologies (concrete technology)</li>
+          <li><strong>IND5-7:</strong> Applies skills to concrete context</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T2%20Modules/module2.html">Toolkit 2: Concrete & Composite Materials</a> - Complete module</li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 3: Concrete Beam Design & Planning</h4>
+        <p><strong>Focus:</strong> Toolkit 3 - Concrete Beam Design & Planning</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T2%20Modules/module3.html">Year9 T2 Modules/module3.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Beam Geometry:</strong> Span, depth, width relationships, bending moment considerations</li>
+          <li><strong>Reinforcement Design:</strong> Tension reinforcement placement, compression reinforcement (if needed)</li>
+          <li><strong>Mix Planning:</strong> Finalising mix ratio, calculating quantities, water-cement ratio</li>
+          <li><strong>Formwork Design:</strong> Mould requirements, release agents, dimensional accuracy</li>
+          <li><strong>Casting Sequence:</strong> Mixing order, placement technique, consolidation, finishing</li>
+          <li><strong>Test Procedures:</strong> Loading setup, deflection measurement, failure observation</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Design:</strong> Complete beam geometry design (span, depth, width)</li>
+          <li><strong>Planning:</strong> Design reinforcement layout, plan formwork construction</li>
+          <li><strong>Calculations:</strong> Finalise mix design, calculate material quantities</li>
+          <li><strong>Planning:</strong> Develop casting sequence, test procedure plan</li>
+          <li><strong>WHS:</strong> Complete SWMS for concrete mixing, casting, and testing</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Beam design sketches showing geometry and reinforcement</li>
+          <li>Mix design calculations and material quantities</li>
+          <li>Formwork design plan</li>
+          <li>Casting sequence plan</li>
+          <li>Test procedure plan</li>
+          <li>SWMS for all operations</li>
+          <li><strong>Formative:</strong> Design quality, planning thoroughness</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-2:</strong> Applies design principles (beam design)</li>
+          <li><strong>IND5-4:</strong> Selects and justifies materials (mix design)</li>
+          <li><strong>IND5-5:</strong> Communicates design (technical drawings, plans)</li>
+          <li><strong>IND5-1:</strong> Manages WHS (SWMS)</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T2%20Modules/module3.html">Toolkit 3: Concrete Beam Design & Planning</a> - Complete module</li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 4: Concrete Beam Casting</h4>
+        <p><strong>Focus:</strong> Toolkit 4 - Casting Phase</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T2%20Modules/module4.html">Year9 T2 Modules/module4.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Mixing Procedures:</strong> Batching, mixing techniques, consistency checking</li>
+          <li><strong>Placement:</strong> Pouring technique, consolidation, avoiding segregation</li>
+          <li><strong>Finishing:</strong> Surface finishing, curing preparation</li>
+          <li><strong>Curing:</strong> Moisture retention, temperature control, curing duration</li>
+          <li><strong>Quality Control:</strong> Checking dimensions, surface quality, reinforcement placement</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Workshop:</strong> Construct formwork according to design</li>
+          <li><strong>Workshop:</strong> Place reinforcement according to design layout</li>
+          <li><strong>Workshop:</strong> Mix concrete following mix design</li>
+          <li><strong>Workshop:</strong> Cast beam following casting sequence</li>
+          <li><strong>Workshop:</strong> Finish surface, prepare for curing</li>
+          <li><strong>Documentation:</strong> Build log with photos (formwork, reinforcement, mixing, casting, finishing)</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Build log with dated entries</li>
+          <li>Photos of casting stages (formwork, reinforcement, mixing, casting, finishing)</li>
+          <li>Notes on problems encountered and solutions</li>
+          <li>Quality checks: dimensions, reinforcement placement, surface quality</li>
+          <li><strong>Formative:</strong> Casting quality, following design plan</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-1:</strong> Applies WHS practices (concrete handling safety)</li>
+          <li><strong>IND5-3:</strong> Uses processes to produce quality project</li>
+          <li><strong>IND5-6:</strong> Works collaboratively during casting</li>
+          <li><strong>IND5-7:</strong> Applies skills to concrete casting context</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T2%20Modules/module4.html">Toolkit 4: Concrete Beam Casting, Test & Evaluate</a> - Casting protocol section</li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 5: Curing & Test Preparation</h4>
+        <p><strong>Focus:</strong> Toolkit 4 - Curing Period + Folio Development</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T2%20Modules/module4.html">Year9 T2 Modules/module4.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Curing Science:</strong> Hydration process, strength development timeline</li>
+          <li><strong>Curing Management:</strong> Moisture retention, temperature monitoring</li>
+          <li><strong>Test Preparation:</strong> Setting up test rig, preparing measurement equipment</li>
+          <li><strong>Folio Development:</strong> Documenting design, casting, preparing for test documentation</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Curing:</strong> Monitor beam curing, maintain moisture, check temperature</li>
+          <li><strong>Preparation:</strong> Set up test rig, prepare measurement equipment</li>
+          <li><strong>Folio:</strong> Document design process, casting log, prepare test documentation templates</li>
+          <li><strong>Review:</strong> Review beam design, check reinforcement placement, verify dimensions</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Curing log with dates and observations</li>
+          <li>Test setup photos</li>
+          <li>Folio sections: design, casting, ready for testing</li>
+          <li><strong>Formative:</strong> Curing management, folio development</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-5:</strong> Communicates project development (folio documentation)</li>
+          <li><strong>IND5-7:</strong> Applies skills to curing and preparation</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T2%20Modules/module4.html">Toolkit 4: Concrete Beam Casting, Test & Evaluate</a> - Curing and test preparation</li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 6: Destructive Testing</h4>
+        <p><strong>Focus:</strong> Toolkit 4 - Testing Phase</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T2%20Modules/module4.html">Year9 T2 Modules/module4.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Testing Procedures:</strong> Systematic loading, data collection, observation</li>
+          <li><strong>Failure Modes:</strong> Tension failure, compression failure, shear failure identification</li>
+          <li><strong>Data Analysis:</strong> Load vs deflection, first crack load, failure load, failure mode</li>
+          <li><strong>Safety:</strong> Destructive testing safety procedures, safe test setup</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Testing:</strong> Conduct destructive test following test procedure</li>
+          <li><strong>Data Collection:</strong> Record beam span, mix ratio, reinforcement details, cure time</li>
+          <li><strong>Observation:</strong> Observe first crack, measure deflection, record failure load, identify failure mode</li>
+          <li><strong>Documentation:</strong> Photos of test setup, first crack, failure, failure face</li>
+          <li><strong>Analysis:</strong> Create data table, graph load vs deflection</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Test data table with all measurements</li>
+          <li>Graph showing load vs deflection</li>
+          <li>Photos of testing (setup, first crack, failure, failure face)</li>
+          <li>Failure mode identification and analysis</li>
+          <li><strong>Summative:</strong> Test data quality, analysis depth</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-1:</strong> Manages WHS (testing safety)</li>
+          <li><strong>IND5-8:</strong> Evaluates products (test results analysis)</li>
+          <li><strong>IND5-5:</strong> Communicates results (data presentation)</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T2%20Modules/module4.html">Toolkit 4: Concrete Beam Casting, Test & Evaluate</a> - Testing protocol section</li>
+          <li><a href="images/term234/concrete-testing.gif">Concrete Testing GIF</a> - Testing apparatus reference</li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 7: Evaluation & Folio Submission</h4>
+        <p><strong>Focus:</strong> Toolkit 4 - Evaluation + Task 1 Submission</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T2%20Modules/module4.html">Year9 T2 Modules/module4.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Data Analysis:</strong> Compare expected vs actual performance, identify failure causes</li>
+          <li><strong>Evaluation Methods:</strong> Criteria-based evaluation, PMI analysis</li>
+          <li><strong>Improvement Proposals:</strong> Realistic improvements linked to test results</li>
+          <li><strong>Folio Completion:</strong> Organising all evidence, presenting professionally</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Analysis:</strong> Analyse test results, compare to predictions, identify failure causes</li>
+          <li><strong>Evaluation:</strong> Evaluate beam against design criteria (strength, durability, material efficiency)</li>
+          <li><strong>Reflection:</strong> PMI analysis, propose realistic improvements</li>
+          <li><strong>Folio:</strong> Complete all folio sections, organise evidence, finalise presentation</li>
+          <li><strong>Submission:</strong> Submit complete folio (Task 1 - 30%)</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Analysis of test results</li>
+          <li>Evaluation against criteria</li>
+          <li>PMI analysis with improvements</li>
+          <li>Complete folio with all sections</li>
+          <li><strong>Summative:</strong> Task 1 submission (30% weighting)</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-8:</strong> Evaluates products comprehensively</li>
+          <li><strong>IND5-5:</strong> Communicates project development professionally</li>
+          <li><strong>IND5-1 to IND5-10:</strong> Comprehensive coverage through folio</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T2%20Modules/module4.html">Toolkit 4: Concrete Beam Casting, Test & Evaluate</a> - Evaluation section</li>
+          <li><a href="year9_term2_assessment.html">Task 1 Assessment Notification</a></li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Weeks 8-10: Consolidation & Term 3 Preparation</h4>
+        <p><strong>Focus:</strong> Skill consolidation, Term 3 preview</p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Review materials and concrete concepts</li>
+          <li>Introduction to fluid power and mechanisms (Term 3 preview)</li>
+          <li>Skill consolidation and reflection</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Concept review activities</li>
+          <li>Term 3 preparation tasks</li>
+          <li>Reflection on Term 2 learning</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Review activities completed</li>
+          <li><strong>Formative:</strong> Skill consolidation</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="term3">
+      <h2>TERM 3: HYDRAULIC DIGGER PROJECT</h2>
+      <p><strong>Focus:</strong> Fluid Power, Mechanisms, Lever Linkages, Build and Test</p>
+      <p><strong>Assessment:</strong> Formative (Learning Task - Due End of Term 3)</p>
+      <p><strong>Website:</strong> <a href="year9_term3.html">year9_term3.html</a></p>
+
+      <h3>Term 3 Overview</h3>
+      <p>Term 3 introduces fluid power and mechanisms through the Hydraulic Digger project. Students learn Pascal's principle, lever systems, mechanical advantage, and velocity ratio while building and testing a functional hydraulic control system.</p>
+
+      <p><strong>Key Learning Areas:</strong></p>
+      <ul>
+        <li>Fluid power principles (Pascal's principle, pressure, force)</li>
+        <li>Mechanisms and lever linkages</li>
+        <li>Mechanical advantage (MA) and velocity ratio (VR)</li>
+        <li>Systematic testing and performance analysis</li>
+        <li>Design, build, and evaluation processes</li>
+      </ul>
+
+      <p><strong>Toolkits:</strong></p>
+      <ol>
+        <li><strong>Toolkit 1:</strong> Fluid Power & Mechanisms → <a href="Year9%20T3%20Modules/module1.html">Year9 T3 Modules/module1.html</a></li>
+        <li><strong>Toolkit 2:</strong> Hydraulic Digger Design → <a href="Year9%20T3%20Modules/module2.html">Year9 T3 Modules/module2.html</a></li>
+        <li><strong>Toolkit 3:</strong> Hydraulic Digger Build → <a href="Year9%20T3%20Modules/module3.html">Year9 T3 Modules/module3.html</a></li>
+        <li><strong>Toolkit 4:</strong> Testing & Evaluation → <a href="Year9%20T3%20Modules/module4.html">Year9 T3 Modules/module4.html</a></li>
+      </ol>
+
+      <h3>TERM 3 - WEEK-BY-WEEK SCOPE AND SEQUENCE</h3>
+
+      <div class="week-block">
+        <h4>Week 1: Fluid Power & Mechanisms Theory</h4>
+        <p><strong>Focus:</strong> Toolkit 1 - Fluid Power & Mechanisms</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T3%20Modules/module1.html">Year9 T3 Modules/module1.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Pascal's Principle:</strong> Pressure transmission in fluids, P = F/A relationships</li>
+          <li><strong>Hydraulic Systems:</strong> Closed systems, pressure multiplication, force amplification</li>
+          <li><strong>Mechanical Advantage (MA):</strong> MA = Output Force / Input Force</li>
+          <li><strong>Velocity Ratio (VR):</strong> VR = Input Distance / Output Distance</li>
+          <li><strong>Efficiency:</strong> Efficiency = (MA / VR) × 100%, friction effects</li>
+          <li><strong>Lever Systems:</strong> First, second, third class levers, fulcrum positions</li>
+          <li><strong>Mechanisms:</strong> Linkages, pivots, motion transformation</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Theory:</strong> Pascal's principle calculations, MA/VR worksheet practice</li>
+          <li><strong>Demonstrations:</strong> Hydraulic system demonstrations, lever mechanism examples</li>
+          <li><strong>Experiments:</strong> Simple hydraulic system experiments, lever advantage measurements</li>
+          <li><strong>Google Classroom:</strong> Complete mechanism analysis activities</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Pascal's principle calculations</li>
+          <li>MA/VR practice problems</li>
+          <li>Lever system analysis notes</li>
+          <li>Mechanism investigation notes</li>
+          <li><strong>Formative:</strong> Understanding of fluid power and mechanism principles</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-2:</strong> Applies design principles (understanding mechanisms)</li>
+          <li><strong>IND5-9:</strong> Describes and analyses technologies (fluid power systems)</li>
+          <li><strong>IND5-7:</strong> Applies skills to mechanism context</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T3%20Modules/module1.html">Toolkit 1: Fluid Power & Mechanisms</a> - Complete module</li>
+          <li><a href="year9_term3_assessment.html">Term 3 Assessment Notification</a></li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 2: Hydraulic Digger Design</h4>
+        <p><strong>Focus:</strong> Toolkit 2 - Hydraulic Digger Design</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T3%20Modules/module2.html">Year9 T3 Modules/module2.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Design Brief Analysis:</strong> Understanding digger requirements, reach, lifting capacity</li>
+          <li><strong>Lever Geometry:</strong> Arm lengths, pivot positions, force multiplication</li>
+          <li><strong>Syringe Sizing:</strong> Input vs output syringe areas, force calculations</li>
+          <li><strong>Linkage Design:</strong> Arm linkages, bucket attachment, motion range</li>
+          <li><strong>Performance Prediction:</strong> Calculating expected MA/VR, lifting capacity</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Design:</strong> Analyse design brief, identify requirements and constraints</li>
+          <li><strong>Planning:</strong> Design lever geometry, calculate arm lengths</li>
+          <li><strong>Sizing:</strong> Select syringe sizes based on force requirements</li>
+          <li><strong>Layout:</strong> Create digger layout sketches showing geometry and linkages</li>
+          <li><strong>Calculations:</strong> Predict MA/VR, expected lifting capacity</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Design brief analysis with requirements highlighted</li>
+          <li>Lever geometry calculations</li>
+          <li>Syringe sizing justification</li>
+          <li>Digger layout sketches</li>
+          <li>Performance predictions (MA/VR, lifting capacity)</li>
+          <li><strong>Formative:</strong> Design quality, calculation accuracy</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-2:</strong> Applies design principles (digger design)</li>
+          <li><strong>IND5-5:</strong> Communicates design (sketches, calculations)</li>
+          <li><strong>IND5-7:</strong> Applies skills to hydraulic system design</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T3%20Modules/module2.html">Toolkit 2: Hydraulic Digger Design</a> - Complete module</li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 3: Hydraulic Digger Build</h4>
+        <p><strong>Focus:</strong> Toolkit 3 - Hydraulic Digger Build</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T3%20Modules/module3.html">Year9 T3 Modules/module3.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Frame Assembly:</strong> Constructing stable frame, mounting points</li>
+          <li><strong>Hydraulic System Setup:</strong> Connecting syringes, tubing, filling with fluid</li>
+          <li><strong>Air Bleeding:</strong> Removing air from system, ensuring proper operation</li>
+          <li><strong>Linkage Mounting:</strong> Attaching levers, linkages, bucket</li>
+          <li><strong>Pre-Test Inspection:</strong> Checking all connections, operation, clearances</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Workshop:</strong> Construct frame according to design</li>
+          <li><strong>Workshop:</strong> Set up hydraulic system (syringes, tubing, fluid)</li>
+          <li><strong>Workshop:</strong> Bleed air from system, test operation</li>
+          <li><strong>Workshop:</strong> Mount linkages and bucket, check motion range</li>
+          <li><strong>Inspection:</strong> Complete pre-test inspection, verify all systems operational</li>
+          <li><strong>Documentation:</strong> Build log with photos (frame, hydraulic setup, linkages, final assembly)</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Build log with dated entries</li>
+          <li>Photos of build stages (frame, hydraulic system, linkages, assembly)</li>
+          <li>Notes on problems encountered (air removal, alignment issues)</li>
+          <li>Pre-test inspection checklist</li>
+          <li><strong>Formative:</strong> Build quality, system operation</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-1:</strong> Applies WHS practices (fluid handling safety)</li>
+          <li><strong>IND5-3:</strong> Uses processes to produce functional project</li>
+          <li><strong>IND5-6:</strong> Works collaboratively during build</li>
+          <li><strong>IND5-7:</strong> Applies skills to hydraulic system construction</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T3%20Modules/module3.html">Toolkit 3: Hydraulic Digger Build</a> - Complete module</li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 4: Testing & Evaluation</h4>
+        <p><strong>Focus:</strong> Toolkit 4 - Testing & Evaluation</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T3%20Modules/module4.html">Year9 T3 Modules/module4.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Systematic Testing:</strong> Controlled test procedures, data collection</li>
+          <li><strong>MA/VR Measurement:</strong> Measuring input force, output force, distances</li>
+          <li><strong>Efficiency Calculation:</strong> Comparing predicted vs measured MA/VR</li>
+          <li><strong>Performance Analysis:</strong> Identifying differences, causes (friction, leakage, alignment)</li>
+          <li><strong>Evaluation Methods:</strong> Criteria-based evaluation, improvement proposals</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Testing:</strong> Conduct systematic tests measuring input force, output force, distances</li>
+          <li><strong>Data Collection:</strong> Record syringe sizes, lever lengths, measured MA/VR, efficiency</li>
+          <li><strong>Analysis:</strong> Compare predicted vs measured performance, identify causes of differences</li>
+          <li><strong>Evaluation:</strong> Evaluate digger against design criteria (function, efficiency, reliability)</li>
+          <li><strong>Improvements:</strong> Propose realistic improvements (lever ratios, syringe sizes, alignment)</li>
+          <li><strong>Folio:</strong> Complete digger folio with design, build, test, evaluation</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Test data tables (input force, output force, distances, MA/VR)</li>
+          <li>Graphs comparing predicted vs measured MA/VR</li>
+          <li>Efficiency calculations</li>
+          <li>Analysis of differences and causes</li>
+          <li>Evaluation against criteria</li>
+          <li>Improvement proposals</li>
+          <li>Complete folio</li>
+          <li><strong>Formative:</strong> Folio submission (End of Term 3)</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-8:</strong> Evaluates products (performance analysis)</li>
+          <li><strong>IND5-5:</strong> Communicates project development (folio)</li>
+          <li><strong>IND5-9:</strong> Analyses technologies (fluid power systems)</li>
+          <li><strong>IND5-7:</strong> Applies skills to testing and evaluation</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T3%20Modules/module4.html">Toolkit 4: Testing & Evaluation</a> - Complete module</li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Weeks 5-10: Consolidation & Term 4 Preparation</h4>
+        <p><strong>Focus:</strong> Skill consolidation, Term 4 preview</p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Review fluid power and mechanism concepts</li>
+          <li>Introduction to gear systems and mechanisms (Term 4 preview)</li>
+          <li>Skill consolidation and reflection</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Concept review activities</li>
+          <li>Term 4 preparation tasks</li>
+          <li>Reflection on Term 3 learning</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Review activities completed</li>
+          <li><strong>Formative:</strong> Skill consolidation</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="term4">
+      <h2>TERM 4: GEARED LOLLY DISPENSER PROJECT</h2>
+      <p><strong>Focus:</strong> Gear Systems, CAD, Mechanisms, Build, Test, Reliability and Evaluation</p>
+      <p><strong>Assessment:</strong> Summative - Task 2 (40% - Due Week 6, Term 4)</p>
+      <p><strong>Website:</strong> <a href="year9_term4.html">year9_term4.html</a></p>
+
+      <h3>Term 4 Overview</h3>
+      <p>Term 4 is the capstone project focusing on gear systems, mechanisms, CAD-CAM workflows, and reliability testing. Students design, build, and test a geared lolly dispenser with compound gears, cams, and ratchets. This is the major summative assessment task.</p>
+
+      <p><strong>Key Learning Areas:</strong></p>
+      <ul>
+        <li>Gear systems: ratios, torque, speed, compound gears</li>
+        <li>Cams and ratchets: motion control, one-way mechanisms</li>
+        <li>CAD mastery: assemblies, drawings, DXF exports</li>
+        <li>CAD-CAM workflows: fabrication, assembly, quality control</li>
+        <li>Reliability testing: systematic testing, data analysis, iteration</li>
+        <li>Evaluation and showcase: comprehensive folio, presentation</li>
+      </ul>
+
+      <p><strong>Toolkits:</strong></p>
+      <ol>
+        <li><strong>Toolkit 1:</strong> Gear Systems & Mechanisms → <a href="Year9%20T4%20Modules/module1.html">Year9 T4 Modules/module1.html</a></li>
+        <li><strong>Toolkit 2:</strong> Geared Lolly Dispenser Design → <a href="Year9%20T4%20Modules/module2.html">Year9 T4 Modules/module2.html</a></li>
+        <li><strong>Toolkit 3:</strong> Build & Manufacture → <a href="Year9%20T4%20Modules/module3.html">Year9 T4 Modules/module3.html</a></li>
+        <li><strong>Toolkit 4:</strong> Testing, Reliability & Evaluation → <a href="Year9%20T4%20Modules/module4.html">Year9 T4 Modules/module4.html</a></li>
+      </ol>
+
+      <h3>TERM 4 - WEEK-BY-WEEK SCOPE AND SEQUENCE</h3>
+
+      <div class="week-block">
+        <h4>Week 1: Gear Systems & Mechanisms Theory</h4>
+        <p><strong>Focus:</strong> Toolkit 1 - Gear Systems & Mechanisms</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T4%20Modules/module1.html">Year9 T4 Modules/module1.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Simple Machines:</strong> Gears, levers, pulleys, inclined planes</li>
+          <li><strong>Gear Trains:</strong> Simple gear pairs, compound gear trains, gear ratios</li>
+          <li><strong>Gear Ratios:</strong> Ratio = Output Teeth / Input Teeth, speed and torque relationships</li>
+          <li><strong>Compound Gears:</strong> Multiple gear pairs, overall ratio calculations</li>
+          <li><strong>Cams:</strong> Cam profiles, followers, motion control (rise, fall, dwell)</li>
+          <li><strong>Ratchets:</strong> One-way mechanisms, pawl and wheel, preventing reverse rotation</li>
+          <li><strong>Efficiency:</strong> Friction effects, power transmission efficiency</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Theory:</strong> Gear ratio calculations, compound gear train analysis</li>
+          <li><strong>Investigation:</strong> Cam profile analysis, ratchet mechanism investigation</li>
+          <li><strong>Experiments:</strong> Gear train experiments, torque and speed measurements</li>
+          <li><strong>Google Classroom:</strong> Complete <a href="https://classroom.google.com" target="_blank">Gear Systems & Mechanisms</a> activity, <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDgy" target="_blank">CAMs & Gears</a></li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Gear ratio calculation worksheets</li>
+          <li>Compound gear train analysis</li>
+          <li>Cam profile sketches and analysis</li>
+          <li>Ratchet mechanism investigation notes</li>
+          <li><strong>Formative:</strong> Understanding of gear systems and mechanisms</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-2:</strong> Applies design principles (understanding mechanisms)</li>
+          <li><strong>IND5-9:</strong> Describes and analyses technologies (gear systems)</li>
+          <li><strong>IND5-7:</strong> Applies skills to mechanism context</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T4%20Modules/module1.html">Toolkit 1: Gear Systems & Mechanisms</a> - Complete module</li>
+          <li><a href="year9_term4_assessment.html">Term 4 Assessment Notification</a></li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 2: Geared Lolly Dispenser Design</h4>
+        <p><strong>Focus:</strong> Toolkit 2 - Geared Lolly Dispenser Design</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T4%20Modules/module2.html">Year9 T4 Modules/module2.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Design Brief Analysis:</strong> Understanding dispenser requirements, constraints, performance targets</li>
+          <li><strong>Gear Train Design:</strong> Calculating required gear ratio, designing gear arrangement</li>
+          <li><strong>Cam & Ratchet Design:</strong> Designing cam profile, ratchet mechanism, synchronisation</li>
+          <li><strong>Materials Selection:</strong> Choosing materials (timber, plywood, MDF, acrylic) based on function</li>
+          <li><strong>CAD Modeling:</strong> Creating parts, assemblies, mates, configurations in Onshape</li>
+          <li><strong>Production Drawings:</strong> Generating drawings, adding dimensions, title blocks</li>
+          <li><strong>DXF/DWG Exports:</strong> Preparing files for laser/CNC cutting</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Design:</strong> Analyse design brief, design gear train, cam profile, ratchet</li>
+          <li><strong>Materials:</strong> Compare materials, justify selections, create cut list</li>
+          <li><strong>CAD:</strong> Model dispenser in Onshape (parts, assemblies, mates)</li>
+          <li><strong>Drawings:</strong> Create production drawings with dimensions</li>
+          <li><strong>Exports:</strong> Export DXF/DWG files for manufacturing</li>
+          <li><strong>Google Classroom:</strong> Complete <a href="https://classroom.google.com" target="_blank">Geared Lolly Dispenser Design</a>, <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc9" target="_blank">Onshape Tutorials</a></li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Design brief analysis with requirements checklist</li>
+          <li>Gear train calculations and design sketches</li>
+          <li>Cam profile and ratchet design sketches</li>
+          <li>Materials comparison table with justifications</li>
+          <li>CAD assembly screenshots</li>
+          <li>Production drawings (PDF)</li>
+          <li>DXF/DWG exports</li>
+          <li><strong>Formative:</strong> Design quality, CAD proficiency</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-2:</strong> Applies design principles (dispenser design)</li>
+          <li><strong>IND5-4:</strong> Selects and justifies materials</li>
+          <li><strong>IND5-5:</strong> Uses CAD for communication (drawings, assemblies)</li>
+          <li><strong>IND5-9:</strong> Uses emerging technologies (CAD software)</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T4%20Modules/module2.html">Toolkit 2: Geared Lolly Dispenser Design</a> - Complete module</li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 3: Build & Manufacture</h4>
+        <p><strong>Focus:</strong> Toolkit 3 - Build & Manufacture</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T4%20Modules/module3.html">Year9 T4 Modules/module3.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>CAD-CAM Workflow:</strong> Preparing CAD files, adding kerf allowances, file organisation</li>
+          <li><strong>Fabrication:</strong> Cutting materials, drilling holes, surface preparation</li>
+          <li><strong>Assembly:</strong> Mounting gears, installing cams and ratchets, aligning components</li>
+          <li><strong>Guards & Safety:</strong> Installing guards, checking clearances, safety inspection</li>
+          <li><strong>Quality Control:</strong> Checking dimensions, alignment, smooth operation</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Preparation:</strong> Export DXF files, add kerf allowances, organise files</li>
+          <li><strong>Fabrication:</strong> Cut parts using laser/CNC or hand tools, drill holes, prepare surfaces</li>
+          <li><strong>Assembly:</strong> Assemble gear train, mount cams and ratchets, install guards</li>
+          <li><strong>Inspection:</strong> Complete pre-test inspection, verify smooth operation</li>
+          <li><strong>Documentation:</strong> Build log with photos (cutting, drilling, assembly, guards)</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>CAD-CAM file preparation (DXF exports with kerf)</li>
+          <li>Fabrication photos (cutting, drilling, finishing)</li>
+          <li>Assembly photos (gear train, cams, ratchets, guards)</li>
+          <li>Build log with dated entries</li>
+          <li>Pre-test inspection checklist</li>
+          <li><strong>Formative:</strong> Build quality, assembly accuracy</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-1:</strong> Applies WHS practices (CAM machinery safety)</li>
+          <li><strong>IND5-3:</strong> Uses tools and processes (fabrication, assembly)</li>
+          <li><strong>IND5-6:</strong> Works collaboratively (build process)</li>
+          <li><strong>IND5-7:</strong> Applies skills to CAD-CAM context</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T4%20Modules/module3.html">Toolkit 3: Build & Manufacture</a> - Complete module</li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 4: Reliability Testing</h4>
+        <p><strong>Focus:</strong> Toolkit 4 - Testing Phase</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T4%20Modules/module4.html">Year9 T4 Modules/module4.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Reliability Testing:</strong> Systematic testing procedures, large sample sizes (50-100+ cycles)</li>
+          <li><strong>Data Collection:</strong> Recording success, jams, failures, double dispenses</li>
+          <li><strong>Failure Mode Identification:</strong> Linking symptoms to causes (clearance, alignment, geometry)</li>
+          <li><strong>Pattern Analysis:</strong> Identifying patterns in failures (timing, conditions)</li>
+          <li><strong>Adjustment Procedures:</strong> Making evidence-based adjustments, re-testing</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Testing:</strong> Conduct baseline test (no load), then reliability test (50-100+ cycles)</li>
+          <li><strong>Data Collection:</strong> Create test tables, record each cycle result</li>
+          <li><strong>Analysis:</strong> Calculate reliability percentage, identify failure modes, find patterns</li>
+          <li><strong>Adjustments:</strong> Make evidence-based adjustments, re-test, compare results</li>
+          <li><strong>Documentation:</strong> Test data tables, graphs, adjustment log</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Pre-test inspection documentation</li>
+          <li>Baseline test results</li>
+          <li>Reliability test data (50-100+ cycles)</li>
+          <li>Reliability calculation (success rate %)</li>
+          <li>Failure mode identification</li>
+          <li>Pattern analysis</li>
+          <li>Adjustment log with results</li>
+          <li><strong>Summative:</strong> Test data quality, analysis depth</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-8:</strong> Evaluates products (reliability analysis)</li>
+          <li><strong>IND5-5:</strong> Communicates results (data presentation)</li>
+          <li><strong>IND5-7:</strong> Applies skills to testing context</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T4%20Modules/module4.html">Toolkit 4: Testing, Reliability & Evaluation</a> - Testing protocol section</li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 5: User Trials & Analysis</h4>
+        <p><strong>Focus:</strong> Toolkit 4 - User Trials + Analysis</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T4%20Modules/module4.html">Year9 T4 Modules/module4.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>User Trials:</strong> Conducting trials with multiple users, gathering feedback</li>
+          <li><strong>Ergonomics:</strong> Handle comfort, effort required, ease of use</li>
+          <li><strong>Unexpected Behaviours:</strong> Observing how users interact, identifying design issues</li>
+          <li><strong>Data Analysis:</strong> Analysing test data, comparing predicted vs measured performance</li>
+          <li><strong>Improvement Identification:</strong> Linking problems to solutions</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Trials:</strong> Conduct user trials with 3-5 different users</li>
+          <li><strong>Feedback:</strong> Gather feedback on ease of use, comfort, effort, predictability</li>
+          <li><strong>Observation:</strong> Note unexpected behaviours, user techniques</li>
+          <li><strong>Analysis:</strong> Analyse all test data, compare predicted vs measured gear ratios</li>
+          <li><strong>Improvements:</strong> Identify specific improvements based on test data and user feedback</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>User trial feedback summary</li>
+          <li>Unexpected behaviours documented</li>
+          <li>Data analysis (predicted vs measured comparisons)</li>
+          <li>Improvement proposals linked to problems</li>
+          <li><strong>Summative:</strong> Analysis quality, improvement relevance</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-8:</strong> Evaluates products (user experience analysis)</li>
+          <li><strong>IND5-10:</strong> Evaluates impact (user-centred design)</li>
+          <li><strong>IND5-5:</strong> Communicates analysis</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T4%20Modules/module4.html">Toolkit 4: Testing, Reliability & Evaluation</a> - User trials and analysis sections</li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 6: Evaluation & Folio Submission</h4>
+        <p><strong>Focus:</strong> Toolkit 4 - Evaluation + Task 2 Submission</p>
+        <p><strong>Website Link:</strong> <a href="Year9%20T4%20Modules/module4.html">Year9 T4 Modules/module4.html</a></p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li><strong>Evaluation Methods:</strong> Criteria-based evaluation, evidence-supported judgements</li>
+          <li><strong>Folio Structure:</strong> Organising all evidence, professional presentation</li>
+          <li><strong>Reflection:</strong> Learning reflection, challenge reflection, skill development</li>
+          <li><strong>Showcase Preparation:</strong> Preparing presentation materials</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li><strong>Evaluation:</strong> Evaluate dispenser against all design criteria using test data</li>
+          <li><strong>Folio:</strong> Complete all folio sections, organise evidence professionally</li>
+          <li><strong>Reflection:</strong> Write learning reflection, challenge reflection, skill development notes</li>
+          <li><strong>Showcase:</strong> Prepare showcase presentation materials</li>
+          <li><strong>Submission:</strong> Submit complete folio (Task 2 - 40%)</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Evaluation against criteria (function, safety, ergonomics, durability, aesthetics)</li>
+          <li>Complete folio with all sections</li>
+          <li>Learning reflection</li>
+          <li>Challenge reflection</li>
+          <li>Showcase presentation materials</li>
+          <li><strong>Summative:</strong> Task 2 submission (40% weighting)</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-8:</strong> Evaluates products comprehensively</li>
+          <li><strong>IND5-5:</strong> Communicates project development professionally</li>
+          <li><strong>IND5-1 to IND5-10:</strong> Comprehensive coverage through folio</li>
+        </ul>
+
+        <h5>Website Sections:</h5>
+        <ul>
+          <li><a href="Year9%20T4%20Modules/module4.html">Toolkit 4: Testing, Reliability & Evaluation</a> - Evaluation and folio sections</li>
+          <li><a href="year9_term4_assessment.html">Task 2 Assessment Notification</a></li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Weeks 7-8: Showcase & Final Submissions</h4>
+        <p><strong>Focus:</strong> Showcase presentations, final folio refinements</p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Presentation skills</li>
+          <li>Showcase preparation</li>
+          <li>Final folio refinements</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Showcase presentations</li>
+          <li>Final folio submissions</li>
+          <li>Course reflection</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Showcase presentations</li>
+          <li>Final folio submissions</li>
+          <li><strong>Summative:</strong> Final submissions</li>
+        </ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Weeks 9-10: Final Examination Preparation</h4>
+        <p><strong>Focus:</strong> Task 3 - Final Examination Preparation</p>
+
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Review of all Year 9 concepts</li>
+          <li>Examination preparation</li>
+          <li>Skill consolidation</li>
+        </ul>
+
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Examination practice</li>
+          <li>Concept review</li>
+          <li>Skill consolidation</li>
+        </ul>
+
+        <h5>Assessment & Evidence:</h5>
+        <ul>
+          <li>Examination practice completed</li>
+          <li><strong>Summative:</strong> Task 3 - Final Examination (30% - Week 5, Term 4)</li>
+        </ul>
+
+        <h5>Outcomes Focus:</h5>
+        <ul>
+          <li><strong>IND5-1, IND5-5, IND5-6, IND5-9, IND5-10:</strong> Examination outcomes</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="outcomes">
+      <h2>OUTCOMES MAPPING</h2>
+      
+      <h3>Stage 5 Industrial Technology – Engineering Outcomes (IND5)</h3>
+
+      <div class="outcome-block">
+        <h5>IND5-1: Identifies, assesses, applies and manages the risks and WHS issues associated with the use of a range of tools, equipment, materials, processes and technologies</h5>
+        <p><strong>Coverage:</strong></p>
+        <ul>
+          <li><strong>Term 1:</strong> OnGuard training, SWMS development, PPE use, safe tool operation</li>
+          <li><strong>Term 2:</strong> Concrete handling safety, casting WHS, testing safety</li>
+          <li><strong>Term 3:</strong> Hydraulic system safety, fluid handling, testing safety</li>
+          <li><strong>Term 4:</strong> CAM machinery safety, laser/CNC safety, assembly safety</li>
+        </ul>
+        <p><strong>Website Links:</strong> <a href="Year9%20T1%20Modules/module1.html">Term 1 Toolkit 1: WHS & Risk Control</a>, All toolkit WHS sections</p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>IND5-2: Applies design principles in the modification, development and production of projects</h5>
+        <p><strong>Coverage:</strong></p>
+        <ul>
+          <li><strong>Term 1:</strong> Water tower design, structural design principles</li>
+          <li><strong>Term 2:</strong> Concrete beam design, reinforcement design</li>
+          <li><strong>Term 3:</strong> Hydraulic digger design, lever geometry design</li>
+          <li><strong>Term 4:</strong> Geared dispenser design, gear train design, CAD design</li>
+        </ul>
+        <p><strong>Website Links:</strong> <a href="Year9%20T1%20Modules/module3.html">Term 1 Toolkit 3: Water Tower Design & Planning</a>, <a href="Year9%20T2%20Modules/module3.html">Term 2 Toolkit 3: Concrete Beam Design & Planning</a>, <a href="Year9%20T3%20Modules/module2.html">Term 3 Toolkit 2: Hydraulic Digger Design</a>, <a href="Year9%20T4%20Modules/module2.html">Term 4 Toolkit 2: Geared Lolly Dispenser Design</a></p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>IND5-3: Identifies, selects and uses a range of hand and machine tools, equipment and processes to produce quality practical projects</h5>
+        <p><strong>Coverage:</strong></p>
+        <ul>
+          <li><strong>Term 1:</strong> Hand tools, drills, glue guns, cutting tools</li>
+          <li><strong>Term 2:</strong> Concrete mixing equipment, formwork tools, testing equipment</li>
+          <li><strong>Term 3:</strong> Hydraulic system tools, assembly tools</li>
+          <li><strong>Term 4:</strong> CAM machinery (laser/CNC), hand tools, assembly tools</li>
+        </ul>
+        <p><strong>Website Links:</strong> All toolkit build protocol sections, <a href="Year9%20T4%20Modules/module3.html">Term 4 Toolkit 3: Build & Manufacture</a></p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>IND5-4: Selects, justifies and uses a range of relevant and associated materials for specific applications</h5>
+        <p><strong>Coverage:</strong></p>
+        <ul>
+          <li><strong>Term 1:</strong> Timber selection for water tower</li>
+          <li><strong>Term 2:</strong> Concrete materials, reinforcement materials, mix design</li>
+          <li><strong>Term 3:</strong> Frame materials, hydraulic system materials</li>
+          <li><strong>Term 4:</strong> Timber, plywood, MDF, acrylic selection for dispenser</li>
+        </ul>
+        <p><strong>Website Links:</strong> <a href="Year9%20T1%20Modules/module3.html#materials-selection">Term 1 Toolkit 3: Materials Selection</a>, <a href="Year9%20T2%20Modules/module1.html">Term 2 Toolkit 1: Materials & Corrosion</a>, <a href="Year9%20T4%20Modules/module2.html#materials-selection">Term 4 Toolkit 2: Materials Selection</a></p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>IND5-5: Selects, interprets and applies a range of suitable communication techniques in the development, planning, production and presentation of ideas and projects</h5>
+        <p><strong>Coverage:</strong></p>
+        <ul>
+          <li><strong>Term 1:</strong> Technical sketches, orthogonal drawings, folio documentation</li>
+          <li><strong>Term 2:</strong> Design drawings, test data presentation, folio documentation</li>
+          <li><strong>Term 3:</strong> Design sketches, test data, folio documentation</li>
+          <li><strong>Term 4:</strong> CAD drawings, assemblies, production drawings, folio documentation</li>
+        </ul>
+        <p><strong>Website Links:</strong> All toolkit activities & evidence sections, <a href="Year9%20T4%20Modules/module2.html">Term 4 Toolkit 2: CAD & Drawings</a></p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>IND5-6: Identifies and participates in collaborative work practices in the learning environment</h5>
+        <p><strong>Coverage:</strong></p>
+        <ul>
+          <li><strong>Term 1:</strong> Team roles during tower design/build, peer WHS checks, and shared testing procedures</li>
+          <li><strong>Term 2:</strong> Group casting/testing roles, shared setup, and collaborative data collection</li>
+          <li><strong>Term 3:</strong> Team assembly and troubleshooting during hydraulic system build and testing</li>
+          <li><strong>Term 4:</strong> Collaborative CAD-CAM workflows, quality checks, and showcase preparation</li>
+        </ul>
+        <p><strong>Website Links:</strong> All build protocol sections, testing/evaluation sections, and team-based activities across toolkits</p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>IND5-7: Applies and transfers skills, processes and materials to a variety of contexts and projects</h5>
+        <p><strong>Coverage:</strong></p>
+        <ul>
+          <li><strong>All Terms:</strong> Skills transfer across different project contexts</li>
+          <li><strong>Term 1 to Term 2:</strong> Structural concepts to materials</li>
+          <li><strong>Term 2 to Term 3:</strong> Materials to mechanisms</li>
+          <li><strong>Term 3 to Term 4:</strong> Mechanisms to advanced mechanisms</li>
+        </ul>
+        <p><strong>Website Links:</strong> Cross-term connections in overview pages</p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>IND5-8: Evaluates products in terms of functional, economic, aesthetic and environmental qualities and quality of construction</h5>
+        <p><strong>Coverage:</strong></p>
+        <ul>
+          <li><strong>Term 1:</strong> Tower evaluation against criteria, PMI analysis</li>
+          <li><strong>Term 2:</strong> Beam evaluation, failure analysis, improvement proposals</li>
+          <li><strong>Term 3:</strong> Digger evaluation, efficiency analysis, improvement proposals</li>
+          <li><strong>Term 4:</strong> Dispenser evaluation, reliability analysis, improvement proposals</li>
+        </ul>
+        <p><strong>Website Links:</strong> All toolkit evaluation sections, <a href="Year9%20T1%20Modules/module4.html#evaluation">Term 1 Toolkit 4: Evaluation</a>, <a href="Year9%20T2%20Modules/module4.html#evaluation">Term 2 Toolkit 4: Evaluation</a>, <a href="Year9%20T3%20Modules/module4.html#evaluation">Term 3 Toolkit 4: Evaluation</a>, <a href="Year9%20T4%20Modules/module4.html#evaluation">Term 4 Toolkit 4: Evaluation</a></p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>IND5-9: Describes, analyses and uses a range of current, new and emerging technologies and their various applications</h5>
+        <p><strong>Coverage:</strong></p>
+        <ul>
+          <li><strong>Term 1:</strong> Bridge simulators, structural analysis software</li>
+          <li><strong>Term 2:</strong> Concrete technology, reinforcement technology</li>
+          <li><strong>Term 3:</strong> Hydraulic systems, fluid power technology</li>
+          <li><strong>Term 4:</strong> CAD software (Onshape), CAM technology, laser/CNC</li>
+        </ul>
+        <p><strong>Website Links:</strong> <a href="Year9%20T1%20Modules/module2.html">Term 1 Toolkit 2: Structural Concepts</a>, <a href="Year9%20T4%20Modules/module2.html">Term 4 Toolkit 2: CAD Mastery</a></p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>IND5-10: Describes, analyses and evaluates the impact of technology on society, the environment and cultural issues locally and globally</h5>
+        <p><strong>Coverage:</strong></p>
+        <ul>
+          <li><strong>Term 1:</strong> Sustainability of materials, environmental impact of structures</li>
+          <li><strong>Term 2:</strong> Sustainability of concrete, material lifecycle</li>
+          <li><strong>Term 3:</strong> Impact of hydraulic systems, efficiency considerations</li>
+          <li><strong>Term 4:</strong> Sustainability of materials, waste reduction, material choices</li>
+        </ul>
+        <p><strong>Website Links:</strong> All toolkit sustainability sections, Evaluation sections addressing environmental impact</p>
+      </div>
+
+      <h3>Post-2027 Outcomes Alignment (EGT5)</h3>
+      <p>As the syllabus transitions, these Engineering Technology outcomes align with the same learning:</p>
+
+      <div class="outcome-block">
+        <h5>EGT5-SAF-01: Student-friendly summary (not official wording): Apply WHS procedures</h5>
+        <p><strong>Official wording:</strong> applies risk management and safe work practices in engineering contexts</p>
+        <p><strong>Coverage:</strong> All terms, all toolkits</p>
+        <p><strong>Website:</strong> All WHS sections</p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>EGT5-ENV-01: Student-friendly summary (not official wording): Evaluate material sustainability</h5>
+        <p><strong>Official wording:</strong> analyses relationships between engineering design, production and sustainability</p>
+        <p><strong>Coverage:</strong> Term 1, Term 2, Term 4</p>
+        <p><strong>Website:</strong> Materials selection sections</p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>EGT5-COM-01: Student-friendly summary (not official wording): Communicate engineering solutions</h5>
+        <p><strong>Official wording:</strong> communicates ideas, concepts and solutions for engineering practice</p>
+        <p><strong>Coverage:</strong> All terms</p>
+        <p><strong>Website:</strong> All folio and documentation sections</p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>EGT5-GRP-01: Student-friendly summary (not official wording): Develop and apply technical graphics</h5>
+        <p><strong>Official wording:</strong> develops and applies technical graphics in engineering contexts</p>
+        <p><strong>Coverage:</strong> All terms</p>
+        <p><strong>Website:</strong> CAD/drawing sections, folio documentation, and production drawings</p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>EGT5-EVL-01: Student-friendly summary (not official wording): Investigate and evaluate systems</h5>
+        <p><strong>Official wording:</strong> investigates and evaluates engineering systems and solutions</p>
+        <p><strong>Coverage:</strong> All terms</p>
+        <p><strong>Website:</strong> Testing and evaluation sections</p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>EGT5-MEA-01: Student-friendly summary (not official wording): Analyse mechanical performance</h5>
+        <p><strong>Official wording:</strong> applies mechanical analysis and practical testing to investigate engineering concepts</p>
+        <p><strong>Coverage:</strong> Term 1, Term 3, Term 4</p>
+        <p><strong>Website:</strong> Testing sections</p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>EGT5-USE-01: Student-friendly summary (not official wording): Select and justify materials</h5>
+        <p><strong>Official wording:</strong> selects and applies materials for engineering projects</p>
+        <p><strong>Coverage:</strong> All terms</p>
+        <p><strong>Website:</strong> Materials selection sections</p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>EGT5-IVT-01: Student-friendly summary (not official wording): Connect to industry practice</h5>
+        <p><strong>Official wording:</strong> explains engineering practices and the influence of technologies used in engineering industries</p>
+        <p><strong>Coverage:</strong> All terms</p>
+        <p><strong>Website:</strong> "Why This Matters" sections</p>
+      </div>
+    </section>
+
+    <section class="section" id="assessment">
+      <h2>ASSESSMENT SCHEDULE DETAILED</h2>
+
+      <h3>Task 1: Projects & Reports 1 (30%)</h3>
+      <p><strong>Due:</strong> Term 2, Week 7</p>
+      <p><strong>Focus:</strong> Concrete Beam Project</p>
+      <p><strong>Website:</strong> <a href="year9_term2_assessment.html">year9_term2_assessment.html</a></p>
+      <p><strong>Requirements:</strong></p>
+      <ul>
+        <li>Complete Concrete Beam project folio</li>
+        <li>Design documentation</li>
+        <li>Build log with photos</li>
+        <li>Test data and analysis</li>
+        <li>Evaluation against criteria</li>
+        <li>Reflection and improvements</li>
+      </ul>
+      <p><strong>Outcomes:</strong> All (IND5-1 to IND5-10)</p>
+
+      <h3>Task 2: Projects & Reports 2 (40%)</h3>
+      <p><strong>Due:</strong> Term 4, Week 6</p>
+      <p><strong>Focus:</strong> Geared Lolly Dispenser Project</p>
+      <p><strong>Website:</strong> <a href="year9_term4_assessment.html">year9_term4_assessment.html</a></p>
+      <p><strong>Requirements:</strong></p>
+      <ul>
+        <li>Complete Geared Lolly Dispenser project folio</li>
+        <li>Design documentation including CAD</li>
+        <li>Build log with photos</li>
+        <li>Reliability test data (50-100+ cycles)</li>
+        <li>Analysis and evaluation</li>
+        <li>Reflection and improvements</li>
+      </ul>
+      <p><strong>Outcomes:</strong> All (IND5-1 to IND5-10)</p>
+
+      <h3>Task 3: Final Examination (30%)</h3>
+      <p><strong>Due:</strong> Term 4, Week 5</p>
+      <p><strong>Focus:</strong> Theory and application examination</p>
+      <p><strong>Outcomes:</strong> IND5-1, IND5-5, IND5-6, IND5-9, IND5-10</p>
+    </section>
+
+    <section class="section" id="resources">
+      <h2>RESOURCES AND SUPPORT MATERIALS</h2>
+
+      <h3>Website Resources</h3>
+      <ul>
+        <li><strong>Main Index:</strong> <a href="index.html">index.html</a></li>
+        <li><strong>Scope & Sequence:</strong> <a href="year9_program.html">year9_program.html</a></li>
+        <li><strong>Term Overviews:</strong> <a href="year9_term1.html">year9_term1.html</a>, <a href="year9_term2.html">year9_term2.html</a>, <a href="year9_term3.html">year9_term3.html</a>, <a href="year9_term4.html">year9_term4.html</a></li>
+      </ul>
+
+      <h3>Theory Notes (Term 1)</h3>
+      <ul>
+        <li><a href="Year%209%20T1%20Theory%20Notes/Forces%20worksheet.pdf">Forces worksheet.pdf</a></li>
+        <li><a href="Year%209%20T1%20Theory%20Notes/forces2.pdf">forces2.pdf</a></li>
+        <li><a href="Year%209%20T1%20Theory%20Notes/forces3.pdf">forces3.pdf</a></li>
+        <li><a href="Year%209%20T1%20Theory%20Notes/Water%20Tower%20Folio.pdf">Water Tower Folio.pdf</a></li>
+        <li><a href="Year%209%20T1%20Theory%20Notes/Tower_Evaluation_Scaffolded_Response.pdf">Tower Evaluation Scaffold</a></li>
+        <li><a href="Year%209%20T1%20Theory%20Notes/Year_9_Essay_Guide.pdf">Year 9 Essay Guide</a></li>
+        <li><a href="Year%209%20T1%20Theory%20Notes/Hierarchy%20of%20Control%20of%20WH&S%20Hazards.pdf">Hierarchy of Control</a></li>
+        <li><a href="Year%209%20T1%20Theory%20Notes/Risk%20Management%20Plan.pdf">Risk Management Plan</a></li>
+      </ul>
+
+      <h3>Assessment Documents</h3>
+      <ul>
+        <li><a href="year9_term1_assessment.html">Term 1 Assessment</a></li>
+        <li><a href="year9_term2_assessment.html">Term 2 Assessment (Task 1)</a></li>
+        <li><a href="year9_term3_assessment.html">Term 3 Assessment</a></li>
+        <li><a href="year9_term4_assessment.html">Term 4 Assessment (Task 2)</a></li>
+        <li><a href="year9_term2_assessment.html">Task 1 Detailed Notice</a></li>
+        <li><a href="year9_term4_assessment.html">Task 2 Detailed Notice</a></li>
+      </ul>
+
+      <h3>Google Classroom Links</h3>
+      <p><strong>Term 1:</strong></p>
+      <ul>
+        <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg4" target="_blank">Welcome & Course Overview</a></li>
+        <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDcy" target="_blank">Work, Health & Safety</a></li>
+        <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg2" target="_blank">Safety & OnGuard</a></li>
+        <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDgx" target="_blank">WHS & Risk Management</a></li>
+        <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDcx" target="_blank">Forces & Loads</a></li>
+        <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg3" target="_blank">Structure Theory & Projects</a></li>
+        <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg1" target="_blank">Precision Measurement</a></li>
+      </ul>
+
+      <p><strong>Term 2:</strong></p>
+      <ul>
+        <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc4" target="_blank">Materials & Corrosion</a></li>
+        <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc2" target="_blank">CAD Tutorials</a></li>
+        <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc5" target="_blank">Onshape Tutorials</a></li>
+      </ul>
+
+      <p><strong>Term 3:</strong></p>
+      <ul>
+        <li><a href="https://classroom.google.com" target="_blank">Hydraulic Systems & Pascal's Principle</a> (to be updated)</li>
+        <li><a href="https://classroom.google.com" target="_blank">Hydraulic Digger Evidence</a> (to be updated)</li>
+      </ul>
+
+      <p><strong>Term 4:</strong></p>
+      <ul>
+        <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDcz" target="_blank">Timber Materials</a></li>
+        <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc9" target="_blank">Onshape Tutorials</a></li>
+        <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDgy" target="_blank">CAMs & Gears</a></li>
+      </ul>
+    </section>
+
+    <section class="section" id="notes">
+      <h2>PROGRAM NOTES</h2>
+
+      <h3>Teaching Approach</h3>
+      <ul>
+        <li><strong>Sequential Learning:</strong> Each toolkit builds on previous learning</li>
+        <li><strong>Project-Based:</strong> Learning is contextualised through hands-on projects</li>
+        <li><strong>Formative First:</strong> Term 1 and Term 3 provide formative learning opportunities</li>
+        <li><strong>Summative Assessment:</strong> Term 2 (Task 1) and Term 4 (Task 2) are graded assessments</li>
+        <li><strong>Skill Building:</strong> Skills develop progressively across terms</li>
+      </ul>
+
+      <h3>Differentiation Strategies</h3>
+      <ul>
+        <li><strong>Extension:</strong> Advanced calculations, complex designs, extended testing</li>
+        <li><strong>Support:</strong> Scaffolded worksheets, step-by-step guides, exemplars</li>
+        <li><strong>Multiple Modalities:</strong> Visual (diagrams, videos), hands-on (builds, tests), written (folios, reports)</li>
+      </ul>
+
+      <h3>Safety Considerations</h3>
+      <ul>
+        <li><strong>WHS First:</strong> All practical work preceded by WHS training</li>
+        <li><strong>OnGuard Certification:</strong> Required before workshop access</li>
+        <li><strong>SWMS:</strong> Required for all major operations</li>
+        <li><strong>Supervision:</strong> Appropriate supervision ratios for all activities</li>
+      </ul>
+
+      <h3>Resource Requirements</h3>
+      <ul>
+        <li><strong>Workshop:</strong> Hand tools, power tools, testing equipment</li>
+        <li><strong>Materials:</strong> Timber, concrete materials, hydraulic components, gear components</li>
+        <li><strong>ICT:</strong> Onshape accounts, computers, internet access</li>
+        <li><strong>CAM:</strong> Laser cutter and/or CNC router (Term 4)</li>
+      </ul>
+
+      <h3>PROGRAM ALIGNMENT SUMMARY</h3>
+      <p>This program aligns with the Stage 5 Industrial Technology – Engineering syllabus through:</p>
+      <ol>
+        <li><strong>Structured Learning:</strong> Sequential toolkit approach ensures skill development</li>
+        <li><strong>Outcome Coverage:</strong> All IND5 outcomes addressed across the year</li>
+        <li><strong>Assessment Alignment:</strong> Formative and summative tasks aligned with outcomes</li>
+        <li><strong>Practical Focus:</strong> Hands-on projects contextualise theoretical learning</li>
+        <li><strong>Industry Links:</strong> Real-world applications and industry practices integrated</li>
+        <li><strong>Sustainability:</strong> Environmental considerations embedded throughout</li>
+        <li><strong>Technology Integration:</strong> CAD, CAM, and digital tools integrated appropriately</li>
+        <li><strong>Communication:</strong> Multiple communication methods developed and assessed</li>
+      </ol>
+    </section>
+
+    <div class="intro" style="margin-top: 3rem; text-align: center; font-style: italic; color: var(--muted);">
+      <p><strong>Program End</strong></p>
+      <p>This program serves as the central hub aligning all website content, assessment tasks, and learning activities. Each week links directly to specific toolkit sections on the website, ensuring seamless navigation between program planning and student resources.</p>
+    </div>
+  </main>
+</body>
+</html>
