@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 3: Concrete Beam Design & Planning. Design your concrete beam, plan mix proportions, develop casting sequence, and prepare test procedures." />
+  <meta name="keywords" content="concrete beam, beam design, mix design, casting sequence, test planning" />
+  <title>Toolkit 3: Concrete Beam Design & Planning | Year 9 Term 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --brand: #0056b3; --bg: #f6f8fb; --card: #ffffff; --text: #1f2a3d; --muted: #5c667a; --border: #e2e8f0; --shadow: 0 12px 30px rgba(0,0,0,0.08); --radius: 12px; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    header { background: linear-gradient(135deg, #0b63c3, #0a4f93); color: #fff; padding: 2.25rem 1.25rem 2rem; text-align: center; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; background: #fff; border-bottom: 1px solid var(--border); padding: 0.5rem 1rem; }
+    nav a { padding: 0.4rem 0.75rem; border-radius: 10px; color: var(--brand); font-weight: 600; }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem; margin-bottom: 1.25rem; display: flow-root; }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .pill { display: inline-block; padding: 0.25rem 0.6rem; border-radius: 999px; background: #e6f0fb; color: var(--brand); font-weight: 600; font-size: 0.8rem; }
+    .tip {
+      background: #e6f0fb;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem;
+      color: var(--text);
+      margin: 1rem 0;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 3: Concrete Beam Design & Planning</h1>
+    <p>Beam design, mix planning, casting sequence, test procedures</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term2.html">&#8592; T2 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a class="active" href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../year9_term2.html">&#8592; Back to Year 9 T2 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Design</div>
+      <h2>Learning Focus</h2>
+      <img src="../images/term234/screeding.jpg" alt="Screeding concrete" class="content-image" />
+      <p style="color: var(--muted); margin-bottom: 1rem;">By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Interpret the design brief:</strong> Understand beam requirements, span, loading, and test specifications.</li>
+        <li><strong>Design beam geometry:</strong> Select appropriate cross-section dimensions, span, and reinforcement layout.</li>
+        <li><strong>Plan concrete mix:</strong> Select mix proportions, calculate quantities, and plan mixing procedures.</li>
+        <li><strong>Develop casting sequence:</strong> Create a step-by-step plan for mould preparation, reinforcement placement, and concrete placement.</li>
+        <li><strong>Plan test procedures:</strong> Design test setup, loading method, and data collection procedures.</li>
+      </ul>
+      <p style="color: var(--muted); margin-top: 1rem; padding: 0.75rem; background: #f8f9fa; border-left: 3px solid var(--brand); border-radius: 4px;"><strong>Timing:</strong> Complete Toolkit 3 design work before starting your beam casting in Toolkit 4. Good planning here ensures efficient casting and reliable test results.</p>
+    </article>
+
+    <article class="card">
+      <h2>Understanding the Design Brief</h2>
+      <p>Before you start designing, make sure you understand every requirement:</p>
+      <ul>
+        <li><strong>Span requirement:</strong> The distance between supports (e.g., 500 mm, 600 mm).</li>
+        <li><strong>Cross-section dimensions:</strong> Width and depth of the beam (e.g., 50 mm × 75 mm).</li>
+        <li><strong>Loading method:</strong> How the load will be applied (central point load, two-point loading, distributed load).</li>
+        <li><strong>Reinforcement requirements:</strong> Type, size, and placement of reinforcement (if required).</li>
+        <li><strong>Material constraints:</strong> Available materials, mix proportions, curing conditions.</li>
+        <li><strong>Test requirements:</strong> What data must be collected, failure criteria, safety requirements.</li>
+      </ul>
+      <div class="tip">
+        <strong>Design Tip:</strong> Link every design decision to structural behaviour. Consider where tension and compression occur, how reinforcement will work, and what failure mode you expect. This helps you make informed design choices.
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Beam Geometry Design</h2>
+      <h3>1. Cross-Section Selection</h3>
+      <p>Choose dimensions that balance strength, material use, and buildability:</p>
+      <ul>
+        <li><strong>Depth:</strong> Deeper beams are stronger in bending (depth is squared in bending strength calculations). However, deeper beams use more material and may be harder to handle.</li>
+        <li><strong>Width:</strong> Affects shear capacity and stability. Narrower beams are more efficient but may be less stable during handling.</li>
+        <li><strong>Aspect ratio:</strong> Typical beams have depth 1.5-2 times the width. This provides good strength-to-weight ratio.</li>
+      </ul>
+
+      <h3>2. Span Selection</h3>
+      <p>Span affects both design and testing:</p>
+      <ul>
+        <li><strong>Longer spans:</strong> Create higher bending moments for the same load, making failure more likely. Good for testing but require stronger beams.</li>
+        <li><strong>Shorter spans:</strong> Reduce bending moments, making beams stronger. May require higher loads to achieve failure.</li>
+        <li><strong>Span-to-depth ratio:</strong> Typical ratios are 10-20. Very long spans relative to depth create high deflections.</li>
+      </ul>
+
+      <h3>3. Reinforcement Layout</h3>
+      <p>Plan reinforcement placement based on loading:</p>
+      <ul>
+        <li><strong>For simply supported beams:</strong> Place reinforcement near the bottom (tension side).</li>
+        <li><strong>Cover requirements:</strong> Ensure adequate cover (typically 15-20 mm minimum) to protect reinforcement.</li>
+        <li><strong>Reinforcement type:</strong> Choose appropriate size (e.g., 3 mm wire, 6 mm bar) based on beam size and expected loads.</li>
+        <li><strong>Placement method:</strong> Plan how to position reinforcement accurately in the mould (spacers, supports, or tied to formwork).</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Concrete Mix Planning</h2>
+      <h3>1. Mix Proportion Selection</h3>
+      <p>Based on Toolkit 2 knowledge, select appropriate proportions:</p>
+      <ul>
+        <li><strong>Typical mix:</strong> 1 : 2 : 3 : 0.5 (cement : sand : aggregate : water) is a good starting point.</li>
+        <li><strong>Water-cement ratio:</strong> Aim for 0.4-0.5 for good strength while maintaining workability.</li>
+        <li><strong>Workability:</strong> Mix must be workable enough to place and compact in the mould.</li>
+        <li><strong>Strength:</strong> Consider the expected load - higher loads may require stronger mixes (more cement, lower W/C).</li>
+      </ul>
+
+      <h3>2. Quantity Calculations</h3>
+      <p>Calculate how much concrete you need:</p>
+      <ul>
+        <li><strong>Beam volume:</strong> Length × width × depth (in consistent units, e.g., mm³ or m³).</li>
+        <li><strong>Add waste factor:</strong> Add 10-20% extra to account for waste and spillage.</li>
+        <li><strong>Calculate component quantities:</strong> Use mix proportions to calculate amounts of each component.</li>
+        <li><strong>Check available materials:</strong> Ensure you have enough of each component.</li>
+      </ul>
+
+      <h3>3. Mixing Procedure</h3>
+      <p>Plan your mixing sequence:</p>
+      <ul>
+        <li><strong>Dry mixing:</strong> Mix cement, sand, and aggregate thoroughly before adding water.</li>
+        <li><strong>Water addition:</strong> Add water gradually while mixing to achieve desired consistency.</li>
+        <li><strong>Mixing time:</strong> Mix until uniform (typically 2-3 minutes). Avoid over-mixing which can reduce workability.</li>
+        <li><strong>Consistency check:</strong> Test workability (slump test or visual assessment) before placing.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Casting Sequence Planning</h2>
+      <p>Create a logical, step-by-step casting plan:</p>
+      <ol>
+        <li><strong>Mould preparation:</strong> Clean mould, apply release agent (if needed), check dimensions.</li>
+        <li><strong>Reinforcement placement:</strong> Position reinforcement accurately using spacers or supports. Check cover dimensions.</li>
+        <li><strong>Mixing concrete:</strong> Prepare mix according to planned proportions. Check workability.</li>
+        <li><strong>Placing concrete:</strong> Fill mould in layers, compacting each layer (tapping, rodding, or vibrating).</li>
+        <li><strong>Finishing:</strong> Level the top surface, smooth if required. Label the beam with identification.</li>
+        <li><strong>Initial curing:</strong> Cover to prevent moisture loss. Keep in a protected location.</li>
+        <li><strong>Demoulding:</strong> Remove mould after initial set (typically 24-48 hours). Handle carefully.</li>
+        <li><strong>Continued curing:</strong> Keep beam moist and protected for full curing period (minimum 7 days).</li>
+      </ol>
+      <p><strong>Safety considerations:</strong></p>
+      <ul>
+        <li>Wear appropriate PPE (gloves, eye protection, aprons).</li>
+        <li>Handle wet concrete carefully - it's caustic and can cause skin irritation.</li>
+        <li>Work in a well-ventilated area when mixing.</li>
+        <li>Clean tools and equipment immediately after use.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Test Procedure Planning</h2>
+      <h3>1. Test Setup</h3>
+      <p>Plan your test arrangement:</p>
+      <ul>
+        <li><strong>Support arrangement:</strong> Position supports at the specified span. Ensure supports are level and stable.</li>
+        <li><strong>Loading method:</strong> Plan how load will be applied (central point, two-point, distributed).</li>
+        <li><strong>Load application:</strong> Decide on loading mechanism (weights, hydraulic jack, etc.).</li>
+        <li><strong>Measurement points:</strong> Plan where to measure deflection (typically mid-span).</li>
+      </ul>
+
+      <h3>2. Data Collection Plan</h3>
+      <p>Decide what data to collect:</p>
+      <ul>
+        <li><strong>Initial measurements:</strong> Beam dimensions, span, reinforcement details, curing time.</li>
+        <li><strong>During loading:</strong> Load increments, deflection at each step, observations (cracking, sounds).</li>
+        <li><strong>At first crack:</strong> Load, location, crack pattern.</li>
+        <li><strong>At failure:</strong> Maximum load, failure mode, crack pattern, deflection.</li>
+        <li><strong>After failure:</strong> Photos, inspection of failure surface, notes on tension/compression zones.</li>
+      </ul>
+
+      <h3>3. Safety Planning</h3>
+      <p>Plan for safe testing:</p>
+      <ul>
+        <li><strong>Clear zone:</strong> Ensure no one is in the line of fire if the beam fails suddenly.</li>
+        <li><strong>PPE:</strong> Safety glasses, appropriate clothing, closed-toe shoes.</li>
+        <li><strong>Loading procedure:</strong> Add load in small increments, pause to observe, record data.</li>
+        <li><strong>Emergency procedures:</strong> Know how to stop loading safely if problems occur.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Activities & Evidence</h2>
+      <h3>1) Design Brief Analysis</h3>
+      <ul>
+        <li>Read and annotate the design brief, highlighting all requirements.</li>
+        <li>Create a checklist of requirements to ensure your design meets all criteria.</li>
+        <li>Identify any constraints or limitations.</li>
+      </ul>
+
+      <h3>2) Beam Design</h3>
+      <ul>
+        <li>Select beam dimensions (width, depth, length) and justify your choices.</li>
+        <li>Design reinforcement layout (type, size, placement).</li>
+        <li>Create technical sketches showing beam cross-section and reinforcement placement.</li>
+        <li>Calculate beam volume and required concrete quantities.</li>
+      </ul>
+
+      <h3>3) Mix Design</h3>
+      <ul>
+        <li>Select concrete mix proportions and justify your choice.</li>
+        <li>Calculate quantities of each component needed.</li>
+        <li>Plan mixing procedure and workability checks.</li>
+      </ul>
+
+      <h3>4) Casting Plan</h3>
+      <ul>
+        <li>Create a detailed step-by-step casting sequence.</li>
+        <li>Plan mould preparation and reinforcement placement.</li>
+        <li>Identify safety hazards and controls for casting operations.</li>
+      </ul>
+
+      <h3>5) Test Plan</h3>
+      <ul>
+        <li>Design test setup and loading arrangement.</li>
+        <li>Plan data collection procedures and recording methods.</li>
+        <li>Identify safety requirements for testing.</li>
+      </ul>
+
+      <h3>6) Google Classroom Check-in</h3>
+      <ul>
+        <li>Submit your beam design, mix design, and casting plan before starting construction.</li>
+        <li>Get teacher feedback on your design before casting.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li>Design brief and requirements sheet.</li>
+        <li>Concrete mix design charts and calculators.</li>
+        <li>Reinforcement layout examples and standards.</li>
+        <li>Beam design examples and folios for reference.</li>
+        <li>Drawing tools and CAD software (optional).</li>
+      </ul>
+    </article>
+  </main>
+  <script src="../page-nav.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Term 1 – YouTube Clip Index</title>
+  <style>
+    :root{
+      --bg: #0b1220;
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 18px 60px rgba(0,0,0,0.45);
+      --radius: 16px;
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:
+        radial-gradient(1200px 700px at 15% -10%, rgba(79,70,229,0.45), transparent 60%),
+        radial-gradient(1100px 800px at 90% 0%, rgba(56,189,248,0.22), transparent 55%),
+        radial-gradient(900px 700px at 50% 110%, rgba(34,197,94,0.18), transparent 55%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    .wrap{
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+
+    header{
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 14px;
+      backdrop-filter: blur(10px);
+    }
+
+    h1{
+      font-size: clamp(20px, 3vw, 30px);
+      margin: 0 0 8px;
+      letter-spacing: 0.2px;
+    }
+
+    .sub{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .tableCard{
+      margin-top: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    table{
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    thead th{
+      text-align: left;
+      font-weight: 650;
+      font-size: 12.5px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.78);
+      background: rgba(0,0,0,0.25);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 14px;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    tbody td{
+      padding: 14px;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    tbody tr:hover{
+      background: rgba(255,255,255,0.04);
+    }
+
+    .toolkit{
+      display: inline-flex;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.82);
+      font-size: 12.5px;
+      white-space: nowrap;
+    }
+
+    .title{
+      margin: 0 0 6px;
+      font-weight: 700;
+      line-height: 1.25;
+      font-size: 14.5px;
+    }
+
+    .overview{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 13.5px;
+    }
+
+    .thumb{
+      width: 220px;
+      max-width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      overflow: hidden;
+      position: relative;
+      background: rgba(0,0,0,0.28);
+      display: block;
+    }
+
+    .thumb img{
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .playBadge{
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+    }
+    .playBadge span{
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.18);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    .playBadge svg{
+      width: 20px; height: 20px;
+      margin-left: 2px;
+      fill: rgba(255,255,255,0.92);
+    }
+
+    .actions{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.88);
+      text-decoration: none;
+      font-size: 13px;
+      cursor: pointer;
+      transition: transform 120ms ease, background 120ms ease;
+      user-select: none;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.09); }
+    .btn.primary{
+      background: rgba(79,70,229,0.22);
+      border-color: rgba(79,70,229,0.35);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      thead{ display: none; }
+      table, tbody, tr, td{ display: block; width: 100%; }
+      tbody td{ border-bottom: 0; padding: 12px 14px; }
+      tbody tr{ border-bottom: 1px solid rgba(255,255,255,0.10); }
+      .thumb{ width: 100%; }
+    }
+
+    /* Modal */
+    .modal{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.70);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 50;
+    }
+    .modal.open{ display: flex; }
+    .modalCard{
+      width: min(1000px, 100%);
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(10,16,30,0.9);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .modalTop{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.86);
+    }
+    .modalTitle{
+      font-weight: 650;
+      font-size: 14px;
+      margin-right: 10px;
+      line-height: 1.3;
+    }
+    .closeBtn{
+      appearance: none;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.88);
+      border-radius: 12px;
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+    .player{
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      background: black;
+    }
+    .player iframe{
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Term 1 – YouTube Clip Index</h1>
+      <p class="sub">
+        Quick-access videos aligned to Term 1 Toolkits. Click a thumbnail to play in-page, or open the clip in YouTube.
+      </p>
+    </header>
+
+    <div class="tableCard" role="region" aria-label="Term 1 video table">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 150px;">Toolkit</th>
+            <th style="width: 260px;">Thumbnail</th>
+            <th>Clip overview</th>
+          </tr>
+        </thead>
+
+        <tbody id="rows">
+
+          <!-- Toolkit 1 -->
+          <tr>
+            <td><span class="toolkit">Toolkit 1</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=_U0meF0tl24" target="_blank" rel="noopener"
+                 data-play="true" data-id="_U0meF0tl24" data-name="Hierarchy of Controls: The Ultimate Guide">
+                <img src="https://i.ytimg.com/vi/_U0meF0tl24/hqdefault.jpg" alt="Thumbnail: Hierarchy of Controls: The Ultimate Guide" loading="lazy" />
+                <div class="playBadge" aria-hidden="true">
+                  <span>
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                  </span>
+                </div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Hierarchy of Controls: The Ultimate Guide (3D visual)</p>
+              <p class="overview">Clear, visual explanation of elimination → substitution → engineering → admin → PPE. Great to push students past “PPE only.”</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="_U0meF0tl24" data-name="Hierarchy of Controls: The Ultimate Guide">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=_U0meF0tl24" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 1</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=XOkPcLD5Soo" target="_blank" rel="noopener"
+                 data-play="true" data-id="XOkPcLD5Soo" data-name="The Hierarchy of Controls">
+                <img src="https://i.ytimg.com/vi/XOkPcLD5Soo/hqdefault.jpg" alt="Thumbnail: The Hierarchy of Controls" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">The Hierarchy of Controls</p>
+              <p class="overview">Short, no-fuss explainer for a WHS refresher before practical work or risk assessment tasks.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="XOkPcLD5Soo" data-name="The Hierarchy of Controls">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=XOkPcLD5Soo" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 1</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=YV8LLJ9aT5o" target="_blank" rel="noopener"
+                 data-play="true" data-id="YV8LLJ9aT5o" data-name="Hierarchy of Controls in Hazard Control">
+                <img src="https://i.ytimg.com/vi/YV8LLJ9aT5o/hqdefault.jpg" alt="Thumbnail: Hierarchy of Controls in Hazard Control" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Hierarchy of Controls in Hazard Control</p>
+              <p class="overview">Good “workplace training” style clip to reinforce selecting controls in priority order.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="YV8LLJ9aT5o" data-name="Hierarchy of Controls in Hazard Control">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=YV8LLJ9aT5o" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 1</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=avdGUXvVz1M" target="_blank" rel="noopener"
+                 data-play="true" data-id="avdGUXvVz1M" data-name="Risk Management & Hierarchy of Hazard Control">
+                <img src="https://i.ytimg.com/vi/avdGUXvVz1M/hqdefault.jpg" alt="Thumbnail: Risk Management & Hierarchy of Hazard Control" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Risk Management & Hierarchy of Hazard Control</p>
+              <p class="overview">Connects “risk management” thinking directly to the hierarchy (useful for SWMS / risk assessment framing).</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="avdGUXvVz1M" data-name="Risk Management & Hierarchy of Hazard Control">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=avdGUXvVz1M" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Toolkit 2 -->
+          <tr>
+            <td><span class="toolkit">Toolkit 2</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=oVOnRPefcno" target="_blank" rel="noopener"
+                 data-play="true" data-id="oVOnRPefcno" data-name="What Makes Bridges So Strong? (SciShow Kids)">
+                <img src="https://i.ytimg.com/vi/oVOnRPefcno/hqdefault.jpg" alt="Thumbnail: What Makes Bridges So Strong? SciShow Kids" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">What Makes Bridges So Strong? (SciShow Kids)</p>
+              <p class="overview">Student-friendly intro to structures (bridge types, load paths, basic tension/compression ideas).</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="oVOnRPefcno" data-name="What Makes Bridges So Strong? (SciShow Kids)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=oVOnRPefcno" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 2</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=ZNwJFd_zlGc" target="_blank" rel="noopener"
+                 data-play="true" data-id="ZNwJFd_zlGc" data-name="Triangles & Structural Engineering">
+                <img src="https://i.ytimg.com/vi/ZNwJFd_zlGc/hqdefault.jpg" alt="Thumbnail: Triangles & Structural Engineering" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Triangles & Structural Engineering</p>
+              <p class="overview">Why triangles resist shape change and make frames rigid — perfect for bracing and truss logic.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="ZNwJFd_zlGc" data-name="Triangles & Structural Engineering">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=ZNwJFd_zlGc" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 2</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=KJdIbCn4NuE" target="_blank" rel="noopener"
+                 data-play="true" data-id="KJdIbCn4NuE" data-name="How Trusses Work! (Structures 5-1)">
+                <img src="https://i.ytimg.com/vi/KJdIbCn4NuE/hqdefault.jpg" alt="Thumbnail: How Trusses Work! (Structures 5-1)" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">How Trusses Work! (Structures 5-1)</p>
+              <p class="overview">More technical (tension/compression through members). Best for extension or teacher-led segments.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="KJdIbCn4NuE" data-name="How Trusses Work! (Structures 5-1)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=KJdIbCn4NuE" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Toolkit 3 -->
+          <tr>
+            <td><span class="toolkit">Toolkit 3</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=nu-PIT_XuvM" target="_blank" rel="noopener"
+                 data-play="true" data-id="nu-PIT_XuvM" data-name="Young Engineers: Triangle Truss Bridge">
+                <img src="https://i.ytimg.com/vi/nu-PIT_XuvM/hqdefault.jpg" alt="Thumbnail: Young Engineers Triangle Truss Bridge" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Young Engineers: Triangle Truss Bridge</p>
+              <p class="overview">Hands-on demonstration of triangle bracing → strength. Transfers well to tower/truss planning.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="nu-PIT_XuvM" data-name="Young Engineers: Triangle Truss Bridge">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=nu-PIT_XuvM" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 3</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=wRYKWWHoW0U" target="_blank" rel="noopener"
+                 data-play="true" data-id="wRYKWWHoW0U" data-name="Making and Testing a Spaghetti Bridge!">
+                <img src="https://i.ytimg.com/vi/wRYKWWHoW0U/hqdefault.jpg" alt="Thumbnail: Making and Testing a Spaghetti Bridge!" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Making and Testing a Spaghetti Bridge!</p>
+              <p class="overview">Strong design-test-evaluate loop: build → load test → observe failure → improve. Great for folio language.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="wRYKWWHoW0U" data-name="Making and Testing a Spaghetti Bridge!">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=wRYKWWHoW0U" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 3</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=qFZGmHbjLSM" target="_blank" rel="noopener"
+                 data-play="true" data-id="qFZGmHbjLSM" data-name="Design & Build Paper Bridges">
+                <img src="https://i.ytimg.com/vi/qFZGmHbjLSM/hqdefault.jpg" alt="Thumbnail: Design & Build Paper Bridges" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Design & Build Paper Bridges</p>
+              <p class="overview">Simple prototyping + testing. Reinforces iteration and documenting design changes.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="qFZGmHbjLSM" data-name="Design & Build Paper Bridges">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=qFZGmHbjLSM" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Toolkit 4 -->
+          <tr>
+            <td><span class="toolkit">Toolkit 4</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=6ycbDCnoO8M" target="_blank" rel="noopener"
+                 data-play="true" data-id="6ycbDCnoO8M" data-name="Beam Test (slow motion)">
+                <img src="https://i.ytimg.com/vi/6ycbDCnoO8M/hqdefault.jpg" alt="Thumbnail: Beam Test slow motion" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Beam Test: Failure in Slow Motion</p>
+              <p class="overview">Excellent for deflection observations, failure onset, and “describe what you see” testing skills.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="6ycbDCnoO8M" data-name="Beam Test (slow motion)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=6ycbDCnoO8M" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 4</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=b4f5Sn8RbHU" target="_blank" rel="noopener"
+                 data-play="true" data-id="b4f5Sn8RbHU" data-name="Beam Failures (types)">
+                <img src="https://i.ytimg.com/vi/b4f5Sn8RbHU/hqdefault.jpg" alt="Thumbnail: Beam Failures (types)" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Beam Failures: Types & Vocabulary</p>
+              <p class="overview">Vocabulary builder for common failure modes. Use selectively to avoid overwhelming Year 9.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="b4f5Sn8RbHU" data-name="Beam Failures (types)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=b4f5Sn8RbHU" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 4</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=5EsAzgo1aio" target="_blank" rel="noopener"
+                 data-play="true" data-id="5EsAzgo1aio" data-name="Torsion Collapse Rebuild (model test)">
+                <img src="https://i.ytimg.com/vi/5EsAzgo1aio/hqdefault.jpg" alt="Thumbnail: Torsion Collapse Rebuild (model test)" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Torsion Collapse Rebuild (Model Test)</p>
+              <p class="overview">A “wow” clip that makes torsion (twisting failure) feel real. Best as enrichment or extension.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="5EsAzgo1aio" data-name="Torsion Collapse Rebuild (model test)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=5EsAzgo1aio" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal Player -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-label="Video player">
+    <div class="modalCard">
+      <div class="modalTop">
+        <div class="modalTitle" id="modalTitle">Video</div>
+        <button class="closeBtn" id="closeBtn" type="button">Close</button>
+      </div>
+      <div class="player">
+        <iframe
+          id="playerFrame"
+          src=""
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Modal player
+    const modal = document.getElementById('modal');
+    const playerFrame = document.getElementById('playerFrame');
+    const modalTitle = document.getElementById('modalTitle');
+    const closeBtn = document.getElementById('closeBtn');
+
+    function openModal(videoId, name){
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      modalTitle.textContent = name || 'Video';
+      playerFrame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      playerFrame.src = '';
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Hook clicks for play buttons & thumbnails
+    document.addEventListener('click', (e) => {
+      const playBtn = e.target.closest('[data-play-btn="true"]');
+      const playThumb = e.target.closest('[data-play="true"]');
+
+      if (playBtn){
+        openModal(playBtn.getAttribute('data-id'), playBtn.getAttribute('data-name'));
+      }
+      if (playThumb){
+        e.preventDefault();
+        openModal(playThumb.getAttribute('data-id'), playThumb.getAttribute('data-name'));
+      }
+    });
+  </script>
+</body>
+</html>

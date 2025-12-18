@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toolkit 4: Water Tower Build, Test &amp; Evaluate | Year 9 Term 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0,0,0,0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      background: linear-gradient(135deg, #0b63c3, #0a4f93);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    nav a.active {
+      background: #e6f0fb;
+      color: #0b63c3;
+    }
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.75rem 1rem 3rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+    .card h2 {
+      margin: 0 0 0.5rem;
+      color: var(--brand);
+    }
+    .card h3 {
+      margin: 1.2rem 0 0.35rem;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+    .card ul {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.1rem;
+      color: var(--muted);
+    }
+    .card li + li { margin-top: 0.35rem; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .pdf-embed {
+      width: 100%;
+      height: 420px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .pdf-embed-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+    }
+    .qa-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-top: 0.5rem;
+    }
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 0.9rem;
+      background: #fdfefe;
+    }
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .qa-question span {
+      font-weight: 500;
+      color: var(--text);
+    }
+    .qa-toggle {
+      border: none;
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.85rem;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+    .qa-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .qa-answer {
+      margin-top: 0.65rem;
+      color: var(--muted);
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 4: Water Tower Build, Test &amp; Evaluate</h1>
+    <p>Build, test, evaluate and document your water tower project</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term1.html">&#8592; T1 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a class="active" href="module4.html">Toolkit 4</a>
+    <a href="tutorial.html">Tutorial</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../year9_term1.html">&#8592; Back to Year 9 T1 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Project</div>
+      <h2>Learning Focus</h2>
+      <img src="../images/term234/students%20building%20tank%20stand.jpeg" alt="Students building a tank stand" class="content-image" />
+      <p style="color: var(--muted); margin-bottom: 1rem;">By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Build a Water Tower (Weeks 3-5):</strong> Work in pairs using safe work methods, accurate measurement and quality joints to create a functional structure based on your Toolkit 3 design.</li>
+        <li><strong>Test your tower systematically:</strong> Conduct controlled load tests, observe deflection and failure modes, and record accurate data.</li>
+        <li><strong>Record and analyze data:</strong> Document loads, deflection and failure modes, then use this evidence to explain structural performance using engineering terminology from Toolkits 1-3.</li>
+        <li><strong>Create comprehensive documentation:</strong> Prepare a clear project folio that demonstrates professional engineering practice, including design, build log, test data, and evaluation.</li>
+      </ul>
+      <p style="color: var(--muted); margin-top: 1rem; padding: 0.75rem; background: #f8f9fa; border-left: 3px solid var(--brand); border-radius: 4px;"><strong>Timing:</strong> Complete your water tower build, test, and folio in Weeks 3-5. This is your main Term 1 project. Use the concepts from Toolkits 1-3 throughout the build and evaluation process.</p>
+    </article>
+
+    <article class="card">
+      <h2>Google Classroom Check-in</h2>
+      <ul>
+        <li>Complete the <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg1" target="_blank" rel="noopener">Precision Measurement</a> task and have your measurements ready before building or testing.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <div class="pill">Theory</div>
+      <h2>Key Notes - From Plan to Tested Structure</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;"><strong>Why this matters:</strong> Toolkit 4 is where you bring together the safety, materials and structural ideas from Toolkits 1-3. The goal is not just to "build something" but to demonstrate professional engineering practice.</p>
+      <p>Your projects should demonstrate:</p>
+      <ul>
+        <li><strong>Planned sequence:</strong> Follow a systematic sequence of steps so the tower and beam are built safely and consistently.</li>
+        <li><strong>Build quality:</strong> Produce work that is square, symmetrical and properly jointed so it behaves like the structure you designed.</li>
+        <li><strong>Controlled testing:</strong> Run controlled tests that give you trustworthy data (load, deflection, failure mode).</li>
+        <li><strong>Technical communication:</strong> Explain results using correct structural language (loads, members, buckling, cracking, strength-to-weight).</li>
+      </ul>
+      <h3>Comparing Joining Methods</h3>
+      <p>Engineers choose joints based on strength, permanence and cost. For your tower and future projects, consider:</p>
+      <ul>
+        <li><strong>Adhesives (Glues):</strong> Good for distributing stress over an area. PVA is standard for timber (needs clamping); Epoxy (Araldite) fills gaps and bonds metals/plastics; Cyanoacrylate (Super Glue) is fast but brittle. <br><em>Pros:</em> Smooth finish, seals joints. <em>Cons:</em> Needs clean surface, curing time, harder to inspect.</li>
+        <li><strong>Mechanical Fasteners (Bolts, Screws, Rivets):</strong>
+          <ul>
+            <li><strong>Bolts/Nuts:</strong> Strong, removable, high clamping force. Good for maintenance.</li>
+            <li><strong>Rivets:</strong> Permanent, light, good for thin sheet metal (like your toolboxes later). Vibration resistant.</li>
+            <li><strong>Screws:</strong> Quick, self-tapping. Good for timber/plastic.</li>
+          </ul>
+        </li>
+        <li><strong>Thermal Joining (Welding/Soldering):</strong>
+          <ul>
+            <li><strong>Welding:</strong> Melts the base metal to fuse parts as one. Strongest joint, but heat can distort the part.</li>
+            <li><strong>Soldering/Brazing:</strong> Melts a filler metal (like solder) into the joint without melting the base. Good for electronics or plumbing, less structural strength than welding.</li>
+          </ul>
+        </li>
+      </ul>
+      <p><strong>Selection Rule:</strong> Use bolts if it needs to come apart; weld or rivet if it must stay together; glue if you need a seal or invisible joint (but watch the curing time!).</p>
+
+      <h3>Build Quality and Tolerances</h3>
+      <ul>
+        <li>Check dimensions against the design sheet (height, base size, member lengths). Small errors can change how loads are shared.</li>
+        <li>Use squares and jigs where possible so bases and frames are <strong>90°</strong> and members line up at nodes.</li>
+        <li>Keep members straight and untwisted; avoid accidental “kinks” or gaps which concentrate stress.</li>
+        <li>Make joints consistent: similar glue area, fastener spacing and overlap on each side of the tower.</li>
+      </ul>
+      <h3>Linking back to theory</h3>
+      <p>When you assemble and test, deliberately connect what you see to earlier toolkits:</p>
+      <ul>
+        <li><strong>Toolkit 1 (WHS):</strong> SWMS steps, hierarchy of control, safe use of hand tools/drill/glue gun during build and test.</li>
+        <li><strong>Toolkit 2 (Structural Concepts):</strong> how dead/live loads, truss layout, struts/ties and buckling show up during testing.</li>
+        <li><strong>Toolkit 3 (Design & Planning):</strong> how your design decisions (layout, member sizing, joints) affect actual performance.</li>
+      </ul>
+      <p>In your folio, avoid writing "it just broke". Instead, aim for sentences like: "Member C3, a long slender compression strut, buckled near the mid-height because it was unbraced and carried most of the compressive load from the central deck."</p>
+    </article>
+
+    <article class="card">
+      <h2>Water Tower – Build Protocol</h2>
+      <p style="color: var(--muted); margin-bottom: 0.75rem; font-weight: 600;"><strong>Timing:</strong> Build your tower in Weeks 3-5 based on your Toolkit 3 design. Complete your tower folio by the end of Week 5.</p>
+      <img src="../images/water%20tower%20build.jpg" alt="Student constructing a water tower model" class="content-image" />
+      <h3>1) Planning &amp; set-out</h3>
+      <ul>
+        <li>Read the <strong>design brief</strong>: required height, footprint limits, allowable materials, test method.</li>
+        <li>Prepare a simple <strong>cutting list and build sequence</strong> (e.g. base, legs, bracing, deck, final checks).</li>
+        <li>Check SWMS from Toolkit 1 covers cutting, drilling, gluing and tower testing (line of fire, PPE, clamping).</li>
+      </ul>
+      <h3>2) Measuring, cutting and assembly</h3>
+      <ul>
+        <li>Measure twice, cut once; mark from a <strong>datum edge</strong> to reduce error build-up.</li>
+        <li>Clamp material firmly before cutting or drilling; keep non-working hand out of the line of fire.</li>
+        <li>Use jigs, squares and blocks to keep legs vertical and bracing at the planned angles.</li>
+        <li>Allow glue joints to <strong>cure fully</strong> before loading; rushing this step reduces joint strength.</li>
+      </ul>
+      <h3>3) Pre-test inspection</h3>
+      <ul>
+        <li>Check for obvious weaknesses: loose joints, twisted legs, missing or misaligned bracing.</li>
+        <li>Confirm the <strong>load application point</strong> (e.g. centre of deck) and how weights will be added.</li>
+        <li>Record any build flaws in your folio so you can refer to them when explaining test results.</li>
+      </ul>
+    </article>
+
+
+    <article class="card">
+      <h2>Testing, Data &amp; Evaluation</h2>
+      <img src="../images/Bridge-Tower-Tester.jpg" alt="Bridge and tower testing apparatus" class="content-image" />
+      <h3>Collecting useful data</h3>
+      <ul>
+        <li>Record: date, group members, tower ID, dimensions and any build notes before testing.</li>
+        <li>Use a consistent method for measuring <strong>deflection</strong> (e.g. ruler at mid-height, measured from a fixed datum).</li>
+        <li>Add load in clear steps (e.g. 1 kg at a time); write down total load after each step.</li>
+        <li>Use video to capture the whole test so you can pause and review exactly where and how failure started.</li>
+      </ul>
+      <h3>Making sense of the results</h3>
+      <img src="../images/force%20failures.jpg" alt="Examples of structural failure modes" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0;" />
+      <ul>
+        <li>Plot simple graphs where possible (e.g. load vs deflection). Look for straight-line behaviour then where it curves.</li>
+        <li>Note the <strong>mode of failure</strong> (buckling, tension fracture, joint failure, shear, crushing).</li>
+        <li>Compare performance with other groups: did a lighter tower carry more load per kg? Why?</li>
+        <li>Describe both <strong>strength</strong> (max load) and <strong>stiffness</strong> (how much it deflects under everyday loads).</li>
+      </ul>
+      <h3>Scaling and efficiency</h3>
+      <ul>
+        <li>Use test data to estimate a realistic <strong>working load</strong> and an approximate factor of safety.</li>
+        <li>Calculate your tower's <strong>strength-to-weight ratio</strong>: maximum load (N) ÷ self-weight (kg). Compare with other groups.</li>
+        <li>When scaling to a 30 m tower, remember that material self-weight grows faster than some capacities; you cannot just multiply loads linearly without limit.</li>
+        <li>Compare different SHS sizes and wall thicknesses using the Liberty tables and costing spreadsheet template.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Folio Structure &amp; Example</h2>
+      <p style="color: var(--muted); margin-bottom: 0.75rem;"><strong>Important:</strong> Complete your water tower folio by the end of Week 5. This folio demonstrates your understanding of engineering practice.</p>
+      <img src="../images/cad%20drawing.png" alt="Example CAD drawing for folio" class="content-image" />
+      <p>Your folio should read like a short engineering report, not just a photo album. A suggested structure is:</p>
+      <ul>
+        <li><strong>Cover &amp; brief:</strong> project title, group members, tower requirements.</li>
+        <li><strong>Planning &amp; safety:</strong> SWMS summary, key hazards and controls, tool list.</li>
+        <li><strong>Design &amp; drawings:</strong> sketches from Toolkit 3, orthogonal views, notes on materials and member sizes, load path analysis.</li>
+        <li><strong>Build log:</strong> dated entries, photos of key stages, problems encountered and how they were fixed.</li>
+        <li><strong>Testing &amp; data:</strong> test setup, tables, graphs, photos/stills, observations at first deflection and failure.</li>
+        <li><strong>Evaluation:</strong> what worked well, what failed first, why that location, and what you would change. Link back to Toolkit 2 concepts (buckling, load paths, strength-to-weight).</li>
+        <li><strong>Costing &amp; sustainability:</strong> scaled SHS cost estimate, comments on material choice and life span.</li>
+      </ul>
+      <p>Use the sample folio below as a guide for formatting and depth of explanation:</p>
+      <object class="pdf-embed" data="../Year 9 T1 Theory Notes/Water Tower Folio.pdf" type="application/pdf">
+        <p>Your browser can't display this PDF. <a href="../Year 9 T1 Theory Notes/Water Tower Folio.pdf" target="_blank" rel="noopener">Open it in a new tab</a>.</p>
+      </object>
+      <p class="pdf-embed-note"><a href="../Year 9 T1 Theory Notes/Water Tower Folio.pdf" target="_blank" rel="noopener">Open full PDF</a></p>
+    </article>
+
+    <article class="card">
+      <h2>Water Tower Test &amp; Folio Q&amp;A</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why do we build and test a small model water tower instead of just calculating a full-size 30 m design?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q1">
+            <p>Real engineered structures always combine <strong>calculation, modelling and testing</strong>. A small model lets you quickly try ideas, see unexpected failure modes and practise measurement without the cost and risk of a full-size build.</p>
+            <p>Model testing helps you understand <strong>load paths, buckling and joint behaviour</strong> in a very direct way. Even though a 300 mm tower does not scale perfectly to 30 m, the same principles apply: slender compression members buckle, weak joints fail first, and poor detailing concentrates stress.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is the difference between strength and stiffness in your water tower?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q2">
+            <p><strong>Strength</strong> is about the <strong>maximum load</strong> the structure can carry before it fails (buckles, fractures, crushes, etc.).</p>
+            <p><strong>Stiffness</strong> is about how much the structure <strong>deflects under everyday loads</strong>. A structure can be strong enough not to break, but still too flexible to feel safe or keep its shape.</p>
+            <p>In your evaluation, comment on both: “Our tower carried 22 kg before buckling, but deflected 15 mm at only 5 kg, which would feel unstable in real use.”</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why do we test towers close to failure instead of stopping when they "look safe"?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q3">
+            <p>Testing to or near failure shows the <strong>true capacity</strong> of the structure and reveals <strong>how it fails</strong>. This is vital for learning:</p>
+            <ul>
+              <li>Which member or joint fails first.</li>
+              <li>Whether failure is sudden (brittle) or gradual (ductile).</li>
+              <li>Where extra material or bracing would make the biggest difference.</li>
+            </ul>
+            <p>In real engineering, we rarely load structures to failure, but we still need this information from prototypes and calculations so we can set realistic <strong>factors of safety</strong>.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What makes a good test method for your water tower?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q4">
+            <p>A good test method is <strong>repeatable, controlled and safe</strong>. For this module that means:</p>
+            <ul>
+              <li>Always loading at the <strong>same point</strong> (e.g. exact centre of the deck or mid-span of the beam).</li>
+              <li>Adding load in clear, recorded steps (e.g. known masses, consistent water increments).</li>
+              <li>Measuring deflection and failure carefully (same ruler position, same camera angle).</li>
+              <li>Using appropriate PPE and a safe zone so no one is in the line of fire if it collapses.</li>
+            </ul>
+            <p>If other groups can repeat your test and get similar results, your method is strong.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why might two towers with almost the same design fail at very different loads?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q5">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q5">
+            <p>Small differences in <strong>build quality</strong> can have a big effect:</p>
+            <ul>
+              <li>Slightly longer or shorter members changing the way load is shared.</li>
+              <li>Twisted or unsquare frames causing extra bending in some members.</li>
+              <li>Uneven glue joints or gaps reducing joint strength.</li>
+              <li>Minor damage from handling before testing.</li>
+            </ul>
+            <p>In your folio, it is useful to note these differences rather than assuming “the design was bad”. Often the idea is sound, but the execution needs improvement.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What are the main sources of error in your tower and beam tests?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q6">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q6">
+            <p>Common error sources include:</p>
+            <ul>
+              <li><strong>Measurement error</strong> – reading rulers at an angle, misreading mass scales.</li>
+              <li><strong>Load placement error</strong> – not exactly at mid-span or centre of deck.</li>
+              <li><strong>Timing/step error</strong> – adding load too quickly, skipping recording steps.</li>
+              <li><strong>Build variation</strong> – the model is not identical to the drawing.</li>
+            </ul>
+            <p>Good evaluations mention these: “Deflection readings may have been 2–3 mm off due to ruler angle and movement while reading.”</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How can graphs and tables improve your folio?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q7">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q7">
+            <p>Graphs and tables turn messy notes into clear <strong>evidence</strong>.</p>
+            <ul>
+              <li>A table of load vs deflection lets you quickly compare groups or designs.</li>
+              <li>A load–deflection graph shows where behaviour changes from elastic to failing.</li>
+              <li>A simple bar chart of <strong>max load per kg of tower</strong> highlights strength-to-weight efficiency.</li>
+            </ul>
+            <p>When you write your evaluation, you can refer to these (“see Figure 1”) instead of writing long lists of numbers.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What makes a strong evaluation paragraph in your folio?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q8">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q8">
+            <p>A strong evaluation paragraph:</p>
+            <ul>
+              <li>Starts with a <strong>clear judgement</strong> (e.g. “Overall, our tower was structurally efficient but too flexible.”).</li>
+              <li>Supports that judgement with <strong>data</strong> (max load, deflection, failure location).</li>
+              <li>Links back to <strong>theory</strong> (buckling, tension/compression, member slenderness, joint design).</li>
+              <li>Finishes with <strong>specific improvements</strong> (extra bracing, section changes, better joints).</li>
+            </ul>
+            <p>Avoid vague comments like “we could have made it better”; say exactly what and why.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How should you talk about safety and environment in your evaluation?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q9">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q9">
+            <p>Connect your project to real engineering responsibilities:</p>
+            <ul>
+              <li>Mention key <strong>WHS controls</strong> you used (PPE, SWMS, line of fire, emergency procedures).</li>
+              <li>Comment on <strong>material choice</strong> and maintenance (corrosion resistance, protective coatings).</li>
+              <li>Reflect on <strong>waste management</strong> (offcuts, recycling, concrete disposal).</li>
+            </ul>
+            <p>Even a small classroom project is a chance to practise thinking like an engineer who must keep people safe and limit environmental impact.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>When you re-design, should you change everything at once?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q10">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q10">
+            <p>It is usually better to change only the <strong>most critical features</strong> between versions:</p>
+            <ul>
+              <li>Start with the member or joint that failed first.</li>
+              <li>Add or adjust bracing where deflection was largest.</li>
+              <li>Change one or two section sizes rather than the whole structure.</li>
+            </ul>
+            <p>This makes it easier to see what actually caused the improvement. If you change everything at once, you learn less from the data.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li>Digital scales, test weights, cameras/phones for video and stills.</li>
+        <li>Test rig for applying loads safely.</li>
+        <li>Liberty SHS mass tables and costing spreadsheet template.</li>
+        <li><a href="../Year 9 T1 Theory Notes/Tower_Evaluation_Scaffolded_Response.pdf" target="_blank" rel="noopener">Tower Evaluation Scaffold (PDF)</a> — sentence starters and prompts for writing your evaluation.</li>
+        <li><a href="../Year 9 T1 Theory Notes/Year_9_Essay_Guide.pdf" target="_blank" rel="noopener">Year 9 Essay Guide (PDF)</a> — use as a scaffold for the written folio/report.</li>
+      </ul>
+    </article>
+  </main>
+
+  <script src="../page-nav.js" defer></script>
+  <script src="../qa-widget.js"></script>
+</body>
+</html>

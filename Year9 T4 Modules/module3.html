@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 3: Mechanism testing & tuning for the geared lolly dispenser – gear ratios, torque, fault-finding, user trials and performance improvement." />
+  <meta name="keywords" content="Year 9, Engineering, mechanisms, gears, cams, testing, tuning, fault finding, geared lolly dispenser" />
+  <title>Toolkit 3: Mechanism Testing &amp; Tuning | Year 9 Term 4</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6c7a96;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0b63c3, #0a4f93);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 0.4rem 0 0;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    nav a.active {
+      background: #e6f0fb;
+      color: #0b63c3;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.75rem 1rem 3rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    .card h2 {
+      margin: 0 0 0.5rem;
+      color: var(--brand);
+    }
+
+    .card h3 {
+      margin: 1.2rem 0 0.35rem;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .card p {
+      margin: 0.3rem 0 0.6rem;
+      color: var(--muted);
+    }
+
+    .card ul {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.15rem;
+      color: var(--muted);
+    }
+
+    .card ol {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.3rem;
+      color: var(--muted);
+    }
+
+    .card li + li {
+      margin-top: 0.35rem;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+      margin-bottom: 0.35rem;
+    }
+
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 0.6rem;
+    }
+
+    .grid-two-column {
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 0.9rem;
+      border: 1px solid var(--border);
+    }
+
+    .grid-two-column h3 {
+      margin-top: 0;
+    }
+
+    .checklist li::marker {
+      content: "▢ ";
+      font-size: 0.8rem;
+    }
+
+    /* Quiz / Q&A styles */
+
+    .qa-list {
+      margin-top: 0.5rem;
+    }
+
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      margin: 0.65rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .qa-question span {
+      flex: 1;
+    }
+
+    .qa-toggle {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .qa-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+
+    .qa-answer {
+      margin-top: 0.55rem;
+      color: var(--muted);
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+      main {
+        padding: 1.25rem 0.75rem 2.25rem;
+      }
+    }
+  </style>
+</head>
+  <body>
+  <a href="#main-content" class="sr-only" style="position: absolute; top: 0; left: 0; background: #0b63c3; color: #fff; padding: 0.75rem 1rem; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0;">Skip to main content</a>
+  <header role="banner">
+    <h1>Toolkit 3: Build &amp; Manufacture</h1>
+    <p>CAD-CAM workflows, fabrication, assembly, guards, and pre-test preparation</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term4.html">&#8592; T4 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a class="active" href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main id="main-content" role="main">
+    <a class="back-link" href="../year9_term4.html">&#8592; Back to Year 9 T4 Toolkits</a>
+
+    <!-- Learning Focus -->
+    <article class="card">
+      <div class="pill">Build</div>
+      <h2>Learning Focus</h2>
+      <img src="../images/term234/Gear%2BTrain%2BPic.jpeg" alt="Gear train" class="content-image" />
+      <p>By the end of this toolkit, you should be able to:</p>
+      <ul>
+        <li>Prepare CAD files for manufacturing: export DXF/DWG, add kerf allowances, and organise files for laser/CNC cutting.</li>
+        <li>Fabricate parts safely: cut materials, drill holes, prepare surfaces, and finish components according to your Toolkit 2 design.</li>
+        <li>Assemble mechanisms: mount gears, install cams and ratchets, align components, and ensure smooth operation.</li>
+        <li>Add guards and safety features: install guards, check clearances, and ensure safe operation.</li>
+        <li>Prepare for testing: complete pre-test inspection, verify all mechanisms operate correctly, and document build variations.</li>
+      </ul>
+      <p style="color: var(--muted); margin-top: 1rem; padding: 0.75rem; background: #f8f9fa; border-left: 3px solid var(--brand); border-radius: 4px;"><strong>Timing:</strong> Build your dispenser in Weeks 2-4 based on your Toolkit 2 design. Complete construction before starting testing in Toolkit 4. Quality construction here ensures reliable test results.</p>
+
+    </article>
+
+    <!-- Why This Matters -->
+    <article class="card">
+      <h2>Why This Matters</h2>
+      <p><strong>Quality construction is essential for reliable mechanisms</strong>—accurate fabrication, proper assembly, and careful alignment ensure your dispenser works as designed. Poor construction leads to binding, jams, and unreliable operation, even with good design.</p>
+      <p>This toolkit teaches you to translate CAD designs into physical products using CAD-CAM workflows, safe fabrication practices, and systematic assembly. These skills apply throughout engineering—from prototyping to manufacturing to maintenance.</p>
+      <p>By mastering build and manufacture, you'll learn to:</p>
+      <ul style="margin-top: 0.75rem;">
+        <li>Prepare CAD files for manufacturing (exports, kerf allowances, file organisation)</li>
+        <li>Fabricate parts accurately and safely (cutting, drilling, finishing)</li>
+        <li>Assemble mechanisms with proper alignment and clearances</li>
+        <li>Add safety features and prepare for testing</li>
+      </ul>
+      <p style="margin-top: 1rem;"><strong>How to use this module:</strong> Follow your Toolkit 2 design systematically. Use CAD-CAM workflows for fabrication, assemble carefully with attention to alignment, and document any build variations. These same skills are used in industry—from product development to manufacturing—master them now, and you'll be prepared for future projects and careers.</p>
+    </article>
+
+    <!-- Core Concepts -->
+    <article class="card">
+      <div class="pill">Core Concepts</div>
+      <h2>Build &amp; Manufacture Process</h2>
+      <p>This toolkit covers the complete process from CAD files to finished dispenser, including CAD-CAM workflows, fabrication, assembly, and quality checks.</p>
+
+      <h3>1. CAD-CAM Workflow</h3>
+      <p>Prepare your CAD files for manufacturing:</p>
+      <ul>
+        <li><strong>DXF/DWG exports:</strong> Export 2D profiles from Onshape sketches for laser/CNC cutting. Check units (mm), line types, and ensure profiles are closed.</li>
+        <li><strong>Kerf allowances:</strong> Add kerf allowance (typically 0.1-0.2 mm) to account for laser/CNC cutting width. This ensures parts fit correctly after cutting.</li>
+        <li><strong>File organisation:</strong> Organise exports into folders (LaserExports, DrawingsPDF). Use consistent naming that matches your drawings.</li>
+        <li><strong>Version control:</strong> Include revision numbers or dates in file names. Export after major design changes to keep CAD and physical parts aligned.</li>
+      </ul>
+
+      <h3>2. Fabrication</h3>
+      <p>Cut, drill, and finish parts according to your design:</p>
+      <ul>
+        <li><strong>Material preparation:</strong> Select materials from your Toolkit 2 plan. Check grain direction, surface quality, and dimensions before cutting.</li>
+        <li><strong>Cutting:</strong> Use laser/CNC for sheet parts, hand tools for timber. Follow your cut list and nesting plan. Label parts clearly.</li>
+        <li><strong>Drilling:</strong> Drill holes accurately using drill press or guides. Check alignment and hole sizes match your design. Test fits on scrap first.</li>
+        <li><strong>Surface preparation:</strong> Sand surfaces, deburr edges, seal end grain. Prepare parts for assembly and finishing.</li>
+      </ul>
+
+      <h3>3. Assembly</h3>
+      <p>Assemble mechanisms with proper alignment and clearances:</p>
+      <ul>
+        <li><strong>Gear train assembly:</strong> Mount gears on shafts, check centre distances, ensure proper meshing (0.5-1 mm clearance). Test rotation by hand.</li>
+        <li><strong>Cam and gate:</strong> Install cam on shaft, attach gate follower. Check cam profile engagement and gate clearance. Ensure smooth operation.</li>
+        <li><strong>Ratchet installation:</strong> Mount ratchet wheel, install pawl with spring. Test one-way operation—forward rotation should engage, reverse should be blocked.</li>
+        <li><strong>Frame assembly:</strong> Assemble frame and base, mount mechanisms. Check alignment, clearances, and smooth operation of all moving parts.</li>
+      </ul>
+
+      <h3>4. Guards &amp; Safety</h3>
+      <p>Add guards and safety features:</p>
+      <ul>
+        <li><strong>Guard installation:</strong> Install guards to cover moving parts (gears, cams, pinch points). Use acrylic for visibility or plywood for strength.</li>
+        <li><strong>Clearance checks:</strong> Ensure guards don't interfere with operation but prevent finger access to dangerous areas. Test full range of motion.</li>
+        <li><strong>Safety inspection:</strong> Check all fasteners are tight, no sharp edges exposed, and all moving parts operate smoothly without binding.</li>
+      </ul>
+    </article>
+
+    <!-- Build Protocol -->
+    <article class="card">
+      <div class="pill">Build Protocol</div>
+      <h2>Geared Lolly Dispenser – Build Protocol</h2>
+      <p>Follow this sequence systematically to build your dispenser. Document each stage with photos and notes.</p>
+
+      <ol>
+        <li>
+          <strong>CAD-CAM Preparation.</strong>
+          <ul>
+            <li>Export DXF/DWG files from your Toolkit 2 CAD. Add kerf allowances (0.1-0.2 mm) for laser/CNC cutting.</li>
+            <li>Organise files into folders (LaserExports, DrawingsPDF). Check units (mm) and line types.</li>
+            <li>Review cut list and nesting plan from Toolkit 2. Verify all parts are accounted for.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Material Preparation &amp; Cutting.</strong>
+          <ul>
+            <li>Select materials according to your Toolkit 2 plan. Check grain direction and surface quality.</li>
+            <li>Cut parts using laser/CNC or hand tools. Follow your cut list and nesting plan.</li>
+            <li>Label all parts clearly (name, orientation, reference face). Store flat to prevent warping.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Drilling &amp; Surface Preparation.</strong>
+          <ul>
+            <li>Drill holes accurately using drill press or guides. Test fits on scrap first.</li>
+            <li>Sand surfaces, deburr edges, seal end grain. Prepare parts for assembly.</li>
+            <li>Check dimensions match your design. Make adjustments if needed.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Gear Train Assembly.</strong>
+          <ul>
+            <li>Mount gears on shafts according to your design. Check centre distances for proper meshing.</li>
+            <li>Ensure gear clearance (0.5-1 mm between teeth). Test rotation by hand—should be smooth.</li>
+            <li>Verify gear ratio matches your design calculations.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Cam &amp; Gate Mechanism.</strong>
+          <ul>
+            <li>Install cam on shaft, attach gate follower. Check cam profile engagement.</li>
+            <li>Set gate clearance according to your design. Test gate opening/closing motion.</li>
+            <li>Verify gate timing aligns with carousel position.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Ratchet Installation.</strong>
+          <ul>
+            <li>Mount ratchet wheel, install pawl with spring. Test one-way operation.</li>
+            <li>Forward rotation should engage smoothly; reverse rotation should be blocked.</li>
+            <li>Adjust spring tension if needed for reliable engagement.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Frame Assembly &amp; Final Checks.</strong>
+          <ul>
+            <li>Assemble frame and base, mount all mechanisms. Check alignment and clearances.</li>
+            <li>Install guards to cover moving parts. Ensure guards don't interfere with operation.</li>
+            <li>Complete pre-test inspection: check fasteners, smooth operation, no binding or collisions.</li>
+          </ul>
+        </li>
+      </ol>
+    </article>
+
+    <!-- Activities & Evidence -->
+    <article class="card">
+      <div class="pill">Folio & Evidence</div>
+      <h2>Activities &amp; Evidence</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">Complete these activities to demonstrate your understanding:</p>
+      
+      <h3>1) CAD-CAM Preparation</h3>
+      <ul>
+        <li><strong>File exports:</strong> Export DXF/DWG files from your Toolkit 2 CAD for laser/CNC cutting. Add kerf allowances (0.1-0.2 mm). Check units (mm) and line types.</li>
+        <li><strong>File organisation:</strong> Organise exports into folders (LaserExports, DrawingsPDF). Use consistent naming that matches your drawings.</li>
+        <li><strong>Cut list review:</strong> Review your Toolkit 2 cut list and nesting plan. Verify all parts are accounted for and materials are available.</li>
+      </ul>
+      
+      <h3>2) Fabrication</h3>
+      <ul>
+        <li><strong>Material selection:</strong> Select materials according to your Toolkit 2 plan. Check grain direction, surface quality, and dimensions.</li>
+        <li><strong>Cutting:</strong> Cut parts using laser/CNC or hand tools. Follow your cut list and nesting plan. Label all parts clearly.</li>
+        <li><strong>Drilling:</strong> Drill holes accurately. Test fits on scrap first. Check alignment and hole sizes match your design.</li>
+        <li><strong>Surface preparation:</strong> Sand surfaces, deburr edges, seal end grain. Document your preparation process with photos.</li>
+      </ul>
+      
+      <h3>3) Assembly</h3>
+      <ul>
+        <li><strong>Gear train assembly:</strong> Mount gears on shafts, check centre distances, ensure proper meshing. Test rotation by hand and document with photos.</li>
+        <li><strong>Cam and gate:</strong> Install cam and gate mechanism. Check clearance and timing. Document assembly process.</li>
+        <li><strong>Ratchet installation:</strong> Mount ratchet and test one-way operation. Document any adjustments needed.</li>
+        <li><strong>Frame assembly:</strong> Assemble frame and mount all mechanisms. Check alignment and clearances. Document final assembly.</li>
+      </ul>
+      
+      <h3>4) Guards &amp; Safety</h3>
+      <ul>
+        <li><strong>Guard installation:</strong> Install guards to cover moving parts. Use acrylic for visibility or plywood for strength. Document with photos.</li>
+        <li><strong>Safety inspection:</strong> Complete pre-test inspection: check fasteners, smooth operation, no binding. Document any issues found.</li>
+        <li><strong>Build log:</strong> Maintain a build log with dated entries, photos, and notes on any problems encountered or changes made from your design.</li>
+      </ul>
+      
+      <h3>5) Google Classroom Check-in</h3>
+      <ul>
+        <li>Submit construction photos and build log entries.</li>
+        <li>Share any construction challenges and solutions.</li>
+        <li>Get feedback before moving to Toolkit 4 testing.</li>
+      </ul>
+    </article>
+
+    <!-- Key Notes & Common Mistakes -->
+    <article class="card">
+      <div class="pill">Key Notes</div>
+      <h2>Key Notes &amp; Common Mistakes</h2>
+
+      <h3>CAD-CAM &amp; File Management</h3>
+      <ul>
+        <li><strong>Kerf allowances:</strong> Always add kerf allowance (0.1-0.2 mm) to DXF exports for laser/CNC cutting. Without this, parts will be slightly undersized.</li>
+        <li><strong>Version control:</strong> Export files after major design changes. Include revision numbers or dates in file names to prevent confusion.</li>
+        <li><strong>Test imports:</strong> Test import DXF files into laser/CNC software before cutting full sets. Check scale, units, and line types.</li>
+      </ul>
+
+      <h3>Fabrication Quality</h3>
+      <ul>
+        <li><strong>Accuracy matters:</strong> Small errors in cutting or drilling accumulate. Measure carefully and check dimensions against your design.</li>
+        <li><strong>Grain direction:</strong> Align grain along longest span for strength. Avoid holes near short grain corners where parts can break.</li>
+        <li><strong>Surface preparation:</strong> Proper sanding and edge preparation improve appearance and reduce friction in moving parts.</li>
+        <li><strong>Test on scrap:</strong> Always test drilling, countersinking, and finishing on scrap before working on real parts.</li>
+      </ul>
+
+      <h3>Assembly &amp; Alignment</h3>
+      <ul>
+        <li><strong>Gear meshing:</strong> Proper centre distances ensure gears mesh correctly. Too close = binding, too far = backlash and noise.</li>
+        <li><strong>Clearances:</strong> Check clearances between moving parts (0.5-1 mm for gears, adequate clearance for gates). Too tight causes binding.</li>
+        <li><strong>Alignment:</strong> Misaligned shafts or pivots cause binding and reduce efficiency. Use guides or jigs to ensure accuracy.</li>
+        <li><strong>Test as you go:</strong> Test each mechanism (gear train, cam, ratchet) independently before final assembly.</li>
+      </ul>
+
+      <h3>Common Mistakes</h3>
+      <ul>
+        <li>Forgetting kerf allowances in DXF exports, leading to parts that don't fit correctly.</li>
+        <li>Not testing gear meshing before final assembly, causing binding that's hard to fix later.</li>
+        <li>Ignoring grain direction when cutting timber, leading to weak parts that break under load.</li>
+        <li>Not documenting build variations from design, making it hard to explain test results later.</li>
+      </ul>
+    </article>
+
+    <!-- Quiz / Self-check with revealable answers -->
+    <article class="card">
+      <div class="pill">Quiz</div>
+      <h2>Check Your Understanding – Mechanism Testing &amp; Tuning</h2>
+      <p>Use these questions to test your understanding. Click “Show answer” to reveal one possible solution or explanation.</p>
+
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>1. Your dispenser works well when it is half full, but jams frequently when almost empty. Give one possible reason.</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q1">
+            When the dispenser is nearly empty, there may not be enough weight or pressure to feed lollies consistently into the gate.
+            They may sit in corners or flat spots instead of rolling into position.
+            Adjusting the slope, surface finish or hopper shape can help guide them correctly, even at low levels.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>2. Explain how changing the gear ratio could make the dispenser easier to use for a younger child.</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q2">
+            Increasing the gear ratio (more turns of the handle per cycle) can increase torque at the mechanism,
+            which means less force is needed to turn the handle.
+            The trade-off is that the user may need to turn the handle further, but it will feel lighter and more controllable for a younger user.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>3. What does it mean to “change one variable at a time” during testing, and why is it important?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q3">
+            It means you only adjust one thing (e.g. a clearance, spring tension or surface finish) between tests.
+            If you change multiple things at once, you cannot tell which change caused the improvement (or the problem).
+            Changing one variable at a time makes your results more reliable and easier to explain.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>4. Give two examples of data you could collect in a 10-cycle test that would help you judge reliability.</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q4">
+            Examples:
+            <ul>
+              <li>Number of successful dispenses out of 10.</li>
+              <li>Number of jams or partial dispenses out of 10.</li>
+              <li>Number of double dispenses (more than one lolly released).</li>
+              <li>Approximate handle force or number of “stiff” points per cycle.</li>
+            </ul>
+            Any two of these, recorded systematically, help you compare before/after changes.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>5. A user reports that the handle feels “jerky” at one point each turn. What are two potential causes you might investigate?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q5">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q5">
+            Possible causes include:
+            <ul>
+              <li>A high spot or misalignment on one gear tooth or cam surface.</li>
+              <li>Insufficient clearance where a cam or gate contacts another part.</li>
+              <li>A bent shaft or off-centre hole causing uneven rotation.</li>
+            </ul>
+            You would inspect these areas visually and by slowly rotating the mechanism to confirm.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>6. Why is user feedback an important part of mechanism testing, even if the mechanism "works" in your own trials?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q6">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q6">
+            Users may have different strength, hand size and expectations.
+            They might operate the mechanism differently (faster, slower, at an angle), revealing issues you did not notice.
+            Feedback helps you design a dispenser that is comfortable, safe and reliable for a wider range of people, not just the designer.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>7. How do you calculate reliability, and what does it tell you about your design?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q7">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q7">
+            <p>Reliability = (Successful cycles / Total cycles) × 100%. For example, if 9 out of 10 cycles work correctly, reliability = 90%.</p>
+            <p><strong>What it tells you:</strong> Reliability indicates how consistently your mechanism works. High reliability (above 95%) suggests a well-designed, well-built mechanism. Low reliability (below 80%) indicates problems that need addressing.</p>
+            <p><strong>Using reliability:</strong> Compare reliability before and after adjustments to see if changes improved performance. Track reliability over multiple test runs to identify trends. Use reliability data to justify design decisions in your evaluation.</p>
+            <p><strong>Industry standard:</strong> Professional products typically aim for 99%+ reliability. For classroom projects, 90%+ is excellent, 80–90% is good, and below 80% needs improvement.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>8. What is the difference between qualitative and quantitative data, and why do you need both?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q8">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q8">
+            <p><strong>Quantitative data:</strong> Numbers and measurements (success rates, force measurements, cycle times, reliability percentages). This provides objective, comparable evidence.</p>
+            <p><strong>Qualitative data:</strong> Observations and descriptions (smoothness, noise, user comments, visual appearance). This provides context and helps explain why problems occur.</p>
+            <p><strong>Why both:</strong> Quantitative data shows what happened (90% success rate), while qualitative data explains why (binding at cam peak, rough gear meshing). Together, they provide complete evidence for evaluation and improvement.</p>
+            <p><strong>Example:</strong> "Reliability improved from 70% to 90% (quantitative) because chamfered edges reduced binding at the gate (qualitative)."</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>9. How can you use test data to justify design decisions in your evaluation?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q9">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q9">
+            <p>Test data provides objective evidence to support evaluation statements:</p>
+            <ul>
+              <li><strong>Link data to criteria:</strong> "The dispenser met the reliability criterion (90% success rate) as shown in 10-cycle test results."</li>
+              <li><strong>Compare before/after:</strong> "Reliability improved from 70% to 90% after increasing gate clearance from 0.5 mm to 1.0 mm, demonstrating the importance of proper tolerances."</li>
+              <li><strong>Use specific numbers:</strong> Avoid vague statements like "it works well." Instead say "9 out of 10 cycles dispensed correctly, meeting the 90% reliability target."</li>
+              <li><strong>Explain patterns:</strong> "Jamming occurred only when the hopper was less than 20% full, suggesting feed geometry needs improvement for low-fill conditions."</li>
+            </ul>
+            <p>Data-driven evaluation demonstrates engineering thinking and shows you understand the relationship between design decisions and performance outcomes.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>10. What makes a realistic improvement suggestion, and how should you justify it?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q10">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q10">
+            <p><strong>Realistic improvements:</strong> Could actually be built in a school workshop with available tools and materials. Avoid suggestions that require expensive equipment, exotic materials, or advanced skills beyond your current level.</p>
+            <p><strong>Justification:</strong> Link improvements to specific problems identified in testing. Explain how the improvement would address the problem using engineering principles.</p>
+            <p><strong>Example:</strong> "Problem: Jamming when hopper is nearly empty. Improvement: Increase hopper slope from 30° to 45° to improve gravity feed. Justification: Steeper slope increases gravitational force component, helping lollies roll into position even at low fill levels. This is achievable by modifying the hopper design in CAD and re-cutting the part."</p>
+            <p><strong>Avoid vague suggestions:</strong> "Make it better" or "use stronger materials" without explaining what problem they solve or how they would be implemented.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Cam Mechanisms (Supplementary)</h2>
+      <p style="color: var(--muted); margin: 0.25rem 0 1rem;">Optional reference to support your cam and gate work.</p>
+
+      <h3>Types of cams</h3>
+      <p style="color: var(--muted); margin-top: 0.35rem;">
+        &#128216; Supplementary: <a href="../assets/workbooks/Cam_Mechanisms_Workbook.pdf#page=1" target="_blank" rel="noopener">Types of cams (Workbook p.1)</a>
+      </p>
+
+      <h3>Cam followers</h3>
+      <p style="color: var(--muted); margin-top: 0.35rem;">
+        &#128216; Supplementary: <a href="../assets/workbooks/Cam_Mechanisms_Workbook.pdf#page=5" target="_blank" rel="noopener">Cam followers (Workbook p.5)</a>
+      </p>
+
+      <h3>Rise, dwell, fall (exam language)</h3>
+      <p style="color: var(--muted); margin-top: 0.35rem;">
+        &#128216; Supplementary: <a href="../assets/workbooks/Cam_Mechanisms_Workbook.pdf#page=13" target="_blank" rel="noopener">Rise, dwell, fall / exam language (Workbook p.13)</a>
+      </p>
+
+      <h3>Exam preparation questions</h3>
+      <p style="color: var(--muted); margin-top: 0.35rem;">
+        &#128216; Supplementary: <a href="../assets/workbooks/Cam_Mechanisms_Workbook.pdf#page=15" target="_blank" rel="noopener">Exam preparation questions (Workbook p.15)</a>
+      </p>
+
+      <p style="margin-top: 1rem;">
+        <a href="../assets/workbooks/Cam_Mechanisms_Workbook.pdf" target="_blank" rel="noopener">&#128216; Supplementary Workbook: Cam Mechanisms (PDF)</a>
+      </p>
+    </article>
+
+    <article class="card">
+      <h2>Student Responsibilities</h2>
+      <ul>
+        <li>Follow all teacher instructions and workshop rules. Complete your SWMS before starting testing.</li>
+        <li>Test mechanisms only under teacher supervision. Ensure all guards are in place before operation.</li>
+        <li>Report any unsafe conditions, damaged parts, or accidents immediately. Do not test mechanisms that are unsafe.</li>
+        <li>Test systematically: follow the testing workflow, change one variable at a time, and document all changes and results.</li>
+        <li>Collect meaningful data: record quantitative measurements and qualitative observations. Use data to support evaluation statements.</li>
+        <li>Respect user feedback: listen to what users say, even if it's critical. Use feedback to improve your design, not to defend it.</li>
+        <li>Document your work thoroughly: take photos during testing, record all measurements and observations, and complete your folio sections.</li>
+        <li>Be honest about problems: identifying weaknesses shows deeper understanding than pretending everything is perfect.</li>
+        <li>Respect shared equipment: return tools and materials clean, store work properly, and leave workbenches tidy for the next class.</li>
+      </ul>
+    </article>
+  </main>
+
+  <script src="../page-nav.js" defer></script>
+  <script src="../qa-widget.js"></script>
+</body>
+</html>

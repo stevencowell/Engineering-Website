@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toolkit 1 | Engineered Mechanisms</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .card p { color: var(--muted); margin: 0.4rem 0; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .qa-item { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; margin: 0.65rem 0; background: #fff; box-shadow: var(--shadow); }
+    .qa-question { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; font-weight: 700; color: var(--text); }
+    .qa-toggle { padding: 0.45rem 0.85rem; border-radius: 999px; border: 1px solid var(--border); background: #e6f0fb; color: var(--brand); font-weight: 700; cursor: pointer; box-shadow: var(--shadow); }
+    .qa-toggle:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+    .qa-answer { margin-top: 0.65rem; color: var(--muted); display: none; }
+  </style>
+</head>
+  <body>
+  <a href="#main-content" class="sr-only" style="position: absolute; top: 0; left: 0; background: #0b63c3; color: #fff; padding: 0.75rem 1rem; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0;">Skip to main content</a>
+  <header role="banner">
+    <h1>Toolkit 1: Fluid Power & Mechanisms</h1>
+    <p>Pascal's principle, mechanical advantage, lever systems, fluid power theory</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term3.html">&#8592; T3 Overview</a>
+    <a class="active" href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main id="main-content" role="main">
+    <a class="back-link" href="../year9_term3.html">&#8592; Back to Year 9 T3 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Mechanisms</div>
+      <h2>Learning Focus</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Understand fluid power:</strong> Explain Pascal's principle, differentiate hydraulics from pneumatics, and understand pressure calculations (P = F/A).</li>
+        <li><strong>Understand mechanisms:</strong> Explain how levers transfer and transform motion, and calculate mechanical advantage (MA) and velocity ratio (VR).</li>
+        <li><strong>Calculate hydraulic systems:</strong> Calculate force multiplication using area ratios and lever systems, and predict system performance.</li>
+        <li><strong>Investigate and manage risk:</strong> Identify hazards in fluid power systems and apply risk management when working with pressurised systems.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Why This Matters</h2>
+      <p><strong>Fluid power and mechanisms are fundamental to engineering</strong>—from car brakes and excavator arms to door closers and bicycle drivetrains. Understanding how fluids transmit force (Pascal's principle) and how mechanisms transfer and transform motion is essential for designing, building, and troubleshooting engineering systems.</p>
+      <p>This toolkit builds the foundation for your hydraulic digger project. By understanding fluid power, Pascal's principle, mechanical advantage, velocity ratio, and lever systems, you'll be able to:</p>
+      <ul style="margin-top: 0.75rem;">
+        <li>Predict how mechanisms will perform before building them</li>
+        <li>Analyse why mechanisms work (or don't work) using engineering principles</li>
+        <li>Design improvements based on systematic understanding, not trial-and-error</li>
+        <li>Apply these concepts to real engineering applications</li>
+      </ul>
+      <p style="margin-top: 1rem;"><strong>How to use this module:</strong> Complete the experiments systematically, recording all measurements accurately. Use the data to verify theoretical predictions and explain differences using friction and efficiency concepts. Apply these skills when analysing your project mechanisms and designing improvements.</p>
+    </article>
+
+    <article class="card">
+      <div class="pill">Theory</div>
+      <h2>Key Notes</h2>
+      <h3>1. Why Mechanisms Matter in Engineering</h3>
+      <p>Almost every engineered product contains mechanisms and often fluid power systems. Car brakes, excavator arms, door closers, and bicycle drivetrains all use carefully arranged levers, gears, linkages, and hydraulic or pneumatic systems.</p>
+      <p>The syllabus describes mechanisms as systems that transfer and transform energy and motion, and asks Stage 5 students to understand components, analyse their operation and carry out experiments to demonstrate engineering principles. In this toolkit, we build that foundation so your hydraulic digger project is based on genuine understanding, not trial-and-error.</p>
+      <p><strong>Real-world importance:</strong> Understanding mechanisms helps you design better products, troubleshoot problems, and communicate with other engineers. These skills are used in TAFE courses, apprenticeships, and university engineering degrees—master them now, and you'll be prepared for future study and careers.</p>
+      <h3>2. Simple Machines and Mechanical Advantage</h3>
+      <p>Engineers often talk about simple machines – idealised models that make analysis easier. The most important for this course are:</p>
+      <ul>
+        <li><strong>Levers</strong> – rotate around a fulcrum, trading force for distance. Three classes: Class 1 (fulcrum in middle), Class 2 (load in middle, always MA > 1), Class 3 (effort in middle, always MA < 1).</li>
+        <li><strong>Pulleys</strong> – redirect force and can multiply it when combined. Fixed pulleys change direction only (VR = 1), movable pulleys multiply force (VR = 2), block and tackle systems provide higher VR.</li>
+        <li><strong>Gears</strong> – interlocking toothed wheels that change speed, torque and direction. Gear ratio = driven teeth / driver teeth. Compound gear trains multiply ratios.</li>
+        <li><strong>Inclined planes, wedges and screws</strong> – transform small forces over long distances into large forces over short distances. Less common in this course but important in many engineering applications.</li>
+      </ul>
+      <p>The key quantity is <strong>mechanical advantage (MA)</strong> – the ratio of output force to input force:</p>
+      <p><strong>MA = F<sub>out</sub> / F<sub>in</sub></strong></p>
+      <p>An MA greater than 1 means the machine multiplies force; an MA less than 1 means the machine sacrifices force to gain speed or distance. You can't get something for nothing—power in ≈ power out (ignoring friction).</p>
+      <p>For a lever, MA depends on the distances from the fulcrum:</p>
+      <p><strong>MA = effort arm length / load arm length</strong></p>
+      <p>Students quickly see this when they move the fulcrum closer to the load and find they can lift more with the same effort. Moving the fulcrum closer to the effort increases speed but requires more force.</p>
+      <p>For gear trains, we often use <strong>velocity ratio (VR)</strong> – the ratio of input speed to output speed – and show that MA is closely related:</p>
+      <p><strong>VR = speed<sub>in</sub> / speed<sub>out</sub></strong></p>
+      <p>For ideal gears: <strong>VR ≈ MA</strong>. In reality, friction reduces Actual MA below VR, so Actual MA < VR.</p>
+      <p>If a small gear with 10 teeth drives a larger gear with 40 teeth, the output turns one quarter as fast as the input, but with roughly four times the torque. Students calculate:</p>
+      <p><strong>Gear ratio = 40 / 10 = 4:1</strong></p>
+      <p><strong>VR = 4</strong>, so the mechanism trades speed for force. If you need more torque, you get less speed. If you need more speed, you get less torque.</p>
+      <h3>3. Efficiency, Friction and Real-World Losses</h3>
+      <p>Real mechanisms never reach the ideal MA or VR because of friction, deformation and other losses. To quantify this, we introduce efficiency (η):</p>
+      <p><strong>Efficiency η = (Actual MA / VR) × 100%</strong></p>
+      <p>Work is force × distance. If a jack should ideally give an MA of 5 (VR = 5) but only manages an effective MA of 4 due to friction, efficiency = (4/5) × 100% = 80%. The 20% loss is due to friction, deformation, and other energy losses.</p>
+      <p><strong>Sources of energy loss:</strong></p>
+      <ul>
+        <li><strong>Friction:</strong> At pivots (levers), gear teeth, pulley bearings, and sliding surfaces. Creates heat and consumes energy.</li>
+        <li><strong>Deformation:</strong> Parts bending or compressing slightly absorbs energy that doesn't contribute to useful work.</li>
+        <li><strong>Misalignment:</strong> Parts not properly aligned create extra friction and binding.</li>
+        <li><strong>Weight of mechanism:</strong> Lifting the machine's own parts uses energy that doesn't contribute to lifting the load.</li>
+      </ul>
+      <p>Students perform experiments:</p>
+      <ul>
+        <li>Measure input force and distance, output force and distance.</li>
+        <li>Calculate theoretical MA from dimensions or tooth counts (this is the VR).</li>
+        <li>Calculate actual MA from measured forces (Actual MA = Load / Effort).</li>
+        <li>Derive efficiency = (Actual MA / VR) × 100% and discuss sources of loss.</li>
+      </ul>
+      <p><strong>Typical efficiencies:</strong> Well-designed mechanisms achieve 80–95% efficiency. Poorly designed or worn mechanisms may be 50% or less. Improving efficiency involves reducing friction (lubrication, bearings), proper alignment, and lighter materials.</p>
+      <p>The Industrial Technology syllabus explicitly expects students to experiment to understand properties such as toughness, strength and friction, and to investigate energy sources and their relationship to components in complex mechanisms. These experiments directly satisfy that requirement.</p>
+      <h3>4. Energy sources and driving mechanisms</h3>
+      <p>A mechanism does nothing until it is driven by an energy source. In school-scale projects we use:</p>
+      <ul>
+        <li><strong>Motors and batteries</strong> – electrical energy → rotational kinetic energy.</li>
+        <li><strong>Gravity</strong> – e.g. weights in a counter-balanced mechanism.</li>
+        <li><strong>Rubber bands or springs</strong> – stored elastic potential energy.</li>
+      </ul>
+      <p>Students investigate each energy source by building and testing small rigs:</p>
+      <ul>
+        <li>A geared motor driving a wheel through different gear ratios.</li>
+        <li>A spring-powered mechanism where winding distance controls operating time.</li>
+        <li>A gravity-driven system such as a weight lifting a gate.</li>
+      </ul>
+      <p>The program document emphasises investigating energy sources, combining mechanisms and designing for specific purposes. Here, theory and experiment are tightly coupled.</p>
+      <h3>5. Analysing and dismantling mechanisms</h3>
+      <p>A powerful way to understand engineering is to dismantle real devices. Students carefully disassemble items such as tape measures, hand drills, staple guns or cheap toys, sketching the arrangement of levers, springs and gears and identifying:</p>
+      <ul>
+        <li>Input and output motions (linear/rotational).</li>
+        <li>Where force is multiplied vs where speed is increased.</li>
+        <li>How components are joined (pins, screws, rivets, press-fits).</li>
+      </ul>
+      <p>The Industrial Technology Engineering module explicitly lists “dismantle and assemble mechanisms to understand how they work” as a learning expectation. With supervision, this becomes a structured investigation, not random tinkering.</p>
+      <h3>6. Safety and risk management in mechanisms work</h3>
+      <p>Working with mechanisms often means:</p>
+      <ul>
+        <li>Sharp edges on dismantled metal parts.</li>
+        <li>Stored energy in springs and tensioned components.</li>
+        <li>Pinch points where fingers can be trapped.</li>
+        <li>Electrical hazards around motors and batteries.</li>
+      </ul>
+      <p>Students link these hazards to risk-management steps (identify, assess, control, review). They practise using PPE, isolating power supplies, clamping workpieces and maintaining tidy benches. This aligns with <strong>EGT5-SAF-01</strong>. <em>Student-friendly summary (not official wording):</em> applying risk management and safe work practices. <em>Official wording:</em> applies risk management and safe work practices in engineering contexts. It also aligns with Industrial Technology outcomes that require identifying and managing WHS issues when using tools and mechanisms.</p>
+      <h3>7. Introduction to Fluid Power</h3>
+      <p><strong>Hydraulics</strong> use liquids (typically oil or water) and <strong>pneumatics</strong> use gases (typically compressed air), but both rely on <strong>Pascal's principle:</strong> pressure applied to an enclosed fluid is transmitted equally in all directions. Pressure is defined as <strong>P = F/A</strong>, meaning a force on a small piston can generate a larger force on a bigger piston.</p>
+      <p>In practical terms, if you push down on a small syringe with 10 N of force, and that syringe is connected to a larger syringe with twice the area, the larger syringe will produce 20 N of force—but it will only move half the distance. This force-distance trade-off is fundamental to understanding mechanical advantage in fluid systems.</p>
+      <p><strong>Key differences:</strong> Hydraulics provide more force and better control (liquids don't compress much), while pneumatics are faster and cleaner (air is readily available). For classroom projects, water-based hydraulics are safer and easier to work with than oil or compressed air.</p>
+      
+      <h3>8. Calculating Force in Hydraulic Systems</h3>
+      <p>Different piston areas create mechanical advantage following <strong>F₂ = F₁ × (A₂/A₁)</strong>. Syringes with larger diameters on the load side multiply the input force, while travel distances change according to the area ratio.</p>
+      <p><strong>Example calculation:</strong> If you use a 5 mL syringe (diameter ≈ 12 mm) as the input and a 20 mL syringe (diameter ≈ 24 mm) as the output, the area ratio is (24/12)² = 4. This means a 5 N input force produces a 20 N output force, but the output moves only 1/4 the distance of the input.</p>
+      <p><strong>Important:</strong> Always calculate using areas (πr² or πd²/4), not diameters. A syringe with double the diameter has four times the area, which quadruples the force multiplication.</p>
+      
+      <h3>9. Connecting Toolkit 1 to the Hydraulic Digger Project</h3>
+      <p>Everything in this toolkit feeds directly into your hydraulic digger project:</p>
+      <ul>
+        <li>Lever analysis underpins the digger's arms and bucket linkages.</li>
+        <li>Fluid power and Pascal's principle explain how syringes multiply force.</li>
+        <li>Mechanical advantage and efficiency help you predict and evaluate digger performance.</li>
+      </ul>
+      <p>By the time you begin your digger build, you should already be fluent with MA, VR, efficiency, Pascal's principle, and the language of mechanisms and fluid power.</p>
+    </article>
+
+    <article class="card">
+      <h2>Activities &amp; Evidence</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">Complete these activities to demonstrate your understanding:</p>
+      
+      <h3>1) Mechanism Identification</h3>
+      <ul>
+        <li><strong>Identify mechanisms in everyday products:</strong> Examine common devices (door closers, can openers, staplers, hand drills, toys) and identify the mechanisms they contain (levers, gears, pulleys, cams, linkages).</li>
+        <li><strong>Map input vs output motion:</strong> Create sketches showing input motion (what you do) and output motion (what the device does). Label the mechanism type and explain how motion is transferred or transformed.</li>
+        <li><strong>Document findings:</strong> Take photos of devices, create annotated sketches, and write brief explanations of how each mechanism works.</li>
+      </ul>
+      
+      <h3>2) MA and VR Calculations</h3>
+      <ul>
+        <li><strong>Calculate MA and VR for lever setups:</strong> Set up levers with different fulcrum positions. Measure effort arm and load arm lengths. Calculate theoretical MA = Effort Arm / Load Arm. Measure actual forces and calculate Actual MA = Load / Effort. Compare theory to reality.</li>
+        <li><strong>Calculate MA and VR for gear pairs:</strong> Set up gear trains with different tooth counts. Calculate VR = Driven Teeth / Driver Teeth. Measure input and output speeds (rotations). Compare measured VR to theoretical VR. Measure forces if possible and calculate Actual MA.</li>
+        <li><strong>Create data tables:</strong> Record all measurements, calculations, and comparisons. Include columns: Configuration, Theoretical MA/VR, Measured Forces/Speeds, Actual MA/VR, Difference, Notes.</li>
+      </ul>
+      
+      <h3>3) Efficiency Experiments</h3>
+      <ul>
+        <li><strong>Run efficiency experiments:</strong> Set up mechanisms (levers, gears, pulleys) and measure input force and distance, output force and distance. Calculate theoretical MA (VR) from geometry. Calculate Actual MA from measured forces. Calculate Efficiency = (Actual MA / VR) × 100%.</li>
+        <li><strong>Analyse losses:</strong> Identify sources of energy loss (friction, deformation, misalignment, mechanism weight). Estimate which losses are largest. Test with/without lubrication to see the effect on efficiency.</li>
+        <li><strong>Propose improvements:</strong> Suggest specific changes to increase efficiency (lubrication, better bearings, lighter materials, proper alignment). Test improvements and measure the effect.</li>
+        <li><strong>Create graphs:</strong> Plot "Actual MA vs VR" to visualise efficiency. Plot "Efficiency vs Mechanism Type" to compare different mechanisms.</li>
+      </ul>
+      
+      <h3>4) Dismantling Investigation</h3>
+      <ul>
+        <li><strong>Dismantle a device safely:</strong> Choose a device (tape measure, hand drill, toy, stapler) and carefully disassemble it under teacher supervision. Follow safety procedures: isolate power sources, wear PPE, use proper tools, work in a controlled area.</li>
+        <li><strong>Photograph components:</strong> Take photos at each stage of disassembly. Label components clearly. Show how parts fit together.</li>
+        <li><strong>Annotate motion flow:</strong> Create sketches showing how motion flows through the system. Identify input and output motions (linear/rotational). Mark where force is multiplied vs where speed is increased. Explain how components are joined (pins, screws, rivets, press-fits).</li>
+        <li><strong>Document findings:</strong> Write a brief report explaining the mechanism's operation, identifying key components, and describing how motion is transferred or transformed.</li>
+      </ul>
+      
+      <h3>5) Energy Source Investigation</h3>
+      <ul>
+        <li><strong>Build and test rigs:</strong> Create simple mechanisms powered by different energy sources: motors (electrical → rotational), gravity (weights), springs (elastic potential energy).</li>
+        <li><strong>Compare performance:</strong> Measure speed, torque, and operating time for each energy source. Compare how input choice affects mechanism performance. Document with photos and data tables.</li>
+        <li><strong>Analyse trade-offs:</strong> Explain advantages and disadvantages of each energy source. When would you choose motors? Gravity? Springs? Link to real engineering applications.</li>
+      </ul>
+      
+      <h3>6) Extension: Cam and Linkage Prototype</h3>
+      <ul>
+        <li><strong>Prototype a cam or linkage:</strong> Design and build a mechanism that converts rotary motion into linear motion (or vice versa). Use cams, linkages, or other mechanisms.</li>
+        <li><strong>Document MA/VR impacts:</strong> Measure input and output forces, distances, and speeds. Calculate MA and VR. Explain how the mechanism transfers or transforms motion.</li>
+        <li><strong>Evaluate performance:</strong> Test the prototype, measure efficiency, and suggest improvements. Create a brief report documenting your design, construction, testing, and evaluation.</li>
+      </ul>
+      
+      <h3>Google Classroom Check-in</h3>
+      <ul>
+        <li>Complete the <a href="https://classroom.google.com" target="_blank" rel="noopener">Mechanism Analysis</a> activity before starting practical work.</li>
+        <li>Submit your mechanism identification sketches, efficiency experiment data, and dismantling investigation report.</li>
+        <li>Share your energy source comparison and any extension work for peer review and teacher feedback.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Mechanism Experiments Q&amp;A</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is mechanical advantage, and how do you calculate it?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa1">
+            <p>Mechanical advantage (MA) compares the output force to the input force: <strong>MA = F<sub>out</sub> / F<sub>in</sub></strong>.</p>
+            <p>An MA greater than 1 means the machine multiplies force (makes work easier). An MA less than 1 means the machine sacrifices force to gain speed or distance (makes work faster but harder).</p>
+            <p>For levers: <strong>MA = effort arm length / load arm length</strong>. Moving the fulcrum closer to the load increases MA (more force multiplication). Moving it closer to the effort decreases MA but increases speed.</p>
+            <p>For gears: MA is related to velocity ratio (VR). A 10-tooth gear driving a 40-tooth gear has VR = 4, meaning roughly 4× torque multiplication but 1/4 the speed.</p>
+            <p>MA increases when effort arms or driven gears are larger relative to the input side. However, you can't get something for nothing—more force means less speed, and vice versa.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How does velocity ratio link to gears, and why is it important?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa2">
+            <p>Velocity ratio (VR) is the speed relationship between driver and driven parts: <strong>VR = speed<sub>in</sub> / speed<sub>out</sub></strong>.</p>
+            <p>In gears, VR equals the ratio of teeth counts: <strong>VR = driven teeth / driver teeth</strong>. A 10-tooth gear driving a 40-tooth gear creates a 4:1 reduction (VR = 4), meaning the output turns 1/4 as fast as the input.</p>
+            <p><strong>Why it's important:</strong> VR is fixed by geometry—it never changes. It tells you the theoretical maximum MA (in ideal conditions). Actual MA will always be less due to friction, but VR gives you the target to aim for.</p>
+            <p>For ideal gears, VR ≈ MA. In reality, friction reduces Actual MA below VR, so Actual MA < VR. The difference tells you how much energy is lost to friction.</p>
+            <p>VR helps you predict performance: if VR = 4, you get 4× torque but 1/4 speed. Choose VR based on whether you need high torque (lifting heavy loads) or high speed (rapid movement).</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why measure efficiency instead of only theoretical MA?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa3">
+            <p>Friction and deformation reduce real performance below theoretical predictions. Measuring input/output forces shows the actual MA and efficiency, so designs can be improved with lubrication, alignment, or better materials.</p>
+            <p><strong>Efficiency calculation:</strong> Efficiency = (Actual MA / VR) × 100%. If VR = 4 but Actual MA = 3.2, efficiency = (3.2/4) × 100% = 80%. The 20% loss is due to friction and other energy losses.</p>
+            <p><strong>Why it matters:</strong> Theoretical MA tells you what's possible in ideal conditions. Actual MA tells you what you actually get. Efficiency tells you how close you are to ideal and where improvements are needed.</p>
+            <p>Low efficiency (below 70%) indicates significant losses—check for friction, misalignment, or poor design. High efficiency (above 85%) indicates good design and maintenance. Measuring efficiency helps you identify problems and track improvements.</p>
+            <p>Without efficiency measurements, you can't tell if poor performance is due to design flaws, friction, or other factors. Efficiency data guides improvement efforts.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What safety controls limit pinch-point injuries when working with mechanisms?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa4">
+            <p>Pinch points occur where moving parts can trap fingers. Safety controls include:</p>
+            <ul>
+              <li><strong>Guards:</strong> Cover moving parts where possible. Enclose gears, pulleys, and linkages to prevent finger access while allowing viewing/operation.</li>
+              <li><strong>Clamp work:</strong> Secure workpieces when testing mechanisms. Don't hold parts by hand near moving components.</li>
+              <li><strong>Keep fingers clear:</strong> Maintain safe distance from moving parts when testing. Use tools or remote controls if possible.</li>
+              <li><strong>Isolate power sources:</strong> Disconnect motors, remove batteries, or release springs before adjusting or dismantling mechanisms.</li>
+              <li><strong>PPE:</strong> Wear safety glasses, gloves if handling sharp edges, and appropriate clothing (no loose sleeves or jewellery that could catch).</li>
+            </ul>
+            <p>These controls align with EGT5-SAF-01 expectations for applying risk management and safe work practices. Always complete a SWMS before working with mechanisms, identifying hazards and applying the hierarchy of control.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How do you identify different lever classes, and what are their characteristics?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa5">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa5">
+            <p>Identify lever class by the position of the fulcrum relative to load and effort:</p>
+            <ul>
+              <li><strong>Class 1:</strong> Fulcrum in middle (seesaw, scissors, crowbar). Load and effort on opposite sides. Can multiply force (if load closer to fulcrum) or speed (if effort closer to fulcrum). MA can be > 1, = 1, or < 1.</li>
+              <li><strong>Class 2:</strong> Load in middle (wheelbarrow, nutcracker, bottle opener). Effort and fulcrum on same side. Always multiplies force (MA > 1) because effort arm is always longer than load arm. Useful for lifting heavy loads.</li>
+              <li><strong>Class 3:</strong> Effort in middle (tweezers, fishing rod, human arm). Load and fulcrum on same side. Always multiplies speed/distance (MA < 1) because load arm is always longer than effort arm. Useful for precision or quick movements.</li>
+            </ul>
+            <p><strong>Memory tip:</strong> Class 2 = "Load in the middle, Lift with less force". Class 3 = "Effort in the middle, Extra force needed".</p>
+            <p>In your experiments, test different lever classes and compare their MA and efficiency. Class 2 levers typically have higher efficiency for lifting because the load helps stabilise the lever.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What factors affect efficiency, and how can you improve it?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa6">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa6">
+            <p>Efficiency is reduced by energy losses:</p>
+            <ul>
+              <li><strong>Friction:</strong> At pivots (levers), gear teeth, pulley bearings, and sliding surfaces. Creates heat and consumes energy.</li>
+              <li><strong>Deformation:</strong> Parts bending or compressing slightly absorbs energy that doesn't contribute to useful work.</li>
+              <li><strong>Misalignment:</strong> Parts not properly aligned create extra friction and binding.</li>
+              <li><strong>Weight of mechanism:</strong> Lifting the machine's own parts uses energy that doesn't contribute to lifting the load.</li>
+            </ul>
+            <p><strong>Improving efficiency:</strong></p>
+            <ul>
+              <li><strong>Lubrication:</strong> Reduces friction at moving parts. Use appropriate lubricants (oil for gears, grease for bearings).</li>
+              <li><strong>Bearings:</strong> Replace sliding friction with rolling friction. Ball bearings or roller bearings dramatically reduce friction.</li>
+              <li><strong>Lighter materials:</strong> Reduce the weight of mechanism parts so less energy lifts the machine itself.</li>
+              <li><strong>Smooth surfaces:</strong> Polished or machined surfaces reduce friction compared to rough surfaces.</li>
+              <li><strong>Proper alignment:</strong> Ensure gears mesh correctly, pulleys align properly, and levers pivot smoothly.</li>
+            </ul>
+            <p>In your experiments, test the effect of lubrication or alignment changes. Measure efficiency before and after to quantify improvements.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How do you safely dismantle mechanisms to understand how they work?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa7">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa7">
+            <p>Dismantling mechanisms is a powerful way to understand engineering, but requires careful safety procedures:</p>
+            <ul>
+              <li><strong>Before starting:</strong> Complete a SWMS identifying hazards (sharp edges, stored energy, pinch points, electrical hazards). Isolate power sources (remove batteries, disconnect motors, release springs).</li>
+              <li><strong>During disassembly:</strong> Work systematically, photographing each stage. Use proper tools (screwdrivers, spanners, not improvised tools). Keep parts organised (use trays, label components). Watch for stored energy (springs, compressed parts).</li>
+              <li><strong>Documentation:</strong> Take photos at each stage. Sketch the arrangement of components. Identify input/output motions, force multiplication points, and how components are joined.</li>
+              <li><strong>Reassembly:</strong> Keep parts organised so you can reassemble correctly. Test function after reassembly to verify understanding.</li>
+            </ul>
+            <p><strong>What to look for:</strong> Input and output motions (linear/rotational). Where force is multiplied vs where speed is increased. How components are joined (pins, screws, rivets, press-fits). Energy sources (motors, springs, gravity). Safety features (guards, stops, interlocks).</p>
+            <p>The Industrial Technology Engineering module explicitly lists "dismantle and assemble mechanisms to understand how they work" as a learning expectation. With supervision, this becomes a structured investigation, not random tinkering.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How do different energy sources affect mechanism performance?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa8">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa8">
+            <p>Different energy sources have different characteristics:</p>
+            <ul>
+              <li><strong>Motors (electrical → rotational):</strong> Provide consistent power, controllable speed, and continuous operation. Require batteries or power supply. Good for precise control and long operation times.</li>
+              <li><strong>Gravity (weights):</strong> Simple, reliable, no power source needed. Provides constant force but limited operating time (until weight reaches bottom). Good for demonstrations and simple mechanisms.</li>
+              <li><strong>Springs (elastic potential energy):</strong> Store energy when wound/compressed, release it gradually. Force decreases as spring unwinds. Good for short-duration mechanisms and demonstrations.</li>
+            </ul>
+            <p><strong>Performance trade-offs:</strong> Motors provide consistent performance but require power. Gravity is simple but limited. Springs are portable but force varies. Choose based on your needs: precise control (motors), simplicity (gravity), or portability (springs).</p>
+            <p>In your experiments, test each energy source with the same mechanism and compare speed, torque, and operating time. Document the differences and explain when you would choose each source.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How do these mechanism concepts connect to your hydraulic digger and geared dispenser projects?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa9">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa9">
+            <p>These mechanism concepts directly apply to your projects:</p>
+            <ul>
+              <li><strong>Lever analysis:</strong> Underpins the digger's arms and bucket linkages. Understanding MA/VR helps you predict bucket forces and design effective lever configurations.</li>
+              <li><strong>Gear trains:</strong> Apply to powering and controlling the dispenser. Gear ratio calculations determine handle turns per dispense cycle. Efficiency concepts help you understand why actual performance differs from theory.</li>
+              <li><strong>Energy sources:</strong> Help you choose motors or springs and understand performance limits. Understanding how energy sources work helps you design better control systems.</li>
+              <li><strong>Efficiency:</strong> Helps you understand why your projects don't match theoretical predictions. Friction, air bubbles (hydraulics), and gear meshing losses all reduce efficiency, just like in these experiments.</li>
+            </ul>
+            <p><strong>Application:</strong> When designing your digger, use lever MA/VR concepts to predict forces. When building your dispenser, use gear ratio calculations to determine handle turns. When testing, compare actual performance to theoretical predictions and explain differences using efficiency concepts.</p>
+            <p>These experiments provide the foundation for understanding and analysing your project mechanisms. Without this knowledge, you can't properly design, test, or evaluate your projects.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What information should you record during mechanism experiments, and how do you present it?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa10">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa10">
+            <p>Record comprehensive data to evaluate mechanism performance:</p>
+            <ul>
+              <li><strong>Setup details:</strong> Mechanism type, configuration (fulcrum position, gear sizes, pulley arrangement), dimensions (arm lengths, tooth counts, rope sections).</li>
+              <li><strong>Input measurements:</strong> Input force (N), input distance (m), input speed (RPM or m/s).</li>
+              <li><strong>Output measurements:</strong> Output force (N), output distance (m), output speed (RPM or m/s).</li>
+              <li><strong>Calculations:</strong> Theoretical MA (VR), Actual MA, Efficiency (%).</li>
+              <li><strong>Observations:</strong> Smoothness of operation, any binding or sticking, sources of friction, efficiency losses.</li>
+            </ul>
+            <p><strong>Present data in tables and graphs:</strong> Create tables comparing theoretical vs actual MA/VR for different configurations. Plot graphs of "Actual MA vs VR" to visualise efficiency. Plot "Efficiency vs Mechanism Type" to compare different mechanisms.</p>
+            <p><strong>Documentation:</strong> Include photos of experimental setups, annotated sketches showing mechanism geometry, and clear explanations of how results compare to predictions. Use this evidence to support your analysis and suggest improvements.</p>
+            <p>Good documentation makes it easy for others to understand your results and verify your conclusions. Poor documentation obscures findings and makes analysis difficult.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Student Responsibilities</h2>
+      <ul>
+        <li>Follow all teacher instructions and safety procedures. Complete risk assessments and SWMS before starting experiments or dismantling work.</li>
+        <li>Use equipment carefully and accurately. Zero force gauges before use, read scales perpendicularly, and measure consistently. Record all measurements immediately.</li>
+        <li>Work systematically when dismantling mechanisms. Photograph each stage, keep parts organised, and document your findings clearly.</li>
+        <li>Show all calculations clearly with working. This helps identify errors and demonstrates understanding of MA, VR, and efficiency concepts.</li>
+        <li>Keep work areas organised and safe. Return equipment clean and undamaged. Store small parts safely to prevent loss.</li>
+        <li>Document experiments thoroughly: take photos of setups, record data systematically, and create clear tables and graphs.</li>
+        <li>Analyse results critically: compare theory to practice, identify sources of error, and suggest improvements. Use engineering terminology throughout.</li>
+        <li>Link your experimental work to your project mechanisms (hydraulic digger, geared dispenser) to show how theory applies to practice.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Linkage Mechanisms (Supplementary)</h2>
+      <p style="color: var(--muted); margin: 0.25rem 0 1rem;">Optional reference for common linkage types and motion conversions.</p>
+
+      <h3>Reverse motion linkages</h3>
+      <p style="color: var(--muted); margin-top: 0.35rem;">
+        &#128216; Supplementary: <a href="../assets/workbooks/Linkage_Mechanisms_Workbook.pdf#page=3" target="_blank" rel="noopener">Reverse motion linkages (Workbook p.3)</a>
+      </p>
+
+      <h3>Parallel motion</h3>
+      <p style="color: var(--muted); margin-top: 0.35rem;">
+        &#128216; Supplementary: <a href="../assets/workbooks/Linkage_Mechanisms_Workbook.pdf#page=6" target="_blank" rel="noopener">Parallel motion (Workbook p.6)</a>
+      </p>
+
+      <h3>Crank and slider</h3>
+      <p style="color: var(--muted); margin-top: 0.35rem;">
+        &#128216; Supplementary: <a href="../assets/workbooks/Linkage_Mechanisms_Workbook.pdf#page=7" target="_blank" rel="noopener">Crank and slider (Workbook p.7)</a>
+      </p>
+
+      <h3>Bell crank &amp; treadle mechanisms</h3>
+      <p style="color: var(--muted); margin-top: 0.35rem;">
+        &#128216; Supplementary: <a href="../assets/workbooks/Linkage_Mechanisms_Workbook.pdf#page=9" target="_blank" rel="noopener">Bell crank &amp; treadle mechanisms (Workbook p.9)</a>
+      </p>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li><a href="../assets/workbooks/Linkage_Mechanisms_Workbook.pdf" target="_blank" rel="noopener">&#128216; Supplementary Workbook: Linkage Mechanisms (PDF)</a></li>
+        <li>Sample levers (various classes), pulley blocks (fixed, movable, block & tackle), gear pairs (various tooth counts), cams and spring toys for demonstrations and experiments.</li>
+        <li>Force gauges (spring balances), rulers, protractors, and measuring tapes for MA/VR measurements and angle checks.</li>
+        <li>SWMS templates for cutting/drilling, plus checklists for dismantling powered devices safely. Risk assessment templates.</li>
+        <li>Devices for dismantling: tape measures, hand drills, staplers, toys, can openers (teacher-approved, safe to disassemble).</li>
+        <li>Energy source equipment: small motors and batteries, weights and pulleys, springs and wind-up mechanisms.</li>
+        <li>Lubricants (oil, grease) for testing friction effects. Cameras for documentation. Graph paper or spreadsheet software for data analysis.</li>
+      </ul>
+    </article>
+  </main>
+  <script src="../page-nav.js" defer></script>
+  <script src="../qa-widget.js"></script>
+</body>
+</html>

@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 4: Evaluation, folio & presentation for the geared lolly dispenser – testing against criteria, self-assessment, communication and future improvements." />
+  <meta name="keywords" content="Year 9, Engineering, evaluation, folio, reflection, presentation, geared lolly dispenser" />
+  <title>Toolkit 4: Evaluation, Folio &amp; Presentation | Year 9 Term 4</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6c7a96;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 0.4rem 0 0;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    nav a.active {
+      background: #e6f0fb;
+      color: #0b63c3;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.75rem 1rem 3rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    .card h2 {
+      margin: 0 0 0.5rem;
+      color: var(--brand);
+    }
+
+    .card h3 {
+      margin: 1.2rem 0 0.35rem;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .card p {
+      margin: 0.3rem 0 0.6rem;
+      color: var(--muted);
+    }
+
+    .card ul {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.15rem;
+      color: var(--muted);
+    }
+
+    .card ol {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.3rem;
+      color: var(--muted);
+    }
+
+    .card li + li {
+      margin-top: 0.35rem;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+      margin-bottom: 0.35rem;
+    }
+
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 0.6rem;
+    }
+
+    .grid-two-column {
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 0.9rem;
+      border: 1px solid var(--border);
+    }
+
+    .grid-two-column h3 {
+      margin-top: 0;
+    }
+
+    .checklist li::marker {
+      content: "▢ ";
+      font-size: 0.8rem;
+    }
+
+    /* Quiz / Q&A styles */
+
+    .qa-list {
+      margin-top: 0.5rem;
+    }
+
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      margin: 0.65rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .qa-question span {
+      flex: 1;
+    }
+
+    .qa-toggle {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .qa-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+
+    .qa-answer {
+      margin-top: 0.55rem;
+      color: var(--muted);
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+      main {
+        padding: 1.25rem 0.75rem 2.25rem;
+      }
+    }
+  </style>
+</head>
+  <body>
+  <a href="#main-content" class="sr-only" style="position: absolute; top: 0; left: 0; background: #0b63c3; color: #fff; padding: 0.75rem 1rem; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0;">Skip to main content</a>
+  <header role="banner">
+    <h1>Toolkit 4: Testing, Reliability &amp; Evaluation</h1>
+    <p>Systematic reliability testing, data analysis, evaluation, folio completion, and showcase</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term4.html">&#8592; T4 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a class="active" href="module4.html">Toolkit 4</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main id="main-content" role="main">
+    <a class="back-link" href="../year9_term4.html">&#8592; Back to Year 9 T4 Toolkits</a>
+
+    <!-- Learning Focus -->
+    <article class="card">
+      <div class="pill">Project</div>
+      <h2>Learning Focus</h2>
+      <img src="../images/term234/reliability%20testing.jpg" alt="Reliability testing" class="content-image" />
+      <p>By the end of this toolkit, you should be able to:</p>
+      <ul>
+        <li>Conduct systematic reliability testing: run 50-100+ dispense cycles and log all jams, failures, and successes.</li>
+        <li>Collect and analyse test data: create tables and graphs showing reliability, identify failure modes, and measure performance metrics.</li>
+        <li>Identify problems systematically: link symptoms to causes (clearance, alignment, geometry) and make evidence-based adjustments.</li>
+        <li>Evaluate performance: assess how well your dispenser meets the design brief using test data and engineering principles.</li>
+        <li>Complete comprehensive folio: document entire project from design through testing, with evaluation and showcase presentation.</li>
+      </ul>
+      <p style="color: var(--muted); margin-top: 1rem; padding: 0.75rem; background: #f8f9fa; border-left: 3px solid var(--brand); border-radius: 4px;"><strong>Timing:</strong> Test your dispenser in Weeks 4-6, then complete your folio and evaluation in Weeks 7-8. This is your main Term 4 project.</p>
+
+    </article>
+
+    <!-- Why This Matters -->
+    <article class="card">
+      <h2>Why This Matters</h2>
+      <p><strong>Testing and evaluation are essential engineering skills</strong>—systematic testing provides data to verify design predictions, identify problems, and guide improvements. Without proper testing and analysis, you can't know if your design works as intended or how to make it better.</p>
+      <p>This toolkit brings together testing procedures, data analysis, and evaluation—essential skills for understanding and improving engineering systems. By mastering these skills, you'll learn to:</p>
+      <ul style="margin-top: 0.75rem;">
+        <li>Conduct controlled, repeatable tests that produce reliable data</li>
+        <li>Analyse results using engineering principles and calculations</li>
+        <li>Compare theoretical predictions with actual performance</li>
+        <li>Identify causes of differences and propose specific improvements</li>
+        <li>Document your work professionally in a comprehensive folio</li>
+      </ul>
+      <p style="margin-top: 1rem;"><strong>How to use this module:</strong> Apply these testing and evaluation skills to your geared lolly dispenser project. Test systematically, collect data, analyse results, evaluate performance, and compile a professional folio. These same skills are used throughout engineering—master them now, and you'll be prepared for future projects and careers.</p>
+    </article>
+
+    <!-- Core Concepts -->
+    <article class="card">
+      <div class="pill">Core Concepts</div>
+      <h2>Testing, Reliability &amp; Evaluation</h2>
+      <p>This toolkit covers systematic reliability testing, data analysis, and comprehensive evaluation of your geared lolly dispenser.</p>
+
+      <h3>1. Reliability Testing Protocol</h3>
+      <p>Systematic testing provides data to verify design predictions and identify problems:</p>
+      <ul>
+        <li><strong>Pre-test inspection:</strong> Check all screws, shafts, and fixings are tight. Rotate mechanism slowly by hand to feel for rough spots or binding.</li>
+        <li><strong>Baseline test (no load):</strong> Test with no lollies first. Count handle turns per cycle. Note any positions where resistance increases.</li>
+        <li><strong>Loaded test:</strong> Load dispenser with lollies. Run 50-100+ cycles, recording each: success, jam, double dispense, partial dispense.</li>
+        <li><strong>Data collection:</strong> Create test tables showing cycle-by-cycle results. Calculate reliability: (successful cycles / total cycles) × 100%.</li>
+        <li><strong>Pattern identification:</strong> Look for patterns (e.g., jams only when nearly empty, or only when handle turned quickly). Link symptoms to causes.</li>
+      </ul>
+
+      <h3>2. Problem Identification &amp; Adjustment</h3>
+      <p>Systematic fault-finding and improvement:</p>
+      <ul>
+        <li><strong>Cause-and-effect analysis:</strong> Link each symptom to a likely cause (clearance, alignment, surface finish, gear ratio, cam profile).</li>
+        <li><strong>One variable at a time:</strong> Change only one variable at a time so you know what caused improvement. Document all changes.</li>
+        <li><strong>Re-testing:</strong> Re-test after each adjustment using the same procedure. Compare results before and after.</li>
+        <li><strong>Iteration log:</strong> Keep a log of all adjustments, including measurements, reasons, and results.</li>
+      </ul>
+
+      <h3>3. User Trials &amp; Feedback</h3>
+      <p>Evaluate user experience and gather feedback:</p>
+      <ul>
+        <li><strong>User trials:</strong> Have 3-5 different users try your dispenser. Ask about ease of use, comfort, effort required, predictability.</li>
+        <li><strong>Unexpected behaviours:</strong> Note any unexpected behaviours (trying to turn backwards, using wrong technique). These reveal design issues.</li>
+        <li><strong>User feedback summary:</strong> Summarise feedback covering effort, comfort, predictability, ease of use, overall satisfaction.</li>
+      </ul>
+
+      <h3>4. Evaluation Against Criteria</h3>
+      <div class="grid-two">
+        <div class="grid-two-column">
+          <h4>Design Criteria</h4>
+          <ul>
+            <li><strong>Function:</strong> Does it reliably dispense one lolly per handle turn?</li>
+            <li><strong>Safety:</strong> Are moving parts guarded, pinch points minimised?</li>
+            <li><strong>Ergonomics:</strong> Is handle comfortable, effort suitable for users?</li>
+            <li><strong>Durability:</strong> Does it survive repeated use without failure?</li>
+          </ul>
+        </div>
+
+        <div class="grid-two-column">
+          <h4>Evidence-Based Judgements</h4>
+          <ul>
+            <li>Use data (reliability %, jams, user feedback) to support each statement.</li>
+            <li>Refer to specific tests and design decisions from Toolkits 1-3.</li>
+            <li>Avoid vague comments—explain how you know it performs well (or not).</li>
+            <li>Include photos, graphs, and tables that support your evaluation.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>5. Reflection &amp; Future Improvements</h3>
+      <p>Reflection demonstrates learning and critical thinking. It goes beyond describing what you did to explaining why it worked (or didn't) and how you would improve:</p>
+      <ul>
+        <li><strong>What worked:</strong> Identify successful aspects of your design, construction, or testing process. Explain why they worked using engineering principles and test data.</li>
+        <li><strong>What didn't work:</strong> Be honest about problems and failures. Explain what caused them (using test data) and how you addressed (or would address) them.</li>
+        <li><strong>What you learned:</strong> Reflect on what you learned about mechanisms, materials, CAD, testing, or problem-solving. Link learning to Stage 5 outcomes where relevant.</li>
+        <li><strong>Realistic improvements:</strong> Improvements should be realistic (could actually be built) and linked to problems observed in testing. Justify improvements using engineering principles and test data.</li>
+        <li><strong>Engineering language:</strong> Use correct terminology: gear ratios, mechanical advantage, reliability, efficiency, clearances, tolerances, etc. This demonstrates understanding.</li>
+      </ul>
+    </article>
+
+    <!-- Folio Structure & Checkpoints -->
+    <article class="card">
+      <div class="pill">Folio</div>
+      <h2>Folio Structure &amp; Checkpoints</h2>
+      <p>Use this structure as a guide for your final folio or digital submission. Some sections may already exist from earlier terms.</p>
+
+      <ol>
+        <li>
+          <strong>Front cover &amp; overview.</strong>
+          <ul>
+            <li>Project title, your name, class and year.</li>
+            <li>1–2 sentences describing the purpose of the dispenser and the target user.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Design brief &amp; criteria.</strong>
+          <ul>
+            <li>Short design brief explaining the problem being solved.</li>
+            <li>Dot-point list of design criteria and constraints (function, safety, ergonomics, aesthetics, sustainability, etc.).</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Key stages summary.</strong>
+          <ul>
+            <li>Brief outline of major stages (materials selection, CAD modelling, prototyping, testing).</li>
+            <li>Use 1–2 images per stage with captions rather than long blocks of text.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Testing &amp; results.</strong>
+          <ul>
+            <li>Include your reliability test data (50-100+ cycles): test tables showing success/jam/double dispense for each cycle.</li>
+            <li>Add graphs showing reliability over cycles, failure types, or before/after adjustments.</li>
+            <li>Include user trial feedback summary and any adjustments made during testing.</li>
+            <li>Summarise key findings: reliability percentage, main failure modes, and how adjustments improved performance.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Evaluation against criteria.</strong>
+          <ul>
+            <li>For each criterion, write a short paragraph stating how well your design meets it.</li>
+            <li>Refer to specific evidence (data, photos, user comments) in each paragraph.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Improvements &amp; future development.</strong>
+          <ul>
+            <li>List at least two realistic improvements (design or process) explaining why each would help.</li>
+            <li>Optionally sketch a quick concept or annotate a photo showing where the improvement would be made.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Personal reflection.</strong>
+          <ul>
+            <li>Reflect on what you learned about mechanisms, materials and CAD this year.</li>
+            <li>Describe at least one challenge you faced and how you worked through it.</li>
+          </ul>
+        </li>
+      </ol>
+    </article>
+
+    <!-- Activities & Evidence -->
+    <article class="card">
+      <div class="pill">Activities &amp; Evidence</div>
+      <h2>Activities &amp; Evidence</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">Complete these activities to demonstrate your understanding:</p>
+      
+      <h3>1) Reliability Testing</h3>
+      <ul>
+        <li><strong>Pre-test inspection:</strong> Document your pre-test inspection: check all screws, shafts, and fixings are tight; no obvious cracks or loose parts. Rotate mechanism slowly by hand to feel for rough spots or binding.</li>
+        <li><strong>Baseline test:</strong> Test with no lollies first. Count handle turns per cycle. Note any positions where resistance increases or mechanism "clicks".</li>
+        <li><strong>Reliability test:</strong> Load dispenser with lollies. Run 50-100+ cycles, recording each: success, jam, double dispense, partial dispense. Create test table showing cycle-by-cycle results.</li>
+        <li><strong>Reliability calculation:</strong> Calculate reliability: (successful cycles / total cycles) × 100%. Create graphs showing reliability over cycles or by failure type.</li>
+      </ul>
+      
+      <h3>2) Problem Identification &amp; Adjustment</h3>
+      <ul>
+        <li><strong>Pattern analysis:</strong> Look for patterns in test data (e.g., jams only when nearly empty, or only when handle turned quickly). Document patterns and explain what they suggest.</li>
+        <li><strong>Cause-and-effect table:</strong> Link each symptom to a likely cause (clearance, alignment, geometry) and planned adjustment. Document at least 2-3 problems identified.</li>
+        <li><strong>Adjustments:</strong> Make evidence-based adjustments (one at a time). Document what you changed, why, and results. Keep an iteration log.</li>
+        <li><strong>Re-testing:</strong> Re-test after adjustments using the same procedure. Compare results before and after. Document improvements.</li>
+      </ul>
+      
+      <h3>3) User Trials</h3>
+      <ul>
+        <li><strong>User feedback:</strong> Conduct trials with 3-5 different users. Ask about ease of use, comfort, effort required, predictability, overall satisfaction.</li>
+        <li><strong>Unexpected behaviours:</strong> Note any unexpected behaviours (trying to turn backwards, using wrong technique). These reveal design issues.</li>
+        <li><strong>Feedback summary:</strong> Summarise user feedback in a table or short paragraphs. Use this to support your evaluation.</li>
+      </ul>
+      
+      <h3>4) Evaluation Against Criteria</h3>
+      <ul>
+        <li><strong>Evaluation table or paragraphs:</strong> Create an evaluation addressing each key design criterion (function, safety, ergonomics, durability, aesthetics, sustainability). For each criterion, write a paragraph stating how well your design meets it, using specific evidence (test data, photos, user feedback).</li>
+        <li><strong>Evidence linking:</strong> Link each evaluation statement to specific evidence from your testing. Use phrases like "as shown in", "this is demonstrated by", or "test data shows".</li>
+        <li><strong>Honest assessment:</strong> Be honest about weaknesses. Identifying limitations shows deeper understanding than pretending everything is perfect. Explain what didn't work and why.</li>
+      </ul>
+      
+      <h3>5) Visual Documentation</h3>
+      <ul>
+        <li><strong>Annotated photos:</strong> Include at least one annotated photo of the finished dispenser, labelling important design features (gear train, cam/gate mechanism, guards, handles) and safety features (enclosed gears, pinch point guards).</li>
+        <li><strong>Before-and-after images:</strong> If you made improvements during testing, include before-and-after images showing what changed and why.</li>
+        <li><strong>Key features documentation:</strong> Use photos to highlight strengths (smooth operation, good finish, clear guards) and areas for improvement (binding points, wear areas, design limitations).</li>
+      </ul>
+      
+      <h3>6) Test Data Integration</h3>
+      <ul>
+        <li><strong>Test data summary:</strong> Include a copy of your test data summary from Toolkit 3 (success rates, reliability percentages, user feedback). Link this data to your evaluation statements.</li>
+        <li><strong>Data presentation:</strong> Present data clearly using tables or graphs. Explain what the data shows and how it supports your evaluation.</li>
+        <li><strong>Quantitative evidence:</strong> Use numbers and measurements to support statements. For example: "Reliability of 90% (9 out of 10 cycles successful) demonstrates the mechanism meets the function criterion."</li>
+      </ul>
+      
+      <h3>7) Future Improvements</h3>
+      <ul>
+        <li><strong>Improvements list:</strong> Create a list of 2–4 realistic improvements with brief justification for each. Link each improvement to a specific problem identified in testing or evaluation.</li>
+        <li><strong>Justification:</strong> Explain how each improvement would address the problem using engineering principles. For example: "Increase gate clearance from 0.5 mm to 1.0 mm to reduce jamming with larger lollies, as test data showed 3 out of 10 jams were caused by tight clearances."</li>
+        <li><strong>Sketch or annotation:</strong> Optionally sketch a quick concept or annotate a photo showing where improvements would be made. This helps visualise proposed changes.</li>
+      </ul>
+      
+      <h3>8) Personal Reflection</h3>
+      <ul>
+        <li><strong>Learning reflection:</strong> Write 1–2 paragraphs reflecting on what you learned about mechanisms, materials, CAD, testing, and problem-solving. Link learning to Stage 5 outcomes where relevant.</li>
+        <li><strong>Challenge reflection:</strong> Describe at least one challenge you faced and how you worked through it. This demonstrates problem-solving skills and resilience.</li>
+        <li><strong>Skill development:</strong> Reflect on how your skills developed throughout the project. What were you able to do at the end that you couldn't do at the start?</li>
+      </ul>
+      
+      <h3>9) Folio Organisation</h3>
+      <ul>
+        <li><strong>Logical order:</strong> Organise all major sections in a logical order: cover, brief, design stages, testing, evaluation, improvements, reflection. Use clear headings and subheadings.</li>
+        <li><strong>Page numbers:</strong> If printing, include page numbers and a contents page to help readers navigate.</li>
+        <li><strong>Consistent formatting:</strong> Use consistent fonts, headings, spacing, and image sizes throughout. This makes the folio look professional and easy to read.</li>
+      </ul>
+      
+      <h3>Google Classroom Check-in</h3>
+      <ul>
+        <li>Complete the <a href="https://classroom.google.com" target="_blank" rel="noopener">Reliability Testing &amp; Evaluation</a> activity before final submission.</li>
+        <li>Submit your test data, reliability analysis, evaluation, and folio for teacher review.</li>
+        <li>Share your completed folio and showcase presentation in the <a href="https://classroom.google.com" target="_blank" rel="noopener">Term 4 Final Project</a> task.</li>
+      </ul>
+    </article>
+
+    <!-- Presentation & Communication -->
+    <article class="card">
+      <div class="pill">Presentation</div>
+      <h2>Presentation &amp; Communication</h2>
+
+      <div class="grid-two">
+        <div class="grid-two-column">
+          <h3>Visual Communication</h3>
+          <ul>
+            <li>Use clear, well-lit photos; avoid cluttered backgrounds.</li>
+            <li>Crop images so the dispenser and key features are the focus.</li>
+            <li>Use simple annotations (arrows, labels) instead of long paragraphs where possible.</li>
+          </ul>
+        </div>
+
+        <div class="grid-two-column">
+          <h3>Written Communication</h3>
+          <ul>
+            <li>Write in short paragraphs and use headings/subheadings.</li>
+            <li>Use correct engineering terms (e.g. torque, clearance, cam, gear ratio) where appropriate.</li>
+            <li>Avoid slang; be clear and specific rather than vague.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Marking Readiness Check</h3>
+      <ul>
+        <li>Can someone who was not in your class understand what you built, why and how it performs?</li>
+        <li>Is there enough evidence to justify the mark you think you deserve?</li>
+        <li>Are key documents (drawings, test tables, evaluation paragraphs) easy to find and read?</li>
+      </ul>
+    </article>
+
+    <!-- Key Notes & Common Mistakes -->
+    <article class="card">
+      <div class="pill">Key Notes</div>
+      <h2>Key Notes &amp; Common Mistakes</h2>
+
+      <h3>Stronger Evaluations</h3>
+      <ul>
+        <li>Good evaluations connect <strong>criteria + evidence + judgement</strong>.</li>
+        <li>Use phrases like “because”, “as shown in”, and “this means that” to link your points.</li>
+        <li>Being honest about weaknesses can show deeper understanding than pretending everything is perfect.</li>
+      </ul>
+
+      <h3>Common Mistakes</h3>
+      <ul>
+        <li>Only describing what you did (a timeline) instead of judging how well it met the criteria.</li>
+        <li>Making big claims (“it’s perfect”, “never jams”) with no test data or user feedback to back them up.</li>
+        <li>Leaving improvements too vague (“make it better”, “use stronger material”) without specifics.</li>
+        <li>Submitting a folio with missing sections or unlabelled photos, making it hard to follow your process.</li>
+      </ul>
+    </article>
+
+    <!-- Quiz / Self-check with revealable answers -->
+    <article class="card">
+      <div class="pill">Quiz</div>
+      <h2>Check Your Understanding – Testing, Reliability &amp; Evaluation</h2>
+      <p>Use these questions to test your understanding. Click “Show answer” to reveal one possible solution or explanation.</p>
+
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>1. Why is reliability testing important, and how do you calculate reliability?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q1">
+            Reliability testing determines how consistently your dispenser works over many cycles. It identifies failure modes, wear points, and design weaknesses. Reliability is calculated as (successful cycles / total cycles) × 100%. For example, if 90 out of 100 cycles are successful, reliability = 90%. This quantitative measure allows you to compare different designs, track improvements, and evaluate performance objectively rather than relying on subjective impressions.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>2. How do you identify failure modes systematically during testing?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q2">
+            Systematically identify failure modes by: (1) Recording every failure in your test table (jam, double dispense, partial dispense). (2) Looking for patterns—do failures occur at specific times (nearly empty, full load) or conditions (fast turning, slow turning)? (3) Linking symptoms to causes—jams might indicate tight clearances, misalignment, or poor feed geometry. (4) Testing one variable at a time when making adjustments. (5) Documenting observations (binding, noise, extra effort) not just success/failure. This systematic approach helps identify root causes rather than just symptoms.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>3. What is the difference between describing your project and evaluating it?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q3">
+            Describing your project tells the story of what you did (steps, tools, timeline). Evaluating your project judges how well it met the design criteria using evidence (tests, data, feedback) and explains why. A strong folio includes both, but evaluation focuses on quality and performance, not just process. For example, describing says "I tested the dispenser 100 times"; evaluating says "Reliability of 90% demonstrates the mechanism meets the function criterion, though the 10% failure rate indicates clearance issues that need addressing."
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>4. Your dispenser is reliable but hard to turn for younger users. Give one realistic improvement and justify it.</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q4">
+            One improvement could be to increase the gear ratio so the handle turns further but requires less force.
+            This would keep the same basic mechanism but make it easier for younger users to operate, improving ergonomics without reducing reliability.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>5. What makes an annotated photo more useful than an unlabelled one in a folio?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q5">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q5">
+            An annotated photo directs the viewer’s attention to specific features or issues with labels and arrows.
+            It explains why the image is important (e.g. showing a safety guard, clearance, or improvement),
+            instead of forcing the reader to guess what they are meant to notice.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>6. Why can honestly identifying weaknesses and future improvements actually strengthen your overall evaluation?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q6">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q6">
+            It shows that you understand engineering trade-offs and can think critically about your own work.
+            Recognising limitations and suggesting realistic improvements demonstrates deeper learning than pretending everything is perfect,
+            and it shows how you would move towards a more refined solution next time.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>7. How do you structure an evaluation paragraph that links criteria, evidence, and judgement?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q7">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q7">
+            <p>A strong evaluation paragraph follows this structure:</p>
+            <ul>
+              <li><strong>State the criterion:</strong> "The dispenser met the reliability criterion..."</li>
+              <li><strong>Provide evidence:</strong> "...as shown in 10-cycle test results where 9 out of 10 cycles dispensed correctly (90% success rate)."</li>
+              <li><strong>Make a judgement:</strong> "This demonstrates reliable operation under normal conditions."</li>
+              <li><strong>Qualify if needed:</strong> "However, jamming occurred when the hopper was less than 20% full, suggesting feed geometry needs improvement for low-fill conditions."</li>
+            </ul>
+            <p><strong>Example:</strong> "The dispenser met the ergonomics criterion for handle comfort and effort. User feedback from 5 testers rated handle comfort as 'comfortable' or 'very comfortable', and force measurements showed an average of 2.5 N required to turn the handle, which is within acceptable limits for the target age group. However, one user noted the handle felt 'slippery' when hands were slightly damp, suggesting a textured grip surface would improve usability."</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>8. What makes a folio "marking-ready" and easy to assess?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q8">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q8">
+            <p>A marking-ready folio is:</p>
+            <ul>
+              <li><strong>Complete:</strong> Includes all required sections (brief, design stages, testing, evaluation, improvements, reflection). Missing sections make assessment difficult.</li>
+              <li><strong>Well-organised:</strong> Clear structure with headings, subheadings, and logical flow. Use a contents page if printing. Easy to navigate and find specific information.</li>
+              <li><strong>Clear and readable:</strong> Consistent formatting, good quality photos, readable text. Avoid cluttered layouts or poor image quality.</li>
+              <li><strong>Evidence-rich:</strong> Includes photos, drawings, tables, graphs, and calculations. Evidence supports claims and demonstrates understanding.</li>
+              <li><strong>Technically accurate:</strong> Uses correct engineering terminology, accurate measurements, and proper drawing conventions. Errors reduce credibility.</li>
+              <li><strong>Self-explanatory:</strong> Can someone who wasn't in your class understand what you built, why, and how it performs? If not, add more explanation.</li>
+            </ul>
+            <p>Think of your folio as a portfolio you'd show to a potential employer or university. Make it something you're proud of.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>9. How do you write a strong personal reflection that demonstrates learning?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q9">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q9">
+            <p>A strong reflection goes beyond describing what you did to explaining what you learned:</p>
+            <ul>
+              <li><strong>Start with learning:</strong> "I learned that gear ratios affect both torque and speed, not just one or the other. Increasing the ratio made the handle easier to turn but required more rotations per dispense."</li>
+              <li><strong>Link to challenges:</strong> "One challenge I faced was jamming when the hopper was nearly empty. I solved this by increasing the hopper slope from 30° to 45°, which improved gravity feed. This taught me that small design changes can have significant effects on performance."</li>
+              <li><strong>Connect to outcomes:</strong> "This project helped me understand EGT5-MEA-01 (mechanisms) by showing how gears, cams, and clearances work together in a real system."</li>
+              <li><strong>Reflect on skills:</strong> "My CAD skills improved significantly—I went from simple parts to complete assemblies with mates and configurations. I also learned to test systematically and use data to make design decisions."</li>
+              <li><strong>Be specific:</strong> Avoid vague statements like "I learned a lot." Instead, be specific: "I learned that systematic testing (changing one variable at a time) is essential for identifying what actually improves performance."</li>
+            </ul>
+            <p>Strong reflections show growth, link learning to experiences, and demonstrate critical thinking about your own work.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>10. What is the difference between describing your project and evaluating it, and why does this matter?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q10">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q10">
+            <p><strong>Description:</strong> Tells the story of what you did—steps, tools, timeline, process. It's like a diary or log of activities. Example: "I cut the frame pieces from pine timber using a drop saw, then drilled holes for the shafts using a drill press."</p>
+            <p><strong>Evaluation:</strong> Judges how well your project met design criteria using evidence—tests, data, feedback. It explains why something worked or didn't work. Example: "The frame met the durability criterion because pine timber provided adequate strength for the loads, and joints remained tight after 100+ cycles, as shown in post-test inspection."</p>
+            <p><strong>Why it matters:</strong> Description shows you completed the work, but evaluation shows you understand engineering principles and can assess quality. Strong folios include both—description provides context, evaluation demonstrates understanding.</p>
+            <p><strong>Common mistake:</strong> Students often write only descriptions ("I did this, then I did that") without evaluating how well it worked. This misses the opportunity to demonstrate engineering thinking and link work to Stage 5 outcomes.</p>
+            <p><strong>Balance:</strong> Use description to set context, then evaluate using evidence. For example: "I tested the mechanism 10 times (description). Reliability was 90%, meeting the target criterion (evaluation with evidence)."</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Student Responsibilities</h2>
+      <ul>
+        <li>Follow all teacher instructions and submission requirements. Meet deadlines for draft reviews and final submission.</li>
+        <li>Evaluate honestly: use evidence to support judgements, identify both strengths and weaknesses, and be realistic about performance.</li>
+        <li>Use engineering terminology correctly: refer to mechanisms, materials, tolerances, clearances, gear ratios, reliability, etc. This demonstrates understanding.</li>
+        <li>Link evaluation to evidence: every statement about performance should be supported by test data, photos, user feedback, or observations.</li>
+        <li>Organise your folio clearly: use consistent formatting, clear headings, logical order, and page numbers. Make it easy for teachers to assess.</li>
+        <li>Proofread your work: check spelling, grammar, and technical accuracy. Errors reduce credibility and make assessment difficult.</li>
+        <li>Include all required sections: brief, design stages, testing, evaluation, improvements, reflection. Missing sections reduce marks.</li>
+        <li>Present work professionally: use clear photos, readable text, consistent formatting. Think of your folio as a portfolio you'd show to employers or universities.</li>
+        <li>Submit on time: meet deadlines for draft reviews and final submission. Communicate with your teacher if you need extensions.</li>
+      </ul>
+    </article>
+  </main>
+
+  <script src="../page-nav.js" defer></script>
+  <script src="../qa-widget.js"></script>
+</body>
+</html>

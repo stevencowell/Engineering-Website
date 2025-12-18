@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testing Checklist | Year 9 Term 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --brand: #0056b3; --bg: #f6f8fb; --card: #ffffff; --text: #1f2a3d; --muted: #5c667a; --border: #e2e8f0; --shadow: 0 12px 30px rgba(0,0,0,0.08); --radius: 12px; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; border-radius: 4px; }
+    header { background: linear-gradient(135deg, #0a4f93, #0b63c3); color: #fff; padding: 2.25rem 1.25rem 2rem; text-align: center; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; background: #fff; border-bottom: 1px solid var(--border); padding: 0.5rem 1rem; }
+    nav a { padding: 0.4rem 0.75rem; border-radius: 10px; color: var(--brand); font-weight: 600; }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem; margin-bottom: 1.25rem; }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.1rem 0 0.4rem; color: var(--text); font-size: 1.05rem; }
+    .checklist { list-style: none; padding-left: 0; margin: 0; }
+    .check-item { display: flex; gap: 0.65rem; align-items: flex-start; margin: 0.4rem 0; }
+    .check-item input { margin-top: 0.2rem; accent-color: var(--brand); }
+    .status { margin-top: 0.5rem; font-weight: 700; color: var(--brand); }
+    .progress-bg { height: 10px; background: #e6f0fb; border-radius: 999px; margin: 0.5rem 0; }
+    .progress-fill { height: 100%; width: 0; background: #0b63c3; border-radius: 999px; transition: width 0.3s ease; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Testing & Observation Checklist</h1>
+    <p>Safety, measurements, evidence capture for the Concrete Beam project</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term2.html">&#8592; T2 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a class="active" href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../year9_term2.html">&#8592; Back to Year 9 Term 2 Toolkits</a>
+
+    <article class="card">
+      <h2>Safety Prep</h2>
+      <ul class="checklist" data-group="safety">
+        <li class="check-item"><input type="checkbox" /> <span>SWMS reviewed and controls in place for mixing/casting and destructive testing.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>PPE on: safety glasses, enclosed shoes, dust mask for cement, gloves for wet concrete, apron/long sleeves as required.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>Work area clear; mould/fixtures stable; lifting and pinch points identified; first aid kit accessible; supervisor aware.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>Testing machine/setup checked: supports aligned, load point centred, guards/barriers set, clear stop protocol agreed.</span></li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Measurement & Data</h2>
+      <ul class="checklist" data-group="data">
+        <li class="check-item"><input type="checkbox" /> <span>Record beam dimensions, reinforcement layout (size/position), and beam mass before testing.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>Record mix details used (cement/sand/aggregate ratios, water amount) and curing time (days).</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>Capture load increments and total load at first crack and at failure (include photos at key stages).</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>Note failure mode: tension cracking, compression crushing, shear failure, reinforcement slip, or poor bond/voids.</span></li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Evidence Capture</h2>
+      <ul class="checklist" data-group="evidence">
+        <li class="check-item"><input type="checkbox" /> <span>Photos: mould/prep, reinforcement in mould, pour/finish, curing setup, final beam, test setup, failure close-up.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>Video: side angle during loading showing deflection/crack development and the failure moment (if safe to record).</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>Data table updated (load vs observations) and one simple graph prepared (load vs stage or load vs deflection if measured).</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>Reflection drafted: what failed first, why it failed, and one change to improve strength/reliability (mix, reinforcement, curing, compaction).</span></li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Progress</h2>
+      <div class="progress-bg"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="status" id="statusText">0 of 12 items completed</div>
+    </article>
+  </main>
+
+  <script>
+    const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
+    const progressFill = document.getElementById('progressFill');
+    const statusText = document.getElementById('statusText');
+
+    function updateProgress() {
+      const done = checkboxes.filter((c) => c.checked).length;
+      const total = checkboxes.length;
+      const pct = total ? (done / total) * 100 : 0;
+      progressFill.style.width = pct + '%';
+      statusText.textContent = `${done} of ${total} items completed`;
+    }
+
+    checkboxes.forEach((box) => box.addEventListener('change', updateProgress));
+    updateProgress();
+  </script>
+</body>
+</html>

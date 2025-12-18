@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Toolkit 1 | Tensegrity &amp; Materials</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../qa-widget.css" />
+<style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #dce9ff 0, #f6f8fb 45%, #edf2ff 100%);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 1.5rem;
+    }
+
+    a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+
+    header {
+      background: linear-gradient(135deg, #004080, #0077e6);
+      color: #fff;
+      padding: 1.75rem 1.5rem;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12) 0, transparent 55%),
+        radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.08) 0, transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    header > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 1.9rem;
+      margin-bottom: 0.2rem;
+    }
+
+    header p {
+      max-width: 52rem;
+      font-size: 0.98rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .tagline {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .tagline span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      font-size: 0.8rem;
+    }
+
+    /* Toolkit navigation (shared with other toolkits) */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #ffffff;
+      border-radius: 999px;
+      padding: 0.4rem 0.9rem;
+      margin: 0 auto 1.25rem;
+      max-width: 1100px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    nav a {
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    nav a:hover {
+      background: #e6f0fb;
+      border-color: #c6d4f5;
+      color: #12315a;
+    }
+
+    nav a.active {
+      background: #004080;
+      color: #ffffff;
+      border-color: #004080;
+      font-weight: 600;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+      color: var(--muted);
+    }
+
+    .back-link:hover {
+      color: var(--brand);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 1.25rem;
+      padding: 1.1rem 1.2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card h3 {
+      font-size: 1.02rem;
+      margin-top: 0.7rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0.4rem 0;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    .qa-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 0.7rem 0.8rem;
+      margin: 0.1rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .qa-toggle {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--brand);
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+
+    .qa-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+
+    .qa-answer {
+      margin-top: 0.65rem;
+      color: var(--muted);
+      display: none;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.35rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .tag {
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: #edf2ff;
+      color: var(--brand);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    ul {
+      padding-left: 1.1rem;
+      margin: 0.3rem 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    ul li {
+      margin-bottom: 0.15rem;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      color: var(--muted);
+    }
+
+    .meta-badge {
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: #f1f5f9;
+      border: 1px solid #d4e1f5;
+    }
+
+    @media (max-width: 850px) {
+      body {
+        padding: 1rem;
+      }
+
+      header {
+        padding: 1.3rem 1.1rem;
+      }
+
+      nav {
+        border-radius: 1rem;
+      }
+
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Toolkit 1 &mdash; Tensegrity &amp; Materials</h1>
+  <p>
+    This toolkit introduces tensegrity structures (tensional integrity) and connects them to Stage 5 outcomes in structures, materials, safety,
+    sustainability and communication. Students investigate how forces flow through a tensegrity phone stand, apply materials testing, and evaluate how
+    well their design performs.
+  </p>
+  <div class="tagline">
+    <span>Y9</span>
+    <strong>Term 2 &middot; Structures &amp; Materials</strong>
+  </div>
+</header>
+
+<nav>
+  <a href="../year9_term2.html">&#8592; T2 Overview</a>
+  <a class="active" href="module1.html">Toolkit 1</a>
+  <a href="module2.html">Toolkit 2</a>
+  <a href="module3.html">Toolkit 3</a>
+  <a href="module4.html">Toolkit 4</a>
+</nav>
+
+<main>
+  <a class="back-link" href="../year9_term2.html">← Back to Year 9 T2 Toolkits</a>
+
+  <article class="card">
+    <div class="pill">Structures</div>
+    <h2>Learning Focus</h2>
+    <ul>
+      <li>Explore tensegrity (tensional integrity) where compression struts are suspended by a network of tensioned cables.</li>
+      <li>Identify compression and tension members in a model structure and describe how forces travel through the system.</li>
+      <li>Relate material properties (stiffness, tensile strength, ductility) to their suitability for struts and cables.</li>
+      <li>Apply a simple engineering design process to create and refine a tensegrity phone stand that supports a real device.</li>
+      <li>Collect test data (load, deflection, stability) and use it to evaluate and communicate how well the structure meets design criteria.</li>
+    </ul>
+    <div class="meta-row">
+      <span class="meta-badge">Stage 5 &ndash; Structures &amp; Materials</span>
+      <span class="meta-badge">EGT5-MEA-01 &bull; EGT5-USE-01 &bull; EGT5-ENV-01 &bull; EGT5-SAF-01</span>
+    </div>
+  </article>
+
+  <div class="grid">
+    <article class="card">
+      <h2>Key Notes</h2>
+
+      <h3>Why engineers care about tensegrity</h3>
+      <p>
+        Engineers design structures so loads flow safely to the ground. In conventional frames (like trusses or towers) some members are in compression, others are in tension,
+        and joints are designed so forces balance. Tensegrity structures are a special case: isolated compression members (struts) do not touch, but are held in place only by a
+        continuous network of tensioned cables. This makes tensegrity a powerful visual for understanding equilibrium and the path of forces.
+      </p>
+
+      <h3>Forces, equilibrium and stability in tensegrity</h3>
+      <p>
+        When you look at any structure, ask three questions: what forces are acting, how do they flow from one member to another, and what stops the structure from changing shape?
+        In tensegrity, struts carry compression while cables carry tension. The whole structure is in <em>pre-tension</em>: cables are tightened so that, even before the phone is added,
+        the system is already under load. Stability comes from the balance of these internal forces with external loads such as the weight of the phone and gravity. If a cable is too
+        loose, the load path changes and the structure will distort or collapse.
+      </p>
+
+      <h3>Materials overview and classification</h3>
+      <p>
+        Before choosing materials for the tensegrity stand, engineers classify them into broad groups such as metals and alloys (for example aluminium tube), timbers (such as pine
+        dowel), polymers (including nylon fishing line and braided cords) and composites (materials that combine two or more distinct components). Each group has characteristic
+        properties: hardness, toughness, ductility and malleability describe how a material responds when bent or hammered, while tensile and compressive strength and stiffness describe
+        how it behaves under pulling and squashing forces. In this project students should identify which group each candidate material belongs to and which properties matter most for
+        that part of the structure, then use test results to justify their final choices.
+      </p>
+
+      <h3>Materials in tension and compression</h3>
+      <p>
+        Compression members need stiffness to avoid buckling, so straight, short struts made from timber dowel or aluminium tube perform well. Tension members need high tensile
+        strength and low stretch so preload holds. Try experiments: compare a soft cotton string and a braided nylon line under the same load, or test a thin dowel versus a thicker
+        dowel of the same length to see how geometry affects stability.
+      </p>
+
+      <h3>From theory to the phone-stand project</h3>
+      <p>
+        The tensegrity phone stand follows an engineering process: define the problem (support a phone at a comfortable viewing angle), analyse loads, sketch several possible
+        arrangements, choose a simple triangular prism form, then select materials based on your tension and compression tests. Build a prototype, observe how it behaves as you add
+        the phone and gently bump the table, adjust cable lengths if members twist or cables slacken, then refine until the stand holds the phone steadily. As an extension, students
+        can compare this process with engineered structures developed by Aboriginal and Torres Strait Islander peoples, such as traditional fish traps or shelters, identifying how
+        natural materials are used in tension and compression.
+      </p>
+
+      <h3>Safety, risk and sustainability</h3>
+      <p>
+        Apply Stage 5 risk management by identifying hazards when cutting and drilling struts, tensioning cables and working with adhesives. Wear safety glasses, clamp workpieces and
+        keep the workspace tidy to prevent trips and cuts. From a sustainability perspective, consider using renewable materials (such as plantation pine or bamboo) and minimising offcuts
+        by nesting parts when marking out. Discuss embodied energy, waste and opportunities to reuse offcuts.
+      </p>
+    </article>
+
+    <article class="card">
+      <h2>Activities &amp; Evidence</h2>
+      <ul>
+        <li>Build a three-strut tensegrity prism, record preload steps and photograph the final model from multiple angles.</li>
+        <li>Measure load and deflection for the prism, noting when the structure distorts or cables slacken.</li>
+        <li>Test tensile and compressive strength of sample materials to justify strut and cable choices.</li>
+        <li>
+          Prepare a one-page engineering log or mini-report that classifies the materials used, presents your test results in a table or simple graph, and evaluates how well the
+          tensegrity structure met the design criteria. You can build on this in Toolkit 4, where you will develop more detailed drawings and costing for your chosen project.
+        </li>
+        <li>Extension: design a four- or six-strut tensegrity or model the structure in a simulation tool.</li>
+      </ul>
+    </article>
+  </div>
+
+  <article class="card">
+    <h2>Q&amp;A</h2>
+    <div class="qa-list">
+      <div class="qa-item">
+        <div class="qa-question">
+          <span>What balance of forces keeps a tensegrity structure stable?</span>
+          <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+        </div>
+        <div class="qa-answer" id="qa1">
+          Stability comes from compression in the struts being balanced by tension in the cables. The cables are pre-tensioned so that, even before external loads are applied, they
+          pull the system into a stable shape. When the phone is added, this internal balance adjusts slightly but remains in equilibrium as long as no member exceeds its strength or
+          buckles.
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question">
+          <span>Why should struts never touch?</span>
+          <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+        </div>
+        <div class="qa-answer" id="qa2">
+          If struts touch, they create new compression paths that bypass the cable network. This changes the way forces flow through the structure and can remove the tensegrity
+          behaviour altogether. Keeping struts separated ensures cables remain the only connections, so tension and compression members do their distinct jobs.
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question">
+          <span>What properties make a good cable material?</span>
+          <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+        </div>
+        <div class="qa-answer" id="qa3">
+          Good cable materials have high tensile strength, low stretch under load, and good knot-holding or fixing ability. In classroom projects, braided nylon fishing line or strong
+          polyester cord works well. Cotton string stretches and wears quickly, so it may not maintain preload and can lead to instability.
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question">
+          <span>How could you improve the sustainability of the phone stand?</span>
+          <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+        </div>
+        <div class="qa-answer" id="qa4">
+          Options include using renewable or recycled materials (for example bamboo or plantation timber), minimising offcuts by careful nesting, designing joints so the stand can be
+          disassembled and parts reused, and avoiding unnecessary finishes that add waste and embodied energy. Students can also consider whether a tensegrity stand is the best solution
+          or if a simpler structure could achieve the same function with fewer resources.
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <h2>Resources</h2>
+    <ul>
+      <li>Dowels or aluminium tube (struts), fishing line or braided cord (cables), eye screws or drilled holes with knots.</li>
+      <li>Jigs for drilling, pliers and clamps for tensioning, hot glue or caps for connection points.</li>
+      <li>Links to tensegrity build videos or animations; SWMS templates for drilling and cable tension hazards.</li>
+    </ul>
+  </article>
+</main>
+
+<script src="../page-nav.js" defer></script>
+<script src="../qa-widget.js"></script>
+</body>
+</html>

@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Term 4 – YouTube Clip Index (Lollie Dispenser)</title>
+  <style>
+    :root{
+      --bg: #0b1220;
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 18px 60px rgba(0,0,0,0.45);
+      --radius: 16px;
+    }
+    *{ box-sizing: border-box; }
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:
+        radial-gradient(1200px 700px at 15% -10%, rgba(79,70,229,0.45), transparent 60%),
+        radial-gradient(1100px 800px at 90% 0%, rgba(56,189,248,0.22), transparent 55%),
+        radial-gradient(900px 700px at 50% 110%, rgba(34,197,94,0.18), transparent 55%),
+        var(--bg);
+      color: var(--text);
+    }
+    .wrap{ max-width: 1180px; margin: 0 auto; padding: 28px 18px 48px; }
+    header{
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 14px;
+      backdrop-filter: blur(10px);
+    }
+    h1{
+      font-size: clamp(20px, 3vw, 30px);
+      margin: 0 0 8px;
+      letter-spacing: 0.2px;
+    }
+    .sub{ margin: 0; color: var(--muted); line-height: 1.4; }
+
+    .tableCard{
+      margin-top: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+    table{ width: 100%; border-collapse: separate; border-spacing: 0; }
+    thead th{
+      text-align: left;
+      font-weight: 650;
+      font-size: 12.5px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.78);
+      background: rgba(0,0,0,0.25);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 14px;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    tbody td{
+      padding: 14px;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    tbody tr:hover{ background: rgba(255,255,255,0.04); }
+
+    .toolkit{
+      display: inline-flex;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.82);
+      font-size: 12.5px;
+      white-space: nowrap;
+    }
+    .title{
+      margin: 0 0 6px;
+      font-weight: 700;
+      line-height: 1.25;
+      font-size: 14.5px;
+    }
+    .overview{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 13.5px;
+    }
+
+    .thumb{
+      width: 220px;
+      max-width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      overflow: hidden;
+      position: relative;
+      background: rgba(0,0,0,0.28);
+      display: block;
+    }
+    .thumb img{ width: 100%; height: auto; display: block; }
+
+    .playBadge{
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+    }
+    .playBadge span{
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.18);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    .playBadge svg{ width: 20px; height: 20px; margin-left: 2px; fill: rgba(255,255,255,0.92); }
+
+    .actions{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.88);
+      text-decoration: none;
+      font-size: 13px;
+      cursor: pointer;
+      transition: transform 120ms ease, background 120ms ease;
+      user-select: none;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.09); }
+    .btn.primary{ background: rgba(79,70,229,0.22); border-color: rgba(79,70,229,0.35); }
+
+    @media (max-width: 980px){
+      thead{ display: none; }
+      table, tbody, tr, td{ display: block; width: 100%; }
+      tbody td{ border-bottom: 0; padding: 12px 14px; }
+      tbody tr{ border-bottom: 1px solid rgba(255,255,255,0.10); }
+      .thumb{ width: 100%; }
+    }
+
+    .modal{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.70);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 50;
+    }
+    .modal.open{ display: flex; }
+    .modalCard{
+      width: min(1000px, 100%);
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(10,16,30,0.9);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .modalTop{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.86);
+    }
+    .modalTitle{
+      font-weight: 650;
+      font-size: 14px;
+      margin-right: 10px;
+      line-height: 1.3;
+    }
+    .closeBtn{
+      appearance: none;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.88);
+      border-radius: 12px;
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+    .player{ aspect-ratio: 16 / 9; width: 100%; background: black; }
+    .player iframe{ width: 100%; height: 100%; border: 0; display: block; }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Term 4 – YouTube Clip Index</h1>
+      <p class="sub">
+        Lollie Dispenser focus: motion & mechanisms (cams, gears, ratchet, Geneva, screw feed), controlled dispensing,
+        safe build methods, and evaluation against success criteria.
+      </p>
+    </header>
+
+    <div class="tableCard" role="region" aria-label="Term 4 video table">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 150px;">Toolkit</th>
+            <th style="width: 260px;">Thumbnail</th>
+            <th>Clip overview</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <!-- Toolkit 1: Mechanisms & Motion -->
+          <tr>
+            <td><span class="toolkit">Toolkit 1</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=4ROtKKuSaBI" target="_blank" rel="noopener"
+                 data-play="true" data-id="4ROtKKuSaBI" data-name="Gears Explained – gear ratio, torque & MA">
+                <img src="https://i.ytimg.com/vi/4ROtKKuSaBI/hqdefault.jpg" alt="Thumbnail: Gears Explained" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Gears & Gear Ratio (torque + mechanical advantage)</p>
+              <p class="overview">Clean intro to driver/driven gears and ratios — useful if students use gears to index or drive a dispenser mechanism.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="4ROtKKuSaBI" data-name="Gears Explained – gear ratio, torque & MA">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=4ROtKKuSaBI" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 1</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=a0Jk6ytDFac" target="_blank" rel="noopener"
+                 data-play="true" data-id="a0Jk6ytDFac" data-name="Basic Mechanisms: Cam and Follower">
+                <img src="https://i.ytimg.com/vi/a0Jk6ytDFac/hqdefault.jpg" alt="Thumbnail: Basic Mechanisms: Cam and Follower" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Cam & Follower (rotary → reciprocating motion)</p>
+              <p class="overview">Great for “one lollie per turn” concepts — cams are a simple way to create repeatable, timed movement.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="a0Jk6ytDFac" data-name="Basic Mechanisms: Cam and Follower">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=a0Jk6ytDFac" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 1</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=EpVPG2fZrHE" target="_blank" rel="noopener"
+                 data-play="true" data-id="EpVPG2fZrHE" data-name="Ratchet and Pawl Mechanism">
+                <img src="https://i.ytimg.com/vi/EpVPG2fZrHE/hqdefault.jpg" alt="Thumbnail: Ratchet and Pawl Mechanism" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Ratchet & Pawl (one-way control)</p>
+              <p class="overview">Perfect if students need a one-way feed or step-by-step movement without slipping backwards.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="EpVPG2fZrHE" data-name="Ratchet and Pawl Mechanism">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=EpVPG2fZrHE" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 1</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=5y9Xn2oqSG4" target="_blank" rel="noopener"
+                 data-play="true" data-id="5y9Xn2oqSG4" data-name="Geneva Mechanism Animation (intermittent motion)">
+                <img src="https://i.ytimg.com/vi/5y9Xn2oqSG4/hqdefault.jpg" alt="Thumbnail: Geneva Mechanism Animation" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Geneva Drive (intermittent indexing)</p>
+              <p class="overview">A classic “index one step, then lock” mechanism — ideal for controlled dispensing in discrete steps.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="5y9Xn2oqSG4" data-name="Geneva Mechanism Animation (intermittent motion)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=5y9Xn2oqSG4" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 1</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=ntkg0FkD3oQ" target="_blank" rel="noopener"
+                 data-play="true" data-id="ntkg0FkD3oQ" data-name="Archimedes' Screw Candy Dispenser">
+                <img src="https://i.ytimg.com/vi/ntkg0FkD3oQ/hqdefault.jpg" alt="Thumbnail: Archimedes' Screw Candy Dispenser" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Screw Feed Dispenser (Archimedes screw idea)</p>
+              <p class="overview">Shows a feed-screw approach: steady, controllable delivery — students can borrow the concept even if they simplify the build.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="ntkg0FkD3oQ" data-name="Archimedes' Screw Candy Dispenser">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=ntkg0FkD3oQ" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Toolkit 2: Design concepts (examples to inspire) -->
+          <tr>
+            <td><span class="toolkit">Toolkit 2</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=yYDbS0UX-1o" target="_blank" rel="noopener"
+                 data-play="true" data-id="yYDbS0UX-1o" data-name="Archimedes' Screw Candy Dispenser Animation (CAD)">
+                <img src="https://i.ytimg.com/vi/yYDbS0UX-1o/hqdefault.jpg" alt="Thumbnail: Archimedes' Screw Candy Dispenser Animation (CAD)" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">CAD Animation: Screw Dispenser (concept clarity)</p>
+              <p class="overview">Useful for design communication: how to explain your mechanism clearly with annotated drawings and “how it moves” logic.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="yYDbS0UX-1o" data-name="Archimedes' Screw Candy Dispenser Animation (CAD)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=yYDbS0UX-1o" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 2</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=ufFFQ9_yizc" target="_blank" rel="noopener"
+                 data-play="true" data-id="ufFFQ9_yizc" data-name="Ultimate Cardboard Candy Machine (coin-operated)">
+                <img src="https://i.ytimg.com/vi/ufFFQ9_yizc/hqdefault.jpg" alt="Thumbnail: Ultimate Cardboard Candy Machine (coin-operated)" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Candy Machine (complex example to cherry-pick ideas)</p>
+              <p class="overview">Don’t copy the whole thing — use it as a menu of mechanisms: gates, chutes, indexing, and how people stop jams.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="ufFFQ9_yizc" data-name="Ultimate Cardboard Candy Machine (coin-operated)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=ufFFQ9_yizc" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 2</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=Y5bs2gIgreg" target="_blank" rel="noopener"
+                 data-play="true" data-id="Y5bs2gIgreg" data-name="Multi Candy Vending Machine from Cardboard">
+                <img src="https://i.ytimg.com/vi/Y5bs2gIgreg/hqdefault.jpg" alt="Thumbnail: Multi Candy Vending Machine from Cardboard" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Multi-Dispenser Example (layout + product flow)</p>
+              <p class="overview">Great for planning: internal layout, gravity feed, access panels, and how to guide lollies without chaos.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="Y5bs2gIgreg" data-name="Multi Candy Vending Machine from Cardboard">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=Y5bs2gIgreg" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Toolkit 3: Build & fabrication -->
+          <tr>
+            <td><span class="toolkit">Toolkit 3</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=Okf9Sica_3I" target="_blank" rel="noopener"
+                 data-play="true" data-id="Okf9Sica_3I" data-name="DIY Cardboard Candy Dispenser Vending Machine (tutorial)">
+                <img src="https://i.ytimg.com/vi/Okf9Sica_3I/hqdefault.jpg" alt="Thumbnail: DIY Cardboard Candy Dispenser Vending Machine" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Build Tutorial: Cardboard Candy Dispenser</p>
+              <p class="overview">A student-friendly walkthrough (materials, steps, assembly order). Good for build sequencing and workmanship expectations.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="Okf9Sica_3I" data-name="DIY Cardboard Candy Dispenser Vending Machine (tutorial)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=Okf9Sica_3I" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 3</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=alWzqfCNhZM" target="_blank" rel="noopener"
+                 data-play="true" data-id="alWzqfCNhZM" data-name="DIY Gumball Machine (money operated) from cardboard">
+                <img src="https://i.ytimg.com/vi/alWzqfCNhZM/hqdefault.jpg" alt="Thumbnail: DIY Gumball Machine (money operated) from cardboard" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Build Example: Vending-Style Dispenser Mechanism</p>
+              <p class="overview">Good mechanical reference for gates/slots and how builders control “one item per action”. Ignore the money bit if not needed.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="alWzqfCNhZM" data-name="DIY Gumball Machine (money operated) from cardboard">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=alWzqfCNhZM" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 3</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=jQoNQEqKO4M" target="_blank" rel="noopener"
+                 data-play="true" data-id="jQoNQEqKO4M" data-name="GEMS (M&M style) Dispenser from cardboard">
+                <img src="https://i.ytimg.com/vi/jQoNQEqKO4M/hqdefault.jpg" alt="Thumbnail: GEMS Dispenser from cardboard" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Build Example: Simple Candy Dispenser (realistic complexity)</p>
+              <p class="overview">Often closer to what students can actually build in school time — good reference for chutes, gates, and jam prevention.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="jQoNQEqKO4M" data-name="GEMS (M&M style) Dispenser from cardboard">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=jQoNQEqKO4M" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Toolkit 4: Testing, evaluation, iteration -->
+          <tr>
+            <td><span class="toolkit">Toolkit 4</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=dLunLsujszk" target="_blank" rel="noopener"
+                 data-play="true" data-id="dLunLsujszk" data-name="Candy Dispenser out of Cardboard (mechanism focus)">
+                <img src="https://i.ytimg.com/vi/dLunLsujszk/hqdefault.jpg" alt="Thumbnail: Candy Dispenser out of Cardboard (mechanism focus)" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Mechanism Focus (good for fault-finding discussions)</p>
+              <p class="overview">Use as a prompt: where could it jam, where are friction points, how would you improve repeatability and reliability?</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="dLunLsujszk" data-name="Candy Dispenser out of Cardboard (mechanism focus)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=dLunLsujszk" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 4</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=SwUqCod40jI" target="_blank" rel="noopener"
+                 data-play="true" data-id="SwUqCod40jI" data-name="Basic Mechanisms: Rack and Pinion">
+                <img src="https://i.ytimg.com/vi/SwUqCod40jI/hqdefault.jpg" alt="Thumbnail: Basic Mechanisms: Rack and Pinion" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Rack & Pinion (rotary ↔ linear control)</p>
+              <p class="overview">If students make a sliding gate/valve to release one lolly, rack & pinion is a neat, controllable option.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="SwUqCod40jI" data-name="Basic Mechanisms: Rack and Pinion">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=SwUqCod40jI" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal Player -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-label="Video player">
+    <div class="modalCard">
+      <div class="modalTop">
+        <div class="modalTitle" id="modalTitle">Video</div>
+        <button class="closeBtn" id="closeBtn" type="button">Close</button>
+      </div>
+      <div class="player">
+        <iframe
+          id="playerFrame"
+          src=""
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const playerFrame = document.getElementById('playerFrame');
+    const modalTitle = document.getElementById('modalTitle');
+    const closeBtn = document.getElementById('closeBtn');
+
+    function openModal(videoId, name){
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      modalTitle.textContent = name || 'Video';
+      playerFrame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      playerFrame.src = '';
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    document.addEventListener('click', (e) => {
+      const playBtn = e.target.closest('[data-play-btn="true"]');
+      const playThumb = e.target.closest('[data-play="true"]');
+
+      if (playBtn){
+        openModal(playBtn.getAttribute('data-id'), playBtn.getAttribute('data-name'));
+      }
+      if (playThumb){
+        e.preventDefault();
+        openModal(playThumb.getAttribute('data-id'), playThumb.getAttribute('data-name'));
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toolkit 4 | Design, Costing, CAD & Communication</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .card p { color: var(--muted); margin: 0.4rem 0; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .qa-item { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; margin: 0.65rem 0; background: #fff; box-shadow: var(--shadow); }
+    .qa-question { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; font-weight: 700; color: var(--text); }
+    .qa-toggle { padding: 0.45rem 0.85rem; border-radius: 999px; border: 1px solid var(--border); background: #e6f0fb; color: var(--brand); font-weight: 700; cursor: pointer; box-shadow: var(--shadow); }
+    .qa-toggle:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+    .qa-answer { margin-top: 0.65rem; color: var(--muted); display: none; }
+  </style>
+</head>
+  <body>
+  <a href="#main-content" class="sr-only" style="position: absolute; top: 0; left: 0; background: #0b63c3; color: #fff; padding: 0.75rem 1rem; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0;">Skip to main content</a>
+  <header role="banner">
+    <h1>Toolkit 4: Hydraulic Digger Testing &amp; Evaluation</h1>
+    <p>Systematic testing, data analysis, evaluation and folio completion</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term3.html">&#8592; T3 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a class="active" href="module4.html">Toolkit 4</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main id="main-content" role="main">
+    <a class="back-link" href="../year9_term3.html">&#8592; Back to Year 9 T3 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Project</div>
+      <h2>Learning Focus</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Conduct systematic testing:</strong> Set up test equipment, apply loads systematically, and measure forces, movements, and performance.</li>
+        <li><strong>Collect and analyse data:</strong> Record test data accurately, create tables and graphs, and analyse results using engineering principles.</li>
+        <li><strong>Calculate MA and VR:</strong> Calculate theoretical and actual mechanical advantage and velocity ratio, and determine efficiency.</li>
+        <li><strong>Compare predicted vs actual:</strong> Compare your Toolkit 2 predictions with actual test results and explain differences.</li>
+        <li><strong>Evaluate performance:</strong> Assess how well your digger meets the design brief and identify specific improvements.</li>
+        <li><strong>Complete comprehensive folio:</strong> Document your entire project with drawings, data, analysis, and evaluation.</li>
+      </ul>
+      <p style="color: var(--muted); margin-top: 1rem; padding: 0.75rem; background: #f8f9fa; border-left: 3px solid var(--brand); border-radius: 4px;"><strong>Timing:</strong> Test your digger in Weeks 4-6, then complete your folio in Weeks 7-8. This is your main Term 3 project.</p>
+    </article>
+
+    <article class="card">
+      <h2>Why This Matters</h2>
+      <p><strong>Testing and evaluation are essential engineering skills</strong>—systematic testing provides data to verify design predictions, identify problems, and guide improvements. Without proper testing and analysis, you can't know if your design works as intended or how to make it better.</p>
+      <p>This toolkit brings together testing procedures, data analysis, and evaluation—essential skills for understanding and improving engineering systems. By mastering these skills, you'll learn to:</p>
+      <ul style="margin-top: 0.75rem;">
+        <li>Conduct controlled, repeatable tests that produce reliable data</li>
+        <li>Analyse results using engineering principles and calculations</li>
+        <li>Compare theoretical predictions with actual performance</li>
+        <li>Identify causes of differences and propose specific improvements</li>
+        <li>Document your work professionally in a comprehensive folio</li>
+      </ul>
+      <p style="margin-top: 1rem;"><strong>How to use this module:</strong> Apply these testing and evaluation skills to your hydraulic digger project. Use systematic procedures, accurate measurements, and engineering analysis to understand your digger's performance. These same skills are used throughout engineering—master them now, and you'll be prepared for future projects and careers.</p>
+    </article>
+
+    <article class="card">
+      <div class="pill">Theory</div>
+      <h2>Key Notes</h2>
+      
+      <h3>1. Testing Protocol</h3>
+      <p>Systematic testing provides data to verify design predictions, identify problems, and guide improvements. Follow this protocol to ensure reliable, repeatable results.</p>
+      <p><strong>Pre-test preparation:</strong> Review your Toolkit 2 design predictions. Set up test equipment (spring balance, weights, measuring tools). Secure the digger frame. Ensure safety controls are in place (clear area, PPE, teacher supervision for pressurised systems).</p>
+      <p><strong>Test procedure:</strong> Test each function (boom, dipper, bucket) systematically. Measure input force and displacement, output force and displacement. Record observations (responsiveness, binding, leakage, air bubbles). Test to maximum capacity or until system becomes unstable.</p>
+      
+      <h3>2. Data Collection</h3>
+      <p>Record comprehensive test data to evaluate performance accurately:</p>
+      <p><strong>Orthographic views:</strong> Front, top, and side views show the object from different angles. Each view shows two dimensions clearly. Together, they show all three dimensions. Use projection lines to align views correctly.</p>
+      <p><strong>Drawing conventions:</strong> <strong>Centre lines</strong> show symmetry and hole centres. <strong>Hidden detail lines</strong> (dashed) show features not visible in that view. <strong>Dimension lines</strong> show sizes with arrows pointing to features. <strong>Extension lines</strong> extend from features to dimension lines.</p>
+      <p><strong>Dimensioning:</strong> Place dimensions clearly, avoiding clutter. Show overall dimensions (total length, width, height) and key feature dimensions (hole locations, critical lengths). Use consistent units (mm for small parts, m for large structures). Include tolerances where precision matters.</p>
+      <p><strong>Creating drawings in Onshape:</strong> Use proper title blocks with project name, student name, date, scale, and units. Create three views (front, top, side) aligned correctly. Add dimensions using Onshape's dimensioning tools. Export as PDF for folio inclusion.</p>
+      
+      <h3>3. Costing and Simple Project Management</h3>
+      <p>Use spreadsheets to calculate quantities, unit costs, totals and contingencies. Build formulas, compare design options by cost and outline milestones or simple schedules to plan builds.</p>
+      <p><strong>Costing structure:</strong> Create a table with columns: Item, Quantity, Unit, Unit Price ($), Extended Cost ($). Use formulas: Extended Cost = Quantity × Unit Price. Total Cost = Sum of all Extended Costs. Add waste allowance (typically 10–15%) to account for offcuts and errors.</p>
+      <p><strong>Example:</strong> Pine timber: 2.4 m needed, $5.00 per metre, Extended Cost = 2.4 × $5.00 = $12.00. Screws: 20 needed, $0.10 each, Extended Cost = 20 × $0.10 = $2.00. Total materials = $14.00. With 15% waste allowance, Total Project Cost = $14.00 × 1.15 = $16.10.</p>
+      <p><strong>Comparing options:</strong> Cost two different material choices (e.g., pine vs hardwood, acrylic vs timber). Compare on price, durability, workability, and environmental impact. Use this comparison to justify your material choice in your folio.</p>
+      <p><strong>Project planning:</strong> Create a simple checklist or timeline showing: Research & Design, Construction stages, Testing, Evaluation & Folio. Break construction into logical stages. This helps you see which tasks belong at each stage and avoid rushing or missing steps.</p>
+      
+      <h3>4. Folios and Engineering Reports</h3>
+      <p>Structure folios with the design brief, constraints, research, concept sketches, selection matrices, working drawings/CAD prints, production logs, test data and evaluation. Reflect on learning and proposed improvements.</p>
+      <p><strong>Folio structure:</strong></p>
+      <ul>
+        <li><strong>Cover page:</strong> Project title, student name, date, brief description</li>
+        <li><strong>Design brief:</strong> What you're building, why, and what constraints you must meet</li>
+        <li><strong>Concept sketches:</strong> 2–3 different design ideas with notes explaining pros/cons</li>
+        <li><strong>Final design:</strong> Working drawings (Onshape screenshots or hand-drawn), material list, costing</li>
+        <li><strong>Build log:</strong> Dated entries showing progress, problems encountered, solutions</li>
+        <li><strong>Test results:</strong> Tables, graphs, photos showing performance data</li>
+        <li><strong>Evaluation:</strong> How well did it meet the brief? What worked? What didn't? What would you improve?</li>
+        <li><strong>Sustainability:</strong> Material choices, waste reduction, environmental impact</li>
+      </ul>
+      <p><strong>Writing style:</strong> Use short, factual sentences that link back to the brief. Avoid vague statements like "it worked well"—instead say "the dispenser successfully dispensed 95% of cycles without jamming, meeting the reliability target of 90%". Use engineering terminology throughout.</p>
+      
+      <h3>5. Sustainability and Lifecycle Thinking</h3>
+      <p>Consider material choices, recycling and reuse of components, energy consumption and lifecycle impacts. Propose sustainable alternatives and justify them in your folio.</p>
+      <p><strong>Material comparison factors:</strong> Strength, workability, cost, waste, environmental impact, and durability. Compare common options such as pine, hardwood, steel, aluminium and acrylic on these factors.</p>
+      <p><strong>Sustainability improvements:</strong> Nest parts efficiently to reduce waste. Reuse offcuts for smaller parts or tests. Choose materials with low embodied energy (less energy to produce). Design for durability—longer-lasting products reduce waste. Consider end-of-life—can parts be recycled or reused?</p>
+      <p><strong>Documentation:</strong> In your folio, explain your material choices and sustainability considerations. This demonstrates responsible engineering thinking and links to EGT5-ENV-01 (environmental and social impact).</p>
+      
+      <h3>6. Careers and Pathways</h3>
+      <p>Research mechanical, civil, mechatronic and industrial engineering careers. Connect classroom projects to real-world applications and outline training pathways such as TAFE, apprenticeships and university.</p>
+      <p><strong>Career connections:</strong></p>
+      <ul>
+        <li><strong>Civil engineers:</strong> Design bridges, buildings, roads. Use CAD for structural drawings, cost estimates for materials, and reports for clients.</li>
+        <li><strong>Mechanical engineers:</strong> Design machines, engines, systems. Use CAD for component drawings, cost analysis for manufacturing, and technical reports.</li>
+        <li><strong>Mechatronic engineers:</strong> Design robotics, automation, control systems. Use CAD for electronic and mechanical integration, cost-benefit analysis, and documentation.</li>
+        <li><strong>Industrial engineers:</strong> Optimise processes, systems, workflows. Use drawings for layouts, costing for efficiency, and reports for management.</li>
+      </ul>
+      <p><strong>Pathways:</strong> These skills are used in TAFE courses (engineering trades), apprenticeships (mechanical, electrical), and university degrees (engineering). Mastering them now prepares you for further study and careers.</p>
+      <p>In your folio, include a "Pathways" section linking your project to at least one engineering career and noting relevant post-school courses or apprenticeships. This shows you understand how classroom learning connects to real-world opportunities.</p>
+    </article>
+
+    <article class="card">
+      <h2>Activities &amp; Evidence</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">Complete these activities to demonstrate your understanding:</p>
+      
+      <h3>1) Testing Setup</h3>
+      <ul>
+        <li><strong>Prepare test equipment:</strong> Set up spring balance or force meter, weights, measuring tools (rulers, protractors). Secure digger frame. Ensure safety controls are in place.</li>
+        <li><strong>Review design predictions:</strong> Review your Toolkit 2 calculations for expected forces, movements, and MA/VR. These are your theoretical predictions to compare against.</li>
+        <li><strong>Plan test sequence:</strong> Decide order of testing (boom, dipper, bucket). Plan how you'll measure each parameter systematically.</li>
+      </ul>
+      
+      <h3>2) Systematic Testing</h3>
+      <ul>
+        <li><strong>Load lifting capacity:</strong> Test how much weight the bucket can lift. Add weights gradually and record the maximum load before the system fails or becomes unstable.</li>
+        <li><strong>Force measurements:</strong> Measure input force (using spring balance) and output force (weight lifted). Create a table comparing theoretical vs actual forces for different loads.</li>
+        <li><strong>Movement measurements:</strong> Measure input displacement and output displacement for each function. Compare actual distances to theoretical predictions based on area ratios and lever ratios.</li>
+        <li><strong>Efficiency calculation:</strong> Calculate efficiency as (actual output force / theoretical output force) × 100%. Identify factors that reduce efficiency (friction, air bubbles, leakage, lever geometry).</li>
+        <li><strong>Video documentation:</strong> Record the digger in operation, showing lifting, reaching, and bucket control. Use this to analyse motion and identify areas for improvement.</li>
+      </ul>
+      
+      <h3>3) Data Analysis</h3>
+      <ul>
+        <li><strong>Create data tables:</strong> Organise test data in tables with clear headings (Test Number, Input Force, Output Force, Theoretical MA, Actual MA, Efficiency).</li>
+        <li><strong>Create graphs:</strong> Plot graphs showing input force vs output force, or efficiency vs load. Label axes clearly, include units, and add titles.</li>
+        <li><strong>Calculate performance metrics:</strong> Calculate MA, VR, and efficiency for each test. Compare theoretical predictions with actual results.</li>
+        <li><strong>Identify trends:</strong> Look for patterns in the data. Does efficiency change with load? Are there consistent differences from predictions?</li>
+      </ul>
+      
+      <h3>4) Evaluation and Reflection</h3>
+      <ul>
+        <li><strong>Compare to brief:</strong> Evaluate how well your digger met the design brief requirements (reach, lifting capacity, control). Use specific criteria.</li>
+        <li><strong>Analyse differences:</strong> Explain why actual results differ from theoretical predictions. Identify specific factors (friction, air bubbles, geometry) and their effects.</li>
+        <li><strong>Identify improvements:</strong> Propose specific, practical changes (e.g., "Increasing the dipper lever ratio from 2:1 to 3:1 would improve lifting capacity but reduce speed").</li>
+        <li><strong>Link to theory:</strong> Connect your results back to Pascal's principle, lever mechanics, and friction/leakage concepts from Toolkit 1.</li>
+      </ul>
+      
+      <h3>5) Folio Completion</h3>
+      <ul>
+        <li><strong>Compile all sections:</strong> Bring together design documentation (Toolkit 2), build log (Toolkit 3), and test results (Toolkit 4) into a comprehensive folio.</li>
+        <li><strong>Write evaluation:</strong> Complete your evaluation section with performance analysis, comparison to predictions, and specific improvements.</li>
+        <li><strong>Add sustainability section:</strong> Document material choices, waste reduction, and environmental considerations.</li>
+        <li><strong>Polish presentation:</strong> Ensure clear structure, professional formatting, and consistent use of engineering terminology throughout.</li>
+      </ul>
+      
+      <h3>6) Google Classroom Check-in</h3>
+      <ul>
+        <li>Submit your test data tables and graphs for teacher review.</li>
+        <li>Share your evaluation and analysis in the <a href="https://classroom.google.com" target="_blank" rel="noopener">Hydraulic Digger Project</a> task.</li>
+        <li>Submit your completed folio for final assessment.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Hydraulic Digger Testing &amp; Evaluation Q&amp;A</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why use both orthographic and pictorial drawings?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa1">
+            <p>Orthographic drawings (front, top, side views) give accurate dimensions for manufacturing. Each view shows two dimensions clearly, and together they show all three dimensions. Builders use these to measure, cut, and assemble parts accurately.</p>
+            <p>Pictorial drawings (isometric, perspective) communicate form and assembly relationships. They help reviewers visualise what the finished project looks like and how parts fit together.</p>
+            <p>Together, they improve clarity: orthographic for precision, pictorial for understanding. In industry, both are used—orthographic for manufacturing, pictorial for presentations and client communication.</p>
+            <p><strong>In your folio:</strong> Include orthographic views for key parts (with dimensions) and pictorial views for assemblies (showing overall form). This demonstrates you understand both types and when to use each.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What should a costing spreadsheet include, and how do you structure it?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa2">
+            <p>Create a table with columns: Item, Quantity, Unit, Unit Price ($), Extended Cost ($). Use formulas: Extended Cost = Quantity × Unit Price. Total Cost = Sum of all Extended Costs.</p>
+            <p><strong>Include:</strong> All materials (timber, screws, adhesives, etc.), quantities needed, unit prices (from suppliers or teacher-provided rates), extended costs (calculated automatically), waste allowance (10–15% of material cost), and contingency (5–10% for unexpected costs).</p>
+            <p><strong>Example structure:</strong></p>
+            <ul>
+              <li>Pine timber: 2.4 m, $5.00/m, Extended = $12.00</li>
+              <li>Screws: 20, $0.10 each, Extended = $2.00</li>
+              <li>Subtotal = $14.00</li>
+              <li>Waste (15%) = $2.10</li>
+              <li>Contingency (10%) = $1.61</li>
+              <li>Total Project Cost = $17.71</li>
+            </ul>
+            <p>Use formulas so totals update automatically when you change quantities or prices. This makes it easy to compare design options or adjust for different suppliers.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How can sustainability be shown in the folio, and what should you include?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa3">
+            <p>Demonstrate sustainability thinking by:</p>
+            <ul>
+              <li><strong>Material choices:</strong> Note recycled or low-impact materials (sustainably sourced timber, recyclable plastics). Compare options on environmental impact, not just cost.</li>
+              <li><strong>Waste reduction:</strong> Show efficient cutting plans that minimise offcuts. Reuse offcuts for smaller parts or tests. Document waste amounts and how you reduced them.</li>
+              <li><strong>Energy use:</strong> Record energy consumption for manufacturing (if using power tools, 3D printing, laser cutting). Compare to alternatives.</li>
+              <li><strong>Durability:</strong> Design for longevity—longer-lasting products reduce waste. Explain how your design choices improve durability.</li>
+              <li><strong>End-of-life:</strong> Discuss how the design could be reused, recycled, or adapted. Can parts be salvaged? Can materials be recycled?</li>
+            </ul>
+            <p>In your folio, include a "Sustainability" section explaining these considerations. Link to EGT5-ENV-01 (environmental and social impact) and demonstrate responsible engineering thinking.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why is reflective writing important, and how do you write a strong evaluation?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa4">
+            <p>Reflection captures what worked, what failed, and how to improve. It demonstrates learning progress and links decisions to outcomes, supporting EGT5-COM-01 (communication).</p>
+            <p><strong>Strong evaluation includes:</strong></p>
+            <ul>
+              <li><strong>Comparison to brief:</strong> Did your project meet the design brief? Use specific criteria (reliability targets, size constraints, performance goals) to evaluate success.</li>
+              <li><strong>Data-driven conclusions:</strong> Use test results, measurements, and observations to support statements. Avoid vague claims like "it worked well"—instead say "reliability of 95% exceeded the 90% target".</li>
+              <li><strong>Engineering terminology:</strong> Use terms like "gear ratios", "mechanical advantage", "tolerances", "efficiency" to show understanding. Link results back to theory.</li>
+              <li><strong>Specific improvements:</strong> Propose concrete changes (e.g., "increasing gate clearance from 0.5 mm to 1 mm would reduce jam frequency") rather than vague suggestions.</li>
+              <li><strong>Learning reflection:</strong> What did you learn? What would you do differently? How does this connect to Stage 5 outcomes?</li>
+            </ul>
+            <p>Avoid simply describing what you did—instead, analyse why it worked (or didn't), what you learned, and how you would improve. This demonstrates mature engineering thinking.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What drawing conventions should you follow, and why are they important?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa5">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa5">
+            <p>Drawing conventions ensure drawings are understood by anyone who reads them. Follow these standards:</p>
+            <ul>
+              <li><strong>Line types:</strong> Solid lines for visible edges, dashed lines for hidden detail, chain-dash lines for centre lines and symmetry. Use correct line weights (thick for outlines, thin for dimensions).</li>
+              <li><strong>Dimensioning:</strong> Place dimensions clearly, avoiding clutter. Show overall dimensions (total length, width, height) and key feature dimensions (hole locations, critical lengths). Use arrows pointing to features, not crossing other lines.</li>
+              <li><strong>Projection:</strong> Align views correctly—top view above front view, side view aligned with front view. Use projection lines to ensure alignment.</li>
+              <li><strong>Title blocks:</strong> Include project name, student name, date, scale, and units. This identifies the drawing and provides context.</li>
+              <li><strong>Tolerances:</strong> Include tolerances where precision matters (e.g., hole sizes, gear meshing clearances). This shows you understand manufacturing limitations.</li>
+            </ul>
+            <p>Following conventions makes drawings professional and easy to read. In industry, incorrect conventions cause confusion, errors, and delays. Master them now, and you'll be prepared for further study and careers.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How do you create effective concept sketches, and what should they show?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa6">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa6">
+            <p>Concept sketches explore different design ideas before committing to one. They should show:</p>
+            <ul>
+              <li><strong>Overall form:</strong> What does it look like? How is it shaped? What are the main components?</li>
+              <li><strong>Key features:</strong> How do mechanisms work? Where are gears, cams, or moving parts? How do parts connect?</li>
+              <li><strong>Proportions:</strong> Rough scale relationships (is it tall and narrow, or wide and low?).</li>
+              <li><strong>Notes:</strong> Label parts, explain how mechanisms work, note pros/cons of each idea.</li>
+            </ul>
+            <p><strong>Process:</strong> Sketch 2–3 different ideas. For each, note advantages (e.g., "simple construction", "high reliability") and disadvantages (e.g., "requires precise alignment", "more expensive materials"). Use a selection matrix to compare options on criteria (cost, buildability, performance, aesthetics). Select the best option and explain why.</p>
+            <p>Concept sketches don't need to be perfect—they're for exploring ideas, not final documentation. However, they should be clear enough that others can understand your thinking. Include them in your folio to show how you developed your design.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What should a build log include, and how do you maintain it effectively?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa7">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa7">
+            <p>A build log documents your construction process, showing progress, problems, and solutions. It should include:</p>
+            <ul>
+              <li><strong>Dated entries:</strong> Record what you did each lesson, with dates. This shows progress over time.</li>
+              <li><strong>Photos:</strong> Take photos at key stages (materials, construction steps, completed parts, final assembly). Photos provide visual evidence of your work.</li>
+              <li><strong>Problems and solutions:</strong> Document any issues encountered (jams, misalignment, material shortages) and how you solved them. This demonstrates problem-solving skills.</li>
+              <li><strong>Changes from plan:</strong> Note any modifications made during construction. Explain why changes were needed and how they affected the design.</li>
+              <li><strong>Measurements and data:</strong> Record key dimensions, test results, and observations. This provides evidence for your evaluation.</li>
+            </ul>
+            <p><strong>Maintenance tips:</strong> Update the log regularly (don't wait until the end). Take photos as you go (don't try to recreate them later). Be honest about problems—they show learning, not failure. Use clear headings and dates to organise entries.</p>
+            <p>A well-maintained build log demonstrates systematic engineering thinking and provides evidence for your evaluation. It shows you understand the construction process and can reflect on your work.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How do you present test results effectively in a folio?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa8">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa8">
+            <p>Present test results clearly and professionally:</p>
+            <ul>
+              <li><strong>Tables:</strong> Organise data in tables with clear headings (Cycle Number, Issue Type, Location, Cause, Resolution). Use consistent units and formatting.</li>
+              <li><strong>Graphs:</strong> Create graphs showing trends (reliability over cycles, torque vs gear ratio, etc.). Label axes clearly, include units, and add titles.</li>
+              <li><strong>Photos and videos:</strong> Include images showing testing setup, mechanisms in operation, and any failures. Videos are particularly useful for motion analysis.</li>
+              <li><strong>Calculations:</strong> Show how you calculated key values (reliability percentages, mechanical advantage, efficiency). Include formulas and worked examples.</li>
+              <li><strong>Analysis:</strong> Don't just present data—analyse it. What patterns do you see? What do the results mean? How do they compare to predictions?</li>
+            </ul>
+            <p><strong>Example:</strong> Instead of just listing "95 successful cycles out of 100", create a table showing cycle-by-cycle results, calculate reliability as 95%, create a graph showing reliability over time, and analyse what caused the 5 failures.</p>
+            <p>Well-presented test results provide strong evidence for your evaluation. They show you can collect, organise, and analyse data—essential engineering skills.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How do you link your project to engineering careers and pathways?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa9">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa9">
+            <p>Connect your project to real engineering applications:</p>
+            <ul>
+              <li><strong>Career research:</strong> Investigate at least one engineering career (mechanical, civil, mechatronic, or industrial). Explain what they do, what skills they need, and how your project connects to their work. For example, "Mechanical engineers design machines and mechanisms, similar to my geared dispenser. They use CAD for drawings, cost analysis for manufacturing, and technical reports for clients—skills I'm developing in this project."</li>
+              <li><strong>Real-world applications:</strong> Connect your project to real systems. For example, "Vending machines use gear trains and cams similar to my dispenser. Packaging lines use reliability testing to ensure consistent production, just like I tested my dispenser for 100+ cycles."</li>
+              <li><strong>Pathways:</strong> Research post-school courses or apprenticeships. Note entry requirements, duration, and career outcomes. Explain how mastering these skills prepares you for further study. For example, "TAFE engineering courses require CAD skills, costing knowledge, and folio writing—all skills I'm developing in this project."</li>
+            </ul>
+            <p>In your folio, include a "Pathways" section explaining these connections. This shows you understand how classroom learning links to real-world opportunities and demonstrates career awareness—important for Stage 5 outcomes.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What makes a folio professional and easy to assess?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa10">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa10">
+            <p>A professional folio is:</p>
+            <ul>
+              <li><strong>Well-organised:</strong> Clear structure with sections, headings, and page numbers. Use a contents page to help readers navigate. Follow the outline you created at the start.</li>
+              <li><strong>Complete:</strong> Includes all required sections (brief, concepts, drawings, costing, build log, test results, evaluation, sustainability, pathways). Missing sections make assessment difficult.</li>
+              <li><strong>Clear and readable:</strong> Use consistent formatting (fonts, headings, spacing). Proofread for spelling and grammar. Use short paragraphs and clear sentences. Avoid walls of text—break up with headings, images, and tables.</li>
+              <li><strong>Evidence-rich:</strong> Includes photos, drawings, tables, graphs, and calculations. Evidence supports claims and demonstrates understanding. Don't just describe—show with images and data.</li>
+              <li><strong>Technically accurate:</strong> Uses correct engineering terminology, accurate measurements, and proper drawing conventions. Errors reduce credibility and make assessment difficult.</li>
+              <li><strong>Reflective:</strong> Evaluates performance, analyses results, and proposes improvements. Shows learning progress and links decisions to outcomes.</li>
+            </ul>
+            <p><strong>Assessment perspective:</strong> Teachers assess folios on how well they demonstrate understanding of Stage 5 outcomes. A professional folio makes this easy—clear evidence, accurate terminology, and thoughtful reflection show you understand the concepts and can apply them.</p>
+            <p>Think of your folio as a portfolio of your engineering work—something you'd show to a potential employer or university. Make it something you're proud of.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Student Responsibilities</h2>
+      <ul>
+        <li>Follow all teacher instructions and workshop rules. Complete your SWMS before starting construction.</li>
+        <li>Use Onshape responsibly: save work regularly, follow file naming conventions, and export drawings as PDFs for folio inclusion.</li>
+        <li>Maintain your build log regularly—don't wait until the end. Take photos as you go and record problems and solutions.</li>
+        <li>Document your work thoroughly: include all required folio sections, use engineering terminology, and provide evidence (photos, drawings, data) to support claims.</li>
+        <li>Present work professionally: proofread for spelling and grammar, use consistent formatting, and ensure drawings follow correct conventions.</li>
+        <li>Respect shared equipment: return materials and tools clean, store work properly, and leave workbenches tidy for the next class.</li>
+        <li>Submit work on time: meet deadlines for design reviews, build checkpoints, and final folio submission. Communicate with your teacher if you need extensions.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li>Test equipment: spring balances (force meters), weights, rulers, protractors for measurements.</li>
+        <li>Data recording: spreadsheets or calculators for calculations, graph paper or software for data presentation.</li>
+        <li>Documentation: camera or phone for photo/video documentation, folio templates.</li>
+        <li>Safety equipment: PPE, cleanup materials (towels, drip trays) for water spills.</li>
+        <li>Folio exemplars and evaluation templates for reference.</li>
+      </ul>
+    </article>
+  </main>
+  <script src="../page-nav.js" defer></script>
+  <script src="../qa-widget.js"></script>
+</body>
+</html>

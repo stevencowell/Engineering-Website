@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Toolkit 2 | Fluid Power &amp; Hydraulic Digger</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #dce9ff 0, #f6f8fb 45%, #edf2ff 100%);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 1.5rem;
+    }
+
+    a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+
+    header {
+      background: linear-gradient(135deg, #004080, #0077e6);
+      color: #fff;
+      padding: 1.75rem 1.5rem;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12) 0, transparent 55%),
+        radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.08) 0, transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    header > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 1.9rem;
+      margin-bottom: 0.2rem;
+    }
+
+    header p {
+      max-width: 52rem;
+      font-size: 0.98rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .tagline {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .tagline span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      font-size: 0.8rem;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+      color: var(--muted);
+    }
+
+    .back-link:hover {
+      color: var(--brand);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 1.25rem;
+      padding: 1.1rem 1.2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card h3 {
+      font-size: 1.02rem;
+      margin-top: 0.7rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0.4rem 0;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 0.7rem 0.8rem;
+      margin: 0.65rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .qa-toggle {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--brand);
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+
+    .qa-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+
+    .qa-answer {
+      margin-top: 0.65rem;
+      color: var(--muted);
+      display: none;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      color: var(--muted);
+    }
+
+    .meta-badge {
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: #f1f5f9;
+      border: 1px solid #d4e1f5;
+    }
+
+    ul {
+      padding-left: 1.1rem;
+      margin: 0.3rem 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    ul li {
+      margin-bottom: 0.15rem;
+    }
+
+    @media (max-width: 850px) {
+      body {
+        padding: 1rem;
+      }
+
+      header {
+        padding: 1.3rem 1.1rem;
+      }
+
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Toolkit 2 &mdash; Fluid Power &amp; Hydraulic Digger</h1>
+  <p>
+    This toolkit introduces hydraulic and pneumatic systems as control systems that transmit force through fluids. Students apply Pascal&apos;s
+    principle, calculate force changes using piston area ratios, and design, build and test a tabletop hydraulic digger as a simple hydraulic control
+    system. The focus is Stage 5 mechanical analysis, safe work practice, data collection and clear communication.
+  </p>
+  <div class="tagline">
+    <span>Y9</span>
+    <strong>Term 2 &middot; Mechanisms &amp; Control systems (Hydraulic)</strong>
+  </div>
+</header>
+
+<main>
+  <a class="back-link" href="../year9_term2.html">← Back to Year 9 T2 Toolkits</a>
+
+  <article class="card">
+    <div class="pill">Mechanisms &amp; Control systems</div>
+    <h2>Learning Focus</h2>
+    <ul>
+      <li>Explain hydraulic and pneumatic systems as methods of transmitting force using fluids within a control system.</li>
+      <li>Apply Pascal&apos;s principle and area ratios to calculate force changes in hydraulic circuits.</li>
+      <li>Model the hydraulic digger as a simple control system with clear inputs, system response and outputs.</li>
+      <li>Design, build and evaluate a hydraulic digger that demonstrates lever linkages, mechanical advantage and safe workshop practice.</li>
+      <li>Collect and interpret test data (force, travel, load, efficiency) and communicate findings in a concise engineering report.</li>
+    </ul>
+    <div class="meta-row">
+      <span class="meta-badge">Stage 5 &ndash; Mechanisms &amp; Control systems (Hydraulic option)</span>
+      <span class="meta-badge">EGT5-MEA-01 &bull; EGT5-SAF-01 &bull; EGT5-COM-01 &bull; EGT5-ENV-01 (+ GRP, IVT, USE)</span>
+    </div>
+  </article>
+
+  <div class="grid">
+    <article class="card">
+      <h2>Key Notes</h2>
+
+      <h3>1. Fluid power and control systems</h3>
+      <p>
+        In many machines, gears and levers are not the most practical way to transmit force. Instead, engineers use <strong>fluid power</strong>:
+        hydraulics (incompressible liquids) and pneumatics (compressible gases) to move force through enclosed systems. Car brakes, excavator arms, waste
+        compactors and workshop presses all rely on hydraulic circuits where inputs at one piston create outputs somewhere else in the system.
+      </p>
+      <p>
+        In this toolkit, the hydraulic digger is treated as a simple <strong>hydraulic control system</strong>. The student&apos;s hand on the syringe
+        plunger is the <em>input</em>, the fluid and linkages provide the <em>system response</em>, and the bucket movement and load lifted are the
+        <em>outputs</em>. Thinking in terms of input &rarr; process &rarr; output sets students up for Stage 5 Control systems work.
+      </p>
+
+      <h3>2. Pascal&apos;s principle and force calculations</h3>
+      <p>
+        The key idea for hydraulic calculations is that pressure in a confined fluid is transmitted undiminished. In symbols:
+        <strong>Pressure = Force / Area (P = F / A)</strong>. If two pistons share the same fluid, then
+        <strong>F<sub>1</sub> / A<sub>1</sub> = F<sub>2</sub> / A<sub>2</sub></strong>. Rearranging gives:
+      </p>
+      <p>
+        <strong>F<sub>2</sub> = F<sub>1</sub> &times; (A<sub>2</sub> / A<sub>1</sub>)</strong>
+      </p>
+      <p>
+        The ratio of output area to input area is the <em>mechanical advantage</em> of the hydraulic system. In class, linking syringes of different
+        diameters lets students feel this: pushing a small syringe produces a larger force in a bigger one, but over a shorter distance. Students can
+        record input force, output force and plunger travel to see the trade-off between force and distance.
+      </p>
+
+      <h3>3. Building and analysing the hydraulic digger</h3>
+      <p>
+        The digger project combines the lever linkages from Toolkit 1 with hydraulic circuits. Students sketch a simple excavator arm with three main
+        sections: boom, dipper and bucket. They choose pivot points and cylinder locations so the arm has useful movement without hitting dead spots or
+        binding. Syringe size and mounting positions directly affect the range and smoothness of motion.
+      </p>
+      <p>
+        Before building, students estimate bucket forces using syringe areas and lever ratios. During testing they measure input plunger force and travel,
+        then record the load lifted at the bucket and the bucket movement. Comparing predicted and actual performance aligns with
+        <strong>EGT5-MEA-01</strong>. <em>Student-friendly summary (not official wording):</em> mechanical analysis and practical testing of an engineering system.
+        <em>Official wording:</em> applies mechanical analysis and practical testing to investigate engineering concepts.
+      </p>
+
+      <h3>4. Fluid behaviour, friction and leakage</h3>
+      <p>
+        Real systems are never perfect. Students will notice small lags in response as tubing flexes and any air bubbles compress. They will feel extra
+        force required at the plunger to overcome <em>static friction</em> in syringes and linkages. At higher loads, hoses or joints may bulge slightly,
+        and poorly sealed connections can leak.
+      </p>
+      <p>
+        Use these observations to link classroom builds to industry practice: specialised seals, rigid steel or reinforced hoses, carefully chosen fluids
+        and valves designed to control flow and pressure. As an extension, students can compare hydraulics with pneumatics: compressed air feels springy
+        and fast but less precise for heavy, controlled movements; liquids enable slower, more accurate control of large forces.
+      </p>
+
+      <h3>5. Risk management and safe work practice</h3>
+      <p>
+        Even a water-based classroom hydraulic system has hazards. Syringes or tubing can pop and spray water; spills make floors slippery; timber frames
+        can present sharp edges or splinters, and hands can be pinched in moving linkages. Students complete a short
+        <strong>SWMS-style risk assessment</strong> identifying hazards, rating likelihood and consequence, and choosing controls.
+      </p>
+      <p>
+        Typical controls include: using water instead of oil, keeping electrical gear away from wet areas, limiting maximum plunger force, wearing safety
+        glasses during pressure testing, clamping work when drilling, and checking syringes and hoses for damage before use. This reinforces
+        <strong>EGT5-SAF-01</strong> and your existing WHS expectations in Industrial Technology.
+      </p>
+
+      <h3>6. Communication, sustainability and evaluation</h3>
+      <p>
+        Students document their digger build as a concise <strong>engineering report</strong>. A simple structure works well:
+      </p>
+      <ul>
+        <li>Design brief and success criteria (reach, load, smoothness of control, safety).</li>
+        <li>Annotated sketches or photos showing linkages, pivot points and cylinder locations.</li>
+        <li>Reasoning for syringe sizes and materials chosen for frame, linkages and joints.</li>
+        <li>Data tables and graphs of force, travel, load and any measured efficiency.</li>
+        <li>Evaluation against criteria and 2–3 realistic improvement ideas.</li>
+      </ul>
+      <p>
+        To align with <strong>EGT5-ENV-01</strong>, students can briefly reflect on sustainability: choice of ply versus aluminium or plastic for structural
+        parts, reuse of offcuts, and how hydraulic systems in industry can reduce or increase environmental impact depending on design decisions.
+      </p>
+    </article>
+
+    <article class="card">
+      <h2>Activities &amp; Evidence</h2>
+      <ul>
+        <li>
+          <strong>Paired-syringe rigs:</strong> Build small test rigs with two linked syringes of different diameters. Measure input force and plunger travel
+          versus output force and travel. Calculate area ratios and compare with measured mechanical advantage.
+        </li>
+        <li>
+          <strong>Hydraulic digger build:</strong> Design and construct a tabletop hydraulic digger using syringes, plastic tubing, timber and simple lever
+          linkages. Photograph the build stages and final model.
+        </li>
+        <li>
+          <strong>Performance testing:</strong> Record test data for several trials: input plunger force and distance, load lifted at the bucket, bucket
+          movement and any visible deformation. Estimate efficiency and discuss reasons for losses.
+        </li>
+        <li>
+          <strong>Pressure and hose integrity check:</strong> Observe tubing and joints at higher loads, noting any bulging or leaks. Link these observations
+          to how industry checks hose integrity and manages maximum working pressure.
+        </li>
+        <li>
+          <strong>SWMS reflection:</strong> Complete a short SWMS-style risk assessment for the hydraulic digger work and write a brief reflection on which
+          controls were most effective in practice.
+        </li>
+        <li>
+          <strong>Mini engineering report:</strong> Submit a one–two page report including diagrams, calculations, data tables/graphs and an evaluation of
+          performance and sustainability choices.
+        </li>
+      </ul>
+    </article>
+  </div>
+
+    <article class="card">
+      <h2>Q&amp;A</h2>
+    <div class="qa-list">
+      <div class="qa-item">
+        <div class="qa-question">
+          <span>Why do hydraulics multiply force instead of pressure?</span>
+          <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+        </div>
+        <div class="qa-answer" id="qa1">
+          Pressure in a confined fluid tends to stay the same throughout the system, so what changes is the force for a given area. If the output piston
+          has a larger area than the input piston, the same pressure acting over a larger area produces a larger force. The trade-off is that the larger
+          piston moves a shorter distance, so you never get "free" energy — just a swap between force and distance.
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question">
+          <span>How is the hydraulic digger a control system?</span>
+          <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+        </div>
+        <div class="qa-answer" id="qa2">
+          A control system has inputs, a process and outputs. In the digger, the input is the plunger force and movement from the operator. The process is
+          the hydraulic circuit and lever linkages that transmit and transform that input. The outputs are the bucket motion and the load it can lift.
+          Thinking this way helps students link the project directly to Stage 5 Control systems content.
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question">
+          <span>Why does a bit of air in the tubing make the digger feel "spongy"?</span>
+          <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+        </div>
+        <div class="qa-answer" id="qa3">
+          Liquids are almost incompressible, but gases compress quite easily. Any trapped air bubble in the system will compress when you push on the
+          plunger, absorbing part of the movement before the output piston responds. That makes control less precise and can reduce the maximum force at
+          the bucket.
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question">
+          <span>What properties make good materials for the digger frame and linkages?</span>
+          <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+        </div>
+        <div class="qa-answer" id="qa4">
+          The frame and linkages need stiffness to avoid flexing, enough strength to handle the loads, and good machinability so students can cut and join
+          parts accurately. Thin plywood or solid timber sections usually work well in class. For joints, screws, bolts or pinned connections that allow
+          smooth rotation are better than glued butt joints, which can tear apart under cyclic loading.
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <h2>Resources</h2>
+    <ul>
+      <li>Various sizes of plastic syringes (no needles) and flexible clear tubing suitable for water.</li>
+      <li>Timber or plywood for base and arms, small screws or bolts for pivots, brackets or angle blocks for mounting syringes.</li>
+      <li>Elastic bands, clamps and jigs for holding parts while drilling and assembling.</li>
+      <li>Spring scales or simple force gauges for measuring input force at the plunger.</li>
+      <li>SWMS templates covering drilling, cutting, pinch points and slip hazards from water spills.</li>
+      <li>Short videos or animations of real hydraulic systems (excavators, presses, brakes) for class discussion.</li>
+    </ul>
+  </article>
+</main>
+
+<script src="../page-nav.js" defer></script>
+<script src="../qa-widget.js"></script>
+</body>
+</html>

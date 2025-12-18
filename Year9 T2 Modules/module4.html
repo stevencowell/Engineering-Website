@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 4: Concrete Beam Casting, Test & Evaluate. Cast your concrete beam, conduct destructive testing, and evaluate performance." />
+  <meta name="keywords" content="concrete beam, casting, testing, evaluation, destructive test" />
+  <title>Toolkit 4: Concrete Beam Casting, Test & Evaluate | Year 9 Term 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0,0,0,0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      background: linear-gradient(135deg, #0b63c3, #0a4f93);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    nav a.active {
+      background: #e6f0fb;
+      color: #0b63c3;
+    }
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.75rem 1rem 3rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+    .card h2 {
+      margin: 0 0 0.5rem;
+      color: var(--brand);
+    }
+    .card h3 {
+      margin: 1.2rem 0 0.35rem;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+    .card ul {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.1rem;
+      color: var(--muted);
+    }
+    .card li + li { margin-top: 0.35rem; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .pdf-embed {
+      width: 100%;
+      height: 420px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .pdf-embed-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+    }
+    .qa-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-top: 0.5rem;
+    }
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 0.9rem;
+      background: #fdfefe;
+    }
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .qa-question span {
+      font-weight: 500;
+      color: var(--text);
+    }
+    .qa-toggle {
+      border: none;
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.85rem;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+    .qa-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .qa-answer {
+      margin-top: 0.65rem;
+      color: var(--muted);
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 4: Concrete Beam Casting, Test &amp; Evaluate</h1>
+    <p>Cast, cure, test and evaluate your concrete beam project</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term2.html">&#8592; T2 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a class="active" href="module4.html">Toolkit 4</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../year9_term2.html">&#8592; Back to Year 9 T2 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Project</div>
+      <h2>Learning Focus</h2>
+      <img src="../images/term234/castconcreteborder.jpg" alt="Concrete beam casting process" class="content-image" />
+      <p style="color: var(--muted); margin-bottom: 1rem;">By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Cast concrete beams safely:</strong> Follow proper procedures for mixing, placing, and compacting concrete.</li>
+        <li><strong>Manage curing:</strong> Maintain proper curing conditions for strength development.</li>
+        <li><strong>Conduct destructive testing:</strong> Set up test equipment, apply loads systematically, and observe failure modes.</li>
+        <li><strong>Collect and analyse data:</strong> Record loads, deflections, and failure characteristics, then analyse results.</li>
+        <li><strong>Evaluate performance:</strong> Compare predicted vs actual performance, identify failure causes, and suggest improvements.</li>
+      </ul>
+      <p style="color: var(--muted); margin-top: 1rem; padding: 0.75rem; background: #f8f9fa; border-left: 3px solid var(--brand); border-radius: 4px;"><strong>Timing:</strong> Cast your beam in Week 1-2, allow 7+ days for curing, then test in Week 3-4. Complete your beam folio by the end of Week 4. This is your main Term 2 project.</p>
+    </article>
+
+    <article class="card">
+      <h2>Concrete Beam – Casting Protocol</h2>
+      <p style="color: var(--muted); margin-bottom: 0.75rem; font-weight: 600;"><strong>Timing:</strong> Cast beams in Week 1-2 based on your Toolkit 3 design. Beams need at least 7 days to cure before testing.</p>
+      <img src="../images/Beam-molds-and-reinforcement.png" alt="Concrete beam moulds and reinforcement setup" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0;" />
+      <h3>1) Mould preparation & reinforcement</h3>
+      <ul>
+        <li>Clean mould thoroughly; check dimensions match your design.</li>
+        <li>Apply release agent if required (light oil or commercial release agent).</li>
+        <li>Position reinforcement accurately using spacers or supports. Check cover dimensions (typically 15-20 mm minimum).</li>
+        <li>Secure reinforcement to prevent movement during concrete placement.</li>
+      </ul>
+
+      <h3>2) Mix and placement</h3>
+      <ul>
+        <li>Record the <strong>mix proportions</strong> (cement : sand : aggregate : water) exactly as used.</li>
+        <li>Mix dry ingredients (cement, sand, aggregate) thoroughly before adding water.</li>
+        <li>Add water gradually while mixing to achieve desired workability. Avoid adding too much water.</li>
+        <li>Place concrete in layers; <strong>tap or rod</strong> each layer to remove air bubbles and ensure compaction.</li>
+        <li>Fill mould completely, level the top surface, and smooth if required.</li>
+        <li>Label the beam with identification (group name, date, mix details).</li>
+      </ul>
+
+      <h3>3) Initial curing</h3>
+      <ul>
+        <li>Cover the mould to prevent moisture loss (plastic sheet, wet hessian, or curing compound).</li>
+        <li>Keep in a protected location, away from direct sunlight and wind.</li>
+        <li>Allow initial set (typically 24-48 hours) before demoulding.</li>
+        <li>Handle carefully when removing from mould - concrete is still relatively weak.</li>
+      </ul>
+
+      <h3>4) Continued curing</h3>
+      <ul>
+        <li>Keep beams moist and protected for the full curing period (minimum 7 days, ideally 28 days for maximum strength).</li>
+        <li>Note curing time and conditions (temperature, whether covered or not) in your folio.</li>
+        <li><strong>Important:</strong> Beams are cast in Week 1-2 and need at least 7 days to cure before testing. Use this curing time to complete your design documentation and prepare test procedures. Testing occurs in Week 3-4.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Testing Protocol</h2>
+      <img src="../images/term234/concrete-testing.gif" alt="Concrete beam testing apparatus showing load application and failure" class="content-image" />
+      <h3>1) Pre-test preparation</h3>
+      <ul>
+        <li>Record: date, group members, beam ID, dimensions, mix details, and curing time.</li>
+        <li>Inspect beam for obvious defects (cracks, surface irregularities, dimensions).</li>
+        <li>Set up supports at the specified span; ensure supports are level and stable.</li>
+        <li>Confirm the loading point(s) (central point or two-point loading) and loading mechanism.</li>
+        <li>Set up deflection measurement (ruler at mid-span, measured from a fixed datum).</li>
+        <li>Review SWMS and ensure all safety controls are in place.</li>
+      </ul>
+
+      <h3>2) Loading procedure</h3>
+      <ul>
+        <li>Add load in clear, recorded steps (e.g., 1 kg at a time, or consistent increments).</li>
+        <li>After each increment, pause to observe and record:
+          <ul>
+            <li>Total load applied</li>
+            <li>Deflection at mid-span</li>
+            <li>Any visible cracks or changes</li>
+            <li>Any sounds (pops, creaks)</li>
+          </ul>
+        </li>
+        <li>Continue loading until failure or until deflection becomes excessive.</li>
+        <li>Use video to capture the whole test so you can pause and review exactly where and how failure started.</li>
+      </ul>
+
+      <h3>3) Failure observation</h3>
+      <ul>
+        <li>Record load at <strong>first crack</strong> (usually on tension side, bottom of beam).</li>
+        <li>Observe how crack pattern develops as load increases.</li>
+        <li>Record <strong>peak load</strong> reached before failure.</li>
+        <li>Note the <strong>failure mode</strong>:
+          <ul>
+            <li>Flexural failure (bending - most common)</li>
+            <li>Shear failure (diagonal cracks near supports)</li>
+            <li>Compression failure (crushing at top)</li>
+          </ul>
+        </li>
+        <li>After failure, inspect the fracture: note tension cracking on underside, crushing at top, or shear near supports.</li>
+        <li>Take photos of the failure surface and crack pattern.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Data Collection & Analysis</h2>
+      <img src="../images/force%20failures.jpg" alt="Examples of structural failure modes" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0;" />
+      <h3>Collecting useful data</h3>
+      <ul>
+        <li>Create a data table with columns for: load step, total load (N or kg), deflection (mm), observations.</li>
+        <li>Record all measurements consistently using the same units and methods.</li>
+        <li>Note any unusual observations (sounds, sudden changes, unexpected behaviour).</li>
+        <li>Take photos at key stages: before loading, at first crack, during loading, at failure, after failure.</li>
+      </ul>
+
+      <h3>Making sense of the results</h3>
+      <ul>
+        <li>Plot graphs where useful (e.g., load vs deflection). Look for:
+          <ul>
+            <li>Linear behaviour (elastic range)</li>
+            <li>Where behaviour changes (first cracking, yielding)</li>
+            <li>Peak load and failure point</li>
+          </ul>
+        </li>
+        <li>Compare your results with other groups: did similar designs perform similarly? Why might there be differences?</li>
+        <li>Describe both <strong>strength</strong> (max load) and <strong>stiffness</strong> (deflection under load).</li>
+        <li>Link failure mode back to your design (reinforcement placement, mix strength, dimensions).</li>
+      </ul>
+
+      <h3>Analysis and evaluation</h3>
+      <ul>
+        <li>Compare predicted vs actual performance:
+          <ul>
+            <li>Did the beam fail at the expected load?</li>
+            <li>Did it fail in the expected mode?</li>
+            <li>What factors might explain differences?</li>
+          </ul>
+        </li>
+        <li>Identify likely causes of failure:
+          <ul>
+            <li>Was reinforcement correctly placed?</li>
+            <li>Was the mix strong enough?</li>
+            <li>Were there construction defects?</li>
+            <li>Was curing adequate?</li>
+          </ul>
+        </li>
+        <li>Suggest specific improvements for a re-design:
+          <ul>
+            <li>What would you change?</li>
+            <li>Why would this improve performance?</li>
+            <li>How would you test the improvement?</li>
+          </ul>
+        </li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Folio Structure &amp; Example</h2>
+      <p style="color: var(--muted); margin-bottom: 0.75rem;"><strong>Important:</strong> Complete your concrete beam folio by the end of Week 4. This folio demonstrates your understanding of materials, design, construction, and testing.</p>
+      <img src="../images/cad%20drawing.png" alt="Example CAD drawing for folio" class="content-image" />
+      <p>Your folio should read like a short engineering report. A suggested structure is:</p>
+      <ul>
+        <li><strong>Cover &amp; brief:</strong> Project title, group members, beam requirements, design brief summary.</li>
+        <li><strong>Planning &amp; safety:</strong> SWMS summary, key hazards and controls, tool and material lists.</li>
+        <li><strong>Design &amp; drawings:</strong> Beam design sketches, cross-sections, reinforcement layouts, mix design calculations.</li>
+        <li><strong>Build log:</strong> Dated entries, photos of casting stages, problems encountered and how they were fixed.</li>
+        <li><strong>Testing &amp; data:</strong> Test setup, data tables, graphs, photos/stills, observations at first crack and failure.</li>
+        <li><strong>Evaluation:</strong> Comparison of predicted vs actual performance, analysis of failure mode, specific improvements suggested. Link back to Toolkit 2 concepts (concrete as composite, reinforcement, curing).</li>
+        <li><strong>Materials &amp; sustainability:</strong> Materials brief, comments on material choice, environmental considerations.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Concrete Beam Test &amp; Folio Q&amp;A</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why do we cast and test a small concrete beam instead of just calculating a full-size design?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q1">
+            <p>Real engineering always combines <strong>calculation, modelling and testing</strong>. A small beam lets you quickly try ideas, see unexpected failure modes, and practise measurement without the cost and risk of a full-size build.</p>
+            <p>Model testing helps you understand <strong>concrete behaviour, reinforcement action, and failure modes</strong> in a very direct way. Even though a small beam doesn't scale perfectly to full-size, the same principles apply: concrete cracks in tension, reinforcement carries tensile forces, and proper curing is essential.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is the difference between strength and stiffness in your concrete beam?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q2">
+            <p><strong>Strength</strong> is about the <strong>maximum load</strong> the beam can carry before it fails (cracks, crushes, etc.).</p>
+            <p><strong>Stiffness</strong> is about how much the beam <strong>deflects under everyday loads</strong>. A beam can be strong enough not to break, but still too flexible to feel safe or meet serviceability requirements.</p>
+            <p>In your evaluation, comment on both: "Our beam carried 450 N before failure, but deflected 8 mm at only 100 N, which would feel too flexible in real use."</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why do we test beams close to failure instead of stopping when they "look safe"?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q3">
+            <p>Testing to or near failure shows the <strong>true capacity</strong> of the beam and reveals <strong>how it fails</strong>. This is vital for learning:</p>
+            <ul>
+              <li>Where failure occurs (tension side, compression side, shear).</li>
+              <li>Whether failure is sudden (brittle) or gradual (ductile).</li>
+              <li>What design factors most affect performance.</li>
+            </ul>
+            <p>In real engineering, we rarely load structures to failure, but we still need this information from prototypes and calculations so we can set realistic <strong>factors of safety</strong>.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What makes a good test method for your concrete beam?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q4">
+            <p>A good test method is <strong>repeatable, controlled and safe</strong>:</p>
+            <ul>
+              <li>Always loading at the <strong>same point</strong> (e.g., exact centre or specified two-point locations).</li>
+              <li>Adding load in clear, recorded steps (e.g., known masses, consistent increments).</li>
+              <li>Measuring deflection carefully (same ruler position, same datum).</li>
+              <li>Using appropriate PPE and a safe zone so no one is in the line of fire if it fails.</li>
+            </ul>
+            <p>If other groups can repeat your test and get similar results, your method is strong.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why might two beams with the same design fail at very different loads?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q5">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q5">
+            <p>Small differences in <strong>construction quality</strong> can have a big effect:</p>
+            <ul>
+              <li>Slightly different mix proportions or water content.</li>
+              <li>Reinforcement placement variations (cover, position).</li>
+              <li>Compaction differences (air voids reduce strength).</li>
+              <li>Curing conditions (moisture, temperature, duration).</li>
+              <li>Minor damage from handling before testing.</li>
+            </ul>
+            <p>In your folio, it's useful to note these differences rather than assuming "the design was bad". Often the idea is sound, but the execution needs improvement.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What are the main sources of error in your beam tests?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q6">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q6">
+            <p>Common error sources include:</p>
+            <ul>
+              <li><strong>Measurement error</strong> – reading rulers at an angle, misreading mass scales.</li>
+              <li><strong>Load placement error</strong> – not exactly at mid-span or specified points.</li>
+              <li><strong>Timing/step error</strong> – adding load too quickly, skipping recording steps.</li>
+              <li><strong>Construction variation</strong> – the beam is not identical to the design.</li>
+            </ul>
+            <p>Good evaluations mention these: "Deflection readings may have been 1–2 mm off due to ruler angle and movement while reading."</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How can graphs and tables improve your folio?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q7">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q7">
+            <p>Graphs and tables turn messy notes into clear <strong>evidence</strong>:</p>
+            <ul>
+              <li>A table of load vs deflection lets you quickly see behaviour changes.</li>
+              <li>A load–deflection graph shows where behaviour changes from elastic to failing.</li>
+              <li>A comparison table of different groups' results highlights design factors.</li>
+            </ul>
+            <p>When you write your evaluation, you can refer to these ("see Figure 1") instead of writing long lists of numbers.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What makes a strong evaluation paragraph in your folio?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q8">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q8">
+            <p>A strong evaluation paragraph:</p>
+            <ul>
+              <li>Starts with a <strong>clear judgement</strong> (e.g., "Overall, our beam was strong but too flexible.").</li>
+              <li>Supports that judgement with <strong>data</strong> (max load, deflection, failure location).</li>
+              <li>Links back to <strong>theory</strong> (concrete as composite, reinforcement action, curing effects).</li>
+              <li>Finishes with <strong>specific improvements</strong> (more reinforcement, stronger mix, better curing).</li>
+            </ul>
+            <p>Avoid vague comments like "we could have made it better"; say exactly what and why.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How should you talk about safety and environment in your evaluation?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q9">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q9">
+            <p>Connect your project to real engineering responsibilities:</p>
+            <ul>
+              <li>Mention key <strong>WHS controls</strong> you used (PPE, SWMS, safe handling of wet concrete, test safety).</li>
+              <li>Comment on <strong>material choice</strong> and environmental impact (cement production, aggregate sourcing, waste management).</li>
+              <li>Reflect on <strong>sustainability</strong> (concrete recycling, embodied energy, service life).</li>
+            </ul>
+            <p>Even a small classroom project is a chance to practise thinking like an engineer who must keep people safe and limit environmental impact.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>When you re-design, should you change everything at once?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="q10">Show answer</button>
+          </div>
+          <div class="qa-answer" id="q10">
+            <p>It's usually better to change only the <strong>most critical features</strong> between versions:</p>
+            <ul>
+              <li>Start with the factor that most affected failure (reinforcement placement, mix strength, dimensions).</li>
+              <li>Change one or two design parameters rather than everything.</li>
+              <li>Keep other factors constant so you can see what actually caused the improvement.</li>
+            </ul>
+            <p>This makes it easier to see what actually caused the improvement. If you change everything at once, you learn less from the data.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li>Concrete mixer, moulds, reinforcement samples (bars, mesh, or wire).</li>
+        <li>Digital scales, test weights, loading frame or test rig.</li>
+        <li>Cameras/phones for video and stills.</li>
+        <li>Rulers, measuring equipment for deflection.</li>
+        <li>Example beam folios for reference.</li>
+      </ul>
+    </article>
+  </main>
+
+  <script src="../page-nav.js" defer></script>
+  <script src="../qa-widget.js"></script>
+</body>
+</html>

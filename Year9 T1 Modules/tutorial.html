@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design & Test Tutorial | Year 9 Structures</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root { --brand: #0056b3; --bg: #f6f8fb; --card: #ffffff; --text: #1f2a3d; --muted: #5c667a; --border: #e2e8f0; --shadow: 0 12px 30px rgba(0,0,0,0.08); --radius: 12px; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    header { background: linear-gradient(135deg, #0a4f93, #0b63c3); color: #fff; padding: 2.25rem 1.25rem 2rem; text-align: center; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; background: #fff; border-bottom: 1px solid var(--border); padding: 0.5rem 1rem; }
+    nav a { padding: 0.4rem 0.75rem; border-radius: 10px; color: var(--brand); font-weight: 600; }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1050px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.1rem 0 0.4rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.85rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .tip { background: #e6f0fb; border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem; color: var(--text); }
+    .qa-item { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; margin: 0.65rem 0; background: #fff; box-shadow: var(--shadow); }
+    .qa-question { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; font-weight: 700; color: var(--text); }
+    .qa-toggle { padding: 0.45rem 0.85rem; border-radius: 999px; border: 1px solid var(--border); background: #e6f0fb; color: var(--brand); font-weight: 700; cursor: pointer; box-shadow: var(--shadow); }
+    .qa-toggle:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+    .qa-answer { margin-top: 0.65rem; color: var(--muted); display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Design & Test Tutorial</h1>
+    <p>Tower layout, joints, test setup, evidence capture</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term1.html">&#8592; T1 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a class="active" href="tutorial.html">Tutorial</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../year9_term1.html">&#8592; Back to Year 9 T1 Toolkits</a>
+
+    <article class="card">
+      <h2>Plan the Build</h2>
+      <img src="../images/parts%20of%20a%20tower.jpg" alt="Diagram showing parts of a tower" class="content-image" />
+      <div class="tip">Link every sketch to forces: which members are in compression (risk of buckling) and which are in tension (check joints).</div>
+      <h3>Tower layout</h3>
+      <ul>
+        <li>Sketch front/top views with member lengths, base footprint, and bracing pattern. Keep bays consistent to avoid twists.</li>
+        <li>Triangulate every panel; avoid long unbraced columns. Add cross-bracing near the base where moments are highest.</li>
+        <li>Keep weight low; shorten compression members and use tension ties where possible.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Jointing & Assembly</h2>
+      <img src="../images/Double-Gusset-Joint-for-a-Model-Bridge-Example.jpg" alt="Double gusset joint example" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0;" />
+      <h3>Joints</h3>
+      <ul>
+        <li>Use gussets or double laps rather than single-point glue. Spread load across the joint area.</li>
+        <li>Keep opposing faces parallel; avoid gaps that cause racking. Dry-fit first, then glue.</li>
+        <li>Stage assembly symmetrically (build pairs) to control twist and keep plumb.</li>
+      </ul>
+      <h3>Quality checks</h3>
+      <ul>
+        <li>Pre-cut identical members in batches; label parts; keep offcuts for spares.</li>
+        <li>Measure base diagonals; adjust before glue cures so the frame sits flat.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Test Setup</h2>
+      <img src="../images/Top-Loading-Testing-2.jpg" alt="Top loading test setup" class="content-image" />
+      <ul>
+        <li>Review SWMS and PPE. Clear fall zones; set clamps/fixtures and loading plate/bucket centrally.</li>
+        <li>Add load in steps; note load at first deflection and at failure. Use steady increments for clean data.</li>
+        <li>Film side and front views; mark reference points for deflection if possible.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Evidence to Capture</h2>
+      <img src="../images/popsicle_stick_bridges_a_strong_stem_activity%20examples.jpg" alt="Example of strong bridge construction" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0;" />
+      <ul>
+        <li>Photos: build stages, joints, final build, test setup, failure close-up.</li>
+        <li>Data: mass of tower/beam, load steps, peak load, estimated deflection, material list.</li>
+        <li>Reflection: what failed first, why (buckling, joint peel, shear), one change to improve stiffness/weight/corrosion protection.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Quick Q&A</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why triangulate every side of the tower?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa1">Triangulation stops racking and shortens compression members, reducing buckling risk and keeping loads axial.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Where do you expect the highest compression in the tower?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa2">Near the base, especially in the longest verticals under the loading point; add bracing and keep them short.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What should you record during load testing?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa3">Load steps, first visible deflection, peak load, and failure mode (member buckling, joint shear, material crack).</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How do you minimise glue joint failures?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa4">Use gussets/double laps, ensure full contact with even glue, clamp while curing, and avoid peel by aligning members with load paths.</div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <script src="../page-nav.js" defer></script>
+  <script src="../qa-widget.js"></script>
+</body>
+</html>

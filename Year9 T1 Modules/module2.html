@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toolkit 2: Structural Concepts | Year 9 Term 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root { --brand: #0056b3; --bg: #f6f8fb; --card: #ffffff; --text: #1f2a3d; --muted: #5c667a; --border: #e2e8f0; --shadow: 0 12px 30px rgba(0,0,0,0.08); --radius: 12px; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    header { background: linear-gradient(135deg, #0a4f93, #0b63c3); color: #fff; padding: 2.25rem 1.25rem 2rem; text-align: center; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; background: #fff; border-bottom: 1px solid var(--border); padding: 0.5rem 1rem; }
+    nav a { padding: 0.4rem 0.75rem; border-radius: 10px; color: var(--brand); font-weight: 600; }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .pill { display: inline-block; padding: 0.25rem 0.6rem; border-radius: 999px; background: #e6f0fb; color: var(--brand); font-weight: 600; font-size: 0.8rem; }
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      margin: 0.65rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .qa-toggle {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+    .qa-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .qa-answer {
+      margin-top: 0.65rem;
+      color: var(--muted);
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 2: Structural Concepts</h1>
+    <p>Forces, SI units, trusses, bridge types, strength-to-weight</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term1.html">&#8592; T1 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a class="active" href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a href="tutorial.html">Tutorial</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../year9_term1.html">&#8592; Back to Year 9 T1 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Theory</div>
+      <h2>Learning Focus</h2>
+      <img src="../images/Warren-truss-compression-and-tension-members-due-to-line-load.jpg" alt="Warren truss showing tension, compression and line load" class="content-image" />
+      <p style="color: var(--muted); margin-bottom: 1rem;">By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Identify forces on structures:</strong> Understand dead, live, and wind loads; distinguish between point vs distributed loads; analyze reactions at supports.</li>
+        <li><strong>Use SI units correctly:</strong> Apply proper units (N, kN; kg vs N; m/mm; m²/m³) and show them consistently in sketches and calculations.</li>
+        <li><strong>Recognize structural forms:</strong> Identify beam, truss, arch, and cantilever structures; understand the roles of struts (compression) and ties (tension).</li>
+        <li><strong>Explain triangulation:</strong> Understand why triangles improve stiffness and how member orientation affects buckling and tension capacity.</li>
+        <li><strong>Link concepts to practice:</strong> Connect strength-to-weight ratios, material choice, and load paths to your water tower design and build.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Key Notes</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;"><strong>Why this matters:</strong> Understanding how structures carry loads is fundamental to engineering. These concepts directly apply to your water tower project. Master these concepts in Toolkit 2, then apply them to design and build your tower in Toolkits 3 and 4.</p>
+      
+      <h3>1. Loads, Forces and Reactions</h3>
+      <img src="../images/forces-on-bridges.png" alt="Forces acting on bridges" class="content-image" />
+      <p>Every structure exists to carry loads safely to the ground. When you analyse your tower, always start by asking: <strong>what loads are acting, how big are they, and where do they go?</strong></p>
+      <ul>
+        <li><strong>Dead loads:</strong> Permanent loads such as the self-weight of the structure (members, deck, tank, connections).</li>
+        <li><strong>Live loads:</strong> Loads that move or change over time, such as water level in a tank, or weights you add during testing.</li>
+        <li><strong>Environmental loads:</strong> Mainly wind in this course, but in real structures also temperature changes and sometimes earthquake.</li>
+        <li><strong>Point loads:</strong> Loads applied at a single location, such as a single weight stack in the centre of a deck.</li>
+        <li><strong>Distributed loads:</strong> Loads spread along a length or area, such as the weight of a deck or continuous water in a tank.</li>
+      </ul>
+      <p>Loads are resisted by <strong>reactions</strong> at supports. For a simple, symmetrical tower with a central point load and four identical supports, each support carries a portion of the total load. In more complex layouts, some supports may carry more than others depending on the position of the load.</p>
+      <p>When sketching, show loads and reactions as arrows with labels, and clearly mark which supports are pinned, roller or fixed. This helps you explain how your structure works, not just what it looks like.</p>
+
+      <h3>2. SI Units and Simple Calculations</h3>
+      <img src="../images/Units-of-Length-2.png" alt="SI Units of Length conversion chart" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0;" />
+      <p>Engineering uses the <strong>SI (International System of Units)</strong> so that calculations are consistent worldwide:</p>
+      <ul>
+        <li><strong>Mass:</strong> kilograms (kg)</li>
+        <li><strong>Force:</strong> newtons (N) or kilonewtons (kN)</li>
+        <li><strong>Length:</strong> metres (m) or millimetres (mm)</li>
+        <li><strong>Area:</strong> square metres (m²); <strong>Volume:</strong> cubic metres (m³)</li>
+      </ul>
+      <p><strong>Important distinction:</strong> Weight is a <strong>force</strong>, not a mass. To convert a mass to weight:</p>
+      <img src="../images/Mass_versus_weight_in_earth_and_mars.jpg" alt="Mass versus weight comparison" class="content-image" />
+      <p style="background: #f8f9fa; padding: 0.75rem; border-radius: 6px; border-left: 3px solid var(--brand); margin: 0.75rem 0;"><code><strong>Weight (N) = mass (kg) × 9.8 m/s²</strong></code> (often rounded to 10 m/s² for simple class problems)</p>
+      <p><strong>Example:</strong> A 5 kg mass hanging from your tower applies roughly 50 N of force. When you report test data, always state forces in N or kN and lengths in m or mm. <strong>Avoid writing "50 kg of force"</strong> - this is incorrect terminology.</p>
+
+      <h3>3. Structural Forms and Load Paths</h3>
+      <img src="../images/tension%20-%20compression%20in%20bridges.jpg" alt="Tension and compression forces in bridge structures" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0;" />
+      <p>Different structural forms carry load in different ways. Your water tower will use a <strong>truss</strong> structure:</p>
+      <ul>
+        <li><strong>Truss:</strong> A framework made from straight members joined at nodes, usually arranged as triangles. Members mainly carry axial tension or compression. This is what you'll use for your tower.</li>
+        <li><strong>Beam:</strong> Straight horizontal member carrying load between supports. Top fibres are in compression, bottom fibres in tension for a simply supported beam.</li>
+        <li><strong>Arch:</strong> Curved structure that carries compression and pushes outwards at supports (horizontal thrust).</li>
+        <li><strong>Cantilever:</strong> Beam or structure fixed at one end and free at the other. Bending stresses are reversed compared with a simply supported beam.</li>
+      </ul>
+      <img src="../images/bending%20stress%20in%20a%20beam.jpg" alt="Bending stress distribution in a beam" class="content-image" />
+      <p>A <strong>load path</strong> is the route a load takes from where it is applied, through the structure, into the supports and down to the ground. <strong>Efficient structures have direct, simple load paths.</strong> When you annotate your tower design, use arrows to show how load travels through members into the supports.</p>
+
+      <h3>4. Tension, Compression and Buckling</h3>
+      <p>Members can be broadly separated into those mainly in <strong>tension</strong> (ties) and those mainly in <strong>compression</strong> (struts):</p>
+      <ul>
+        <li><strong>Tension members (ties):</strong> Resist pulling forces; usually fail by yielding (stretching permanently) and then fracturing. They are strongest when the cross-section is adequate and there are no sharp notches or holes close to edges.</li>
+        <li><strong>Compression members (struts):</strong> Resist squeezing forces; often fail by <strong>buckling</strong> (sudden sideways bending) long before the material's crushing strength is reached.</li>
+      </ul>
+      <p><strong>Buckling depends on:</strong></p>
+      <ul>
+        <li><strong>Slenderness:</strong> The ratio of length to thickness. Long, thin members buckle much more easily than short, stocky ones.</li>
+        <li><strong>End restraint:</strong> Members that are braced or fixed at intervals behave as if they are shorter and can carry more load.</li>
+        <li><strong>Orientation:</strong> Rotating a member can change whether the load acts through its strong axis or weak axis.</li>
+      </ul>
+      <p><strong>Design tip:</strong> In your tower design, try to keep compression members shorter and well braced, and use more tension members where possible. When a member buckles in testing, record its length, cross-section, and how it was restrained, then suggest how you could improve it.</p>
+
+      <h3>5. Triangulation and Trusses</h3>
+      <p>A rectangle can distort into a parallelogram without changing the lengths of its sides. <strong>A triangle cannot change shape without at least one side changing length, so it is inherently stable.</strong></p>
+      <p>Adding diagonal bracing to a frame forces it to behave like a set of triangles. This has two big benefits:</p>
+      <ul>
+        <li><strong>Direct load sharing:</strong> Loads are shared more directly between members as axial tension and compression.</li>
+        <li><strong>Resistance to racking:</strong> The frame is much more resistant to "racking" (sideways distortion) under wind or uneven loading.</li>
+      </ul>
+      <p>In a truss, you want most members to act as simple struts or ties. Avoid layouts where one member has to carry large bending loads by itself. When comparing truss options in the PBS simulator and your own tower designs, comment on which designs move the least for the same load and why.</p>
+
+      <h3>6. Strength-to-weight and scaling up</h3>
+      <p>A structure is efficient if it carries the required load safely while using as little material as practical. This is sometimes expressed as a <strong>strength-to-weight ratio</strong>:</p>
+      <p><code>Strength-to-weight ≈ maximum load carried (N) ÷ self-weight of the structure (kg)</code></p>
+      <p>Key ideas for your water tower:</p>
+      <ul>
+        <li>Making a member <strong>deeper</strong> in the direction of bending greatly increases stiffness and bending strength.</li>
+        <li><strong>Hollow sections</strong> such as SHS and RHS are often better than solid bars because material is placed away from the neutral axis, where it does the most work.</li>
+        <li>Extra material only helps if it is placed where forces are high. Randomly making every member thicker just adds weight without much extra capacity.</li>
+      </ul>
+      <p>When you scale a 300 mm tower design up to a 30 m real tower, loads increase dramatically. Use mass tables (kg/m) and given prices to:</p>
+      <ul>
+        <li>Calculate total length, mass and cost for different section sizes and wall thicknesses.</li>
+        <li>Compare options and justify which gives the best balance of strength, deflection control and cost.</li>
+      </ul>
+      <p>In your report, always connect test results (deflection, failure load and mode) to specific design choices such as member size, bracing layout and material selection.</p>
+    </article>
+
+    <article class="card">
+      <h2>Activities & Evidence</h2>
+      <h3>1) Bridge & Tower Investigation</h3>
+      <ul>
+        <li>Classify examples by form (beam, arch, truss, cantilever) and material; note why each form suits the span and load.</li>
+        <li>Use the PBS Bridge Basics/Challenge simulators to trial designs; capture which truss layouts reduced deflection or failed early.</li>
+        <li>Complete force practice: <a href="../Year 9 T1 Theory Notes/forces3.pdf" target="_blank" rel="noopener">Forces practice (set 3)</a>.</li>
+      </ul>
+      <h3>Google Classroom Check-in</h3>
+      <ul>
+        <li>Submit responses for <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDcx" target="_blank" rel="noopener">Forces &amp; Loads</a> before starting the bridge simulator.</li>
+        <li>Capture notes in the <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg3" target="_blank" rel="noopener">Structure Theory &amp; Projects</a> task to use in your folio.</li>
+      </ul>
+      <h3>2) Sketching & Drafting</h3>
+      <ul>
+        <li>Produce orthogonal sketches (top/front) of tower layouts showing members and joints.</li>
+        <li>Annotate load paths, reactions, likely buckling members (compression) and ties (tension).</li>
+        <li>Worksheet practice: <a href="../Year 9 T1 Theory Notes/Forces worksheet.pdf" target="_blank" rel="noopener">Forces worksheet (set 1)</a> and <a href="../Year 9 T1 Theory Notes/forces2.pdf" target="_blank" rel="noopener">Forces worksheet (set 2)</a>.</li>
+      </ul>
+      <h3>3) Costing & Scaling</h3>
+      <ul>
+        <li>Create a spreadsheet to cost a 30 m SHS tower (150x150x8 mm @ $246/length). Calculate total length, mass and cost.</li>
+        <li>Compare wall thickness options; discuss strength vs weight vs cost and choose the best strength-to-weight option.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Structural Q&amp;A</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is the difference between dead load and live load on your water tower?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa1">
+            <p><strong>Dead loads</strong> are permanent loads that do not change much over time, such as the weight of the tower members, deck, bolts and joints.</p>
+            <p><strong>Live loads</strong> are loads that move or vary, such as water level in a tank, or extra weights you add during testing. Live loads can be zero at some times and very high at others, so the structure must safely handle both the average and peak live loads.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why do we convert kilograms to newtons instead of just working in kg?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa2">
+            <p>Engineering calculations are based on <strong>forces</strong>, not masses. The SI unit for force is the <strong>newton (N)</strong>. A mass only becomes a load when gravity acts on it.</p>
+            <p>To find the force a mass applies, you multiply its mass in kilograms by the acceleration due to gravity. For example, a 5 kg mass produces roughly 50 N of force. Using N and kN keeps your sketches, spreadsheets and design decisions consistent with real engineering practice.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is the practical difference between a point load and a distributed load in our tests?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa3">
+            <p>A <strong>point load</strong> is applied at one location, such as hanging a weight from a hook in the centre of a deck. It causes the greatest bending directly under that point.</p>
+            <p>A <strong>distributed load</strong> is spread along a length, such as sandbags or water spread evenly across a deck. It produces a smoother bending pattern, often with lower peak stress for the same total load. When you describe your test setup, always state whether the load is point or distributed and where it acts.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How do supports share the load on a simple symmetrical tower?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa4">
+            <p>For a tower with four identical supports and a <strong>central point load</strong>, each support carries approximately one quarter of the total load if the tower is symmetrical and the load is centred.</p>
+            <p>If the load moves closer to one support, that support's reaction increases and the others decrease. Understanding this helps you predict which support or leg of your tower will experience the greatest reaction forces.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What makes triangles so effective in trusses compared with rectangles?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa6">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa6">
+            <p>A rectangle can change shape into a parallelogram without any member changing length; it relies on joint stiffness to stay square. A <strong>triangle</strong> cannot change shape without at least one side changing length, so it is inherently stable.</p>
+            <p>When you brace a frame with diagonals, you force it to act as a set of triangles. This converts racking movement into axial forces in the members (tension and compression), making the structure much stiffer and more predictable under load.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why are long, slender compression members more prone to buckling?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa7">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa7">
+            <p>Buckling is a stability failure, not a material strength failure. A long, thin member has a high <strong>slenderness ratio</strong>, which means it can bow sideways under a comparatively small compressive load.</p>
+            <p>Short, stocky members resist buckling much better because they are stiffer. Adding bracing or reducing the effective unsupported length of a strut dramatically increases its buckling load. This is why well-designed towers have frequent bracing between legs.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why do engineers prefer to keep truss members in tension or compression rather than bending?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa8">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa8">
+            <p>Members are strongest and easiest to analyse when they carry mainly <strong>axial forces</strong> (pure tension or compression). In this case, the stress is spread evenly across the cross-section and simple formulas can be used to predict capacity.</p>
+            <p>Bending produces a mix of tension and compression across a depth, leading to higher peak stresses and more complex behaviour. Trusses use geometry (triangles and pinned joints) to keep most members in axial tension or compression and minimise bending.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why can a hollow section be stronger for its weight than a solid bar?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa9">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa9">
+            <p>In bending, material far from the <strong>neutral axis</strong> does most of the work resisting tension and compression. Material near the centre contributes relatively little to bending strength but still adds weight.</p>
+            <p>A hollow section removes under-used material from the middle and leaves more material around the outside. This increases stiffness and strength for a given mass, giving a better strength-to-weight ratio than a solid bar of the same overall size.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What information should you record during water tower load tests?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa10">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa10">
+            <p>At minimum, record:</p>
+            <ul>
+              <li>The way the load was applied (point or distributed, location and size in N or kN).</li>
+              <li>The load at first noticeable deflection or cracking.</li>
+              <li>The <strong>maximum load</strong> reached before failure or unacceptable deflection.</li>
+              <li>The failure mode (buckling, tension fracture, joint failure, serviceability).</li>
+            </ul>
+            <p>Good reports also include sketches or photos of the failure and brief notes on which members were in tension or compression when failure occurred.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How can test results help you improve your next design?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa11">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa11">
+            <p>Test results tell you where your design is weakest. For example, if a long compression member buckles early, you might shorten it with extra bracing or increase its section depth.</p>
+            <p>If joints fail before members, you may need larger gussets, better glue areas or more bolts. Use each failure to adjust member sizes, layout and connections so your next design has a clearer load path and better strength-to-weight performance.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How do you explain a failure mode using load paths and member roles?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa12">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa12">
+            <p>Start by describing the <strong>load path</strong>: where the load was applied, and which members carried it to the supports. Then identify which members were acting as <strong>struts</strong> (compression) and which as <strong>ties</strong> (tension).</p>
+            <p>Explain which member or joint failed first and why that location was critical. Link the failure back to design factors such as slenderness, lack of bracing, sharp notches, poor joint detail or thin sections. This shows that you understand not just that the structure failed, but how and why it failed.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li>PBS Bridge Basics and Bridge Challenge interactive links.</li>
+        <li>Liberty "Know Your Steel" mass tables for SHS sizing.</li>
+        <li>SI units reference and sample calculations (force, mass, acceleration).</li>
+      </ul>
+    </article>
+  </main>
+  <script src="../page-nav.js" defer></script>
+  <script src="../qa-widget.js"></script>
+</body>
+</html>

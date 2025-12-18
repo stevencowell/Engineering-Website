@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Term 3 – YouTube Clip Index (Hydraulic Digger)</title>
+  <style>
+    :root{
+      --bg: #0b1220;
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 18px 60px rgba(0,0,0,0.45);
+      --radius: 16px;
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:
+        radial-gradient(1200px 700px at 15% -10%, rgba(79,70,229,0.45), transparent 60%),
+        radial-gradient(1100px 800px at 90% 0%, rgba(56,189,248,0.22), transparent 55%),
+        radial-gradient(900px 700px at 50% 110%, rgba(34,197,94,0.18), transparent 55%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    .wrap{
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+
+    header{
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 14px;
+      backdrop-filter: blur(10px);
+    }
+
+    h1{
+      font-size: clamp(20px, 3vw, 30px);
+      margin: 0 0 8px;
+      letter-spacing: 0.2px;
+    }
+
+    .sub{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .tableCard{
+      margin-top: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    table{
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    thead th{
+      text-align: left;
+      font-weight: 650;
+      font-size: 12.5px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.78);
+      background: rgba(0,0,0,0.25);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 14px;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    tbody td{
+      padding: 14px;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    tbody tr:hover{
+      background: rgba(255,255,255,0.04);
+    }
+
+    .toolkit{
+      display: inline-flex;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.82);
+      font-size: 12.5px;
+      white-space: nowrap;
+    }
+
+    .title{
+      margin: 0 0 6px;
+      font-weight: 700;
+      line-height: 1.25;
+      font-size: 14.5px;
+    }
+
+    .overview{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 13.5px;
+    }
+
+    .thumb{
+      width: 220px;
+      max-width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      overflow: hidden;
+      position: relative;
+      background: rgba(0,0,0,0.28);
+      display: block;
+    }
+
+    .thumb img{
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .playBadge{
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+    }
+    .playBadge span{
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.18);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    .playBadge svg{
+      width: 20px; height: 20px;
+      margin-left: 2px;
+      fill: rgba(255,255,255,0.92);
+    }
+
+    .actions{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.88);
+      text-decoration: none;
+      font-size: 13px;
+      cursor: pointer;
+      transition: transform 120ms ease, background 120ms ease;
+      user-select: none;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.09); }
+    .btn.primary{
+      background: rgba(79,70,229,0.22);
+      border-color: rgba(79,70,229,0.35);
+    }
+
+    @media (max-width: 980px){
+      thead{ display: none; }
+      table, tbody, tr, td{ display: block; width: 100%; }
+      tbody td{ border-bottom: 0; padding: 12px 14px; }
+      tbody tr{ border-bottom: 1px solid rgba(255,255,255,0.10); }
+      .thumb{ width: 100%; }
+    }
+
+    .modal{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.70);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 50;
+    }
+    .modal.open{ display: flex; }
+    .modalCard{
+      width: min(1000px, 100%);
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(10,16,30,0.9);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .modalTop{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.86);
+    }
+    .modalTitle{
+      font-weight: 650;
+      font-size: 14px;
+      margin-right: 10px;
+      line-height: 1.3;
+    }
+    .closeBtn{
+      appearance: none;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.88);
+      border-radius: 12px;
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+    .player{
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      background: black;
+    }
+    .player iframe{
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Term 3 – YouTube Clip Index</h1>
+      <p class="sub">
+        Hydraulic Digger focus: Pascal’s principle (P = F/A), syringe hydraulics, levers (MA/VR), digger arm motion,
+        build technique, bleeding air, and testing + evaluation.
+      </p>
+    </header>
+
+    <div class="tableCard" role="region" aria-label="Term 3 video table">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 150px;">Toolkit</th>
+            <th style="width: 260px;">Thumbnail</th>
+            <th>Clip overview</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <!-- Toolkit 1: Fluid Power & Mechanisms -->
+          <tr>
+            <td><span class="toolkit">Toolkit 1</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=ioLtieMWRT8" target="_blank" rel="noopener"
+                 data-play="true" data-id="ioLtieMWRT8" data-name="Adam Savage demos hydraulics with cheap plastic syringes">
+                <img src="https://i.ytimg.com/vi/ioLtieMWRT8/hqdefault.jpg" alt="Thumbnail: Adam Savage demos hydraulics with cheap plastic syringes" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Syringe Hydraulics (Hands-on demo)</p>
+              <p class="overview">Clean, practical demonstration using cheap syringes—excellent bridge between theory and your classroom digger build.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="ioLtieMWRT8" data-name="Adam Savage demos hydraulics with cheap plastic syringes">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=ioLtieMWRT8" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 1</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=556VUW6edtM" target="_blank" rel="noopener"
+                 data-play="true" data-id="556VUW6edtM" data-name="Pascal's principle + syringes (pressure and force)">
+                <img src="https://i.ytimg.com/vi/556VUW6edtM/hqdefault.jpg" alt="Thumbnail: Pascal's principle + syringes" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Pascal’s Principle (P = F/A) using syringes</p>
+              <p class="overview">Directly supports your calculations: pressure, area ratios, force multiplication, and why syringe size matters.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="556VUW6edtM" data-name="Pascal's principle + syringes (pressure and force)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=556VUW6edtM" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 1</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=0gkf10NWWFQ" target="_blank" rel="noopener"
+                 data-play="true" data-id="0gkf10NWWFQ" data-name="Mechanical advantage (quick lever explanation)">
+                <img src="https://i.ytimg.com/vi/0gkf10NWWFQ/hqdefault.jpg" alt="Thumbnail: Mechanical advantage (quick lever explanation)" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Mechanical Advantage (fast lever refresher)</p>
+              <p class="overview">A short, sharp explanation of MA using effort arm vs load arm—perfect before digger linkage design.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="0gkf10NWWFQ" data-name="Mechanical advantage (quick lever explanation)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=0gkf10NWWFQ" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 1</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=-EiufxtGRao" target="_blank" rel="noopener"
+                 data-play="true" data-id="-EiufxtGRao" data-name="How a Hydraulic Cylinder works (3D)">
+                <img src="https://i.ytimg.com/vi/-EiufxtGRao/hqdefault.jpg" alt="Thumbnail: How a Hydraulic Cylinder works (3D)" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Hydraulic Cylinder: what’s happening inside (3D)</p>
+              <p class="overview">Clear visualisation of piston, seals, and fluid force turning into linear motion—exactly what your syringes mimic.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="-EiufxtGRao" data-name="How a Hydraulic Cylinder works (3D)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=-EiufxtGRao" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Toolkit 2: Hydraulic Digger Design -->
+          <tr>
+            <td><span class="toolkit">Toolkit 2</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=nBE8JrByOf0" target="_blank" rel="noopener"
+                 data-play="true" data-id="nBE8JrByOf0" data-name="How do excavators work? (kid-friendly)">
+                <img src="https://i.ytimg.com/vi/nBE8JrByOf0/hqdefault.jpg" alt="Thumbnail: How do excavators work? (kid-friendly)" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">How Excavators Work (student-friendly intro)</p>
+              <p class="overview">Simple overview of the machine and hydraulics—useful to frame the “why” before students start designing cylinders + levers.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="nBE8JrByOf0" data-name="How do excavators work? (kid-friendly)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=nBE8JrByOf0" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 2</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=A_Rn-ENv5rM" target="_blank" rel="noopener"
+                 data-play="true" data-id="A_Rn-ENv5rM" data-name="How do excavator arms work? (animated)">
+                <img src="https://i.ytimg.com/vi/A_Rn-ENv5rM/hqdefault.jpg" alt="Thumbnail: How do excavator arms work? (animated)" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Excavator Arm Motion (animated breakdown)</p>
+              <p class="overview">Shows boom/dipper/bucket motion and how cylinders drive each joint—great for cylinder placement and pivot planning.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="A_Rn-ENv5rM" data-name="How do excavator arms work? (animated)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=A_Rn-ENv5rM" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 2</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=Q58iKeHwadw" target="_blank" rel="noopener"
+                 data-play="true" data-id="Q58iKeHwadw" data-name="Hydraulic excavator 3D animation">
+                <img src="https://i.ytimg.com/vi/Q58iKeHwadw/hqdefault.jpg" alt="Thumbnail: Hydraulic excavator 3D animation" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Hydraulic Excavator (3D visual reference)</p>
+              <p class="overview">A clean 3D look at the machine—helpful for naming parts and aligning student sketches to “real world” terminology.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="Q58iKeHwadw" data-name="Hydraulic excavator 3D animation">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=Q58iKeHwadw" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Toolkit 3: Hydraulic Digger Build -->
+          <tr>
+            <td><span class="toolkit">Toolkit 3</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=xEfYPQlKAuI" target="_blank" rel="noopener"
+                 data-play="true" data-id="xEfYPQlKAuI" data-name="Hydraulic excavator from syringes (build)">
+                <img src="https://i.ytimg.com/vi/xEfYPQlKAuI/hqdefault.jpg" alt="Thumbnail: Hydraulic excavator from syringes (build)" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Build: Hydraulic Excavator from Syringes</p>
+              <p class="overview">Direct classroom relevance: syringes + tubing + structure. Great for build sequencing and common connection methods.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="xEfYPQlKAuI" data-name="Hydraulic excavator from syringes (build)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=xEfYPQlKAuI" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 3</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=Cj1_dObogV0" target="_blank" rel="noopener"
+                 data-play="true" data-id="Cj1_dObogV0" data-name="Syringe operated hydraulic excavator (cardboard)">
+                <img src="https://i.ytimg.com/vi/Cj1_dObogV0/hqdefault.jpg" alt="Thumbnail: Syringe operated hydraulic excavator (cardboard)" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Build: Syringe Hydraulic Excavator (Cardboard version)</p>
+              <p class="overview">Useful for showing “student-possible” construction methods and keeping expectations realistic (it’s not NASA, it’s Year 9).</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="Cj1_dObogV0" data-name="Syringe operated hydraulic excavator (cardboard)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=Cj1_dObogV0" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 3</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=uaNntHiNSVc" target="_blank" rel="noopener"
+                 data-play="true" data-id="uaNntHiNSVc" data-name="How to make hydraulic excavator/JCB at home (syringes)">
+                <img src="https://i.ytimg.com/vi/uaNntHiNSVc/hqdefault.jpg" alt="Thumbnail: How to make hydraulic excavator/JCB at home (syringes)" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Build: Another Syringe Excavator Walkthrough</p>
+              <p class="overview">Good alternative build video so students can compare different linkage layouts and cylinder placements.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="uaNntHiNSVc" data-name="How to make hydraulic excavator/JCB at home (syringes)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=uaNntHiNSVc" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Toolkit 4: Testing & Evaluation -->
+          <tr>
+            <td><span class="toolkit">Toolkit 4</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=fDW4v1Tt_5k" target="_blank" rel="noopener"
+                 data-play="true" data-id="fDW4v1Tt_5k" data-name="Hydraulic excavator project (build + test)">
+                <img src="https://i.ytimg.com/vi/fDW4v1Tt_5k/hqdefault.jpg" alt="Thumbnail: Hydraulic excavator project (build + test)" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Testing Mindset: Build + Test + Observe Performance</p>
+              <p class="overview">Shows a full project arc (assembly → operation → testing). Good prompt for students to discuss what “success criteria” looks like.</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="fDW4v1Tt_5k" data-name="Hydraulic excavator project (build + test)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=fDW4v1Tt_5k" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 4</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=pHmlvB04OZY" target="_blank" rel="noopener"
+                 data-play="true" data-id="pHmlvB04OZY" data-name="Velocity Ratio, Mechanical Advantage, Efficiency (lesson)">
+                <img src="https://i.ytimg.com/vi/pHmlvB04OZY/hqdefault.jpg" alt="Thumbnail: Velocity Ratio, Mechanical Advantage, Efficiency (lesson)" loading="lazy" />
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">MA + VR + Efficiency (for the folio calculations)</p>
+              <p class="overview">Supports Toolkit 4 maths: theoretical vs actual performance, efficiency, and why real systems lose energy (friction, leaks, air bubbles).</p>
+              <div class="actions">
+                <button class="btn primary" data-play-btn="true" data-id="pHmlvB04OZY" data-name="Velocity Ratio, Mechanical Advantage, Efficiency (lesson)">Play</button>
+                <a class="btn" href="https://www.youtube.com/watch?v=pHmlvB04OZY" target="_blank" rel="noopener">Open in YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal Player -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-label="Video player">
+    <div class="modalCard">
+      <div class="modalTop">
+        <div class="modalTitle" id="modalTitle">Video</div>
+        <button class="closeBtn" id="closeBtn" type="button">Close</button>
+      </div>
+      <div class="player">
+        <iframe
+          id="playerFrame"
+          src=""
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const playerFrame = document.getElementById('playerFrame');
+    const modalTitle = document.getElementById('modalTitle');
+    const closeBtn = document.getElementById('closeBtn');
+
+    function openModal(videoId, name){
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      modalTitle.textContent = name || 'Video';
+      playerFrame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      playerFrame.src = '';
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    document.addEventListener('click', (e) => {
+      const playBtn = e.target.closest('[data-play-btn="true"]');
+      const playThumb = e.target.closest('[data-play="true"]');
+
+      if (playBtn){
+        openModal(playBtn.getAttribute('data-id'), playBtn.getAttribute('data-name'));
+      }
+      if (playThumb){
+        e.preventDefault();
+        openModal(playThumb.getAttribute('data-id'), playThumb.getAttribute('data-name'));
+      }
+    });
+  </script>
+</body>
+</html>

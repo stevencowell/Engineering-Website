@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toolkit 3: Water Tower Design & Planning | Year 9 Term 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0,0,0,0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      background: linear-gradient(135deg, #0b63c3, #0a4f93);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    nav a.active {
+      background: #e6f0fb;
+      color: #0b63c3;
+    }
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.75rem 1rem 3rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+    .card h2 {
+      margin: 0 0 0.5rem;
+      color: var(--brand);
+    }
+    .card h3 {
+      margin: 1.2rem 0 0.35rem;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+    .card ul {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.1rem;
+      color: var(--muted);
+    }
+    .card li + li { margin-top: 0.35rem; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .tip {
+      background: #e6f0fb;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem;
+      color: var(--text);
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 3: Water Tower Design & Planning</h1>
+    <p>Design brief, layout, joints, materials selection, build sequence</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term1.html">&#8592; T1 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a class="active" href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a href="tutorial.html">Tutorial</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../year9_term1.html">&#8592; Back to Year 9 T1 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Design</div>
+      <h2>Learning Focus</h2>
+      <img src="../images/toolkit3-learning-outcome.jpeg" alt="Toolkit 3 learning outcomes overview" class="content-image" />
+      <p style="color: var(--muted); margin-bottom: 1rem;">By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Interpret the design brief:</strong> Understand height requirements, footprint limits, material constraints, and test specifications.</li>
+        <li><strong>Create effective tower layouts:</strong> Design truss structures with proper triangulation, load paths, and member sizing.</li>
+        <li><strong>Plan joint details:</strong> Select appropriate joining methods (gussets, laps, adhesives) and plan joint locations for strength and buildability.</li>
+        <li><strong>Select materials:</strong> Choose materials based on strength-to-weight, workability, and cost considerations.</li>
+        <li><strong>Develop build sequences:</strong> Create logical, step-by-step build plans that ensure quality and safety.</li>
+        <li><strong>Produce technical sketches:</strong> Create orthogonal drawings (top/front views) with dimensions, annotations, and load path indicators.</li>
+      </ul>
+      <p style="color: var(--muted); margin-top: 1rem; padding: 0.75rem; background: #f8f9fa; border-left: 3px solid var(--brand); border-radius: 4px;"><strong>Timing:</strong> Complete Toolkit 3 design work in Weeks 2-3 before starting your build in Toolkit 4 (Weeks 3-5). Good planning here saves time and improves build quality.</p>
+    </article>
+
+    <article class="card">
+      <h2>Understanding the Design Brief</h2>
+      <img src="../images/parts%20of%20a%20tower.jpg" alt="Diagram showing parts of a tower" class="content-image" />
+      <p>Before you start sketching, make sure you understand every requirement in the design brief:</p>
+      <ul>
+        <li><strong>Height requirement:</strong> Minimum height your tower must achieve (e.g., 300 mm).</li>
+        <li><strong>Footprint limits:</strong> Maximum base dimensions (e.g., 150 mm × 150 mm).</li>
+        <li><strong>Material constraints:</strong> What materials are allowed (e.g., balsa wood, popsicle sticks, glue, string).</li>
+        <li><strong>Load requirement:</strong> What load the tower must carry (e.g., minimum 5 kg, or as much as possible).</li>
+        <li><strong>Test method:</strong> How the load will be applied (central point load, distributed load, etc.).</li>
+        <li><strong>Design constraints:</strong> Any restrictions on bracing, joint types, or construction methods.</li>
+      </ul>
+      <div class="tip">
+        <strong>Design Tip:</strong> Link every sketch to forces: which members are in compression (risk of buckling) and which are in tension (check joints). This helps you make informed design decisions.
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Tower Layout Design</h2>
+      <h3>1. Structural Form</h3>
+      <p>Your water tower will use a <strong>truss structure</strong>. Apply the concepts from Toolkit 2:</p>
+      <ul>
+        <li><strong>Triangulate every panel:</strong> Avoid long unbraced columns. Add cross-bracing near the base where moments are highest.</li>
+        <li><strong>Keep bays consistent:</strong> Use the same spacing and bracing pattern on all four sides to avoid twists and uneven loading.</li>
+        <li><strong>Minimise weight:</strong> Shorten compression members and use tension ties where possible. Remember: every gram counts.</li>
+        <li><strong>Direct load paths:</strong> Design so loads travel directly from the deck to the legs to the base. Avoid unnecessary members.</li>
+      </ul>
+
+      <h3>2. Member Sizing</h3>
+      <p>Consider the forces each member will carry:</p>
+      <ul>
+        <li><strong>Legs (vertical members):</strong> Carry most of the compression load. These are your critical members - keep them short and well-braced.</li>
+        <li><strong>Bracing (diagonal members):</strong> Provide triangulation and resist racking. Can be thinner than legs but must be strong enough to resist buckling.</li>
+        <li><strong>Deck/horizontal members:</strong> Transfer load to legs. Must be stiff enough to avoid excessive deflection.</li>
+        <li><strong>Base members:</strong> Distribute load to supports. Should be wide enough to prevent tipping.</li>
+      </ul>
+
+      <h3>3. Load Path Analysis</h3>
+      <p>Sketch arrows showing how load travels:</p>
+      <ul>
+        <li>Start at the <strong>load application point</strong> (usually centre of deck).</li>
+        <li>Follow the load down through <strong>deck members</strong> to the <strong>legs</strong>.</li>
+        <li>Trace compression forces down the <strong>legs</strong> to the <strong>base</strong>.</li>
+        <li>Identify which members are in <strong>tension</strong> (ties) and which are in <strong>compression</strong> (struts).</li>
+        <li>Mark members that are likely to <strong>buckle</strong> (long compression members) - these need extra attention.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Joint Design & Planning</h2>
+      <img src="../images/Double-Gusset-Joint-for-a-Model-Bridge-Example.jpg" alt="Double gusset joint example" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0;" />
+      <h3>1. Joint Types</h3>
+      <p>Choose joints based on the forces they must resist:</p>
+      <ul>
+        <li><strong>Gussets or double laps:</strong> Spread load across a larger area. Use for high-stress joints (leg-to-base, leg-to-deck).</li>
+        <li><strong>Single lap joints:</strong> Simpler but weaker. Only use for low-stress connections.</li>
+        <li><strong>Butt joints:</strong> Weakest option. Avoid unless absolutely necessary.</li>
+      </ul>
+
+      <h3>2. Joint Planning</h3>
+      <ul>
+        <li><strong>Keep opposing faces parallel:</strong> Avoid gaps that cause racking. Dry-fit first, then glue.</li>
+        <li><strong>Plan glue area:</strong> Larger contact area = stronger joint. Design joints with adequate overlap.</li>
+        <li><strong>Consider build sequence:</strong> Some joints are easier to make if you build in a specific order (e.g., attach bracing before closing up the frame).</li>
+        <li><strong>Stage assembly symmetrically:</strong> Build pairs (e.g., two opposite sides) to control twist and keep the tower plumb.</li>
+      </ul>
+
+      <h3>3. Quality Checks</h3>
+      <ul>
+        <li>Pre-cut identical members in batches; label parts; keep offcuts for spares.</li>
+        <li>Plan to measure base diagonals; adjust before glue cures so the frame sits flat.</li>
+        <li>Design jigs or fixtures to hold members in position during gluing.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Materials Selection</h2>
+      <p>Consider these factors when choosing materials:</p>
+      <ul>
+        <li><strong>Strength-to-weight ratio:</strong> Choose materials that are strong for their weight (e.g., balsa wood vs. heavier timber).</li>
+        <li><strong>Workability:</strong> Can you cut, shape, and join the material easily with available tools?</li>
+        <li><strong>Cost:</strong> Stay within material budget constraints.</li>
+        <li><strong>Availability:</strong> Ensure materials are available when needed.</li>
+        <li><strong>Consistency:</strong> Use the same material grade/size throughout for predictable behaviour.</li>
+      </ul>
+      <p><strong>Common choices:</strong></p>
+      <ul>
+        <li><strong>Balsa wood:</strong> Lightweight, easy to cut, good strength-to-weight. Standard choice for model towers.</li>
+        <li><strong>Popsicle sticks:</strong> Consistent size, readily available. May be heavier than balsa but easier to work with.</li>
+        <li><strong>Adhesives:</strong> PVA glue for timber (needs clamping time), cyanoacrylate for quick fixes (brittle).</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Build Sequence Planning</h2>
+      <p>Create a logical, step-by-step build plan:</p>
+      <ol>
+        <li><strong>Preparation:</strong> Read brief, gather materials, check tools, review SWMS.</li>
+        <li><strong>Cutting:</strong> Cut all members to length (batch cutting for identical pieces). Label parts.</li>
+        <li><strong>Base assembly:</strong> Build base frame, check squareness, allow glue to cure.</li>
+        <li><strong>Leg assembly:</strong> Attach legs to base, ensure vertical alignment, add temporary bracing if needed.</li>
+        <li><strong>Bracing:</strong> Add diagonal bracing systematically (one bay at a time), maintain symmetry.</li>
+        <li><strong>Deck:</strong> Attach deck/horizontal members at top, ensure level and centred.</li>
+        <li><strong>Final checks:</strong> Measure dimensions, check squareness, inspect joints, remove temporary supports.</li>
+        <li><strong>Pre-test inspection:</strong> Check for obvious weaknesses, confirm load point, record any flaws.</li>
+      </ol>
+      <p><strong>Build tips:</strong></p>
+      <ul>
+        <li>Allow glue joints to <strong>cure fully</strong> before loading; rushing reduces joint strength.</li>
+        <li>Use jigs, squares and blocks to keep legs vertical and bracing at planned angles.</li>
+        <li>Measure twice, cut once; mark from a <strong>datum edge</strong> to reduce error build-up.</li>
+        <li>Clamp material firmly before cutting or drilling; keep non-working hand out of the line of fire.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Technical Sketching</h2>
+      <img src="../images/cad%20drawing.png" alt="Example CAD drawing for folio" class="content-image" />
+      <p>Produce clear technical sketches for your folio:</p>
+      <h3>Required Views</h3>
+      <ul>
+        <li><strong>Top view:</strong> Shows base footprint, leg positions, deck layout.</li>
+        <li><strong>Front/side view:</strong> Shows height, leg arrangement, bracing pattern, deck position.</li>
+        <li><strong>Isometric (optional):</strong> 3D view showing overall form.</li>
+      </ul>
+
+      <h3>Annotations</h3>
+      <ul>
+        <li><strong>Dimensions:</strong> Overall height, base dimensions, member lengths, spacing.</li>
+        <li><strong>Load paths:</strong> Arrows showing how load travels through the structure.</li>
+        <li><strong>Member roles:</strong> Label compression members (struts) and tension members (ties).</li>
+        <li><strong>Joint details:</strong> Show gusset sizes, overlap lengths, glue areas.</li>
+        <li><strong>Material notes:</strong> Material type, cross-section sizes, member grades.</li>
+      </ul>
+
+      <h3>Design Rationale</h3>
+      <p>Include brief notes explaining:</p>
+      <ul>
+        <li>Why you chose this layout (triangulation, load paths, efficiency).</li>
+        <li>Why you sized members as you did (compression vs tension, buckling risk).</li>
+        <li>Why you placed joints where you did (force transfer, buildability).</li>
+        <li>What you expect to fail first and why (identify the weakest link).</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Activities & Evidence</h2>
+      <h3>1) Design Brief Analysis</h3>
+      <ul>
+        <li>Read and annotate the design brief, highlighting all requirements and constraints.</li>
+        <li>Create a checklist of requirements to ensure your design meets all criteria.</li>
+      </ul>
+
+      <h3>2) Preliminary Sketches</h3>
+      <ul>
+        <li>Sketch 2-3 different tower layout options (different bracing patterns, member arrangements).</li>
+        <li>Compare options: which has better load paths? Which is lighter? Which is easier to build?</li>
+        <li>Select your preferred option and justify your choice.</li>
+      </ul>
+
+      <h3>3) Detailed Design</h3>
+      <ul>
+        <li>Create final orthogonal sketches (top/front views) with dimensions.</li>
+        <li>Annotate load paths, member roles (struts/ties), and joint details.</li>
+        <li>Create a cutting list (member lengths, quantities, materials).</li>
+        <li>Write a build sequence (step-by-step plan).</li>
+      </ul>
+
+      <h3>4) Google Classroom Check-in</h3>
+      <ul>
+        <li>Submit your design sketches and build plan before starting construction.</li>
+        <li>Get teacher feedback on your design before building.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li>Design brief and requirements sheet.</li>
+        <li>Material specifications and cost lists.</li>
+        <li>Example tower designs and folios for reference.</li>
+        <li>Drawing tools (rulers, set squares, protractors).</li>
+        <li>CAD software (optional) for digital drawings.</li>
+      </ul>
+    </article>
+  </main>
+  <script src="../page-nav.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 2: Concrete & Composite Materials. Understand concrete as a composite material, mix design, reinforcement, curing, and structural behaviour." />
+  <meta name="keywords" content="concrete, composite materials, mix design, reinforcement, curing, structural behaviour" />
+  <title>Toolkit 2: Concrete & Composite Materials | Year 9 Term 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root { --brand: #0056b3; --bg: #f6f8fb; --card: #ffffff; --text: #1f2a3d; --muted: #5c667a; --border: #e2e8f0; --shadow: 0 12px 30px rgba(0,0,0,0.08); --radius: 12px; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    header { background: linear-gradient(135deg, #0b63c3, #0a4f93); color: #fff; padding: 2.25rem 1.25rem 2rem; text-align: center; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; background: #fff; border-bottom: 1px solid var(--border); padding: 0.5rem 1rem; }
+    nav a { padding: 0.4rem 0.75rem; border-radius: 10px; color: var(--brand); font-weight: 600; }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem; margin-bottom: 1.25rem; display: flow-root; }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .pill { display: inline-block; padding: 0.25rem 0.6rem; border-radius: 999px; background: #e6f0fb; color: var(--brand); font-weight: 600; font-size: 0.8rem; }
+    .qa-list details {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      margin: 0.5rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .qa-list summary {
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--text);
+      list-style: none;
+    }
+    .qa-list summary::-webkit-details-marker { display: none; }
+    .qa-list .answer {
+      margin-top: 0.5rem;
+      color: var(--muted);
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 2: Concrete & Composite Materials</h1>
+    <p>Concrete as composite, mix design, reinforcement, curing, structural behaviour</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term2.html">&#8592; T2 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a class="active" href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../year9_term2.html">&#8592; Back to Year 9 T2 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Theory</div>
+      <h2>Learning Focus</h2>
+      <img src="../images/term234/concrete%20components.jpeg" alt="Concrete components" class="content-image" />
+      <p style="color: var(--muted); margin-bottom: 1rem;">By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Understand concrete as a composite:</strong> Explain how cement, aggregate, water, and reinforcement work together to create a structural material.</li>
+        <li><strong>Design concrete mixes:</strong> Understand mix proportions, water-cement ratio, and how they affect strength and workability.</li>
+        <li><strong>Explain reinforcement:</strong> Understand why steel reinforcement is needed and how it works with concrete.</li>
+        <li><strong>Understand curing:</strong> Explain the hydration process and why proper curing is essential for strength development.</li>
+        <li><strong>Predict structural behaviour:</strong> Understand how concrete beams behave under load, including tension/compression zones and failure modes.</li>
+      </ul>
+      <p style="color: var(--muted); margin-top: 1rem; padding: 0.75rem; background: #f8f9fa; border-left: 3px solid var(--brand); border-radius: 4px;"><strong>Why this matters:</strong> Concrete is the most widely used construction material in the world. Understanding how it works as a composite material is essential for designing and building your concrete beam project in Toolkits 3 and 4.</p>
+    </article>
+
+    <article class="card">
+      <h2>Key Notes</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;"><strong>Why this matters:</strong> Concrete is a composite material that combines the best properties of its components. Understanding how it works helps you design better beams and understand why they fail in specific ways.</p>
+      
+      <h3>1. Concrete as a Composite Material</h3>
+      <p>Concrete is a composite made from several components:</p>
+      <ul>
+        <li><strong>Cement:</strong> The binder that reacts with water to form a paste. Portland cement is most common. When mixed with water, it undergoes hydration, forming strong chemical bonds.</li>
+        <li><strong>Aggregate:</strong> Coarse (gravel, crushed stone) and fine (sand) particles that provide bulk and strength. Aggregate makes up 60-75% of concrete volume.</li>
+        <li><strong>Water:</strong> Activates the cement through hydration. The amount of water affects both strength and workability.</li>
+        <li><strong>Admixtures (optional):</strong> Chemicals added to modify properties (plasticisers for workability, accelerators for faster setting, retarders for delayed setting).</li>
+      </ul>
+      <p><strong>Why it's a composite:</strong> Each component contributes different properties. Cement paste binds everything together, aggregate provides bulk and reduces cost, and together they create a material stronger and more durable than cement alone.</p>
+
+      <h3>2. Mix Design and Proportions</h3>
+      <p>Concrete mix design balances strength, workability, durability, and cost:</p>
+      <ul>
+        <li><strong>Water-Cement Ratio (W/C):</strong> The ratio of water to cement by weight. Lower W/C ratios produce stronger concrete but are less workable. Typical range: 0.4 to 0.6.</li>
+        <li><strong>Mix proportions:</strong> Often expressed as cement : sand : aggregate : water (e.g., 1 : 2 : 3 : 0.5). This means 1 part cement, 2 parts sand, 3 parts aggregate, 0.5 parts water.</li>
+        <li><strong>Workability:</strong> How easily concrete can be placed and compacted. Measured by slump test. Too stiff = hard to place; too fluid = segregation and weakness.</li>
+        <li><strong>Strength:</strong> Compressive strength is the primary measure (measured in MPa). Higher cement content and lower W/C ratio increase strength.</li>
+      </ul>
+      <p><strong>For your beam:</strong> You'll need to choose a mix that is workable enough to place in your mould but strong enough to carry load. A typical mix might be 1 : 2 : 3 : 0.5 (cement : sand : aggregate : water).</p>
+
+      <h3>3. Reinforcement in Concrete</h3>
+      <p>Concrete is strong in compression but weak in tension. Steel reinforcement solves this problem:</p>
+      <ul>
+        <li><strong>Why reinforcement is needed:</strong> When a beam bends, the top is in compression (concrete handles this well) but the bottom is in tension (concrete cracks easily). Steel reinforcement on the tension side carries the tensile forces.</li>
+        <li><strong>Reinforcement types:</strong> Steel bars (rebar), wire mesh, or fibres. For beams, steel bars are most common.</li>
+        <li><strong>Cover:</strong> The distance from the reinforcement to the surface. Adequate cover protects steel from corrosion and fire. Minimum cover is typically 20-40 mm depending on environment.</li>
+        <li><strong>Placement:</strong> Reinforcement must be positioned correctly - near the tension face (bottom) for a simply supported beam under downward load.</li>
+      </ul>
+      <p><strong>Composite action:</strong> Concrete and steel work together because they bond well and have similar thermal expansion. The concrete protects the steel from corrosion, while the steel provides tensile strength.</p>
+
+      <h3>4. Curing and Hydration</h3>
+      <p>Curing is the process of maintaining moisture and temperature conditions for proper hydration:</p>
+      <ul>
+        <li><strong>Hydration:</strong> The chemical reaction between cement and water that forms strong bonds. This process continues for weeks and months, with most strength gained in the first 28 days.</li>
+        <li><strong>Curing time:</strong> Concrete needs to be kept moist for proper hydration. Minimum curing is typically 7 days, with 28 days being standard for strength testing.</li>
+        <li><strong>Curing methods:</strong> Water curing (spraying, ponding), covering with wet hessian or plastic, or using curing compounds that seal in moisture.</li>
+        <li><strong>Temperature:</strong> Hydration is faster at higher temperatures but can cause cracking. Ideal temperature range is 10-25°C.</li>
+      </ul>
+      <p><strong>For your beam:</strong> Your beams will need at least 7 days of curing before testing. Use this time to complete your design documentation and prepare your test procedures.</p>
+
+      <h3>5. Structural Behaviour of Concrete Beams</h3>
+      <p>Understanding how concrete beams behave under load helps you design and test effectively:</p>
+      <ul>
+        <li><strong>Tension and compression zones:</strong> In a simply supported beam under downward load, the top is in compression, the bottom is in tension. Cracks start on the tension side.</li>
+        <li><strong>Failure modes:</strong> Flexural failure (bending), shear failure (diagonal cracks near supports), or compression failure (crushing at top). Most beams fail in flexure.</li>
+        <li><strong>Crack patterns:</strong> First cracks appear on the tension side (bottom). As load increases, cracks widen and extend upward. Final failure occurs when reinforcement yields or concrete crushes.</li>
+        <li><strong>Deflection:</strong> Beams deflect under load. Excessive deflection can cause serviceability failure even before structural failure.</li>
+      </ul>
+      <p><strong>For testing:</strong> You'll observe first cracking, measure deflection, and record the failure mode. Understanding these behaviours helps you explain your test results.</p>
+
+      <h3>6. Factors Affecting Concrete Strength</h3>
+      <p>Several factors influence the final strength of concrete:</p>
+      <ul>
+        <li><strong>Water-cement ratio:</strong> Lower W/C = higher strength (but less workable).</li>
+        <li><strong>Cement content:</strong> More cement = higher strength (but higher cost).</li>
+        <li><strong>Curing conditions:</strong> Proper moisture and temperature = better strength development.</li>
+        <li><strong>Age:</strong> Strength increases with time as hydration continues.</li>
+        <li><strong>Compaction:</strong> Proper compaction removes air voids and increases strength.</li>
+        <li><strong>Aggregate quality:</strong> Strong, well-graded aggregate improves strength.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Activities & Evidence</h2>
+      <h3>1) Mix Design Investigation</h3>
+      <ul>
+        <li>Research different concrete mix proportions and their typical uses.</li>
+        <li>Calculate water-cement ratios for different mixes.</li>
+        <li>Compare strength vs workability trade-offs.</li>
+        <li>Select a mix design for your beam project and justify your choice.</li>
+      </ul>
+
+      <h3>2) Reinforcement Investigation</h3>
+      <ul>
+        <li>Observe examples of reinforced concrete structures (photos, videos, or site visits).</li>
+        <li>Identify where reinforcement is placed and why.</li>
+        <li>Understand the relationship between reinforcement placement and load direction.</li>
+        <li>Sketch reinforcement layouts for different beam loading scenarios.</li>
+      </ul>
+
+      <h3>3) Curing Investigation</h3>
+      <ul>
+        <li>Research curing methods and their effectiveness.</li>
+        <li>Understand why curing time matters for strength development.</li>
+        <li>Plan curing procedures for your beam project.</li>
+        <li>Document curing conditions and methods in your folio.</li>
+      </ul>
+
+      <h3>4) Google Classroom Check-in</h3>
+      <ul>
+        <li>Submit your mix design selection and justification.</li>
+        <li>Share your reinforcement layout sketches.</li>
+        <li>Document your understanding of concrete as a composite material.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Concrete & Composite Materials Q&amp;A</h2>
+      <p class="card-note">Try answering first. Then reveal the model answer and self-assess using the 0–3 rubric.</p>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why is concrete considered a composite material?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m2_qa1">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m2_qa1">
+            <p>Concrete is a composite because it combines different materials (cement, aggregate, water, and often reinforcement) to achieve properties better than any single component. The cement paste binds the aggregate, creating a strong, durable material that neither cement nor aggregate alone could provide.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is the water-cement ratio, and why does it matter?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m2_qa2">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m2_qa2">
+            <p>The water-cement ratio (W/C) is the ratio of water to cement by weight. Lower W/C ratios produce stronger concrete because less water means less porosity and better bonding. However, very low W/C ratios make concrete difficult to work with. Typical ratios range from 0.4 to 0.6.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why does concrete need reinforcement?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m2_qa3">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m2_qa3">
+            <p>Concrete is strong in compression but weak in tension. When a beam bends, the bottom experiences tension. Without reinforcement, concrete cracks and fails under tension. Steel reinforcement on the tension side carries these tensile forces, allowing the beam to resist bending.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What happens during concrete curing?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m2_qa4">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m2_qa4">
+            <p>Curing maintains moisture and temperature conditions that allow the hydration reaction to continue. Cement reacts with water to form strong chemical bonds. If concrete dries out too quickly, hydration stops and strength is reduced. Proper curing ensures maximum strength development.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Where should reinforcement be placed in a simply supported beam?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m2_qa5">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m2_qa5">
+            <p>For a simply supported beam under downward load, reinforcement should be placed near the bottom (tension side). The top is in compression, which concrete handles well. The bottom is in tension, which requires steel reinforcement. Adequate cover (20-40 mm) protects the steel from corrosion.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is concrete cover, and why is it important?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m2_qa6">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m2_qa6">
+            <p>Cover is the distance from the reinforcement to the concrete surface. Adequate cover protects steel from corrosion (especially from chloride ions), provides fire resistance, and ensures proper bond between concrete and steel. Insufficient cover leads to premature failure.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How does the mix proportion affect concrete properties?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m2_qa7">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m2_qa7">
+            <p>Mix proportions determine strength, workability, and cost. More cement increases strength but cost. More water improves workability but reduces strength. Well-graded aggregate improves strength and reduces cement needs. The proportions must balance these factors for the intended use.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What causes concrete to crack, and is cracking always bad?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m2_qa8">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m2_qa8">
+            <p>Cracks occur due to tension, shrinkage, or thermal effects. Some cracking is normal and expected (especially on the tension side of beams). However, excessive cracking can indicate problems. Controlled cracking is acceptable if it doesn't affect durability or serviceability.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How long does concrete take to reach full strength?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m2_qa9">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m2_qa9">
+            <p>Concrete gains strength over time as hydration continues. Most strength (about 90%) is gained in the first 28 days, with strength continuing to increase for months or years. Standard strength testing is done at 28 days, but concrete continues to strengthen beyond this age.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What factors affect the workability of concrete?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m2_qa10">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m2_qa10">
+            <p>Workability is affected by water content (more water = more workable), aggregate size and shape (rounded aggregate = more workable), cement content, and admixtures (plasticisers increase workability). Workability must be balanced with strength - too much water reduces strength.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li>Concrete mix design charts and calculators.</li>
+        <li>Reinforcement layout examples and standards.</li>
+        <li>Curing method guides and best practices.</li>
+        <li>Concrete strength development curves.</li>
+        <li>Engineering materials textbooks and online resources.</li>
+      </ul>
+    </article>
+  </main>
+  <script src="../page-nav.js" defer></script>
+  <script src="../qa-widget.js"></script>
+</body>
+</html>

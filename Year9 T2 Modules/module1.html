@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 1: Materials & Corrosion. Investigate metals, polymers, concrete, corrosion protection, and damp-proofing through practical experiments and analysis." />
+  <meta name="keywords" content="materials, corrosion, metals, polymers, concrete, damp proof course, engineering materials" />
+  <title>Toolkit 1: Materials & Corrosion | Year 9 Term 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root { --brand: #0056b3; --bg: #f6f8fb; --card: #ffffff; --text: #1f2a3d; --muted: #5c667a; --border: #e2e8f0; --shadow: 0 12px 30px rgba(0,0,0,0.08); --radius: 12px; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    header { background: linear-gradient(135deg, #0b63c3, #0a4f93); color: #fff; padding: 2.25rem 1.25rem 2rem; text-align: center; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; background: #fff; border-bottom: 1px solid var(--border); padding: 0.5rem 1rem; }
+    nav a { padding: 0.4rem 0.75rem; border-radius: 10px; color: var(--brand); font-weight: 600; }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem; margin-bottom: 1.25rem; display: flow-root; }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .pill { display: inline-block; padding: 0.25rem 0.6rem; border-radius: 999px; background: #e6f0fb; color: var(--brand); font-weight: 600; font-size: 0.8rem; }
+    .pdf-embed { width: 100%; height: 420px; border: 1px solid var(--border); border-radius: 10px; }
+    .pdf-embed-note { font-size: 0.9rem; color: var(--muted); margin-top: 0.35rem; }
+    .qa-list details {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      margin: 0.5rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .qa-list summary {
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--text);
+      list-style: none;
+    }
+    .qa-list summary::-webkit-details-marker { display: none; }
+    .qa-list .answer {
+      margin-top: 0.5rem;
+      color: var(--muted);
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 1: Materials & Corrosion</h1>
+    <p>Material properties, corrosion mechanisms, protection methods</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term2.html">&#8592; T2 Overview</a>
+    <a class="active" href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../year9_term2.html">&#8592; Back to Year 9 T2 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Theory</div>
+      <h2>Learning Focus</h2>
+      <img src="../images/term234/materials.jpg" alt="Engineering materials" class="content-image" />
+      <p style="color: var(--muted); margin-bottom: 1rem;">By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Classify engineering materials:</strong> Understand the main categories (metals, polymers, ceramics, composites) and their key properties.</li>
+        <li><strong>Explain corrosion mechanisms:</strong> Understand how and why materials corrode, particularly metals in different environments.</li>
+        <li><strong>Evaluate protection methods:</strong> Compare different corrosion protection strategies and their effectiveness.</li>
+        <li><strong>Select materials for applications:</strong> Choose appropriate materials based on properties, environment, and cost considerations.</li>
+        <li><strong>Link materials to concrete:</strong> Understand how material properties relate to concrete as a composite material (Toolkit 2).</li>
+      </ul>
+      <p style="color: var(--muted); margin-top: 1rem; padding: 0.75rem; background: #f8f9fa; border-left: 3px solid var(--brand); border-radius: 4px;"><strong>Why this matters:</strong> Understanding materials is fundamental to engineering. This toolkit provides the foundation for understanding concrete as a composite material in Toolkit 2, and helps you make informed material choices for your concrete beam project.</p>
+    </article>
+
+    <article class="card">
+      <h2>Key Notes</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;"><strong>Why this matters:</strong> Engineers must understand material properties to select the right material for each application. This knowledge directly applies to your concrete beam project, where you'll work with concrete (a composite), steel reinforcement, and formwork materials.</p>
+      
+      <h3>1. Material Categories</h3>
+      <img src="../images/Engineering Materials flowchart.jpg" alt="Engineering materials classification flowchart" class="content-image" />
+      <p>Engineering materials are broadly classified into four main categories:</p>
+      <ul>
+        <li><strong>Metals:</strong> Good conductors of heat and electricity, ductile (can be drawn into wires), malleable (can be hammered into sheets). Examples: steel, aluminium, copper. Used for structural members, reinforcement, fasteners.</li>
+        <li><strong>Polymers (Plastics):</strong> Lightweight, good electrical insulators, can be moulded into complex shapes. Examples: PVC, polyethylene, epoxy. Used for pipes, coatings, adhesives, formwork.</li>
+        <li><strong>Ceramics:</strong> Hard, brittle, good insulators, resistant to high temperatures. Examples: concrete, brick, glass. Used for structural elements, protective coatings.</li>
+        <li><strong>Composites:</strong> Made from two or more materials combined to get better properties than either alone. Examples: concrete (cement + aggregate + reinforcement), fibreglass, carbon fibre. Used for high-performance structural applications.</li>
+      </ul>
+
+      <h3>2. Key Material Properties</h3>
+      <p>When selecting materials, engineers consider these properties:</p>
+      <ul>
+        <li><strong>Strength:</strong> Ability to resist applied forces without failure (tensile strength, compressive strength, yield strength).</li>
+        <li><strong>Stiffness:</strong> Resistance to deformation under load (modulus of elasticity).</li>
+        <li><strong>Toughness:</strong> Ability to absorb energy before fracture (resistance to impact).</li>
+        <li><strong>Durability:</strong> Resistance to degradation over time (corrosion, weathering, chemical attack).</li>
+        <li><strong>Workability:</strong> Ease of shaping, cutting, joining, or processing.</li>
+        <li><strong>Cost:</strong> Material cost, processing cost, maintenance cost over service life.</li>
+      </ul>
+      <p><strong>For your concrete beam:</strong> You'll need to understand how concrete (ceramic composite) and steel reinforcement (metal) work together, and why formwork materials (often timber or polymer) are chosen for their workability and reusability.</p>
+
+      <h3>3. Corrosion Mechanisms</h3>
+      <p>Corrosion is the deterioration of materials, especially metals, due to chemical reactions with their environment:</p>
+      <ul>
+        <li><strong>Electrochemical corrosion:</strong> Most common type. Requires an anode (where metal loses electrons), cathode (where electrons are gained), electrolyte (conducting solution), and electrical connection. Rusting of steel is electrochemical corrosion.</li>
+        <li><strong>Galvanic corrosion:</strong> Occurs when two different metals are in contact in the presence of an electrolyte. The more reactive metal corrodes faster.</li>
+        <li><strong>Uniform corrosion:</strong> Corrosion occurs evenly across the surface (e.g., rusting of unprotected steel).</li>
+        <li><strong>Localised corrosion:</strong> Corrosion concentrated in specific areas (pitting, crevice corrosion).</li>
+      </ul>
+      <p><strong>Why this matters for concrete:</strong> Steel reinforcement in concrete can corrode if the concrete cracks or if chloride ions penetrate. Understanding corrosion helps you understand why proper concrete cover and mix design are critical.</p>
+
+      <h3>4. Corrosion Protection Methods</h3>
+      <p>Engineers use various methods to protect materials from corrosion:</p>
+      <ul>
+        <li><strong>Barrier protection:</strong> Coating the material to prevent contact with corrosive agents (paint, galvanising, epoxy coatings).</li>
+        <li><strong>Cathodic protection:</strong> Making the material the cathode in an electrochemical cell (sacrificial anodes, impressed current).</li>
+        <li><strong>Material selection:</strong> Choosing materials that are naturally corrosion-resistant (stainless steel, aluminium, polymers).</li>
+        <li><strong>Environmental control:</strong> Reducing exposure to corrosive agents (humidity control, protective enclosures).</li>
+        <li><strong>Design modifications:</strong> Avoiding crevices, ensuring drainage, using compatible materials.</li>
+      </ul>
+      <p><strong>For concrete:</strong> Proper concrete cover, low water-cement ratio, and sometimes epoxy-coated or stainless steel reinforcement protect against corrosion.</p>
+
+      <h3>5. Damp-Proof Course (DPC)</h3>
+      <p>A damp-proof course is a barrier used to prevent moisture rising through walls or floors:</p>
+      <ul>
+        <li><strong>Purpose:</strong> Prevents water from capillary action (rising damp) which can cause damage, mould, and structural issues.</li>
+        <li><strong>Materials:</strong> Typically plastic (PVC, polyethylene), bitumen, or metal sheets placed horizontally in masonry walls or under concrete slabs.</li>
+        <li><strong>Location:</strong> Usually placed just above ground level in walls, or under concrete floor slabs.</li>
+      </ul>
+      <p><strong>Connection to concrete:</strong> Understanding moisture movement helps you understand why concrete needs proper curing and protection from water during the early stages.</p>
+    </article>
+
+    <article class="card">
+      <h2>Activities & Evidence</h2>
+      <h3>1) Corrosion Investigation</h3>
+      <ul>
+        <li>Set up saltwater corrosion tests with different materials (mild steel, galvanised steel, aluminium, plastic).</li>
+        <li>Observe and record changes over time (rust formation, pitting, discolouration).</li>
+        <li>Compare corrosion rates and identify which materials are most resistant.</li>
+        <li>Document your observations with photos and notes in your folio.</li>
+      </ul>
+
+      <h3>2) Damp-Proof Course Investigation</h3>
+      <ul>
+        <li>Observe DPC demonstrations showing how moisture rises through masonry.</li>
+        <li>Compare walls with and without DPC to see the difference.</li>
+        <li>Identify DPC materials and their properties (flexibility, durability, cost).</li>
+        <li>Document findings in your folio with sketches and explanations.</li>
+      </ul>
+
+      <h3>3) Materials Brief</h3>
+      <p style="color: var(--muted); margin-bottom: 0.75rem; font-weight: 600;"><strong>Timing:</strong> Create a materials brief for your concrete beam project. Include this in your beam folio.</p>
+      <ul>
+        <li>Create a one-page materials brief for your concrete beam project.</li>
+        <li>For each key material (concrete, steel reinforcement, formwork), comment on: strength, durability, workability, cost, and environmental impact.</li>
+        <li>Link material choices to the beam's structural requirements and service environment.</li>
+        <li>Include the brief in your project folio.</li>
+      </ul>
+
+      <h3>4) Google Classroom Check-in</h3>
+      <ul>
+        <li>Submit responses for <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc4" target="_blank" rel="noopener">Materials &amp; Corrosion</a> before starting experiments.</li>
+        <li>Capture notes in your folio to use when evaluating your concrete beam materials.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Materials & Corrosion Q&amp;A</h2>
+      <p class="card-note">Try answering first. Then reveal the model answer and self-assess using the 0–3 rubric.</p>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What are the main differences between metals, polymers, and ceramics?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m1_qa1">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m1_qa1">
+            <p><strong>Metals</strong> are good conductors, ductile and malleable. They're used for structural members and reinforcement.</p>
+            <p><strong>Polymers</strong> are lightweight, good insulators, and can be moulded. They're used for pipes, coatings, and formwork.</p>
+            <p><strong>Ceramics</strong> are hard, brittle, and resistant to high temperatures. Concrete is a ceramic composite material.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why does steel rust more quickly in saltwater than in fresh water?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m1_qa2">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m1_qa2">
+            <p>Saltwater contains dissolved ions (sodium and chloride) that act as a better electrolyte than fresh water. This increases the rate of electrochemical corrosion, allowing electrons to flow more easily between anode and cathode sites on the steel surface.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How does galvanising protect steel from corrosion?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m1_qa3">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m1_qa3">
+            <p>Galvanising coats steel with a layer of zinc. Zinc is more reactive than steel, so it acts as a sacrificial anode, corroding preferentially and protecting the underlying steel. Even if the zinc coating is scratched, the zinc continues to protect the exposed steel.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is a composite material, and why is concrete considered one?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m1_qa4">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m1_qa4">
+            <p>A composite combines two or more materials to achieve better properties than either alone. Concrete is a composite because it combines cement paste (binder), aggregate (filler), and often steel reinforcement (strength). The cement binds the aggregate, while reinforcement provides tensile strength that concrete lacks.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why is a damp-proof course important in construction?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m1_qa5">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m1_qa5">
+            <p>A DPC prevents moisture from rising through walls or floors via capillary action. Without it, water can cause damage, mould growth, and structural deterioration. It's a barrier that protects the building from ground moisture.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How do material properties affect the selection of formwork for concrete?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m1_qa6">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m1_qa6">
+            <p>Formwork must be strong enough to hold wet concrete, smooth enough to produce a good finish, and reusable or cost-effective. Timber is workable and reusable; steel is strong and durable; plastic is lightweight and smooth. The choice depends on project requirements, cost, and reusability needs.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why might an engineer choose epoxy-coated reinforcement for a concrete beam?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m1_qa7">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m1_qa7">
+            <p>Epoxy coating provides a barrier that protects steel from corrosion, especially in environments with chloride exposure (coastal areas, de-icing salts). This extends the service life of the concrete structure by preventing reinforcement corrosion that could cause cracking and failure.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What factors influence the rate of corrosion in metals?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m1_qa8">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m1_qa8">
+            <p>Corrosion rate depends on: the type of metal (reactivity), presence of electrolytes (moisture, salts), temperature (higher temperatures increase rates), oxygen availability, and the presence of other metals (galvanic effects). Environmental conditions are critical - marine environments are particularly corrosive.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How does understanding material properties help in concrete beam design?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m1_qa9">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m1_qa9">
+            <p>Understanding that concrete is strong in compression but weak in tension explains why reinforcement is needed on the tension side. Knowing that steel can corrode explains why proper concrete cover is essential. Understanding workability affects mix design and placement methods.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is the relationship between material cost and material selection?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m1_qa10">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m1_qa10">
+            <p>Engineers must balance material cost with performance requirements. A cheaper material might require more of it, or might have higher maintenance costs. The total cost includes initial material cost, processing/manufacturing cost, and lifetime maintenance cost. Sometimes a more expensive material is chosen for its durability and lower long-term costs.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li>Corrosion test samples and saltwater solutions.</li>
+        <li>DPC demonstration materials and examples.</li>
+        <li>Material property reference tables.</li>
+        <li>Engineering materials textbooks and online resources.</li>
+      </ul>
+    </article>
+  </main>
+  <script src="../page-nav.js" defer></script>
+  <script src="../qa-widget.js"></script>
+</body>
+</html>

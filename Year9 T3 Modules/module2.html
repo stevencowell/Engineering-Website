@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toolkit 2 | Fluid Power & Hydraulic Digger</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .card p { color: var(--muted); margin: 0.4rem 0; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .qa-item { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; margin: 0.65rem 0; background: #fff; box-shadow: var(--shadow); }
+    .qa-question { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; font-weight: 700; color: var(--text); }
+    .qa-toggle { padding: 0.45rem 0.85rem; border-radius: 999px; border: 1px solid var(--border); background: #e6f0fb; color: var(--brand); font-weight: 700; cursor: pointer; box-shadow: var(--shadow); }
+    .qa-toggle:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+    .qa-answer { margin-top: 0.65rem; color: var(--muted); display: none; }
+  </style>
+</head>
+  <body>
+  <a href="#main-content" class="sr-only" style="position: absolute; top: 0; left: 0; background: #0b63c3; color: #fff; padding: 0.75rem 1rem; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0;">Skip to main content</a>
+  <header role="banner">
+    <h1>Toolkit 2: Hydraulic Digger Design</h1>
+    <p>Design brief, lever geometry, cylinder placement, syringe sizing</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term3.html">&#8592; T3 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a class="active" href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main id="main-content" role="main">
+    <a class="back-link" href="../year9_term3.html">&#8592; Back to Year 9 T3 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Design</div>
+      <h2>Learning Focus</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Interpret the design brief:</strong> Understand digger requirements, reach, lifting capacity, and test specifications.</li>
+        <li><strong>Design lever systems:</strong> Plan lever geometry and cylinder placement to achieve desired force multiplication and movement.</li>
+        <li><strong>Select syringe sizes:</strong> Calculate force multiplication using area ratios and select appropriate syringe combinations.</li>
+        <li><strong>Plan hydraulic system:</strong> Design tubing layout, cylinder mounting, and system configuration.</li>
+        <li><strong>Predict performance:</strong> Calculate expected forces, movements, and mechanical advantage before building.</li>
+      </ul>
+      <p style="color: var(--muted); margin-top: 1rem; padding: 0.75rem; background: #f8f9fa; border-left: 3px solid var(--brand); border-radius: 4px;"><strong>Timing:</strong> Complete Toolkit 2 design work before starting your build in Toolkit 3. Good planning here ensures efficient construction and reliable performance.</p>
+    </article>
+
+    <article class="card">
+      <h2>Understanding the Design Brief</h2>
+      <p>Before you start designing, make sure you understand every requirement:</p>
+      <ul>
+        <li><strong>Reach requirement:</strong> Maximum horizontal reach your digger must achieve (e.g., 300 mm, 400 mm).</li>
+        <li><strong>Lifting capacity:</strong> Minimum load the digger must lift (e.g., 50 g, 100 g).</li>
+        <li><strong>Material constraints:</strong> What materials are allowed (typically timber/plywood for frame, syringes and tubing for hydraulics).</li>
+        <li><strong>Control requirements:</strong> How many functions must be controlled (typically boom, dipper, bucket - 3 separate hydraulic circuits).</li>
+        <li><strong>Test method:</strong> How performance will be measured (load capacity, reach, control precision).</li>
+        <li><strong>Design constraints:</strong> Any restrictions on size, configuration, or construction methods.</li>
+      </ul>
+      <div style="background: #e6f0fb; border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem; color: var(--text); margin: 1rem 0;">
+        <strong>Design Tip:</strong> Link every design decision to force multiplication and movement. Consider where levers multiply force vs speed, how syringe sizes affect output, and what failure modes you expect. This helps you make informed design choices.
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="pill">Theory</div>
+      <h2>Key Notes</h2>
+      
+      <h3>1. Digger Arm Layout Design</h3>
+      <p>Design the excavator arm by selecting lever lengths and cylinder placements that create the desired reach and bucket motion. The digger typically has three main sections:</p>
+      <ul>
+        <li><strong>Boom:</strong> Connects to base, provides main reach and height.</li>
+        <li><strong>Dipper:</strong> Middle arm, extends reach and controls bucket position.</li>
+        <li><strong>Bucket:</strong> End effector, performs digging/lifting action.</li>
+      </ul>
+      <p>Each section can be controlled by a separate hydraulic cylinder. Plan the pivot points and lever lengths to achieve the required reach and lifting capacity.</p>
+
+      <h3>2. Lever Geometry and Mechanical Advantage</h3>
+      <p>The mechanical advantage of a lever depends on the ratio of distances from the fulcrum:</p>
+      <ul>
+        <li>If the cylinder attaches <strong>closer to the fulcrum</strong> than the load, you get <strong>force multiplication</strong> (higher MA, less movement).</li>
+        <li>If the cylinder attaches <strong>further from the fulcrum</strong> than the load, you get <strong>speed/distance multiplication</strong> (lower MA, more movement).</li>
+      </ul>
+      <p>Most digger designs use a combination: force multiplication for lifting heavy loads, and speed multiplication for quick bucket movements.</p>
+      <p><strong>Design tip:</strong> Sketch different lever configurations and calculate expected MA for each. Choose the configuration that best balances force, speed, and control for your design requirements.</p>
+
+      <h3>3. Syringe Size Selection</h3>
+      <p>Select syringe sizes based on required force multiplication:</p>
+      <ul>
+        <li><strong>Calculate area ratios:</strong> Use F₂ = F₁ × (A₂/A₁) to predict force multiplication. Remember: area = πr² or πd²/4. A syringe with double the diameter has four times the area.</li>
+        <li><strong>Consider movement trade-offs:</strong> Larger output syringes multiply force but reduce movement distance. Balance force needs with movement requirements.</li>
+        <li><strong>Typical combinations:</strong> Small input syringes (5-10 mL) with larger output syringes (20-50 mL) provide good force multiplication while maintaining reasonable movement.</li>
+      </ul>
+      <p><strong>Example:</strong> If you use a 5 mL syringe (diameter ≈ 12 mm) as input and a 20 mL syringe (diameter ≈ 24 mm) as output, the area ratio is (24/12)² = 4. This means a 5 N input produces 20 N output, but output moves only 1/4 the input distance.</p>
+
+      <h3>4. Cylinder Placement Planning</h3>
+      <p>Plan where each hydraulic cylinder attaches to create desired motion:</p>
+      <ul>
+        <li><strong>Boom cylinder:</strong> Typically attaches near base, lifts entire arm assembly. Needs high force, moderate movement.</li>
+        <li><strong>Dipper cylinder:</strong> Attaches between boom and dipper, extends reach. Needs moderate force and movement.</li>
+        <li><strong>Bucket cylinder:</strong> Attaches to control bucket angle. Needs lower force, higher movement for precise control.</li>
+      </ul>
+      <p>Sketch cylinder attachment points on your lever diagrams. Consider how attachment position affects both force multiplication and range of motion.</p>
+
+      <h3>5. Hydraulic System Layout</h3>
+      <p>Plan your hydraulic system configuration:</p>
+      <ul>
+        <li><strong>Tubing layout:</strong> Plan routing to minimise bends, avoid kinks, and keep lengths reasonable. Longer tubing increases friction and reduces responsiveness.</li>
+        <li><strong>Syringe mounting:</strong> Plan how syringes will be mounted (brackets, clamps, fixed positions). Ensure they can move freely without binding.</li>
+        <li><strong>Input/output arrangement:</strong> Decide which syringes are inputs (controlled by operator) and which are outputs (move digger parts).</li>
+        <li><strong>System isolation:</strong> Consider whether each function needs separate circuits or can share components.</li>
+      </ul>
+
+      <h3>6. Performance Prediction</h3>
+      <p>Calculate expected performance before building:</p>
+      <ul>
+        <li><strong>Force calculations:</strong> Use syringe areas and lever ratios to predict output forces at the bucket.</li>
+        <li><strong>Movement calculations:</strong> Predict how far each section moves for given input displacement.</li>
+        <li><strong>Reach calculations:</strong> Use geometry to predict maximum reach based on arm lengths and angles.</li>
+        <li><strong>Efficiency estimates:</strong> Account for friction and losses - expect 70-85% efficiency in well-built systems.</li>
+      </ul>
+      <p>These predictions help you verify your design meets the brief requirements and identify potential problems before building.</p>
+    </article>
+
+    <article class="card">
+      <h2>Activities &amp; Evidence</h2>
+      <h3>1) Design Brief Analysis</h3>
+      <ul>
+        <li>Read and annotate the design brief, highlighting all requirements and constraints.</li>
+        <li>Create a checklist of requirements to ensure your design meets all criteria.</li>
+        <li>Identify any constraints or limitations that affect your design choices.</li>
+      </ul>
+
+      <h3>2) Preliminary Sketches</h3>
+      <ul>
+        <li>Sketch 2-3 different digger arm layouts (different lever arrangements, cylinder placements).</li>
+        <li>Compare options: which has better force multiplication? Which has better reach? Which is easier to build?</li>
+        <li>Select your preferred option and justify your choice.</li>
+      </ul>
+
+      <h3>3) Detailed Design</h3>
+      <ul>
+        <li>Create final design sketches showing boom, dipper, and bucket with dimensions.</li>
+        <li>Annotate lever lengths, pivot points, and cylinder attachment points.</li>
+        <li>Calculate expected forces using syringe areas and lever ratios.</li>
+        <li>Predict maximum reach and lifting capacity.</li>
+        <li>Create a materials list and cutting plan.</li>
+      </ul>
+
+      <h3>4) Hydraulic System Design</h3>
+      <ul>
+        <li>Select syringe sizes for each function and justify your choices.</li>
+        <li>Calculate force multiplication for each hydraulic circuit.</li>
+        <li>Plan tubing layout and syringe mounting arrangements.</li>
+        <li>Create a system diagram showing all components and connections.</li>
+      </ul>
+
+      <h3>5) Google Classroom Check-in</h3>
+      <ul>
+        <li>Submit your design sketches and calculations before starting construction.</li>
+        <li>Get teacher feedback on your design before building.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li>Design brief and requirements sheet.</li>
+        <li>Syringe size reference (diameters, volumes, areas).</li>
+        <li>Example digger designs and folios for reference.</li>
+        <li>Drawing tools and CAD software (optional).</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Activities &amp; Evidence</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">Complete these activities to demonstrate your understanding:</p>
+      
+      <h3>1) Design &amp; Planning</h3>
+      <ul>
+        <li><strong>Sketch cylinder placement options:</strong> Draw at least two different lever configurations showing where cylinders attach. Label lever lengths and calculate expected mechanical advantage for each.</li>
+        <li><strong>Calculate expected output forces:</strong> Using syringe diameters, calculate theoretical force multiplication. Show your working: area calculations, force ratios, and lever ratios. Predict the maximum load your digger should lift.</li>
+        <li><strong>SWMS development:</strong> Complete a Safe Work Method Statement covering cutting, drilling, assembly, water handling, and testing. Apply the hierarchy of control to each hazard.</li>
+      </ul>
+      
+      <h3>2) Construction &amp; Assembly</h3>
+      <ul>
+        <li><strong>Build the digger frame:</strong> Follow your design sketches, using accurate measurement and square joints. Document any changes from the original plan with photos and notes.</li>
+        <li><strong>Set up the hydraulic system:</strong> Connect syringes and tubing, ensuring no air bubbles remain. Test each cylinder independently before final assembly.</li>
+        <li><strong>Record travel distances:</strong> Measure how far each section moves for a given input displacement. Compare actual distances to theoretical predictions based on area ratios.</li>
+        <li><strong>Photo evidence:</strong> Capture images showing construction stages, hydraulic connections, and the completed digger from multiple angles.</li>
+      </ul>
+      
+      <h3>3) Testing &amp; Data Collection</h3>
+      <ul>
+        <li><strong>Load lifting capacity:</strong> Test how much weight the bucket can lift. Add weights gradually and record the maximum load before the system fails or becomes unstable.</li>
+        <li><strong>Force measurements:</strong> Measure input force (using a spring balance or force meter) and output force (weight lifted). Create a table comparing theoretical vs actual forces for different loads.</li>
+        <li><strong>Efficiency calculation:</strong> Calculate efficiency as (actual output force / theoretical output force) × 100%. Identify factors that reduce efficiency (friction, air bubbles, leakage, lever geometry).</li>
+        <li><strong>Video documentation:</strong> Record the digger in operation, showing lifting, reaching, and bucket control. Use this to analyse motion and identify areas for improvement.</li>
+      </ul>
+      
+      <h3>4) Documentation &amp; Evaluation</h3>
+      <ul>
+        <li><strong>Mini-report structure:</strong> Include design brief, sketches with calculations, construction photos, test data tables/graphs, efficiency analysis, and reflective evaluation.</li>
+        <li><strong>Reflection on improvements:</strong> Explain what worked well, what didn't match predictions, and what you would change. Use engineering terminology: mechanical advantage, force multiplication, efficiency, lever ratios.</li>
+        <li><strong>Link to theory:</strong> Connect your results back to Pascal's principle, lever mechanics, and friction/leakage concepts. Explain why actual results differ from ideal calculations.</li>
+      </ul>
+      
+      <h3>Google Classroom Check-in</h3>
+      <ul>
+        <li>Complete the <a href="https://classroom.google.com" target="_blank" rel="noopener">Fluid Power &amp; Mechanisms</a> activity before starting construction.</li>
+        <li>Submit your SWMS and design calculations for teacher review.</li>
+        <li>Share your test data and evaluation in the <a href="https://classroom.google.com" target="_blank" rel="noopener">Hydraulic Digger Project</a> task.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Hydraulic Digger Q&amp;A</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How does Pascal's principle apply to hydraulics?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa1">
+            <p>Pascal's principle states that pressure applied to an enclosed fluid is transmitted equally in all directions. In a hydraulic system, this means a small force on a small piston creates pressure that acts equally on a larger piston, generating a larger force.</p>
+            <p>For example, if you push down on a 5 mL syringe (small area) with 10 N of force, the pressure created is transmitted to a 20 mL syringe (larger area). Since pressure = force/area, and the pressure is the same, the larger area produces a larger force—approximately 40 N if the area ratio is 4:1.</p>
+            <p>This principle is why hydraulic systems can multiply force, making it possible to lift heavy loads with relatively small input forces. However, you can't get something for nothing: the larger piston moves a shorter distance, maintaining the work input ≈ work output relationship.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why use different syringe diameters, and how do you calculate the force multiplication?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa2">
+            <p>Different syringe diameters create different piston areas, which determine force multiplication. The key formula is <strong>F₂ = F₁ × (A₂/A₁)</strong>, where F₁ is input force, F₂ is output force, and A₁ and A₂ are the piston areas.</p>
+            <p><strong>Important:</strong> Always calculate using areas, not diameters. Area = πr² or πd²/4. A syringe with double the diameter has four times the area (since area scales with diameter squared).</p>
+            <p><strong>Example:</strong> A 5 mL syringe (diameter ≈ 12 mm) has area ≈ 113 mm². A 20 mL syringe (diameter ≈ 24 mm) has area ≈ 452 mm². The area ratio is 452/113 = 4. So a 10 N input produces a 40 N output, but the output moves only 1/4 the distance.</p>
+            <p>Changing syringe diameters changes the force-distance trade-off: larger output syringes multiply force but reduce travel distance, while smaller output syringes reduce force but increase travel distance.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What reduces efficiency in a hydraulic digger, and how can you improve it?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa3">
+            <p>Several factors reduce efficiency below the theoretical 100%:</p>
+            <ul>
+              <li><strong>Air bubbles:</strong> Air compresses under pressure, creating a "spongy" feel and absorbing energy that should transfer to the load. Always bleed air completely by filling syringes and pushing fluid through tubing before connecting.</li>
+              <li><strong>Flexible tubing:</strong> Soft tubing expands under pressure, absorbing movement and reducing force transfer. Use rigid or semi-rigid tubing where possible.</li>
+              <li><strong>Plunger friction:</strong> Friction between the plunger and barrel requires extra input force that doesn't contribute to output. Well-maintained syringes with smooth plungers reduce this.</li>
+              <li><strong>Leakage:</strong> Small leaks allow fluid to escape, reducing pressure and causing the system to "drift" or lose position. Ensure tight connections using cable ties or clamps.</li>
+              <li><strong>Lever geometry:</strong> Poor lever ratios or misaligned pivots create binding and reduce mechanical advantage. Ensure pivots are smooth and levers move freely.</li>
+            </ul>
+            <p>Typical classroom hydraulic systems achieve 60–80% efficiency. To improve, eliminate air bubbles, use rigid tubing, maintain syringes, ensure tight connections, and optimise lever geometry.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How do lever ratios affect the digger's performance?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa4">
+            <p>Lever ratios determine how force and distance are multiplied. The mechanical advantage of a lever equals the ratio of distances from the fulcrum: <strong>MA = Load Arm / Effort Arm</strong>.</p>
+            <p>If the cylinder attaches <strong>closer to the fulcrum</strong> than the load, you get force multiplication (MA > 1). This is useful for lifting heavy loads but requires more input travel. If the cylinder attaches <strong>further from the fulcrum</strong> than the load, you get speed/distance multiplication (MA < 1), useful for quick movements but requiring more input force.</p>
+            <p><strong>Example:</strong> If the cylinder attaches 50 mm from the pivot and the bucket is 200 mm from the pivot, the lever ratio is 200/50 = 4. This multiplies force by 4 but reduces movement by 4. Combined with a 4:1 syringe area ratio, the total force multiplication is 4 × 4 = 16, but the bucket moves only 1/16 the distance of the input.</p>
+            <p>Most digger designs use a combination: force multiplication for the boom (lifting), and speed multiplication for the bucket (quick dumping). Experiment with different lever configurations to find the best balance for your design.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How should hazards be managed during construction and testing?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa5">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa5">
+            <p>Complete a SWMS before starting, applying the hierarchy of control to each hazard:</p>
+            <ul>
+              <li><strong>Popping syringes:</strong> Use water instead of oil (elimination), limit plunger force (administrative control), wear safety glasses (PPE). Never exceed the syringe's rated capacity.</li>
+              <li><strong>Water spills:</strong> Keep electrical equipment away from water sources (engineering control), clean spills immediately (administrative control), use drip trays (engineering control).</li>
+              <li><strong>Sharp edges:</strong> Sand or file sharp edges after cutting (engineering control), handle materials carefully (administrative control), wear gloves if needed (PPE).</li>
+              <li><strong>Pinching points:</strong> Keep hands clear of moving linkages (administrative control), clamp the digger during testing (engineering control), test in a controlled area (administrative control).</li>
+              <li><strong>Unexpected movement:</strong> Secure the digger frame during testing (engineering control), maintain clear space around moving parts (administrative control).</li>
+            </ul>
+            <p>Always test in a controlled area with clear space, secure the digger frame, and have a teacher supervise pressurised system testing. Report any damaged syringes or leaks immediately.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why does the digger feel "spongy" or unresponsive, and how do you fix it?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa6">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa6">
+            <p>A "spongy" feel usually indicates <strong>air bubbles</strong> in the system. Air compresses under pressure, absorbing movement and creating a delay between input and output. The system may also drift or lose position when you stop applying force.</p>
+            <p><strong>To fix:</strong> Completely bleed air from the system by filling syringes with water (no air space), pushing fluid through the tubing until no bubbles appear, and ensuring all connections are tight. You may need to disconnect and reconnect sections to remove trapped air.</p>
+            <p>Other causes of poor responsiveness include flexible tubing (expands under pressure), loose connections (leakage), or worn syringes (excessive plunger friction). Check each component systematically to identify the problem.</p>
+            <p>Once air is removed and connections are tight, the system should feel firm and responsive, with immediate movement when you push the input syringe.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How do you calculate efficiency, and what does it tell you about your design?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa7">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa7">
+            <p>Efficiency compares actual performance to theoretical predictions: <strong>Efficiency (%) = (Actual Output Force / Theoretical Output Force) × 100%</strong>.</p>
+            <p><strong>Example:</strong> If theory predicts 40 N output from 10 N input (4:1 area ratio), but you measure only 32 N actual output, efficiency = (32/40) × 100% = 80%.</p>
+            <p>Efficiency tells you how well your system transfers energy. Low efficiency (below 60%) suggests significant losses from friction, air bubbles, leakage, or poor geometry. High efficiency (above 80%) indicates a well-designed and maintained system.</p>
+            <p>Use efficiency calculations to identify problems: if efficiency drops suddenly, check for leaks or air bubbles. If efficiency is consistently low, review lever geometry, tubing stiffness, and syringe condition. Improving efficiency often involves eliminating air, tightening connections, and optimising lever ratios.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What information should you record during testing, and how do you present it?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa8">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa8">
+            <p>Record comprehensive test data to evaluate performance:</p>
+            <ul>
+              <li><strong>Input measurements:</strong> Input force (N), input displacement (mm), number of syringe strokes</li>
+              <li><strong>Output measurements:</strong> Output force (weight lifted in N), output displacement (mm), maximum load capacity</li>
+              <li><strong>System details:</strong> Syringe sizes (diameters and areas), lever lengths, cylinder attachment points, any modifications from design</li>
+              <li><strong>Observations:</strong> Responsiveness, any binding or sticking, leakage, air bubbles, failure mode if tested to destruction</li>
+            </ul>
+            <p><strong>Present data in tables and graphs:</strong> Create a table comparing theoretical vs actual forces for different loads. Plot a graph of input force vs output force to visualise the relationship. Calculate efficiency for each test and identify trends.</p>
+            <p>Good documentation includes photos of the test setup, video of operation, annotated sketches showing lever geometry, and a clear explanation of how results compare to predictions. Use this evidence to support your evaluation and suggest improvements.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How does this project connect to real engineering applications?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa9">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa9">
+            <p>Hydraulic systems are used extensively in engineering:</p>
+            <ul>
+              <li><strong>Construction equipment:</strong> Excavators, bulldozers, and cranes use hydraulic cylinders to lift heavy loads with precise control. The principles you learn apply directly to these machines.</li>
+              <li><strong>Automotive:</strong> Car brakes use hydraulic systems to multiply foot force into braking force. The master cylinder (small) connects to wheel cylinders (larger) via brake lines.</li>
+              <li><strong>Manufacturing:</strong> Hydraulic presses shape metal, compact waste, and form materials. They provide high force with precise control.</li>
+              <li><strong>Aerospace:</strong> Aircraft landing gear and control surfaces often use hydraulics for reliable, powerful actuation.</li>
+            </ul>
+            <p>The same principles—Pascal's principle, force multiplication, lever mechanics, and efficiency—apply at all scales. Understanding these fundamentals helps you design and troubleshoot real engineering systems.</p>
+            <p>In your evaluation, connect your digger's performance to these applications. For example, explain how excavator designers balance force and speed using lever ratios, or how brake systems use area ratios to multiply braking force.</p>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What should you include in your evaluation to demonstrate engineering thinking?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa10">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa10">
+            <p>A strong evaluation demonstrates engineering thinking by:</p>
+            <ul>
+              <li><strong>Comparing theory to practice:</strong> Explain how theoretical calculations matched (or didn't match) actual results. Identify specific factors (friction, air bubbles, geometry) that caused differences.</li>
+              <li><strong>Using engineering terminology:</strong> Refer to "mechanical advantage", "force multiplication", "efficiency", "lever ratios", and "area ratios" rather than vague terms. Show you understand the concepts, not just the procedures.</li>
+              <li><strong>Analysing performance:</strong> Discuss what worked well and why (e.g., "The 4:1 syringe ratio provided good force multiplication for lifting, but the short lever arm limited bucket reach").</li>
+              <li><strong>Identifying improvements:</strong> Suggest specific, practical changes (e.g., "Increasing the dipper lever ratio from 2:1 to 3:1 would improve lifting capacity but reduce speed").</li>
+              <li><strong>Linking to real applications:</strong> Connect your results to real engineering systems (excavators, brakes, presses) to show broader understanding.</li>
+            </ul>
+            <p>Avoid vague statements like "it worked well" or "we could improve it". Instead, use data and theory to support specific conclusions. For example: "Efficiency of 75% indicates good system design, but the 25% loss is primarily due to plunger friction (measured as 2 N extra input force) and small air bubbles (visible in tubing during testing)."</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Student Responsibilities</h2>
+      <ul>
+        <li>Follow all teacher instructions and workshop rules. Complete your SWMS before starting construction.</li>
+        <li>Only test pressurised systems under teacher supervision. Never exceed syringe capacity or force plungers beyond their travel.</li>
+        <li>Report any damaged syringes, leaks, or unsafe conditions immediately. Do not attempt repairs yourself.</li>
+        <li>Keep work areas clean and dry. Clean up water spills immediately to prevent slips and protect electrical equipment.</li>
+        <li>Document your work thoroughly: take photos during construction and testing, record all measurements, and complete your evaluation using engineering terminology.</li>
+        <li>Respect shared equipment: return syringes clean and dry, store tubing properly, and leave workbenches tidy for the next class.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li>Syringes (5 mL, 10 mL, 20 mL) and tubing sets, timber or plywood for frames, fasteners, clamps and buckets or loads for testing.</li>
+        <li>Rulers, protractors and spring balances (force meters) for displacement and force measurements; spreadsheets or calculators for calculations.</li>
+        <li>SWMS templates for cutting/drilling materials and for water handling; cleanup materials (towels, drip trays) for spills.</li>
+        <li>Camera or phone for photo/video documentation; graph paper or spreadsheet software for data presentation.</li>
+      </ul>
+    </article>
+  </main>
+  <script src="../page-nav.js" defer></script>
+  <script src="../qa-widget.js"></script>
+</body>
+</html>

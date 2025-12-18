@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 1: Timber Materials for the geared lolly dispenser – selection of solid timber and sheet goods, WHS, nesting, waste control, sustainability and finishing." />
+  <meta name="keywords" content="Year 9, Engineering, timber, plywood, MDF, nesting, waste reduction, finishing, sustainability, geared lolly dispenser" />
+  <title>Toolkit 1: Timber Materials | Year 9 Term 4</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6c7a96;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0b63c3, #0a4f93);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 0.4rem 0 0;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    nav a.active {
+      background: #e6f0fb;
+      color: #0b63c3;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.75rem 1rem 3rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--brand);
+      font-weight: 600;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    .card h2 {
+      margin: 0 0 0.5rem;
+      color: var(--brand);
+    }
+
+    .card h3 {
+      margin: 1.2rem 0 0.35rem;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .card p {
+      margin: 0.3rem 0 0.6rem;
+      color: var(--muted);
+    }
+
+    .card ul {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.15rem;
+      color: var(--muted);
+    }
+
+    .card ol {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.3rem;
+      color: var(--muted);
+    }
+
+    .card li + li {
+      margin-top: 0.35rem;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+      margin-bottom: 0.35rem;
+    }
+
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 0.6rem;
+    }
+
+    .grid-two-column {
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 0.9rem;
+      border: 1px solid var(--border);
+    }
+
+    .grid-two-column h3 {
+      margin-top: 0;
+    }
+
+    .checklist li::marker {
+      content: "▢ ";
+      font-size: 0.8rem;
+    }
+
+    /* Quiz / Q&A styles */
+
+    .qa-list {
+      margin-top: 0.5rem;
+    }
+
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      margin: 0.65rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .qa-question span {
+      flex: 1;
+    }
+
+    .qa-toggle {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .qa-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+
+    .qa-answer {
+      margin-top: 0.55rem;
+      color: var(--muted);
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+      main {
+        padding: 1.25rem 0.75rem 2.25rem;
+      }
+    }
+  </style>
+</head>
+  <body>
+  <a href="#main-content" class="sr-only" style="position: absolute; top: 0; left: 0; background: #0b63c3; color: #fff; padding: 0.75rem 1rem; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0;">Skip to main content</a>
+  <header role="banner">
+    <h1>Toolkit 1: Gear Systems &amp; Mechanisms</h1>
+    <p>Compound gears, cams, ratchets, gear ratios, and mechanism theory</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term4.html">&#8592; T4 Overview</a>
+    <a class="active" href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main id="main-content" role="main">
+    <a class="back-link" href="../year9_term4.html">&#8592; Back to Year 9 T4 Toolkits</a>
+
+    <!-- Learning Focus -->
+    <article class="card">
+      <div class="pill">Theory</div>
+      <h2>Learning Focus</h2>
+      <img src="../images/term234/Lollie%20dispenser.jpeg" alt="Lolly dispenser project" class="content-image" />
+      <p>By the end of this toolkit, you should be able to:</p>
+      <ul>
+        <li>Understand compound gear trains and calculate gear ratios for multiple gear pairs.</li>
+        <li>Explain how gear ratios affect torque and speed, and apply this to dispenser design.</li>
+        <li>Understand cam profiles and how they control motion in dispensing mechanisms.</li>
+        <li>Explain ratchet mechanisms and how they prevent reverse rotation.</li>
+        <li>Calculate mechanical advantage and velocity ratio for gear systems.</li>
+        <li>Understand how multiple mechanisms work together in a compound system.</li>
+      </ul>
+
+    </article>
+
+    <!-- Why This Matters -->
+    <article class="card">
+      <h2>Why This Matters</h2>
+      <p><strong>Gear systems and mechanisms are fundamental to engineering</strong>—compound gear trains, cams, and ratchets are used in everything from vending machines and packaging equipment to car transmissions and industrial automation. Understanding how these mechanisms work is essential for designing reliable, efficient systems.</p>
+      <p>This toolkit builds the theoretical foundation for your geared lolly dispenser project. By understanding gear ratios, cam profiles, and ratchet mechanisms, you'll be able to design a dispenser that works reliably, not just by trial and error.</p>
+      <p>By mastering gear systems and mechanisms, you'll learn to:</p>
+      <ul style="margin-top: 0.75rem;">
+        <li>Calculate gear ratios and predict torque/speed relationships</li>
+        <li>Design cam profiles that control motion precisely</li>
+        <li>Understand how ratchets prevent reverse rotation</li>
+        <li>Combine multiple mechanisms into working systems</li>
+      </ul>
+      <p style="margin-top: 1rem;"><strong>How to use this module:</strong> Complete the theory and calculations before starting your Toolkit 2 design. Understanding these concepts will help you make informed design decisions and predict how your dispenser will perform. These same skills are used throughout engineering—from product design to manufacturing—master them now, and you'll be prepared for future projects and careers.</p>
+    </article>
+
+    <!-- Core Concepts -->
+    <article class="card">
+      <div class="pill">Core Concepts</div>
+      <h2>Gear Systems &amp; Mechanisms</h2>
+      <p>This toolkit provides the theoretical foundation for your geared lolly dispenser project. Understanding how compound gears, cams, and ratchets work will help you design a reliable, efficient dispenser.</p>
+
+      <div class="grid-two">
+        <div class="grid-two-column">
+          <h3>Simple Gear Pairs</h3>
+          <p style="color: var(--muted); margin: 0.35rem 0 0.75rem;">
+            &#128216; Supplementary: <a href="../assets/workbooks/Gear_Systems_and_Gear_Trains_Workbook.pdf#page=2" target="_blank" rel="noopener">Spur gears introduction (Workbook p.2)</a>
+          </p>
+          <ul>
+            <li><strong>Gear ratio:</strong> Driven teeth / Driver teeth. A 40-tooth gear driven by a 10-tooth gear has a 4:1 ratio.</li>
+            <li><strong>Speed relationship:</strong> Output speed = Input speed / Gear ratio. Higher ratios reduce speed but increase torque.</li>
+            <li><strong>Torque relationship:</strong> Output torque ≈ Input torque × Gear ratio (ignoring friction). Higher ratios multiply torque.</li>
+            <li><strong>Direction:</strong> Two meshing gears rotate in opposite directions. Add an idler gear to maintain same direction.</li>
+          </ul>
+        </div>
+
+        <div class="grid-two-column">
+          <h3>Compound Gear Trains</h3>
+          <p style="color: var(--muted); margin: 0.35rem 0 0.75rem;">
+            &#128216; Supplementary: <a href="../assets/workbooks/Gear_Systems_and_Gear_Trains_Workbook.pdf#page=3" target="_blank" rel="noopener">Gear trains &amp; idler gears (Workbook p.3)</a>
+          </p>
+          <ul>
+            <li><strong>Definition:</strong> Multiple gear pairs where the output of one pair drives the input of the next.</li>
+            <li><strong>Total ratio:</strong> Multiply individual gear ratios. Two 4:1 pairs = 16:1 total ratio.</li>
+            <li><strong>Applications:</strong> Used when a single gear pair would require very large or very small gears. Allows compact, efficient designs.</li>
+            <li><strong>Example:</strong> Handle gear (20 teeth) → intermediate (10 teeth) → carousel gear (40 teeth) = (10/20) × (40/10) = 0.5 × 4 = 2:1 ratio.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Gear terminology (pitch circle, root, centre distance)</h3>
+      <p style="color: var(--muted); margin-top: 0.35rem;">
+        These terms help you describe gear geometry and troubleshoot meshing issues clearly (without guesswork).
+      </p>
+      <p style="color: var(--muted); margin-top: 0.35rem;">
+        &#128216; Supplementary: <a href="../assets/workbooks/Gear_Systems_and_Gear_Trains_Workbook.pdf#page=5" target="_blank" rel="noopener">Gear terminology reference (Workbook p.5)</a>
+      </p>
+
+      <h3>Rack and pinion systems</h3>
+      <p style="color: var(--muted); margin-top: 0.35rem;">
+        Rack and pinion converts rotation (gear) into linear motion (rack). You’ll see it in steering systems and linear actuators.
+      </p>
+      <p style="color: var(--muted); margin-top: 0.35rem;">
+        &#128216; Supplementary: <a href="../assets/workbooks/Gear_Systems_and_Gear_Trains_Workbook.pdf#page=9" target="_blank" rel="noopener">Rack and pinion systems (Workbook p.9)</a>
+      </p>
+
+      <h3>Cams &amp; Cam Profiles</h3>
+      <p>Cams convert rotary motion into linear motion, controlling how gates open and close in dispensing mechanisms. The cam profile determines the motion characteristics.</p>
+      <ul>
+        <li><strong>Cam follower:</strong> The part that follows the cam profile (often a gate or lever). As the cam rotates, the follower moves up and down (or in and out).</li>
+        <li><strong>Cam profile types:</strong> Circular (constant radius), eccentric (offset circle), pear-shaped (slow rise, quick fall), or custom profiles for specific motion requirements.</li>
+        <li><strong>Motion control:</strong> Steep profiles create sudden movements and high forces; gradual profiles create smooth, controlled motion. Most dispensers use gradual rise for smooth gate opening.</li>
+        <li><strong>Dwell period:</strong> A flat section on the cam keeps the gate open for a set time, allowing lollies to dispense. Longer dwell = more time for dispensing.</li>
+        <li><strong>Design considerations:</strong> Balance gate opening speed (fast = quick dispense) with force requirements (steep = high force). Consider wear and friction at the cam-follower interface.</li>
+      </ul>
+
+      <h3>Ratchets &amp; One-Way Mechanisms</h3>
+      <p>Ratchets prevent reverse rotation, ensuring the dispenser only moves forward and doesn't accidentally dispense multiple lollies.</p>
+      <ul>
+        <li><strong>Pawl and ratchet:</strong> A spring-loaded pawl engages with teeth on a ratchet wheel. Forward rotation lifts the pawl; reverse rotation is blocked.</li>
+        <li><strong>Applications:</strong> Prevents carousel from rotating backwards, ensures one-way dispensing, protects against accidental reverse operation.</li>
+        <li><strong>Design considerations:</strong> Pawl must engage reliably but not bind. Spring tension must be sufficient to engage but not excessive (causes wear). Tooth angle affects engagement reliability.</li>
+        <li><strong>Alternatives:</strong> One-way bearings or clutches can also prevent reverse rotation, but ratchets are simpler and more reliable for low-speed applications.</li>
+      </ul>
+
+      <h3>Combining Mechanisms</h3>
+      <p>Your geared lolly dispenser combines multiple mechanisms working together:</p>
+      <ul>
+        <li><strong>Gear train:</strong> Transfers rotation from handle to carousel, multiplying torque and controlling speed.</li>
+        <li><strong>Cam mechanism:</strong> Opens and closes the dispensing gate at the right time in the cycle.</li>
+        <li><strong>Ratchets:</strong> Prevents reverse rotation, ensuring one-way operation.</li>
+        <li><strong>Timing:</strong> All mechanisms must be synchronized—gate opens when a lolly is positioned, carousel advances after dispensing, ratchet prevents back-rotation.</li>
+        <li><strong>Design integration:</strong> Each mechanism affects the others. Gear ratio affects how fast the carousel rotates, which affects timing with the cam. Design must consider all interactions.</li>
+      </ul>
+    </article>
+
+    <!-- Gear Calculations & Examples -->
+    <article class="card">
+      <div class="pill">Calculations</div>
+      <h2>Gear Ratio Calculations &amp; Examples</h2>
+      <p>Use these examples to practice calculating gear ratios and understanding their effects on speed and torque.</p>
+
+      <h3>Example 1: Simple Gear Pair</h3>
+      <p><strong>Problem:</strong> A handle gear with 20 teeth drives a carousel gear with 60 teeth. Calculate the gear ratio and explain its effect.</p>
+      <ul>
+        <li><strong>Gear ratio:</strong> 60 / 20 = 3:1 (carousel rotates 3 times slower than handle)</li>
+        <li><strong>Speed:</strong> If handle rotates at 1 revolution/second, carousel rotates at 1/3 revolution/second</li>
+        <li><strong>Torque:</strong> Carousel torque ≈ Handle torque × 3 (ignoring friction)</li>
+        <li><strong>Application:</strong> This ratio makes it easier to turn the handle (more torque) but requires 3 handle turns for 1 carousel rotation</li>
+      </ul>
+
+      <h3>Example 2: Compound Gear Train</h3>
+      <p><strong>Problem:</strong> Handle gear (20 teeth) → Intermediate gear (10 teeth) → Carousel gear (40 teeth). Calculate total ratio.</p>
+      <ul>
+        <li><strong>First pair ratio:</strong> 10 / 20 = 0.5:1 (intermediate rotates 2× faster than handle)</li>
+        <li><strong>Second pair ratio:</strong> 40 / 10 = 4:1 (carousel rotates 4× slower than intermediate)</li>
+        <li><strong>Total ratio:</strong> 0.5 × 4 = 2:1 (carousel rotates 2× slower than handle)</li>
+        <li><strong>Application:</strong> Compound trains allow compact designs when single pairs would require very large gears</li>
+      </ul>
+
+      <h3>Example 3: Designing for Requirements</h3>
+      <p><strong>Problem:</strong> You need the carousel to rotate 1/4 turn per handle rotation. Design a gear train.</p>
+      <ul>
+        <li><strong>Required ratio:</strong> 4:1 (handle rotates 4× faster than carousel)</li>
+        <li><strong>Option 1:</strong> Single pair: Handle (20 teeth) → Carousel (80 teeth) - requires large carousel gear</li>
+        <li><strong>Option 2:</strong> Compound: Handle (20) → Intermediate (10) → Carousel (40) = (10/20) × (40/10) = 0.5 × 4 = 2:1 - not enough</li>
+        <li><strong>Option 3:</strong> Compound: Handle (20) → Intermediate (10) → Carousel (80) = (10/20) × (80/10) = 0.5 × 8 = 4:1 - correct!</li>
+        <li><strong>Design choice:</strong> Option 3 provides the required ratio with reasonable gear sizes</li>
+      </ul>
+    </article>
+
+    <!-- Activities & Evidence -->
+    <article class="card">
+      <div class="pill">Folio & Evidence</div>
+      <h2>Activities &amp; Evidence</h2>
+      <p style="color: var(--muted); margin-bottom: 1rem;">Complete these activities to demonstrate your understanding:</p>
+      
+      <h3>1) Gear Ratio Calculations</h3>
+      <ul>
+        <li><strong>Simple gear pair calculations:</strong> Calculate gear ratios for at least 3 different gear pair combinations. For each, determine: gear ratio, speed relationship, and torque relationship. Show all working.</li>
+        <li><strong>Compound gear train calculations:</strong> Design and calculate a compound gear train with at least 2 gear pairs. Calculate the total gear ratio and explain how it compares to a single pair achieving the same ratio.</li>
+        <li><strong>Design calculations:</strong> Calculate gear ratios for a dispenser design where the handle must rotate 4 times for the carousel to rotate once. Show at least 2 different gear train options and compare them.</li>
+      </ul>
+      
+      <h3>2) Cam Profile Analysis</h3>
+      <ul>
+        <li><strong>Cam profile sketches:</strong> Sketch at least 2 different cam profiles (e.g., circular, eccentric, pear-shaped). Label the rise, fall, and dwell periods. Explain how each profile affects gate motion.</li>
+        <li><strong>Motion analysis:</strong> For each cam profile, describe: how quickly the gate opens, how long it stays open (dwell), and how quickly it closes. Explain which profile would be best for a lolly dispenser and why.</li>
+        <li><strong>Force considerations:</strong> Explain how cam profile steepness affects the force required to rotate the cam. Link this to handle effort and user experience.</li>
+      </ul>
+      
+      <h3>3) Ratchet Mechanism Design</h3>
+      <ul>
+        <li><strong>Ratchets research:</strong> Research how ratchets work in real applications (e.g., socket wrenches, winches, one-way clutches). Create a diagram showing pawl and ratchet engagement.</li>
+        <li><strong>Design considerations:</strong> Explain why ratchets are needed in a lolly dispenser. Describe how pawl spring tension affects reliability and wear.</li>
+        <li><strong>Alternative mechanisms:</strong> Research alternatives to ratchets (one-way bearings, clutches). Compare pros and cons for a lolly dispenser application.</li>
+      </ul>
+      
+      <h3>4) Mechanism Integration</h3>
+      <ul>
+        <li><strong>System diagram:</strong> Create a diagram showing how gear train, cam, and ratchet mechanisms work together in a lolly dispenser. Label all components and show motion flow.</li>
+        <li><strong>Timing analysis:</strong> Explain how the mechanisms must be synchronized: when the gate opens relative to carousel position, when the ratchet engages, and how gear ratio affects timing.</li>
+        <li><strong>Design integration:</strong> Write a paragraph explaining how changing one mechanism (e.g., gear ratio) affects the others (cam timing, ratchet engagement). This demonstrates understanding of system interactions.</li>
+      </ul>
+      
+      <h3>Google Classroom Check-in</h3>
+      <ul>
+        <li>Complete the <a href="https://classroom.google.com" target="_blank" rel="noopener">Gear Systems &amp; Mechanisms</a> activity before starting Toolkit 2 design.</li>
+        <li>Submit your gear ratio calculations and mechanism integration diagram for teacher review.</li>
+        <li>Share your cam profile sketches and ratchet research in the <a href="https://classroom.google.com" target="_blank" rel="noopener">Term 4 Mechanism Theory</a> task.</li>
+      </ul>
+    </article>
+
+    <!-- Key Notes & Common Mistakes -->
+    <article class="card">
+      <div class="pill">Key Notes</div>
+      <h2>Key Notes &amp; Common Mistakes</h2>
+
+      <h3>Gear Ratio Calculations</h3>
+      <ul>
+        <li><strong>Always use tooth counts:</strong> Gear ratio = Driven teeth / Driver teeth. Don't confuse with diameter ratios unless gears have the same module/pitch.</li>
+        <li><strong>Compound trains:</strong> Multiply individual ratios, don't add them. Two 2:1 pairs = 4:1 total, not 2:1.</li>
+        <li><strong>Direction matters:</strong> Odd number of gear pairs reverses direction; even number maintains direction. Add idler gears to maintain direction without changing ratio.</li>
+      </ul>
+
+      <h3>Cam Design</h3>
+      <ul>
+        <li><strong>Gradual profiles:</strong> Steep cam profiles create sudden forces and can cause jams. Use gradual rise/fall for smooth operation.</li>
+        <li><strong>Dwell period:</strong> Include a flat section (dwell) to keep gate open long enough for dispensing. Too short = jams, too long = multiple lollies dispense.</li>
+        <li><strong>Follower type:</strong> Flat followers are simpler but create higher friction. Roller followers reduce friction but add complexity.</li>
+      </ul>
+
+      <h3>Common Mistakes</h3>
+      <ul>
+        <li>Calculating gear ratios incorrectly by using diameters instead of tooth counts, leading to wrong speed/torque predictions.</li>
+        <li>Designing cams with too-steep profiles, causing high forces and jamming.</li>
+        <li>Forgetting to account for ratchet engagement timing, causing mechanisms to interfere with each other.</li>
+        <li>Not considering how gear ratio affects cam timing, leading to gates opening at wrong times.</li>
+      </ul>
+    </article>
+
+    <!-- Quiz / Self-check with revealable answers -->
+    <article class="card">
+      <div class="pill">Quiz</div>
+      <h2>Check Your Understanding – Gear Systems &amp; Mechanisms</h2>
+      <p>Use these questions to test yourself. Click "Show answer" to reveal one possible solution or explanation.</p>
+
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>1. A handle gear with 30 teeth drives a carousel gear with 90 teeth. Calculate the gear ratio and explain its effect on speed and torque.</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans1">
+            Gear ratio = 90 / 30 = 3:1. This means the carousel rotates 3 times slower than the handle (speed reduction), but with approximately 3 times the torque (torque multiplication). For every 3 handle rotations, the carousel rotates once. This makes it easier to turn the handle but requires more handle turns per carousel rotation.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>2. Why use a compound gear train instead of a single gear pair? Give an example.</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans2">
+            Compound gear trains allow high gear ratios without requiring very large or very small gears. For example, to achieve a 16:1 ratio with a single pair, you'd need a 160-tooth gear driven by a 10-tooth gear (very large difference). With a compound train, you could use two 4:1 pairs: (10→40) and (10→40) = 4 × 4 = 16:1, using more reasonable gear sizes and keeping the design compact.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>3. How does a cam profile affect gate motion in a lolly dispenser? Explain the trade-offs.</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans3">
+            Steep cam profiles create fast gate opening but require high forces and can cause sudden movements that lead to jams. Gradual profiles create smooth, controlled motion but require more cam rotation. A dwell period (flat section) keeps the gate open long enough for dispensing. The best profile balances opening speed (fast enough for smooth operation) with force requirements (low enough for easy handle operation) and includes adequate dwell time.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>4. What is a ratchet mechanism and why is it needed in a lolly dispenser?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans4">
+            A ratchet uses a spring-loaded pawl that engages with teeth on a ratchet wheel. Forward rotation lifts the pawl over teeth; reverse rotation is blocked. In a lolly dispenser, ratchets prevent the carousel from rotating backwards, ensuring one-way operation and preventing accidental multiple dispensing. Without a ratchet, users could accidentally turn the handle backwards and dispense multiple lollies or cause jams.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>5. How do you synchronize gear train, cam, and ratchet mechanisms in a dispenser?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans5">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans5">
+            Synchronization requires careful timing: (1) The gear train controls carousel rotation speed—gate must open when a lolly is positioned. (2) The cam profile controls gate opening/closing timing—must align with carousel position. (3) The ratchet engages continuously to prevent back-rotation. All mechanisms are driven from the same handle rotation, so gear ratio affects how many handle turns = one carousel rotation = one cam cycle. Design must ensure gate opens when lolly is aligned, closes before next lolly reaches position, and ratchet prevents any reverse movement.
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>6. Explain the trade-off between gear ratio and handle effort in a dispenser.</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans6">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans6">
+            Higher gear ratios (e.g., 4:1) multiply torque, making it easier to turn the handle under load. However, they require more handle rotations for the same carousel movement. Lower ratios (e.g., 2:1) require fewer handle turns but more effort. The best ratio balances ease of operation (low effort) with reasonable handle rotation (not too many turns per dispense). Too high a ratio makes the handle turn too many times; too low makes it hard to turn when loaded with lollies.
+          </div>
+        </div>
+            <ul>
+              <li><strong>Uneven absorption:</strong> End grain soaks up finish quickly, creating dark, rough patches that look unprofessional.</li>
+              <li><strong>Moisture uptake:</strong> Unsealed edges absorb moisture more readily, causing swelling, splintering, and reduced durability.</li>
+              <li><strong>Finish quality:</strong> Rough, patchy edges reduce the overall appearance and feel of the finished product.</li>
+            </ul>
+            <p><strong>Solution:</strong> Seal end grain and ply edges with a sanding sealer or thinned finish before applying the main finish. This creates a barrier that slows absorption and produces a smoother, more even result.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>7. What happens if gear teeth don't mesh properly? How can you prevent this?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans7">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans7">
+            <p>Improper gear meshing causes several problems:</p>
+            <ul>
+              <li><strong>Binding:</strong> Teeth that are too close together create excessive friction and can cause gears to lock up.</li>
+              <li><strong>Backlash:</strong> Teeth that are too far apart create play and slop, reducing precision and causing noise.</li>
+              <li><strong>Wear:</strong> Poor meshing accelerates wear on gear teeth, reducing lifespan.</li>
+              <li><strong>Prevention:</strong> Ensure proper centre distance between gears (calculated from pitch diameters), use gears with matching modules/pitches, and check alignment during assembly. Typical clearance is 0.5-1 mm between gear teeth for smooth operation.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>8. How does a cam dwell period affect dispensing reliability?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="ans8">Show answer</button>
+          </div>
+          <div class="qa-answer" id="ans8">
+            <p>The dwell period (flat section on cam) keeps the gate open for a set time. Too short a dwell means the gate closes before the lolly fully dispenses, causing jams. Too long a dwell allows multiple lollies to escape or the carousel to advance too far. The optimal dwell period matches the time needed for one lolly to fall through the gate opening, which depends on lolly size, gate clearance, and gravity. Testing helps determine the right dwell period for reliable dispensing.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Student Responsibilities</h2>
+      <ul>
+        <li>Complete Toolkit 1 theory and calculations before starting Toolkit 2 design work.</li>
+        <li>Understand gear ratios, cam profiles, and ratchet mechanisms before designing your dispenser.</li>
+        <li>Show all working for gear ratio calculations—demonstrate you understand the concepts, not just the procedures.</li>
+        <li>Research real-world applications of gears, cams, and ratchets to understand how they're used in industry.</li>
+        <li>Ask questions if you don't understand any concept—these fundamentals are essential for successful design.</li>
+        <li>Document your learning: keep notes on gear calculations, cam profile sketches, and mechanism integration diagrams.</li>
+        <li>Link theory to practice: when you design your dispenser in Toolkit 2, refer back to Toolkit 1 concepts.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li><a href="../assets/workbooks/Gear_Systems_and_Gear_Trains_Workbook.pdf" target="_blank" rel="noopener">&#128216; Supplementary Workbook: Gear Systems and Gear Trains (PDF)</a></li>
+      </ul>
+    </article>
+  </main>
+
+  <script src="../page-nav.js" defer></script>
+  <script src="../qa-widget.js"></script>
+</body>
+</html>

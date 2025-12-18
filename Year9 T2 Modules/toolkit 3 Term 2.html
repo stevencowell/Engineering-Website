@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Toolkit 3 | Geared Lolly Dispenser &amp; Complex Mechanisms</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../qa-widget.css" />
+<style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #dce9ff 0, #f6f8fb 45%, #edf2ff 100%);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 1.5rem;
+    }
+
+    a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+
+    header {
+      background: linear-gradient(135deg, #004080, #0077e6);
+      color: #fff;
+      padding: 1.75rem 1.5rem;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12) 0, transparent 55%),
+        radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.08) 0, transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    header > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 1.9rem;
+      margin-bottom: 0.2rem;
+    }
+
+    header p {
+      max-width: 52rem;
+      font-size: 0.98rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .tagline {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .tagline span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      font-size: 0.8rem;
+    }
+
+    /* Toolkit navigation (shared with other toolkits) */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #ffffff;
+      border-radius: 999px;
+      padding: 0.4rem 0.9rem;
+      margin: 0 auto 1.25rem;
+      max-width: 1100px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    nav a {
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    nav a:hover {
+      background: #e6f0fb;
+      border-color: #c6d4f5;
+      color: #12315a;
+    }
+
+    nav a.active {
+      background: #004080;
+      color: #ffffff;
+      border-color: #004080;
+      font-weight: 600;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+      color: var(--muted);
+    }
+
+    .back-link:hover {
+      color: var(--brand);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 1.25rem;
+      padding: 1.1rem 1.2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card h3 {
+      font-size: 1.02rem;
+      margin-top: 0.7rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0.4rem 0;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    .qa-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 0.7rem 0.8rem;
+      margin: 0.1rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .qa-toggle {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--brand);
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+
+    .qa-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+
+    .qa-answer {
+      margin-top: 0.65rem;
+      color: var(--muted);
+      display: none;
+    }
+
+    ul {
+      padding-left: 1.1rem;
+      margin: 0.3rem 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    ul li {
+      margin-bottom: 0.15rem;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      color: var(--muted);
+    }
+
+    .meta-badge {
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: #f1f5f9;
+      border: 1px solid #d4e1f5;
+    }
+
+    @media (max-width: 850px) {
+      body {
+        padding: 1rem;
+      }
+
+      header {
+        padding: 1.3rem 1.1rem;
+      }
+
+      nav {
+        border-radius: 1rem;
+      }
+
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Toolkit 3 &mdash; Geared Lolly Dispenser &amp; Complex Mechanisms</h1>
+  <p>
+    This toolkit extends students from simple machines to compound mechanisms using a geared lolly dispenser project. It links Stage 5 outcomes in mechanisms,
+    materials, safety, sustainability and communication, with an emphasis on testing, mechanical advantage and user-focused design.
+  </p>
+  <div class="tagline">
+    <span>Y9</span>
+    <strong>Term 2 &middot; Mechanisms</strong>
+  </div>
+</header>
+
+<nav>
+  <a href="../year9_term2.html">&#8592; T2 Overview</a>
+  <a href="module1.html">Toolkit 1</a>
+  <a href="module2.html">Toolkit 2</a>
+  <a class="active" href="module3.html">Toolkit 3</a>
+  <a href="module4.html">Toolkit 4</a>
+</nav>
+
+<main>
+  <a class="back-link" href="../year9_term2.html">← Back to Year 9 T2 Toolkits</a>
+
+  <article class="card">
+    <div class="pill">Mechanisms</div>
+    <h2>Learning Focus</h2>
+    <ul>
+      <li>Move from isolated gear pairs or levers to compound mechanisms that combine gears, cams, ratchets and springs.</li>
+      <li>Design a geared lolly dispenser that stores sweets securely and releases a set number per handle turn.</li>
+      <li>Plan, build and test reliable motion sequences that are safe, ergonomic and easy to operate.</li>
+      <li>Use mechanical analysis (gear ratios, mechanical advantage and efficiency) to improve dispenser performance.</li>
+    </ul>
+    <div class="meta-row">
+      <span class="meta-badge">Stage 5 &ndash; Mechanisms</span>
+      <span class="meta-badge">EGT5-MEA-01 &bull; EGT5-USE-01 &bull; EGT5-SAF-01 &bull; EGT5-ENV-01</span>
+    </div>
+  </article>
+
+  <div class="grid">
+    <article class="card">
+      <h2>Key Notes</h2>
+
+      <h3>From simple to compound mechanisms</h3>
+      <p>
+        The dispenser project moves beyond single levers or gear pairs and into compound mechanisms. Students combine multiple simple machines &mdash; gears, cams,
+        ratchets, pawls and springs &mdash; into a single system that can store lollies, release them in a controlled way and stop back-driving under load.
+      </p>
+
+      <h3>Gear trains and control of motion</h3>
+      <p>
+        Gears can slow a fast-turning handle, increase torque to turn a loaded drum and synchronise motion between parts. In a two-stage train, students calculate
+        the overall ratio by multiplying each stage, then match the product to the drum rotation needed for one or two serves per handle turn. This gives a concrete
+        context for discussing speed reduction, torque increase and direction of rotation.
+      </p>
+
+      <h3>Mechanical advantage and efficiency</h3>
+      <p>
+        Mechanical advantage is the ratio between the useful output (turning a loaded drum) and the input effort at the handle. Students explore this qualitatively
+        by comparing how hard the handle feels with different gear ratios, and can extend this with simple measurements using a spring scale at the handle. Designs
+        are compared by how consistently they deliver the required number of lollies with reasonable effort.
+      </p>
+      <p>
+        Efficiency is linked to friction and losses in the system. Poor alignment, rough bearing surfaces or tight clearances waste effort as heat, noise and wear
+        rather than useful motion. Encouraging students to improve alignment, choose appropriate materials and apply lubrication where appropriate provides a natural
+        context for discussing efficiency.
+      </p>
+
+      <h3>Cams, followers and timing of the gate</h3>
+      <p>
+        Radial cams (heart or egg shapes) give smooth lifts, while snail or drop cams give long dwells and sudden drops. Students link the cam profile to the timing
+        of the gate so that it opens only when the drum aligns with the chute and closes firmly to stop extra lollies escaping. This highlights how changing a cam
+        profile changes motion type and timing.
+      </p>
+
+      <h3>Reliability, jamming and tolerance</h3>
+      <p>
+        Real lollies are not identical. To design for slightly different sizes, students add clearances to the drum pockets and chute and then test prototypes with
+        different lolly types. They log jams, misfeeds, the number dispensed per operation and any wear, then adjust slot size, chamfers, surface finish and material
+        choice to improve reliability.
+      </p>
+
+      <h3>Aesthetics, user interaction and ethics</h3>
+      <p>
+        Handles should be ergonomic with no pinch points, and viewing windows and simple instructions help users understand how to operate the dispenser. Students
+        briefly consider hygiene, sugar consumption, accessibility and material sustainability, then document how the design meets user needs and ethical expectations.
+      </p>
+
+      <h3>Risk management in dispenser construction</h3>
+      <p>
+        Students identify risks from cutting and drilling, small loose parts and pinch points around moving components. They apply hierarchy-of-control thinking to
+        propose guards, enclosed gearboxes, clamps for drilling, marked pinch zones and safe storage of small parts, reinforcing Stage 5 risk management outcomes.
+      </p>
+    </article>
+
+    <article class="card">
+      <h2>Activities &amp; Evidence</h2>
+      <ul>
+        <li>Sketch and prototype a geared lolly dispenser that stores lollies securely and releases a set amount per handle turn.</li>
+        <li>Calculate multi-stage gear ratios and explain how they change torque and mechanical advantage at the handle.</li>
+        <li>Measure and compare input effort (qualitative feel or simple force measurements) and discuss efficiency and mechanical advantage in different designs.</li>
+        <li>Design cam and follower profiles that time a gate to open only when the drum aligns, then return to a safe closed position.</li>
+        <li>Test prototypes with different lolly sizes, logging jams, number dispensed per operation and wear observations, then adjust the design to improve reliability.</li>
+        <li>Create a simple parts list and estimate material costs for one dispenser, comparing at least two material options (for example, ply versus acrylic).</li>
+        <li>Produce an orthogonal or CAD drawing of the dispenser mechanism (drum, cam, ratchet, gate) using Onshape or similar, suitable for manufacture.</li>
+        <li>Document ergonomics, hygiene choices, sustainability considerations and a project-specific risk assessment as part of the project folio.</li>
+      </ul>
+    </article>
+  </div>
+
+  <article class="card">
+    <h2>Q&amp;A</h2>
+    <div class="qa-list">
+      <div class="qa-item">
+        <div class="qa-question">
+          <span>How can a compound mechanism stop the handle turning backwards?</span>
+          <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+        </div>
+        <div class="qa-answer" id="qa1">
+          Add a ratchet and pawl to the gear train. The ratchet wheel attaches to a driven shaft and the pawl allows rotation in one direction only. This stops the
+          handle from back-driving under the weight of the lollies and protects the mechanism from accidental reverse loads.
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question">
+          <span>How do you calculate the overall gear ratio for two stages?</span>
+          <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+        </div>
+        <div class="qa-answer" id="qa2">
+          Multiply the ratio of the first stage by the ratio of the second stage. For example, if stage one is 12:36 (1:3) and stage two is 10:40 (1:4), the overall
+          ratio is 1:12. Students then match this product to the drum rotation they need per handle turn.
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question">
+          <span>Why might a gate cam stay closed for most of the cycle?</span>
+          <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+        </div>
+        <div class="qa-answer" id="qa3">
+          Holding the gate closed (a long dwell) for most of the cycle helps prevent accidental spills. The cam only lifts the gate briefly when the dispensing drum
+          is correctly aligned, then allows it to drop back to a secure closed position.
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question">
+          <span>How do you design for lollies of slightly different sizes?</span>
+          <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+        </div>
+        <div class="qa-answer" id="qa4">
+          Allow for tolerances by making drum pockets and chutes slightly larger than the ideal lolly size. Students test with mixed lollies, note jams and misfeeds,
+          then adjust clearances, chamfers and materials to balance reliable dispensing with control.
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question">
+          <span>What does mechanical advantage look like in this project?</span>
+          <button class="qa-toggle" aria-expanded="false" aria-controls="qa5">Show answer</button>
+        </div>
+        <div class="qa-answer" id="qa5">
+          Mechanical advantage is seen when a small input effort at the handle can still turn a loaded drum smoothly. Higher gear ratios increase torque but reduce
+          speed. Students can compare designs by how hard the handle feels to turn and how consistently the dispenser delivers the correct number of lollies.
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <h2>Resources</h2>
+    <ul>
+      <li>Assorted spur and bevel gears, dowels or shafts, bearings or low-friction bushes, springs, rubber bands and plywood, acrylic or 3D-printed parts.</li>
+      <li>Cam blanks (card or MDF) for shaping profiles, followers, gates, ratchets and pawls.</li>
+      <li>Containers for lollies, guards or windows, small screws and adhesives; SWMS templates for cutting and drilling.</li>
+      <li>Datasheets or videos on compound gears, cam design, tolerances, ergonomic handle design and basic mechanical advantage.</li>
+      <li>Access to CAD software such as Onshape and a simple spreadsheet or calculator template for costing materials.</li>
+    </ul>
+  </article>
+</main>
+
+<script src="../page-nav.js" defer></script>
+<script src="../qa-widget.js"></script>
+</body>
+</html>

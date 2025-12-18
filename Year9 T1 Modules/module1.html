@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 1: WHS & Risk Control. Learn workplace health and safety, OnGuard training, PPE, hierarchy of control, DRABC, and safe tool operation for engineering projects." />
+  <meta name="keywords" content="WHS, safety, OnGuard, PPE, risk management, hierarchy of control, DRABC, engineering safety" />
+  <title>Toolkit 1: WHS & Risk Control | Year 9 Term 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    nav a.active {
+      background: #e6f0fb;
+      color: #0b63c3;
+    }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .pdf-embed {
+      width: 100%;
+      height: 420px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .pdf-embed-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+    }
+    .image-embed {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+    .image-embed img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+    }
+    .card-note { color: var(--muted); }
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      margin: 0.65rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .qa-toggle {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+    .qa-toggle:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+    .qa-answer {
+      margin-top: 0.65rem;
+      color: var(--muted);
+      display: none;
+    }
+    .qa-summary {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin: 0.75rem 0 1rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #f8fbff;
+      color: var(--muted);
+    }
+    .qa-summary strong { color: var(--text); }
+    .qa-summary-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .qa-secondary-btn {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--brand);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+    .qa-secondary-btn[disabled] {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+    .qa-student {
+      margin-top: 0.75rem;
+    }
+    .qa-student label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: var(--text);
+    }
+    .qa-student textarea {
+      width: 100%;
+      min-height: 96px;
+      resize: vertical;
+      padding: 0.75rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font: inherit;
+      color: var(--text);
+      background: #fff;
+    }
+    .qa-student textarea::placeholder { color: #7a859a; }
+    .qa-meta {
+      margin-top: 0.35rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .qa-score {
+      display: none;
+      margin-top: 0.85rem;
+      padding-top: 0.85rem;
+      border-top: 1px dashed var(--border);
+    }
+    .qa-score-title {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .qa-score-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .score-btn {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+    .score-btn[aria-pressed="true"] {
+      background: #e6f0fb;
+      border-color: #b8d5f6;
+      color: var(--brand);
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="sr-only" style="position: absolute; top: 0; left: 0; background: #0b63c3; color: #fff; padding: 0.75rem 1rem; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0;">Skip to main content</a>
+  <header role="banner">
+    <h1>Toolkit 1: WHS & Risk Control</h1>
+    <p>OnGuard, PPE, hierarchy of control, DRABC</p>
+  </header>
+
+  <nav>
+    <a href="../year9_term1.html">&#8592; T1 Overview</a>
+    <a class="active" href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a href="tutorial.html">Tutorial</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main id="main-content" role="main">
+    <a class="back-link" href="../year9_term1.html">&#8592; Back to Year 9 T1 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Safety</div>
+      <h2>Learning Focus</h2>
+      <img src="../images/Students%20using%20tools%20safely.jpg" alt="Students working safely in the engineering workshop" class="content-image" />
+      <p style="color: var(--muted); margin-bottom: 1rem;">By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Complete OnGuard training:</strong> Successfully finish safety training for hand tools and power tools/machinery, then apply this knowledge confidently in class. This certification is your ticket to using tools safely.</li>
+        <li><strong>Set up work safely:</strong> Use the correct PPE (Personal Protective Equipment), proper clamping techniques, and maintain line of fire awareness for all tower and beam work. Safety starts before you pick up a tool.</li>
+        <li><strong>Understand safety signs:</strong> Recognise and obey workshop safety signs instantly. These visual cues protect you and your classmates - learn to read them like a professional.</li>
+        <li><strong>Operate core tools:</strong> Safely operate a corded drill and hot glue gun - two essential tools you'll use throughout the course. Master these, and you'll be ready for more advanced projects.</li>
+        <li><strong>Apply risk management:</strong> Use the hierarchy of control and DRABC (Danger, Response, Airway, Breathing, Circulation) as part of a simple first response. These frameworks help you think like a safety-conscious engineer.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Why This Matters</h2>
+      <p><strong>Workplace Health and Safety (WHS) is not just "rules to remember"</strong> - it's a mindset that protects you, your classmates, and your work. Think of WHS as your engineering superpower: it helps you:</p>
+      <ul style="margin-top: 0.75rem;">
+        <li>Protect yourself and others while working with tools and machines</li>
+        <li>Look after equipment and the workshop so it stays safe for everyone</li>
+        <li>Build and test your tower, beam, and other projects without avoidable risk</li>
+        <li>Develop professional habits that will serve you throughout your engineering career</li>
+      </ul>
+      <p style="margin-top: 1rem;"><strong>How to use this module:</strong> Apply these ideas when you complete OnGuard tests, plan and write your SWMS (Safe Work Method Statements) for tower/beam construction and testing, and choose appropriate PPE and safe methods for drilling, gluing, and cutting in later modules. This knowledge becomes second nature with practice.</p>
+    </article>
+
+    <article class="card" id="hand-tools">
+      <h2>Hand Tools - Safe Use</h2>
+      <img src="../images/t1_tk1_handtools_collage.jpg" alt="Various hand tools used in the workshop" class="content-image" />
+      <h3>General Rules</h3>
+      <ul>
+        <li>Only use tools you have been trained and approved to use.</li>
+        <li>Wear required PPE: safety glasses at all times in the workshop; apron/overalls; hearing protection if the area is noisy.</li>
+      </ul>
+      <img src="../images/t1_tk1_ppe_set.png" alt="Standard Personal Protective Equipment (PPE) set" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0; width: 250px;" />
+      <ul>
+        <li>Inspect before use: no cracks in handles or bodies; no loose heads, bent blades or missing parts; cutting edges sharp and not chipped.</li>
+        <li>Keep your non-working hand out of the line of fire: cut, chisel and plane away from your body; always clamp the work.</li>
+        <li>Carry sharp tools with the edge down or covered; return tools to the correct rack or drawer; no tools hanging off bench edges.</li>
+      </ul>
+      <img src="../images/t1_tk1_handtool_saw_safety.jpg" alt="Safe hand saw usage showing clamping and hand position" class="content-image" />
+      <h3>By Tool Type</h3>
+      <ul>
+        <li><strong>Measuring / Marking:</strong> do not let tape blades snap back uncontrolled; keep compass/divider points closed or covered.</li>
+        <li><strong>Cutting (saws, knives):</strong> clamp or support work; never cut toward your hand or body; keep fingers a hand's width from saw blades; use a cutting mat or scrap under knife cuts; retract or sheath blades when not in use.</li>
+        <li><strong>Chisels / Planes:</strong> use a bench hook or vice; use a mallet on wooden handles; never push toward hand or body; fit caps or guards on sharp edges when storing.</li>
+        <li><strong>Striking (hammers, mallets):</strong> check heads and handles for cracks or looseness; grip near the end for control; keep fingers away from nail heads when starting nails.</li>
+        <li><strong>Clamping / Holding:</strong> adjust clamps to grip firmly without crushing material; keep jaws clean and screws smooth so they do not slip.</li>
+        <li><strong>Boring / Driving (hand drills, screwdrivers):</strong> use the correct size/type of screwdriver or bit; apply firm, controlled pressure; support and clamp work so it does not spin.</li>
+      </ul>
+    </article>
+
+    <article class="card" id="power-tools">
+      <h2>Power Tools - Core Rules</h2>
+      <img src="../images/t1_tk1_power_tools_setup.jpg" alt="Power tools setup on workbench" class="content-image" />
+      <h3>Before You Start</h3>
+      <ul>
+        <li>Only use power tools after teacher demonstration, any required theory/OnGuard test, and permission from your teacher that lesson.</li>
+      </ul>
+      <h3>PPE (minimum)</h3>
+      <ul>
+        <li>Safety glasses.</li>
+        <li>Hearing protection for noisy tools or long sessions.</li>
+        <li>Tie long hair back; remove jewellery/cords; no loose clothing.</li>
+      </ul>
+      <h3>Inspect the tool</h3>
+      <ul>
+        <li>Cord and plug intact; no cuts or exposed wires.</li>
+        <li>Body not cracked; vents clear; guards or covers in place.</li>
+        <li>Switch and trigger operate smoothly.</li>
+      </ul>
+      <h3>Setting Up</h3>
+      <ul>
+        <li>Clamp or support work securely—never hold small pieces by hand when drilling or cutting.</li>
+        <li>One operator per power tool unless specifically supervised as a two-person task.</li>
+        <li>Plan your stance and cord path so you are balanced and will not trip or bump other students.</li>
+      </ul>
+      <img src="../images/t1_tk1_machine_setup_closeup.jpg" alt="Close-up of machine setup showing clamping and safety guards" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0;" />
+      <h3>During Use</h3>
+      <ul>
+        <li>Keep hands out of the danger zone around bit, blade or hot surfaces.</li>
+        <li>Use the correct bit, speed and mode for the material (low speed for metal; impact mode only for masonry).</li>
+        <li>Do not force the tool; let it cut or drill at its own rate.</li>
+        <li>If vibration, burning smell, smoke or unusual noise: stop, switch off/unplug if safe, and inform the teacher. Do not try to fix it yourself.</li>
+      </ul>
+      <h3>After Use</h3>
+      <ul>
+        <li>Release the trigger and wait for a complete stop before setting the tool down.</li>
+        <li>Switch off and unplug before changing bits or cleaning.</li>
+        <li>Wipe off dust when cool; store with the cord loosely coiled, not tightly wrapped.</li>
+      </ul>
+    </article>
+
+    <article class="card" id="safety-signs">
+      <h2>Safety Signs - Know the Categories</h2>
+      <img src="../images/t1_tk1_safety_sign_categories.png" alt="Safety sign categories: Mandatory, Prohibition, Warning, Emergency" class="content-image" />
+      <ul>
+        <li><strong>Mandatory (Blue circle) - things you must do:</strong> eye protection, hearing protection, safety footwear.</li>
+        <li><strong>Prohibition (Red circle with slash) - things you must not do:</strong> no running, no unauthorised entry, no food or drink.</li>
+        <li><strong>Warning (Yellow triangle) - hazards present:</strong> high noise level, flammable liquids, hot surfaces.</li>
+        <li><strong>Emergency Information (Green rectangle) - help and escape:</strong> first aid station, emergency exit, eye wash or safety shower.</li>
+        <li><strong>Fire (Red rectangle or square) - fire-fighting equipment:</strong> fire extinguishers, hose reels. Use only if trained or instructed.</li>
+      </ul>
+      <p class="card-note">Application: obey every sign, every time. Report any missing, damaged or unclear signs to your teacher.</p>
+    </article>
+
+    <article class="card" id="hierarchy-control">
+      <h2>Risk Management & Hierarchy of Control</h2>
+      <img src="../Engineering Pictures/hierarchy-of-controls.png" alt="Hierarchy of Controls diagram" class="content-image" />
+      <p>You will use the hierarchy of control when writing your SWMS and risk activities. From most effective to least effective:</p>
+      <ul>
+        <li><strong>Elimination</strong> - remove the hazard completely (e.g. pre-cut materials off-site so students do not use a particular machine).</li>
+        <li><strong>Substitution</strong> - replace with something safer (e.g. use a smaller drill bit or lower-voltage tool where possible).</li>
+        <li><strong>Engineering controls</strong> - isolate people from the hazard (e.g. machine guards, clamps, jigs, barriers).</li>
+        <li><strong>Administrative controls</strong> - change the way people work (e.g. training, clear procedures, signage, restricted access).</li>
+        <li><strong>PPE</strong> - protect the person (e.g. glasses, hearing protection, gloves).</li>
+      </ul>
+      <p>When you plan tower and beam tasks, aim to use higher-level controls first, then support them with admin and PPE rather than relying on PPE alone. See the Hierarchy of Controls diagram and Risk Management Plan template (PDF) before completing your SWMS.</p>
+      <p class="pdf-embed-note"><a href="../Year 9 T1 Theory Notes/Hierarchy of Control of WH&S Hazards.pdf" target="_blank" rel="noopener">Open full PDF</a></p>
+    </article>
+
+    <article class="card" id="drabc">
+      <h2>DRABC & First Response (Overview)</h2>
+      <img src="../images/t1_tk1_drabc_flowchart.png" alt="DRABC First Aid Action Plan Flowchart" class="content-image" />
+      <ul>
+        <li><strong>D - Danger:</strong> check for danger to you, the casualty and others. Make the area safe before approaching.</li>
+        <li><strong>R - Response:</strong> check if the person is conscious and responsive. Call for help.</li>
+        <li><strong>A - Airway:</strong> gently open the airway (if trained) and check it is clear.</li>
+        <li><strong>B - Breathing:</strong> look, listen and feel for normal breathing.</li>
+        <li><strong>C - CPR / Circulation:</strong> if not breathing normally and you are trained, begin CPR. If not trained, immediately get the teacher or first aider and call emergency services.</li>
+        <li><strong>For minor injuries:</strong> report all cuts, burns and eye injuries to your teacher immediately; follow teacher instructions for first aid, bandaging and reporting.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Corded Drill (Variable Speed / Impact)</h2>
+      <img src="../images/corded%20Drill.jpg" alt="Corded drill safety check" class="content-image" />
+      <h3>Hazards & PPE</h3>
+      <ul>
+        <li>Hazards: flying chips, entanglement in rotating parts, spinning work, kickback, electric shock, noise and vibration.</li>
+        <li>PPE: safety glasses; hearing protection for long or heavy drilling; dust mask for fine dust; enclosed leather footwear.</li>
+      </ul>
+      <h3>Pre-Operation Checks</h3>
+      <ul>
+        <li>Cord and plug intact; casing not cracked; vents clear.</li>
+        <li>Correct drill bit for material; bit straight, sharp and firmly tightened in chuck.</li>
+        <li>Chuck key removed before starting.</li>
+        <li>Workpiece clamped; no hands behind or under the drilling area; cord routed so no one can trip.</li>
+      </ul>
+      <h3>Safe Use</h3>
+      <ul>
+        <li>Choose speed: low speed for metal/large bits; higher speed for timber/small bits. Use impact mode only for masonry.</li>
+        <li>Use two hands on the drill (side handle if fitted). Start slowly to position the bit, then increase speed; do not force the drill.</li>
+        <li>Lift slightly in deep holes to clear swarf; keep fingers clear of rotating parts; do not touch hot bits after use.</li>
+      </ul>
+      <h3>Post-Operation</h3>
+      <ul>
+        <li>Release trigger and wait for full stop before setting the drill down.</li>
+        <li>Switch off and unplug to change bits or when finished.</li>
+        <li>Wipe off dust; store with cord loosely coiled and off the floor.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Hot Melt Glue Gun (Corded)</h2>
+      <img src="../images/hot%20melt%20glue%20gun.jpg" alt="Hot melt glue gun safety" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0;" />
+      <h3>Hazards & PPE</h3>
+      <ul>
+        <li>Hazards: burns from nozzle and glue (approx. 150-200 C), dripping glue, fire risk, electric shock from damaged cords.</li>
+        <li>PPE: safety glasses; clear, uncluttered bench; drip tray or scrap under nozzle; use the stand at all times.</li>
+      </ul>
+      <h3>Pre-Operation & Setup</h3>
+      <ul>
+        <li>Cord and plug intact; stand stable; correct glue sticks available and dry.</li>
+        <li>Insert glue stick before power-on if required by the model.</li>
+        <li>Heat the gun on its stand; do not test by touching the nozzle.</li>
+      </ul>
+      <h3>Safe Use</h3>
+      <ul>
+        <li>Hold by the insulated handle only.</li>
+        <li>Use gentle trigger pressure; do not over-apply glue; keep your other hand clear of the glue path.</li>
+        <li>Press parts together lightly and adjust quickly before the glue sets.</li>
+        <li>If hot glue contacts skin: do not wipe. Cool under running water and inform the teacher immediately.</li>
+        <li>Always return the gun to its stand when not in use; keep cords out of walkways; do not pull partially melted sticks out of the back.</li>
+      </ul>
+      <h3>Post-Operation</h3>
+      <ul>
+        <li>Switch off/unplug if the gun will not be used for a while.</li>
+        <li>Leave it on its stand to cool; do not lay it on its side.</li>
+        <li>Remove glue strings only when cool; store upright.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Activities & Evidence</h2>
+      <h3 id="onguard">OnGuard Completion</h3>
+      <ul>
+        <li>Complete the required OnGuard modules (hand tools, power tools/machinery).</li>
+        <li>Capture proof of completion (certificate, screenshot or teacher record).</li>
+      </ul>
+      <h3 id="google-classroom">Google Classroom Check-in</h3>
+      <ul>
+        <li>Complete the <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDcy" target="_blank" rel="noopener">Work, Health &amp; Safety</a> starter activity.</li>
+        <li>Finish the <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg2" target="_blank" rel="noopener">Safety &amp; OnGuard</a> module before practical work.</li>
+        <li>Submit your responses to the <a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDgx" target="_blank" rel="noopener">WHS &amp; Risk Management</a> task alongside your SWMS draft.</li>
+      </ul>
+      <h3 id="swms">SWMS for Tower/Beam Work</h3>
+      <ul>
+        <li>Using the Risk Management Plan template (PDF): identify hazards for hand tools, the corded drill and the hot glue gun.</li>
+        <li>Apply the hierarchy of control to each hazard.</li>
+        <li>Write clear, step-by-step safe work methods for tower and beam tasks.</li>
+        <li><a href="../Year 9 T1 Theory Notes/Risk Management Plan.pdf" target="_blank" rel="noopener">Risk Management Plan template (PDF)</a></li>
+      </ul>
+      <h3 id="safety-sign-task">Workshop Safety Sign</h3>
+      <ul>
+        <li>Design a safety sign for a real workshop hazard (e.g. eye protection, hot surfaces, no running).</li>
+        <li>Use the correct category (mandatory, prohibition, warning) and include text and symbol.</li>
+      </ul>
+      <h3 id="photo-evidence">Photo Evidence</h3>
+      <ul>
+        <li>Take or use photos (teacher-approved) showing: correct PPE in use; work clamped for drilling; glue gun on its stand with drip tray.</li>
+        <li>Use these as part of your folio or reflection.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Student Responsibilities</h2>
+      <ul>
+        <li>Follow all teacher instructions and workshop rules. No shortcuts.</li>
+        <li>Only one operator per power tool unless your teacher sets up a supervised two-person task.</li>
+        <li>Report any damaged tools, faulty cords, missing guards or unsafe behaviour immediately.</li>
+        <li>Never attempt repairs yourself; stop, isolate, report.</li>
+        <li>Respect shared equipment: return tools clean, sharp and stored correctly; leave benches and machines clean for the next class.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>WHS Q&A</h2>
+      <p class="card-note">Try answering first. <strong>You must write a reasonable attempt (20+ words + at least 2 key terms from the question)</strong> before you can reveal the model answer, then self-assess using the 0–3 rubric.</p>
+      <div class="qa-summary" data-qa-summary aria-live="polite">
+        <div>
+          <strong>Progress:</strong>
+          <span data-qa-progress-text>0/0 scored</span>
+          <span aria-hidden="true"> • </span>
+          <span data-qa-average-text>Average: –</span>
+        </div>
+        <div class="qa-summary-actions"></div>
+      </div>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why do you need teacher permission and OnGuard completion before using power tools?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Reveal model answer</button>
+          </div>
+          <div class="qa-student">
+            <label for="qa1-student">Your answer</label>
+            <textarea id="qa1-student" class="qa-student-input" data-qa-id="qa1" placeholder="Write your answer here..."></textarea>
+            <div class="qa-meta" data-qa-meta-for="qa1"></div>
+          </div>
+          <div class="qa-answer" id="qa1">They confirm you have the knowledge, training and supervision required. Without them, you may not recognise hazards, use the wrong setup, or bypass controls, increasing risk of injury.</div>
+          <div class="qa-score" data-qa-score-panel="qa1">
+            <div class="qa-score-title">Self-assess (0–3)</div>
+            <div class="qa-score-buttons" role="group" aria-label="Self-assess score for question 1">
+              <button type="button" class="score-btn" data-score="3" aria-pressed="false">3 – Fully correct</button>
+              <button type="button" class="score-btn" data-score="2" aria-pressed="false">2 – Mostly correct</button>
+              <button type="button" class="score-btn" data-score="1" aria-pressed="false">1 – Partly correct</button>
+              <button type="button" class="score-btn" data-score="0" aria-pressed="false">0 – Not yet</button>
+            </div>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is the minimum PPE expected in the workshop?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Reveal model answer</button>
+          </div>
+          <div class="qa-student">
+            <label for="qa2-student">Your answer</label>
+            <textarea id="qa2-student" class="qa-student-input" data-qa-id="qa2" placeholder="Write your answer here..."></textarea>
+            <div class="qa-meta" data-qa-meta-for="qa2"></div>
+          </div>
+          <div class="qa-answer" id="qa2">Safety glasses at all times. Add hearing protection for noisy work, enclosed footwear, and tie back hair/remove jewellery or cords to avoid entanglement.</div>
+          <div class="qa-score" data-qa-score-panel="qa2">
+            <div class="qa-score-title">Self-assess (0–3)</div>
+            <div class="qa-score-buttons" role="group" aria-label="Self-assess score for question 2">
+              <button type="button" class="score-btn" data-score="3" aria-pressed="false">3 – Fully correct</button>
+              <button type="button" class="score-btn" data-score="2" aria-pressed="false">2 – Mostly correct</button>
+              <button type="button" class="score-btn" data-score="1" aria-pressed="false">1 – Partly correct</button>
+              <button type="button" class="score-btn" data-score="0" aria-pressed="false">0 – Not yet</button>
+            </div>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What does “line of fire” mean when using hand tools?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Reveal model answer</button>
+          </div>
+          <div class="qa-student">
+            <label for="qa3-student">Your answer</label>
+            <textarea id="qa3-student" class="qa-student-input" data-qa-id="qa3" placeholder="Write your answer here..."></textarea>
+            <div class="qa-meta" data-qa-meta-for="qa3"></div>
+          </div>
+          <div class="qa-answer" id="qa3">It is the path a tool or workpiece will travel if it slips or breaks. Keep hands and body out of that path, and clamp work so you are not holding material where the tool is moving.</div>
+          <div class="qa-score" data-qa-score-panel="qa3">
+            <div class="qa-score-title">Self-assess (0–3)</div>
+            <div class="qa-score-buttons" role="group" aria-label="Self-assess score for question 3">
+              <button type="button" class="score-btn" data-score="3" aria-pressed="false">3 – Fully correct</button>
+              <button type="button" class="score-btn" data-score="2" aria-pressed="false">2 – Mostly correct</button>
+              <button type="button" class="score-btn" data-score="1" aria-pressed="false">1 – Partly correct</button>
+              <button type="button" class="score-btn" data-score="0" aria-pressed="false">0 – Not yet</button>
+            </div>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is the first control to consider in the hierarchy of control?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Reveal model answer</button>
+          </div>
+          <div class="qa-student">
+            <label for="qa4-student">Your answer</label>
+            <textarea id="qa4-student" class="qa-student-input" data-qa-id="qa4" placeholder="Write your answer here..."></textarea>
+            <div class="qa-meta" data-qa-meta-for="qa4"></div>
+          </div>
+          <div class="qa-answer" id="qa4">Elimination—remove the hazard entirely. If that is not possible, work down through substitution, engineering, administrative controls, then PPE.</div>
+          <div class="qa-score" data-qa-score-panel="qa4">
+            <div class="qa-score-title">Self-assess (0–3)</div>
+            <div class="qa-score-buttons" role="group" aria-label="Self-assess score for question 4">
+              <button type="button" class="score-btn" data-score="3" aria-pressed="false">3 – Fully correct</button>
+              <button type="button" class="score-btn" data-score="2" aria-pressed="false">2 – Mostly correct</button>
+              <button type="button" class="score-btn" data-score="1" aria-pressed="false">1 – Partly correct</button>
+              <button type="button" class="score-btn" data-score="0" aria-pressed="false">0 – Not yet</button>
+            </div>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What should you do if a tool vibrates, smells burnt or sounds wrong?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa5">Reveal model answer</button>
+          </div>
+          <div class="qa-student">
+            <label for="qa5-student">Your answer</label>
+            <textarea id="qa5-student" class="qa-student-input" data-qa-id="qa5" placeholder="Write your answer here..."></textarea>
+            <div class="qa-meta" data-qa-meta-for="qa5"></div>
+          </div>
+          <div class="qa-answer" id="qa5">Stop immediately, switch off and unplug if safe, and inform the teacher. Do not attempt repairs yourself.</div>
+          <div class="qa-score" data-qa-score-panel="qa5">
+            <div class="qa-score-title">Self-assess (0–3)</div>
+            <div class="qa-score-buttons" role="group" aria-label="Self-assess score for question 5">
+              <button type="button" class="score-btn" data-score="3" aria-pressed="false">3 – Fully correct</button>
+              <button type="button" class="score-btn" data-score="2" aria-pressed="false">2 – Mostly correct</button>
+              <button type="button" class="score-btn" data-score="1" aria-pressed="false">1 – Partly correct</button>
+              <button type="button" class="score-btn" data-score="0" aria-pressed="false">0 – Not yet</button>
+            </div>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why must small work be clamped instead of held by hand when drilling or cutting?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa6">Reveal model answer</button>
+          </div>
+          <div class="qa-student">
+            <label for="qa6-student">Your answer</label>
+            <textarea id="qa6-student" class="qa-student-input" data-qa-id="qa6" placeholder="Write your answer here..."></textarea>
+            <div class="qa-meta" data-qa-meta-for="qa6"></div>
+          </div>
+          <div class="qa-answer" id="qa6">Clamping prevents the piece from spinning, kicking back or moving into the line of fire, protecting your hands and improving accuracy.</div>
+          <div class="qa-score" data-qa-score-panel="qa6">
+            <div class="qa-score-title">Self-assess (0–3)</div>
+            <div class="qa-score-buttons" role="group" aria-label="Self-assess score for question 6">
+              <button type="button" class="score-btn" data-score="3" aria-pressed="false">3 – Fully correct</button>
+              <button type="button" class="score-btn" data-score="2" aria-pressed="false">2 – Mostly correct</button>
+              <button type="button" class="score-btn" data-score="1" aria-pressed="false">1 – Partly correct</button>
+              <button type="button" class="score-btn" data-score="0" aria-pressed="false">0 – Not yet</button>
+            </div>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is the correct response if hot glue contacts skin?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa7">Reveal model answer</button>
+          </div>
+          <div class="qa-student">
+            <label for="qa7-student">Your answer</label>
+            <textarea id="qa7-student" class="qa-student-input" data-qa-id="qa7" placeholder="Write your answer here..."></textarea>
+            <div class="qa-meta" data-qa-meta-for="qa7"></div>
+          </div>
+          <div class="qa-answer" id="qa7">Do not wipe. Cool the burn under running water immediately and inform the teacher so first aid can be given.</div>
+          <div class="qa-score" data-qa-score-panel="qa7">
+            <div class="qa-score-title">Self-assess (0–3)</div>
+            <div class="qa-score-buttons" role="group" aria-label="Self-assess score for question 7">
+              <button type="button" class="score-btn" data-score="3" aria-pressed="false">3 – Fully correct</button>
+              <button type="button" class="score-btn" data-score="2" aria-pressed="false">2 – Mostly correct</button>
+              <button type="button" class="score-btn" data-score="1" aria-pressed="false">1 – Partly correct</button>
+              <button type="button" class="score-btn" data-score="0" aria-pressed="false">0 – Not yet</button>
+            </div>
+          </div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>In DRABC, what is the first step and why?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa8">Reveal model answer</button>
+          </div>
+          <div class="qa-student">
+            <label for="qa8-student">Your answer</label>
+            <textarea id="qa8-student" class="qa-student-input" data-qa-id="qa8" placeholder="Write your answer here..."></textarea>
+            <div class="qa-meta" data-qa-meta-for="qa8"></div>
+          </div>
+          <div class="qa-answer" id="qa8">Danger. You must ensure the area is safe for you, the casualty and others before approaching; otherwise you could become a second casualty.</div>
+          <div class="qa-score" data-qa-score-panel="qa8">
+            <div class="qa-score-title">Self-assess (0–3)</div>
+            <div class="qa-score-buttons" role="group" aria-label="Self-assess score for question 8">
+              <button type="button" class="score-btn" data-score="3" aria-pressed="false">3 – Fully correct</button>
+              <button type="button" class="score-btn" data-score="2" aria-pressed="false">2 – Mostly correct</button>
+              <button type="button" class="score-btn" data-score="1" aria-pressed="false">1 – Partly correct</button>
+              <button type="button" class="score-btn" data-score="0" aria-pressed="false">0 – Not yet</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <script>
+    (function () {
+      // Require a minimum attempt before revealing model answers.
+      // This is intentionally enforced for this quiz (T1 Toolkit 1) only.
+      const MIN_WORDS_BEFORE_REVEAL = 20;
+      const MIN_KEY_TERMS_BEFORE_REVEAL = 2;
+
+      const DEFAULT_GOOGLE_FORM_VIEW_URL = '';
+      const DEFAULT_GOOGLE_FORM_RESPONSE_URL = '';
+      const DEFAULT_PREFILL_JSON_MAX_LENGTH = 1500;
+      const OVERLAY_ID = 'qa-submit-overlay';
+
+      function getGoogleFormUrl() {
+        return DEFAULT_GOOGLE_FORM_VIEW_URL;
+      }
+
+      function getGoogleFormEntries() {
+        return null;
+      }
+
+      function getPrefillJsonMaxLength() {
+        return DEFAULT_PREFILL_JSON_MAX_LENGTH;
+      }
+
+      function buildPrefilledGoogleFormUrl(baseUrl, entries, values) {
+        if (!baseUrl || typeof baseUrl !== 'string') return baseUrl;
+        if (!entries || typeof entries !== 'object' || !values || typeof values !== 'object') return baseUrl;
+
+        const pairs = ['usp=pp_url'];
+        Object.keys(values).forEach((k) => {
+          const entry = entries[k];
+          const val = values[k];
+          if (!entry || typeof entry !== 'string') return;
+          if (val == null) return;
+          const s = String(val);
+          if (!s.trim().length) return;
+          pairs.push(`${encodeURIComponent(entry)}=${encodeURIComponent(s)}`);
+        });
+
+        if (pairs.length === 1) return baseUrl;
+        return baseUrl + (baseUrl.includes('?') ? '&' : '?') + pairs.join('&');
+      }
+
+      function buildGoogleFormPrefillUrl(values) {
+        const baseUrl = getGoogleFormUrl();
+        if (!baseUrl || typeof baseUrl !== 'string') return baseUrl;
+
+        const entries = getGoogleFormEntries();
+        if (!entries || typeof entries !== 'object') return baseUrl;
+
+        const maxJsonLen = getPrefillJsonMaxLength();
+        const payload = values && typeof values === 'object' ? values : {};
+
+        const params = new URLSearchParams();
+        params.set('usp', 'pp_url');
+
+        let hasEntryParams = false;
+        function setEntry(key, value, { allowEmpty } = { allowEmpty: false }) {
+          const entry = entries[key];
+          if (!entry || typeof entry !== 'string') return;
+          const s = value == null ? '' : String(value);
+          if (!allowEmpty && !s.trim().length) return;
+          params.set(entry, s);
+          hasEntryParams = true;
+        }
+
+        setEntry('studentName', payload.studentName, { allowEmpty: true });
+        setEntry('className', payload.className, { allowEmpty: true });
+        setEntry('pageModule', payload.pageModule);
+        setEntry('quizTitle', payload.quizTitle);
+        setEntry('quizId', payload.quizId);
+        setEntry('exportedAt', payload.exportedAt);
+        setEntry('comments', payload.comments, { allowEmpty: true });
+
+        const exportJson = payload.exportJson == null ? '' : String(payload.exportJson);
+        if (exportJson && exportJson.length <= maxJsonLen) {
+          setEntry('exportJson', exportJson, { allowEmpty: true });
+        }
+
+        if (!hasEntryParams) return baseUrl;
+        return baseUrl + (baseUrl.includes('?') ? '&' : '?') + params.toString();
+      }
+
+      function fallbackCopy(text) {
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = String(text || '');
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.left = '-9999px';
+          ta.style.top = '0';
+          document.body.appendChild(ta);
+          ta.focus();
+          ta.select();
+          ta.setSelectionRange(0, ta.value.length);
+          const ok = document.execCommand('copy');
+          ta.remove();
+          return ok;
+        } catch (e) {
+          return false;
+        }
+      }
+
+      function copyText(text) {
+        const value = String(text || '');
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+          return navigator.clipboard.writeText(value).then(() => true).catch(() => fallbackCopy(value));
+        }
+        return Promise.resolve(fallbackCopy(value));
+      }
+
+      let activeOverlayKeyDownHandler = null;
+
+      function removeOverlay() {
+        const existing = document.getElementById(OVERLAY_ID);
+        if (existing) existing.remove();
+        if (activeOverlayKeyDownHandler) {
+          document.removeEventListener('keydown', activeOverlayKeyDownHandler);
+          activeOverlayKeyDownHandler = null;
+        }
+      }
+
+      function openSubmitOverlay(opts) {
+        removeOverlay();
+
+        const overlay = document.createElement('div');
+        overlay.id = OVERLAY_ID;
+        overlay.setAttribute('role', 'dialog');
+        overlay.setAttribute('aria-modal', 'true');
+        overlay.setAttribute('aria-label', 'Submission disabled');
+        overlay.style.cssText = [
+          'position:fixed',
+          'inset:0',
+          'background:rgba(0,0,0,0.55)',
+          'display:flex',
+          'align-items:center',
+          'justify-content:center',
+          'padding:16px',
+          'z-index:2147483647'
+        ].join(';');
+
+        const panel = document.createElement('div');
+        panel.style.cssText = [
+          'background:#ffffff',
+          'color:#111827',
+          'width:min(900px,100%)',
+          'max-height:90vh',
+          'overflow:auto',
+          'border-radius:12px',
+          'box-shadow:0 16px 40px rgba(0,0,0,0.25)',
+          'padding:16px 16px 14px 16px',
+          'font-family:inherit'
+        ].join(';');
+
+        panel.innerHTML = `
+          <div style="display:flex;gap:12px;align-items:flex-start;justify-content:space-between;">
+            <div>
+              <div style="font-weight:800;font-size:18px;line-height:1.2;">Submission disabled</div>
+              <div style="margin-top:4px;color:#374151;font-size:13.5px;line-height:1.45;">
+                Open the form. If any fields aren't prefilled, copy/paste the values below (paste the JSON into the 'Export JSON' field), then submit.
+              </div>
+            </div>
+            <button type="button" data-qa-close style="border:1px solid #d1d5db;background:#fff;border-radius:8px;padding:6px 10px;font-weight:700;cursor:pointer;">Close</button>
+          </div>
+
+          <div style="margin-top:14px;display:grid;gap:10px;">
+            <div data-qa-row="pageModule" style="display:grid;grid-template-columns:140px 1fr auto;gap:10px;align-items:center;">
+              <div style="font-weight:700;color:#111827;">Page/module</div>
+              <div data-qa-value="pageModule" style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:12.5px;color:#111827;overflow-wrap:anywhere;"></div>
+              <button type="button" data-qa-copy="pageModule" style="border:1px solid #d1d5db;background:#f9fafb;border-radius:8px;padding:6px 10px;font-weight:700;cursor:pointer;">Copy</button>
+            </div>
+            <div data-qa-row="quizTitle" style="display:grid;grid-template-columns:140px 1fr auto;gap:10px;align-items:center;">
+              <div style="font-weight:700;color:#111827;">Quiz title</div>
+              <div data-qa-value="quizTitle" style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:12.5px;color:#111827;overflow-wrap:anywhere;"></div>
+              <button type="button" data-qa-copy="quizTitle" style="border:1px solid #d1d5db;background:#f9fafb;border-radius:8px;padding:6px 10px;font-weight:700;cursor:pointer;">Copy</button>
+            </div>
+            <div data-qa-row="quizId" style="display:grid;grid-template-columns:140px 1fr auto;gap:10px;align-items:center;">
+              <div style="font-weight:700;color:#111827;">Quiz ID</div>
+              <div data-qa-value="quizId" style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:12.5px;color:#111827;overflow-wrap:anywhere;"></div>
+              <button type="button" data-qa-copy="quizId" style="border:1px solid #d1d5db;background:#f9fafb;border-radius:8px;padding:6px 10px;font-weight:700;cursor:pointer;">Copy</button>
+            </div>
+            <div data-qa-row="exportedAt" style="display:grid;grid-template-columns:140px 1fr auto;gap:10px;align-items:center;">
+              <div style="font-weight:700;color:#111827;">Exported at</div>
+              <div data-qa-value="exportedAt" style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:12.5px;color:#111827;overflow-wrap:anywhere;"></div>
+              <button type="button" data-qa-copy="exportedAt" style="border:1px solid #d1d5db;background:#f9fafb;border-radius:8px;padding:6px 10px;font-weight:700;cursor:pointer;">Copy</button>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;">
+            <div style="display:flex;gap:10px;align-items:center;justify-content:space-between;">
+              <div style="font-weight:800;color:#111827;">Export JSON</div>
+              <button type="button" data-qa-copy-json style="border:1px solid #d1d5db;background:#f9fafb;border-radius:8px;padding:6px 10px;font-weight:800;cursor:pointer;">Copy JSON</button>
+            </div>
+            <textarea data-qa-json readonly style="width:100%;margin-top:8px;min-height:220px;resize:vertical;border:1px solid #d1d5db;border-radius:10px;padding:10px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;font-size:12.5px;line-height:1.4;"></textarea>
+            <div data-qa-copy-status style="margin-top:6px;color:#374151;font-size:12.5px;min-height:18px;"></div>
+          </div>
+
+          <div style="margin-top:14px;display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;">
+            <a data-qa-open-form href="#" target="_blank" rel="noopener" style="display:inline-block;border-radius:10px;padding:10px 12px;background:#0056b3;color:#fff;font-weight:900;text-decoration:none;">Open form</a>
+            <button type="button" data-qa-close2 style="border:1px solid #d1d5db;background:#fff;border-radius:10px;padding:10px 12px;font-weight:900;cursor:pointer;">Done</button>
+          </div>
+        `;
+
+        overlay.appendChild(panel);
+        document.body.appendChild(overlay);
+
+        const data = opts && typeof opts === 'object' ? opts : {};
+        const values = data.values && typeof data.values === 'object' ? data.values : {};
+        const formUrl = typeof data.formUrl === 'string' && data.formUrl.trim() ? data.formUrl.trim() : getGoogleFormUrl();
+        const jsonText = typeof data.jsonText === 'string' ? data.jsonText : '';
+
+        panel.querySelector('[data-qa-open-form]').setAttribute('href', formUrl);
+        const jsonTa = panel.querySelector('[data-qa-json]');
+        if (jsonTa) jsonTa.value = jsonText;
+
+        Object.keys(values).forEach((k) => {
+          const el = panel.querySelector(`[data-qa-value="${k}"]`);
+          if (el) el.textContent = values[k] == null ? '' : String(values[k]);
+        });
+
+        const statusEl = panel.querySelector('[data-qa-copy-status]');
+        function setStatus(msg) { if (statusEl) statusEl.textContent = msg || ''; }
+
+        panel.querySelectorAll('[data-qa-close],[data-qa-close2]').forEach((btn) => {
+          btn.addEventListener('click', removeOverlay);
+        });
+
+        overlay.addEventListener('click', (e) => {
+          if (e.target === overlay) removeOverlay();
+        });
+
+        const onKeyDown = (e) => {
+          if (e.key === 'Escape') {
+            e.preventDefault();
+            removeOverlay();
+          }
+        };
+        document.addEventListener('keydown', onKeyDown);
+        activeOverlayKeyDownHandler = onKeyDown;
+
+        panel.querySelectorAll('[data-qa-copy]').forEach((btn) => {
+          btn.addEventListener('click', async () => {
+            const key = btn.getAttribute('data-qa-copy');
+            const val = key && values[key] != null ? String(values[key]) : '';
+            const ok = await copyText(val);
+            setStatus(ok ? `Copied: ${key}` : `Could not copy: ${key} (select and copy manually)`);
+          });
+        });
+
+        const copyJsonBtn = panel.querySelector('[data-qa-copy-json]');
+        if (copyJsonBtn) {
+          copyJsonBtn.addEventListener('click', async () => {
+            const ok = await copyText(jsonText);
+            setStatus(ok ? 'Copied JSON.' : 'Could not copy JSON (select and copy manually).');
+          });
+        }
+
+        const closeBtn = panel.querySelector('[data-qa-close]');
+        if (closeBtn) closeBtn.focus();
+      }
+
+      function slugify(s) {
+        return String(s || '')
+          .toLowerCase()
+          .trim()
+          .replace(/&/g, 'and')
+          .replace(/[^a-z0-9]+/g, '_')
+          .replace(/^_+|_+$/g, '')
+          .slice(0, 48) || 'quiz';
+      }
+
+      function safeParse(json) {
+        try { return JSON.parse(json); } catch (e) { return null; }
+      }
+
+      function safeGetStore(storageKey) {
+        try {
+          const raw = localStorage.getItem(storageKey);
+          const parsed = raw ? safeParse(raw) : null;
+          if (!parsed || typeof parsed !== 'object') return { version: 1, items: {}, updatedAt: null };
+          if (!parsed.items || typeof parsed.items !== 'object') parsed.items = {};
+          return parsed;
+        } catch (e) {
+          return { version: 1, items: {}, updatedAt: null, __disabled: true };
+        }
+      }
+
+      function safeSetStore(storageKey, store) {
+        try {
+          store.updatedAt = new Date().toISOString();
+          localStorage.setItem(storageKey, JSON.stringify(store));
+          return true;
+        } catch (e) {
+          return false;
+        }
+      }
+
+      function scoreLabel(score) {
+        switch (score) {
+          case 3: return '3 – Fully correct';
+          case 2: return '2 – Mostly correct';
+          case 1: return '1 – Partly correct';
+          case 0: return '0 – Not yet';
+          default: return null;
+        }
+      }
+
+      const metaState = {}; // qaId -> { wordCountText?: string, statusText?: string }
+
+      function setMeta(qaId, partial) {
+        if (!qaId) return;
+        metaState[qaId] = { ...(metaState[qaId] || {}), ...(partial || {}) };
+        const el = document.querySelector(`[data-qa-meta-for="${qaId}"]`);
+        if (!el) return;
+        const wc = metaState[qaId].wordCountText;
+        const kc = metaState[qaId].keywordCountText;
+        const status = metaState[qaId].statusText;
+        el.textContent = [wc, kc, status].filter(Boolean).join(' • ');
+      }
+
+      function wordCount(text) {
+        return String(text || '').trim().split(/\s+/).filter(Boolean).length;
+      }
+
+      function normaliseWord(w) {
+        return String(w || '')
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '')
+          .trim();
+      }
+
+      const keywordStop = new Set([
+        'the','and','for','with','that','this','you','your','are','can','should','must',
+        'why','what','how','when','where','before','after','then','than','from','into',
+        'need','using','use','used','need','have','has','had','does','do','did','not',
+        'a','an','to','of','in','on','at','is','it','its','be','as','or'
+      ]);
+
+      function extractKeywords(questionText) {
+        const raw = String(questionText || '').replace(/[^\w\s']/g, ' ');
+        const parts = raw.split(/\s+/).filter(Boolean);
+        const kws = [];
+        for (const p of parts) {
+          const n = normaliseWord(p);
+          if (!n) continue;
+          if (keywordStop.has(n)) continue;
+          // keep useful short acronyms/terms used in this course
+          if (n.length >= 4 || ['whs','ppe','swms','drabc','onguard','cpr'].includes(n)) {
+            kws.push(n);
+          }
+        }
+        // de-dupe while preserving order
+        const seen = new Set();
+        return kws.filter(k => (seen.has(k) ? false : (seen.add(k), true)));
+      }
+
+      function countKeywordMatches(answerText, keywords) {
+        const ans = String(answerText || '').toLowerCase();
+        let count = 0;
+        for (const k of (keywords || [])) {
+          if (!k) continue;
+          const re = new RegExp(`\\b${k.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')}\\b`, 'i');
+          if (re.test(ans)) count++;
+        }
+        return count;
+      }
+
+      function updateAttemptMeta(qaId, response, questionText) {
+        const wc = wordCount(response);
+        const keywords = extractKeywords(questionText);
+        const matched = countKeywordMatches(response, keywords);
+        setMeta(qaId, {
+          wordCountText: `Word count: ${wc}/${MIN_WORDS_BEFORE_REVEAL}`,
+          keywordCountText: `Key terms: ${matched}/${MIN_KEY_TERMS_BEFORE_REVEAL}`,
+        });
+      }
+
+      function updateProgressSummary(summaryEl, qaIds, store) {
+        const progressEl = summaryEl ? summaryEl.querySelector('[data-qa-progress-text]') : null;
+        const avgEl = summaryEl ? summaryEl.querySelector('[data-qa-average-text]') : null;
+
+        const scores = (qaIds || [])
+          .map((id) => {
+            const v = store.items && store.items[id] ? store.items[id] : null;
+            return v && typeof v.score === 'number' ? v.score : null;
+          })
+          .filter((v) => typeof v === 'number');
+
+        const scoredCount = scores.length;
+        if (progressEl) progressEl.textContent = `${scoredCount}/${(qaIds || []).length} scored`;
+
+        if (avgEl) {
+          if (!scores.length) {
+            avgEl.textContent = 'Average: –';
+          } else {
+            const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+            avgEl.textContent = `Average: ${avg.toFixed(1)}/3`;
+          }
+        }
+      }
+
+      function ensureQuestionUI(qaItem, qaId, idx) {
+        // Student answer UI
+        let student = qaItem.querySelector('.qa-student');
+        if (!student) {
+          student = document.createElement('div');
+          student.className = 'qa-student';
+          student.innerHTML = `
+            <label for="${qaId}-student">Your answer</label>
+            <textarea id="${qaId}-student" class="qa-student-input" data-qa-id="${qaId}" placeholder="Write your answer here..."></textarea>
+            <div class="qa-meta" data-qa-meta-for="${qaId}"></div>
+          `;
+          const questionRow = qaItem.querySelector('.qa-question');
+          if (questionRow) questionRow.insertAdjacentElement('afterend', student);
+          else qaItem.insertAdjacentElement('afterbegin', student);
+        }
+
+        // Score panel UI
+        let scorePanel = qaItem.querySelector(`[data-qa-score-panel="${qaId}"]`);
+        if (!scorePanel) {
+          scorePanel = document.createElement('div');
+          scorePanel.className = 'qa-score';
+          scorePanel.setAttribute('data-qa-score-panel', qaId);
+          scorePanel.innerHTML = `
+            <div class="qa-score-title">Self-assess (0–3)</div>
+            <div class="qa-score-buttons" role="group" aria-label="Self-assess score for question ${idx + 1}">
+              <button type="button" class="score-btn" data-score="3" aria-pressed="false">3 – Fully correct</button>
+              <button type="button" class="score-btn" data-score="2" aria-pressed="false">2 – Mostly correct</button>
+              <button type="button" class="score-btn" data-score="1" aria-pressed="false">1 – Partly correct</button>
+              <button type="button" class="score-btn" data-score="0" aria-pressed="false">0 – Not yet</button>
+            </div>
+          `;
+          qaItem.appendChild(scorePanel);
+        }
+      }
+
+      function ensureSummaryUI(card, qaList) {
+        let summary = card.querySelector('[data-qa-summary]');
+        if (!summary) {
+          summary = document.createElement('div');
+          summary.className = 'qa-summary';
+          summary.setAttribute('data-qa-summary', '');
+          summary.setAttribute('aria-live', 'polite');
+          summary.innerHTML = `
+            <div>
+              <strong>Progress:</strong>
+              <span data-qa-progress-text>0/0 scored</span>
+              <span aria-hidden="true"> • </span>
+              <span data-qa-average-text>Average: –</span>
+            </div>
+            <div class="qa-summary-actions"></div>
+          `;
+          qaList.insertAdjacentElement('beforebegin', summary);
+        }
+        return summary;
+      }
+
+      function initQuizBlock(qaList, quizIndex) {
+        const card = qaList.closest('.card') || document.body;
+        const titleEl = card.querySelector('h2');
+        const titleText = titleEl ? titleEl.textContent.trim() : `Quiz ${quizIndex + 1}`;
+
+        const storageKey = `year9.t1.module1.${slugify(titleText)}.${quizIndex}.v1`;
+        const store = safeGetStore(storageKey);
+
+        const summaryEl = ensureSummaryUI(card, qaList);
+
+        const summaryActions = summaryEl.querySelector('.qa-summary-actions') || summaryEl;
+        let printBtn = summaryEl.querySelector('[data-qa-print]');
+        if (!printBtn) {
+          printBtn = document.createElement('button');
+          printBtn.type = 'button';
+          printBtn.className = 'qa-secondary-btn';
+          printBtn.setAttribute('data-qa-print', '');
+          printBtn.textContent = 'Print / save PDF';
+          summaryActions.appendChild(printBtn);
+        }
+
+        const qaItems = Array.from(qaList.querySelectorAll('.qa-item'))
+          .filter((item) => item.querySelector('.qa-toggle') && item.querySelector('.qa-answer'));
+
+        const qaIds = qaItems
+          .map((item) => {
+            const answer = item.querySelector('.qa-answer');
+            return answer && answer.id ? answer.id : null;
+          })
+          .filter(Boolean);
+
+        // Ensure UI exists (for future quizzes that only have question + answer)
+        qaItems.forEach((item, idx) => {
+          const answer = item.querySelector('.qa-answer');
+          const qaId = answer && answer.id ? answer.id : null;
+          if (!qaId) return;
+          ensureQuestionUI(item, qaId, idx);
+        });
+
+        // Prefill saved responses + scores
+        qaItems.forEach((item) => {
+          const answer = item.querySelector('.qa-answer');
+          const qaId = answer && answer.id ? answer.id : null;
+          if (!qaId) return;
+
+          const qTextEl = item.querySelector('.qa-question span');
+          const questionText = qTextEl ? qTextEl.textContent.trim() : '';
+
+          const saved = store.items[qaId];
+          const textarea = item.querySelector(`.qa-student-input[data-qa-id="${qaId}"]`);
+          if (textarea && saved && typeof saved.response === 'string') textarea.value = saved.response;
+          if (textarea) updateAttemptMeta(qaId, textarea.value, questionText);
+
+          const savedScore = saved && typeof saved.score === 'number' ? saved.score : null;
+          if (typeof savedScore === 'number') {
+            setMeta(qaId, { statusText: `Saved score: ${scoreLabel(savedScore)}` });
+            const buttons = item.querySelectorAll('.score-btn');
+            buttons.forEach((b) => {
+              const bScore = Number(b.getAttribute('data-score'));
+              b.setAttribute('aria-pressed', String(bScore === savedScore));
+            });
+          } else if (saved && typeof saved.response === 'string' && saved.response.trim().length) {
+            setMeta(qaId, { statusText: 'Draft saved.' });
+          }
+        });
+
+        // Toggle model answer + show scoring panel (scoped to this quiz block)
+        qaItems.forEach((qaItem) => {
+          const btn = qaItem.querySelector('.qa-toggle');
+          const answer = qaItem.querySelector('.qa-answer');
+          if (!btn || !answer || !answer.id) return;
+
+          // Normalise initial text for any quiz blocks on the page
+          if (!btn.textContent || btn.textContent.trim().toLowerCase() === 'show answer') {
+            btn.textContent = 'Reveal model answer';
+          }
+
+          btn.addEventListener('click', () => {
+            const answerId = btn.getAttribute('aria-controls');
+            const answerEl = answerId ? document.getElementById(answerId) : null;
+            if (!answerEl) return;
+
+            const isOpen = btn.getAttribute('aria-expanded') === 'true';
+            // Enforce a minimum attempt before revealing the model answer.
+            if (!isOpen) {
+              const ta = qaItem.querySelector(`.qa-student-input[data-qa-id="${answerId}"]`);
+              const attempt = ta ? ta.value : '';
+              const wc = wordCount(attempt);
+              const qTextEl = qaItem.querySelector('.qa-question span');
+              const questionText = qTextEl ? qTextEl.textContent.trim() : '';
+              const keywords = extractKeywords(questionText);
+              const matched = countKeywordMatches(attempt, keywords);
+              updateAttemptMeta(answerId, attempt, questionText);
+              if (wc < MIN_WORDS_BEFORE_REVEAL || matched < MIN_KEY_TERMS_BEFORE_REVEAL) {
+                setMeta(answerId, { statusText: `Write at least ${MIN_WORDS_BEFORE_REVEAL} words and include ${MIN_KEY_TERMS_BEFORE_REVEAL}+ key terms from the question before revealing the model answer.` });
+                if (ta) ta.focus();
+                return;
+              }
+            }
+
+            btn.setAttribute('aria-expanded', String(!isOpen));
+            btn.textContent = isOpen ? 'Reveal model answer' : 'Hide model answer';
+            answerEl.style.display = isOpen ? 'none' : 'block';
+
+            const scorePanel = qaItem.querySelector(`[data-qa-score-panel="${answerId}"]`);
+            if (scorePanel) scorePanel.style.display = isOpen ? 'none' : 'block';
+          });
+        });
+
+        // Save draft response (scoped)
+        qaItems.forEach((qaItem) => {
+          const ta = qaItem.querySelector('.qa-student-input');
+          if (!ta) return;
+          ta.addEventListener('input', () => {
+            const qaId = ta.getAttribute('data-qa-id');
+            if (!qaId) return;
+
+            const qTextEl = qaItem.querySelector('.qa-question span');
+            const questionText = qTextEl ? qTextEl.textContent.trim() : '';
+
+            const next = safeGetStore(storageKey);
+            next.items[qaId] = {
+              ...(next.items[qaId] || {}),
+              response: ta.value,
+              responseUpdatedAt: new Date().toISOString(),
+            };
+            const ok = safeSetStore(storageKey, next);
+            if (ok) {
+              const savedScore = typeof next.items[qaId].score === 'number' ? next.items[qaId].score : null;
+              updateAttemptMeta(qaId, ta.value, questionText);
+              if (typeof savedScore === 'number') setMeta(qaId, { statusText: `Saved score: ${scoreLabel(savedScore)} (draft updated)` });
+              else setMeta(qaId, { statusText: 'Draft saved.' });
+            }
+            updateProgressSummary(summaryEl, qaIds, ok ? next : store);
+          });
+        });
+
+        // Self-assess scoring (scoped)
+        qaItems.forEach((qaItem) => {
+          qaItem.querySelectorAll('.score-btn').forEach((scoreBtn) => {
+            scoreBtn.addEventListener('click', () => {
+              const score = Number(scoreBtn.getAttribute('data-score'));
+              if (![0, 1, 2, 3].includes(score)) return;
+
+              const answer = qaItem.querySelector('.qa-answer');
+              const qaId = answer && answer.id ? answer.id : null;
+              if (!qaId) return;
+
+              const next = safeGetStore(storageKey);
+              next.items[qaId] = {
+                ...(next.items[qaId] || {}),
+                score,
+                scoredAt: new Date().toISOString(),
+              };
+              const ok = safeSetStore(storageKey, next);
+
+              qaItem.querySelectorAll('.score-btn').forEach((b) => {
+                const bScore = Number(b.getAttribute('data-score'));
+                b.setAttribute('aria-pressed', String(bScore === score));
+              });
+
+              if (ok) setMeta(qaId, { statusText: `Saved score: ${scoreLabel(score)}` });
+              updateProgressSummary(summaryEl, qaIds, ok ? next : store);
+            });
+          });
+        });
+
+        // Print / save PDF (uses the browser print dialog)
+        if (printBtn) {
+          printBtn.addEventListener('click', () => {
+            const escapeHtml = (text) => String(text ?? '')
+              .replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;')
+              .replace(/\"/g, '&quot;')
+              .replace(/'/g, '&#39;');
+
+            const theme = (() => {
+              try {
+                const styles = window.getComputedStyle(document.documentElement);
+                const getVar = (name, fallback) => styles.getPropertyValue(name).trim() || fallback;
+                return {
+                  brand: getVar('--brand', '#0056b3'),
+                  text: getVar('--text', '#1f2a3d'),
+                  muted: getVar('--muted', '#5c667a'),
+                  border: getVar('--border', '#e2e8f0'),
+                };
+              } catch (e) {
+                return { brand: '#0056b3', text: '#1f2a3d', muted: '#5c667a', border: '#e2e8f0' };
+              }
+            })();
+
+            const pageTitle = (document && document.title) ? document.title : '';
+            const pagePath = (window.location && window.location.pathname) ? window.location.pathname : '';
+            const generatedAt = new Date().toLocaleString();
+
+            const items = qaItems.map((item, idx) => {
+              const qTextEl = item.querySelector('.qa-question span');
+              const questionText = qTextEl ? qTextEl.textContent.trim() : '';
+              const answerEl = item.querySelector('.qa-answer');
+              const qaId = answerEl && answerEl.id ? answerEl.id : `q${idx + 1}`;
+
+              const textarea = item.querySelector(`.qa-student-input[data-qa-id="${qaId}"]`);
+              const response = textarea ? textarea.value : '';
+
+              const pressed = item.querySelector('.score-btn[aria-pressed="true"]');
+              const score = pressed ? Number(pressed.getAttribute('data-score')) : null;
+              const scored = Number.isFinite(score) && [0, 1, 2, 3].includes(score);
+
+              const toggleBtn = item.querySelector('.qa-toggle');
+              const revealed = toggleBtn ? toggleBtn.getAttribute('aria-expanded') === 'true' : false;
+
+              return {
+                idx,
+                questionText,
+                response,
+                score: scored ? score : null,
+                revealed,
+                modelAnswerHtml: revealed && answerEl ? answerEl.innerHTML : '',
+              };
+            });
+
+            const scoredScores = items
+              .map((it) => (typeof it.score === 'number' ? it.score : null))
+              .filter((v) => typeof v === 'number');
+
+            const progressText = `${scoredScores.length}/${items.length} scored`;
+            const avgText = scoredScores.length
+              ? `${(scoredScores.reduce((a, b) => a + b, 0) / scoredScores.length).toFixed(1)}/3`
+              : '–';
+
+            const docHtml = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>${escapeHtml(titleText)} – PDF</title>
+    <style>
+      :root {
+        --brand: ${escapeHtml(theme.brand)};
+        --text: ${escapeHtml(theme.text)};
+        --muted: ${escapeHtml(theme.muted)};
+        --border: ${escapeHtml(theme.border)};
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; padding: 24px; font-family: Arial, Helvetica, sans-serif; color: var(--text); line-height: 1.45; }
+      h1 { margin: 0 0 6px; font-size: 20px; color: var(--brand); }
+      .meta { font-size: 12px; color: var(--muted); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin: 0 0 16px; }
+      .meta-row { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+      .meta-row > div { white-space: nowrap; }
+      .meta strong { color: var(--text); }
+      .items { margin: 0; padding: 0; list-style: none; }
+      .item { border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; margin: 0 0 12px; }
+      .q { font-weight: 700; margin: 0 0 6px; }
+      .label { font-weight: 700; margin: 10px 0 4px; }
+      .response { white-space: pre-wrap; border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; margin: 0; }
+      .response.empty { color: var(--muted); }
+      .score { margin-top: 10px; color: var(--muted); font-size: 12px; }
+      .model { margin-top: 10px; color: var(--muted); }
+      .model .model-body { border-left: 3px solid var(--border); padding-left: 12px; }
+      .model .model-body p { margin: 6px 0; }
+      .footer { margin-top: 16px; font-size: 11px; color: var(--muted); }
+      @media print { body { padding: 0; } .item { break-inside: avoid; page-break-inside: avoid; } }
+    </style>
+  </head>
+  <body>
+    <h1>${escapeHtml(titleText)}</h1>
+    <div class="meta">
+      <div class="meta-row">
+        <div><strong>Page:</strong> ${escapeHtml(pageTitle)}</div>
+        <div><strong>Path:</strong> ${escapeHtml(pagePath)}</div>
+        <div><strong>Generated:</strong> ${escapeHtml(generatedAt)}</div>
+      </div>
+      <div class="meta-row" style="margin-top:8px;">
+        <div><strong>Progress:</strong> ${escapeHtml(progressText)}</div>
+        <div><strong>Average:</strong> ${escapeHtml(avgText)}</div>
+      </div>
+    </div>
+    <ol class="items">
+      ${items.map((it) => {
+        const scoreText = typeof it.score === 'number' ? scoreLabel(it.score) : 'Not scored';
+        const responseText = String(it.response || '').trim();
+        const responseHtml = responseText ? escapeHtml(responseText) : '—';
+        const responseClass = responseText ? 'response' : 'response empty';
+        const model = it.revealed && it.modelAnswerHtml
+          ? `<div class="model"><div class="label">Model answer</div><div class="model-body">${it.modelAnswerHtml}</div></div>`
+          : '';
+        return `<li class="item">
+          <div class="q">${it.idx + 1}. ${escapeHtml(it.questionText)}</div>
+          <div class="label">Your answer</div>
+          <div class="${responseClass}">${responseHtml}</div>
+          <div class="score"><strong>Score:</strong> ${escapeHtml(scoreText)}</div>
+          ${model}
+        </li>`;
+      }).join('')}
+    </ol>
+    <div class="footer">Tip: In the print dialog choose "Save as PDF".</div>
+  </body>
+</html>`;
+
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('title', 'Quiz print preview');
+            iframe.setAttribute('aria-hidden', 'true');
+            iframe.style.position = 'fixed';
+            iframe.style.left = '-9999px';
+            iframe.style.top = '0';
+            iframe.style.width = '1px';
+            iframe.style.height = '1px';
+            iframe.style.border = '0';
+            iframe.style.opacity = '0';
+            iframe.style.pointerEvents = 'none';
+            document.body.appendChild(iframe);
+
+            const cleanup = () => {
+              try { iframe.remove(); } catch (e) {}
+            };
+
+            const win = iframe.contentWindow;
+            const doc = iframe.contentDocument || (win && win.document);
+            if (!win || !doc) {
+              cleanup();
+              alert('Unable to open print preview in this browser.');
+              return;
+            }
+
+            doc.open();
+            doc.write(docHtml);
+            doc.close();
+
+            try { void doc.body.offsetHeight; } catch (e) {}
+
+            try {
+              win.focus();
+              win.print();
+            } catch (e) {}
+
+            try { win.addEventListener('afterprint', cleanup, { once: true }); } catch (e) {}
+            try { window.addEventListener('afterprint', cleanup, { once: true }); } catch (e) {}
+            setTimeout(cleanup, 2000);
+          });
+        }
+
+        updateProgressSummary(summaryEl, qaIds, store);
+      }
+
+      const quizBlocks = Array.from(document.querySelectorAll('.qa-list'));
+      quizBlocks.forEach((qaList, idx) => initQuizBlock(qaList, idx));
+    })();
+  </script>
+  <script src="../page-nav.js" defer></script>
+</body>
+</html>
