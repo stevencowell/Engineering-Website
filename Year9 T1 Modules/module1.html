@@ -515,7 +515,7 @@
 
     <article class="card">
       <h2>WHS Q&A</h2>
-      <p class="card-note">Try answering first. <strong>You must write a reasonable attempt (20+ words + at least 2 key terms from the question)</strong> before you can reveal the model answer, then self-assess using the 0–3 rubric.</p>
+      <p class="card-note">Try answering first (aim for 5+ words). You can reveal the model answer at any time, then self-assess using the 0–3 rubric.</p>
       <div class="qa-summary" data-qa-summary aria-live="polite">
         <div>
           <strong>Progress:</strong>
@@ -699,10 +699,8 @@
   </main>
   <script>
     (function () {
-      // Require a minimum attempt before revealing model answers.
-      // This is intentionally enforced for this quiz (T1 Toolkit 1) only.
-      const MIN_WORDS_BEFORE_REVEAL = 20;
-      const MIN_KEY_TERMS_BEFORE_REVEAL = 2;
+      const MIN_WORDS_BEFORE_REVEAL = 5;
+      const MIN_KEY_TERMS_BEFORE_REVEAL = 0;
 
       const DEFAULT_GOOGLE_FORM_VIEW_URL = '';
       const DEFAULT_GOOGLE_FORM_RESPONSE_URL = '';
@@ -1070,7 +1068,7 @@
         const matched = countKeywordMatches(response, keywords);
         setMeta(qaId, {
           wordCountText: `Word count: ${wc}/${MIN_WORDS_BEFORE_REVEAL}`,
-          keywordCountText: `Key terms: ${matched}/${MIN_KEY_TERMS_BEFORE_REVEAL}`,
+          keywordCountText: MIN_KEY_TERMS_BEFORE_REVEAL > 0 ? `Key terms: ${matched}/${MIN_KEY_TERMS_BEFORE_REVEAL}` : null,
         });
       }
 
@@ -1237,21 +1235,12 @@
             if (!answerEl) return;
 
             const isOpen = btn.getAttribute('aria-expanded') === 'true';
-            // Enforce a minimum attempt before revealing the model answer.
             if (!isOpen) {
               const ta = qaItem.querySelector(`.qa-student-input[data-qa-id="${answerId}"]`);
               const attempt = ta ? ta.value : '';
-              const wc = wordCount(attempt);
               const qTextEl = qaItem.querySelector('.qa-question span');
               const questionText = qTextEl ? qTextEl.textContent.trim() : '';
-              const keywords = extractKeywords(questionText);
-              const matched = countKeywordMatches(attempt, keywords);
               updateAttemptMeta(answerId, attempt, questionText);
-              if (wc < MIN_WORDS_BEFORE_REVEAL || matched < MIN_KEY_TERMS_BEFORE_REVEAL) {
-                setMeta(answerId, { statusText: `Write at least ${MIN_WORDS_BEFORE_REVEAL} words and include ${MIN_KEY_TERMS_BEFORE_REVEAL}+ key terms from the question before revealing the model answer.` });
-                if (ta) ta.focus();
-                return;
-              }
             }
 
             btn.setAttribute('aria-expanded', String(!isOpen));
