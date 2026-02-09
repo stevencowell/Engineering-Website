@@ -1,7 +1,7 @@
 // qa-widget.js - interactive quiz logic (shared across toolkits)
 (function () {
-  const DEFAULT_MIN_WORDS_BEFORE_REVEAL = 20;
-  const DEFAULT_MIN_KEY_TERMS_BEFORE_REVEAL = 2;
+  const DEFAULT_MIN_WORDS_BEFORE_REVEAL = 5;
+  const DEFAULT_MIN_KEY_TERMS_BEFORE_REVEAL = 0;
 
   function slugify(s) {
     return String(s || '')
@@ -137,7 +137,7 @@
     const matched = countKeywordMatches(response, keywords);
     setMeta(qaId, {
       wordCountText: `Word count: ${wc}/${minWords}`,
-      keywordCountText: `Key terms: ${matched}/${minKeyTerms}`,
+      keywordCountText: minKeyTerms > 0 ? `Key terms: ${matched}/${minKeyTerms}` : null,
     });
     return { wc, matched };
   }
@@ -236,10 +236,9 @@
 
     // Ensure the guidance note matches the "serious attempt" requirement.
     const note = card.querySelector('.card-note');
-    const requirementText = `Try answering first. You must write a reasonable attempt (${minWords}+ words + at least ${minKeyTerms} key terms from the question) before you can reveal the model answer, then self-assess using the 0–3 rubric.`;
+    const requirementText = `Try answering first (aim for ${minWords}+ words). You can reveal the model answer at any time, then self-assess using the 0–3 rubric.`;
     if (note) {
-      const current = (note.textContent || '').trim();
-      if (!current.includes('words') || !current.includes('key')) note.textContent = requirementText;
+      note.textContent = requirementText;
     } else {
       const p = document.createElement('p');
       p.className = 'card-note';
@@ -326,26 +325,18 @@
 
         const isOpen = btn.getAttribute('aria-expanded') === 'true';
 
-        // Enforce a minimum attempt before revealing the model answer.
         if (!isOpen) {
           const ta = qaItem.querySelector(`.qa-student-input[data-qa-id="${answerId}"]`);
           const attempt = ta ? ta.value : '';
           const qTextEl = qaItem.querySelector('.qa-question span');
           const questionText = qTextEl ? qTextEl.textContent.trim() : '';
-          const { wc, matched } = updateAttemptMeta({
+          updateAttemptMeta({
             qaId: answerId,
             response: attempt,
             questionText,
             minWords,
             minKeyTerms,
           });
-          if (wc < minWords || matched < minKeyTerms) {
-            setMeta(answerId, {
-              statusText: `Write at least ${minWords} words and include ${minKeyTerms}+ key terms from the question before revealing the model answer.`,
-            });
-            if (ta) ta.focus();
-            return;
-          }
         }
 
         btn.setAttribute('aria-expanded', String(!isOpen));
