@@ -169,6 +169,30 @@
       color: var(--muted);
       display: none;
     }
+    .video-link-card {
+      display: block;
+      margin-top: 1rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid #c8dcf7;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #eef5ff, #f8fbff);
+      box-shadow: 0 6px 16px rgba(11, 99, 195, 0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .video-link-card:hover,
+    .video-link-card:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(11, 99, 195, 0.22);
+    }
+    .video-link-card strong {
+      color: #0a4f93;
+      font-size: 1rem;
+    }
+    .video-link-card p {
+      margin: 0.35rem 0 0;
+      color: #304155;
+      font-size: 0.95rem;
+    }
   </style>
 </head>
 <body>
@@ -295,7 +319,10 @@
         <li>Add load in clear steps (e.g. 1 kg at a time); write down total load after each step.</li>
         <li>Use video to capture the whole test so you can pause and review exactly where and how failure started.</li>
       </ul>
-      <p style="margin-top: 0.75rem;"><strong>See examples:</strong> Watch past student water tower load tests in this <a href="https://drive.google.com/drive/folders/1o745CW75lIM5lzatnjySGZi5Mto7tTjn?usp=drive_link" target="_blank" rel="noopener">Google Drive video folder</a>.</p>
+      <a class="video-link-card" href="https://drive.google.com/drive/folders/1o745CW75lIM5lzatnjySGZi5Mto7tTjn?usp=drive_link" target="_blank" rel="noopener" aria-label="Open past student water tower load test videos in Google Drive">
+        <strong>&#9654; Watch past student water tower load test videos</strong>
+        <p>Open the Google Drive video folder to compare test setups, failure points and evaluation quality.</p>
+      </a>
       <h3>Making sense of the results</h3>
       <img src="../images/force%20failures.jpg" alt="Examples of structural failure modes" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0;" />
       <ul>
