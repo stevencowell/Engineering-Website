@@ -1,0 +1,479 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Water Tower Slides and Student Portfolio Workbook</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg-top: #0b2f5c;
+      --bg-bottom: #184f86;
+      --panel: #d7e7f8;
+      --panel-2: #c6dcf4;
+      --ink: #0f2f56;
+      --muted: #2e5a86;
+      --line: #7ca6cd;
+      --accent: #0c5ea8;
+      --accent-strong: #0b4a84;
+      --ok: #0f7f5f;
+      --warn: #a36a00;
+      --shadow: 0 10px 24px rgba(8, 37, 70, 0.22);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(1200px 480px at 10% -10%, #2a6fae44 0%, transparent 70%),
+        radial-gradient(1000px 400px at 90% -20%, #2e83cb44 0%, transparent 70%),
+        linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    }
+
+    .shell {
+      width: min(1200px, 96vw);
+      margin: 24px auto;
+      background: linear-gradient(180deg, #e4f0fc, #d4e6f8);
+      border: 1px solid #86add0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .header {
+      padding: 20px 24px 14px;
+      border-bottom: 1px solid #9abbd9;
+      background: linear-gradient(180deg, #e8f2fd, #d5e8fb);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem);
+      color: #103862;
+      letter-spacing: 0.2px;
+    }
+
+    .sub {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .top-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 16px;
+      padding: 16px 24px 8px;
+      background: var(--panel-2);
+      border-bottom: 1px solid #9abbd9;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid #8cb0d2;
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      color: #12416f;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(120px, 1fr));
+      gap: 10px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      font-size: 0.9rem;
+      color: #154670;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      font: inherit;
+      border: 1px solid #8cb0d2;
+      border-radius: 10px;
+      padding: 9px 10px;
+      color: #103659;
+      background: #f7fbff;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    button {
+      border: 1px solid #1e5f95;
+      background: linear-gradient(180deg, #1d6cb0, #0f588f);
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 9px 12px;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      border-color: #5d86ad;
+      background: linear-gradient(180deg, #f7fbff, #dceafa);
+      color: #164971;
+      font-weight: 600;
+    }
+
+    .hint {
+      margin-top: 10px;
+      font-size: 0.88rem;
+      color: #2f5d86;
+    }
+
+    .status {
+      margin-top: 6px;
+      min-height: 1.2em;
+      color: #24557f;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .workbook {
+      padding: 14px 20px 24px;
+      display: grid;
+      gap: 16px;
+      background: #d4e6f8;
+    }
+
+    .aligned-block {
+      background: #dbeafb;
+      border: 1px solid #8cb0d2;
+      border-radius: 14px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .slide-shell {
+      margin: 0;
+      background: #0b3a67;
+      border: 1px solid #2f6ea4;
+      border-radius: 10px;
+      overflow: hidden;
+      min-height: 180px;
+    }
+
+    .slide-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      display: block;
+      background: #0b3a67;
+    }
+
+    .response {
+      background: #eef6ff;
+      border: 1px solid #96b7d8;
+      border-radius: 10px;
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+      min-height: 100%;
+    }
+
+    .response-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .response h3 {
+      margin: 0;
+      font-size: 1rem;
+      color: #12416f;
+    }
+
+    .done {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #184f77;
+    }
+
+    .mini {
+      margin: 0;
+      font-size: 0.83rem;
+      color: #335f87;
+    }
+
+    .footer {
+      padding: 14px 20px 20px;
+      color: #2f5d86;
+      font-size: 0.92rem;
+      border-top: 1px solid #9abbd9;
+      background: #d1e3f5;
+    }
+
+    @media (max-width: 980px) {
+      .top-grid,
+      .aligned-block {
+        grid-template-columns: 1fr;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="header">
+      <h1>Water Tower Slides and Student Portfolio Workbook</h1>
+      <p class="sub">All 12 slides are shown with matching response cards. Save, upload, and continue in a later lesson.</p>
+    </header>
+
+    <section class="top-grid" aria-label="Workbook controls">
+      <article class="card">
+        <h2>Student Details</h2>
+        <div class="form-grid">
+          <label>
+            Student Name
+            <input id="studentName" type="text" autocomplete="name" placeholder="Enter full name" />
+          </label>
+          <label>
+            Class / Group
+            <input id="studentClass" type="text" placeholder="e.g. ENG-981" />
+          </label>
+          <label>
+            Session Date
+            <input id="sessionDate" type="date" />
+          </label>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Progress and Saving</h2>
+        <div class="actions">
+          <button id="downloadJson" type="button">Download Session JSON</button>
+          <button id="uploadJsonBtn" class="secondary" type="button">Upload Saved Session</button>
+          <input id="uploadJsonInput" type="file" accept="application/json" hidden />
+          <button id="clearAll" class="secondary" type="button">Clear Workbook</button>
+        </div>
+        <p class="hint">Autosaves in this browser. JSON file lets students continue on another device or lesson.</p>
+        <p id="status" class="status" aria-live="polite"></p>
+      </article>
+    </section>
+
+    <section id="workbook" class="workbook" aria-label="Slide workbook"></section>
+
+    <footer class="footer">
+      Water Tower Engineering Portfolio. Slides loaded from <code>slides_from_pptx</code> via lightweight files in <code>slide_pages</code>.
+    </footer>
+  </main>
+
+  <script>
+    const SLIDES = [
+      { id: 1, frame: "slide_pages/slide-01.html" },
+      { id: 2, frame: "slide_pages/slide-02.html" },
+      { id: 3, frame: "slide_pages/slide-03.html" },
+      { id: 4, frame: "slide_pages/slide-04.html" },
+      { id: 5, frame: "slide_pages/slide-05.html" },
+      { id: 6, frame: "slide_pages/slide-06.html" },
+      { id: 7, frame: "slide_pages/slide-07.html" },
+      { id: 8, frame: "slide_pages/slide-08.html" },
+      { id: 9, frame: "slide_pages/slide-09.html" },
+      { id: 10, frame: "slide_pages/slide-10.html" },
+      { id: 11, frame: "slide_pages/slide-11.html" },
+      { id: 12, frame: "slide_pages/slide-12.html" }
+    ];
+
+    const STORAGE_KEY = "water_tower_portfolio_session_v2";
+
+    const workbook = document.getElementById("workbook");
+    const studentName = document.getElementById("studentName");
+    const studentClass = document.getElementById("studentClass");
+    const sessionDate = document.getElementById("sessionDate");
+    const statusEl = document.getElementById("status");
+
+    function renderWorkbook() {
+      const html = SLIDES.map((slide) => `
+        <section class="aligned-block" data-slide="${slide.id}">
+          <figure class="slide-shell" aria-label="Slide ${slide.id}">
+            <iframe class="slide-frame" src="${slide.frame}" title="Slide ${slide.id}" loading="lazy"></iframe>
+          </figure>
+          <article class="response">
+            <div class="response-head">
+              <h3>Slide ${slide.id} Reflection</h3>
+              <label class="done">
+                <input type="checkbox" id="done-${slide.id}" /> Done
+              </label>
+            </div>
+            <p class="mini">Write what this slide shows, key engineering ideas, and how it relates to your portfolio evidence.</p>
+            <textarea id="response-${slide.id}" placeholder="Your response for Slide ${slide.id}"></textarea>
+          </article>
+        </section>
+      `).join("");
+      workbook.innerHTML = html;
+    }
+
+    function getSessionState() {
+      const responses = {};
+      const completed = {};
+      SLIDES.forEach(({ id }) => {
+        responses[id] = document.getElementById(`response-${id}`)?.value || "";
+        completed[id] = document.getElementById(`done-${id}`)?.checked || false;
+      });
+
+      return {
+        version: 2,
+        savedAt: new Date().toISOString(),
+        studentName: studentName.value,
+        studentClass: studentClass.value,
+        sessionDate: sessionDate.value,
+        responses,
+        completed
+      };
+    }
+
+    function applySessionState(data) {
+      studentName.value = data.studentName || "";
+      studentClass.value = data.studentClass || "";
+      sessionDate.value = data.sessionDate || "";
+
+      SLIDES.forEach(({ id }) => {
+        const response = document.getElementById(`response-${id}`);
+        const done = document.getElementById(`done-${id}`);
+        if (response) response.value = (data.responses && data.responses[id]) || "";
+        if (done) done.checked = Boolean(data.completed && data.completed[id]);
+      });
+    }
+
+    function saveLocal(showMessage = false) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(getSessionState()));
+      if (showMessage) setStatus("Progress saved in this browser.");
+    }
+
+    function loadLocal() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) {
+        sessionDate.value = new Date().toISOString().slice(0, 10);
+        return;
+      }
+
+      try {
+        const parsed = JSON.parse(raw);
+        applySessionState(parsed);
+      } catch {
+        sessionDate.value = new Date().toISOString().slice(0, 10);
+      }
+    }
+
+    function downloadJson() {
+      const payload = JSON.stringify(getSessionState(), null, 2);
+      const blob = new Blob([payload], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      const stamp = new Date().toISOString().slice(0, 10);
+      const safeName = (studentName.value || "student").replace(/[^a-z0-9]+/gi, "_");
+      a.href = url;
+      a.download = `water_tower_session_${safeName}_${stamp}.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      setStatus("Session JSON downloaded.");
+    }
+
+    function uploadJson(file) {
+      if (!file) return;
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(String(reader.result || ""));
+          applySessionState(parsed);
+          saveLocal(false);
+          setStatus("Saved session loaded.");
+        } catch {
+          setStatus("Could not read this file. Please upload a valid session JSON.", true);
+        }
+      };
+
+      reader.onerror = () => setStatus("Could not read this file.", true);
+      reader.readAsText(file);
+    }
+
+    function clearWorkbook() {
+      if (!confirm("Clear all responses and progress?")) return;
+      localStorage.removeItem(STORAGE_KEY);
+      studentName.value = "";
+      studentClass.value = "";
+      sessionDate.value = new Date().toISOString().slice(0, 10);
+      SLIDES.forEach(({ id }) => {
+        const response = document.getElementById(`response-${id}`);
+        const done = document.getElementById(`done-${id}`);
+        if (response) response.value = "";
+        if (done) done.checked = false;
+      });
+      setStatus("Workbook cleared.");
+    }
+
+    function setStatus(message, isError = false) {
+      statusEl.textContent = message;
+      statusEl.style.color = isError ? "#8f250d" : "#24557f";
+    }
+
+    function bindAutosave() {
+      document.querySelectorAll("textarea, input[type='text'], input[type='date'], input[type='checkbox']")
+        .forEach((el) => {
+          el.addEventListener("input", () => saveLocal(false));
+          el.addEventListener("change", () => saveLocal(false));
+        });
+    }
+
+    function init() {
+      renderWorkbook();
+      loadLocal();
+      bindAutosave();
+
+      document.getElementById("downloadJson").addEventListener("click", downloadJson);
+      document.getElementById("uploadJsonBtn").addEventListener("click", () => {
+        document.getElementById("uploadJsonInput").click();
+      });
+      document.getElementById("uploadJsonInput").addEventListener("change", (event) => {
+        const file = event.target.files && event.target.files[0];
+        uploadJson(file);
+        event.target.value = "";
+      });
+      document.getElementById("clearAll").addEventListener("click", clearWorkbook);
+
+      setStatus("Ready. Autosave is on.");
+    }
+
+    init();
+  </script>
+</body>
+</html>
