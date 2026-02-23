@@ -319,10 +319,73 @@
     const statusEl = document.getElementById("status");
 
     function sentenceStarters(slideId) {
-      return [
-        `This slide shows ${slideId === 1 ? "the overall context of the project" : "..."}.`,
-        "One key engineering idea here is ... because ... .",
-        "This connects to my folio evidence where I ... ."
+      const startersBySlide = {
+        1: [
+          "This slide introduces the design challenge, and the success criteria are ... .",
+          "The main constraints I need to work within are ... .",
+          "I can show I understood the task by ... ."
+        ],
+        2: [
+          "From my research, the most useful idea was ... because ... .",
+          "A source that influenced my design decision was ... .",
+          "I translated research into my own design by ... ."
+        ],
+        3: [
+          "The concept I selected is ... because it best meets ... .",
+          "Compared with my alternative, this option is stronger in ... .",
+          "The trade-off I accepted was ... in order to improve ... ."
+        ],
+        4: [
+          "My labelled sketch shows ... and the purpose of this feature is ... .",
+          "The material I selected is ... because it provides ... .",
+          "A risk in this design is ... and I reduced it by ... ."
+        ],
+        5: [
+          "My plan follows this sequence: first ..., then ..., finally ... .",
+          "A critical measurement/tolerance is ... because ... .",
+          "To keep quality consistent, I will check ... at each stage."
+        ],
+        6: [
+          "During construction, I used ... safely by ... .",
+          "A manufacturing issue I encountered was ... and I solved it by ... .",
+          "This process step affected the final model by ... ."
+        ],
+        7: [
+          "The test method was fair/reliable because ... .",
+          "My data shows a pattern: when ..., then ... .",
+          "The strongest evidence of performance is ... ."
+        ],
+        8: [
+          "A weakness identified in testing was ... .",
+          "The likely engineering cause of this weakness is ... .",
+          "I can justify this conclusion using data from ... ."
+        ],
+        9: [
+          "I improved the design by changing ... to ... .",
+          "This modification improved performance because ... .",
+          "If I repeated this build, I would prioritise ... next."
+        ],
+        10: [
+          "My final model met the criteria for ... but not yet for ... .",
+          "The most successful feature is ... because ... .",
+          "A limitation that remains is ... ."
+        ],
+        11: [
+          "This project developed my skill in ... .",
+          "A specific example that shows my progress is ... .",
+          "I can transfer this learning to future engineering tasks by ... ."
+        ],
+        12: [
+          "Overall, my evidence shows that ... .",
+          "The key engineering learning I am taking forward is ... .",
+          "My final recommendation is ... based on ... ."
+        ]
+      };
+
+      return startersBySlide[slideId] || [
+        "This slide is mainly about ... .",
+        "The most important engineering point is ... because ... .",
+        "I can support this with evidence from ... ."
       ];
     }
 
