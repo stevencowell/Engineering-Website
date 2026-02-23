@@ -318,6 +318,14 @@
     const sessionDate = document.getElementById("sessionDate");
     const statusEl = document.getElementById("status");
 
+    function sentenceStarters(slideId) {
+      return [
+        `This slide shows ${slideId === 1 ? "the overall context of the project" : "..."}.`,
+        "One key engineering idea here is ... because ... .",
+        "This connects to my folio evidence where I ... ."
+      ];
+    }
+
     function renderWorkbook() {
       const html = SLIDES.map((slide) => `
         <section class="aligned-block" data-slide="${slide.id}">
@@ -332,6 +340,7 @@
               </label>
             </div>
             <p class="mini">Write what this slide shows, key engineering ideas, and how it relates to your portfolio evidence.</p>
+            <p class="mini"><strong>Sentence starters:</strong> ${sentenceStarters(slide.id).join(" ")}</p>
             <textarea id="response-${slide.id}" placeholder="Your response for Slide ${slide.id}"></textarea>
           </article>
         </section>
