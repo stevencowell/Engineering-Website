@@ -389,6 +389,25 @@
       ];
     }
 
+    function slideWritingFocus(slideId) {
+      const focusBySlide = {
+        1: "Describe the design challenge, success criteria, and project constraints shown on this slide.",
+        2: "Explain your tower's design goal and what it was expected to do during testing.",
+        3: "Identify the materials shown and justify why those materials were suitable choices.",
+        4: "Explain how structural ideas (triangles, tension, compression) appear in your tower.",
+        5: "Describe what your drawing/blueprint communicates, including key measurements and layout choices.",
+        6: "Outline your construction process in order, including at least one important safety action.",
+        7: "Describe a build problem shown/connected to this stage and how your team solved it.",
+        8: "Explain your testing method and why it was fair, controlled, and repeatable.",
+        9: "Report your measured results and explain what they tell you about tower performance.",
+        10: "Analyse the failure point or weak area using evidence from observations or photos.",
+        11: "Propose realistic improvements and explain how each change would improve performance.",
+        12: "Summarise your key engineering learning and how you will apply it next time."
+      };
+
+      return focusBySlide[slideId] || "Explain what this slide shows, the key engineering idea, and your best evidence.";
+    }
+
     function renderWorkbook() {
       const html = SLIDES.map((slide) => `
         <section class="aligned-block" data-slide="${slide.id}">
@@ -402,7 +421,8 @@
                 <input type="checkbox" id="done-${slide.id}" /> Done
               </label>
             </div>
-            <p class="mini">Write what this slide shows, key engineering ideas, and how it relates to your portfolio evidence.</p>
+            <p class="mini"><strong>What to write for this slide:</strong> ${slideWritingFocus(slide.id)}</p>
+            <p class="mini"><strong>Include clear evidence:</strong> Name a measurement, test result, observation, or labelled feature from this slide.</p>
             <p class="mini"><strong>Sentence starters:</strong> ${sentenceStarters(slide.id).join(" ")}</p>
             <textarea id="response-${slide.id}" placeholder="Your response for Slide ${slide.id}"></textarea>
           </article>
