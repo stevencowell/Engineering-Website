@@ -389,6 +389,25 @@
       ];
     }
 
+    function cardGuidance(slideId) {
+      const guidanceBySlide = {
+        1: "Introduce the project goal and identify the evidence this portfolio will show.",
+        2: "Explain the challenge requirements and the success criteria your team had to meet.",
+        3: "Describe the materials and explain why they were suitable for your tower design.",
+        4: "Point out the key structural ideas (such as tension/compression) visible in your design.",
+        5: "Summarize your blueprint decisions, including key measurements and why they mattered.",
+        6: "Record the construction process in sequence and include one important safety choice.",
+        7: "Describe a build problem and clearly explain the fix your team used.",
+        8: "Explain your testing method and why it was a fair way to evaluate performance.",
+        9: "Report your measured results and interpret what they say about tower performance.",
+        10: "Analyze where failure happened and support your explanation with exact data.",
+        11: "Propose a realistic redesign change and explain how it would improve outcomes.",
+        12: "Capture your key engineering learning and how you will apply it in future work."
+      };
+
+      return guidanceBySlide[slideId] || "Explain the evidence shown on this slide and connect it to your engineering claim.";
+    }
+
     function renderWorkbook() {
       const html = SLIDES.map((slide) => `
         <section class="aligned-block" data-slide="${slide.id}">
@@ -402,7 +421,7 @@
                 <input type="checkbox" id="done-${slide.id}" /> Done
               </label>
             </div>
-            <p class="mini">Write what this slide shows, key engineering ideas, and how it relates to your portfolio evidence.</p>
+            <p class="mini">${cardGuidance(slide.id)}</p>
             <p class="mini"><strong>Sentence starters:</strong> ${sentenceStarters(slide.id).join(" ")}</p>
             <textarea id="response-${slide.id}" placeholder="Your response for Slide ${slide.id}"></textarea>
           </article>
