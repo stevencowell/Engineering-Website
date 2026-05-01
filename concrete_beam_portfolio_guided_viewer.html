@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Concrete Beam Student Portfolio Workbook</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg-top: #173c33;
+      --bg-bottom: #315f52;
+      --panel: #e3eee8;
+      --panel-2: #d1e3da;
+      --ink: #17352f;
+      --muted: #42675d;
+      --line: #8eb2a5;
+      --accent: #25735f;
+      --accent-strong: #1d5f4e;
+      --ok: #17694f;
+      --shadow: 0 10px 24px rgba(15, 47, 40, 0.22);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(1100px 440px at 12% -10%, #68a38f55 0%, transparent 70%),
+        radial-gradient(900px 360px at 95% -15%, #b8b08d44 0%, transparent 70%),
+        linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    }
+
+    .shell {
+      width: min(1220px, 96vw);
+      margin: 24px auto;
+      background: linear-gradient(180deg, #edf6f1, #dcebe4);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .header {
+      padding: 20px 24px 14px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #f0f8f4, #dcece5);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem);
+      color: #153c34;
+      letter-spacing: 0;
+    }
+
+    .sub {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .top-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 16px;
+      padding: 16px 24px 8px;
+      background: var(--panel-2);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      color: #194b40;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(120px, 1fr));
+      gap: 10px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      font-size: 0.9rem;
+      color: #1f5147;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      font: inherit;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 9px 10px;
+      color: #17352f;
+      background: #f9fffc;
+    }
+
+    textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    button {
+      border: 1px solid var(--accent-strong);
+      background: linear-gradient(180deg, #2d8069, #1f6653);
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 9px 12px;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      border-color: #6d9185;
+      background: linear-gradient(180deg, #f9fffc, #e1eee8);
+      color: #1f5147;
+      font-weight: 600;
+    }
+
+    .hint {
+      margin-top: 10px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .status {
+      margin-top: 6px;
+      min-height: 1.2em;
+      color: #23594e;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .workbook {
+      padding: 14px 20px 24px;
+      display: grid;
+      gap: 16px;
+      background: #dcebe4;
+    }
+
+    .aligned-block {
+      background: #e4f0ea;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .evidence-card {
+      margin: 0;
+      background: #163c34;
+      border: 1px solid #4b806f;
+      border-radius: 10px;
+      overflow: hidden;
+      min-height: 240px;
+      color: #f2fbf7;
+      display: grid;
+    }
+
+    .evidence-card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      background: #163c34;
+    }
+
+    .evidence-body {
+      padding: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .evidence-body h2 {
+      margin: 0;
+      font-size: 1.15rem;
+      color: #fff;
+    }
+
+    .evidence-body p,
+    .evidence-body ul {
+      margin: 0;
+      color: #d9eee7;
+      font-size: 0.95rem;
+    }
+
+    .evidence-body ul {
+      padding-left: 1.2rem;
+    }
+
+    .response {
+      background: #f4fbf7;
+      border: 1px solid #9ebcae;
+      border-radius: 10px;
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+      min-height: 100%;
+    }
+
+    .response-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .response h3 {
+      margin: 0;
+      font-size: 1rem;
+      color: #194b40;
+    }
+
+    .done {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #24584d;
+    }
+
+    .mini {
+      margin: 0;
+      font-size: 0.83rem;
+      color: #42675d;
+    }
+
+    .footer {
+      padding: 14px 20px 20px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      border-top: 1px solid var(--line);
+      background: #d7e7df;
+    }
+
+    @media (max-width: 980px) {
+      .top-grid,
+      .aligned-block {
+        grid-template-columns: 1fr;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="header">
+      <h1>Concrete Beam Student Portfolio Workbook</h1>
+      <p class="sub">Build your Term 2 folio one evidence card at a time. Save, upload, and continue in a later lesson.</p>
+    </header>
+
+    <section class="top-grid" aria-label="Workbook controls">
+      <article class="card">
+        <h2>Student Details</h2>
+        <div class="form-grid">
+          <label>
+            Student Name
+            <input id="studentName" type="text" autocomplete="name" placeholder="Enter full name" />
+          </label>
+          <label>
+            Class / Group
+            <input id="studentClass" type="text" placeholder="e.g. 9ENSE1" />
+          </label>
+          <label>
+            Session Date
+            <input id="sessionDate" type="date" />
+          </label>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Progress and Saving</h2>
+        <div class="actions">
+          <button id="downloadJson" type="button">Download Session JSON</button>
+          <button id="uploadJsonBtn" class="secondary" type="button">Upload Saved Session</button>
+          <input id="uploadJsonInput" type="file" accept="application/json" hidden />
+          <button id="clearAll" class="secondary" type="button">Clear Workbook</button>
+        </div>
+        <p class="hint">Autosaves in this browser. JSON file lets students continue on another device or lesson.</p>
+        <p id="status" class="status" aria-live="polite"></p>
+      </article>
+    </section>
+
+    <section id="workbook" class="workbook" aria-label="Concrete beam portfolio workbook"></section>
+
+    <footer class="footer">
+      Concrete Beam Engineering Portfolio. Use this workbook with the Term 2 Concrete Beam Project, Toolkit 3, Toolkit 4, and the assessment notification.
+    </footer>
+  </main>
+
+  <script>
+    const SECTIONS = [
+      {
+        id: 1,
+        title: "Project Brief and Success Criteria",
+        image: "images/term2-infographics/01-project-brief.png",
+        alt: "Infographic explaining concrete beam project brief and success criteria",
+        points: ["State the design challenge.", "List the constraints.", "Define what a successful beam must do."]
+      },
+      {
+        id: 2,
+        title: "WHS and Risk Controls",
+        image: "images/term2-infographics/02-whs-controls.png",
+        alt: "Infographic explaining WHS controls for concrete beam work",
+        points: ["Identify cement dust, wet concrete, tools, lifting, and test hazards.", "Explain PPE and safe zones.", "Link controls to your SWMS."]
+      },
+      {
+        id: 3,
+        title: "Materials and Concrete Components",
+        image: "images/term2-infographics/03-concrete-composite.png",
+        alt: "Infographic explaining concrete as a composite material",
+        points: ["Describe cement, sand, aggregate, and water.", "Explain concrete as a composite material.", "Justify reinforcement as the tensile material."]
+      },
+      {
+        id: 4,
+        title: "Beam Design and Load Path",
+        image: "images/term2-infographics/04-beam-design.png",
+        alt: "Infographic explaining beam design, load path, tension, and compression",
+        points: ["Show where tension and compression occur.", "Explain reinforcement position.", "Predict likely cracking or failure."]
+      },
+      {
+        id: 5,
+        title: "Mould and Reinforcement Plan",
+        image: "images/term2-infographics/05-mould-plan.png",
+        alt: "Infographic explaining mould plan and reinforcement placement",
+        points: ["Record mould dimensions.", "Show reinforcement layout and cover.", "Explain how the beam ID will be labelled."]
+      },
+      {
+        id: 6,
+        title: "Mix Design and Casting Plan",
+        image: "images/term2-infographics/06-mix-design.png",
+        alt: "Infographic explaining concrete mix design and casting sequence",
+        points: ["Record the mix ratio.", "Explain water control and compaction.", "List the casting steps in order."]
+      },
+      {
+        id: 7,
+        title: "Casting Evidence",
+        image: "images/term2-infographics/07-casting-evidence.png",
+        alt: "Infographic explaining casting evidence and build log documentation",
+        points: ["Add dated photos of mould preparation and pour.", "Record problems during casting.", "Explain how the group corrected issues."]
+      },
+      {
+        id: 8,
+        title: "Curing Record",
+        image: "images/term2-infographics/08-curing-record.png",
+        alt: "Infographic explaining curing record, moisture, time, and inspection",
+        points: ["Record curing start date and method.", "Explain why moisture and time matter.", "Note any cracks or handling damage before testing."]
+      },
+      {
+        id: 9,
+        title: "Test Method",
+        image: "images/term2-infographics/09-test-method.png",
+        alt: "Infographic explaining concrete beam test method",
+        points: ["Describe support spacing and load position.", "Record load increments.", "Explain how deflection was measured fairly."]
+      },
+      {
+        id: 10,
+        title: "Results and Data",
+        image: "images/term2-infographics/10-results-data.png",
+        alt: "Infographic explaining results, data tables, and graphs",
+        points: ["Report first crack load.", "Report failure load.", "Summarise load, deflection, and observations in a table or graph."]
+      },
+      {
+        id: 11,
+        title: "Failure Analysis and Redesign",
+        image: "images/term2-infographics/11-failure-analysis.png",
+        alt: "Infographic explaining failure analysis and redesign",
+        points: ["Identify the failure mode.", "Use evidence to explain why it happened.", "Propose one realistic design or process improvement."]
+      },
+      {
+        id: 12,
+        title: "Final Evaluation and Reflection",
+        image: "images/term2-infographics/12-final-evaluation.png",
+        alt: "Infographic explaining final evaluation and reflection",
+        points: ["Judge how well the beam met the criteria.", "Connect to WHS and sustainability.", "Explain what you would do differently next time."]
+      }
+    ];
+
+    const STORAGE_KEY = "concrete_beam_portfolio_session_v1";
+
+    const workbook = document.getElementById("workbook");
+    const studentName = document.getElementById("studentName");
+    const studentClass = document.getElementById("studentClass");
+    const sessionDate = document.getElementById("sessionDate");
+    const statusEl = document.getElementById("status");
+
+    function sentenceStarters(sectionId) {
+      const startersBySection = {
+        1: ["The design challenge was to ... .", "A successful concrete beam needed to ... .", "The main limits we had to follow were ... ."],
+        2: ["The main hazards were ... .", "We controlled these risks by ... .", "During testing, the safe zone was important because ... ."],
+        3: ["Concrete is a composite because ... .", "The role of aggregate is ... .", "Reinforcement was needed because ... ."],
+        4: ["When the beam bends, the top face is ... and the bottom face is ... .", "We placed reinforcement ... because ... .", "Our predicted failure mode was ... ."],
+        5: ["Our mould dimensions were ... .", "The reinforcement was placed ... mm from ... .", "We checked cover by ... ."],
+        6: ["Our mix ratio was ... .", "We controlled water by ... .", "The casting sequence was ... ."],
+        7: ["During casting, we ... .", "One problem was ... and we fixed it by ... .", "The photos show evidence of ... ."],
+        8: ["Our beam cured for ... days.", "We kept it curing by ... .", "Curing matters because ... ."],
+        9: ["To test the beam, we ... .", "The load was applied at ... .", "The test was fair because ... ."],
+        10: ["The first crack occurred at ... .", "The maximum load was ... .", "The data shows that ... ."],
+        11: ["The beam failed by ... .", "This happened because ... .", "Next time, I would improve ... by ... ."],
+        12: ["Overall, our beam ... .", "The strongest evidence for this judgement is ... .", "This project taught me that ... ."]
+      };
+
+      return startersBySection[sectionId] || [
+        "This evidence shows ... .",
+        "The most important engineering idea is ... because ... .",
+        "One measurement or observation that supports this is ... ."
+      ];
+    }
+
+    function cardGuidance(sectionId) {
+      const guidanceBySection = {
+        1: "Introduce the task and define the criteria your concrete beam will be judged against.",
+        2: "Explain the hazards, PPE, and controls used during mixing, casting, curing, and destructive testing.",
+        3: "Describe concrete as a composite material and justify the material choices in your beam.",
+        4: "Explain your beam design using load path, tension, compression, and reinforcement action.",
+        5: "Document the mould, dimensions, reinforcement layout, cover, and labelling plan.",
+        6: "Record the mix design and the planned sequence for mixing, placing, compacting, and finishing.",
+        7: "Use build-log evidence to explain what happened during casting and how the group solved problems.",
+        8: "Record curing conditions and explain how curing affects strength, cracking, and final performance.",
+        9: "Describe the test setup clearly enough that another group could repeat it safely.",
+        10: "Report measured results and interpret what they show about strength, stiffness, and performance.",
+        11: "Analyse the failure mode using test evidence and propose a specific redesign or process improvement.",
+        12: "Write a final judgement that links evidence, engineering theory, WHS, and sustainability."
+      };
+
+      return guidanceBySection[sectionId] || "Explain the evidence and connect it to a clear engineering claim.";
+    }
+
+    function renderWorkbook() {
+      const html = SECTIONS.map((section) => `
+        <section class="aligned-block" data-section="${section.id}">
+          <figure class="evidence-card" aria-label="${section.title}">
+            <img src="${section.image}" alt="${section.alt}" loading="lazy" />
+            <figcaption class="evidence-body">
+              <h2>${section.title}</h2>
+              <p>Evidence to include:</p>
+              <ul>${section.points.map((point) => `<li>${point}</li>`).join("")}</ul>
+            </figcaption>
+          </figure>
+          <article class="response">
+            <div class="response-head">
+              <h3>Section ${section.id} Response</h3>
+              <label class="done">
+                <input type="checkbox" id="done-${section.id}" /> Done
+              </label>
+            </div>
+            <p class="mini">${cardGuidance(section.id)}</p>
+            <p class="mini"><strong>Sentence starters:</strong> ${sentenceStarters(section.id).join(" ")}</p>
+            <textarea id="response-${section.id}" placeholder="Your response for Section ${section.id}"></textarea>
+          </article>
+        </section>
+      `).join("");
+      workbook.innerHTML = html;
+    }
+
+    function getSession() {
+      const responses = {};
+      const done = {};
+      SECTIONS.forEach((section) => {
+        responses[section.id] = document.getElementById(`response-${section.id}`).value;
+        done[section.id] = document.getElementById(`done-${section.id}`).checked;
+      });
+
+      return {
+        version: 1,
+        project: "Concrete Beam Portfolio Workbook",
+        savedAt: new Date().toISOString(),
+        student: {
+          name: studentName.value,
+          classGroup: studentClass.value,
+          sessionDate: sessionDate.value
+        },
+        responses,
+        done
+      };
+    }
+
+    function setStatus(message) {
+      statusEl.textContent = message;
+    }
+
+    function saveSession() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(getSession()));
+      setStatus("Saved in this browser.");
+    }
+
+    function loadSession(session) {
+      if (!session || !session.student || !session.responses) return;
+
+      studentName.value = session.student.name || "";
+      studentClass.value = session.student.classGroup || "";
+      sessionDate.value = session.student.sessionDate || "";
+
+      SECTIONS.forEach((section) => {
+        document.getElementById(`response-${section.id}`).value = session.responses[section.id] || "";
+        document.getElementById(`done-${section.id}`).checked = Boolean(session.done && session.done[section.id]);
+      });
+
+      saveSession();
+    }
+
+    function downloadSession() {
+      const session = getSession();
+      const safeName = (session.student.name || "concrete-beam-portfolio")
+        .trim()
+        .replace(/[^a-z0-9]+/gi, "-")
+        .replace(/^-+|-+$/g, "")
+        .toLowerCase();
+      const blob = new Blob([JSON.stringify(session, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${safeName || "concrete-beam-portfolio"}-session.json`;
+      link.click();
+      URL.revokeObjectURL(url);
+      setStatus("Session JSON downloaded.");
+    }
+
+    function uploadSession(file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const session = JSON.parse(reader.result);
+          loadSession(session);
+          setStatus("Uploaded session loaded.");
+        } catch (error) {
+          setStatus("Could not read that JSON file.");
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function clearWorkbook() {
+      if (!confirm("Clear all workbook responses in this browser?")) return;
+      localStorage.removeItem(STORAGE_KEY);
+      studentName.value = "";
+      studentClass.value = "";
+      sessionDate.value = "";
+      SECTIONS.forEach((section) => {
+        document.getElementById(`response-${section.id}`).value = "";
+        document.getElementById(`done-${section.id}`).checked = false;
+      });
+      setStatus("Workbook cleared.");
+    }
+
+    function init() {
+      renderWorkbook();
+
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          loadSession(JSON.parse(saved));
+        } catch (error) {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      } else {
+        setStatus("Ready. Autosave is on.");
+      }
+
+      document.addEventListener("input", saveSession);
+      document.addEventListener("change", saveSession);
+      document.getElementById("downloadJson").addEventListener("click", downloadSession);
+      document.getElementById("uploadJsonBtn").addEventListener("click", () => document.getElementById("uploadJsonInput").click());
+      document.getElementById("uploadJsonInput").addEventListener("change", (event) => {
+        const [file] = event.target.files;
+        if (file) uploadSession(file);
+        event.target.value = "";
+      });
+      document.getElementById("clearAll").addEventListener("click", clearWorkbook);
+    }
+
+    init();
+  </script>
+</body>
+</html>
