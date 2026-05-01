@@ -26,6 +26,13 @@
     .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
     .card li + li { margin-top: 0.35rem; }
     .pill { display: inline-block; padding: 0.25rem 0.6rem; border-radius: 999px; background: #e6f0fb; color: var(--brand); font-weight: 600; font-size: 0.8rem; }
+
+    .card-note { color: var(--muted); margin-bottom: 0.75rem; }
+    .qa-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem; }
+    .qa-item { border: 1px solid var(--border); border-radius: 10px; padding: 0.75rem; background: #fff; }
+    .qa-question { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; font-weight: 700; color: var(--text); }
+    .qa-toggle { padding: 0.4rem 0.75rem; border-radius: 999px; border: none; background: var(--brand); color: #fff; font-weight: 700; font-size: 0.8rem; cursor: pointer; }
+    .qa-answer { display: none; margin-top: 0.6rem; color: var(--muted); }
     .tip {
       background: #e6f0fb;
       border: 1px solid var(--border);
@@ -260,6 +267,29 @@
       </ul>
     </article>
 
+
+    <article class="card">
+      <h2>Design &amp; Planning Q&amp;A</h2>
+      <p class="card-note">Try each question first, then reveal the model answer to check your understanding.</p>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why should beam depth usually increase before beam width when trying to improve bending strength?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="t2m3_qa1">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="t2m3_qa1"><p>Increasing depth is usually more effective because bending capacity improves strongly with depth. A deeper section places more material away from the neutral axis, so the beam resists bending with less extra material than simply making it wider.</p></div>
+        </div>
+
+        <div class="qa-item"><div class="qa-question"><span>What is a practical reason for adding a 10–20% waste factor to concrete quantity calculations?</span><button class="qa-toggle" aria-expanded="false" aria-controls="t2m3_qa2">Reveal model answer</button></div><div class="qa-answer" id="t2m3_qa2"><p>A waste factor covers losses from spillage, material left in buckets and tools, and minor mould overfill. Without it, students may run out of mix mid-pour, creating weak joints and inconsistent beam quality.</p></div></div>
+
+        <div class="qa-item"><div class="qa-question"><span>Why is reinforcement placed near the bottom of a simply supported beam under downward load?</span><button class="qa-toggle" aria-expanded="false" aria-controls="t2m3_qa3">Reveal model answer</button></div><div class="qa-answer" id="t2m3_qa3"><p>The bottom zone is in tension during bending, and concrete is weak in tension. Steel reinforcement near the bottom carries tensile forces, delays cracking, and increases the load the beam can safely resist.</p></div></div>
+
+        <div class="qa-item"><div class="qa-question"><span>How does curing quality affect your later test results?</span><button class="qa-toggle" aria-expanded="false" aria-controls="t2m3_qa4">Reveal model answer</button></div><div class="qa-answer" id="t2m3_qa4"><p>Good curing keeps hydration active, which develops strength and reduces early shrinkage cracking. Poor curing can produce weaker, more brittle beams, so test data may reflect curing errors rather than design quality.</p></div></div>
+
+        <div class="qa-item"><div class="qa-question"><span>When planning a beam test, why should load be applied in small increments instead of one large step?</span><button class="qa-toggle" aria-expanded="false" aria-controls="t2m3_qa5">Reveal model answer</button></div><div class="qa-answer" id="t2m3_qa5"><p>Small increments improve safety and data quality. They allow time to measure deflection, observe first cracking, and stop if instability appears. A single large step can hide important behaviour and increase sudden-failure risk.</p></div></div>
+      </div>
+    </article>
+
     <article class="card">
       <h2>Resources</h2>
       <ul>
@@ -272,5 +302,6 @@
     </article>
   </main>
   <script src="../page-nav.js" defer></script>
+  <script src="../qa-widget.js"></script>
 </body>
 </html>
