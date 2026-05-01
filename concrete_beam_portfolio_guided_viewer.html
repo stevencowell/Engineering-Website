@@ -162,6 +162,101 @@
       background: #dcebe4;
     }
 
+    .intro-panel {
+      padding: 16px 20px 0;
+      background: #dcebe4;
+    }
+
+    .intro-card {
+      background: #f4fbf7;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      display: grid;
+      gap: 14px;
+      box-shadow: 0 8px 20px rgba(23, 60, 51, 0.08);
+    }
+
+    .intro-card h2 {
+      margin: 0;
+      color: #194b40;
+      font-size: clamp(1.2rem, 1rem + 0.8vw, 1.65rem);
+    }
+
+    .intro-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .intro-copy {
+      display: grid;
+      gap: 12px;
+    }
+
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .criteria-box {
+      background: #e4f0ea;
+      border: 1px solid #b7d0c5;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .criteria-box h3 {
+      margin: 0 0 6px;
+      color: #1f5147;
+      font-size: 0.98rem;
+    }
+
+    .criteria-box ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .criteria-box li + li {
+      margin-top: 0.2rem;
+    }
+
+    .intro-images {
+      display: grid;
+      gap: 10px;
+    }
+
+    .intro-images figure {
+      margin: 0;
+      background: #163c34;
+      border: 1px solid #4b806f;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .intro-images img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: #163c34;
+    }
+
+    .intro-images figcaption {
+      padding: 8px 10px;
+      color: #d9eee7;
+      font-size: 0.86rem;
+    }
+
     .aligned-block {
       background: #e4f0ea;
       border: 1px solid var(--line);
@@ -263,10 +358,14 @@
 
     @media (max-width: 980px) {
       .top-grid,
+      .intro-grid,
       .aligned-block {
         grid-template-columns: 1fr;
       }
       .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .criteria-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -308,6 +407,62 @@
         </div>
         <p class="hint">Autosaves in this browser. JSON file lets students continue on another device or lesson.</p>
         <p id="status" class="status" aria-live="polite"></p>
+      </article>
+    </section>
+
+    <section class="intro-panel" aria-labelledby="brief-heading">
+      <article class="intro-card">
+        <div class="intro-grid">
+          <div class="intro-copy">
+            <div>
+              <h2 id="brief-heading">Design Brief and Success Criteria</h2>
+              <p>Design, cast, cure, and destructively test a reinforced concrete beam. Your folio needs to show the engineering decisions you made, the evidence you collected, and how your test results prove how well the beam performed.</p>
+            </div>
+            <div class="criteria-grid" aria-label="Concrete beam criteria">
+              <section class="criteria-box">
+                <h3>Design Brief</h3>
+                <ul>
+                  <li>Create a reinforced concrete beam using the class mould and material limits.</li>
+                  <li>Place reinforcement on the tension face with suitable cover.</li>
+                  <li>Plan the mix, casting sequence, curing method, and test method before building.</li>
+                </ul>
+              </section>
+              <section class="criteria-box">
+                <h3>Success Criteria</h3>
+                <ul>
+                  <li>Beam is labelled, cured for at least 7 days, and tested safely.</li>
+                  <li>Folio includes drawings, photos, build log, test data, graph or table, and evaluation.</li>
+                  <li>Evaluation explains first crack, failure load, failure mode, and specific improvements.</li>
+                </ul>
+              </section>
+              <section class="criteria-box">
+                <h3>Evidence To Collect</h3>
+                <ul>
+                  <li>Mould and reinforcement photos.</li>
+                  <li>Mix ratio, casting date, curing record, and beam ID.</li>
+                  <li>Load increments, deflection readings, first crack, failure load, and final damage photos.</li>
+                </ul>
+              </section>
+              <section class="criteria-box">
+                <h3>Key Vocabulary</h3>
+                <ul>
+                  <li>Compression, tension, cover, span, deflection, first crack, failure mode.</li>
+                  <li>Composite material, reinforcement, curing, compaction, water-cement ratio.</li>
+                </ul>
+              </section>
+            </div>
+          </div>
+          <div class="intro-images">
+            <figure>
+              <img src="images/term2-infographics/01-project-brief.png" alt="Concrete beam project brief and success criteria infographic" loading="lazy" />
+              <figcaption>Use this overview to check that your folio covers the full design-test-evaluate process.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/Concrete%20beam%20test.jpg" alt="Concrete beam being destructively tested" loading="lazy" />
+              <figcaption>Testing evidence should connect load, deflection, cracking, and final failure.</figcaption>
+            </figure>
+          </div>
+        </div>
       </article>
     </section>
 
