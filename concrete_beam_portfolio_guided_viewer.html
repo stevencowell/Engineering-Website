@@ -268,6 +268,10 @@
       align-items: start;
     }
 
+    .aligned-block.has-photo-evidence {
+      grid-template-columns: 1fr;
+    }
+
     .evidence-card {
       margin: 0;
       background: #163c34;
@@ -348,6 +352,181 @@
       color: #42675d;
     }
 
+    .photo-evidence {
+      border-top: 1px solid #c5d8cf;
+      padding-top: 10px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .photo-evidence h4 {
+      margin: 0;
+      color: #194b40;
+      font-size: 0.96rem;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .photo-grid.four-slots {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .photo-slot {
+      border: 1px dashed #8eb2a5;
+      border-radius: 10px;
+      background: #f9fffc;
+      padding: 6px;
+      display: grid;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    .photo-slot-title {
+      color: #1f5147;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.15;
+      min-height: 1.8em;
+      display: grid;
+      place-items: center;
+    }
+
+    .photo-preview {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 8px;
+      border: 1px solid #c5d8cf;
+      background: #e4f0ea;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      color: #6d9185;
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+
+    .photo-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-preview img[hidden],
+    .photo-preview span[hidden] {
+      display: none;
+    }
+
+    .photo-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .photo-upload {
+      text-align: center;
+      border: 1px solid #6d9185;
+      border-radius: 8px;
+      padding: 5px;
+      background: #e4f0ea;
+      color: #1f5147;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .photo-remove {
+      border-color: #9c4c4c;
+      background: #fff4f4;
+      color: #7c2525;
+      padding: 5px;
+      font-size: 0.76rem;
+      border-radius: 8px;
+    }
+
+    .video-evidence {
+      border-top: 1px solid #c5d8cf;
+      padding-top: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .video-evidence h4 {
+      margin: 0;
+      color: #194b40;
+      font-size: 0.96rem;
+    }
+
+    .video-upload-panel {
+      border: 1px dashed #8eb2a5;
+      border-radius: 10px;
+      background: #f9fffc;
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .video-preview {
+      width: 100%;
+      max-height: 280px;
+      border-radius: 10px;
+      border: 1px solid #c5d8cf;
+      background: #173c33;
+      display: none;
+    }
+
+    .video-placeholder {
+      min-height: 120px;
+      border-radius: 10px;
+      border: 1px solid #c5d8cf;
+      background: #e4f0ea;
+      color: #42675d;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-weight: 700;
+      padding: 12px;
+    }
+
+    .video-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .video-upload {
+      border: 1px solid #6d9185;
+      border-radius: 8px;
+      padding: 7px 10px;
+      background: #e4f0ea;
+      color: #1f5147;
+      font-size: 0.86rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .video-remove {
+      border-color: #9c4c4c;
+      background: #fff4f4;
+      color: #7c2525;
+      padding: 7px 10px;
+      font-size: 0.86rem;
+      border-radius: 8px;
+    }
+
+    .video-file-name {
+      color: var(--muted);
+      font-size: 0.84rem;
+      min-width: 0;
+    }
+
     .footer {
       padding: 14px 20px 20px;
       color: var(--muted);
@@ -366,6 +545,15 @@
         grid-template-columns: 1fr;
       }
       .criteria-grid {
+        grid-template-columns: 1fr;
+      }
+      .photo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .photo-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -401,11 +589,12 @@
         <h2>Progress and Saving</h2>
         <div class="actions">
           <button id="downloadJson" type="button">Download Session JSON</button>
+          <button id="downloadZip" type="button">Download ZIP Backup</button>
           <button id="uploadJsonBtn" class="secondary" type="button">Upload Saved Session</button>
-          <input id="uploadJsonInput" type="file" accept="application/json" hidden />
+          <input id="uploadJsonInput" type="file" accept="application/json,.json,application/zip,.zip" hidden />
           <button id="clearAll" class="secondary" type="button">Clear Workbook</button>
         </div>
-        <p class="hint">Autosaves in this browser. JSON file lets students continue on another device or lesson.</p>
+        <p class="hint">Autosaves in this browser. ZIP backup includes answers and uploaded photos for Google Classroom submission or later restore.</p>
         <p id="status" class="status" aria-live="polite"></p>
       </article>
     </section>
@@ -562,6 +751,68 @@
     ];
 
     const STORAGE_KEY = "concrete_beam_portfolio_session_v1";
+    const PHOTO_EVIDENCE = {
+      5: {
+        title: "Mould and Reinforcement Photos",
+        slots: [
+          { id: "mould-assembled", label: "Mould Assembled" },
+          { id: "reinforcement-layout", label: "Reinforcement Layout" },
+          { id: "cover-spacers", label: "Cover / Spacers" },
+          { id: "beam-id-label", label: "Beam ID Label" }
+        ]
+      },
+      7: {
+        title: "Casting Evidence Photos",
+        slots: [
+          { id: "mould-prep", label: "Mould Prep" },
+          { id: "reinforcement", label: "Reinforcement" },
+          { id: "pour", label: "Pour" },
+          { id: "finish", label: "Finish" },
+          { id: "problem-fix", label: "Problem + Fix" }
+        ]
+      },
+      8: {
+        title: "Curing Record Photos",
+        slots: [
+          { id: "curing-setup", label: "Curing Setup" },
+          { id: "curing-id-date", label: "Beam ID / Date" },
+          { id: "covered-moist", label: "Covered / Moist" },
+          { id: "pre-test-inspection", label: "Pre-test Inspection" }
+        ]
+      },
+      9: {
+        title: "Test Method Photos",
+        slots: [
+          { id: "support-setup", label: "Support Setup" },
+          { id: "load-point", label: "Load Point" },
+          { id: "deflection-measurement", label: "Deflection Measurement" },
+          { id: "safety-zone", label: "Safety Zone" }
+        ]
+      },
+      10: {
+        title: "Results and Data Photos",
+        slots: [
+          { id: "first-crack", label: "First Crack" },
+          { id: "max-load-failure", label: "Max Load / Failure" },
+          { id: "final-damage", label: "Final Damage" },
+          { id: "data-table-graph", label: "Data Table / Graph" }
+        ]
+      },
+      11: {
+        title: "Failure Analysis Photos",
+        slots: [
+          { id: "failure-close-up", label: "Failure Close-up" },
+          { id: "crack-path", label: "Crack Path" },
+          { id: "tension-compression-face", label: "Tension / Compression" },
+          { id: "improvement-sketch", label: "Improvement Sketch" }
+        ]
+      }
+    };
+    const VIDEO_SLOT = {
+      key: "section-12-test-video",
+      title: "Test Video Evidence",
+      label: "Concrete beam test video"
+    };
 
     const workbook = document.getElementById("workbook");
     const studentName = document.getElementById("studentName");
@@ -613,7 +864,7 @@
 
     function renderWorkbook() {
       const html = SECTIONS.map((section) => `
-        <section class="aligned-block" data-section="${section.id}">
+        <section class="aligned-block ${PHOTO_EVIDENCE[section.id] ? "has-photo-evidence" : ""}" data-section="${section.id}">
           <figure class="evidence-card" aria-label="${section.title}">
             <img src="${section.image}" alt="${section.alt}" loading="lazy" />
             <figcaption class="evidence-body">
@@ -632,10 +883,75 @@
             <p class="mini">${cardGuidance(section.id)}</p>
             <p class="mini"><strong>Sentence starters:</strong> ${sentenceStarters(section.id).join(" ")}</p>
             <textarea id="response-${section.id}" placeholder="Your response for Section ${section.id}"></textarea>
+            ${PHOTO_EVIDENCE[section.id] ? renderPhotoEvidence(section.id) : ""}
+            ${section.id === 12 ? renderVideoEvidence() : ""}
           </article>
         </section>
       `).join("");
       workbook.innerHTML = html;
+    }
+
+    function getPhotoSlotKey(sectionId, slotId) {
+      return `section-${sectionId}-${slotId}`;
+    }
+
+    function getAllPhotoSlots() {
+      return Object.entries(PHOTO_EVIDENCE).flatMap(([sectionId, group]) =>
+        group.slots.map((slot) => ({
+          ...slot,
+          sectionId,
+          key: getPhotoSlotKey(sectionId, slot.id)
+        }))
+      );
+    }
+
+    function renderPhotoEvidence(sectionId) {
+      const group = PHOTO_EVIDENCE[sectionId];
+      const gridClass = group.slots.length === 4 ? "four-slots" : "";
+      return `
+        <div class="photo-evidence" aria-label="${group.title} upload">
+          <h4>${group.title}</h4>
+          <p class="mini">Click a camera tile to upload each photo. These photos are included in the ZIP backup.</p>
+          <div class="photo-grid ${gridClass}">
+            ${group.slots.map((slot) => {
+              const key = getPhotoSlotKey(sectionId, slot.id);
+              return `
+              <div class="photo-slot" data-photo-slot="${key}">
+                <div class="photo-slot-title">${slot.label}</div>
+                <label class="photo-preview" for="photo-${key}" title="Upload ${slot.label} photo">
+                  <span id="photo-placeholder-${key}" aria-hidden="true">&#128247;</span>
+                  <img id="photo-preview-${key}" alt="${slot.label} upload preview" hidden />
+                </label>
+                <div class="photo-actions">
+                  <label class="photo-upload" for="photo-${key}">Choose Photo</label>
+                  <button class="photo-remove" type="button" data-remove-photo="${key}" title="Remove ${slot.label} photo">Clear</button>
+                </div>
+                <input id="photo-${key}" type="file" accept="image/*" data-photo-input="${key}" hidden />
+              </div>
+              `;
+            }).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderVideoEvidence() {
+      return `
+        <div class="video-evidence" aria-label="Test video upload">
+          <h4>${VIDEO_SLOT.title}</h4>
+          <p class="mini">Upload one short video of your concrete beam test. It will be included in the ZIP backup, not the smaller JSON-only download.</p>
+          <div class="video-upload-panel">
+            <div id="video-placeholder" class="video-placeholder">No test video uploaded yet</div>
+            <video id="video-preview" class="video-preview" controls preload="metadata"></video>
+            <div class="video-actions">
+              <label class="video-upload" for="test-video-input">Choose Test Video</label>
+              <button id="video-remove" class="video-remove" type="button">Clear Video</button>
+              <span id="video-file-name" class="video-file-name"></span>
+            </div>
+            <input id="test-video-input" type="file" accept="video/*" hidden />
+          </div>
+        </div>
+      `;
     }
 
     function getSession() {
@@ -656,8 +972,99 @@
           sessionDate: sessionDate.value
         },
         responses,
-        done
+        done,
+        photos: collectPhotos(),
+        video: collectVideo()
       };
+    }
+
+    function collectPhotos() {
+      const photos = {};
+      getAllPhotoSlots().forEach((slot) => {
+        const preview = document.getElementById(`photo-preview-${slot.key}`);
+        if (preview && preview.dataset.dataUrl) {
+          photos[slot.key] = {
+            sectionId: Number(slot.sectionId),
+            label: slot.label,
+            name: preview.dataset.name || `${slot.key}.jpg`,
+            type: preview.dataset.type || "image/jpeg",
+            dataUrl: preview.dataset.dataUrl
+          };
+        }
+      });
+      return photos;
+    }
+
+    function collectVideo() {
+      const preview = document.getElementById("video-preview");
+      if (!preview || preview.dataset.hasVideo !== "true") return null;
+      return {
+        key: VIDEO_SLOT.key,
+        label: VIDEO_SLOT.label,
+        name: preview.dataset.name || "concrete-beam-test-video",
+        type: preview.dataset.type || "video/mp4",
+        size: Number(preview.dataset.size || 0),
+        stored: true
+      };
+    }
+
+    function openVideoDb() {
+      return new Promise((resolve, reject) => {
+        const request = indexedDB.open("concreteBeamPortfolioMedia", 1);
+        request.onerror = () => reject(request.error);
+        request.onupgradeneeded = () => {
+          request.result.createObjectStore("videos");
+        };
+        request.onsuccess = () => resolve(request.result);
+      });
+    }
+
+    async function saveVideoBlob(key, record) {
+      const db = await openVideoDb();
+      return new Promise((resolve, reject) => {
+        const transaction = db.transaction("videos", "readwrite");
+        transaction.objectStore("videos").put(record, key);
+        transaction.oncomplete = () => {
+          db.close();
+          resolve();
+        };
+        transaction.onerror = () => {
+          db.close();
+          reject(transaction.error);
+        };
+      });
+    }
+
+    async function getVideoBlob(key) {
+      const db = await openVideoDb();
+      return new Promise((resolve, reject) => {
+        const transaction = db.transaction("videos", "readonly");
+        const request = transaction.objectStore("videos").get(key);
+        request.onsuccess = () => {
+          db.close();
+          resolve(request.result || null);
+        };
+        request.onerror = () => {
+          db.close();
+          reject(request.error);
+        };
+      });
+    }
+
+    async function deleteVideoBlob(key) {
+      const db = await openVideoDb();
+      return new Promise((resolve, reject) => {
+        const transaction = db.transaction("videos", "readwrite");
+        transaction.objectStore("videos").delete(key);
+        transaction.oncomplete = () => {
+          db.close();
+          resolve();
+        };
+        transaction.onerror = () => {
+          db.close();
+          reject(transaction.error);
+        };
+      });
     }
 
     function setStatus(message) {
@@ -669,7 +1076,7 @@
       setStatus("Saved in this browser.");
     }
 
-    function loadSession(session) {
+    async function loadSession(session) {
       if (!session || !session.student || !session.responses) return;
 
       studentName.value = session.student.name || "";
@@ -680,8 +1087,130 @@
         document.getElementById(`response-${section.id}`).value = session.responses[section.id] || "";
         document.getElementById(`done-${section.id}`).checked = Boolean(session.done && session.done[section.id]);
       });
+      loadPhotos(session.photos || {});
+      await loadVideo(session.video || null);
 
       saveSession();
+    }
+
+    function loadPhotos(photos) {
+      getAllPhotoSlots().forEach((slot) => {
+        setPhotoPreview(slot.key, photos[slot.key] || null);
+      });
+    }
+
+    function setPhotoPreview(slotId, photo) {
+      const preview = document.getElementById(`photo-preview-${slotId}`);
+      const placeholder = document.getElementById(`photo-placeholder-${slotId}`);
+      if (!preview || !placeholder) return;
+
+      if (photo && photo.dataUrl) {
+        preview.src = photo.dataUrl;
+        preview.dataset.dataUrl = photo.dataUrl;
+        preview.dataset.name = photo.name || `${slotId}.jpg`;
+        preview.dataset.type = photo.type || "image/jpeg";
+        preview.hidden = false;
+        placeholder.hidden = true;
+      } else {
+        preview.removeAttribute("src");
+        delete preview.dataset.dataUrl;
+        delete preview.dataset.name;
+        delete preview.dataset.type;
+        preview.hidden = true;
+        placeholder.hidden = false;
+      }
+    }
+
+    async function loadVideo(videoMeta) {
+      if (!videoMeta || !videoMeta.stored) {
+        setVideoPreview(null);
+        return;
+      }
+
+      try {
+        const record = await getVideoBlob(VIDEO_SLOT.key);
+        if (record && record.blob) {
+          setVideoPreview(record);
+        } else {
+          setVideoPreview({
+            name: videoMeta.name,
+            type: videoMeta.type,
+            size: videoMeta.size,
+            missing: true
+          });
+        }
+      } catch (error) {
+        setVideoPreview(null);
+      }
+    }
+
+    function setVideoPreview(record) {
+      const preview = document.getElementById("video-preview");
+      const placeholder = document.getElementById("video-placeholder");
+      const fileName = document.getElementById("video-file-name");
+      if (!preview || !placeholder || !fileName) return;
+
+      if (preview.dataset.objectUrl) {
+        URL.revokeObjectURL(preview.dataset.objectUrl);
+        delete preview.dataset.objectUrl;
+      }
+
+      if (record && record.blob) {
+        const url = URL.createObjectURL(record.blob);
+        preview.src = url;
+        preview.dataset.objectUrl = url;
+        preview.dataset.hasVideo = "true";
+        preview.dataset.name = record.name || "concrete-beam-test-video";
+        preview.dataset.type = record.type || record.blob.type || "video/mp4";
+        preview.dataset.size = String(record.size || record.blob.size || 0);
+        preview.style.display = "block";
+        placeholder.style.display = "none";
+        fileName.textContent = `${preview.dataset.name} (${Math.round(Number(preview.dataset.size) / 1024 / 1024 * 10) / 10} MB)`;
+      } else if (record && record.missing) {
+        preview.removeAttribute("src");
+        delete preview.dataset.hasVideo;
+        preview.style.display = "none";
+        placeholder.style.display = "grid";
+        placeholder.textContent = "Video metadata found, but the video file is missing. Upload the ZIP backup to restore it.";
+        fileName.textContent = record.name || "";
+      } else {
+        preview.removeAttribute("src");
+        delete preview.dataset.hasVideo;
+        delete preview.dataset.name;
+        delete preview.dataset.type;
+        delete preview.dataset.size;
+        preview.style.display = "none";
+        placeholder.style.display = "grid";
+        placeholder.textContent = "No test video uploaded yet";
+        fileName.textContent = "";
+      }
+    }
+
+    function resizeImageFile(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onerror = reject;
+        reader.onload = () => {
+          const image = new Image();
+          image.onerror = reject;
+          image.onload = () => {
+            const maxSide = 1400;
+            const scale = Math.min(1, maxSide / Math.max(image.width, image.height));
+            const canvas = document.createElement("canvas");
+            canvas.width = Math.round(image.width * scale);
+            canvas.height = Math.round(image.height * scale);
+            const context = canvas.getContext("2d");
+            context.drawImage(image, 0, 0, canvas.width, canvas.height);
+            resolve({
+              name: file.name.replace(/\.[^.]+$/, ".jpg"),
+              type: "image/jpeg",
+              dataUrl: canvas.toDataURL("image/jpeg", 0.82)
+            });
+          };
+          image.src = reader.result;
+        };
+        reader.readAsDataURL(file);
+      });
     }
 
     function downloadSession() {
@@ -701,18 +1230,246 @@
       setStatus("Session JSON downloaded.");
     }
 
+    function safeBaseName() {
+      return (studentName.value || "concrete-beam-portfolio")
+        .trim()
+        .replace(/[^a-z0-9]+/gi, "-")
+        .replace(/^-+|-+$/g, "")
+        .toLowerCase() || "concrete-beam-portfolio";
+    }
+
+    function textBytes(text) {
+      return new TextEncoder().encode(text);
+    }
+
+    function dataUrlBytes(dataUrl) {
+      const base64 = dataUrl.split(",")[1] || "";
+      const binary = atob(base64);
+      const bytes = new Uint8Array(binary.length);
+      for (let index = 0; index < binary.length; index += 1) {
+        bytes[index] = binary.charCodeAt(index);
+      }
+      return bytes;
+    }
+
+    function concatBytes(parts) {
+      const total = parts.reduce((sum, part) => sum + part.length, 0);
+      const output = new Uint8Array(total);
+      let offset = 0;
+      parts.forEach((part) => {
+        output.set(part, offset);
+        offset += part.length;
+      });
+      return output;
+    }
+
+    function crc32(bytes) {
+      let crc = -1;
+      for (let index = 0; index < bytes.length; index += 1) {
+        crc ^= bytes[index];
+        for (let bit = 0; bit < 8; bit += 1) {
+          crc = (crc >>> 1) ^ (0xedb88320 & -(crc & 1));
+        }
+      }
+      return (crc ^ -1) >>> 0;
+    }
+
+    function writeUInt16(output, offset, value) {
+      output[offset] = value & 0xff;
+      output[offset + 1] = (value >>> 8) & 0xff;
+    }
+
+    function writeUInt32(output, offset, value) {
+      output[offset] = value & 0xff;
+      output[offset + 1] = (value >>> 8) & 0xff;
+      output[offset + 2] = (value >>> 16) & 0xff;
+      output[offset + 3] = (value >>> 24) & 0xff;
+    }
+
+    function dosDateTime(date = new Date()) {
+      const time = (date.getHours() << 11) | (date.getMinutes() << 5) | Math.floor(date.getSeconds() / 2);
+      const dosDate = ((date.getFullYear() - 1980) << 9) | ((date.getMonth() + 1) << 5) | date.getDate();
+      return { time, date: dosDate };
+    }
+
+    function createZip(files) {
+      const localParts = [];
+      const centralParts = [];
+      let offset = 0;
+      const stamp = dosDateTime();
+
+      files.forEach((file) => {
+        const nameBytes = textBytes(file.name);
+        const data = file.bytes;
+        const checksum = crc32(data);
+
+        const local = new Uint8Array(30 + nameBytes.length);
+        writeUInt32(local, 0, 0x04034b50);
+        writeUInt16(local, 4, 20);
+        writeUInt16(local, 6, 0);
+        writeUInt16(local, 8, 0);
+        writeUInt16(local, 10, stamp.time);
+        writeUInt16(local, 12, stamp.date);
+        writeUInt32(local, 14, checksum);
+        writeUInt32(local, 18, data.length);
+        writeUInt32(local, 22, data.length);
+        writeUInt16(local, 26, nameBytes.length);
+        writeUInt16(local, 28, 0);
+        local.set(nameBytes, 30);
+        localParts.push(local, data);
+
+        const central = new Uint8Array(46 + nameBytes.length);
+        writeUInt32(central, 0, 0x02014b50);
+        writeUInt16(central, 4, 20);
+        writeUInt16(central, 6, 20);
+        writeUInt16(central, 8, 0);
+        writeUInt16(central, 10, 0);
+        writeUInt16(central, 12, stamp.time);
+        writeUInt16(central, 14, stamp.date);
+        writeUInt32(central, 16, checksum);
+        writeUInt32(central, 20, data.length);
+        writeUInt32(central, 24, data.length);
+        writeUInt16(central, 28, nameBytes.length);
+        writeUInt16(central, 30, 0);
+        writeUInt16(central, 32, 0);
+        writeUInt16(central, 34, 0);
+        writeUInt16(central, 36, 0);
+        writeUInt32(central, 38, 0);
+        writeUInt32(central, 42, offset);
+        central.set(nameBytes, 46);
+        centralParts.push(central);
+
+        offset += local.length + data.length;
+      });
+
+      const centralStart = offset;
+      const centralDirectory = concatBytes(centralParts);
+      const end = new Uint8Array(22);
+      writeUInt32(end, 0, 0x06054b50);
+      writeUInt16(end, 8, files.length);
+      writeUInt16(end, 10, files.length);
+      writeUInt32(end, 12, centralDirectory.length);
+      writeUInt32(end, 16, centralStart);
+      writeUInt16(end, 20, 0);
+
+      return concatBytes([...localParts, centralDirectory, end]);
+    }
+
+    async function downloadZipBackup() {
+      const session = getSession();
+      const files = [
+        {
+          name: "concrete-beam-portfolio-session.json",
+          bytes: textBytes(JSON.stringify(session, null, 2))
+        }
+      ];
+
+      Object.entries(session.photos || {}).forEach(([slotId, photo]) => {
+        if (!photo.dataUrl) return;
+        const sectionFolder = photo.sectionId ? `section-${photo.sectionId}` : "general";
+        files.push({
+          name: `photos/${sectionFolder}/${slotId}-${photo.name || "photo.jpg"}`.replace(/[^a-zA-Z0-9._/-]+/g, "-"),
+          bytes: dataUrlBytes(photo.dataUrl)
+        });
+      });
+
+      if (session.video && session.video.stored) {
+        const videoRecord = await getVideoBlob(VIDEO_SLOT.key);
+        if (videoRecord && videoRecord.blob) {
+          files.push({
+            name: `videos/${session.video.name || "concrete-beam-test-video"}`.replace(/[^a-zA-Z0-9._/-]+/g, "-"),
+            bytes: new Uint8Array(await videoRecord.blob.arrayBuffer())
+          });
+        }
+      }
+
+      const zipBytes = createZip(files);
+      const blob = new Blob([zipBytes], { type: "application/zip" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${safeBaseName()}-portfolio-backup.zip`;
+      link.click();
+      URL.revokeObjectURL(url);
+      setStatus("ZIP backup downloaded with answers and photos.");
+    }
+
     function uploadSession(file) {
+      if (file.name.toLowerCase().endsWith(".zip")) {
+        uploadZipSession(file);
+        return;
+      }
+
       const reader = new FileReader();
-      reader.onload = () => {
+      reader.onload = async () => {
         try {
           const session = JSON.parse(reader.result);
-          loadSession(session);
+          await loadSession(session);
           setStatus("Uploaded session loaded.");
         } catch (error) {
           setStatus("Could not read that JSON file.");
         }
       };
       reader.readAsText(file);
+    }
+
+    function readUInt16(bytes, offset) {
+      return bytes[offset] | (bytes[offset + 1] << 8);
+    }
+
+    function readUInt32(bytes, offset) {
+      return (bytes[offset] | (bytes[offset + 1] << 8) | (bytes[offset + 2] << 16) | (bytes[offset + 3] << 24)) >>> 0;
+    }
+
+    function uploadZipSession(file) {
+      const reader = new FileReader();
+      reader.onload = async () => {
+        try {
+          const bytes = new Uint8Array(reader.result);
+          let offset = 0;
+          let sessionText = "";
+          const entries = {};
+
+          while (offset < bytes.length && readUInt32(bytes, offset) === 0x04034b50) {
+            const method = readUInt16(bytes, offset + 8);
+            const compressedSize = readUInt32(bytes, offset + 18);
+            const fileNameLength = readUInt16(bytes, offset + 26);
+            const extraLength = readUInt16(bytes, offset + 28);
+            const nameStart = offset + 30;
+            const dataStart = nameStart + fileNameLength + extraLength;
+            const name = new TextDecoder().decode(bytes.slice(nameStart, nameStart + fileNameLength));
+            const data = bytes.slice(dataStart, dataStart + compressedSize);
+
+            if (method !== 0) throw new Error("Unsupported compressed ZIP entry.");
+            entries[name] = data;
+            if (name === "concrete-beam-portfolio-session.json") {
+              sessionText = new TextDecoder().decode(data);
+            }
+
+            offset = dataStart + compressedSize;
+          }
+
+          if (!sessionText) throw new Error("Session JSON not found.");
+          const session = JSON.parse(sessionText);
+          const videoEntry = Object.entries(entries).find(([name]) => name.startsWith("videos/"));
+          if (session.video && videoEntry) {
+            const [name, data] = videoEntry;
+            const type = session.video.type || "video/mp4";
+            const blob = new Blob([data], { type });
+            await saveVideoBlob(VIDEO_SLOT.key, {
+              name: name.split("/").pop() || session.video.name || "concrete-beam-test-video",
+              type,
+              size: blob.size,
+              blob
+            });
+          }
+          await loadSession(session);
+          setStatus("ZIP backup loaded.");
+        } catch (error) {
+          setStatus("Could not read that ZIP backup. Use a ZIP downloaded from this workbook.");
+        }
+      };
+      reader.readAsArrayBuffer(file);
     }
 
     function clearWorkbook() {
@@ -725,6 +1482,9 @@
         document.getElementById(`response-${section.id}`).value = "";
         document.getElementById(`done-${section.id}`).checked = false;
       });
+      loadPhotos({});
+      setVideoPreview(null);
+      deleteVideoBlob(VIDEO_SLOT.key).catch(() => {});
       setStatus("Workbook cleared.");
     }
 
@@ -734,7 +1494,7 @@
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         try {
-          loadSession(JSON.parse(saved));
+          loadSession(JSON.parse(saved)).catch(() => localStorage.removeItem(STORAGE_KEY));
         } catch (error) {
           localStorage.removeItem(STORAGE_KEY);
         }
@@ -743,14 +1503,79 @@
       }
 
       document.addEventListener("input", saveSession);
-      document.addEventListener("change", saveSession);
+      document.addEventListener("change", (event) => {
+        if (event.target.matches("[data-photo-input]") || event.target.id === "test-video-input") return;
+        saveSession();
+      });
       document.getElementById("downloadJson").addEventListener("click", downloadSession);
+      document.getElementById("downloadZip").addEventListener("click", async () => {
+        try {
+          await downloadZipBackup();
+        } catch (error) {
+          setStatus("Could not create ZIP backup.");
+        }
+      });
       document.getElementById("uploadJsonBtn").addEventListener("click", () => document.getElementById("uploadJsonInput").click());
       document.getElementById("uploadJsonInput").addEventListener("change", (event) => {
         const [file] = event.target.files;
         if (file) uploadSession(file);
         event.target.value = "";
       });
+      document.querySelectorAll("[data-photo-input]").forEach((input) => {
+        input.addEventListener("change", async (event) => {
+          const [file] = event.target.files;
+          if (!file) return;
+          try {
+            const photo = await resizeImageFile(file);
+            setPhotoPreview(event.target.dataset.photoInput, photo);
+            saveSession();
+            setStatus("Photo added and saved.");
+          } catch (error) {
+            setStatus("Could not load that image.");
+          } finally {
+            event.target.value = "";
+          }
+        });
+      });
+      document.querySelectorAll("[data-remove-photo]").forEach((button) => {
+        button.addEventListener("click", () => {
+          setPhotoPreview(button.dataset.removePhoto, null);
+          saveSession();
+          setStatus("Photo removed.");
+        });
+      });
+      const videoInput = document.getElementById("test-video-input");
+      if (videoInput) {
+        videoInput.addEventListener("change", async (event) => {
+          const [file] = event.target.files;
+          if (!file) return;
+          try {
+            const record = {
+              name: file.name,
+              type: file.type || "video/mp4",
+              size: file.size,
+              blob: file
+            };
+            await saveVideoBlob(VIDEO_SLOT.key, record);
+            setVideoPreview(record);
+            saveSession();
+            setStatus("Test video added and saved for ZIP backup.");
+          } catch (error) {
+            setStatus("Could not save that video in this browser.");
+          } finally {
+            event.target.value = "";
+          }
+        });
+      }
+      const videoRemove = document.getElementById("video-remove");
+      if (videoRemove) {
+        videoRemove.addEventListener("click", async () => {
+          await deleteVideoBlob(VIDEO_SLOT.key).catch(() => {});
+          setVideoPreview(null);
+          saveSession();
+          setStatus("Test video removed.");
+        });
+      }
       document.getElementById("clearAll").addEventListener("click", clearWorkbook);
     }
 
