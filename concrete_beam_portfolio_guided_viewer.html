@@ -188,6 +188,26 @@
       color: var(--muted);
     }
 
+    .intro-resource {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      margin-top: 10px;
+      border: 1px solid var(--accent-strong);
+      border-radius: 10px;
+      padding: 9px 12px;
+      background: linear-gradient(180deg, #2d8069, #1f6653);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .intro-resource:focus,
+    .intro-resource:hover {
+      background: linear-gradient(180deg, #349477, #25735f);
+      text-decoration: underline;
+    }
+
     .intro-grid {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
@@ -606,6 +626,7 @@
             <div>
               <h2 id="brief-heading">Design Brief and Success Criteria</h2>
               <p>Design, cast, cure, and destructively test a reinforced concrete beam. Your folio needs to show the engineering decisions you made, the evidence you collected, and how your test results prove how well the beam performed.</p>
+              <a class="intro-resource" href="assets/workbooks/concrete-beam-best-practice-answers.pptx" download>Download best practice answer slides</a>
             </div>
             <div class="criteria-grid" aria-label="Concrete beam criteria">
               <section class="criteria-box">
