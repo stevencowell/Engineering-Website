@@ -385,6 +385,45 @@
       font-size: 0.96rem;
     }
 
+    .example-evidence {
+      border: 1px solid #b7d0c5;
+      border-radius: 10px;
+      background: #f9fffc;
+      overflow: hidden;
+    }
+
+    .example-evidence summary {
+      cursor: pointer;
+      padding: 9px 10px;
+      color: #1f5147;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .example-evidence[open] summary {
+      border-bottom: 1px solid #c5d8cf;
+    }
+
+    .example-evidence-body {
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+    }
+
+    .example-evidence img {
+      display: block;
+      width: 100%;
+      border: 1px solid #c5d8cf;
+      border-radius: 8px;
+      background: #e4f0ea;
+    }
+
+    .example-note {
+      color: #42675d;
+      font-size: 0.82rem;
+      margin: 0;
+    }
+
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -829,6 +868,32 @@
         ]
       }
     };
+    const EXAMPLE_EVIDENCE = {
+      5: {
+        image: "assets/workbooks/concrete-beam-sample-evidence/section_05_mould_reinforcement_sample_photos.png",
+        alt: "Example evidence photos showing mould assembly, reinforcement layout, cover spacers, and beam label"
+      },
+      7: {
+        image: "assets/workbooks/concrete-beam-sample-evidence/section_07_casting_evidence_sample_photos.png",
+        alt: "Example evidence photos showing mould preparation, reinforcement placement, pouring, finishing, and problem solving"
+      },
+      8: {
+        image: "assets/workbooks/concrete-beam-sample-evidence/section_08_curing_record_sample_photos.png",
+        alt: "Example evidence photos showing curing setup, beam identification, moisture control, and pre-test inspection"
+      },
+      9: {
+        image: "assets/workbooks/concrete-beam-sample-evidence/section_09_test_method_sample_photos.png",
+        alt: "Example evidence photos showing support setup, load point, deflection measurement, and safety zone"
+      },
+      10: {
+        image: "assets/workbooks/concrete-beam-sample-evidence/section_10_results_data_sample_photos.png",
+        alt: "Example evidence photos showing first crack, maximum load, final damage, and data table or graph"
+      },
+      11: {
+        image: "assets/workbooks/concrete-beam-sample-evidence/section_11_failure_analysis_sample_photos.png",
+        alt: "Example evidence photos showing failure close-up, crack path, tension face, and redesign sketch"
+      }
+    };
     const VIDEO_SLOT = {
       key: "section-12-test-video",
       title: "Test Video Evidence",
@@ -929,10 +994,12 @@
     function renderPhotoEvidence(sectionId) {
       const group = PHOTO_EVIDENCE[sectionId];
       const gridClass = group.slots.length === 4 ? "four-slots" : "";
+      const example = EXAMPLE_EVIDENCE[sectionId];
       return `
         <div class="photo-evidence" aria-label="${group.title} upload">
           <h4>${group.title}</h4>
           <p class="mini">Click a camera tile to upload each photo. These photos are included in the ZIP backup.</p>
+          ${example ? renderExampleEvidence(sectionId, example) : ""}
           <div class="photo-grid ${gridClass}">
             ${group.slots.map((slot) => {
               const key = getPhotoSlotKey(sectionId, slot.id);
@@ -953,6 +1020,18 @@
             }).join("")}
           </div>
         </div>
+      `;
+    }
+
+    function renderExampleEvidence(sectionId, example) {
+      return `
+        <details class="example-evidence">
+          <summary>View example evidence photos</summary>
+          <div class="example-evidence-body">
+            <p class="example-note">These images show the type of evidence you could collect. Your folio must use your own group photos.</p>
+            <img src="${example.image}" alt="${example.alt}" loading="lazy" />
+          </div>
+        </details>
       `;
     }
 
