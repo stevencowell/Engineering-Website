@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Concrete Beam Experiment Instruction Sheets</title>
+  <style>
+    :root {
+      --ink: #1b2f2b;
+      --muted: #49645e;
+      --line: #9cb8ad;
+      --panel: #f4faf7;
+      --soft: #e6f1ec;
+      --accent: #1f6f5d;
+      --danger: #8b332b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.45;
+      background: #dfece6;
+    }
+
+    main {
+      width: min(1040px, calc(100vw - 32px));
+      margin: 24px auto;
+      background: white;
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 30px rgba(18, 55, 47, 0.14);
+    }
+
+    header {
+      padding: 24px;
+      background: var(--soft);
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #143c34;
+    }
+
+    .subtitle {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .save-tools {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    button {
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: white;
+      font: inherit;
+      font-weight: 700;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: #eef8f4;
+      color: var(--accent);
+    }
+
+    .save-status {
+      color: var(--muted);
+      font-size: 0.95rem;
+      min-height: 1.4em;
+    }
+
+    .overview,
+    .setup {
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .box {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 14px;
+    }
+
+    .box h2,
+    .box h3 {
+      font-size: 1.05rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      background: white;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 9px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #d9ebe3;
+      color: #174238;
+    }
+
+    ul,
+    ol {
+      margin: 8px 0 0 1.25rem;
+      padding: 0;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    .setup-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .setup-title h2 {
+      font-size: 1.55rem;
+      color: #143c34;
+    }
+
+    .tag {
+      padding: 5px 9px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-weight: 700;
+      white-space: nowrap;
+      background: #eef8f4;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 16px;
+    }
+
+    .keep-same {
+      background: #fffdf2;
+      border-color: #cdbb74;
+    }
+
+    .safety {
+      background: #fff4f1;
+      border-color: #c7968e;
+    }
+
+    .safety h3 {
+      color: var(--danger);
+    }
+
+    .record-lines {
+      display: grid;
+      gap: 9px;
+      margin-top: 10px;
+    }
+
+    .line {
+      min-height: 28px;
+      border-bottom: 1px solid #78958b;
+    }
+
+    .small {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    label {
+      display: grid;
+      gap: 5px;
+      color: #264d45;
+      font-weight: 700;
+      font-size: 0.94rem;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--ink);
+      font: inherit;
+      padding: 8px 9px;
+    }
+
+    textarea {
+      min-height: 76px;
+      resize: vertical;
+    }
+
+    table textarea {
+      min-height: 58px;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .field-grid .wide {
+      grid-column: 1 / -1;
+    }
+
+    @media (max-width: 760px) {
+      main {
+        width: 100%;
+        margin: 0;
+        border: 0;
+      }
+
+      .grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .setup-title {
+        display: block;
+      }
+
+      .tag {
+        display: inline-block;
+        margin-top: 8px;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      main {
+        width: auto;
+        margin: 0;
+        border: 0;
+        box-shadow: none;
+      }
+
+      header,
+      .overview,
+      .setup {
+        padding: 14mm;
+      }
+
+      .setup {
+        page-break-before: always;
+      }
+
+      .box,
+      th {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Concrete Beam Experiment Instruction Sheets</h1>
+      <p class="subtitle">Year 9 Engineering - five beam setups, ten groups, fair testing sequence.</p>
+      <div class="save-tools" aria-label="Save controls">
+        <button id="printPage" type="button">Print / Save PDF</button>
+        <button id="downloadData" class="secondary" type="button">Download Experiment Data</button>
+        <button id="clearData" class="secondary" type="button">Clear This Sheet</button>
+        <span id="saveStatus" class="save-status" aria-live="polite">Autosaves in this browser.</span>
+      </div>
+    </header>
+
+    <section class="overview">
+      <div class="grid">
+        <div class="box">
+          <h2>Class Test Plan</h2>
+          <p>Each beam setup is made twice. The repeated beam checks whether the result was fair or just a one-off.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Groups</th>
+                <th>Beam setup</th>
+                <th>Main variable</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1 and 2</td>
+                <td>A - Plain concrete</td>
+                <td>No reinforcement, standard mix</td>
+              </tr>
+              <tr>
+                <td>3 and 4</td>
+                <td>B - Steel rods low</td>
+                <td>Steel near the bottom, standard mix</td>
+              </tr>
+              <tr>
+                <td>5 and 6</td>
+                <td>C - Steel rods high</td>
+                <td>Steel near the top, standard mix</td>
+              </tr>
+              <tr>
+                <td>7 and 8</td>
+                <td>D - Mesh reinforcement</td>
+                <td>Steel mesh inside beam, standard mix</td>
+              </tr>
+              <tr>
+                <td>9 and 10</td>
+                <td>E - Changed concrete mix</td>
+                <td>Leaner mix, no reinforcement</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box keep-same">
+          <h2>Keep These The Same</h2>
+          <ul>
+            <li>Use the same mould size unless your teacher says otherwise.</li>
+            <li>Use the same casting method.</li>
+            <li>Use the same curing time.</li>
+            <li>Use the same test setup.</li>
+            <li>Label your beam clearly before it cures.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="overview">
+      <div class="box">
+        <h2>Concrete Mix Ratios</h2>
+        <p>Use the same cup, scoop, or container for every part. These ratios are by volume, not weight.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Setup</th>
+              <th>Dry mix ratio</th>
+              <th>Water rule</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A, B, C, D</td>
+              <td><strong>Standard mix:</strong> 1 cement : 2 sand : 3 aggregate</td>
+              <td>Add water slowly until the mix is workable but not runny.</td>
+            </tr>
+            <tr>
+              <td>E</td>
+              <td><strong>Changed mix:</strong> 1 cement : 3 sand : 3 aggregate</td>
+              <td>Use the same water rule. Record how much water was added.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="small">Example standard batch: 1 cup cement, 2 cups sand, 3 cups aggregate. Example changed batch: 1 cup cement, 3 cups sand, 3 cups aggregate.</p>
+      </div>
+    </section>
+
+    <section class="overview">
+      <div class="box">
+        <h2>Class Group Contact List</h2>
+        <p class="small">Fill this in before or during casting. Later, when writing your report, this tells you which group to ask about each beam setup.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Group</th>
+              <th>Setup</th>
+              <th>Student names</th>
+              <th>Best person to ask</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>A - Plain concrete</td>
+              <td><textarea data-save="group-1-names" aria-label="Group 1 student names"></textarea></td>
+              <td><input data-save="group-1-contact" type="text" aria-label="Group 1 best person to ask"></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>A - Plain concrete repeat</td>
+              <td><textarea data-save="group-2-names" aria-label="Group 2 student names"></textarea></td>
+              <td><input data-save="group-2-contact" type="text" aria-label="Group 2 best person to ask"></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>B - Steel rods low</td>
+              <td><textarea data-save="group-3-names" aria-label="Group 3 student names"></textarea></td>
+              <td><input data-save="group-3-contact" type="text" aria-label="Group 3 best person to ask"></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>B - Steel rods low repeat</td>
+              <td><textarea data-save="group-4-names" aria-label="Group 4 student names"></textarea></td>
+              <td><input data-save="group-4-contact" type="text" aria-label="Group 4 best person to ask"></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>C - Steel rods high</td>
+              <td><textarea data-save="group-5-names" aria-label="Group 5 student names"></textarea></td>
+              <td><input data-save="group-5-contact" type="text" aria-label="Group 5 best person to ask"></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>C - Steel rods high repeat</td>
+              <td><textarea data-save="group-6-names" aria-label="Group 6 student names"></textarea></td>
+              <td><input data-save="group-6-contact" type="text" aria-label="Group 6 best person to ask"></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>D - Mesh reinforcement</td>
+              <td><textarea data-save="group-7-names" aria-label="Group 7 student names"></textarea></td>
+              <td><input data-save="group-7-contact" type="text" aria-label="Group 7 best person to ask"></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>D - Mesh reinforcement repeat</td>
+              <td><textarea data-save="group-8-names" aria-label="Group 8 student names"></textarea></td>
+              <td><input data-save="group-8-contact" type="text" aria-label="Group 8 best person to ask"></td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>E - Changed concrete mix</td>
+              <td><textarea data-save="group-9-names" aria-label="Group 9 student names"></textarea></td>
+              <td><input data-save="group-9-contact" type="text" aria-label="Group 9 best person to ask"></td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>E - Changed concrete mix repeat</td>
+              <td><textarea data-save="group-10-names" aria-label="Group 10 student names"></textarea></td>
+              <td><input data-save="group-10-contact" type="text" aria-label="Group 10 best person to ask"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="overview">
+      <div class="grid">
+        <div class="box safety">
+          <h2>Safety First</h2>
+          <ul>
+            <li>Wear safety glasses, gloves, and a dust mask when mixing dry cement.</li>
+            <li>Do not breathe in cement dust.</li>
+            <li>Wash concrete off your skin straight away.</li>
+            <li>Keep fingers clear when testing beams.</li>
+            <li>Only test when your teacher says the area is ready.</li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <h2>Every Group Must Record</h2>
+          <ul>
+            <li>Group number and beam setup letter.</li>
+            <li>Beam dimensions.</li>
+            <li>Concrete mix used.</li>
+            <li>How much water was added.</li>
+            <li>Reinforcement type and position.</li>
+            <li>Photos of mould, reinforcement, casting, curing, and testing.</li>
+            <li>Maximum load before failure.</li>
+            <li>Where and how the beam cracked.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="setup">
+      <div class="setup-title">
+        <h2>Setup A - Plain Concrete Beam</h2>
+        <span class="tag">Groups 1 and 2</span>
+      </div>
+      <div class="steps">
+        <div class="box">
+          <h3>Goal</h3>
+          <p>Make a plain concrete beam with no reinforcement. This is the control beam used for comparison.</p>
+          <div class="field-grid">
+            <label>Beam ID
+              <input data-save="setup-a-beam-id" type="text">
+            </label>
+            <label>Casting date
+              <input data-save="setup-a-date" type="date">
+            </label>
+            <label class="wide">Groups / student names
+              <textarea data-save="setup-a-students"></textarea>
+            </label>
+            <label>Mix ratio
+              <input data-save="setup-a-mix-ratio" type="text" value="Standard mix - 1 cement : 2 sand : 3 aggregate">
+            </label>
+            <label>Water added
+              <input data-save="setup-a-water" type="text" placeholder="Example: 1/2 cup or 120 mL">
+            </label>
+            <label class="wide">Important details for report writers
+              <textarea data-save="setup-a-details" placeholder="Example: plain beam, no steel, standard mix, any casting problems"></textarea>
+            </label>
+          </div>
+          <h3>Sequence</h3>
+          <ol>
+            <li>Collect one clean mould.</li>
+            <li>Write your group number and Setup A on the beam label.</li>
+            <li>Lightly oil or line the mould if instructed.</li>
+            <li>Mix the standard concrete mix: 1 cement : 2 sand : 3 aggregate.</li>
+            <li>Add water slowly and record how much you used.</li>
+            <li>Fill the mould in layers.</li>
+            <li>Tap or vibrate the mould gently to remove air pockets.</li>
+            <li>Level the top with a trowel or straight edge.</li>
+            <li>Place the label where it can be seen after curing.</li>
+            <li>Move the beam to the curing area.</li>
+          </ol>
+        </div>
+        <div class="box">
+          <h3>Check Before You Finish</h3>
+          <ul>
+            <li>No steel rods.</li>
+            <li>No mesh.</li>
+            <li>Standard concrete mix only: 1 cement : 2 sand : 3 aggregate.</li>
+            <li>Water amount has been recorded.</li>
+            <li>Beam is labelled.</li>
+          </ul>
+          <h3>Prediction</h3>
+          <p>Will this beam be stronger or weaker than reinforced beams? Why?</p>
+          <textarea data-save="setup-a-prediction" aria-label="Setup A prediction"></textarea>
+          <h3>Test result notes</h3>
+          <textarea data-save="setup-a-result" aria-label="Setup A test result notes" placeholder="Maximum load, crack location, failure type"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="setup">
+      <div class="setup-title">
+        <h2>Setup B - Steel Rods Near Bottom</h2>
+        <span class="tag">Groups 3 and 4</span>
+      </div>
+      <div class="steps">
+        <div class="box">
+          <h3>Goal</h3>
+          <p>Test how well steel rods work when placed near the bottom of the beam.</p>
+          <div class="field-grid">
+            <label>Beam ID
+              <input data-save="setup-b-beam-id" type="text">
+            </label>
+            <label>Casting date
+              <input data-save="setup-b-date" type="date">
+            </label>
+            <label class="wide">Groups / student names
+              <textarea data-save="setup-b-students"></textarea>
+            </label>
+            <label>Mix ratio
+              <input data-save="setup-b-mix-ratio" type="text" value="Standard mix - 1 cement : 2 sand : 3 aggregate">
+            </label>
+            <label>Water added
+              <input data-save="setup-b-water" type="text" placeholder="Example: 1/2 cup or 120 mL">
+            </label>
+            <label class="wide">Important details for report writers
+              <textarea data-save="setup-b-details" placeholder="Example: number of rods, rod size, distance from bottom, any movement while casting"></textarea>
+            </label>
+          </div>
+          <h3>Sequence</h3>
+          <ol>
+            <li>Collect one clean mould and the steel rods provided.</li>
+            <li>Write your group number and Setup B on the beam label.</li>
+            <li>Place small spacers in the bottom of the mould if provided.</li>
+            <li>Place the steel rods lengthways near the bottom of the beam.</li>
+            <li>Keep the rods away from the edges so concrete can cover them.</li>
+            <li>Mix the standard concrete mix: 1 cement : 2 sand : 3 aggregate.</li>
+            <li>Add water slowly and record how much you used.</li>
+            <li>Carefully fill the mould without moving the rods.</li>
+            <li>Tap or vibrate the mould gently to remove air pockets.</li>
+            <li>Level, label, and move the beam to the curing area.</li>
+          </ol>
+        </div>
+        <div class="box">
+          <h3>Check Before You Finish</h3>
+          <ul>
+            <li>Steel rods are near the bottom.</li>
+            <li>Rods run along the length of the beam.</li>
+            <li>Rods are covered by concrete.</li>
+            <li>Standard concrete mix only: 1 cement : 2 sand : 3 aggregate.</li>
+            <li>Water amount has been recorded.</li>
+          </ul>
+          <h3>Prediction</h3>
+          <p>Why might steel near the bottom help when the load pushes down from above?</p>
+          <textarea data-save="setup-b-prediction" aria-label="Setup B prediction"></textarea>
+          <h3>Test result notes</h3>
+          <textarea data-save="setup-b-result" aria-label="Setup B test result notes" placeholder="Maximum load, crack location, failure type"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="setup">
+      <div class="setup-title">
+        <h2>Setup C - Steel Rods Near Top</h2>
+        <span class="tag">Groups 5 and 6</span>
+      </div>
+      <div class="steps">
+        <div class="box">
+          <h3>Goal</h3>
+          <p>Test what happens when the steel rods are placed near the top of the beam instead of the bottom.</p>
+          <div class="field-grid">
+            <label>Beam ID
+              <input data-save="setup-c-beam-id" type="text">
+            </label>
+            <label>Casting date
+              <input data-save="setup-c-date" type="date">
+            </label>
+            <label class="wide">Groups / student names
+              <textarea data-save="setup-c-students"></textarea>
+            </label>
+            <label>Mix ratio
+              <input data-save="setup-c-mix-ratio" type="text" value="Standard mix - 1 cement : 2 sand : 3 aggregate">
+            </label>
+            <label>Water added
+              <input data-save="setup-c-water" type="text" placeholder="Example: 1/2 cup or 120 mL">
+            </label>
+            <label class="wide">Important details for report writers
+              <textarea data-save="setup-c-details" placeholder="Example: number of rods, rod size, distance from top, did rods stay high?"></textarea>
+            </label>
+          </div>
+          <h3>Sequence</h3>
+          <ol>
+            <li>Collect one clean mould and the steel rods provided.</li>
+            <li>Write your group number and Setup C on the beam label.</li>
+            <li>Mix the standard concrete mix: 1 cement : 2 sand : 3 aggregate.</li>
+            <li>Add water slowly and record how much you used.</li>
+            <li>Add a shallow layer of concrete to the mould first.</li>
+            <li>Place the steel rods lengthways near the top of the beam.</li>
+            <li>Keep the rods away from the top surface and side edges.</li>
+            <li>Fill the rest of the mould carefully.</li>
+            <li>Make sure the rods stay near the top and do not sink.</li>
+            <li>Tap or vibrate the mould gently to remove air pockets.</li>
+            <li>Level, label, and move the beam to the curing area.</li>
+          </ol>
+        </div>
+        <div class="box">
+          <h3>Check Before You Finish</h3>
+          <ul>
+            <li>Steel rods are near the top.</li>
+            <li>Rods run along the length of the beam.</li>
+            <li>Rods are fully covered by concrete.</li>
+            <li>Standard concrete mix only: 1 cement : 2 sand : 3 aggregate.</li>
+            <li>Water amount has been recorded.</li>
+          </ul>
+          <h3>Prediction</h3>
+          <p>Do you think this will be stronger or weaker than Setup B? Explain your reason.</p>
+          <textarea data-save="setup-c-prediction" aria-label="Setup C prediction"></textarea>
+          <h3>Test result notes</h3>
+          <textarea data-save="setup-c-result" aria-label="Setup C test result notes" placeholder="Maximum load, crack location, failure type"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="setup">
+      <div class="setup-title">
+        <h2>Setup D - Mesh Reinforced Beam</h2>
+        <span class="tag">Groups 7 and 8</span>
+      </div>
+      <div class="steps">
+        <div class="box">
+          <h3>Goal</h3>
+          <p>Test whether mesh reinforcement improves the beam strength compared with plain concrete.</p>
+          <div class="field-grid">
+            <label>Beam ID
+              <input data-save="setup-d-beam-id" type="text">
+            </label>
+            <label>Casting date
+              <input data-save="setup-d-date" type="date">
+            </label>
+            <label class="wide">Groups / student names
+              <textarea data-save="setup-d-students"></textarea>
+            </label>
+            <label>Mix ratio
+              <input data-save="setup-d-mix-ratio" type="text" value="Standard mix - 1 cement : 2 sand : 3 aggregate">
+            </label>
+            <label>Water added
+              <input data-save="setup-d-water" type="text" placeholder="Example: 1/2 cup or 120 mL">
+            </label>
+            <label class="wide">Important details for report writers
+              <textarea data-save="setup-d-details" placeholder="Example: mesh size, mesh position, any movement while casting"></textarea>
+            </label>
+          </div>
+          <h3>Sequence</h3>
+          <ol>
+            <li>Collect one clean mould and one piece of mesh.</li>
+            <li>Write your group number and Setup D on the beam label.</li>
+            <li>Check that the mesh fits inside the mould.</li>
+            <li>Place the mesh inside the beam, slightly below the middle if instructed.</li>
+            <li>Keep the mesh away from the bottom, top, and side edges.</li>
+            <li>Mix the standard concrete mix: 1 cement : 2 sand : 3 aggregate.</li>
+            <li>Add water slowly and record how much you used.</li>
+            <li>Fill the mould carefully so the mesh stays in position.</li>
+            <li>Tap or vibrate the mould gently to remove air pockets.</li>
+            <li>Level, label, and move the beam to the curing area.</li>
+          </ol>
+        </div>
+        <div class="box">
+          <h3>Check Before You Finish</h3>
+          <ul>
+            <li>Mesh is inside the beam, not touching the mould.</li>
+            <li>Mesh is covered by concrete.</li>
+            <li>Standard concrete mix only: 1 cement : 2 sand : 3 aggregate.</li>
+            <li>Water amount has been recorded.</li>
+            <li>Beam is labelled.</li>
+          </ul>
+          <h3>Prediction</h3>
+          <p>How might mesh change the way the beam cracks?</p>
+          <textarea data-save="setup-d-prediction" aria-label="Setup D prediction"></textarea>
+          <h3>Test result notes</h3>
+          <textarea data-save="setup-d-result" aria-label="Setup D test result notes" placeholder="Maximum load, crack location, failure type"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="setup">
+      <div class="setup-title">
+        <h2>Setup E - Changed Concrete Mix</h2>
+        <span class="tag">Groups 9 and 10</span>
+      </div>
+      <div class="steps">
+        <div class="box">
+          <h3>Goal</h3>
+          <p>Test how changing the concrete mix affects beam strength. This beam has no reinforcement.</p>
+          <div class="field-grid">
+            <label>Beam ID
+              <input data-save="setup-e-beam-id" type="text">
+            </label>
+            <label>Casting date
+              <input data-save="setup-e-date" type="date">
+            </label>
+            <label class="wide">Groups / student names
+              <textarea data-save="setup-e-students"></textarea>
+            </label>
+            <label>Mix ratio
+              <input data-save="setup-e-mix-ratio-field" type="text" value="Changed mix - 1 cement : 3 sand : 3 aggregate">
+            </label>
+            <label>Water added
+              <input data-save="setup-e-water" type="text" placeholder="Example: 1/2 cup or 120 mL">
+            </label>
+            <label class="wide">Important details for report writers
+              <textarea data-save="setup-e-details" placeholder="Example: changed ratio, water amount, workability, any casting problems"></textarea>
+            </label>
+          </div>
+          <h3>Sequence</h3>
+          <ol>
+            <li>Collect one clean mould.</li>
+            <li>Write your group number and Setup E on the beam label.</li>
+            <li>Use the changed mix ratio: 1 cement : 3 sand : 3 aggregate.</li>
+            <li>Measure the materials carefully. Do not guess.</li>
+            <li>Mix until the concrete looks even.</li>
+            <li>Add water slowly. The mix should be workable, not runny.</li>
+            <li>Record how much water you used.</li>
+            <li>Fill the mould in layers.</li>
+            <li>Tap or vibrate the mould gently to remove air pockets.</li>
+            <li>Level, label, and move the beam to the curing area.</li>
+          </ol>
+        </div>
+        <div class="box">
+          <h3>Check Before You Finish</h3>
+          <ul>
+            <li>No steel rods.</li>
+            <li>No mesh.</li>
+            <li>Changed mix ratio has been recorded: 1 cement : 3 sand : 3 aggregate.</li>
+            <li>Water amount has been recorded.</li>
+            <li>Beam is labelled.</li>
+          </ul>
+          <h3>Changed Mix Ratio</h3>
+          <p class="small">Use this unless your teacher changes it before the lesson.</p>
+          <textarea data-save="setup-e-mix-ratio" aria-label="Setup E changed mix ratio">1 cement : 3 sand : 3 aggregate</textarea>
+          <h3>Prediction</h3>
+          <p>Will this mix make the beam stronger or weaker? Why?</p>
+          <textarea data-save="setup-e-prediction" aria-label="Setup E prediction"></textarea>
+          <h3>Test result notes</h3>
+          <textarea data-save="setup-e-result" aria-label="Setup E test result notes" placeholder="Maximum load, crack location, failure type"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="overview">
+      <div class="box">
+        <h2>Testing Day Sequence</h2>
+        <ol>
+          <li>Collect your cured beam and check the label.</li>
+          <li>Measure and record the beam dimensions.</li>
+          <li>Set the beam on the supports exactly as shown by your teacher.</li>
+          <li>Load the beam slowly and safely.</li>
+          <li>Record the maximum load before failure.</li>
+          <li>Photograph the crack pattern.</li>
+          <li>Compare your result with the group that made the same setup.</li>
+          <li>Explain whether the repeat test was similar or different.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+  <script>
+    const STORAGE_KEY = "concrete_beam_experiment_instruction_data_v1";
+    const fields = Array.from(document.querySelectorAll("[data-save]"));
+    const saveStatus = document.getElementById("saveStatus");
+
+    function readSavedData() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+      } catch {
+        return {};
+      }
+    }
+
+    function collectData() {
+      const data = {
+        savedAt: new Date().toISOString(),
+        project: "Concrete Beam Experiment Instruction Sheets",
+        fields: {}
+      };
+      fields.forEach((field) => {
+        data.fields[field.dataset.save] = field.value;
+      });
+      return data;
+    }
+
+    function saveData() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(collectData()));
+      saveStatus.textContent = "Saved.";
+      window.clearTimeout(saveData.statusTimer);
+      saveData.statusTimer = window.setTimeout(() => {
+        saveStatus.textContent = "Autosaves in this browser.";
+      }, 1400);
+    }
+
+    function loadData() {
+      const saved = readSavedData();
+      const savedFields = saved.fields || {};
+      fields.forEach((field) => {
+        if (Object.prototype.hasOwnProperty.call(savedFields, field.dataset.save)) {
+          field.value = savedFields[field.dataset.save];
+        }
+      });
+    }
+
+    function downloadData() {
+      const data = collectData();
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "concrete-beam-experiment-data.json";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      saveStatus.textContent = "Downloaded experiment data.";
+    }
+
+    function clearData() {
+      if (!confirm("Clear saved names and setup details from this sheet?")) return;
+      localStorage.removeItem(STORAGE_KEY);
+      fields.forEach((field) => {
+        field.value = "";
+      });
+      saveStatus.textContent = "Sheet cleared.";
+    }
+
+    fields.forEach((field) => {
+      field.addEventListener("input", saveData);
+      field.addEventListener("change", saveData);
+    });
+
+    document.getElementById("printPage").addEventListener("click", () => window.print());
+    document.getElementById("downloadData").addEventListener("click", downloadData);
+    document.getElementById("clearData").addEventListener("click", clearData);
+
+    loadData();
+  </script>
+</body>
+</html>

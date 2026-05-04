@@ -666,6 +666,7 @@
               <h2 id="brief-heading">Design Brief and Success Criteria</h2>
               <p>Design, cast, cure, and destructively test a reinforced concrete beam. Your folio needs to show the engineering decisions you made, the evidence you collected, and how your test results prove how well the beam performed.</p>
               <a class="intro-resource" href="assets/workbooks/concrete-beam-best-practice-answers.pptx" download>Download best practice answer slides</a>
+              <a class="intro-resource" href="concrete_beam_experiment_instruction_sheets.html" target="_blank" rel="noopener">Open interactive beam setup sheets</a>
             </div>
             <div class="criteria-grid" aria-label="Concrete beam criteria">
               <section class="criteria-box">
@@ -811,6 +812,7 @@
     ];
 
     const STORAGE_KEY = "concrete_beam_portfolio_session_v1";
+    const EXPERIMENT_STORAGE_KEY = "concrete_beam_experiment_instruction_data_v1";
     const PHOTO_EVIDENCE = {
       5: {
         title: "Mould and Reinforcement Photos",
@@ -1074,8 +1076,17 @@
         responses,
         done,
         photos: collectPhotos(),
-        video: collectVideo()
+        video: collectVideo(),
+        experimentInstructionSheets: getExperimentInstructionData()
       };
+    }
+
+    function getExperimentInstructionData() {
+      try {
+        return JSON.parse(localStorage.getItem(EXPERIMENT_STORAGE_KEY)) || null;
+      } catch {
+        return null;
+      }
     }
 
     function collectPhotos() {
@@ -1189,6 +1200,9 @@
       });
       loadPhotos(session.photos || {});
       await loadVideo(session.video || null);
+      if (session.experimentInstructionSheets) {
+        localStorage.setItem(EXPERIMENT_STORAGE_KEY, JSON.stringify(session.experimentInstructionSheets));
+      }
 
       saveSession();
     }
@@ -1463,6 +1477,13 @@
           bytes: textBytes(JSON.stringify(session, null, 2))
         }
       ];
+
+      if (session.experimentInstructionSheets) {
+        files.push({
+          name: "concrete-beam-experiment-instruction-data.json",
+          bytes: textBytes(JSON.stringify(session.experimentInstructionSheets, null, 2))
+        });
+      }
 
       Object.entries(session.photos || {}).forEach(([slotId, photo]) => {
         if (!photo.dataUrl) return;
