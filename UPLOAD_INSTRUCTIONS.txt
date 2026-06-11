@@ -1,0 +1,4 @@
+﻿Upload these two files to the root of the GitHub repository to apply the Term 3 folio link consistency fix.
+
+year9_term3.html
+search-index.json
