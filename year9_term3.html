@@ -175,8 +175,27 @@
     .step-details li + li { margin-top: 0.25rem; }
     .quick-check { margin: 0; color: #223044; font-weight: 600; font-size: 0.97rem; }
     .instruction-note { color: var(--muted); margin: 0.25rem 0 0; }
-    .instruction-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .instruction-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; align-items: center; }
     .instruction-links a { text-decoration: underline; color: var(--brand); font-weight: 600; }
+    .instruction-links .physion-app-button {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 12px;
+      box-shadow: 0 10px 22px rgba(0, 86, 179, 0.12);
+      overflow: hidden;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .instruction-links .physion-app-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(0, 86, 179, 0.18);
+    }
+    .instruction-links .physion-app-button img {
+      display: block;
+      width: 252px;
+      max-width: 100%;
+      height: auto;
+    }
     .start-here-card {
       text-decoration: none !important;
       color: var(--text) !important;
@@ -719,7 +738,9 @@
           </a>
           <div class="instruction-links">
             <a href="assets/hydraulic-digger-working-drawing-v1.pdf" target="_blank" rel="noopener">Download schematic (PDF)</a>
-            <a href="https://app.physion.net/" target="_blank" rel="noopener">Physion App</a>
+            <a class="physion-app-button" href="https://app.physion.net/" target="_blank" rel="noopener" aria-label="Open the Physion App">
+              <img src="Physion.png" alt="Physion App" loading="lazy">
+            </a>
           </div>
           <div class="instruction-gallery" aria-label="Hydraulic digger schematic">
             <figure class="pack-art">
