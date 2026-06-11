@@ -190,6 +190,7 @@
       padding: 0.6rem;
       margin: 0;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      position: relative;
     }
     .instruction-gallery img {
       width: 100%;
@@ -201,6 +202,25 @@
       margin: 0.45rem 0 0;
       color: var(--muted);
       font-size: 0.95rem;
+    }
+    .instruction-gallery figure.pack-art::after,
+    .pack-image-wrap::after {
+      content: "YEAR 9 ENGINEERING";
+      position: absolute;
+      top: 4.4%;
+      right: 3.2%;
+      padding: 0.35rem 0.75rem;
+      border: 2px solid #e9f4ef;
+      border-radius: 6px;
+      background: #064936;
+      color: #fff;
+      font-size: clamp(0.46rem, 0.5vw, 0.78rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      pointer-events: none;
+      box-shadow: 0 0 0 2px #064936;
+      z-index: 2;
     }
     .youtube-card {
       background: var(--card);
@@ -288,6 +308,8 @@
       transform: translateY(-2px);
     }
     .content-image {
+      display: block;
+      position: relative;
       float: right;
       max-width: 45%;
       width: 420px;
@@ -296,6 +318,13 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
       border-radius: 8px;
       margin: 0.5rem 0 1rem 1.5rem;
+      overflow: hidden;
+      background: #fff;
+    }
+    .content-image img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
     @media (max-width: 700px) {
       .content-image {
@@ -503,13 +532,13 @@
           </ul>
           <p class="instruction-note"><strong>Hand in:</strong> a folio/report with design sketches, lever/syringe sizing notes, build photos, test data tables and evaluation.</p>
           <div class="instruction-gallery" aria-label="Hydraulic digger example images">
-            <figure>
-              <img src="images/term234/laser-cut-hydraulic-crane.jpg" alt="Hydraulic digger style example build" loading="lazy">
-              <figcaption>Example build style: focus on clean pivots, stiff arms, and tidy hose routing.</figcaption>
+            <figure class="pack-art">
+              <img src="images/term3-hydraulic-digger/01_design_brief_hero_overview.png" alt="Hydraulic digger project overview with labelled parts and engineering process" loading="lazy">
+              <figcaption>Project overview: labelled boom, dipper, bucket, control syringes and technical targets.</figcaption>
             </figure>
-            <figure>
-              <img src="images/term234/basic-hydraulic-system.jpeg" alt="Basic syringe hydraulic system diagram" loading="lazy">
-              <figcaption>Hydraulics: pressure transfers through fluid (P = F/A). Remove air for control.</figcaption>
+            <figure class="pack-art">
+              <img src="images/term3-hydraulic-digger/02_fluid_power_basics.png" alt="Hydraulic digger fluid power explanation with syringes, tubing and movement arrows" loading="lazy">
+              <figcaption>Hydraulics: pressure transfers through water-filled tubes. Remove air for smooth control.</figcaption>
             </figure>
           </div>
         </div>
@@ -635,13 +664,13 @@
             <a href="assets/hydraulic-digger-working-drawing-v1.pdf" target="_blank" rel="noopener">Download schematic (PDF)</a>
           </div>
           <div class="instruction-gallery" aria-label="Hydraulic digger schematic">
-            <figure>
-              <img src="images/term234/hydraulic-digger-drawing-p1.png" alt="Hydraulic digger schematic drawing (page 1)" loading="lazy">
-              <figcaption>Schematic (page 1): parts layout for cutting and assembly reference.</figcaption>
+            <figure class="pack-art">
+              <img src="images/term3-hydraulic-digger/03_linkage_design.png" alt="Hydraulic digger linkage design poster showing pivots, lever arms and bucket travel" loading="lazy">
+              <figcaption>Linkage design: pivots, lever arms, hydraulic actuators and bucket travel.</figcaption>
             </figure>
-            <figure>
-              <img src="images/term234/hydraulic-digger-drawing-p2.png" alt="Hydraulic digger schematic drawing (page 2)" loading="lazy">
-              <figcaption>Schematic (page 2): assembled views to verify linkages and motion.</figcaption>
+            <figure class="pack-art">
+              <img src="images/term3-hydraulic-digger/04_exploded_build.png" alt="Hydraulic digger exploded build guide showing parts and assembly sequence" loading="lazy">
+              <figcaption>Exploded build: parts, assembly order, syringe mounting and build checks.</figcaption>
             </figure>
           </div>
         </div>
@@ -701,7 +730,7 @@
 
     <section class="panel" aria-labelledby="term3-intro">
       <h3 id="term3-intro">Term 3 Focus: Hydraulic Digger Project</h3>
-      <img src="images/term234/pascal-pressure-principle.jpg" alt="Pascal's principle showing pressure and force" class="content-image" />
+      <span class="content-image pack-image-wrap"><img src="images/term3-hydraulic-digger/02_fluid_power_basics.png" alt="Fluid power basics for the hydraulic digger" /></span>
       <p>Term 3 focuses on fluid power and mechanisms through the <strong>Hydraulic Digger</strong> project. You will learn about Pascal's principle, lever linkages, mechanical advantage, and velocity ratio while building and testing a functional hydraulic control system.</p>
       <p style="margin-top: 1rem;">Key goals for this term:</p>
       <ul style="margin-top: 0.5rem;">
@@ -715,7 +744,7 @@
 
     <section class="panel" aria-labelledby="classroom-term3">
       <h3 id="classroom-term3">Google Classroom Topics (Term 3)</h3>
-      <img src="images/term234/hydraulic-vs-pneumatic.jpg" alt="Hydraulic system versus pneumatic system comparison table" class="content-image" style="float: left; margin: 0.5rem 1.5rem 1rem 0; width: 340px; max-width: 45%;" />
+      <span class="content-image pack-image-wrap" style="float: left; margin: 0.5rem 1.5rem 1rem 0; width: 340px; max-width: 45%;"><img src="images/term3-hydraulic-digger/05_whs_risk_controls.png" alt="Hydraulic digger safety and operation guide" /></span>
       <p style="color: #4b5563; margin-bottom: 1rem;">Use these topics to submit your progressive work and access build guides.</p>
       <ul>
         <li><strong>Fluid Power & Mechanisms:</strong> <a href="#" target="_blank" rel="noopener">Hydraulic Systems & Pascal's Principle</a></li>
@@ -726,7 +755,7 @@
 
     <section class="panel">
       <h3>Overview of Requirements</h3>
-      <img src="images/term234/basic-hydraulic-system.jpeg" alt="Basic hydraulic system diagram" class="content-image" />
+      <span class="content-image pack-image-wrap"><img src="images/term3-hydraulic-digger/01_design_brief_hero_overview.png" alt="Hydraulic digger overview with labelled components and technical overview" /></span>
       <p style="color: #4b5563; margin-bottom: 1rem;">Term 3 focuses on fluid power and mechanisms through the Hydraulic Digger project. Here's what you'll accomplish:</p>
       <ul>
         <li><strong>Fluid Power Theory:</strong> Understand Pascal's principle, hydraulic vs pneumatic systems, and pressure calculations.</li>
@@ -739,6 +768,7 @@
 
     <section class="panel">
       <h3>Assessment & Folio Checklist</h3>
+      <span class="content-image pack-image-wrap"><img src="images/term3-hydraulic-digger/06_testing_and_evaluation.png" alt="Hydraulic digger testing and evaluation guide showing reach, lift, bucket curl, smooth movement and leak checking" /></span>
       <p style="color: #4b5563; margin-bottom: 1rem;">Your Term 3 folio should clearly show your design thinking, build process, test data, and evaluation for the Hydraulic Digger project.</p>
       <ul>
         <li><strong>Safety Documentation:</strong> Completed SWMS and safety evidence for cutting/drilling, syringes/tubing, pinch points, and safe testing procedures.</li>
@@ -748,6 +778,11 @@
         <li><strong>Evidence Capture:</strong> Photos of key build stages, plumbing/de-airing, final assembly, and testing setup; optional short video of operation.</li>
         <li><strong>Evaluation:</strong> What worked, what failed first (leaks, air, friction, flex), and at least one justified improvement you made (or would make).</li>
       </ul>
+      <div class="instruction-links" style="margin-top: 1rem;">
+        <a href="hydraulic_digger_portfolio_guided_viewer.html" target="_blank" rel="noopener">Open guided student folio workbook</a>
+        <a href="assets/workbooks/hydraulic-digger-best-practice-answers.pptx" download>Download best practice answer slides</a>
+        <a href="assets/workbooks/hydraulic-digger-best-practice-answers.pdf" target="_blank" rel="noopener">Open best practice answer PDF</a>
+      </div>
     </section>
 
     <section class="modules">
@@ -782,12 +817,17 @@
           <div class="module-title">Testing Checklist</div>
           <div class="module-sub">Safety, measurements, photos/video prompts</div>
         </a>
+        <a class="module-card tutorial-card" href="hydraulic_digger_portfolio_guided_viewer.html">
+          <div class="thumb-container tutorial-thumb"><span>Folio</span></div>
+          <div class="module-title">Guided Folio Workbook</div>
+          <div class="module-sub">12 evidence sections, photos, video, autosave and ZIP backup</div>
+        </a>
       </div>
     </section>
 
     <section class="panel">
       <h3>Week Plan Snapshot (Guide)</h3>
-      <img src="images/term234/laser-cut-hydraulic-crane.jpg" alt="Example laser-cut hydraulic crane build" class="content-image" />
+      <span class="content-image pack-image-wrap"><img src="images/term3-hydraulic-digger/04_exploded_build.png" alt="Exploded hydraulic digger build and assembly sequence" /></span>
       <ul>
         <li><strong>Weeks 1-2:</strong> Complete Toolkit 1 (Fluid Power & Mechanisms theory) and Toolkit 2 (Hydraulic Digger Design). Understand Pascal's principle, lever systems, and design your digger.</li>
         <li><strong>Weeks 2-4:</strong> Build your hydraulic digger (Toolkit 3). Construct frame, install hydraulic system, plumb syringes, remove air, test basic operation.</li>

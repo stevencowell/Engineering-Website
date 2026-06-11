@@ -1,0 +1,1853 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hydraulic Digger Student Portfolio Workbook</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg-top: #123a5a;
+      --bg-bottom: #24725d;
+      --panel: #e4f0ec;
+      --panel-2: #d3e7e1;
+      --ink: #173044;
+      --muted: #436475;
+      --line: #92b8ad;
+      --accent: #0b6f87;
+      --accent-strong: #07586b;
+      --ok: #17694f;
+      --shadow: 0 10px 24px rgba(15, 47, 40, 0.22);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(1100px 440px at 12% -10%, #68a38f55 0%, transparent 70%),
+        radial-gradient(900px 360px at 95% -15%, #b8b08d44 0%, transparent 70%),
+        linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    }
+
+    .shell {
+      width: min(1220px, 96vw);
+      margin: 24px auto;
+      background: linear-gradient(180deg, #edf6f1, #dcebe4);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .header {
+      padding: 20px 24px 14px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #f0f8f4, #dcece5);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem);
+      color: #153c34;
+      letter-spacing: 0;
+    }
+
+    .sub {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .top-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 16px;
+      padding: 16px 24px 8px;
+      background: var(--panel-2);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      color: #194b40;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(120px, 1fr));
+      gap: 10px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      font-size: 0.9rem;
+      color: #1f5147;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      font: inherit;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 9px 10px;
+      color: #17352f;
+      background: #f9fffc;
+    }
+
+    textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    button {
+      border: 1px solid var(--accent-strong);
+      background: linear-gradient(180deg, #2d8069, #1f6653);
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 9px 12px;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      border-color: #6d9185;
+      background: linear-gradient(180deg, #f9fffc, #e1eee8);
+      color: #1f5147;
+      font-weight: 600;
+    }
+
+    .hint {
+      margin-top: 10px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .status {
+      margin-top: 6px;
+      min-height: 1.2em;
+      color: #23594e;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .workbook {
+      padding: 14px 20px 24px;
+      display: grid;
+      gap: 16px;
+      background: #dcebe4;
+    }
+
+    .intro-panel {
+      padding: 16px 20px 0;
+      background: #dcebe4;
+    }
+
+    .intro-card {
+      background: #f4fbf7;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      display: grid;
+      gap: 14px;
+      box-shadow: 0 8px 20px rgba(23, 60, 51, 0.08);
+    }
+
+    .intro-card h2 {
+      margin: 0;
+      color: #194b40;
+      font-size: clamp(1.2rem, 1rem + 0.8vw, 1.65rem);
+    }
+
+    .intro-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .intro-resource {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      margin-top: 10px;
+      border: 1px solid var(--accent-strong);
+      border-radius: 10px;
+      padding: 9px 12px;
+      background: linear-gradient(180deg, #2d8069, #1f6653);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .intro-resource:focus,
+    .intro-resource:hover {
+      background: linear-gradient(180deg, #349477, #25735f);
+      text-decoration: underline;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .intro-copy {
+      display: grid;
+      gap: 12px;
+    }
+
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .criteria-box {
+      background: #e4f0ea;
+      border: 1px solid #b7d0c5;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .criteria-box h3 {
+      margin: 0 0 6px;
+      color: #1f5147;
+      font-size: 0.98rem;
+    }
+
+    .criteria-box ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .criteria-box li + li {
+      margin-top: 0.2rem;
+    }
+
+    .intro-images {
+      display: grid;
+      gap: 10px;
+    }
+
+    .intro-images figure {
+      margin: 0;
+      background: #163c34;
+      border: 1px solid #4b806f;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .intro-images figure.pack-art,
+    .evidence-card.pack-art,
+    .example-evidence-body {
+      position: relative;
+    }
+
+    .intro-images figure.pack-art::after,
+    .evidence-card.pack-art::after,
+    .example-evidence-body::after {
+      content: "YEAR 9 ENGINEERING";
+      position: absolute;
+      top: 4.4%;
+      right: 3.2%;
+      padding: 0.35rem 0.75rem;
+      border: 2px solid #e9f4ef;
+      border-radius: 6px;
+      background: #064936;
+      color: #fff;
+      font-size: clamp(0.46rem, 0.5vw, 0.78rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      pointer-events: none;
+      box-shadow: 0 0 0 2px #064936;
+    }
+
+    .intro-images img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      background: #163c34;
+    }
+
+    .intro-images figcaption {
+      padding: 8px 10px;
+      color: #d9eee7;
+      font-size: 0.86rem;
+    }
+
+    .aligned-block {
+      background: #e4f0ea;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .aligned-block.has-photo-evidence {
+      grid-template-columns: 1fr;
+    }
+
+    .evidence-card {
+      margin: 0;
+      background: #163c34;
+      border: 1px solid #4b806f;
+      border-radius: 10px;
+      overflow: hidden;
+      min-height: 240px;
+      color: #f2fbf7;
+      display: grid;
+    }
+
+    .evidence-card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      display: block;
+      background: #163c34;
+    }
+
+    .evidence-body {
+      padding: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .evidence-body h2 {
+      margin: 0;
+      font-size: 1.15rem;
+      color: #fff;
+    }
+
+    .evidence-body p,
+    .evidence-body ul {
+      margin: 0;
+      color: #d9eee7;
+      font-size: 0.95rem;
+    }
+
+    .evidence-body ul {
+      padding-left: 1.2rem;
+    }
+
+    .response {
+      background: #f4fbf7;
+      border: 1px solid #9ebcae;
+      border-radius: 10px;
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+      min-height: 100%;
+    }
+
+    .response-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .response h3 {
+      margin: 0;
+      font-size: 1rem;
+      color: #194b40;
+    }
+
+    .done {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #24584d;
+    }
+
+    .mini {
+      margin: 0;
+      font-size: 0.83rem;
+      color: #42675d;
+    }
+
+    .photo-evidence {
+      border-top: 1px solid #c5d8cf;
+      padding-top: 10px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .photo-evidence h4 {
+      margin: 0;
+      color: #194b40;
+      font-size: 0.96rem;
+    }
+
+    .example-evidence {
+      border: 1px solid #b7d0c5;
+      border-radius: 10px;
+      background: #f9fffc;
+      overflow: hidden;
+    }
+
+    .example-evidence summary {
+      cursor: pointer;
+      padding: 9px 10px;
+      color: #1f5147;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .example-evidence[open] summary {
+      border-bottom: 1px solid #c5d8cf;
+    }
+
+    .example-evidence-body {
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+    }
+
+    .example-evidence img,
+    .video-guide-image img {
+      display: block;
+      width: 100%;
+      border: 1px solid #c5d8cf;
+      border-radius: 8px;
+      background: #e4f0ea;
+    }
+
+    .example-note {
+      color: #42675d;
+      font-size: 0.82rem;
+      margin: 0;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .photo-grid.four-slots {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .photo-slot {
+      border: 1px dashed #8eb2a5;
+      border-radius: 10px;
+      background: #f9fffc;
+      padding: 6px;
+      display: grid;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    .photo-slot-title {
+      color: #1f5147;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.15;
+      min-height: 1.8em;
+      display: grid;
+      place-items: center;
+    }
+
+    .photo-preview {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 8px;
+      border: 1px solid #c5d8cf;
+      background: #e4f0ea;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      color: #6d9185;
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+
+    .photo-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-preview img[hidden],
+    .photo-preview span[hidden] {
+      display: none;
+    }
+
+    .photo-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .photo-upload {
+      text-align: center;
+      border: 1px solid #6d9185;
+      border-radius: 8px;
+      padding: 5px;
+      background: #e4f0ea;
+      color: #1f5147;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .photo-remove {
+      border-color: #9c4c4c;
+      background: #fff4f4;
+      color: #7c2525;
+      padding: 5px;
+      font-size: 0.76rem;
+      border-radius: 8px;
+    }
+
+    .video-evidence {
+      border-top: 1px solid #c5d8cf;
+      padding-top: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .video-evidence h4 {
+      margin: 0;
+      color: #194b40;
+      font-size: 0.96rem;
+    }
+
+    .video-upload-panel {
+      border: 1px dashed #8eb2a5;
+      border-radius: 10px;
+      background: #f9fffc;
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .video-preview {
+      width: 100%;
+      max-height: 280px;
+      border-radius: 10px;
+      border: 1px solid #c5d8cf;
+      background: #173c33;
+      display: none;
+    }
+
+    .video-placeholder {
+      min-height: 120px;
+      border-radius: 10px;
+      border: 1px solid #c5d8cf;
+      background: #e4f0ea;
+      color: #42675d;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-weight: 700;
+      padding: 12px;
+    }
+
+    .video-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .video-upload {
+      border: 1px solid #6d9185;
+      border-radius: 8px;
+      padding: 7px 10px;
+      background: #e4f0ea;
+      color: #1f5147;
+      font-size: 0.86rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .video-remove {
+      border-color: #9c4c4c;
+      background: #fff4f4;
+      color: #7c2525;
+      padding: 7px 10px;
+      font-size: 0.86rem;
+      border-radius: 8px;
+    }
+
+    .video-file-name {
+      color: var(--muted);
+      font-size: 0.84rem;
+      min-width: 0;
+    }
+
+    .footer {
+      padding: 14px 20px 20px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      border-top: 1px solid var(--line);
+      background: #d7e7df;
+    }
+
+    @media (max-width: 980px) {
+      .top-grid,
+      .intro-grid,
+      .aligned-block {
+        grid-template-columns: 1fr;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .criteria-grid {
+        grid-template-columns: 1fr;
+      }
+      .photo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="header">
+      <h1>Hydraulic Digger Student Portfolio Workbook</h1>
+      <p class="sub">Build your Term 3 folio one evidence card at a time. Save, upload, and continue in a later lesson.</p>
+    </header>
+
+    <section class="top-grid" aria-label="Workbook controls">
+      <article class="card">
+        <h2>Student Details</h2>
+        <div class="form-grid">
+          <label>
+            Student Name
+            <input id="studentName" type="text" autocomplete="name" placeholder="Enter full name" />
+          </label>
+          <label>
+            Class / Group
+            <input id="studentClass" type="text" placeholder="e.g. 9ENSE1" />
+          </label>
+          <label>
+            Session Date
+            <input id="sessionDate" type="date" />
+          </label>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Progress and Saving</h2>
+        <div class="actions">
+          <button id="downloadJson" type="button">Download Session JSON</button>
+          <button id="downloadZip" type="button">Download ZIP Backup</button>
+          <button id="uploadJsonBtn" class="secondary" type="button">Upload Saved Session</button>
+          <input id="uploadJsonInput" type="file" accept="application/json,.json,application/zip,.zip" hidden />
+          <button id="clearAll" class="secondary" type="button">Clear Workbook</button>
+        </div>
+        <p class="hint">Autosaves in this browser. ZIP backup includes answers and uploaded photos for Google Classroom submission or later restore.</p>
+        <p id="status" class="status" aria-live="polite"></p>
+      </article>
+    </section>
+
+    <section class="intro-panel" aria-labelledby="brief-heading">
+      <article class="intro-card">
+        <div class="intro-grid">
+          <div class="intro-copy">
+            <div>
+              <h2 id="brief-heading">Design Brief and Success Criteria</h2>
+              <p>Design, build, tune, and test a tabletop hydraulic digger. Your folio needs to show the engineering decisions you made, the evidence you collected, and how your test results prove how well the hydraulic and linkage systems performed.</p>
+              <a class="intro-resource" href="Youtube%20clips/term%203%20youtube%20clips.html" target="_blank" rel="noopener">Open curated hydraulic digger videos</a> <a class="intro-resource" href="assets/hydraulic-digger-working-drawing-v1.pdf" target="_blank" rel="noopener">Open working drawing PDF</a> <a class="intro-resource" href="assets/workbooks/hydraulic-digger-best-practice-answers.pptx" download>Download best practice answer slides</a> <a class="intro-resource" href="assets/workbooks/hydraulic-digger-best-practice-answers.pdf" target="_blank" rel="noopener">Open best practice answer PDF</a>
+            </div>
+            <div class="criteria-grid" aria-label="Hydraulic digger criteria">
+              <section class="criteria-box">
+                <h3>Design Brief</h3>
+                <ul>
+                  <li>Create a hydraulic digger with boom, dipper and bucket movement.</li>
+                  <li>Use syringes, tubing and lever linkages to transfer force and movement.</li>
+                  <li>Plan the linkage geometry, syringe sizing, build sequence and test method before cutting parts.</li>
+                </ul>
+              </section>
+              <section class="criteria-box">
+                <h3>Success Criteria</h3>
+                <ul>
+                  <li>Digger has three working circuits and moves smoothly without leaks or binding.</li>
+                  <li>Folio includes sketches, photos, build log, test data, calculations and evaluation.</li>
+                  <li>Evaluation explains reach, lift, movement, losses and specific improvements.</li>
+                </ul>
+              </section>
+              <section class="criteria-box">
+                <h3>Evidence To Collect</h3>
+                <ul>
+                  <li>Sketches, pivot layout and syringe mount photos.</li>
+                  <li>Syringe sizes, piston areas, hose routing and de-airing evidence.</li>
+                  <li>Reach, lift, input/output travel, MA/VR calculations and tuning evidence.</li>
+                </ul>
+              </section>
+              <section class="criteria-box">
+                <h3>Key Vocabulary</h3>
+                <ul>
+                  <li>Pressure, force, area, circuit, piston, fulcrum, load, effort, travel.</li>
+                  <li>Pascal's principle, mechanical advantage, velocity ratio, efficiency, friction, air lock.</li>
+                </ul>
+              </section>
+            </div>
+          </div>
+          <div class="intro-images">
+            <figure class="pack-art">
+              <img src="images/term3-hydraulic-digger/01_design_brief_hero_overview.png" alt="Hydraulic digger project brief and success criteria infographic" loading="lazy" />
+              <figcaption>Use this overview to check that your folio covers the full design-test-evaluate process.</figcaption>
+            </figure>
+            <figure class="pack-art">
+              <img src="images/term3-hydraulic-digger/06_testing_and_evaluation.png" alt="Hydraulic digger testing and evaluation reference" loading="lazy" />
+              <figcaption>Testing evidence should connect reach, lift, motion, leaks, friction and final performance.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="workbook" class="workbook" aria-label="Hydraulic digger portfolio workbook"></section>
+
+    <footer class="footer">
+      Hydraulic Digger Engineering Portfolio. Use this workbook with the Term 3 Hydraulic Digger Project, Toolkits 1-4, the video clips, and the assessment notification.
+    </footer>
+  </main>
+
+  <script>
+    const SECTIONS = [
+      {
+            "id": 1,
+            "title": "Project Brief",
+            "image": "images/term3-hydraulic-digger/01_design_brief_hero_overview.png",
+            "alt": "Project Brief infographic for the hydraulic digger portfolio",
+            "points": [
+                  "3 circuits: boom, dipper, bucket",
+                  "Smooth, leak-free motion",
+                  "Reach, lift and control evidence"
+            ]
+      },
+      {
+            "id": 2,
+            "title": "WHS and Risk Controls",
+            "image": "images/term3-hydraulic-digger/05_whs_risk_controls.png",
+            "alt": "WHS and Risk Controls infographic for the hydraulic digger portfolio",
+            "points": [
+                  "PPE and safe tool use",
+                  "Clamp work before drilling",
+                  "Keep fingers clear of linkages"
+            ]
+      },
+      {
+            "id": 3,
+            "title": "Fluid Power Basics",
+            "image": "images/term3-hydraulic-digger/02_fluid_power_basics.png",
+            "alt": "Fluid Power Basics infographic for the hydraulic digger portfolio",
+            "points": [
+                  "Pressure = Force / Area",
+                  "Air makes movement spongy",
+                  "Leaks reduce control"
+            ]
+      },
+      {
+            "id": 4,
+            "title": "Linkage Design",
+            "image": "images/term3-hydraulic-digger/03_linkage_design.png",
+            "alt": "Linkage Design infographic for the hydraulic digger portfolio",
+            "points": [
+                  "Show fulcrums and loads",
+                  "Predict force and travel",
+                  "Check bucket curl path"
+            ]
+      },
+      {
+            "id": 5,
+            "title": "Syringe Sizing",
+            "image": "images/term3-hydraulic-digger/02_fluid_power_basics.png",
+            "alt": "Syringe Sizing infographic for the hydraulic digger portfolio",
+            "points": [
+                  "Larger output = more force",
+                  "More force = less travel",
+                  "Record sizes and units"
+            ]
+      },
+      {
+            "id": 6,
+            "title": "Build Plan",
+            "image": "images/term3-hydraulic-digger/04_exploded_build.png",
+            "alt": "Build Plan infographic for the hydraulic digger portfolio",
+            "points": [
+                  "Accurate holes and pivots",
+                  "Stiff arms and bracing",
+                  "Tidy hose routing"
+            ]
+      },
+      {
+            "id": 7,
+            "title": "Assembly Evidence",
+            "image": "images/term3-hydraulic-digger/04_exploded_build.png",
+            "alt": "Assembly Evidence infographic for the hydraulic digger portfolio",
+            "points": [
+                  "Base and arm assembly",
+                  "Syringe mounts",
+                  "Problems and improvements"
+            ]
+      },
+      {
+            "id": 8,
+            "title": "Hydraulic Setup",
+            "image": "images/term3-hydraulic-digger/02_fluid_power_basics.png",
+            "alt": "Hydraulic Setup infographic for the hydraulic digger portfolio",
+            "points": [
+                  "No bubbles",
+                  "No kinks or leaks",
+                  "Syringes firmly mounted"
+            ]
+      },
+      {
+            "id": 9,
+            "title": "Test Method",
+            "image": "images/term3-hydraulic-digger/06_testing_and_evaluation.png",
+            "alt": "Test Method infographic for the hydraulic digger portfolio",
+            "points": [
+                  "Same start position",
+                  "Measured reach and lift",
+                  "Clear safety zone"
+            ]
+      },
+      {
+            "id": 10,
+            "title": "Results and Data",
+            "image": "images/term3-hydraulic-digger/06_testing_and_evaluation.png",
+            "alt": "Results and Data infographic for the hydraulic digger portfolio",
+            "points": [
+                  "Reach and lift table",
+                  "Input/output travel",
+                  "MA, VR and efficiency"
+            ]
+      },
+      {
+            "id": 11,
+            "title": "Tuning and Redesign",
+            "image": "images/term3-hydraulic-digger/03_linkage_design.png",
+            "alt": "Tuning and Redesign infographic for the hydraulic digger portfolio",
+            "points": [
+                  "Leaks, air, friction, flex",
+                  "Change one variable",
+                  "Explain the trade-off"
+            ]
+      },
+      {
+            "id": 12,
+            "title": "Final Evaluation",
+            "image": "images/term3-hydraulic-digger/06_testing_and_evaluation.png",
+            "alt": "Final Evaluation infographic for the hydraulic digger portfolio",
+            "points": [
+                  "What worked best",
+                  "What failed first",
+                  "What you would change"
+            ]
+      }
+];
+
+    const STORAGE_KEY = "hydraulic_digger_portfolio_session_v1";
+    const TEST_NOTES_STORAGE_KEY = "hydraulic_digger_test_notes_v1";
+    const PHOTO_EVIDENCE = {
+      "4": {
+            "title": "Linkage Design Photos",
+            "slots": [
+                  {
+                        "id": "labelled-sketch",
+                        "label": "Labelled Sketch"
+                  },
+                  {
+                        "id": "pivot-layout",
+                        "label": "Pivot Layout"
+                  },
+                  {
+                        "id": "syringe-mounts",
+                        "label": "Syringe Mounts"
+                  },
+                  {
+                        "id": "bucket-path",
+                        "label": "Bucket Path"
+                  }
+            ]
+      },
+      "7": {
+            "title": "Assembly Evidence Photos",
+            "slots": [
+                  {
+                        "id": "base-frame",
+                        "label": "Base Frame"
+                  },
+                  {
+                        "id": "boom-dipper",
+                        "label": "Boom / Dipper"
+                  },
+                  {
+                        "id": "bucket-linkage",
+                        "label": "Bucket Linkage"
+                  },
+                  {
+                        "id": "problem-fix",
+                        "label": "Problem + Fix"
+                  }
+            ]
+      },
+      "8": {
+            "title": "Hydraulic Setup Photos",
+            "slots": [
+                  {
+                        "id": "filled-syringe",
+                        "label": "Filled Syringe"
+                  },
+                  {
+                        "id": "hose-routing",
+                        "label": "Hose Routing"
+                  },
+                  {
+                        "id": "de-airing",
+                        "label": "De-airing"
+                  },
+                  {
+                        "id": "leak-check",
+                        "label": "Leak Check"
+                  }
+            ]
+      },
+      "9": {
+            "title": "Test Method Photos",
+            "slots": [
+                  {
+                        "id": "reach-setup",
+                        "label": "Reach Setup"
+                  },
+                  {
+                        "id": "lift-test",
+                        "label": "Lift Test"
+                  },
+                  {
+                        "id": "travel-measure",
+                        "label": "Travel Measure"
+                  },
+                  {
+                        "id": "safety-zone",
+                        "label": "Safety Zone"
+                  }
+            ]
+      },
+      "10": {
+            "title": "Results and Data Photos",
+            "slots": [
+                  {
+                        "id": "data-table",
+                        "label": "Data Table"
+                  },
+                  {
+                        "id": "max-lift",
+                        "label": "Max Lift"
+                  },
+                  {
+                        "id": "reach-result",
+                        "label": "Reach Result"
+                  },
+                  {
+                        "id": "ma-vr-working",
+                        "label": "MA / VR Working"
+                  }
+            ]
+      },
+      "11": {
+            "title": "Tuning and Redesign Photos",
+            "slots": [
+                  {
+                        "id": "failure-point",
+                        "label": "Failure Point"
+                  },
+                  {
+                        "id": "adjustment",
+                        "label": "Adjustment"
+                  },
+                  {
+                        "id": "retest",
+                        "label": "Retest"
+                  },
+                  {
+                        "id": "improvement-sketch",
+                        "label": "Improvement Sketch"
+                  }
+            ]
+      }
+};
+    const EXAMPLE_EVIDENCE = {
+      "4": {
+            "image": "images/term3-hydraulic-digger/photo-examples/01_linkage_design_photo_examples.png",
+            "alt": "Example photos showing labelled sketch, pivot layout, syringe mounts, and bucket path"
+      },
+      "7": {
+            "image": "images/term3-hydraulic-digger/photo-examples/02_assembly_evidence_photo_examples.png",
+            "alt": "Example photos showing base frame, boom and dipper, bucket linkage, and problem solving"
+      },
+      "8": {
+            "image": "images/term3-hydraulic-digger/photo-examples/03_hydraulic_setup_photo_examples.png",
+            "alt": "Example photos showing filled syringe, tubing route, de-airing, and leak check"
+      },
+      "9": {
+            "image": "images/term3-hydraulic-digger/photo-examples/04_test_method_photo_examples.png",
+            "alt": "Example photos showing reach setup, lift test, travel measurement, and safety zone"
+      },
+      "10": {
+            "image": "images/term3-hydraulic-digger/photo-examples/05_results_and_data_photo_examples.png",
+            "alt": "Example photos showing data table, maximum lift, reach result, and MA/VR working"
+      },
+      "11": {
+            "image": "images/term3-hydraulic-digger/photo-examples/06_tuning_and_redesign_photo_examples.png",
+            "alt": "Example photos showing failure point, adjustment, retest, and improvement sketch"
+      }
+};
+    const VIDEO_SLOT = {
+      "key": "section-12-operation-video",
+      "title": "Operation Video Evidence",
+      "label": "Hydraulic digger operation video",
+      "guideImage": "images/term3-hydraulic-digger/photo-examples/07_operation_video_example.png",
+      "guideAlt": "Example storyboard showing full model in view, boom movement, dipper movement, and bucket movement for the operation video"
+};
+
+    const workbook = document.getElementById("workbook");
+    const studentName = document.getElementById("studentName");
+    const studentClass = document.getElementById("studentClass");
+    const sessionDate = document.getElementById("sessionDate");
+    const statusEl = document.getElementById("status");
+
+    function sentenceStarters(sectionId) {
+      const startersBySection = {
+        1: ["The design challenge was to ... .", "A successful hydraulic digger needed to ... .", "The main limits we had to follow were ... ."],
+        2: ["The main hazards were ... .", "We controlled these risks by ... .", "The most important pinch-point control was ... because ... ."],
+        3: ["Pascal's principle means ... .", "Pressure transfers through the water because ... .", "Air in the system caused ... ."],
+        4: ["Our linkage sketch shows ... .", "The fulcrum/load/effort points are ... .", "We placed the syringe mount here because ... ."],
+        5: ["We chose ... mL syringes because ... .", "The piston area affects force by ... .", "The force-travel trade-off was ... ."],
+        6: ["Our build sequence was ... .", "We checked accuracy by ... .", "One important quality control step was ... ."],
+        7: ["During assembly, we ... .", "One problem was ... and we fixed it by ... .", "The photos show evidence of ... ."],
+        8: ["We filled the circuit by ... .", "We removed air by ... .", "The system was smooth/leaky/spongy because ... ."],
+        9: ["To test the digger, we ... .", "The test was fair because ... .", "We measured reach/lift/travel by ... ."],
+        10: ["The maximum lift was ... .", "The reach was ... .", "The MA/VR results show that ... ."],
+        11: ["The first limit or failure was ... .", "This happened because ... .", "We improved or would improve it by ... ."],
+        12: ["Overall, our digger ... .", "The strongest evidence for this judgement is ... .", "This project taught me that ... ."]
+      };
+
+      return startersBySection[sectionId] || [
+        "This evidence shows ... .",
+        "The most important engineering idea is ... because ... .",
+        "One measurement or observation that supports this is ... ."
+      ];
+    }
+
+    function cardGuidance(sectionId) {
+      const guidanceBySection = {
+        1: "Introduce the task and define the criteria your hydraulic digger will be judged against.",
+        2: "Explain the hazards, PPE, safe tool use, water control, pinch points, and safe testing procedures.",
+        3: "Explain Pascal's principle, pressure, force, area, and why trapped liquid matters.",
+        4: "Document your arm geometry with pivots, syringe mounts, movement path, and expected trade-offs.",
+        5: "Record syringe choices, piston area calculations, predicted force, and travel trade-offs.",
+        6: "Show the planned construction sequence for the base, arms, bucket, pivots, and circuits.",
+        7: "Use build-log evidence to explain assembly decisions, problems, fixes, and quality checks.",
+        8: "Document filling, plumbing, de-airing, leak checks, hose routing, and syringe mounting.",
+        9: "Describe the test setup clearly enough that another group could repeat it safely and fairly.",
+        10: "Report measured results and interpret what they show about reach, lift, movement, MA, VR, and efficiency.",
+        11: "Analyse what limited performance and propose a specific tuning or redesign improvement.",
+        12: "Write a final judgement that links evidence, engineering theory, WHS, and practical improvements."
+      };
+
+      return guidanceBySection[sectionId] || "Explain the evidence and connect it to a clear engineering claim.";
+    }
+
+    function renderWorkbook() {
+      const html = SECTIONS.map((section) => `
+        <section class="aligned-block ${PHOTO_EVIDENCE[section.id] ? "has-photo-evidence" : ""}" data-section="${section.id}">
+          <figure class="evidence-card pack-art" aria-label="${section.title}">
+            <img src="${section.image}" alt="${section.alt}" loading="lazy" />
+            <figcaption class="evidence-body">
+              <h2>${section.title}</h2>
+              <p>Evidence to include:</p>
+              <ul>${section.points.map((point) => `<li>${point}</li>`).join("")}</ul>
+            </figcaption>
+          </figure>
+          <article class="response">
+            <div class="response-head">
+              <h3>Section ${section.id} Response</h3>
+              <label class="done">
+                <input type="checkbox" id="done-${section.id}" /> Done
+              </label>
+            </div>
+            <p class="mini">${cardGuidance(section.id)}</p>
+            <p class="mini"><strong>Sentence starters:</strong> ${sentenceStarters(section.id).join(" ")}</p>
+            <textarea id="response-${section.id}" placeholder="Your response for Section ${section.id}"></textarea>
+            ${PHOTO_EVIDENCE[section.id] ? renderPhotoEvidence(section.id) : ""}
+            ${section.id === 12 ? renderVideoEvidence() : ""}
+          </article>
+        </section>
+      `).join("");
+      workbook.innerHTML = html;
+    }
+
+    function getPhotoSlotKey(sectionId, slotId) {
+      return `section-${sectionId}-${slotId}`;
+    }
+
+    function getAllPhotoSlots() {
+      return Object.entries(PHOTO_EVIDENCE).flatMap(([sectionId, group]) =>
+        group.slots.map((slot) => ({
+          ...slot,
+          sectionId,
+          key: getPhotoSlotKey(sectionId, slot.id)
+        }))
+      );
+    }
+
+    function renderPhotoEvidence(sectionId) {
+      const group = PHOTO_EVIDENCE[sectionId];
+      const gridClass = group.slots.length === 4 ? "four-slots" : "";
+      const example = EXAMPLE_EVIDENCE[sectionId];
+      return `
+        <div class="photo-evidence" aria-label="${group.title} upload">
+          <h4>${group.title}</h4>
+          <p class="mini">Click a camera tile to upload each photo. These photos are included in the ZIP backup.</p>
+          ${example ? renderExampleEvidence(sectionId, example) : ""}
+          <div class="photo-grid ${gridClass}">
+            ${group.slots.map((slot) => {
+              const key = getPhotoSlotKey(sectionId, slot.id);
+              return `
+              <div class="photo-slot" data-photo-slot="${key}">
+                <div class="photo-slot-title">${slot.label}</div>
+                <label class="photo-preview" for="photo-${key}" title="Upload ${slot.label} photo">
+                  <span id="photo-placeholder-${key}" aria-hidden="true">&#128247;</span>
+                  <img id="photo-preview-${key}" alt="${slot.label} upload preview" hidden />
+                </label>
+                <div class="photo-actions">
+                  <label class="photo-upload" for="photo-${key}">Choose Photo</label>
+                  <button class="photo-remove" type="button" data-remove-photo="${key}" title="Remove ${slot.label} photo">Clear</button>
+                </div>
+                <input id="photo-${key}" type="file" accept="image/*" data-photo-input="${key}" hidden />
+              </div>
+              `;
+            }).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderExampleEvidence(sectionId, example) {
+      return `
+        <details class="example-evidence">
+          <summary>View example evidence photos</summary>
+          <div class="example-evidence-body">
+            <p class="example-note">These images show the type of evidence you could collect. Your folio must use your own group photos.</p>
+            <img src="${example.image}" alt="${example.alt}" loading="lazy" />
+          </div>
+        </details>
+      `;
+    }
+
+    function renderVideoEvidence() {
+      return `
+        <div class="video-evidence" aria-label="Test video upload">
+          <h4>${VIDEO_SLOT.title}</h4>
+          <p class="mini">Upload one short video of your hydraulic digger operating through boom, dipper and bucket movement. It will be included in the ZIP backup, not the smaller JSON-only download.</p>
+          <div class="example-evidence-body video-guide-image">
+            <p class="example-note">Use this guide to frame the model and show each required movement clearly.</p>
+            <img src="${VIDEO_SLOT.guideImage}" alt="${VIDEO_SLOT.guideAlt}" loading="lazy" />
+          </div>
+          <div class="video-upload-panel">
+            <div id="video-placeholder" class="video-placeholder">No test video uploaded yet</div>
+            <video id="video-preview" class="video-preview" controls preload="metadata"></video>
+            <div class="video-actions">
+              <label class="video-upload" for="test-video-input">Choose Test Video</label>
+              <button id="video-remove" class="video-remove" type="button">Clear Video</button>
+              <span id="video-file-name" class="video-file-name"></span>
+            </div>
+            <input id="test-video-input" type="file" accept="video/*" hidden />
+          </div>
+        </div>
+      `;
+    }
+
+    function getSession() {
+      const responses = {};
+      const done = {};
+      SECTIONS.forEach((section) => {
+        responses[section.id] = document.getElementById(`response-${section.id}`).value;
+        done[section.id] = document.getElementById(`done-${section.id}`).checked;
+      });
+
+      return {
+        version: 1,
+        project: "Hydraulic Digger Portfolio Workbook",
+        savedAt: new Date().toISOString(),
+        student: {
+          name: studentName.value,
+          classGroup: studentClass.value,
+          sessionDate: sessionDate.value
+        },
+        responses,
+        done,
+        photos: collectPhotos(),
+        video: collectVideo(),
+        testNotes: getTestNotesData()
+      };
+    }
+
+    function getTestNotesData() {
+      return null;
+    }
+
+    function collectPhotos() {
+      const photos = {};
+      getAllPhotoSlots().forEach((slot) => {
+        const preview = document.getElementById(`photo-preview-${slot.key}`);
+        if (preview && preview.dataset.dataUrl) {
+          photos[slot.key] = {
+            sectionId: Number(slot.sectionId),
+            label: slot.label,
+            name: preview.dataset.name || `${slot.key}.jpg`,
+            type: preview.dataset.type || "image/jpeg",
+            dataUrl: preview.dataset.dataUrl
+          };
+        }
+      });
+      return photos;
+    }
+
+    function collectVideo() {
+      const preview = document.getElementById("video-preview");
+      if (!preview || preview.dataset.hasVideo !== "true") return null;
+      return {
+        key: VIDEO_SLOT.key,
+        label: VIDEO_SLOT.label,
+        name: preview.dataset.name || "hydraulic-digger-test-video",
+        type: preview.dataset.type || "video/mp4",
+        size: Number(preview.dataset.size || 0),
+        stored: true
+      };
+    }
+
+    function openVideoDb() {
+      return new Promise((resolve, reject) => {
+        const request = indexedDB.open("hydraulicDiggerPortfolioMedia", 1);
+        request.onerror = () => reject(request.error);
+        request.onupgradeneeded = () => {
+          request.result.createObjectStore("videos");
+        };
+        request.onsuccess = () => resolve(request.result);
+      });
+    }
+
+    async function saveVideoBlob(key, record) {
+      const db = await openVideoDb();
+      return new Promise((resolve, reject) => {
+        const transaction = db.transaction("videos", "readwrite");
+        transaction.objectStore("videos").put(record, key);
+        transaction.oncomplete = () => {
+          db.close();
+          resolve();
+        };
+        transaction.onerror = () => {
+          db.close();
+          reject(transaction.error);
+        };
+      });
+    }
+
+    async function getVideoBlob(key) {
+      const db = await openVideoDb();
+      return new Promise((resolve, reject) => {
+        const transaction = db.transaction("videos", "readonly");
+        const request = transaction.objectStore("videos").get(key);
+        request.onsuccess = () => {
+          db.close();
+          resolve(request.result || null);
+        };
+        request.onerror = () => {
+          db.close();
+          reject(request.error);
+        };
+      });
+    }
+
+    async function deleteVideoBlob(key) {
+      const db = await openVideoDb();
+      return new Promise((resolve, reject) => {
+        const transaction = db.transaction("videos", "readwrite");
+        transaction.objectStore("videos").delete(key);
+        transaction.oncomplete = () => {
+          db.close();
+          resolve();
+        };
+        transaction.onerror = () => {
+          db.close();
+          reject(transaction.error);
+        };
+      });
+    }
+
+    function setStatus(message) {
+      statusEl.textContent = message;
+    }
+
+    function saveSession() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(getSession()));
+      setStatus("Saved in this browser.");
+    }
+
+    async function loadSession(session) {
+      if (!session || !session.student || !session.responses) return;
+
+      studentName.value = session.student.name || "";
+      studentClass.value = session.student.classGroup || "";
+      sessionDate.value = session.student.sessionDate || "";
+
+      SECTIONS.forEach((section) => {
+        document.getElementById(`response-${section.id}`).value = session.responses[section.id] || "";
+        document.getElementById(`done-${section.id}`).checked = Boolean(session.done && session.done[section.id]);
+      });
+      loadPhotos(session.photos || {});
+      await loadVideo(session.video || null);
+      if (session.testNotes) {
+        localStorage.setItem(TEST_NOTES_STORAGE_KEY, JSON.stringify(session.testNotes));
+      }
+
+      saveSession();
+    }
+
+    function loadPhotos(photos) {
+      getAllPhotoSlots().forEach((slot) => {
+        setPhotoPreview(slot.key, photos[slot.key] || null);
+      });
+    }
+
+    function setPhotoPreview(slotId, photo) {
+      const preview = document.getElementById(`photo-preview-${slotId}`);
+      const placeholder = document.getElementById(`photo-placeholder-${slotId}`);
+      if (!preview || !placeholder) return;
+
+      if (photo && photo.dataUrl) {
+        preview.src = photo.dataUrl;
+        preview.dataset.dataUrl = photo.dataUrl;
+        preview.dataset.name = photo.name || `${slotId}.jpg`;
+        preview.dataset.type = photo.type || "image/jpeg";
+        preview.hidden = false;
+        placeholder.hidden = true;
+      } else {
+        preview.removeAttribute("src");
+        delete preview.dataset.dataUrl;
+        delete preview.dataset.name;
+        delete preview.dataset.type;
+        preview.hidden = true;
+        placeholder.hidden = false;
+      }
+    }
+
+    async function loadVideo(videoMeta) {
+      if (!videoMeta || !videoMeta.stored) {
+        setVideoPreview(null);
+        return;
+      }
+
+      try {
+        const record = await getVideoBlob(VIDEO_SLOT.key);
+        if (record && record.blob) {
+          setVideoPreview(record);
+        } else {
+          setVideoPreview({
+            name: videoMeta.name,
+            type: videoMeta.type,
+            size: videoMeta.size,
+            missing: true
+          });
+        }
+      } catch (error) {
+        setVideoPreview(null);
+      }
+    }
+
+    function setVideoPreview(record) {
+      const preview = document.getElementById("video-preview");
+      const placeholder = document.getElementById("video-placeholder");
+      const fileName = document.getElementById("video-file-name");
+      if (!preview || !placeholder || !fileName) return;
+
+      if (preview.dataset.objectUrl) {
+        URL.revokeObjectURL(preview.dataset.objectUrl);
+        delete preview.dataset.objectUrl;
+      }
+
+      if (record && record.blob) {
+        const url = URL.createObjectURL(record.blob);
+        preview.src = url;
+        preview.dataset.objectUrl = url;
+        preview.dataset.hasVideo = "true";
+        preview.dataset.name = record.name || "hydraulic-digger-test-video";
+        preview.dataset.type = record.type || record.blob.type || "video/mp4";
+        preview.dataset.size = String(record.size || record.blob.size || 0);
+        preview.style.display = "block";
+        placeholder.style.display = "none";
+        fileName.textContent = `${preview.dataset.name} (${Math.round(Number(preview.dataset.size) / 1024 / 1024 * 10) / 10} MB)`;
+      } else if (record && record.missing) {
+        preview.removeAttribute("src");
+        delete preview.dataset.hasVideo;
+        preview.style.display = "none";
+        placeholder.style.display = "grid";
+        placeholder.textContent = "Video metadata found, but the video file is missing. Upload the ZIP backup to restore it.";
+        fileName.textContent = record.name || "";
+      } else {
+        preview.removeAttribute("src");
+        delete preview.dataset.hasVideo;
+        delete preview.dataset.name;
+        delete preview.dataset.type;
+        delete preview.dataset.size;
+        preview.style.display = "none";
+        placeholder.style.display = "grid";
+        placeholder.textContent = "No test video uploaded yet";
+        fileName.textContent = "";
+      }
+    }
+
+    function resizeImageFile(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onerror = reject;
+        reader.onload = () => {
+          const image = new Image();
+          image.onerror = reject;
+          image.onload = () => {
+            const maxSide = 1400;
+            const scale = Math.min(1, maxSide / Math.max(image.width, image.height));
+            const canvas = document.createElement("canvas");
+            canvas.width = Math.round(image.width * scale);
+            canvas.height = Math.round(image.height * scale);
+            const context = canvas.getContext("2d");
+            context.drawImage(image, 0, 0, canvas.width, canvas.height);
+            resolve({
+              name: file.name.replace(/\.[^.]+$/, ".jpg"),
+              type: "image/jpeg",
+              dataUrl: canvas.toDataURL("image/jpeg", 0.82)
+            });
+          };
+          image.src = reader.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function downloadSession() {
+      const session = getSession();
+      const safeName = (session.student.name || "hydraulic-digger-portfolio")
+        .trim()
+        .replace(/[^a-z0-9]+/gi, "-")
+        .replace(/^-+|-+$/g, "")
+        .toLowerCase();
+      const blob = new Blob([JSON.stringify(session, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${safeName || "hydraulic-digger-portfolio"}-session.json`;
+      link.click();
+      URL.revokeObjectURL(url);
+      setStatus("Session JSON downloaded.");
+    }
+
+    function safeBaseName() {
+      return (studentName.value || "hydraulic-digger-portfolio")
+        .trim()
+        .replace(/[^a-z0-9]+/gi, "-")
+        .replace(/^-+|-+$/g, "")
+        .toLowerCase() || "hydraulic-digger-portfolio";
+    }
+
+    function textBytes(text) {
+      return new TextEncoder().encode(text);
+    }
+
+    function dataUrlBytes(dataUrl) {
+      const base64 = dataUrl.split(",")[1] || "";
+      const binary = atob(base64);
+      const bytes = new Uint8Array(binary.length);
+      for (let index = 0; index < binary.length; index += 1) {
+        bytes[index] = binary.charCodeAt(index);
+      }
+      return bytes;
+    }
+
+    function concatBytes(parts) {
+      const total = parts.reduce((sum, part) => sum + part.length, 0);
+      const output = new Uint8Array(total);
+      let offset = 0;
+      parts.forEach((part) => {
+        output.set(part, offset);
+        offset += part.length;
+      });
+      return output;
+    }
+
+    function crc32(bytes) {
+      let crc = -1;
+      for (let index = 0; index < bytes.length; index += 1) {
+        crc ^= bytes[index];
+        for (let bit = 0; bit < 8; bit += 1) {
+          crc = (crc >>> 1) ^ (0xedb88320 & -(crc & 1));
+        }
+      }
+      return (crc ^ -1) >>> 0;
+    }
+
+    function writeUInt16(output, offset, value) {
+      output[offset] = value & 0xff;
+      output[offset + 1] = (value >>> 8) & 0xff;
+    }
+
+    function writeUInt32(output, offset, value) {
+      output[offset] = value & 0xff;
+      output[offset + 1] = (value >>> 8) & 0xff;
+      output[offset + 2] = (value >>> 16) & 0xff;
+      output[offset + 3] = (value >>> 24) & 0xff;
+    }
+
+    function dosDateTime(date = new Date()) {
+      const time = (date.getHours() << 11) | (date.getMinutes() << 5) | Math.floor(date.getSeconds() / 2);
+      const dosDate = ((date.getFullYear() - 1980) << 9) | ((date.getMonth() + 1) << 5) | date.getDate();
+      return { time, date: dosDate };
+    }
+
+    function createZip(files) {
+      const localParts = [];
+      const centralParts = [];
+      let offset = 0;
+      const stamp = dosDateTime();
+
+      files.forEach((file) => {
+        const nameBytes = textBytes(file.name);
+        const data = file.bytes;
+        const checksum = crc32(data);
+
+        const local = new Uint8Array(30 + nameBytes.length);
+        writeUInt32(local, 0, 0x04034b50);
+        writeUInt16(local, 4, 20);
+        writeUInt16(local, 6, 0);
+        writeUInt16(local, 8, 0);
+        writeUInt16(local, 10, stamp.time);
+        writeUInt16(local, 12, stamp.date);
+        writeUInt32(local, 14, checksum);
+        writeUInt32(local, 18, data.length);
+        writeUInt32(local, 22, data.length);
+        writeUInt16(local, 26, nameBytes.length);
+        writeUInt16(local, 28, 0);
+        local.set(nameBytes, 30);
+        localParts.push(local, data);
+
+        const central = new Uint8Array(46 + nameBytes.length);
+        writeUInt32(central, 0, 0x02014b50);
+        writeUInt16(central, 4, 20);
+        writeUInt16(central, 6, 20);
+        writeUInt16(central, 8, 0);
+        writeUInt16(central, 10, 0);
+        writeUInt16(central, 12, stamp.time);
+        writeUInt16(central, 14, stamp.date);
+        writeUInt32(central, 16, checksum);
+        writeUInt32(central, 20, data.length);
+        writeUInt32(central, 24, data.length);
+        writeUInt16(central, 28, nameBytes.length);
+        writeUInt16(central, 30, 0);
+        writeUInt16(central, 32, 0);
+        writeUInt16(central, 34, 0);
+        writeUInt16(central, 36, 0);
+        writeUInt32(central, 38, 0);
+        writeUInt32(central, 42, offset);
+        central.set(nameBytes, 46);
+        centralParts.push(central);
+
+        offset += local.length + data.length;
+      });
+
+      const centralStart = offset;
+      const centralDirectory = concatBytes(centralParts);
+      const end = new Uint8Array(22);
+      writeUInt32(end, 0, 0x06054b50);
+      writeUInt16(end, 8, files.length);
+      writeUInt16(end, 10, files.length);
+      writeUInt32(end, 12, centralDirectory.length);
+      writeUInt32(end, 16, centralStart);
+      writeUInt16(end, 20, 0);
+
+      return concatBytes([...localParts, centralDirectory, end]);
+    }
+
+    async function downloadZipBackup() {
+      const session = getSession();
+      const files = [
+        {
+          name: "hydraulic-digger-portfolio-session.json",
+          bytes: textBytes(JSON.stringify(session, null, 2))
+        }
+      ];
+
+      if (session.testNotes) {
+        files.push({
+          name: "hydraulic-digger-test-data.json",
+          bytes: textBytes(JSON.stringify(session.testNotes, null, 2))
+        });
+      }
+
+      Object.entries(session.photos || {}).forEach(([slotId, photo]) => {
+        if (!photo.dataUrl) return;
+        const sectionFolder = photo.sectionId ? `section-${photo.sectionId}` : "general";
+        files.push({
+          name: `photos/${sectionFolder}/${slotId}-${photo.name || "photo.jpg"}`.replace(/[^a-zA-Z0-9._/-]+/g, "-"),
+          bytes: dataUrlBytes(photo.dataUrl)
+        });
+      });
+
+      if (session.video && session.video.stored) {
+        const videoRecord = await getVideoBlob(VIDEO_SLOT.key);
+        if (videoRecord && videoRecord.blob) {
+          files.push({
+            name: `videos/${session.video.name || "hydraulic-digger-test-video"}`.replace(/[^a-zA-Z0-9._/-]+/g, "-"),
+            bytes: new Uint8Array(await videoRecord.blob.arrayBuffer())
+          });
+        }
+      }
+
+      const zipBytes = createZip(files);
+      const blob = new Blob([zipBytes], { type: "application/zip" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${safeBaseName()}-portfolio-backup.zip`;
+      link.click();
+      URL.revokeObjectURL(url);
+      setStatus("ZIP backup downloaded with answers and photos.");
+    }
+
+    function uploadSession(file) {
+      if (file.name.toLowerCase().endsWith(".zip")) {
+        uploadZipSession(file);
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = async () => {
+        try {
+          const session = JSON.parse(reader.result);
+          await loadSession(session);
+          setStatus("Uploaded session loaded.");
+        } catch (error) {
+          setStatus("Could not read that JSON file.");
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function readUInt16(bytes, offset) {
+      return bytes[offset] | (bytes[offset + 1] << 8);
+    }
+
+    function readUInt32(bytes, offset) {
+      return (bytes[offset] | (bytes[offset + 1] << 8) | (bytes[offset + 2] << 16) | (bytes[offset + 3] << 24)) >>> 0;
+    }
+
+    function uploadZipSession(file) {
+      const reader = new FileReader();
+      reader.onload = async () => {
+        try {
+          const bytes = new Uint8Array(reader.result);
+          let offset = 0;
+          let sessionText = "";
+          const entries = {};
+
+          while (offset < bytes.length && readUInt32(bytes, offset) === 0x04034b50) {
+            const method = readUInt16(bytes, offset + 8);
+            const compressedSize = readUInt32(bytes, offset + 18);
+            const fileNameLength = readUInt16(bytes, offset + 26);
+            const extraLength = readUInt16(bytes, offset + 28);
+            const nameStart = offset + 30;
+            const dataStart = nameStart + fileNameLength + extraLength;
+            const name = new TextDecoder().decode(bytes.slice(nameStart, nameStart + fileNameLength));
+            const data = bytes.slice(dataStart, dataStart + compressedSize);
+
+            if (method !== 0) throw new Error("Unsupported compressed ZIP entry.");
+            entries[name] = data;
+            if (name === "hydraulic-digger-portfolio-session.json") {
+              sessionText = new TextDecoder().decode(data);
+            }
+
+            offset = dataStart + compressedSize;
+          }
+
+          if (!sessionText) throw new Error("Session JSON not found.");
+          const session = JSON.parse(sessionText);
+          const videoEntry = Object.entries(entries).find(([name]) => name.startsWith("videos/"));
+          if (session.video && videoEntry) {
+            const [name, data] = videoEntry;
+            const type = session.video.type || "video/mp4";
+            const blob = new Blob([data], { type });
+            await saveVideoBlob(VIDEO_SLOT.key, {
+              name: name.split("/").pop() || session.video.name || "hydraulic-digger-test-video",
+              type,
+              size: blob.size,
+              blob
+            });
+          }
+          await loadSession(session);
+          setStatus("ZIP backup loaded.");
+        } catch (error) {
+          setStatus("Could not read that ZIP backup. Use a ZIP downloaded from this workbook.");
+        }
+      };
+      reader.readAsArrayBuffer(file);
+    }
+
+    function clearWorkbook() {
+      if (!confirm("Clear all workbook responses in this browser?")) return;
+      localStorage.removeItem(STORAGE_KEY);
+      studentName.value = "";
+      studentClass.value = "";
+      sessionDate.value = "";
+      SECTIONS.forEach((section) => {
+        document.getElementById(`response-${section.id}`).value = "";
+        document.getElementById(`done-${section.id}`).checked = false;
+      });
+      loadPhotos({});
+      setVideoPreview(null);
+      deleteVideoBlob(VIDEO_SLOT.key).catch(() => {});
+      setStatus("Workbook cleared.");
+    }
+
+    function init() {
+      renderWorkbook();
+
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          loadSession(JSON.parse(saved)).catch(() => localStorage.removeItem(STORAGE_KEY));
+        } catch (error) {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      } else {
+        setStatus("Ready. Autosave is on.");
+      }
+
+      document.addEventListener("input", saveSession);
+      document.addEventListener("change", (event) => {
+        if (event.target.matches("[data-photo-input]") || event.target.id === "test-video-input") return;
+        saveSession();
+      });
+      document.getElementById("downloadJson").addEventListener("click", downloadSession);
+      document.getElementById("downloadZip").addEventListener("click", async () => {
+        try {
+          await downloadZipBackup();
+        } catch (error) {
+          setStatus("Could not create ZIP backup.");
+        }
+      });
+      document.getElementById("uploadJsonBtn").addEventListener("click", () => document.getElementById("uploadJsonInput").click());
+      document.getElementById("uploadJsonInput").addEventListener("change", (event) => {
+        const [file] = event.target.files;
+        if (file) uploadSession(file);
+        event.target.value = "";
+      });
+      document.querySelectorAll("[data-photo-input]").forEach((input) => {
+        input.addEventListener("change", async (event) => {
+          const [file] = event.target.files;
+          if (!file) return;
+          try {
+            const photo = await resizeImageFile(file);
+            setPhotoPreview(event.target.dataset.photoInput, photo);
+            saveSession();
+            setStatus("Photo added and saved.");
+          } catch (error) {
+            setStatus("Could not load that image.");
+          } finally {
+            event.target.value = "";
+          }
+        });
+      });
+      document.querySelectorAll("[data-remove-photo]").forEach((button) => {
+        button.addEventListener("click", () => {
+          setPhotoPreview(button.dataset.removePhoto, null);
+          saveSession();
+          setStatus("Photo removed.");
+        });
+      });
+      const videoInput = document.getElementById("test-video-input");
+      if (videoInput) {
+        videoInput.addEventListener("change", async (event) => {
+          const [file] = event.target.files;
+          if (!file) return;
+          try {
+            const record = {
+              name: file.name,
+              type: file.type || "video/mp4",
+              size: file.size,
+              blob: file
+            };
+            await saveVideoBlob(VIDEO_SLOT.key, record);
+            setVideoPreview(record);
+            saveSession();
+            setStatus("Operation video added and saved for ZIP backup.");
+          } catch (error) {
+            setStatus("Could not save that video in this browser.");
+          } finally {
+            event.target.value = "";
+          }
+        });
+      }
+      const videoRemove = document.getElementById("video-remove");
+      if (videoRemove) {
+        videoRemove.addEventListener("click", async () => {
+          await deleteVideoBlob(VIDEO_SLOT.key).catch(() => {});
+          setVideoPreview(null);
+          saveSession();
+          setStatus("Test video removed.");
+        });
+      }
+      document.getElementById("clearAll").addEventListener("click", clearWorkbook);
+    }
+
+    init();
+  </script>
+</body>
+</html>
