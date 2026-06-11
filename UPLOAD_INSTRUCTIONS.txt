@@ -1,4 +1,5 @@
-﻿Upload these two files to the root of the GitHub repository to apply the Term 3 folio link consistency fix.
+﻿Upload these two files to the root of the GitHub repository to apply the polished Term 3 folio START HERE card fix.
+The card now uses the same styled START HERE pattern as Terms 1 and 2 and sits under Project Instructions > Quick checks.
 
 year9_term3.html
 search-index.json
