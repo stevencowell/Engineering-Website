@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 1: WHS and control systems safety for the Year 10 Garden Watering System project. Covers OnGuard, PPE, hierarchy of control, low-voltage electronics, water testing, safe tool use and folio evidence." />
+  <meta name="keywords" content="Year 10 engineering, garden watering system, WHS, control systems safety, low voltage, PPE, hierarchy of control, risk assessment, safe testing" />
+  <title>Toolkit 1: WHS &amp; Control Systems Safety | Year 10 Term 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --brand-dark: #003f80;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+      --success: #127a4a;
+      --warning: #9a5b00;
+      --danger: #b42318;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible, textarea:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    header {
+      background: linear-gradient(135deg, var(--brand-dark), #0b63c3);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: clamp(1.7rem, 3vw, 2.55rem); line-height: 1.15; }
+    header p { margin: 0.55rem 0 0; opacity: 0.92; font-size: 1.05rem; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.65rem 1rem;
+    }
+    nav a {
+      padding: 0.45rem 0.85rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 700;
+    }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 700; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); font-size: 1.6rem; line-height: 1.2; }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card p { color: var(--muted); margin: 0.5rem 0 0.85rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.15rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 390px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    .feature-image {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      background: #fff;
+      margin: 0.65rem 0 1rem;
+    }
+    .feature-image img { display: block; width: 100%; border-radius: 10px; }
+    .callout {
+      border-left: 5px solid var(--brand);
+      background: #f8fbff;
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      color: var(--muted);
+      margin: 0.9rem 0;
+    }
+    .callout strong { color: var(--text); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.9rem;
+    }
+    .mini-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      padding: 1rem;
+    }
+    .mini-card h3 { margin-top: 0; color: var(--brand); }
+    .risk-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.9rem 0 0.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .risk-table th, .risk-table td {
+      border: 1px solid var(--border);
+      padding: 0.7rem 0.75rem;
+      vertical-align: top;
+      text-align: left;
+    }
+    .risk-table th { background: #e6f0fb; color: var(--brand); }
+    .risk-high { color: var(--danger); font-weight: 700; }
+    .risk-med { color: var(--warning); font-weight: 700; }
+    .risk-low { color: var(--success); font-weight: 700; }
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      margin: 0.65rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .qa-toggle, .qa-secondary-btn, .score-btn {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      font: inherit;
+      white-space: nowrap;
+    }
+    .qa-secondary-btn, .score-btn { background: #fff; color: var(--text); }
+    .score-btn[aria-pressed="true"] {
+      background: #e6f0fb;
+      border-color: #b8d5f6;
+      color: var(--brand);
+    }
+    .qa-answer {
+      margin-top: 0.65rem;
+      color: var(--muted);
+      display: none;
+    }
+    .qa-summary {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin: 0.75rem 0 1rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #f8fbff;
+      color: var(--muted);
+    }
+    .qa-summary strong { color: var(--text); }
+    .qa-summary-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .qa-student { margin-top: 0.75rem; }
+    .qa-student label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: var(--text);
+    }
+    .qa-student textarea {
+      width: 100%;
+      min-height: 94px;
+      resize: vertical;
+      padding: 0.75rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font: inherit;
+      color: var(--text);
+      background: #fff;
+    }
+    .qa-meta { margin-top: 0.35rem; font-size: 0.9rem; color: var(--muted); }
+    .qa-score {
+      display: none;
+      margin-top: 0.85rem;
+      padding-top: 0.85rem;
+      border-top: 1px dashed var(--border);
+    }
+    .qa-score-title { font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+    .qa-score-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    @media (max-width: 760px) {
+      .content-image {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+      .grid { grid-template-columns: 1fr; }
+      .qa-question { display: block; }
+      .qa-toggle { margin-top: 0.75rem; }
+      .risk-table { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="sr-only">Skip to main content</a>
+  <header role="banner">
+    <h1>Toolkit 1: WHS &amp; Control Systems Safety</h1>
+    <p>Water, low-voltage electronics, tools, risk controls and safe testing</p>
+  </header>
+
+  <nav aria-label="Year 10 Term 1 toolkit navigation">
+    <a href="../year10_term1.html">Year 10 Term 1</a>
+    <a class="active" href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a href="tutorial.html">Tutorial</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main id="main-content" role="main">
+    <a class="back-link" href="../year10_term1.html">&#8592; Back to Year 10 T1 Toolkits</a>
+
+    <article class="card">
+      <span class="pill">Safety</span>
+      <h2>Learning Focus</h2>
+      <img src="../images/year10-garden-watering/03-safe-test-setup.png" alt="Safe Garden Watering System test setup with wet and dry zones" class="content-image" />
+      <p>By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Identify project hazards:</strong> explain the risks created when water, low-voltage electronics, tools, pumps, tubing and moving parts are used in the same build.</li>
+        <li><strong>Set up safe test zones:</strong> separate the wet area from the dry electronics area, route leads safely and control spills immediately.</li>
+        <li><strong>Apply the hierarchy of control:</strong> choose controls that reduce risk before relying on PPE alone.</li>
+        <li><strong>Use tools and components safely:</strong> drill, cut, trim, connect and test only after demonstration, permission and teacher checks.</li>
+        <li><strong>Collect folio evidence:</strong> save OnGuard/WHS proof, risk tables, safe setup sketches, teacher sign-off notes and short safety reflections.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Why This Matters</h2>
+      <p><strong>This project puts water and electronics close together.</strong> That is manageable, but only if the setup is deliberate. Most control system failures are boring little mistakes: loose wires, wet benches, poor strain relief, a tube popping off, a pump running dry, or someone powering a circuit before it has been checked.</p>
+      <div class="callout"><strong>Safety mindset:</strong> test small, check before power, keep wet and dry zones separate, and stop early when something looks wrong. Hero testing is not engineering. It is just expensive confidence.</div>
+      <p>Use this toolkit before the practical build, then keep returning to it whenever the design changes. Every design change can create a new hazard.</p>
+    </article>
+
+    <article class="card">
+      <h2>Project Safety Map</h2>
+      <div class="feature-image">
+        <img src="../images/year10-garden-watering/water-control-system-project-diagram.png" alt="Garden Watering System project diagram showing water path, sensors, controller and output components" />
+      </div>
+      <div class="grid">
+        <section class="mini-card">
+          <h3>Wet Zone</h3>
+          <ul>
+            <li>Water container, plant tray, soil, tubing, pump outlet and spill area.</li>
+            <li>Keep towels, trays or catch containers ready before testing.</li>
+            <li>Stop testing if water escapes the planned area.</li>
+          </ul>
+        </section>
+        <section class="mini-card">
+          <h3>Dry Electronics Zone</h3>
+          <ul>
+            <li>Battery pack, controller, relay, switch, exposed joins and laptop if used.</li>
+            <li>Keep raised, dry and away from the water path.</li>
+            <li>Dry hands before touching circuits or switches.</li>
+          </ul>
+        </section>
+        <section class="mini-card">
+          <h3>Tool Zone</h3>
+          <ul>
+            <li>Drilling, cutting, trimming and assembly area.</li>
+            <li>Clamp small parts and wear eye protection.</li>
+            <li>Keep loose wires, tubing and offcuts away from drill bits and blades.</li>
+          </ul>
+        </section>
+        <section class="mini-card">
+          <h3>Teacher Check Point</h3>
+          <ul>
+            <li>Before first powered test.</li>
+            <li>Before adding water near any circuit.</li>
+            <li>After any wiring, pump, relay or tube route changes.</li>
+          </ul>
+        </section>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Risk Control Table</h2>
+      <p>Use this model to build your own risk table in the folio. The goal is not to write more words. The goal is to think before the mess happens.</p>
+      <table class="risk-table">
+        <thead>
+          <tr>
+            <th>Hazard</th>
+            <th>Risk Level</th>
+            <th>Control</th>
+            <th>Evidence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Water reaches exposed wires, battery terminals or controller.</td>
+            <td class="risk-high">High</td>
+            <td>Separate wet and dry zones, raise electronics, power off before adjusting, teacher check before testing.</td>
+            <td>Labelled setup sketch or photo.</td>
+          </tr>
+          <tr>
+            <td>Pump runs dry or tubing detaches under pressure.</td>
+            <td class="risk-med">Medium</td>
+            <td>Check water level, secure tubing, run short tests first and stop if flow changes unexpectedly.</td>
+            <td>Testing checklist and teacher observation.</td>
+          </tr>
+          <tr>
+            <td>Drilling or cutting small parts causes slipping or flying chips.</td>
+            <td class="risk-med">Medium</td>
+            <td>Wear eye protection, clamp work, use correct tool speed, keep hands out of the line of fire.</td>
+            <td>WHS sign-off and build photo.</td>
+          </tr>
+          <tr>
+            <td>Loose leads or tubing create trip, snag or pull hazards.</td>
+            <td class="risk-low">Low</td>
+            <td>Route leads around the edge of the bench, tape or tie them where needed, keep walkways clear.</td>
+            <td>Safe setup photo.</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <article class="card">
+      <h2>Hierarchy of Control</h2>
+      <img src="../Engineering Pictures/hierarchy-of-controls.png" alt="Hierarchy of controls diagram" class="content-image" />
+      <p>Use the hierarchy of control when choosing safety controls. Strong controls change the setup. Weak controls just hope people remember.</p>
+      <ul>
+        <li><strong>Eliminate:</strong> remove unnecessary wet testing near circuits. Test code or switch logic without water first.</li>
+        <li><strong>Substitute:</strong> use teacher-approved low-voltage components instead of mains-powered devices.</li>
+        <li><strong>Engineering controls:</strong> use trays, clamps, strain relief, guards, raised electronics platforms and fixed tube routes.</li>
+        <li><strong>Administrative controls:</strong> follow the test sequence, use checklists, label wet/dry zones and get teacher sign-off.</li>
+        <li><strong>PPE:</strong> use safety glasses, apron/overalls and enclosed footwear. PPE supports the controls above. It does not replace them.</li>
+      </ul>
+      <div class="callout"><strong>Folio sentence starter:</strong> The strongest control in my design is _____ because it reduces the hazard before anyone needs to rely on PPE.</div>
+    </article>
+
+    <article class="card">
+      <h2>Safe Testing Sequence</h2>
+      <div class="feature-image">
+        <img src="../images/year10-garden-watering/04-algorithm-flowchart.png" alt="Garden Watering System algorithm flowchart" />
+      </div>
+      <ol style="color: var(--muted); padding-left: 1.3rem;">
+        <li><strong>Dry build check:</strong> inspect wiring, polarity, joins, tube route, pump direction and component mounting.</li>
+        <li><strong>Teacher check:</strong> get approval before powering a new circuit or adding water near the system.</li>
+        <li><strong>Power-only test:</strong> test switches, sensor readings, LEDs or control logic without water flow.</li>
+        <li><strong>Short water test:</strong> run the pump or valve briefly with the electronics protected and the water path contained.</li>
+        <li><strong>Observe and record:</strong> note leaks, flow rate, sensor behaviour, delays, unexpected movement and stop conditions.</li>
+        <li><strong>Improve safely:</strong> power off before adjusting tubes, wires, sensors or mounting points.</li>
+      </ol>
+    </article>
+
+    <article class="card">
+      <h2>Activities &amp; Folio Evidence</h2>
+      <h3>1. OnGuard / WHS Evidence</h3>
+      <ul>
+        <li>Complete the required workshop safety tasks set by your teacher.</li>
+        <li>Save a screenshot, certificate or teacher sign-off note as evidence.</li>
+      </ul>
+      <h3>2. Safe Test Setup Sketch</h3>
+      <ul>
+        <li>Draw or photograph the planned test area.</li>
+        <li>Label: wet zone, dry electronics zone, power source, water path, spill control, teacher check point and emergency stop method.</li>
+      </ul>
+      <h3>3. Risk Control Table</h3>
+      <ul>
+        <li>Include at least five hazards: water/electronics, tools, pump/tubing, moving parts and trip/snag risks.</li>
+        <li>For each hazard, list the risk, control and evidence you will collect.</li>
+      </ul>
+      <h3>4. Reflection</h3>
+      <ul>
+        <li>Answer: What is the highest-risk part of your system, and what control will reduce that risk the most?</li>
+        <li>Use engineering language: hazard, risk, control, test, evidence, wet zone, dry zone, low voltage.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Classroom Check-in</h2>
+      <p>Submit these items in the Google Classroom topic your teacher sets for Year 10 Term 1 Toolkit 1:</p>
+      <ul>
+        <li>OnGuard/WHS completion proof or teacher sign-off.</li>
+        <li>Safe test setup sketch or labelled photo.</li>
+        <li>Risk control table for the Garden Watering System.</li>
+        <li>Short reflection on the highest-risk part of the system.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>WHS Self-Check</h2>
+      <p>Write your answer first. Then reveal the model answer and score yourself honestly. Saved answers stay in this browser.</p>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why must the wet zone and dry electronics zone be physically separated during testing?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t1m1_qa1">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t1m1_qa1"><p>Water can short circuits, damage components, cause unreliable sensor readings and create slip hazards. Separation makes the system easier to inspect and lets the teacher check the setup before power and water are used together.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Give two higher-level controls that are stronger than simply wearing PPE.</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t1m1_qa2">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t1m1_qa2"><p>Examples include eliminating wet testing near circuits, using low-voltage components, raising electronics on a dry platform, securing tubing in a tray, clamping parts before drilling, and using a teacher-approved test sequence.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What should you check before the first powered test of a pump, relay or controller?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t1m1_qa3">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t1m1_qa3"><p>Check polarity, loose wires, exposed joins, tube route, pump direction, water level, dry electronics position, clear bench space and stop method. A teacher check is required before powering the system.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why should powered water tests be short at first?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t1m1_qa4">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t1m1_qa4"><p>Short tests reduce the chance of spills, pump damage, overheating and uncontrolled flow. They also make it easier to observe leaks, tube movement and sensor behaviour before the system runs for longer.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What evidence should appear in your folio for Toolkit 1?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t1m1_qa5">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t1m1_qa5"><p>A strong folio includes OnGuard/WHS proof, a labelled safe test setup sketch or photo, a risk control table, teacher sign-off notes and a reflection explaining the highest-risk part of the system and the best control.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>If water reaches the dry electronics zone, what should happen next?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t1m1_qa6">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t1m1_qa6"><p>Stop testing, power off if it is safe, tell the teacher, clean and dry the area, inspect components and change the setup before testing again. Do not keep testing just because it still seems to work.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How can a design change create a new WHS risk?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t1m1_qa7">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t1m1_qa7"><p>Moving a sensor, pump, battery, tube or controller can change where water flows, where wires sit, how parts move and whether a person can trip, snag or touch a hazard. The risk table should be updated after important changes.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why is teacher sign-off part of the safety system, not just a classroom rule?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t1m1_qa8">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t1m1_qa8"><p>Teacher sign-off is an administrative control. It adds an experienced check before higher-risk actions, especially when power, water, tools or moving outputs are involved.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li><a href="../garden_watering_info_sheets.html" target="_blank" rel="noopener">Garden Watering System Info Sheets</a></li>
+        <li><a href="../Year10%20T1%20Modules/observation-checklist.html" target="_blank" rel="noopener">Garden Watering Testing Checklist</a></li>
+        <li><a href="../Youtube%20clips/year10%20term%201%20youtube%20clips.html" target="_blank" rel="noopener">Year 10 Term 1 YouTube Clip Index</a></li>
+      </ul>
+    </article>
+  </main>
+
+  <script>
+    (function () {
+      const MIN_WORDS_BEFORE_REVEAL = 18;
+      const STORAGE_KEY = 'year10.t1.module1.whs-self-check.v1';
+
+      function slugify(text) {
+        return String(text || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'question';
+      }
+
+      function wordCount(text) {
+        return String(text || '').trim().split(/\s+/).filter(Boolean).length;
+      }
+
+      function getStore() {
+        try {
+          const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+          return parsed && typeof parsed === 'object' ? { items: parsed.items || {} } : { items: {} };
+        } catch (e) {
+          return { items: {} };
+        }
+      }
+
+      function setStore(store) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+          return true;
+        } catch (e) {
+          return false;
+        }
+      }
+
+      function scoreLabel(score) {
+        return {
+          3: '3 - Fully correct',
+          2: '2 - Mostly correct',
+          1: '1 - Partly correct',
+          0: '0 - Not yet'
+        }[score] || 'Not scored';
+      }
+
+      function setMeta(id, text) {
+        const meta = document.querySelector('[data-qa-meta-for="' + id + '"]');
+        if (meta) meta.textContent = text;
+      }
+
+      function updateSummary(qaIds) {
+        const store = getStore();
+        const scores = qaIds
+          .map((id) => store.items[id] && typeof store.items[id].score === 'number' ? store.items[id].score : null)
+          .filter((score) => typeof score === 'number');
+        const progress = document.querySelector('[data-qa-progress-text]');
+        const average = document.querySelector('[data-qa-average-text]');
+        if (progress) progress.textContent = scores.length + '/' + qaIds.length + ' scored';
+        if (average) {
+          average.textContent = scores.length
+            ? 'Average: ' + (scores.reduce((a, b) => a + b, 0) / scores.length).toFixed(1) + '/3'
+            : 'Average: -';
+        }
+      }
+
+      function escapeHtml(text) {
+        return String(text || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      const qaList = document.querySelector('.qa-list');
+      if (!qaList) return;
+
+      const qaItems = Array.from(qaList.querySelectorAll('.qa-item'));
+      const qaIds = qaItems.map((item, index) => {
+        const answer = item.querySelector('.qa-answer');
+        if (!answer.id) answer.id = 'y10t1m1_' + slugify(index + 1);
+        return answer.id;
+      });
+
+      const summary = document.createElement('div');
+      summary.className = 'qa-summary';
+      summary.setAttribute('aria-live', 'polite');
+      summary.innerHTML = '<div><strong>Progress:</strong> <span data-qa-progress-text>0/0 scored</span> <span aria-hidden="true"> | </span> <span data-qa-average-text>Average: -</span></div><div class="qa-summary-actions"><button type="button" class="qa-secondary-btn" data-qa-print>Print / save PDF</button></div>';
+      qaList.insertAdjacentElement('beforebegin', summary);
+
+      qaItems.forEach((item, index) => {
+        const answer = item.querySelector('.qa-answer');
+        const id = answer.id;
+        const questionText = (item.querySelector('.qa-question span') || {}).textContent || '';
+
+        const student = document.createElement('div');
+        student.className = 'qa-student';
+        student.innerHTML = '<label for="' + id + '-student">Your answer</label><textarea id="' + id + '-student" class="qa-student-input" data-qa-id="' + id + '" placeholder="Write your answer here before revealing the model answer..."></textarea><div class="qa-meta" data-qa-meta-for="' + id + '"></div>';
+        item.querySelector('.qa-question').insertAdjacentElement('afterend', student);
+
+        const scorePanel = document.createElement('div');
+        scorePanel.className = 'qa-score';
+        scorePanel.setAttribute('data-qa-score-panel', id);
+        scorePanel.innerHTML = '<div class="qa-score-title">Self-assess (0-3)</div><div class="qa-score-buttons" role="group" aria-label="Self-assess score for question ' + (index + 1) + '"><button type="button" class="score-btn" data-score="3" aria-pressed="false">3 - Fully correct</button><button type="button" class="score-btn" data-score="2" aria-pressed="false">2 - Mostly correct</button><button type="button" class="score-btn" data-score="1" aria-pressed="false">1 - Partly correct</button><button type="button" class="score-btn" data-score="0" aria-pressed="false">0 - Not yet</button></div>';
+        item.appendChild(scorePanel);
+
+        const store = getStore();
+        const saved = store.items[id] || {};
+        const textarea = item.querySelector('.qa-student-input');
+        if (typeof saved.response === 'string') textarea.value = saved.response;
+        if (typeof saved.score === 'number') {
+          item.querySelectorAll('.score-btn').forEach((button) => {
+            button.setAttribute('aria-pressed', String(Number(button.getAttribute('data-score')) === saved.score));
+          });
+          setMeta(id, 'Saved score: ' + scoreLabel(saved.score));
+        } else {
+          setMeta(id, 'Word count: ' + wordCount(textarea.value) + '/' + MIN_WORDS_BEFORE_REVEAL);
+        }
+
+        textarea.addEventListener('input', () => {
+          const next = getStore();
+          next.items[id] = Object.assign({}, next.items[id] || {}, {
+            response: textarea.value,
+            responseUpdatedAt: new Date().toISOString()
+          });
+          if (setStore(next)) {
+            const words = wordCount(textarea.value);
+            setMeta(id, 'Draft saved. Word count: ' + words + '/' + MIN_WORDS_BEFORE_REVEAL);
+          }
+        });
+
+        const toggle = item.querySelector('.qa-toggle');
+        toggle.addEventListener('click', () => {
+          const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!isOpen));
+          toggle.textContent = isOpen ? 'Reveal model answer' : 'Hide model answer';
+          answer.style.display = isOpen ? 'none' : 'block';
+          scorePanel.style.display = isOpen ? 'none' : 'block';
+          if (!isOpen && wordCount(textarea.value) < MIN_WORDS_BEFORE_REVEAL) {
+            setMeta(id, 'Revealed. Try adding more detail before scoring. Word count: ' + wordCount(textarea.value) + '/' + MIN_WORDS_BEFORE_REVEAL);
+          }
+        });
+
+        item.querySelectorAll('.score-btn').forEach((button) => {
+          button.addEventListener('click', () => {
+            const score = Number(button.getAttribute('data-score'));
+            const next = getStore();
+            next.items[id] = Object.assign({}, next.items[id] || {}, {
+              score: score,
+              scoredAt: new Date().toISOString()
+            });
+            if (setStore(next)) setMeta(id, 'Saved score: ' + scoreLabel(score));
+            item.querySelectorAll('.score-btn').forEach((other) => {
+              other.setAttribute('aria-pressed', String(Number(other.getAttribute('data-score')) === score));
+            });
+            updateSummary(qaIds);
+          });
+        });
+      });
+
+      const printButton = document.querySelector('[data-qa-print]');
+      if (printButton) {
+        printButton.addEventListener('click', () => {
+          const store = getStore();
+          const rows = qaItems.map((item, index) => {
+            const answer = item.querySelector('.qa-answer');
+            const id = answer.id;
+            const question = (item.querySelector('.qa-question span') || {}).textContent || '';
+            const saved = store.items[id] || {};
+            return '<li class="item"><div class="q">' + (index + 1) + '. ' + escapeHtml(question) + '</div><div class="label">Your answer</div><div class="response">' + escapeHtml(saved.response || '') + '</div><div class="score"><strong>Score:</strong> ' + escapeHtml(scoreLabel(saved.score)) + '</div></li>';
+          }).join('');
+          const printWindow = window.open('', '_blank');
+          if (!printWindow) {
+            alert('Unable to open print window in this browser.');
+            return;
+          }
+          printWindow.document.write('<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Toolkit 1 WHS Self-Check</title><style>body{font-family:Arial,sans-serif;line-height:1.45;color:#1f2a3d;padding:24px}h1{color:#0056b3}.item{border:1px solid #e2e8f0;border-radius:10px;padding:12px;margin-bottom:12px;break-inside:avoid}.q,.label{font-weight:700}.response{white-space:pre-wrap;border:1px solid #e2e8f0;border-radius:8px;padding:10px;margin:6px 0 8px;min-height:48px}.score{color:#5c667a}</style></head><body><h1>Toolkit 1 WHS Self-Check</h1><ol>' + rows + '</ol></body></html>');
+          printWindow.document.close();
+          printWindow.focus();
+          printWindow.print();
+        });
+      }
+
+      updateSummary(qaIds);
+    })();
+  </script>
+  <script src="../page-nav.js" defer></script>
+</body>
+</html>

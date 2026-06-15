@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Garden Watering Design and Test Tutorial for Year 10 Term 1 Engineering. Covers system layout, dry and wet zones, algorithm planning, subsystem testing, evidence capture and evaluation." />
+  <title>Garden Watering Design &amp; Test Tutorial | Year 10 Term 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root { --brand: #0056b3; --bg: #f6f8fb; --card: #ffffff; --text: #1f2a3d; --muted: #5c667a; --border: #e2e8f0; --shadow: 0 12px 30px rgba(0,0,0,0.08); --radius: 12px; --good: #e8f5ec; --warn: #fff8e1; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; border-radius: 4px; }
+    header { background: linear-gradient(135deg, #0a4f93, #0b63c3); color: #fff; padding: 2.25rem 1.25rem 2rem; text-align: center; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; background: #fff; border-bottom: 1px solid var(--border); padding: 0.5rem 1rem; }
+    nav a { padding: 0.4rem 0.75rem; border-radius: 10px; color: var(--brand); font-weight: 600; }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1050px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+      background: #fff;
+    }
+    .content-image.left {
+      float: left;
+      margin: 0.5rem 1.5rem 1rem 0;
+    }
+    @media (max-width: 700px) {
+      header h1 { font-size: 1.65rem; }
+      .content-image,
+      .content-image.left {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+    }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.1rem 0 0.4rem; color: var(--text); font-size: 1.05rem; }
+    .card ul, .card ol { margin: 0.3rem 0 0.85rem; padding-left: 1.2rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .tip { background: #e6f0fb; border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem; color: var(--text); margin-bottom: 1rem; }
+    .success { background: var(--good); border-left: 5px solid #2e7d32; }
+    .warning { background: var(--warn); border-left: 5px solid #f6b000; }
+    .step-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.85rem; margin: 1rem 0 0.25rem; }
+    .mini-card { border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem; background: #fbfdff; }
+    .mini-card strong { display: block; color: var(--brand); margin-bottom: 0.25rem; }
+    @media (max-width: 780px) { .step-grid { grid-template-columns: 1fr; } }
+    .qa-item { border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.1rem; margin: 0.65rem 0; background: #fff; box-shadow: var(--shadow); }
+    .qa-question { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; font-weight: 700; color: var(--text); }
+    .qa-toggle { padding: 0.45rem 0.85rem; border-radius: 999px; border: 1px solid var(--border); background: #e6f0fb; color: var(--brand); font-weight: 700; cursor: pointer; box-shadow: var(--shadow); white-space: nowrap; }
+    .qa-answer { margin-top: 0.65rem; color: var(--muted); display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Garden Watering Design &amp; Test Tutorial</h1>
+    <p>System layout, safe setup, control logic, testing and evidence capture</p>
+  </header>
+
+  <nav>
+    <a href="../year10_term1.html">&#8592; T1 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a class="active" href="tutorial.html">Tutorial</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../year10_term1.html">&#8592; Back to Year 10 T1 Toolkits</a>
+
+    <article class="card">
+      <h2>Plan the System</h2>
+      <img src="../images/year10-garden-watering/01-system-overview.png" alt="Garden watering system overview showing reservoir, controller, sensor, pump and plant tray" class="content-image" />
+      <div class="tip">Keep the engineering problem simple: what condition starts watering, what controls the decision, and what output delivers the water?</div>
+      <h3>Input, process and output</h3>
+      <ul>
+        <li><strong>Input:</strong> soil moisture sensor, rain sensor, push button, timer, switch or teacher-approved trigger.</li>
+        <li><strong>Process:</strong> controller, relay, code, logic gate or manual control decision.</li>
+        <li><strong>Output:</strong> pump, valve, LED warning, buzzer or watering mechanism.</li>
+        <li><strong>Feedback:</strong> evidence that the system watered correctly, stopped correctly and can be tested again.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Sketch the Layout</h2>
+      <img src="../images/year10-garden-watering/05-design-planning.png" alt="Garden watering design planning guide with layout, control logic and evidence prompts" class="content-image left" />
+      <h3>Water path</h3>
+      <ul>
+        <li>Mark the reservoir, pump or valve, tubing route, outlet and plant/garden area.</li>
+        <li>Show possible leak points, spill zones and where the water should safely drain or collect.</li>
+        <li>Keep tubing short, supported and clear of moving parts or loose wires.</li>
+      </ul>
+      <h3>Electronics path</h3>
+      <ul>
+        <li>Mark the power source, controller, input device, output device and any relay or driver module.</li>
+        <li>Separate the wet zone from the dry electronics zone. This is not optional. Water and electrics are a crap friendship.</li>
+        <li>Label the parts so another student could trace the system without guessing.</li>
+      </ul>
+    </article>
+
+    <article class="card warning">
+      <h2>Safe Test Setup</h2>
+      <img src="../images/year10-garden-watering/03-safe-test-setup.png" alt="Safe test setup showing wet zone, dry electronics zone and teacher check point" class="content-image" />
+      <h3>Before power is connected</h3>
+      <ul>
+        <li>Teacher checks the circuit, power source and water container position.</li>
+        <li>Wet zone and dry electronics zone are clearly separated.</li>
+        <li>Spill control is ready: tray, towel, container or sink area.</li>
+        <li>Tubing and wires are secured so they cannot pull loose during testing.</li>
+      </ul>
+      <div class="tip">The best test setup is boring: controlled, repeatable and easy to clean up. Drama belongs in English, not near the power supply.</div>
+    </article>
+
+    <article class="card">
+      <h2>Write the Control Logic</h2>
+      <img src="../images/year10-garden-watering/04-algorithm-flowchart.png" alt="Garden watering algorithm flowchart" class="content-image left" />
+      <h3>Decision rule</h3>
+      <ul>
+        <li>Write the rule before building: if the input condition is met, the output turns on.</li>
+        <li>Include a stop condition: stop after a set time, when soil is wet, when the switch is off or when the teacher stops the test.</li>
+        <li>Use a flowchart or pseudocode so your thinking is visible in the folio.</li>
+      </ul>
+      <h3>Simple example</h3>
+      <ul>
+        <li>If soil is dry and rain is not detected, turn pump on for 5 seconds.</li>
+        <li>If soil is wet or rain is detected, keep pump off.</li>
+        <li>After watering, wait, recheck and record the result.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Build and Test Sequence</h2>
+      <img src="../images/year10-garden-watering/06-testing-evaluation.png" alt="Testing and evaluation guide for garden watering system" class="content-image" />
+      <div class="step-grid" aria-label="Build and test sequence">
+        <div class="mini-card">
+          <strong>1. Output test</strong>
+          Can the pump, valve or indicator work by itself?
+        </div>
+        <div class="mini-card">
+          <strong>2. Input test</strong>
+          Does the sensor, switch or timer trigger reliably?
+        </div>
+        <div class="mini-card">
+          <strong>3. Full test</strong>
+          Does the input control the output over repeated cycles?
+        </div>
+      </div>
+      <h3>Test data to record</h3>
+      <ul>
+        <li>Input condition: dry/wet reading, switch position, timer setting or manual trigger.</li>
+        <li>Response: output on/off, response time, water delivered and whether the system stopped.</li>
+        <li>Faults: leaks, loose wires, sensor errors, blocked tubing, weak battery or unreliable threshold.</li>
+        <li>Fixes: what changed, why it changed, and whether the retest improved the result.</li>
+      </ul>
+    </article>
+
+    <article class="card success">
+      <h2>Evidence to Capture</h2>
+      <img src="../images/year10-garden-watering/water-control-system-prototype-photo.png" alt="Garden watering control system prototype with tubing, controller and plant tray" class="content-image left" />
+      <ul>
+        <li><strong>Photos:</strong> labelled layout, safe setup, build stages, final prototype and testing action shot.</li>
+        <li><strong>Diagrams:</strong> input-process-output chain, circuit/control diagram, water path sketch and final layout.</li>
+        <li><strong>Algorithm:</strong> flowchart or pseudocode showing the watering decision and stop condition.</li>
+        <li><strong>Data:</strong> subsystem tests, full-system tests, response time, water amount, repeated-cycle reliability and fault log.</li>
+        <li><strong>Evaluation:</strong> what worked, what failed, what changed, and one specific improvement supported by test evidence.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Evaluation Sentence Starters</h2>
+      <ul>
+        <li>Our system met the brief because the input triggered the output when...</li>
+        <li>The most reliable part of the system was... because the test data showed...</li>
+        <li>The main fault was... and we think this happened because...</li>
+        <li>After changing... the retest showed...</li>
+        <li>Next time I would improve... because this would make the system safer, more reliable or more water efficient.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Quick Q&amp;A</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What should I test first?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa1">Test the output first. If the pump, valve or indicator cannot work by itself, the full system will not magically behave.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why separate wet and dry zones?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa2">It protects the circuit, reduces shock and short-circuit risk, and makes faults easier to trace during testing.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What counts as useful evidence?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa3">Evidence shows the design decision, test result or improvement clearly: photos, labelled diagrams, algorithm, data table, fault log and retest notes.</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What if the prototype fails?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa4">Record the failure, identify the likely cause, fix one thing, and retest. A documented fault and fix is strong engineering evidence.</div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <script src="../page-nav.js" defer></script>
+  <script src="../qa-widget.js"></script>
+</body>
+</html>

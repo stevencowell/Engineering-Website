@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Garden Watering System overview</title>
+  <desc id="desc">A labelled overview showing sensor input, controller, relay, pump, reservoir and watering output.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eaf7f1"/>
+      <stop offset="1" stop-color="#dcecff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#123047" flood-opacity=".18"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 10 5 0 10z" fill="#0b63c3"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <text x="60" y="80" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="800" fill="#143c34">Year 10 Garden Watering System</text>
+  <text x="62" y="120" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#49645e">A practical control system: input -> process -> output -> feedback</text>
+
+  <rect x="60" y="170" width="260" height="170" rx="18" fill="#fff" stroke="#9cb8ad" filter="url(#shadow)"/>
+  <text x="90" y="215" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="800" fill="#0056b3">INPUT</text>
+  <text x="90" y="252" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#1f2a3d">Moisture sensor</text>
+  <text x="90" y="282" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#1f2a3d">Rain sensor</text>
+  <text x="90" y="312" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#1f2a3d">Switch / timer</text>
+
+  <rect x="470" y="150" width="260" height="210" rx="18" fill="#fff" stroke="#9cb8ad" filter="url(#shadow)"/>
+  <text x="500" y="198" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="800" fill="#0a7e2a">PROCESS</text>
+  <rect x="515" y="225" width="150" height="86" rx="12" fill="#e6f0fb" stroke="#0056b3" stroke-width="3"/>
+  <text x="544" y="260" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#003f80">controller</text>
+  <text x="536" y="288" font-family="Segoe UI, Arial, sans-serif" font-size="17" fill="#003f80">or relay logic</text>
+
+  <rect x="880" y="170" width="260" height="170" rx="18" fill="#fff" stroke="#9cb8ad" filter="url(#shadow)"/>
+  <text x="910" y="215" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="800" fill="#8b332b">OUTPUT</text>
+  <text x="910" y="252" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#1f2a3d">Pump or solenoid</text>
+  <text x="910" y="282" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#1f2a3d">LED indicator</text>
+  <text x="910" y="312" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#1f2a3d">Water delivery</text>
+
+  <path d="M330 255h120" stroke="#0b63c3" stroke-width="8" marker-end="url(#arrow)" fill="none"/>
+  <path d="M740 255h120" stroke="#0b63c3" stroke-width="8" marker-end="url(#arrow)" fill="none"/>
+
+  <rect x="90" y="510" width="250" height="130" rx="18" fill="#fffdf2" stroke="#cdbb74" filter="url(#shadow)"/>
+  <text x="122" y="555" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800" fill="#856404">Plant / soil</text>
+  <path d="M212 620c-42-52-35-92 0-112 35 20 42 60 0 112z" fill="#2f9e44"/>
+  <path d="M214 620v-80" stroke="#1b6b34" stroke-width="6"/>
+  <circle cx="178" cy="584" r="18" fill="#74c69d"/>
+  <circle cx="245" cy="574" r="20" fill="#52b788"/>
+
+  <rect x="460" y="510" width="280" height="130" rx="18" fill="#eef8f4" stroke="#1f6f5d" filter="url(#shadow)"/>
+  <text x="492" y="555" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800" fill="#1f6f5d">Reservoir + tubing</text>
+  <path d="M510 605h150c40 0 55-42 90-42" stroke="#0b63c3" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <rect x="500" y="570" width="80" height="48" rx="9" fill="#bde0fe" stroke="#0b63c3" stroke-width="4"/>
+  <circle cx="670" cy="605" r="18" fill="#4dabf7"/>
+
+  <rect x="830" y="510" width="280" height="130" rx="18" fill="#fff" stroke="#9cb8ad" filter="url(#shadow)"/>
+  <text x="862" y="555" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800" fill="#143c34">Feedback check</text>
+  <text x="862" y="590" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#1f2a3d">Is the soil wet enough?</text>
+  <text x="862" y="620" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#1f2a3d">Did the output work?</text>
+
+  <path d="M1000 500c-20-92-94-128-190-158" stroke="#0a7e2a" stroke-width="7" stroke-dasharray="16 14" marker-end="url(#arrow)" fill="none"/>
+  <text x="824" y="455" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#0a7e2a">feedback loop</text>
+</svg>

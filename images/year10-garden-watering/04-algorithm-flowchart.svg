@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Watering algorithm flowchart</title>
+  <desc id="desc">A flowchart showing how a garden watering system decides whether to water.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" fill="#0056b3"/></marker></defs>
+  <rect width="1200" height="800" fill="#f7fbff"/>
+  <text x="60" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="42" font-weight="800" fill="#143c34">Watering Algorithm</text>
+  <text x="62" y="116" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#49645e">Students can draw this as a flowchart or write it as pseudocode.</text>
+  <g font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">
+    <rect x="475" y="155" width="250" height="72" rx="36" fill="#e6f0fb" stroke="#0056b3" stroke-width="4"/>
+    <text x="600" y="200" font-size="25" font-weight="800" fill="#003f80">START TEST</text>
+    <path d="M600 228v55" stroke="#0056b3" stroke-width="6" marker-end="url(#arrow)"/>
+    <polygon points="600,285 760,370 600,455 440,370" fill="#fffdf2" stroke="#856404" stroke-width="4"/>
+    <text x="600" y="360" font-size="23" font-weight="800" fill="#856404">Is soil</text>
+    <text x="600" y="390" font-size="23" font-weight="800" fill="#856404">dry?</text>
+    <path d="M760 370h115" stroke="#0056b3" stroke-width="6" marker-end="url(#arrow)"/>
+    <text x="817" y="350" font-size="20" fill="#1f2a3d">YES</text>
+    <rect x="875" y="325" width="240" height="90" rx="16" fill="#eef8f4" stroke="#1f6f5d" stroke-width="4"/>
+    <text x="995" y="362" font-size="22" font-weight="800" fill="#1f6f5d">Turn pump /</text>
+    <text x="995" y="392" font-size="22" font-weight="800" fill="#1f6f5d">valve ON</text>
+    <path d="M600 455v75" stroke="#0056b3" stroke-width="6" marker-end="url(#arrow)"/>
+    <text x="648" y="500" font-size="20" fill="#1f2a3d">NO</text>
+    <rect x="480" y="530" width="240" height="90" rx="16" fill="#fff4f1" stroke="#8b332b" stroke-width="4"/>
+    <text x="600" y="568" font-size="22" font-weight="800" fill="#8b332b">Keep output</text>
+    <text x="600" y="598" font-size="22" font-weight="800" fill="#8b332b">OFF</text>
+    <path d="M995 416v75" stroke="#0056b3" stroke-width="6" marker-end="url(#arrow)"/>
+    <rect x="875" y="492" width="240" height="90" rx="16" fill="#ffffff" stroke="#9cb8ad" stroke-width="4"/>
+    <text x="995" y="528" font-size="22" font-weight="800" fill="#143c34">Water for set</text>
+    <text x="995" y="558" font-size="22" font-weight="800" fill="#143c34">time / amount</text>
+    <path d="M875 538H730" stroke="#0056b3" stroke-width="6" marker-end="url(#arrow)"/>
+  </g>
+  <rect x="85" y="535" width="280" height="120" rx="20" fill="#fff" stroke="#9cb8ad" stroke-width="4"/>
+  <text x="120" y="585" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800" fill="#0056b3">Extension rules</text>
+  <text x="120" y="620" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#1f2a3d">If rain is detected: stop.</text>
+  <text x="120" y="650" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#1f2a3d">If tank is empty: warn.</text>
+</svg>

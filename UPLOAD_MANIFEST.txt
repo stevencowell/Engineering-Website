@@ -1,25 +1,29 @@
-﻿GitHub web upload safe set.
-Upload this folder CONTENTS to the repository root.
-Do not upload github-upload-digger-updates.zip or any *large-original* backup file.
-Largest file in this set should be about 3 MB.
+Year 10 Garden Watering System upload manifest
 
-assets\workbooks\hydraulic-digger-best-practice-answers.pdf
-assets\workbooks\hydraulic-digger-best-practice-answers.pptx
-assets\workbooks\hydraulic-digger-best-practice-summary.csv
-hydraulic_digger_portfolio_guided_viewer.html
-images\term3-hydraulic-digger\01_design_brief_hero_overview.png
-images\term3-hydraulic-digger\02_fluid_power_basics.png
-images\term3-hydraulic-digger\03_linkage_design.png
-images\term3-hydraulic-digger\04_exploded_build.png
-images\term3-hydraulic-digger\05_whs_risk_controls.png
-images\term3-hydraulic-digger\06_testing_and_evaluation.png
-images\term3-hydraulic-digger\photo-examples\01_linkage_design_photo_examples.png
-images\term3-hydraulic-digger\photo-examples\02_assembly_evidence_photo_examples.png
-images\term3-hydraulic-digger\photo-examples\03_hydraulic_setup_photo_examples.png
-images\term3-hydraulic-digger\photo-examples\04_test_method_photo_examples.png
-images\term3-hydraulic-digger\photo-examples\05_results_and_data_photo_examples.png
-images\term3-hydraulic-digger\photo-examples\06_tuning_and_redesign_photo_examples.png
-images\term3-hydraulic-digger\photo-examples\07_operation_video_example.png
-scripts\generate_hydraulic_digger_folio.js
+Root files:
+UPLOAD_INSTRUCTIONS.txt
+UPLOAD_MANIFEST.txt
+build-search-index.js
+index.html
+year10_term1.html
+year10_term1_assessment.html
+garden_watering_project.html
+garden_watering_portfolio_guided_viewer.html
+garden_watering_info_sheets.html
 search-index.json
-year9_term3.html
+Year 10 Water Control System Scope and Sequence.docx
+Year 10 Water Control System Scope and Sequence.pdf
+Year 10 Water Control System Lesson Plans.docx
+Year 10 Water Control System Lesson Plans.pdf
+
+Folders:
+Year10 T1 Modules\
+year10_slide_pages\
+images\year10-garden-watering\
+
+Single folder file:
+Youtube clips\year10 term 1 youtube clips.html
+
+Verification completed:
+- search-index.json rebuilt with node build-search-index.js
+- Year 10 pages, module pages, slide pages and workbook frame links checked for missing local targets

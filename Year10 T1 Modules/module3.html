@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 3: Design and planning for the Year 10 Garden Watering System project." />
+  <title>Toolkit 3: Garden Watering Design &amp; Planning | Year 10 Term 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0,0,0,0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    nav a.active {
+      background: #e6f0fb;
+      color: #0b63c3;
+    }
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.75rem 1rem 3rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+      background: #fff;
+    }
+    .content-image.left {
+      float: left;
+      margin: 0.5rem 1.5rem 1rem 0;
+    }
+    .image-embed {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      background: #fff;
+      margin: 0.75rem 0 1rem;
+    }
+    .image-embed img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+    }
+    .callout {
+      background: #f8f9fa;
+      border-left: 3px solid var(--brand);
+      border-radius: 6px;
+      color: var(--muted);
+      margin: 0.75rem 0;
+      padding: 0.75rem;
+    }
+    .planning-table {
+      border-collapse: collapse;
+      color: var(--muted);
+      margin: 0.75rem 0 1rem;
+      width: 100%;
+    }
+    .planning-table th,
+    .planning-table td {
+      border: 1px solid var(--border);
+      padding: 0.7rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    .planning-table th {
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+    }
+    @media (max-width: 700px) {
+      .content-image,
+      .content-image.left {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+      .planning-table { font-size: 0.92rem; }
+      header h1 { font-size: 1.75rem; }
+    }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul,
+    .card ol {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.1rem;
+      color: var(--muted);
+    }
+    .card li + li { margin-top: 0.35rem; }
+    .card p { color: var(--muted); }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <h1>Toolkit 3: Garden Watering Design &amp; Planning</h1>
+    <p>Brief analysis, irrigation layout, circuit plan, materials and build sequence</p>
+  </header>
+
+  <nav>
+    <a href="../year10_term1.html">Year 10 Term 1</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a class="active" href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a href="tutorial.html">Tutorial</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main id="main-content" role="main">
+    <a class="back-link" href="../year10_term1.html">&#8592; Back to Year 10 T1 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Design</div>
+      <h2>Learning Focus</h2>
+      <img src="../images/year10-garden-watering/05-design-planning.png" alt="Garden watering design planning guide" class="content-image" />
+      <p>By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Interpret the design brief:</strong> Identify the user need, system purpose, constraints and success criteria.</li>
+        <li><strong>Create system layouts:</strong> Plan the garden bed, reservoir, tube path, outlet, wet zone and dry electronics zone.</li>
+        <li><strong>Plan control logic:</strong> Connect inputs, process, outputs and feedback to a clear watering decision.</li>
+        <li><strong>Select components:</strong> Choose suitable sensors, switches, pumps, valves, indicators and control hardware.</li>
+        <li><strong>Develop build sequences:</strong> Plan safe assembly steps so the water path, wiring and testing can be completed without chaos.</li>
+        <li><strong>Produce folio evidence:</strong> Create concept sketches, diagrams, material lists, risk controls and a planned testing method before building.</li>
+      </ul>
+      <div class="callout">
+        <strong>Timing:</strong> Complete Toolkit 3 planning before building the final prototype in Toolkit 4. A rushed plan usually becomes a wet bench, a dead circuit, and a very educational mess.
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Understanding the Design Brief</h2>
+      <img src="../images/year10-garden-watering/01-system-overview.svg" alt="Garden watering system overview with reservoir, controller, sensor and garden bed" class="content-image" />
+      <p>Before sketching, turn the brief into a checklist. A good design does not just move water. It solves the watering problem safely, consistently and with evidence you can explain.</p>
+      <ul>
+        <li><strong>User need:</strong> What does the garden, plant or user actually need the system to do?</li>
+        <li><strong>Watering condition:</strong> What tells the system that watering should start or stop?</li>
+        <li><strong>Constraints:</strong> Available components, low-voltage power, safe water handling, class time, bench space and teacher-approved tools.</li>
+        <li><strong>Success criteria:</strong> The system responds correctly, delivers water to the target area, avoids major leaks and can be tested repeatedly.</li>
+        <li><strong>Evidence:</strong> The folio must show design thinking, not just a photo of the final build looking vaguely hopeful.</li>
+      </ul>
+      <div class="callout">
+        <strong>Design Tip:</strong> Write the brief as an if/then problem. For example: if the soil is dry and the tank has water, the system should water the garden for a controlled time or until the sensor reading changes.
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Concept Design and Layout</h2>
+      <p>Create at least two concept options before choosing the final layout. Different options should change something meaningful, such as sensor position, tubing route, reservoir placement or level of automation.</p>
+
+      <h3>1. Water Path Layout</h3>
+      <ul>
+        <li><strong>Reservoir:</strong> Place the water source where it is stable, visible and easy to refill without wetting electronics.</li>
+        <li><strong>Tubing route:</strong> Keep tubes short, supported and free from sharp bends or kinks.</li>
+        <li><strong>Outlet:</strong> Aim water at the plant/garden area, not at the bench, wires or someone else's shoes.</li>
+        <li><strong>Leak points:</strong> Mark joins, bends and fittings that need checking during testing.</li>
+      </ul>
+
+      <h3>2. Wet and Dry Zones</h3>
+      <img src="../images/year10-garden-watering/03-safe-test-setup.svg" alt="Safe test setup showing separated wet and dry zones" class="content-image left" />
+      <p>Separate water from electronics in the design stage. Do not leave safety to the end when everything is already cable-tied into a nervous little sculpture.</p>
+      <ul>
+        <li>Mark the <strong>wet zone</strong>: reservoir, tubing, pump, outlet and catch tray.</li>
+        <li>Mark the <strong>dry zone</strong>: battery, controller, wiring joins, switches, breadboard and indicators.</li>
+        <li>Plan how components will be fixed down so they do not move during testing.</li>
+        <li>Show where hands can safely access switches, resets and test controls.</li>
+      </ul>
+
+      <h3>3. Compare Options</h3>
+      <p>Choose the strongest concept by comparing function, safety, reliability, build difficulty and evidence quality.</p>
+      <table class="planning-table">
+        <thead>
+          <tr>
+            <th>Design Choice</th>
+            <th>What to Compare</th>
+            <th>Good Evidence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Sensor position</strong></td>
+            <td>Close to outlet, centre of soil, edge of tray or controlled test sample.</td>
+            <td>Reason for placement and expected response during dry/wet tests.</td>
+          </tr>
+          <tr>
+            <td><strong>Water delivery</strong></td>
+            <td>Single outlet, drip line, spray point or tube with holes.</td>
+            <td>Sketch showing flow direction and target watering area.</td>
+          </tr>
+          <tr>
+            <td><strong>Control type</strong></td>
+            <td>Manual, timed, semi-automatic or sensor-based automatic control.</td>
+            <td>IPO diagram and flowchart explaining when the output starts and stops.</td>
+          </tr>
+          <tr>
+            <td><strong>Safety layout</strong></td>
+            <td>Distance between water and electronics, fixing method, power access and testing setup.</td>
+            <td>Annotated wet/dry zone diagram and risk control table.</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <article class="card">
+      <h2>Control Plan</h2>
+      <img src="../images/year10-garden-watering/04-algorithm-flowchart.svg" alt="Garden watering algorithm flowchart" class="content-image" />
+      <p>Your control plan explains how the system decides what to do. It should match Toolkit 2 language: input, process, output and feedback.</p>
+
+      <h3>Choose Your Input</h3>
+      <ul>
+        <li><strong>Moisture sensor:</strong> Waters when the soil or test sample is dry.</li>
+        <li><strong>Rain sensor:</strong> Prevents watering when water is already detected.</li>
+        <li><strong>Switch or button:</strong> Gives manual control for testing, reset or override.</li>
+        <li><strong>Timer:</strong> Runs the pump or valve for a fixed period.</li>
+        <li><strong>Water level input:</strong> Protects the pump if the reservoir is too low.</li>
+      </ul>
+
+      <h3>Choose Your Process</h3>
+      <ul>
+        <li><strong>Microcontroller:</strong> Uses code and thresholds to control outputs.</li>
+        <li><strong>Relay or transistor circuit:</strong> Lets a low-current signal switch a higher-current pump or valve.</li>
+        <li><strong>Timer circuit:</strong> Controls duration when the design does not need full sensor feedback.</li>
+        <li><strong>Teacher-provided board:</strong> Follow the approved wiring and explain the decision logic in your folio.</li>
+      </ul>
+
+      <h3>Choose Your Output</h3>
+      <ul>
+        <li><strong>Pump:</strong> Moves water from the reservoir through tubing.</li>
+        <li><strong>Solenoid valve:</strong> Opens or closes a water path.</li>
+        <li><strong>LED indicator:</strong> Shows dry soil, watering, low tank or fault states.</li>
+        <li><strong>Buzzer:</strong> Warns when the system needs attention.</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Basic control rule:</strong> If soil is dry, the tank has water and rain is not detected, turn watering on. If soil is wet, the tank is low or rain is detected, keep watering off.
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Circuit, Materials and Component Planning</h2>
+      <img src="../images/year10-garden-watering/05-sensors-actuators.svg" alt="Sensor and actuator examples for a garden watering system" class="content-image left" />
+      <p>A strong plan shows what each part does and how it will be connected safely. Keep the plan simple enough to build and test in class.</p>
+
+      <h3>Required Planning Evidence</h3>
+      <ul>
+        <li><strong>Component list:</strong> Name each part, quantity, purpose and any safety note.</li>
+        <li><strong>Wiring/circuit plan:</strong> Show power, input, controller/process, output and switching device if used.</li>
+        <li><strong>Irrigation layout:</strong> Show reservoir, pump or valve, tube path, outlet, target garden area and catch tray.</li>
+        <li><strong>Fixing plan:</strong> Explain how parts will be mounted so water, wiring and moving parts stay controlled.</li>
+        <li><strong>Risk controls:</strong> Identify hazards for water, low-voltage electricity, cutting, drilling, hot glue and wet testing.</li>
+      </ul>
+
+      <h3>Component Selection Questions</h3>
+      <ul>
+        <li>Does this part suit the job, or is it impressive but unnecessary?</li>
+        <li>Can the output be powered safely by the controller, or does it need a relay, transistor or driver?</li>
+        <li>Can the sensor be tested under repeatable dry/wet conditions?</li>
+        <li>Can another student understand the diagram without you standing there translating it?</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Build Sequence Planning</h2>
+      <p>Write the build sequence before construction starts. This is not busywork. It is how you avoid rebuilding the whole thing because one tube had to go underneath a wire you already glued down.</p>
+      <ol>
+        <li><strong>Confirm the brief:</strong> Check the approved components, success criteria and teacher safety expectations.</li>
+        <li><strong>Prepare the base:</strong> Mark the garden area, reservoir position, wet zone and dry electronics zone.</li>
+        <li><strong>Build the water path:</strong> Install reservoir, pump or valve, tubing and outlet. Test for leaks without powering the electronics.</li>
+        <li><strong>Build the input circuit:</strong> Connect and test the sensor, switch or timer separately.</li>
+        <li><strong>Build the output circuit:</strong> Connect and test the pump, valve or indicator separately using teacher-approved power.</li>
+        <li><strong>Connect the process:</strong> Join input, controller/process and output after teacher checking.</li>
+        <li><strong>Run subsystem tests:</strong> Test one section at a time and record results.</li>
+        <li><strong>Run full-system tests:</strong> Check dry, wet, rain/no rain and low-tank conditions where relevant.</li>
+        <li><strong>Improve and document:</strong> Change one thing at a time and record faults, fixes and results.</li>
+      </ol>
+    </article>
+
+    <article class="card">
+      <h2>Activities &amp; Evidence</h2>
+      <h3>1) Design Brief Analysis</h3>
+      <ul>
+        <li>Summarise the watering problem, user need and success criteria.</li>
+        <li>Create a checklist of project constraints and teacher safety requirements.</li>
+      </ul>
+
+      <h3>2) Concept Sketches</h3>
+      <ul>
+        <li>Create at least two different garden watering layout options.</li>
+        <li>Annotate sensor position, reservoir, water path, wet zone, dry zone and output.</li>
+        <li>Compare the options and justify the chosen design.</li>
+      </ul>
+
+      <h3>3) Final Design Package</h3>
+      <ul>
+        <li>Create a final irrigation layout with labels and dimensions where useful.</li>
+        <li>Create an input-process-output diagram and control flowchart or pseudocode.</li>
+        <li>Create a wiring/circuit plan showing power, input, process, output and any relay/driver.</li>
+        <li>Prepare a component list, tool list, build sequence and risk control table.</li>
+      </ul>
+
+      <h3>4) Teacher Check-in</h3>
+      <ul>
+        <li>Submit concept sketches, final layout, circuit/control plan and testing method before construction.</li>
+        <li>Get teacher feedback before cutting, fixing parts or powering the system.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Portfolio Checklist</h2>
+      <div class="image-embed">
+        <img src="../images/year10-garden-watering/05-design-planning.png" alt="Garden watering portfolio planning checklist">
+      </div>
+      <ul>
+        <li>Project brief summary and success criteria.</li>
+        <li>Research notes about real irrigation or automated watering systems.</li>
+        <li>Input-process-output diagram with feedback labelled where relevant.</li>
+        <li>Two concept sketches and one final chosen design.</li>
+        <li>Irrigation layout showing reservoir, tube path, outlet and garden area.</li>
+        <li>Wiring/circuit plan showing power, input device, controller/process and output device.</li>
+        <li>Algorithm, flowchart or pseudocode showing start, stop and fault conditions.</li>
+        <li>Materials/component list with quantities and purpose.</li>
+        <li>Build sequence and risk controls for water, electricity and tools.</li>
+        <li>Planned testing method ready for Toolkit 4.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Design Planning Q&amp;A</h2>
+      <div class="qa-list" data-qa-min-words="8" data-qa-min-keyterms="1">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why should the wet zone and dry zone be shown on the design plan?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa1">
+            <p>The wet zone and dry zone show how the design keeps water away from electronics, wiring joins and power sources. This improves safety and makes faults easier to trace during testing.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What makes a concept sketch useful for this project?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa2">
+            <p>A useful concept sketch labels the reservoir, tube path, outlet, sensor, controller, output and wet/dry zones. It also includes notes explaining why the layout should work.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why is a flowchart or pseudocode needed before building?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa3">
+            <p>The flowchart or pseudocode explains the system decision before parts are connected. It shows when watering starts, when it stops and what should happen during fault conditions such as rain or a low tank.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What should be included in the final design package?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa4">
+            <p>The final design package should include the chosen layout, IPO diagram, circuit or wiring plan, algorithm, component list, risk controls, build sequence and planned testing method.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How do you justify the strongest design option?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa5">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa5">
+            <p>Compare the options against the brief. A strong justification explains why the chosen design is safer, more reliable, easier to build, easier to test, better at saving water or better suited to the available components.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li><a href="../garden_watering_info_sheets.html" target="_blank" rel="noopener">Garden Watering System Info Sheets</a></li>
+        <li><a href="../garden_watering_project.html" target="_blank" rel="noopener">Garden Watering System Student Guide</a></li>
+        <li><a href="../garden_watering_portfolio_guided_viewer.html" target="_blank" rel="noopener">Garden Watering Portfolio Workbook</a></li>
+        <li><a href="../Youtube%20clips/year10%20term%201%20youtube%20clips.html" target="_blank" rel="noopener">Year 10 Term 1 YouTube Clip Index</a></li>
+        <li><a href="module4.html">Toolkit 4: Build, Test &amp; Evaluate</a> for turning this plan into test evidence.</li>
+      </ul>
+    </article>
+  </main>
+
+  <script src="../page-nav.js" defer></script>
+  <script src="../qa-widget.js"></script>
+</body>
+</html>

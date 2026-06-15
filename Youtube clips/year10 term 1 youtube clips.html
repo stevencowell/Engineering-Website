@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Year 10 Term 1 - YouTube Clip Index</title>
+  <style>
+    :root{
+      --bg: #0b1220;
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 18px 60px rgba(0,0,0,0.45);
+      --radius: 16px;
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:
+        radial-gradient(1200px 700px at 15% -10%, rgba(79,70,229,0.45), transparent 60%),
+        radial-gradient(1100px 800px at 90% 0%, rgba(56,189,248,0.22), transparent 55%),
+        radial-gradient(900px 700px at 50% 110%, rgba(34,197,94,0.18), transparent 55%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    .wrap{
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+
+    header{
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 14px;
+      backdrop-filter: blur(10px);
+    }
+
+    h1{
+      font-size: clamp(20px, 3vw, 30px);
+      margin: 0 0 8px;
+      letter-spacing: 0.2px;
+    }
+
+    .sub{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .back-link{
+      display: inline-flex;
+      margin: 14px 0 0;
+      color: rgba(255,255,255,0.86);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .tableCard{
+      margin-top: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    table{
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    thead th{
+      text-align: left;
+      font-weight: 650;
+      font-size: 12.5px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.78);
+      background: rgba(0,0,0,0.25);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 14px;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    tbody td{
+      padding: 14px;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    tbody tr:hover{ background: rgba(255,255,255,0.04); }
+
+    .toolkit{
+      display: inline-flex;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.82);
+      font-size: 12.5px;
+      white-space: nowrap;
+    }
+
+    .title{
+      margin: 0 0 6px;
+      font-weight: 700;
+      line-height: 1.25;
+      font-size: 14.5px;
+    }
+
+    .overview{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 13.5px;
+    }
+
+    .thumb{
+      width: 220px;
+      max-width: 100%;
+      min-height: 124px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(14,165,233,0.25), rgba(34,197,94,0.16)),
+        rgba(0,0,0,0.28);
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,0.92);
+      font-weight: 900;
+      font-size: 34px;
+      letter-spacing: 1px;
+    }
+
+    .playBadge{
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+    }
+    .playBadge span{
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.18);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    .playBadge svg{
+      width: 20px; height: 20px;
+      margin-left: 2px;
+      fill: rgba(255,255,255,0.92);
+    }
+
+    .actions{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.88);
+      text-decoration: none;
+      font-size: 13px;
+      cursor: not-allowed;
+      user-select: none;
+    }
+    .btn.primary{
+      background: rgba(79,70,229,0.22);
+      border-color: rgba(79,70,229,0.35);
+    }
+
+    .note{
+      margin-top: 14px;
+      color: rgba(255,255,255,0.66);
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px){
+      thead{ display: none; }
+      table, tbody, tr, td{ display: block; width: 100%; }
+      tbody td{ border-bottom: 0; padding: 12px 14px; }
+      tbody tr{ border-bottom: 1px solid rgba(255,255,255,0.10); }
+      .thumb{ width: 100%; min-height: 170px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Year 10 Term 1 - YouTube Clip Index</h1>
+      <p class="sub">
+        Quick-access video placeholders aligned to the Garden Watering System toolkits. Replace each placeholder with the selected clip once the class video list is locked in.
+      </p>
+      <a class="back-link" href="../year10_term1.html">&larr; Back to Year 10 Term 1</a>
+    </header>
+
+    <div class="tableCard" role="region" aria-label="Year 10 Term 1 video table">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 150px;">Toolkit</th>
+            <th style="width: 260px;">Thumbnail</th>
+            <th>Clip overview</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><span class="toolkit">Toolkit 1</span></td>
+            <td>
+              <div class="thumb" aria-label="Placeholder thumbnail for safe low-voltage water testing">
+                H2O
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </div>
+            </td>
+            <td>
+              <p class="title">Safe Low-Voltage Water Testing</p>
+              <p class="overview">Use before practical testing to reinforce wet/dry zones, teacher checks, spill control and low-voltage safety.</p>
+              <div class="actions">
+                <span class="btn primary">Add Play Link</span>
+                <span class="btn">Add YouTube Link</span>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 2</span></td>
+            <td>
+              <div class="thumb" aria-label="Placeholder thumbnail for input process output systems">
+                IPO
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </div>
+            </td>
+            <td>
+              <p class="title">Input-Process-Output Systems</p>
+              <p class="overview">Use for introducing control-system language before students design their own automated watering system.</p>
+              <div class="actions">
+                <span class="btn primary">Add Play Link</span>
+                <span class="btn">Add YouTube Link</span>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 2</span></td>
+            <td>
+              <div class="thumb" aria-label="Placeholder thumbnail for moisture and rain sensors">
+                SEN
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </div>
+            </td>
+            <td>
+              <p class="title">Moisture and Rain Sensors</p>
+              <p class="overview">Use to show how sensors detect environmental conditions and trigger a control response.</p>
+              <div class="actions">
+                <span class="btn primary">Add Play Link</span>
+                <span class="btn">Add YouTube Link</span>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 3</span></td>
+            <td>
+              <div class="thumb" aria-label="Placeholder thumbnail for algorithms and flowcharts">
+                ALG
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </div>
+            </td>
+            <td>
+              <p class="title">Algorithms and Flowcharts</p>
+              <p class="overview">Use before students write the if this then that logic for watering decisions and stop conditions.</p>
+              <div class="actions">
+                <span class="btn primary">Add Play Link</span>
+                <span class="btn">Add YouTube Link</span>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Toolkit 4</span></td>
+            <td>
+              <div class="thumb" aria-label="Placeholder thumbnail for pump and solenoid valve control">
+                PMP
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </div>
+            </td>
+            <td>
+              <p class="title">Pump and Solenoid Valve Control</p>
+              <p class="overview">Use when students compare output devices and explain actuator choice in the project folio.</p>
+              <div class="actions">
+                <span class="btn primary">Add Play Link</span>
+                <span class="btn">Add YouTube Link</span>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Evaluation</span></td>
+            <td>
+              <div class="thumb" aria-label="Placeholder thumbnail for smart irrigation and water efficiency">
+                ECO
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </div>
+            </td>
+            <td>
+              <p class="title">Smart Irrigation and Water Efficiency</p>
+              <p class="overview">Use for sustainability, real-world engineering context and final evaluation language.</p>
+              <div class="actions">
+                <span class="btn primary">Add Play Link</span>
+                <span class="btn">Add YouTube Link</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note">No live video links have been invented here. These are styled placeholders ready for selected class clips.</p>
+  </div>
+</body>
+</html>

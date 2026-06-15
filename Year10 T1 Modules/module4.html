@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 4: Build, test, fault-find and evaluate the Year 10 Garden Watering System project." />
+  <title>Toolkit 4: Build, Test &amp; Evaluate | Year 10 Term 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0,0,0,0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.25rem 1.25rem 2rem;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+    }
+    nav a {
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    nav a.active {
+      background: #e6f0fb;
+      color: #0b63c3;
+    }
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.75rem 1rem 3rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--brand);
+      font-weight: 600;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+      background: #fff;
+    }
+    .content-image.left {
+      float: left;
+      margin: 0.5rem 1.5rem 1rem 0;
+    }
+    .image-embed {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      background: #fff;
+      margin: 0.75rem 0 1rem;
+    }
+    .image-embed img {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+    }
+    .callout {
+      background: #f8f9fa;
+      border-left: 3px solid var(--brand);
+      border-radius: 6px;
+      color: var(--muted);
+      margin: 0.75rem 0;
+      padding: 0.75rem;
+    }
+    .data-table {
+      border-collapse: collapse;
+      color: var(--muted);
+      margin: 0.75rem 0 1rem;
+      width: 100%;
+    }
+    .data-table th,
+    .data-table td {
+      border: 1px solid var(--border);
+      padding: 0.7rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    .data-table th {
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+    }
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin: 1rem 0;
+    }
+    .step-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #f8fbff;
+      padding: 0.9rem;
+    }
+    .step-card strong {
+      color: var(--brand);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    @media (max-width: 760px) {
+      .content-image,
+      .content-image.left {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+      .step-grid { grid-template-columns: 1fr; }
+      .data-table { font-size: 0.92rem; }
+      header h1 { font-size: 1.75rem; }
+    }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul,
+    .card ol {
+      margin: 0.3rem 0 0.75rem;
+      padding-left: 1.1rem;
+      color: var(--muted);
+    }
+    .card li + li { margin-top: 0.35rem; }
+    .card p { color: var(--muted); }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <h1>Toolkit 4: Build, Test &amp; Evaluate</h1>
+    <p>Prototype assembly, subsystem testing, fault-finding, improvement and folio evidence</p>
+  </header>
+
+  <nav>
+    <a href="../year10_term1.html">Year 10 Term 1</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a class="active" href="module4.html">Toolkit 4</a>
+    <a href="tutorial.html">Tutorial</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main id="main-content" role="main">
+    <a class="back-link" href="../year10_term1.html">&#8592; Back to Year 10 T1 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Project</div>
+      <h2>Learning Focus</h2>
+      <img src="../images/year10-garden-watering/students-building-garden-watering-system.png" alt="Students building a garden watering prototype" class="content-image" />
+      <p>By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Build the Garden Watering System prototype:</strong> Use the approved Toolkit 3 plan to assemble the base, reservoir, tubing, input, controller and output safely.</li>
+        <li><strong>Test subsystems before the whole system:</strong> Check the water path, input device, control logic and output device separately before joining everything together.</li>
+        <li><strong>Fault-find using evidence:</strong> Record faults, likely causes, fixes attempted and retest results instead of guessing wildly and hoping the bench dries by lunch.</li>
+        <li><strong>Collect performance data:</strong> Measure response time, water delivered, leaks, repeatability and successful test cycles using consistent units.</li>
+        <li><strong>Evaluate the final design:</strong> Explain reliability, safety, sustainability, water efficiency and improvements using control-system language.</li>
+        <li><strong>Prepare folio evidence:</strong> Use photos, diagrams, tables, fault logs and evaluation paragraphs to show professional engineering practice.</li>
+      </ul>
+      <div class="callout">
+        <strong>Timing:</strong> Complete Toolkit 4 after your design plan has been checked. Build carefully, test in short cycles, then use the evidence in your final portfolio and assessment work.
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Google Classroom Check-in</h2>
+      <ul>
+        <li><strong>Teacher setup:</strong> Add the final build, testing and evaluation topic link once the Google Classroom task is created.</li>
+        <li><strong>Student evidence:</strong> Upload build progress photos, subsystem test results, a fault log and final test data.</li>
+        <li><strong>Final submission:</strong> Submit the portfolio workbook section covering build process, testing, improvements and final evaluation.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <div class="pill">Build</div>
+      <h2>From Plan to Prototype</h2>
+      <img src="../images/year10-garden-watering/water-control-system-prototype-photo.png" alt="Garden watering system prototype" class="content-image" />
+      <p><strong>Why this matters:</strong> Toolkit 4 is where the Year 10 project becomes real. Good engineering is not just making the system work once. It is making it work safely, repeatedly and with evidence.</p>
+      <p>Your prototype should demonstrate:</p>
+      <ul>
+        <li><strong>Planned assembly:</strong> Follow the Toolkit 3 build sequence so water, wiring and moving parts are installed in a sensible order.</li>
+        <li><strong>Build quality:</strong> Secure parts, label wires and tubes, separate wet and dry zones and avoid messy connections that hide faults.</li>
+        <li><strong>Controlled testing:</strong> Test one variable at a time so the cause of a problem or improvement is clear.</li>
+        <li><strong>Technical communication:</strong> Explain results using terms such as input, process, output, feedback, threshold, response time, repeatability and reliability.</li>
+      </ul>
+      <div class="step-grid">
+        <div class="step-card">
+          <strong>1. Water path</strong>
+          Build and leak-test the reservoir, pump or valve, tubing and outlet before powering the control system.
+        </div>
+        <div class="step-card">
+          <strong>2. Control path</strong>
+          Test the input, controller and output separately with the teacher-approved power supply.
+        </div>
+        <div class="step-card">
+          <strong>3. Whole system</strong>
+          Connect the sections only after each subsystem behaves reliably on its own.
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Safe Build Protocol</h2>
+      <img src="../images/year10-garden-watering/03-safe-test-setup.png" alt="Safe wet and dry zone test setup" class="content-image left" />
+      <h3>1) Pre-build teacher check</h3>
+      <ul>
+        <li>Show the final layout, circuit/control plan, component list and testing method from Toolkit 3.</li>
+        <li>Confirm the low-voltage power source, pump or valve rating, tool access and any water-handling limits.</li>
+        <li>Identify the wet zone, dry electronics zone, catch tray and safe access point for switches or reset buttons.</li>
+      </ul>
+
+      <h3>2) Assemble the water path first</h3>
+      <ul>
+        <li>Fix the reservoir/container securely so it cannot tip during testing.</li>
+        <li>Install tubing with smooth bends. Avoid kinks, unsupported loops and tight bends at fittings.</li>
+        <li>Run a gravity or hand test where possible to check leaks before adding electrical control.</li>
+        <li>Record any leaks, drips or weak joins in the fault log.</li>
+      </ul>
+
+      <h3>3) Assemble the electronics dry</h3>
+      <ul>
+        <li>Keep the controller, battery, breadboard, switches and wiring joins away from the water path.</li>
+        <li>Label input, process and output connections so faults can be traced quickly.</li>
+        <li>Use strain relief or tape where wires and tubes could be pulled loose during testing.</li>
+        <li>Ask for a teacher check before powering the system or running a wet test.</li>
+      </ul>
+
+      <h3>4) Record build changes</h3>
+      <ul>
+        <li>Photograph the approved plan, the build stages and any changes made during construction.</li>
+        <li>Explain why the change was needed: safety, reliability, space, component limits or improved water delivery.</li>
+        <li>Make changes one at a time so you can tell what actually improved the system.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <div class="pill">Test</div>
+      <h2>Subsystem Testing</h2>
+      <img src="../images/year10-garden-watering/06-testing-evaluation.png" alt="Garden watering testing and evaluation guide" class="content-image" />
+      <p>Do not start with the full system. That is how you create four possible problems at once and learn nothing except new swear words. Test in layers.</p>
+
+      <h3>Output and Water Delivery Test</h3>
+      <ul>
+        <li>Can the pump or valve move water reliably from the reservoir to the target area?</li>
+        <li>Does the tubing leak, kink, block or spray outside the intended zone?</li>
+        <li>How much water is delivered in a fixed time, such as 10 seconds or 30 seconds?</li>
+        <li>Does the output stop cleanly, or does water continue to drip or siphon?</li>
+      </ul>
+
+      <h3>Input and Threshold Test</h3>
+      <ul>
+        <li>Does the sensor, switch or timer change state when expected?</li>
+        <li>Is the trigger threshold too sensitive, too slow or inconsistent?</li>
+        <li>Can the input be reset and tested again under the same conditions?</li>
+        <li>Does the input need better placement, shielding or calibration?</li>
+      </ul>
+
+      <h3>Control Logic Test</h3>
+      <ul>
+        <li>Does the input correctly control the output through the process/controller?</li>
+        <li>Does the system stop when soil is wet, rain is detected, time has elapsed or the tank is low?</li>
+        <li>Does the system behave the same way over several test cycles?</li>
+        <li>Can a fault condition be detected or explained?</li>
+      </ul>
+
+      <h3>Whole-System Test</h3>
+      <ul>
+        <li>Run at least three full cycles under the same conditions and record the result each time.</li>
+        <li>Change one condition, such as dry/wet soil or full/low reservoir, and record the system response.</li>
+        <li>Use photos or video to capture leaks, delays, sensor response and final watering coverage.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Testing Tables and Fault Log</h2>
+      <p>Use simple tables. The goal is not spreadsheet theatre. The goal is evidence you can actually use in your evaluation.</p>
+
+      <h3>Example Test Data Table</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Test</th>
+            <th>Condition</th>
+            <th>Expected Response</th>
+            <th>Measured Result</th>
+            <th>Pass / Improve</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Output flow</td>
+            <td>Pump on for 10 seconds</td>
+            <td>Water reaches target area</td>
+            <td>Record mL delivered and leaks</td>
+            <td>Pass or improvement needed</td>
+          </tr>
+          <tr>
+            <td>Input threshold</td>
+            <td>Dry sample, then wet sample</td>
+            <td>System recognises change</td>
+            <td>Record reading, delay or trigger point</td>
+            <td>Pass or recalibrate</td>
+          </tr>
+          <tr>
+            <td>Full cycle</td>
+            <td>Dry garden area, tank filled</td>
+            <td>Watering starts, then stops correctly</td>
+            <td>Record response time and water volume</td>
+            <td>Pass or improve</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Example Fault Log</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Fault</th>
+            <th>Likely Cause</th>
+            <th>Fix Attempted</th>
+            <th>Retest Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pump runs but little water reaches outlet</td>
+            <td>Kinked tube, low battery, blocked fitting or air in line</td>
+            <td>Straighten tube, check power, clear fitting, prime pump</td>
+            <td>Record new flow rate and whether the fault returned</td>
+          </tr>
+          <tr>
+            <td>System waters when soil is already wet</td>
+            <td>Threshold too low, sensor in wrong location or poor contact</td>
+            <td>Recalibrate threshold and move sensor to better test point</td>
+            <td>Record dry/wet readings after adjustment</td>
+          </tr>
+          <tr>
+            <td>Water leaks near electronics</td>
+            <td>Tube join loose or wet/dry zones too close</td>
+            <td>Move electronics, secure join and add catch tray</td>
+            <td>Teacher check before powering again</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <article class="card">
+      <h2>Making Sense of Results</h2>
+      <img src="../images/year10-garden-watering/water-control-system-project-diagram.png" alt="Garden watering control system diagram" class="content-image left" />
+      <h3>Reliability</h3>
+      <ul>
+        <li>Count successful cycles out of total cycles, such as 4 successful cycles out of 5.</li>
+        <li>Describe whether failures were random or linked to a clear condition.</li>
+        <li>Explain whether the fix improved repeatability.</li>
+      </ul>
+
+      <h3>Water Efficiency</h3>
+      <ul>
+        <li>Measure water delivered in millilitres during a timed test.</li>
+        <li>Compare water delivered to the target area against water lost through leaks, overspray or poor outlet placement.</li>
+        <li>Explain whether a timed output, sensor threshold or improved outlet would reduce waste.</li>
+      </ul>
+
+      <h3>Safety and Maintenance</h3>
+      <ul>
+        <li>Explain how wet and dry zones were kept separate.</li>
+        <li>Identify any remaining risks: unstable reservoir, loose wiring, exposed joins, blocked tubing or poor battery access.</li>
+        <li>Comment on repairability. A system that can be fixed and retested is better than a sealed mystery box.</li>
+      </ul>
+
+      <h3>Strong Evaluation Language</h3>
+      <p>Avoid writing "it worked good". Aim for evidence-based sentences like this:</p>
+      <div class="callout">
+        The prototype watered the target area reliably in 4 out of 5 test cycles. The failed cycle was caused by a kinked outlet tube, which reduced flow from 80 mL to 25 mL in 10 seconds. After repositioning the tube and securing it to the base, the system completed three successful cycles with no leaks.
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Improvement Process</h2>
+      <p>Improvements should be controlled and documented. Do not change every part at once, because then you cannot explain which change made the difference.</p>
+      <ol>
+        <li><strong>Name the problem:</strong> Use the test data or fault log to identify the main issue.</li>
+        <li><strong>Choose one fix:</strong> Adjust sensor position, threshold, tube route, outlet, mounting, power or control timing.</li>
+        <li><strong>Predict the effect:</strong> State what should improve and how you will measure it.</li>
+        <li><strong>Retest the same way:</strong> Repeat the original test conditions so the comparison is fair.</li>
+        <li><strong>Record the result:</strong> Use data, photos and a short explanation in the folio.</li>
+      </ol>
+    </article>
+
+    <article class="card">
+      <h2>Folio Structure &amp; Evidence</h2>
+      <img src="../images/year10-garden-watering/02-ipo-feedback.svg" alt="Input process output feedback diagram" class="content-image" />
+      <p>Your folio should read like a short engineering report, not just a collection of photos. Use the portfolio workbook to organise the evidence.</p>
+      <ul>
+        <li><strong>Cover and brief:</strong> project title, group members, user need, constraints and success criteria.</li>
+        <li><strong>Research and theory:</strong> control systems notes, input-process-output diagram and feedback explanation.</li>
+        <li><strong>Design:</strong> concept sketches, final layout, irrigation diagram, circuit/control plan and algorithm.</li>
+        <li><strong>Build log:</strong> dated photos, teacher check points, build changes and reasons for changes.</li>
+        <li><strong>Testing:</strong> subsystem tests, full-system data table, fault log, photos or video stills.</li>
+        <li><strong>Evaluation:</strong> judgement about reliability, water efficiency, safety, sustainability and improvements.</li>
+        <li><strong>Reflection:</strong> what you would keep, change or test next if building a second version.</li>
+      </ul>
+      <div class="callout">
+        <strong>Quality target:</strong> Every major claim in the evaluation should be supported by a photo, test result, fault log entry or diagram.
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Portfolio Checklist</h2>
+      <div class="image-embed">
+        <img src="../images/year10-garden-watering/06-testing-evaluation.png" alt="Garden watering portfolio testing and evaluation checklist">
+      </div>
+      <ul>
+        <li>Approved Toolkit 3 plan included or referenced.</li>
+        <li>Build photos showing water path, control path and final assembled prototype.</li>
+        <li>Wet zone and dry electronics zone clearly labelled.</li>
+        <li>Subsystem test table: water delivery, input/threshold and output/control response.</li>
+        <li>Whole-system test table with repeated cycles.</li>
+        <li>Fault log showing problem, cause, fix and retest result.</li>
+        <li>Final evaluation paragraph using control-system terminology.</li>
+        <li>Safety, sustainability, water efficiency and maintenance comments.</li>
+        <li>Specific improvement recommendations based on test evidence.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Garden Watering Test &amp; Folio Q&amp;A</h2>
+      <div class="qa-list" data-qa-min-words="8" data-qa-min-keyterms="1">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why should you test subsystems before testing the whole garden watering system?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa1">
+            <p>Subsystem testing isolates faults. If the water path, input and output are tested separately first, it is much easier to identify whether a problem comes from a leak, sensor threshold, wiring fault, power issue or control logic.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What data should be collected during a full-system test?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa2">
+            <p>Useful data includes trigger condition, response time, water delivered, successful cycles, leaks, faults, sensor readings if available and whether the system stopped correctly.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How does a fault log improve the final evaluation?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa3">
+            <p>A fault log shows the engineering process. It proves that the team identified problems, predicted causes, tried fixes and retested the system. This gives stronger evidence than simply saying the final design worked or did not work.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why is repeatability more useful than one successful test?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa4">
+            <p>One successful test may be luck. Repeatability shows that the system can perform the same function under the same conditions several times, which is a much better measure of reliability.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What makes a strong final evaluation paragraph?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa5">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa5">
+            <p>A strong paragraph makes a clear judgement, supports it with test data, names specific faults or improvements and links back to the brief using control-system terms such as input, process, output, feedback, threshold and reliability.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How can the prototype be evaluated for sustainability?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa6">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa6">
+            <p>Evaluate sustainability by considering water waste, energy use, repairability, component choice, material waste and whether the control system waters only when needed.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why should improvements be tested one at a time?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa7">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa7">
+            <p>Testing one improvement at a time makes the comparison fair. If several changes are made at once, it becomes difficult to explain which change improved reliability, water delivery or safety.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What evidence should be included in the build log?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa8">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa8">
+            <p>The build log should include dated photos, notes about assembly steps, teacher check points, changes from the original plan, problems found and reasons for any design modifications.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li><a href="../garden_watering_portfolio_guided_viewer.html" target="_blank" rel="noopener">Garden Watering Portfolio Workbook</a></li>
+        <li><a href="../Year10%20T1%20Modules/observation-checklist.html" target="_blank" rel="noopener">Garden Watering Testing Checklist</a></li>
+        <li><a href="../garden_watering_info_sheets.html" target="_blank" rel="noopener">Garden Watering Info Sheets</a></li>
+        <li><a href="../garden_watering_project.html" target="_blank" rel="noopener">Garden Watering System Student Guide</a></li>
+        <li><a href="../Youtube%20clips/year10%20term%201%20youtube%20clips.html" target="_blank" rel="noopener">Year 10 Term 1 YouTube Clip Index</a></li>
+        <li><a href="module3.html">Toolkit 3: Garden Watering Design &amp; Planning</a> for the approved plan that should guide this build.</li>
+      </ul>
+    </article>
+  </main>
+
+  <script src="../page-nav.js" defer></script>
+  <script src="../qa-widget.js"></script>
+</body>
+</html>

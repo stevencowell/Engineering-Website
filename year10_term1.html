@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Year 10 Term 1 Engineering: Garden Watering System unit covering control systems, sensors, irrigation design, electronics, prototyping, testing and evaluation." />
+  <meta name="keywords" content="engineering, control systems, garden watering system, irrigation, sensors, electronics, year 10, stage 5" />
+  <title>Year 10 Term 1 - Garden Watering System | Stage 5 Engineering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <script src="collapsible-panels.js" defer></script>
+  <script src="page-nav.js" defer></script>
+  <style>
+    :root {
+      --brand: #0056b3;
+      --brand-2: #0a7e2a;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.75rem 1.25rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1rem 0 0.5rem;
+    }
+    .top-nav a,
+    .top-nav span {
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.12);
+      color: #e8f2ff;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .top-nav span {
+      opacity: 0.75;
+      cursor: not-allowed;
+    }
+    .top-nav a.active,
+    .top-nav span.active {
+      background: #fff;
+      color: #0b63c3;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+    .hero-title { margin: 0.25rem 0; font-size: clamp(2.1rem, 4vw, 2.8rem); font-weight: 700; }
+    .hero-sub { margin: 0.3rem 0; opacity: 0.9; font-size: 1.05rem; }
+    main { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+    .crumbs { display: inline-flex; gap: 0.75rem; margin: 1rem 0 1.5rem; align-items: center; }
+    .crumbs a { color: var(--brand); font-weight: 600; }
+    .panel, .assessment-panel {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    .panel h3, .assessment-panel h3 { margin-top: 0; color: var(--brand); font-size: 1.35rem; }
+    .panel ul, .assessment-panel ul { margin: 0; padding-left: 1.1rem; color: var(--muted); }
+    .panel li + li, .assessment-panel li + li { margin-top: 0.35rem; }
+    .panel a { color: var(--brand); text-decoration: underline; }
+    .project-instructions h4 { margin: 0 0 0.35rem; color: var(--text); }
+    .instruction-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 1rem;
+    }
+    .requirements-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.35rem 0 0;
+      display: grid;
+      gap: 0.25rem;
+    }
+    .requirements-list li {
+      background: #f6f8fb;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.5rem 0.75rem;
+      color: var(--text);
+    }
+    .build-steps-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.35rem;
+    }
+    .build-step-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.06);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .build-step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--brand);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(0, 86, 179, 0.18);
+    }
+    .build-step-body h5 {
+      margin: 0 0 0.25rem;
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+    .build-step-body p {
+      margin: 0;
+      color: var(--muted);
+    }
+    .step-details {
+      margin-top: 0.55rem;
+      color: var(--muted);
+    }
+    .step-details summary {
+      cursor: pointer;
+      color: var(--brand);
+      font-weight: 700;
+      list-style: none;
+    }
+    .step-details summary::-webkit-details-marker { display: none; }
+    .step-details summary::before {
+      content: ">";
+      display: inline-block;
+      margin-right: 0.5rem;
+      font-size: 0.85rem;
+    }
+    .step-details[open] summary::before { transform: rotate(90deg); }
+    .step-details ul {
+      margin-top: 0.5rem;
+      padding-left: 1rem;
+    }
+    .quick-check {
+      margin-top: 0.5rem;
+      padding: 0.55rem 0.7rem;
+      border-radius: 10px;
+      background: #eef6ff;
+      color: #0b3d91;
+      font-weight: 700;
+    }
+    .instruction-note { color: var(--muted); margin: 0.25rem 0 0; }
+    .instruction-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .instruction-gallery figure {
+      margin: 0;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.65rem;
+      box-shadow: var(--shadow);
+    }
+    .instruction-gallery img {
+      display: block;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+    .instruction-gallery figcaption {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 0.45rem;
+    }
+    .instruction-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+    .instruction-links a { text-decoration: underline; color: var(--brand); font-weight: 700; }
+    .start-here-card {
+      text-decoration: none !important;
+      color: var(--text) !important;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 86, 179, 0.2);
+      background: linear-gradient(135deg, rgba(0, 86, 179, 0.08), rgba(10, 126, 42, 0.08));
+      box-shadow: 0 10px 22px rgba(0, 86, 179, 0.08);
+      min-width: min(100%, 360px);
+    }
+    .start-here-card-label { display: flex; flex-direction: column; gap: 0.15rem; line-height: 1.25; min-width: 0; }
+    .start-here-card-title { font-size: 1.05rem; color: #0b3d91; font-weight: 800; }
+    .start-here-card-sub { font-size: 0.9rem; color: var(--muted); font-weight: 500; }
+    .start-here-card-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #0b3d91;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+    .youtube-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 1.35rem 1.5rem;
+      margin: 0 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .youtube-card-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 0;
+    }
+    .youtube-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #ff2a2a, #b10000);
+      color: #fff;
+      font-weight: 900;
+      flex: 0 0 auto;
+      box-shadow: 0 10px 20px rgba(177, 0, 0, 0.18);
+    }
+    .youtube-card-title {
+      margin: 0;
+      color: var(--text);
+      font-size: 1.35rem;
+    }
+    .youtube-card-sub {
+      margin: 0.25rem 0 0;
+      color: var(--muted);
+    }
+    .youtube-action {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 86, 179, 0.22);
+      background: rgba(0, 86, 179, 0.06);
+      color: rgba(0, 86, 179, 0.95);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      flex: 0 0 auto;
+      box-shadow: var(--shadow);
+      text-decoration: none;
+    }
+    .youtube-action:hover {
+      background: rgba(0, 86, 179, 0.11);
+      border-color: rgba(0, 86, 179, 0.32);
+    }
+    .youtube-action:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 3px;
+    }
+    .assessment-panel {
+      background: #fff8e1;
+      border-left: 5px solid #ffc107;
+    }
+    .assessment-header {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .assessment-header-item {
+      background: rgba(255,255,255,0.75);
+      border-radius: 8px;
+      padding: 0.85rem;
+      border: 1px solid rgba(133, 100, 4, 0.15);
+    }
+    .assessment-header-item strong { display: block; color: #856404; }
+    .assessment-header-item span { color: #333; }
+    .assessment-link {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #856404;
+      color: #fff;
+      padding: 0.7rem 1rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .modules { margin-top: 2rem; }
+    .modules h2 { color: var(--brand); }
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+    .module-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .module-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+    }
+    .thumb-container {
+      background: #e6f0fb;
+      padding: 0.75rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tutorial-card, .checklist-card {
+      border: 2px solid #0b63c3;
+      background: linear-gradient(135deg, #0b63c3, #0a4f93);
+      color: #fff;
+    }
+    .tutorial-card:hover, .checklist-card:hover {
+      background: linear-gradient(135deg, #0a4f93, #073a6a);
+      color: #fff;
+    }
+    .tutorial-card .module-title,
+    .checklist-card .module-title,
+    .tutorial-card .module-sub,
+    .checklist-card .module-sub { color: #fff; }
+    .module-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, var(--brand), #0e7adf);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .tutorial-thumb, .checklist-thumb {
+      background: linear-gradient(135deg, #d9e8ff, #c7dcff);
+    }
+    .tutorial-thumb span, .checklist-thumb span {
+      color: #0b63c3;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .module-title { font-weight: 600; color: var(--text); }
+    .module-sub { font-size: 0.95rem; color: var(--muted); }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .footer {
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="sr-only" style="position: absolute; top: 0; left: 0; background: #0b63c3; color: #fff; padding: 0.75rem 1rem; z-index: 1000; text-decoration: none; border-radius: 0 0 4px 0;">Skip to main content</a>
+  <header role="banner">
+    <h1 class="hero-title">Year 10 Term 1: Garden Watering System</h1>
+    <p class="hero-sub">Control systems, sensors, electronics, irrigation design, testing and evaluation</p>
+    <div class="top-nav">
+      <a href="index.html">Back to Engineering Home</a>
+      <span class="active">Term 1 - Garden Watering System</span>
+      <span>Term 2 - Template Pending</span>
+      <span>Term 3 - Template Pending</span>
+      <span>Term 4 - Template Pending</span>
+    </div>
+  </header>
+  <main id="main-content" role="main">
+    <div class="crumbs">
+      <a href="index.html">&#8592; Back to Main Index</a>
+      <span>/</span>
+      <span>Year 10 Term 1</span>
+    </div>
+
+    <section class="panel project-instructions" aria-labelledby="project-instructions-heading">
+      <div class="instruction-grid">
+        <div>
+          <h3 id="project-instructions-heading">Garden Watering System Project Instructions</h3>
+          <h4>Project brief</h4>
+          <p style="color: #4b5563; margin: 0 0 0.5rem;">Design, build and test a small automated watering system that responds to garden conditions and waters a plant bed safely and efficiently.</p>
+          <ul class="requirements-list" aria-label="Non-negotiable requirements">
+            <li><strong>Input:</strong> Use at least one sensor or switch to trigger the system.</li>
+            <li><strong>Control:</strong> Include a simple control circuit or programmed controller.</li>
+            <li><strong>Output:</strong> Activate a pump, valve, LED indicator or watering output.</li>
+            <li><strong>Safety:</strong> Keep water and electrical connections managed and low-risk.</li>
+            <li><strong>Evidence:</strong> Record design decisions, wiring, tests, faults and improvements.</li>
+          </ul>
+          <p class="instruction-note"><strong>What good looks like:</strong> a clear input-process-output chain, tidy wiring, sensible water management, reliable testing data and honest evaluation of what needs improving.</p>
+        </div>
+
+        <div>
+          <h4>System requirements</h4>
+          <ul>
+            <li>Show how the system senses or receives a watering condition.</li>
+            <li>Explain the input, process and output clearly in your folio.</li>
+            <li>Use a planned wiring/circuit layout and a planned water path.</li>
+            <li>Test one part at a time before testing the whole system.</li>
+            <li>Use data to judge reliability, water use and possible improvements.</li>
+          </ul>
+          <p class="instruction-note"><strong>Teacher note:</strong> This unit builds from the existing Control Systems program content: automatic watering systems, solenoids, moisture/rain sensors, relays, pumps, algorithms and feedback.</p>
+        </div>
+      </div>
+      <div class="instruction-gallery" aria-label="Water control system project diagram">
+        <figure>
+          <img src="images/year10-garden-watering/water-control-system-project-diagram.png" alt="Water control system diagram showing reservoir, pump, controller, sensor and plant tray" loading="lazy">
+          <figcaption>Water control system project: reservoir, tubing, controller, sensor and plant tray.</figcaption>
+        </figure>
+      </div>
+      <div class="instruction-grid" style="margin-top: 1.25rem;">
+        <div>
+          <h4>Build steps</h4>
+          <div class="build-steps-card-grid" role="list">
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">1</div>
+              <div class="build-step-body">
+                <h5>Sketch 2-3 system ideas</h5>
+                <p>Choose a simple watering layout that is safe, clear and testable.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Show reservoir, tubing, outlet and plant/garden area.</li>
+                    <li>Mark the wet zone and the dry electronics zone.</li>
+                    <li>Try different input options: switch, timer, moisture sensor or rain sensor.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Can you point to the input, process and output?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">2</div>
+              <div class="build-step-body">
+                <h5>Draw your final design with labels</h5>
+                <p>Show component positions, wiring path, water path and teacher check point.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Label power source, controller, sensor/input and output device.</li>
+                    <li>Show where tubing is fixed and where water exits.</li>
+                    <li>Include rough spacing so another student could follow it.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Could someone else build it from your drawing?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">3</div>
+              <div class="build-step-body">
+                <h5>Plan components and test order</h5>
+                <p>List parts and decide what you will test before connecting the full system.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Write a component list with quantity and purpose.</li>
+                    <li>Plan output test, input test, then whole-system test.</li>
+                    <li>Prepare a test table before the first powered test.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Do you know what data you will record?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">4</div>
+              <div class="build-step-body">
+                <h5>Build the water path first</h5>
+                <p>Set up the reservoir, tubing and outlet before connecting electronics.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Test for leaks with power disconnected.</li>
+                    <li>Secure tubing so it does not kink or pull loose.</li>
+                    <li>Keep the outlet aimed at the plant area, not the bench.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Can water move without reaching the dry zone?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">5</div>
+              <div class="build-step-body">
+                <h5>Connect and check the control system</h5>
+                <p>Wire the input, controller and output, then get a teacher check before power.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Keep exposed joins away from the wet zone.</li>
+                    <li>Label wires or use consistent colours where possible.</li>
+                    <li>Check polarity, loose connections and switch positions before testing.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Has the teacher checked the circuit before power is connected?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">6</div>
+              <div class="build-step-body">
+                <h5>Test, record and improve</h5>
+                <p>Run repeated tests, record faults, then improve one thing at a time.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Record trigger condition, response time, water delivered and result.</li>
+                    <li>Use a fault log: problem, likely cause, fix, retest result.</li>
+                    <li>Use control-system words: input, process, output, feedback and reliability.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Did you write down results as you went?</p>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4>Quick checks</h4>
+          <ul>
+            <li>Can you identify the input, process, output and feedback?</li>
+            <li>Are wet and dry zones clearly separated?</li>
+            <li>Has the circuit been teacher-checked before powered testing?</li>
+            <li>Have you captured photos, test data and fault notes for your folio?</li>
+          </ul>
+        </div>
+      </div>
+      <div class="instruction-links">
+        <a href="garden_watering_project.html" target="_blank" rel="noopener">Open the full student guide placeholder</a>
+        <a class="start-here-card" href="garden_watering_portfolio_guided_viewer.html" target="_blank" rel="noopener" aria-label="Create your garden watering folio - start here">
+          <span class="start-here-card-label">
+            <span class="start-here-card-title">Create your project folio - START HERE</span>
+            <span class="start-here-card-sub">Open the guided Garden Watering portfolio workbook</span>
+          </span>
+          <span class="start-here-card-icon" aria-hidden="true">↗</span>
+        </a>
+        <a href="garden_watering_info_sheets.html" target="_blank" rel="noopener">Open printable Garden Watering info sheets</a>
+      </div>
+      <div class="instruction-gallery" aria-label="Students building a garden watering system">
+        <figure>
+          <img src="images/year10-garden-watering/students-building-garden-watering-system.png" alt="Students wearing safety glasses building a garden watering control system prototype" loading="lazy">
+          <figcaption>Students building and testing a garden watering control system prototype.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="youtube-card" role="region" aria-label="Year 10 Term 1 YouTube clips">
+      <div class="youtube-card-left">
+        <div class="youtube-badge" aria-hidden="true">▶</div>
+        <div style="min-width:0;">
+          <h2 class="youtube-card-title">YouTube clips</h2>
+          <p class="youtube-card-sub">Watch the curated Term 1 video clips for this project.</p>
+        </div>
+      </div>
+      <a class="youtube-action" href="Youtube%20clips/year10%20term%201%20youtube%20clips.html" target="_blank" rel="noopener" aria-label="Open Year 10 Term 1 YouTube clips">▶</a>
+    </div>
+
+    <section class="assessment-panel" aria-labelledby="assessment-heading">
+      <h3 id="assessment-heading">Term 1 Assessment Task: Garden Watering System</h3>
+      <p style="color: #856404; margin-bottom: 1rem; font-weight: 600;">Students complete a control systems project folio and working prototype. Final weighting, issue date and submission date are teacher-confirmed.</p>
+      <div class="assessment-header">
+        <div class="assessment-header-item">
+          <strong>Date of Issue</strong>
+          <span>Teacher to confirm</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Build & Testing</strong>
+          <span>Weeks 5-8, Term 1</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Folio Submission</strong>
+          <span>Teacher to confirm</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Task Type</strong>
+          <span>Prototype + folio</span>
+        </div>
+      </div>
+      <div style="background: rgba(255,255,255,0.7); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+        <h4 style="margin-top: 0; color: #856404; font-size: 1.1rem;">Task Overview</h4>
+        <p style="margin-bottom: 0.75rem; color: #333;">Investigate a garden watering problem, design a control system, build a working prototype, test reliability, and document the process in a project folio.</p>
+        <ul style="margin-bottom: 0; color: #333; padding-left: 1.5rem;">
+          <li>Identify the watering problem and user needs</li>
+          <li>Develop a control-system design using input, process and output thinking</li>
+          <li>Build and test the prototype safely</li>
+          <li>Record faults, modifications and final performance</li>
+          <li>Evaluate water use, reliability, sustainability and improvements</li>
+        </ul>
+      </div>
+      <a href="year10_term1_assessment.html" class="assessment-link" target="_blank" rel="noopener">View Draft Assessment Notification &rarr;</a>
+    </section>
+
+    <section class="panel" aria-labelledby="classroom-term1">
+      <h3 id="classroom-term1">Google Classroom Topics (Term 1)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;"><strong>How to use these topics:</strong> Each topic supports one stage of the project. Add Google Classroom links when the class topics are created.</p>
+      <ul>
+        <li><strong>Orientation:</strong> Garden Watering System overview and project expectations</li>
+        <li><strong>Topic 1 - WHS &amp; Control Systems Safety:</strong> Low-voltage electronics, water management, tool setup</li>
+        <li><strong>Topic 2 - Inputs, Outputs &amp; Feedback:</strong> Moisture/rain sensors, switches, solenoids, pumps, indicators and relays</li>
+        <li><strong>Topic 3 - Algorithms &amp; Control Logic:</strong> Thresholds, flowcharts, pseudocode and watering decisions</li>
+        <li><strong>Topic 4 - Design &amp; Planning:</strong> Irrigation layout, circuit planning, materials, tools and build sequence</li>
+        <li><strong>Topic 5 - Build, Test &amp; Evaluate:</strong> Prototype testing, fault-finding, reliability data and folio evidence</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Scope & Lesson Plans</h3>
+      <ul>
+        <li><a href="Year%2010%20Water%20Control%20System%20Scope%20and%20Sequence.docx" target="_blank" rel="noopener">Year 10 Water Control System Scope and Sequence (DOCX)</a></li>
+        <li><a href="Year%2010%20Water%20Control%20System%20Scope%20and%20Sequence.pdf" target="_blank" rel="noopener">Year 10 Water Control System Scope and Sequence (PDF)</a></li>
+        <li><a href="Year%2010%20Water%20Control%20System%20Lesson%20Plans.docx" target="_blank" rel="noopener">Year 10 Water Control System Lesson Plans (DOCX)</a></li>
+        <li><a href="Year%2010%20Water%20Control%20System%20Lesson%20Plans.pdf" target="_blank" rel="noopener">Year 10 Water Control System Lesson Plans (PDF)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20(S4,%20S5,%20LS).docx" target="_blank" rel="noopener">NESA Engineering Technology 7-10 Syllabus (DOCX)</a></li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Overview of Requirements</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">Throughout Term 1, students develop control-system thinking through a practical garden watering prototype. The unit moves from safe workshop practice, to control theory, to design planning, to prototype testing and evaluation.</p>
+      <ul>
+        <li><strong>Safety First:</strong> Manage low-voltage electronics, water, soldering/drilling tasks, pump/valve setup and safe testing procedures.</li>
+        <li><strong>Control Systems Concepts:</strong> Understand input, process, output, feedback, sensor thresholds, actuators and reliability.</li>
+        <li><strong>Algorithms &amp; Logic:</strong> Use a flowchart or pseudocode to explain how the system decides when to water.</li>
+        <li><strong>Design &amp; Planning:</strong> Analyse the design brief, sketch options, plan circuit layout, plan water flow, select materials and sequence the build.</li>
+        <li><strong>Build, Test &amp; Evaluate:</strong> Assemble the prototype, test subsystems, record data, diagnose faults and improve performance.</li>
+        <li><strong>Project Documentation:</strong> Maintain a folio with design rationale, diagrams, build log, test data, fault log, evaluation and sustainability reflection.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Outcomes Alignment (IND5)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">This unit aligns with the existing Industrial Technology Engineering outcomes through WHS, design, production, communication, collaboration, testing and evaluation.</p>
+      <ul>
+        <li><strong>IND5-1:</strong> Identify and manage WHS risks when using tools, low-voltage components, water systems and testing procedures.</li>
+        <li><strong>IND5-2:</strong> Apply design principles to develop and modify a functional garden watering system.</li>
+        <li><strong>IND5-3:</strong> Select and use tools, equipment and processes to produce a working model or prototype.</li>
+        <li><strong>IND5-4:</strong> Select and justify materials and components including tubing, reservoir, pump/valve, wiring, sensors and structure/base materials.</li>
+        <li><strong>IND5-5:</strong> Communicate ideas through sketches, wiring diagrams, flowcharts, folio notes and testing data.</li>
+        <li><strong>IND5-6, IND5-7:</strong> Work collaboratively, follow a planned build sequence and transfer skills across electronics, mechanisms and control systems.</li>
+        <li><strong>IND5-8, IND5-9, IND5-10:</strong> Evaluate function, reliability, cost, water efficiency, sustainability and the broader use of automated control systems.</li>
+      </ul>
+    </section>
+
+    <section class="panel" id="post-2027-outcomes" aria-labelledby="post-2027-outcomes-heading">
+      <h3 id="post-2027-outcomes-heading">Post-2027 Outcomes Alignment (EGT5)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">This project also fits the post-2027 Engineering Technology structure by asking students to design, construct, test, troubleshoot and evaluate a functioning control system.</p>
+      <ul>
+        <li><strong>EGT5-SAF-01:</strong> Apply risk management and safe work practices during electronics, water testing and practical construction.</li>
+        <li><strong>EGT5-ENV-01:</strong> Analyse water use, energy use, component choice, waste and sustainability in irrigation design.</li>
+        <li><strong>EGT5-COM-01:</strong> Communicate the engineering solution through folio writing, diagrams, tables and evaluation.</li>
+        <li><strong>EGT5-GRP-01:</strong> Develop technical graphics including system block diagrams, wiring diagrams and irrigation layout drawings.</li>
+        <li><strong>EGT5-EVL-01:</strong> Investigate and evaluate prototype performance through structured tests and troubleshooting records.</li>
+        <li><strong>EGT5-MEA-01:</strong> Analyse practical system behaviour such as pump flow, valve action, water delivery and control response.</li>
+        <li><strong>EGT5-USE-01:</strong> Select and apply materials and components suitable for a working garden watering prototype.</li>
+        <li><strong>EGT5-IVT-01:</strong> Connect classroom control systems to smart irrigation, agriculture, automation and internet-of-things applications.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Assessment & Folio Checklist</h3>
+      <ul>
+        <li><strong>Safety Documentation:</strong> Risk controls for electronics, water, tools, pumps/valves and testing.</li>
+        <li><strong>Project Report:</strong> Design brief, user needs, research, sketches, diagrams, material/component selection and build sequence.</li>
+        <li><strong>Technical Documentation:</strong> Input-process-output diagram, wiring/circuit plan, algorithm/flowchart and irrigation layout.</li>
+        <li><strong>Testing Evidence:</strong> Test method, data table, observations, response time, water delivery, fault log and modifications.</li>
+        <li><strong>Evaluation:</strong> Reliability, water efficiency, safety, sustainability, cost, construction quality and improvements.</li>
+        <li><strong>Certification Evidence:</strong> OnGuard/WHS evidence where required.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Hands-on &amp; Theory (Term 1 Program)</h3>
+      <ul>
+        <li><strong>Weeks 1-2:</strong> WHS, control systems overview, irrigation problem and project brief.</li>
+        <li><strong>Weeks 3-4:</strong> Inputs, outputs, sensors, switches, relays, pump/valve options, algorithms and circuit planning.</li>
+        <li><strong>Weeks 5-7:</strong> Prototype build, wiring, water path setup, safe subsystem testing and fault-finding.</li>
+        <li><strong>Weeks 8-10:</strong> Reliability testing, modifications, folio completion, final evaluation and industry/sustainability links.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Resources &amp; Differentiation</h3>
+      <ul>
+        <li>Workshop access: low-voltage electronics, moisture/rain sensor options, switches, relays, pump/valve options, tubing, reservoirs, hand tools and test equipment.</li>
+        <li>Scaffolds: input-process-output diagram, algorithm flowchart, wiring checklist, test data table, fault log and evaluation prompts.</li>
+        <li>Differentiation: labelled diagrams, vocabulary list with images, partially completed schematics, teacher-approved simplified circuit and extension testing.</li>
+        <li>Extension: compare manual watering, timed watering and sensor-triggered watering for water efficiency and reliability.</li>
+        <li><a href="garden_watering_info_sheets.html" target="_blank" rel="noopener">Garden Watering System Info Sheets</a> - printable visual guides and student recording sheets.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Week Plan Snapshot (Guide)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">This timeline provides the working sequence for building the Garden Watering System unit. Adjust dates and assessment timing to match the school calendar.</p>
+      <ul>
+        <li><strong>Week 1:</strong> Unit introduction, WHS, control systems in everyday life, project brief and garden watering problem.</li>
+        <li><strong>Week 2:</strong> Inputs, process, outputs, feedback, safe low-voltage systems and water/electricity risk controls.</li>
+        <li><strong>Week 3:</strong> Sensors and actuators: moisture/rain sensors, switches, solenoids, pumps, indicators and relays.</li>
+        <li><strong>Week 4:</strong> Algorithms and design planning: flowchart/pseudocode, system block diagram, irrigation layout and materials list.</li>
+        <li><strong>Week 5:</strong> Build base/reservoir/water path and test output device separately.</li>
+        <li><strong>Week 6:</strong> Build and test input/control circuit; connect sensor or switch to output device.</li>
+        <li><strong>Week 7:</strong> Integrate the full system; diagnose leaks, wiring faults, unreliable triggering or poor water delivery.</li>
+        <li><strong>Week 8:</strong> Reliability testing: repeated test cycles, response time, water delivered and fault log.</li>
+        <li><strong>Week 9:</strong> Controlled improvements, sustainability reflection, cost/material review and final performance test.</li>
+        <li><strong>Week 10:</strong> Folio completion, project evaluation, submission and class reflection.</li>
+      </ul>
+    </section>
+
+    <section class="modules">
+      <h2>Toolkits</h2>
+      <div class="modules-grid">
+        <a class="module-card" id="term1-toolkit1" href="Year10%20T1%20Modules/module1.html">
+          <div class="module-num">1</div>
+          <div class="module-title">WHS &amp; Control Systems Safety</div>
+          <div class="module-sub">Water, low-voltage electronics, tools, risk controls</div>
+          <span class="pill">Safety</span>
+        </a>
+        <a class="module-card" id="term1-toolkit2" href="Year10%20T1%20Modules/module2.html">
+          <div class="module-num">2</div>
+          <div class="module-title">Control Systems Concepts</div>
+          <div class="module-sub">Inputs, process, outputs, feedback, automation</div>
+          <span class="pill">Theory</span>
+        </a>
+        <a class="module-card" id="term1-toolkit3" href="Year10%20T1%20Modules/module3.html">
+          <div class="module-num">3</div>
+          <div class="module-title">Garden Watering Design &amp; Planning</div>
+          <div class="module-sub">Brief, irrigation layout, circuit plan, materials</div>
+          <span class="pill">Design</span>
+        </a>
+        <a class="module-card" id="term1-toolkit4" href="Year10%20T1%20Modules/module4.html">
+          <div class="module-num">4</div>
+          <div class="module-title">Build, Test &amp; Evaluate</div>
+          <div class="module-sub">Prototype, testing, fault-finding and folio evidence</div>
+          <span class="pill">Project</span>
+        </a>
+        <a class="module-card tutorial-card" href="Year10%20T1%20Modules/tutorial.html">
+          <div class="thumb-container tutorial-thumb"><span>Guide</span></div>
+          <div class="module-title">Design &amp; Test Tutorial</div>
+          <div class="module-sub">System layout, algorithm, build sequence and testing</div>
+        </a>
+        <a class="module-card checklist-card" href="Year10%20T1%20Modules/observation-checklist.html">
+          <div class="thumb-container checklist-thumb"><span>Checklist</span></div>
+          <div class="module-title">Testing Checklist</div>
+          <div class="module-sub">Safety, subsystem tests, data and folio evidence</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3>Key Document</h3>
+      <ul>
+        <li><a href="Year%2010%20Water%20Control%20System%20Scope%20and%20Sequence.docx" target="_blank" rel="noopener">Year 10 Water Control System Scope and Sequence (DOCX)</a></li>
+        <li><a href="Year%2010%20Water%20Control%20System%20Lesson%20Plans.docx" target="_blank" rel="noopener">Year 10 Water Control System Lesson Plans (DOCX)</a></li>
+        <li><a href="Year%2010%20Water%20Control%20System%20Scope%20and%20Sequence.pdf" target="_blank" rel="noopener">Year 10 Water Control System Scope and Sequence (PDF)</a></li>
+        <li><a href="Year%2010%20Water%20Control%20System%20Lesson%20Plans.pdf" target="_blank" rel="noopener">Year 10 Water Control System Lesson Plans (PDF)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20(S4,%20S5,%20LS).docx" target="_blank">NESA Engineering Technology 7-10 Syllabus (Stage 4/5)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20syllabus%20support%20(S4,%20S5,%20LS).docx" target="_blank">NESA Syllabus Support (Stage 4/5)</a></li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      <strong>Notice:</strong> All images and resources are provided solely for teaching and learning with our enrolled students.<br />
+      <strong>WARNING:</strong> This material has been reproduced and communicated by or on behalf of Wagga Wagga High School pursuant to Part VB of the Copyright Act 1968 (Cth). Further copying or communication may be subject to copyright protection under the Act.
+    </div>
+  </main>
+</body>
+</html>

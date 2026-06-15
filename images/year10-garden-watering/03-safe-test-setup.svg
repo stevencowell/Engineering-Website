@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Safe test setup</title>
+  <desc id="desc">A safe work setup with separate dry electronics and wet testing zones.</desc>
+  <rect width="1200" height="800" fill="#f6f8fb"/>
+  <text x="60" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="42" font-weight="800" fill="#143c34">Safe Watering-System Test Setup</text>
+  <text x="62" y="116" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#49645e">Keep water and electronics separated. Test small, then test the whole system.</text>
+  <rect x="70" y="170" width="500" height="470" rx="22" fill="#eef8f4" stroke="#1f6f5d" stroke-width="5"/>
+  <text x="105" y="220" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="800" fill="#1f6f5d">WET ZONE</text>
+  <rect x="135" y="485" width="170" height="80" rx="14" fill="#bde0fe" stroke="#0b63c3" stroke-width="4"/>
+  <text x="165" y="535" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#003f80">reservoir</text>
+  <path d="M305 525c75-2 95-130 180-132" stroke="#0b63c3" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <circle cx="488" cy="393" r="27" fill="#4dabf7" stroke="#0b63c3" stroke-width="4"/>
+  <text x="370" y="460" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#143c34">tubing and outlet</text>
+  <path d="M175 390c-50-75-20-145 45-168 66 23 94 93 44 168z" fill="#2f9e44"/>
+  <path d="M222 390v-115" stroke="#1b6b34" stroke-width="7"/>
+  <text x="132" y="425" font-family="Segoe UI, Arial, sans-serif" font-size="21" fill="#143c34">plant / test soil</text>
+  <rect x="640" y="170" width="490" height="470" rx="22" fill="#fff" stroke="#9cb8ad" stroke-width="5"/>
+  <text x="675" y="220" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="800" fill="#0056b3">DRY ELECTRONICS ZONE</text>
+  <rect x="700" y="285" width="170" height="105" rx="14" fill="#e6f0fb" stroke="#0056b3" stroke-width="4"/>
+  <text x="735" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#003f80">controller</text>
+  <text x="742" y="360" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#003f80">or relay</text>
+  <rect x="920" y="285" width="150" height="105" rx="14" fill="#fff3cd" stroke="#856404" stroke-width="4"/>
+  <text x="955" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#856404">battery</text>
+  <text x="945" y="360" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#856404">low voltage</text>
+  <path d="M870 338h50" stroke="#1f2a3d" stroke-width="6"/>
+  <rect x="705" y="470" width="360" height="88" rx="14" fill="#fff4f1" stroke="#8b332b" stroke-width="4"/>
+  <text x="735" y="510" font-family="Segoe UI, Arial, sans-serif" font-size="23" font-weight="800" fill="#8b332b">teacher check before power</text>
+  <text x="735" y="540" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#1f2a3d">Stop if water reaches this zone.</text>
+  <path d="M600 160v500" stroke="#8b332b" stroke-width="8" stroke-dasharray="20 16"/>
+  <text x="510" y="700" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800" fill="#8b332b">keep this boundary clear</text>
+</svg>

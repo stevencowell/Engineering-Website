@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Testing and evaluation guide</title>
+  <desc id="desc">A guide showing what data to collect when testing the garden watering system.</desc>
+  <rect width="1200" height="800" fill="#f7fbff"/>
+  <text x="60" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="42" font-weight="800" fill="#143c34">Testing &amp; Evaluation</text>
+  <text x="62" y="116" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#49645e">Good testing gives you evidence, not just vibes.</text>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <rect x="70" y="170" width="500" height="240" rx="22" fill="#fff" stroke="#89a8d8" stroke-width="4"/>
+    <text x="105" y="220" font-size="30" font-weight="800" fill="#0056b3">Data to collect</text>
+    <text x="105" y="265" font-size="22" fill="#1f2a3d">Trigger condition: dry / wet / rain / switch</text>
+    <text x="105" y="305" font-size="22" fill="#1f2a3d">Response time: seconds</text>
+    <text x="105" y="345" font-size="22" fill="#1f2a3d">Water delivered: mL</text>
+    <text x="105" y="385" font-size="22" fill="#1f2a3d">Result: success / fault / leak</text>
+
+    <rect x="630" y="170" width="500" height="240" rx="22" fill="#fff" stroke="#8fc99e" stroke-width="4"/>
+    <text x="665" y="220" font-size="30" font-weight="800" fill="#0a7e2a">Repeatable test</text>
+    <text x="665" y="265" font-size="22" fill="#1f2a3d">Use the same water amount.</text>
+    <text x="665" y="305" font-size="22" fill="#1f2a3d">Use the same sensor placement.</text>
+    <text x="665" y="345" font-size="22" fill="#1f2a3d">Run several test cycles.</text>
+    <text x="665" y="385" font-size="22" fill="#1f2a3d">Record faults as they happen.</text>
+
+    <rect x="70" y="470" width="1060" height="190" rx="22" fill="#fffdf2" stroke="#cdbb74" stroke-width="4"/>
+    <text x="105" y="525" font-size="30" font-weight="800" fill="#856404">Final evaluation sentence starters</text>
+    <text x="105" y="570" font-size="22" fill="#1f2a3d">The system was reliable because...</text>
+    <text x="105" y="610" font-size="22" fill="#1f2a3d">The main fault was..., caused by..., and fixed by...</text>
+    <text x="105" y="650" font-size="22" fill="#1f2a3d">To improve water efficiency, I would...</text>
+  </g>
+</svg>

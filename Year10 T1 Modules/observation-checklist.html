@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Garden Watering Testing Checklist for Year 10 Term 1 Engineering. Includes safety checks, subsystem testing, full-system testing, fault logging, folio evidence and teacher sign-off." />
+  <title>Garden Watering Testing Checklist | Year 10 Term 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --brand: #0056b3; --bg: #f6f8fb; --card: #ffffff; --text: #1f2a3d; --muted: #5c667a; --border: #e2e8f0; --shadow: 0 12px 30px rgba(0,0,0,0.08); --radius: 12px; --good: #e8f5ec; --warn: #fff8e1; --danger: #fff0f0; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, input:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; border-radius: 4px; }
+    header { background: linear-gradient(135deg, #0a4f93, #0b63c3); color: #fff; padding: 2.25rem 1.25rem 2rem; text-align: center; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; background: #fff; border-bottom: 1px solid var(--border); padding: 0.5rem 1rem; }
+    nav a { padding: 0.4rem 0.75rem; border-radius: 10px; color: var(--brand); font-weight: 600; }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1050px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem; margin-bottom: 1.25rem; }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.1rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card p { margin: 0.25rem 0 0.9rem; color: var(--muted); }
+    .checklist { list-style: none; padding-left: 0; margin: 0; }
+    .check-item { display: flex; gap: 0.65rem; align-items: flex-start; margin: 0.45rem 0; }
+    .check-item input { margin-top: 0.22rem; accent-color: var(--brand); }
+    .note { background: #e6f0fb; border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem; color: var(--text); margin: 0.75rem 0 0; }
+    .warning { background: var(--warn); border-left: 5px solid #f6b000; }
+    .success { background: var(--good); border-left: 5px solid #2e7d32; }
+    .stop { background: var(--danger); border-left: 5px solid #c62828; }
+    .progress-bg { height: 10px; background: #e6f0fb; border-radius: 999px; margin: 0.5rem 0; overflow: hidden; }
+    .progress-fill { height: 100%; width: 0; background: #0b63c3; border-radius: 999px; transition: width 0.3s ease; }
+    .status { margin-top: 0.5rem; font-weight: 700; color: var(--brand); }
+    .two-column { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--border); padding: 0.6rem; text-align: left; vertical-align: top; }
+    th { background: #e6f0fb; color: var(--brand); }
+    td.blank { color: #9aa6b8; }
+    .signoff-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; margin-top: 0.75rem; }
+    .signoff-box { border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem; background: #fbfdff; min-height: 92px; }
+    .signoff-box strong { display: block; color: var(--brand); margin-bottom: 0.35rem; }
+    .sign-line { border-bottom: 1px solid #9aa6b8; height: 1.7rem; margin-top: 0.4rem; }
+    @media (max-width: 780px) {
+      header h1 { font-size: 1.65rem; }
+      .two-column, .signoff-grid { grid-template-columns: 1fr; }
+      table { font-size: 0.86rem; }
+      th, td { padding: 0.45rem; }
+    }
+    @media print {
+      nav, .back-link, .progress-card { display: none; }
+      body { background: #fff; }
+      header { padding: 1rem; }
+      .card { box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Garden Watering Testing Checklist</h1>
+    <p>Safety, subsystem tests, full-system evidence and teacher sign-off</p>
+  </header>
+
+  <nav>
+    <a href="../year10_term1.html">&#8592; T1 Overview</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a href="tutorial.html">Tutorial</a>
+    <a class="active" href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../year10_term1.html">&#8592; Back to Year 10 T1 Toolkits</a>
+
+    <article class="card warning">
+      <h2>Safety Prep</h2>
+      <p>Complete these checks before any powered test. If water reaches electronics, stop the test and get the teacher. No heroic nonsense.</p>
+      <ul class="checklist" data-group="safety">
+        <li class="check-item"><input type="checkbox" /> <span>Wet zone and dry electronics zone are clearly separated.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>Teacher has checked the circuit, power source and controller before power is connected.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>Reservoir, tray, tubing and outlet are stable and cannot tip or pull loose during testing.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>Spill control is ready: tray, towel, container, sink area or teacher-approved drainage point.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>Hands are dry before touching switches, batteries, controllers or wiring.</span></li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Subsystem Testing</h2>
+      <div class="two-column">
+        <section>
+          <h3>Output Test</h3>
+          <ul class="checklist" data-group="output">
+            <li class="check-item"><input type="checkbox" /> <span>Pump, valve or output device works by itself.</span></li>
+            <li class="check-item"><input type="checkbox" /> <span>Tubing does not kink, leak or disconnect during a short test.</span></li>
+            <li class="check-item"><input type="checkbox" /> <span>Water delivered is measured in millilitres for a fixed time.</span></li>
+            <li class="check-item"><input type="checkbox" /> <span>Output stops when switched off or when the control signal ends.</span></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Input Test</h3>
+          <ul class="checklist" data-group="input">
+            <li class="check-item"><input type="checkbox" /> <span>Sensor, switch, timer or trigger changes state when expected.</span></li>
+            <li class="check-item"><input type="checkbox" /> <span>Dry/wet threshold or trigger condition is recorded.</span></li>
+            <li class="check-item"><input type="checkbox" /> <span>Input can be reset and tested again without rebuilding the circuit.</span></li>
+            <li class="check-item"><input type="checkbox" /> <span>False triggers or unreliable readings are noted in the fault log.</span></li>
+          </ul>
+        </section>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Full-System Test</h2>
+      <p>Run repeated cycles so the result shows reliability, not just one lucky squirt of water.</p>
+      <ul class="checklist" data-group="system">
+        <li class="check-item"><input type="checkbox" /> <span>Input correctly controls the output through the controller or control circuit.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>System waters only when the trigger condition is met.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>System stops safely after the set time, wet reading, switch-off or teacher stop signal.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>At least three full test cycles are recorded.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>One improvement is made and retested after a fault or weak result.</span></li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Test Data Table</h2>
+      <p>Use consistent units: seconds, millilitres, on/off, wet/dry, successful cycles and clear fault notes.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Test</th>
+            <th>Input Condition</th>
+            <th>Expected Output</th>
+            <th>Actual Result</th>
+            <th>Response Time / Water Amount</th>
+            <th>Pass / Fix Needed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Output only</td>
+            <td class="blank">Pump/valve manually triggered</td>
+            <td class="blank">Water flows safely</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Input only</td>
+            <td class="blank">Sensor/switch/timer tested</td>
+            <td class="blank">Clear trigger signal</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Cycle 1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Cycle 2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Cycle 3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <article class="card stop">
+      <h2>Fault Log</h2>
+      <p>A failed test is still useful evidence if the fault, cause and fix are recorded properly.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Fault</th>
+            <th>Likely Cause</th>
+            <th>Fix Attempted</th>
+            <th>Retest Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="blank">Leak, blocked tubing, loose wire, weak battery, bad threshold...</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+
+    <article class="card success">
+      <h2>Folio Evidence</h2>
+      <ul class="checklist" data-group="evidence">
+        <li class="check-item"><input type="checkbox" /> <span>Photo of safe test setup showing wet zone and dry electronics zone.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>Labelled system diagram showing input, process, output and feedback.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>Algorithm, flowchart or pseudocode showing watering decision and stop condition.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>Test data table completed with at least three full-system cycles.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>Fault log shows issue, likely cause, fix and retest result.</span></li>
+        <li class="check-item"><input type="checkbox" /> <span>Final evaluation uses test evidence to judge safety, reliability, water efficiency and sustainability.</span></li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Teacher Sign-off</h2>
+      <div class="signoff-grid">
+        <div class="signoff-box">
+          <strong>Safety check</strong>
+          Teacher initials
+          <div class="sign-line"></div>
+          Date
+          <div class="sign-line"></div>
+        </div>
+        <div class="signoff-box">
+          <strong>Subsystem tests</strong>
+          Teacher initials
+          <div class="sign-line"></div>
+          Date
+          <div class="sign-line"></div>
+        </div>
+        <div class="signoff-box">
+          <strong>Final test evidence</strong>
+          Teacher initials
+          <div class="sign-line"></div>
+          Date
+          <div class="sign-line"></div>
+        </div>
+      </div>
+      <div class="note"><strong>Teacher note:</strong> this page can be printed, or students can use the live checklist while collecting photos and test evidence for their folio.</div>
+    </article>
+
+    <article class="card progress-card">
+      <h2>Progress</h2>
+      <div class="progress-bg"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="status" id="statusText">0 of 24 items completed</div>
+    </article>
+  </main>
+
+  <script>
+    const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
+    const progressFill = document.getElementById('progressFill');
+    const statusText = document.getElementById('statusText');
+
+    function updateProgress() {
+      const done = checkboxes.filter((box) => box.checked).length;
+      const total = checkboxes.length;
+      const pct = total ? (done / total) * 100 : 0;
+      progressFill.style.width = pct + '%';
+      statusText.textContent = `${done} of ${total} items completed`;
+    }
+
+    checkboxes.forEach((box) => box.addEventListener('change', updateProgress));
+    updateProgress();
+  </script>
+</body>
+</html>

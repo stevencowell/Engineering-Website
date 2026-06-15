@@ -1,5 +1,19 @@
-﻿Upload these two files to the root of the GitHub repository to apply the polished Term 3 folio START HERE card fix.
-The card now uses the same styled START HERE pattern as Terms 1 and 2 and sits under Project Instructions > Quick checks.
+Year 10 Garden Watering System GitHub upload package
 
-year9_term3.html
-search-index.json
+Upload the CONTENTS of this package to the root of the GitHub repository.
+Keep the folder structure exactly as supplied.
+When GitHub asks about files that already exist, choose to replace/overwrite them.
+
+This package updates:
+- the main menu Year 10 Term 1 link
+- the Year 10 Term 1 Garden Watering System page
+- the Year 10 Term 1 assessment page
+- the Garden Watering project guide, info sheets and guided portfolio workbook
+- all Year 10 Term 1 module/toolkit pages
+- the Year 10 Term 1 YouTube clips page
+- the Year 10 portfolio slide pages
+- Garden Watering visual assets
+- Year 10 scope and lesson-plan documents
+- search-index.json so site search finds the new pages
+
+Do not upload the zip file itself into the repository.

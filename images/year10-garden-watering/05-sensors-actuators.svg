@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Sensors and actuators</title>
+  <desc id="desc">A comparison sheet showing common inputs and outputs used in a garden watering control system.</desc>
+  <rect width="1200" height="800" fill="#f6f8fb"/>
+  <text x="60" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="42" font-weight="800" fill="#143c34">Sensors, Actuators &amp; Controllers</text>
+  <text x="62" y="116" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#49645e">Choose components because they suit the job, not because they look fancy.</text>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <rect x="70" y="175" width="320" height="470" rx="22" fill="#fff" stroke="#89a8d8" stroke-width="4"/>
+    <text x="105" y="225" font-size="30" font-weight="800" fill="#0056b3">INPUTS</text>
+    <text x="105" y="270" font-size="22" font-weight="700" fill="#1f2a3d">Moisture sensor</text>
+    <text x="105" y="300" font-size="19" fill="#49645e">Detects dry/wet soil.</text>
+    <text x="105" y="350" font-size="22" font-weight="700" fill="#1f2a3d">Rain sensor</text>
+    <text x="105" y="380" font-size="19" fill="#49645e">Stops watering in rain.</text>
+    <text x="105" y="430" font-size="22" font-weight="700" fill="#1f2a3d">Switch / timer</text>
+    <text x="105" y="460" font-size="19" fill="#49645e">Manual or timed trigger.</text>
+    <text x="105" y="510" font-size="22" font-weight="700" fill="#1f2a3d">Water-level sensor</text>
+    <text x="105" y="540" font-size="19" fill="#49645e">Protects the pump.</text>
+
+    <rect x="440" y="175" width="320" height="470" rx="22" fill="#fff" stroke="#8fc99e" stroke-width="4"/>
+    <text x="475" y="225" font-size="30" font-weight="800" fill="#0a7e2a">CONTROLLERS</text>
+    <text x="475" y="270" font-size="22" font-weight="700" fill="#1f2a3d">Microcontroller</text>
+    <text x="475" y="300" font-size="19" fill="#49645e">Runs programmed logic.</text>
+    <text x="475" y="350" font-size="22" font-weight="700" fill="#1f2a3d">Relay module</text>
+    <text x="475" y="380" font-size="19" fill="#49645e">Switches a pump/valve.</text>
+    <text x="475" y="430" font-size="22" font-weight="700" fill="#1f2a3d">Timer circuit</text>
+    <text x="475" y="460" font-size="19" fill="#49645e">Controls watering period.</text>
+    <text x="475" y="510" font-size="22" font-weight="700" fill="#1f2a3d">Simple switch logic</text>
+    <text x="475" y="540" font-size="19" fill="#49645e">Good for prototypes.</text>
+
+    <rect x="810" y="175" width="320" height="470" rx="22" fill="#fff" stroke="#e0a39c" stroke-width="4"/>
+    <text x="845" y="225" font-size="30" font-weight="800" fill="#8b332b">OUTPUTS</text>
+    <text x="845" y="270" font-size="22" font-weight="700" fill="#1f2a3d">Pump</text>
+    <text x="845" y="300" font-size="19" fill="#49645e">Moves water from tank.</text>
+    <text x="845" y="350" font-size="22" font-weight="700" fill="#1f2a3d">Solenoid valve</text>
+    <text x="845" y="380" font-size="19" fill="#49645e">Opens/closes flow.</text>
+    <text x="845" y="430" font-size="22" font-weight="700" fill="#1f2a3d">LED / buzzer</text>
+    <text x="845" y="460" font-size="19" fill="#49645e">Shows system state.</text>
+    <text x="845" y="510" font-size="22" font-weight="700" fill="#1f2a3d">Water outlet</text>
+    <text x="845" y="540" font-size="19" fill="#49645e">Delivers to plant bed.</text>
+  </g>
+</svg>

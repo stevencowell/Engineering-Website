@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 2: Control systems concepts for the Year 10 Garden Watering System project." />
+  <title>Toolkit 2: Control Systems Concepts | Year 10 Term 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root { --brand: #0056b3; --bg: #f6f8fb; --card: #ffffff; --text: #1f2a3d; --muted: #5c667a; --border: #e2e8f0; --shadow: 0 12px 30px rgba(0,0,0,0.08); --radius: 12px; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto', Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; border-radius: 4px; }
+    header { background: linear-gradient(135deg, #003f80, #0b63c3); color: #fff; padding: 2.25rem 1.25rem 2rem; text-align: center; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 0.4rem 0 0; opacity: 0.9; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; background: #fff; border-bottom: 1px solid var(--border); padding: 0.5rem 1rem; }
+    nav a { padding: 0.4rem 0.75rem; border-radius: 10px; color: var(--brand); font-weight: 600; }
+    nav a.active { background: #e6f0fb; color: #0b63c3; }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.75rem 1rem 3rem; }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--brand); font-weight: 600; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: flow-root;
+    }
+    .content-image {
+      float: right;
+      max-width: 45%;
+      width: 400px;
+      height: auto;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 0.5rem 0 1rem 1.5rem;
+      background: #fff;
+    }
+    .content-image.left {
+      float: left;
+      margin: 0.5rem 1.5rem 1rem 0;
+    }
+    .callout {
+      background: #f8f9fa;
+      border-left: 3px solid var(--brand);
+      border-radius: 6px;
+      color: var(--muted);
+      margin: 0.75rem 0;
+      padding: 0.75rem;
+    }
+    .logic-table {
+      border-collapse: collapse;
+      color: var(--muted);
+      margin: 0.75rem 0 1rem;
+      width: 100%;
+    }
+    .logic-table th,
+    .logic-table td {
+      border: 1px solid var(--border);
+      padding: 0.7rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    .logic-table th {
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+    }
+    @media (max-width: 700px) {
+      .content-image,
+      .content-image.left {
+        float: none;
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        margin: 1rem auto;
+      }
+      .logic-table {
+        font-size: 0.92rem;
+      }
+    }
+    .card h2 { margin: 0 0 0.5rem; color: var(--brand); }
+    .card h3 { margin: 1.2rem 0 0.35rem; color: var(--text); font-size: 1.05rem; }
+    .card ul { margin: 0.3rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
+    .card li + li { margin-top: 0.35rem; }
+    .card p { color: var(--muted); }
+    .pill { display: inline-block; padding: 0.25rem 0.6rem; border-radius: 999px; background: #e6f0fb; color: var(--brand); font-weight: 600; font-size: 0.8rem; }
+    .qa-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      margin: 0.65rem 0;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .qa-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .qa-toggle {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      white-space: nowrap;
+    }
+    .qa-answer {
+      margin-top: 0.65rem;
+      color: var(--muted);
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <h1>Toolkit 2: Control Systems Concepts</h1>
+    <p>Inputs, process, outputs, feedback and automation</p>
+  </header>
+
+  <nav>
+    <a href="../year10_term1.html">Year 10 Term 1</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a class="active" href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+    <a href="tutorial.html">Tutorial</a>
+    <a href="observation-checklist.html">Checklist</a>
+  </nav>
+
+  <main id="main-content" role="main">
+    <a class="back-link" href="../year10_term1.html">&#8592; Back to Year 10 T1 Toolkits</a>
+
+    <article class="card">
+      <div class="pill">Theory</div>
+      <h2>Learning Focus</h2>
+      <img src="../images/year10-garden-watering/02-ipo-feedback.svg" alt="Input, process, output and feedback loop for a watering system" class="content-image" />
+      <p>By the end of this toolkit, you will be able to:</p>
+      <ul>
+        <li><strong>Explain control systems:</strong> Use input, process, output and feedback language accurately.</li>
+        <li><strong>Compare levels of control:</strong> Distinguish between manual, semi-automatic and automatic watering systems.</li>
+        <li><strong>Select sensors and actuators:</strong> Match inputs and outputs to the job the Garden Watering System needs to perform.</li>
+        <li><strong>Develop control logic:</strong> Create a flowchart or pseudocode algorithm that includes start, stop and safety conditions.</li>
+        <li><strong>Evaluate reliability:</strong> Explain how feedback, thresholds and testing reduce water waste and prevent poor system behaviour.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Key Notes</h2>
+      <p><strong>Why this matters:</strong> A control system is only useful if it responds correctly. In this project, the aim is not just to make water move. The aim is to design a system that makes sensible decisions, uses water responsibly and can be explained clearly in your folio.</p>
+
+      <h3>1. What is a Control System?</h3>
+      <img src="../images/year10-garden-watering/01-system-overview.svg" alt="Garden watering system overview with tank, controller, sensor and garden bed" class="content-image" />
+      <p>A <strong>control system</strong> uses information to make something happen. It normally has four parts:</p>
+      <ul>
+        <li><strong>Input:</strong> information entering the system, such as a soil moisture reading, switch, timer or rain sensor.</li>
+        <li><strong>Process:</strong> the decision-making part, such as a microcontroller, timer circuit, relay logic or programmed rule.</li>
+        <li><strong>Output:</strong> the action produced, such as a pump, solenoid valve, LED, buzzer or water flow.</li>
+        <li><strong>Feedback:</strong> information sent back into the system so it can adjust its response.</li>
+      </ul>
+      <p>In the Garden Watering System, the control problem is simple to state but still needs careful thinking: <strong>when should the system water, when should it stop, and how will it avoid wasting water or damaging parts?</strong></p>
+
+      <h3>2. Manual, Semi-automatic and Automatic Control</h3>
+      <p>Not all control systems are equally automatic. The level of control affects reliability, cost, complexity and the evidence you can show in your design work.</p>
+      <table class="logic-table">
+        <thead>
+          <tr>
+            <th>Control Type</th>
+            <th>How It Works</th>
+            <th>Garden Watering Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Manual</strong></td>
+            <td>A person controls the output directly.</td>
+            <td>Student presses a switch to turn a pump on and off.</td>
+          </tr>
+          <tr>
+            <td><strong>Semi-automatic</strong></td>
+            <td>A person starts the system, but a timer or simple rule controls part of the action.</td>
+            <td>Student presses start; the pump runs for 10 seconds, then stops.</td>
+          </tr>
+          <tr>
+            <td><strong>Automatic</strong></td>
+            <td>The system uses sensor information to decide what to do.</td>
+            <td>Soil moisture sensor detects dry soil and the controller runs the pump until the reading reaches a set threshold.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>A fully automatic system sounds impressive, but it is not automatically better. A good engineering choice balances function, safety, reliability, cost and classroom build time.</p>
+
+      <h3>3. Inputs: Sensors and Signals</h3>
+      <img src="../images/year10-garden-watering/05-sensors-actuators.svg" alt="Sensor and actuator examples for a garden watering system" class="content-image left" />
+      <p>An <strong>input</strong> is how the system receives information. Inputs can be digital, meaning they are basically on/off, or analogue, meaning they vary across a range.</p>
+      <ul>
+        <li><strong>Switch:</strong> manual input used to start, stop or reset a system.</li>
+        <li><strong>Soil moisture sensor:</strong> detects whether soil is dry or wet enough.</li>
+        <li><strong>Rain sensor:</strong> prevents watering when rain is already present.</li>
+        <li><strong>Water level sensor:</strong> protects the pump by checking there is enough water in the tank.</li>
+        <li><strong>Light sensor or timer:</strong> can limit watering to a suitable time of day.</li>
+      </ul>
+      <p>The input must suit the decision. For example, a push button is useful for manual control, but it cannot tell whether the soil actually needs water. A moisture sensor gives better evidence for automatic control, but it needs calibration and testing.</p>
+
+      <h3>4. Process: Decisions, Thresholds and Logic</h3>
+      <img src="../images/year10-garden-watering/04-algorithm-flowchart.svg" alt="Garden watering algorithm flowchart" class="content-image" />
+      <p>The <strong>process</strong> is the rule or controller that decides what happens next. It could be a microcontroller program, a timer circuit, a relay setup or a simple teacher-provided control board.</p>
+      <p>A <strong>threshold</strong> is the point where a reading is high or low enough to trigger action. For example, if soil moisture drops below the dry threshold, the system may start watering.</p>
+      <div class="callout">
+        <strong>Basic control rule:</strong> If the soil is dry and there is water in the tank and rain is not detected, turn the pump on. If the soil is wet, the tank is low or rain is detected, keep the pump off.
+      </div>
+      <p>Strong algorithms include stop conditions. The dodgy version is: turn the pump on. The better version explains when to start, when to stop, and what should happen if a sensor gives a risky reading.</p>
+
+      <h3>5. Outputs: Actuators and Indicators</h3>
+      <p>An <strong>output</strong> is the action produced by the system. The main output in this project is water delivery, but extra outputs can make the system easier to test and explain.</p>
+      <ul>
+        <li><strong>Pump:</strong> moves water from a tank or reservoir to the garden bed.</li>
+        <li><strong>Solenoid valve:</strong> opens or closes water flow when controlled electrically.</li>
+        <li><strong>LED indicator:</strong> shows system state, such as dry soil, watering, tank low or fault.</li>
+        <li><strong>Buzzer:</strong> can warn that the tank is low or the system has stopped for safety.</li>
+      </ul>
+      <p>Actuators often need more current than a controller pin can safely provide. This is where a relay, transistor or motor driver may be used to switch the output safely.</p>
+
+      <h3>6. Feedback and Reliability</h3>
+      <p><strong>Feedback</strong> lets the system check whether the action is working. Without feedback, a system may keep watering even when the soil is already wet, or keep running a pump when the water supply has run out.</p>
+      <ul>
+        <li><strong>Open-loop control:</strong> the system acts without checking the result. Example: run the pump for 10 seconds every time the button is pressed.</li>
+        <li><strong>Closed-loop control:</strong> the system uses feedback to adjust or stop the action. Example: run the pump until soil moisture reaches the wet threshold.</li>
+      </ul>
+      <p>Feedback improves reliability, but it also adds parts that can fail. Good testing checks whether sensors are positioned correctly, readings are stable and the system behaves sensibly in dry, wet, rainy and low-water conditions.</p>
+    </article>
+
+    <article class="card">
+      <h2>Activities &amp; Evidence</h2>
+      <h3>1) Input-Process-Output Diagram</h3>
+      <ul>
+        <li>Draw or create an IPO diagram for your Garden Watering System.</li>
+        <li>Label all inputs, the controller/process, outputs and at least one feedback path.</li>
+        <li>Annotate which parts are manual, semi-automatic or automatic.</li>
+      </ul>
+
+      <h3>2) Control Logic Flowchart</h3>
+      <ul>
+        <li>Create a flowchart or pseudocode algorithm showing when the system waters and when it stops.</li>
+        <li>Include at least three conditions: soil dry/wet, rain detected/not detected and tank low/okay.</li>
+        <li>Use correct decision language: if, then, else, start, stop, repeat and warning.</li>
+      </ul>
+
+      <h3>3) Sensor and Actuator Justification</h3>
+      <ul>
+        <li>Select suitable sensors and outputs for your build.</li>
+        <li>Explain what each part detects or does, why it is needed, and one limitation or failure risk.</li>
+        <li>Identify whether each input is manual, digital or analogue.</li>
+      </ul>
+
+      <h3>4) Reliability Test Plan</h3>
+      <ul>
+        <li>List the test conditions you will check: dry soil, wet soil, rain, no rain, low tank and normal tank.</li>
+        <li>Predict the expected output for each condition before testing.</li>
+        <li>Record actual behaviour, faults and design changes after testing.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Control Systems Q&amp;A</h2>
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is the difference between an input and feedback?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa1">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa1">
+            <p>An <strong>input</strong> gives the system information or a command. A switch, moisture sensor or rain sensor can all be inputs.</p>
+            <p><strong>Feedback</strong> is information returned after or during the output action so the system can adjust. For example, a moisture sensor can tell the controller that the soil is now wet enough, so watering should stop.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why is a moisture sensor better than a simple timer?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa2">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa2">
+            <p>A timer only waters for a set amount of time. It does not know whether the soil is already wet, extremely dry or affected by rain.</p>
+            <p>A moisture sensor gives feedback from the soil itself. This can reduce water waste and improve plant conditions, but only if the sensor is positioned and calibrated properly.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Is a switch a sensor?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa3">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa3">
+            <p>For this project, a switch is best described as a <strong>manual input</strong>. It tells the system that a person wants something to happen.</p>
+            <p>A sensor usually detects an environmental condition such as moisture, rain, light or water level. A switch is still useful, but it does not provide automatic environmental feedback.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What makes an algorithm strong enough for this project?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa4">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa4">
+            <p>A strong algorithm is clear, testable and includes both start and stop conditions. It should not just say to turn the pump on.</p>
+            <p>It should explain what happens when soil is dry, soil is wet, rain is detected, the tank is low, or the system needs to stop. This gives you something specific to build and test.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What is the difference between open-loop and closed-loop control?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa5">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa5">
+            <p><strong>Open-loop control</strong> performs an action without checking the result. Running a pump for 10 seconds after a button press is open-loop.</p>
+            <p><strong>Closed-loop control</strong> uses feedback to adjust the action. Running a pump until the soil moisture reaches a set threshold is closed-loop because the sensor reading affects what happens next.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why do outputs like pumps sometimes need relays or drivers?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa6">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa6">
+            <p>Pumps and valves often need more current than a controller can safely provide directly. Connecting them the wrong way can damage the controller or make the system unreliable.</p>
+            <p>A relay, transistor or motor driver lets a low-current control signal safely switch a higher-current output. In your folio, describe the switching device as part of the process/output connection.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What should you test before claiming your system works?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa7">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa7">
+            <p>Test the system under different conditions, not just once when everything is convenient. At minimum, check dry soil, wet soil, rain detected, no rain, tank low and tank okay.</p>
+            <p>Record expected behaviour before testing, then compare it with actual behaviour. If the system behaves differently, that is useful evidence for your redesign and evaluation.</p>
+          </div>
+        </div>
+
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How do you write a good control systems evaluation?</span>
+            <button class="qa-toggle" aria-expanded="false" aria-controls="qa8">Show answer</button>
+          </div>
+          <div class="qa-answer" id="qa8">
+            <p>Use the control language directly. Explain which input caused the process to make a decision, which output responded, and whether feedback improved the result.</p>
+            <p>Strong evaluations use test evidence. For example: the pump stopped when the moisture reading reached the wet threshold, but the sensor reacted slowly because it was placed too far from the dripper.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Resources</h2>
+      <ul>
+        <li><a href="../garden_watering_info_sheets.html" target="_blank" rel="noopener">Garden Watering System Info Sheets</a></li>
+        <li><a href="../Youtube%20clips/year10%20term%201%20youtube%20clips.html" target="_blank" rel="noopener">Year 10 Term 1 YouTube Clip Index</a></li>
+        <li><a href="module3.html">Toolkit 3: System Design &amp; Planning</a> for turning this control logic into a build plan.</li>
+        <li><a href="module4.html">Toolkit 4: Build, Test &amp; Evaluate</a> for collecting test evidence and writing the evaluation.</li>
+      </ul>
+    </article>
+  </main>
+
+  <script src="../page-nav.js" defer></script>
+  <script src="../qa-widget.js"></script>
+</body>
+</html>
