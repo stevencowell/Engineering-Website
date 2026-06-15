@@ -1,0 +1,1042 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digger Dynamics | Engineering Science</title>
+  <style>
+    :root{
+      color-scheme:light;
+      --ink:#15202b;--muted:#596b7d;--soft:#eef5f8;--panel:rgba(255,255,255,.92);--line:rgba(21,32,43,.14);
+      --gold:#f1b431;--gold2:#ffd45e;--gold-dark:#a36312;--steel:#263442;--good:#2e9f64;--warn:#c04434;--blue:#2176b8;
+      --shadow:0 18px 48px rgba(17,29,39,.22);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:#dceef6;overflow-x:hidden}
+    body.playing{overflow:hidden}
+    button{font:inherit}
+    .app{min-height:100vh;background:linear-gradient(180deg,#79c7ed 0 44%,#d7effb 44% 52%,#87b469 52% 100%);display:flex;flex-direction:column}
+    .topbar{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:12px clamp(12px,3vw,32px);background:rgba(255,255,255,.76);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}.logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(145deg,var(--gold2),var(--gold));display:grid;place-items:center;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18);font-size:1.4rem}.brand h1{font-size:clamp(1.25rem,2.4vw,2rem);line-height:1;margin:0;letter-spacing:-.03em}.brand span{display:block;color:var(--muted);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
+    .stats{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.pill{min-width:92px;border:1px solid var(--line);background:rgba(255,255,255,.88);border-radius:14px;padding:8px 10px;text-align:center;box-shadow:0 8px 18px rgba(17,29,39,.08)}.pill b{display:block;font-size:1rem}.pill small{display:block;color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:.07em;font-size:.65rem}
+    .toolbar{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}.tool{border:0;border-radius:13px;padding:10px 12px;font-weight:900;color:#fff;background:#1b2835;box-shadow:inset 0 -3px 0 rgba(0,0,0,.24);cursor:pointer}.tool.gold{color:#17140a;background:var(--gold)}.tool[aria-pressed="true"]{background:var(--good);color:#fff}.tool:hover,.tool:focus-visible{outline:3px solid rgba(255,255,255,.85);outline-offset:2px}
+    .layout{width:min(1420px,calc(100vw - 24px));margin:14px auto 18px;display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:14px;align-items:start}.game-card{position:relative;border-radius:22px;overflow:hidden;border:1px solid rgba(21,32,43,.22);box-shadow:var(--shadow);background:#77c2e9}.canvas-wrap{position:relative;touch-action:none}canvas{display:block;width:100%;aspect-ratio:16/9;background:#88cfee;touch-action:none}.hud{position:absolute;left:14px;right:14px;top:14px;display:grid;grid-template-columns:1.5fr repeat(4,minmax(92px,.55fr));gap:8px;pointer-events:none}.hud-card{min-height:44px;border-radius:14px;border:1px solid rgba(21,32,43,.13);background:rgba(255,255,255,.88);box-shadow:0 9px 22px rgba(21,32,43,.12);padding:8px 10px;display:grid;align-content:center}.hud-card small{font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;font-weight:900;color:var(--muted);white-space:nowrap}.hud-card b{font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hud-card.warn b{color:var(--warn)}.overlay{position:absolute;inset:0;display:grid;place-items:center;padding:20px;background:rgba(11,20,28,.56);z-index:4}.overlay[hidden]{display:none}.modal{width:min(520px,100%);padding:24px;border-radius:24px;background:rgba(255,255,255,.96);box-shadow:0 28px 70px rgba(0,0,0,.32)}.modal h2{font-size:2rem;letter-spacing:-.04em;margin:0 0 8px}.modal p{color:var(--muted);line-height:1.5;margin:0 0 18px}.modal .row{display:flex;gap:10px;flex-wrap:wrap}.primary{border:0;border-radius:15px;padding:13px 16px;background:var(--gold);font-weight:950;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18);cursor:pointer}.secondary{border:0;border-radius:15px;padding:13px 16px;background:#1b2835;color:#fff;font-weight:950;box-shadow:inset 0 -3px 0 rgba(0,0,0,.24);cursor:pointer}
+    .side{display:grid;gap:12px}.panel{border:1px solid var(--line);background:var(--panel);border-radius:20px;padding:14px;box-shadow:0 10px 24px rgba(17,29,39,.11)}.panel h2{font-size:1rem;margin:0 0 8px}.panel p{margin:0;color:var(--muted);line-height:1.45}.objective{border-left:6px solid var(--gold)}.feedback{margin-top:10px!important;color:var(--ink)!important;font-weight:800}.feedback.good{color:var(--good)!important}.feedback.warn{color:var(--warn)!important}.controls{display:grid;grid-template-columns:1fr 1fr;gap:7px;font-size:.86rem}.kbd{font-weight:900;color:#121820;background:#e8eef2;border:1px solid rgba(21,32,43,.15);border-radius:8px;padding:3px 6px;white-space:nowrap}.mission-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}.mission-list li{display:grid;grid-template-columns:24px 1fr;gap:8px;align-items:start;padding:9px;border-radius:12px;background:#f4f8fa;border:1px solid rgba(21,32,43,.09);color:var(--muted);font-weight:800}.mission-list li::before{content:"";width:18px;height:18px;border-radius:50%;margin-top:1px;background:#d4dee5;border:2px solid #aab7c1}.mission-list li.done{color:var(--ink);background:#eef9f3}.mission-list li.done::before{content:"✓";display:grid;place-items:center;background:var(--good);border-color:var(--good);color:#fff;font-size:.8rem;font-weight:950}.meters{display:grid;gap:8px}.meter-row{display:grid;grid-template-columns:88px 1fr 58px;gap:8px;align-items:center;font-size:.82rem;font-weight:900;color:var(--muted)}.bar{height:10px;border-radius:999px;background:#dce6eb;overflow:hidden}.bar>span{display:block;height:100%;width:0;background:var(--good);border-radius:999px}.bar.warn>span{background:var(--warn)}.split{display:grid;grid-template-columns:1fr 1fr;gap:8px}.mini{border:1px solid rgba(21,32,43,.12);border-radius:12px;background:#f7fbfd;padding:10px}.mini b{display:block;font-size:1.15rem}.mini small{display:block;color:var(--muted);font-weight:800;text-transform:uppercase;font-size:.62rem;letter-spacing:.07em}.panel-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.small-button{border:0;border-radius:12px;padding:9px 10px;background:#1b2835;color:#fff;font-weight:900;cursor:pointer}.small-button.gold{background:var(--gold);color:#17140a}.small-button:disabled{opacity:.5;cursor:not-allowed}.touch-controls{display:none;margin:12px auto 0;width:min(760px,calc(100vw - 32px));gap:10px;grid-template-columns:1fr 1fr 1fr}.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.pad button{min-height:42px;border:0;border-radius:12px;background:rgba(27,40,53,.92);color:#fff;font-weight:950;box-shadow:inset 0 -3px 0 rgba(0,0,0,.25)}.pad .gold{background:var(--gold);color:#17140a}.pad .blank{visibility:hidden}
+    .toast{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:3;max-width:min(650px,calc(100% - 34px));padding:12px 16px;border-radius:999px;background:rgba(21,32,43,.92);color:#fff;font-weight:900;box-shadow:0 12px 32px rgba(0,0,0,.22);opacity:0;transition:opacity .18s ease,transform .18s ease;pointer-events:none}.toast.show{opacity:1;transform:translateX(-50%) translateY(-4px)}
+    @media(max-width:1100px){.layout{grid-template-columns:1fr}.side{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}.hud{grid-template-columns:1fr repeat(2,minmax(90px,.45fr));}.hud-card:nth-child(n+4){display:none}}
+    @media(max-width:760px){.topbar{grid-template-columns:1fr}.stats,.toolbar{justify-content:flex-start}.layout{width:calc(100vw - 12px);margin-top:8px}.hud{left:8px;right:8px;top:8px;grid-template-columns:1fr 86px}.hud-card:nth-child(n+3){display:none}.touch-controls{display:grid}.controls{grid-template-columns:1fr}.panel{border-radius:16px}.game-card{border-radius:16px}}
+    @media(prefers-reduced-motion:reduce){.toast{transition:none}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand"><div class="logo" aria-hidden="true">🚜</div><div><h1>Digger Dynamics</h1><span>Engineering Science browser game</span></div></div>
+      <div class="stats" aria-live="polite">
+        <div class="pill"><small>Load</small><b><span id="loadKg">0</span>/<span id="maxLoadKg">120</span> kg</b></div>
+        <div class="pill"><small>Delivered</small><b><span id="scoreKg">0</span>/<span id="targetKg">480</span> kg</b></div>
+        <div class="pill"><small>Time</small><b><span id="timeLeft">240</span>s</b></div>
+        <div class="pill"><small>Best</small><b><span id="bestKg">0</span> kg</b></div>
+      </div>
+      <div class="toolbar">
+        <button class="tool" id="engineeringBtn" type="button" aria-pressed="false">Engineering</button>
+        <button class="tool" id="assistBtn" type="button" aria-pressed="true">Assist</button>
+        <button class="tool" id="soundBtn" type="button" aria-pressed="false">Sound</button>
+        <button class="tool gold" id="pauseBtn" type="button">Pause</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="game-card" aria-label="Playable digger game">
+        <div class="canvas-wrap" id="canvasWrap">
+          <canvas id="game" width="1280" height="720" aria-label="Digger game canvas"></canvas>
+          <div class="hud" aria-live="polite">
+            <div class="hud-card"><small>Now</small><b id="hudNow">Start the digger and clear the mound.</b></div>
+            <div class="hud-card"><small>Mechanical advantage</small><b id="hudMA">--</b></div>
+            <div class="hud-card"><small>Est. force</small><b id="hudForce">-- N</b></div>
+            <div class="hud-card"><small>Bucket angle</small><b id="hudBucket">--</b></div>
+            <div class="hud-card"><small>Mission</small><b id="hudMission">Ready</b></div>
+          </div>
+          <div class="toast" id="toast" role="status"></div>
+          <div class="overlay" id="overlay">
+            <div class="modal">
+              <h2 id="overlayTitle">Digger Dynamics</h2>
+              <p id="overlayText">Drive the digger, dig soil from the mound, carry it carefully, lift the bucket over the truck tailgate, angle the arm properly and place the load into the tray. The Engineering view shows pivots, lever arms and hydraulic force.</p>
+              <div class="row">
+                <button class="primary" id="primaryBtn" type="button">Start game</button>
+                <button class="secondary" id="resetBtn" type="button">Restart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="side" aria-label="Teacher and student panels">
+        <section class="panel objective">
+          <h2>Objective</h2>
+          <p id="objectiveText">Dig and deliver 480 kg of soil into the truck tray by lifting over the tailgate and angling the arm correctly before time runs out.</p>
+          <p class="feedback" id="feedbackText">Tip: tuck the arm when lifting. Reach is handy, but it costs force.</p>
+        </section>
+
+        <section class="panel">
+          <h2>Controls</h2>
+          <div class="controls">
+            <span><span class="kbd">← / →</span> drive tracks</span>
+            <span><span class="kbd">↑ / ↓</span> boom up/down</span>
+            <span><span class="kbd">A / D</span> fold/unfold dipper</span>
+            <span><span class="kbd">W / S</span> extend/retract stick</span>
+            <span><span class="kbd">Q / E</span> curl/open bucket</span>
+            <span><span class="kbd">Space</span> action: scoop / tip</span>
+            <span><span class="kbd">V</span> engineering view</span>
+            <span><span class="kbd">P / Esc</span> pause</span>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Live engineering data</h2>
+          <div class="meters">
+            <div class="meter-row"><span>Force</span><div class="bar" id="forceBar"><span></span></div><span id="forceMeter">0 N</span></div>
+            <div class="meter-row"><span>Reach</span><div class="bar" id="reachBar"><span></span></div><span id="reachMeter">0%</span></div>
+            <div class="meter-row"><span>Bucket</span><div class="bar" id="loadBar"><span></span></div><span id="loadMeter">0%</span></div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Student missions</h2>
+          <ul class="mission-list">
+            <li id="missionDig">Dig a clean scoop from the mound.</li>
+            <li id="missionDump">Lift over the tailgate, angle the arm and dump one load into the truck.</li>
+            <li id="missionEngineering">Turn on Engineering view and identify three pivots.</li>
+            <li id="missionMA">Deliver a load while force stays under 180 N.</li>
+            <li id="missionEvidence">Save a screenshot for folio evidence.</li>
+          </ul>
+        </section>
+
+        <section class="panel">
+          <h2>Classroom evidence</h2>
+          <p>Use the screenshot button after a successful scoop/dump. Students can paste it into their folio and explain the lever advantage.</p>
+          <div class="panel-actions">
+            <button class="small-button gold" id="shotBtn" type="button">Save screenshot</button>
+            <button class="small-button" id="copyPromptBtn" type="button">Copy reflection prompt</button>
+          </div>
+          <p class="feedback" id="evidenceFeedback">Prompt: Which arm position gave the best lifting advantage, and why?</p>
+        </section>
+
+        <section class="panel">
+          <h2>Level stats</h2>
+          <div class="split">
+            <div class="mini"><small>Stars</small><b id="starText">0/3</b></div>
+            <div class="mini"><small>Spills</small><b id="spillText">0</b></div>
+            <div class="mini"><small>Clean force</small><b id="cleanForceText">0 kg</b></div>
+            <div class="mini"><small>Rocks found</small><b id="rockText">0</b></div>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <section class="touch-controls" aria-label="Touch controls">
+      <div class="pad">
+        <button class="blank" tabindex="-1">.</button><button data-hold="boom-up">Boom ↑</button><button class="blank" tabindex="-1">.</button>
+        <button data-hold="drive-left">Drive ←</button><button class="gold" data-tap="interact">Action</button><button data-hold="drive-right">Drive →</button>
+        <button class="blank" tabindex="-1">.</button><button data-hold="boom-down">Boom ↓</button><button class="blank" tabindex="-1">.</button>
+      </div>
+      <div class="pad">
+        <button data-hold="stick-extend">Stick +</button><button data-hold="dipper-fold">Fold</button><button data-hold="bucket-curl">Curl</button>
+        <button class="blank" tabindex="-1">.</button><button data-tap="engineering">View</button><button class="blank" tabindex="-1">.</button>
+        <button data-hold="stick-retract">Stick -</button><button data-hold="dipper-unfold">Unfold</button><button data-hold="bucket-open">Open</button>
+      </div>
+      <div class="pad">
+        <button data-tap="reset">Restart</button><button data-tap="pause">Pause</button><button data-tap="horn">Horn</button>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const canvas = document.getElementById('game');
+      const ctx = canvas.getContext('2d');
+      const wrap = document.getElementById('canvasWrap');
+      const overlay = document.getElementById('overlay');
+      const overlayTitle = document.getElementById('overlayTitle');
+      const overlayText = document.getElementById('overlayText');
+      const primaryBtn = document.getElementById('primaryBtn');
+      const resetBtn = document.getElementById('resetBtn');
+      const pauseBtn = document.getElementById('pauseBtn');
+      const engineeringBtn = document.getElementById('engineeringBtn');
+      const assistBtn = document.getElementById('assistBtn');
+      const soundBtn = document.getElementById('soundBtn');
+      const shotBtn = document.getElementById('shotBtn');
+      const copyPromptBtn = document.getElementById('copyPromptBtn');
+
+      const els = {
+        loadKg: document.getElementById('loadKg'), maxLoadKg: document.getElementById('maxLoadKg'), scoreKg: document.getElementById('scoreKg'), targetKg: document.getElementById('targetKg'), timeLeft: document.getElementById('timeLeft'), bestKg: document.getElementById('bestKg'),
+        hudNow: document.getElementById('hudNow'), hudMA: document.getElementById('hudMA'), hudForce: document.getElementById('hudForce'), hudBucket: document.getElementById('hudBucket'), hudMission: document.getElementById('hudMission'),
+        objectiveText: document.getElementById('objectiveText'), feedbackText: document.getElementById('feedbackText'), evidenceFeedback: document.getElementById('evidenceFeedback'),
+        forceBar: document.querySelector('#forceBar span'), forceBarWrap: document.getElementById('forceBar'), reachBar: document.querySelector('#reachBar span'), loadBar: document.querySelector('#loadBar span'), forceMeter: document.getElementById('forceMeter'), reachMeter: document.getElementById('reachMeter'), loadMeter: document.getElementById('loadMeter'),
+        missionDig: document.getElementById('missionDig'), missionDump: document.getElementById('missionDump'), missionEngineering: document.getElementById('missionEngineering'), missionMA: document.getElementById('missionMA'), missionEvidence: document.getElementById('missionEvidence'),
+        starText: document.getElementById('starText'), spillText: document.getElementById('spillText'), cleanForceText: document.getElementById('cleanForceText'), rockText: document.getElementById('rockText'), toast: document.getElementById('toast')
+      };
+
+      const WIDTH = canvas.width;
+      const HEIGHT = canvas.height;
+      const CELL = 12;
+      const TERRAIN_TOP = 320;
+      const GROUND_Y = 510;
+      const TERRAIN_ROWS = 30;
+      const TERRAIN_COLS = Math.floor(WIDTH / CELL);
+      const TERRAIN_BOTTOM = TERRAIN_TOP + TERRAIN_ROWS * CELL;
+      const MAX_LOAD = 120;
+      const FORCE_LIMIT = 180;
+      const TRUCK = { left: 930, right: 1196, top: 364, bottom: 514, trayLeft: 900, trayRight: 1138, trayTop: 356, trayBottom: 444, tailgateX: 906, tailgateInnerX: 930, tailgateTop: 318, tailgateBottom: 446 };
+      const MOUND = { left: 525, right: 870, centre: 690, radius: 190 };
+      const DIGGER_LIMITS = { left: 155, right: 905 };
+      const levels = [
+        { name: 'Site Prep', targetKg: 480, time: 240, compact: 0.16, message: 'Clear the main soil mound and lift each load over the tailgate, angle the arm correctly, and place it into the truck.' },
+        { name: 'Efficiency Run', targetKg: 620, time: 220, compact: 0.23, message: 'Bigger target. Watch force and spills.' },
+        { name: 'Precision Lift', targetKg: 520, time: 210, compact: 0.30, message: 'More compacted soil. Tuck the arm for the heavy lifts.' }
+      ];
+
+      const keys = new Set();
+      const virtual = new Set();
+      let audioCtx = null;
+      let lastFrame = 0;
+      let state;
+
+      function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
+      function lerp(a, b, t) { return a + (b - a) * t; }
+      function distance(a, b) { return Math.hypot(a.x - b.x, a.y - b.y); }
+      function angleDeg(rad) { return Math.round(rad * 180 / Math.PI); }
+      function rnd(seed) { return (Math.sin(seed * 999.13) + 1) / 2; }
+      function safeGet(key, fallback) { try { return localStorage.getItem(key) || fallback; } catch { return fallback; } }
+      function safeSet(key, value) { try { localStorage.setItem(key, value); } catch {} }
+
+      function beep(type = 'tick') {
+        if (!state.sound) return;
+        try {
+          audioCtx ||= new (window.AudioContext || window.webkitAudioContext)();
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          const now = audioCtx.currentTime;
+          const notes = { dig: [160, .08], dump: [260, .13], win: [520, .22], horn: [190, .28], spill: [92, .16], click: [330, .05] };
+          const [freq, len] = notes[type] || notes.tick;
+          osc.frequency.value = freq;
+          osc.type = type === 'horn' ? 'sawtooth' : 'triangle';
+          gain.gain.setValueAtTime(0.0001, now);
+          gain.gain.exponentialRampToValueAtTime(type === 'horn' ? 0.08 : 0.045, now + 0.01);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + len);
+          osc.connect(gain).connect(audioCtx.destination);
+          osc.start(now); osc.stop(now + len + .02);
+        } catch {}
+      }
+
+      function toast(text) {
+        els.toast.textContent = text;
+        els.toast.classList.add('show');
+        clearTimeout(state.toastTimer);
+        state.toastTimer = setTimeout(() => els.toast.classList.remove('show'), 1800);
+      }
+
+      function createTerrain(compact = 0.16) {
+        const rows = [];
+        for (let r = 0; r < TERRAIN_ROWS; r++) {
+          const row = [];
+          for (let c = 0; c < TERRAIN_COLS; c++) {
+            const x = c * CELL + CELL / 2;
+            const baseSurface = GROUND_Y + Math.sin(c * .27) * 4;
+            const moundDistance = Math.abs(x - MOUND.centre) / MOUND.radius;
+            const moundHeight = Math.max(0, 1 - moundDistance * moundDistance) * 118;
+            const smallNoise = (rnd(c * 11.7) - .5) * 13;
+            const surface = baseSurface - moundHeight + smallNoise;
+            const y = TERRAIN_TOP + r * CELL + CELL / 2;
+            let cell = 0;
+            if (y >= surface && y <= TERRAIN_BOTTOM) {
+              cell = y > GROUND_Y + 38 || rnd(c * 5.31 + r * 9.8) < compact ? 2 : 1;
+              if (x < 160 || x > 1240) cell = 2;
+              if (x > TRUCK.left - 20 && x < TRUCK.right + 40 && y < GROUND_Y + 40) cell = 0;
+            }
+            row.push(cell);
+          }
+          rows.push(row);
+        }
+        // Buried hard bits. They are annoying on purpose, because engineering is rude like that.
+        [{x:610,y:438},{x:742,y:420},{x:815,y:468}].forEach((rock, i) => {
+          const col = Math.floor(rock.x / CELL);
+          const row = Math.floor((rock.y - TERRAIN_TOP) / CELL);
+          for (let yy = row - 1; yy <= row + 1; yy++) {
+            for (let xx = col - 1; xx <= col + 1; xx++) {
+              if (rows[yy]?.[xx] !== undefined) rows[yy][xx] = 3 + i;
+            }
+          }
+        });
+        return rows;
+      }
+
+      function resetGame(levelIndex = 0, mode = 'start') {
+        const level = levels[levelIndex % levels.length];
+        state = {
+          mode, levelIndex: levelIndex % levels.length, level,
+          diggerX: 380, driveVel: 0,
+          boomAngle: -0.86, elbowAngle: 0.35, stickLength: 175, bucketCurl: 0.18,
+          bucketLoad: 0, bucketQuality: 1, scoreKg: 0, cleanForceKg: 0, maxForceSeen: 0,
+          timeLeft: level.time, spills: 0, rocks: 0, stars: 0,
+          terrain: createTerrain(level.compact), particles: [], dust: [], tracks: [], message: '', shake: 0,
+          engineering: false, assist: true, sound: false, bestKg: Number(safeGet('diggerDynamicsBestKg', '0')) || 0,
+          missions: { dig:false, dump:false, engineering:false, ma:false, evidence:false },
+          lastDumpWasClean: false, toastTimer: 0, hornCooldown: 0, tailgateWarn: 0
+        };
+        updateUi();
+        setOverlay();
+      }
+
+      function setMode(mode) {
+        state.mode = mode;
+        document.body.classList.toggle('playing', mode === 'playing');
+        setOverlay();
+      }
+
+      function setOverlay() {
+        overlay.hidden = state.mode === 'playing';
+        if (state.mode === 'start') {
+          overlayTitle.textContent = 'Digger Dynamics';
+          overlayText.textContent = 'Clear the mound, load the truck, and use the Engineering view to see pivots, lever arms and hydraulic force. It plays like a game, but it secretly teaches the good stuff.';
+          primaryBtn.textContent = 'Start game';
+          resetBtn.hidden = false;
+        } else if (state.mode === 'paused') {
+          overlayTitle.textContent = 'Paused';
+          overlayText.textContent = 'No drama. Stretch the fingers. The dirt will still be there.';
+          primaryBtn.textContent = 'Resume';
+          resetBtn.hidden = false;
+        } else if (state.mode === 'won') {
+          overlayTitle.textContent = 'Job done';
+          overlayText.textContent = `You delivered ${state.scoreKg} kg with ${state.spills} spill${state.spills === 1 ? '' : 's'}. Stars earned: ${state.stars}/3.`;
+          primaryBtn.textContent = state.levelIndex < levels.length - 1 ? 'Next level' : 'Play again';
+          resetBtn.hidden = false;
+        } else if (state.mode === 'lost') {
+          overlayTitle.textContent = 'Time up';
+          overlayText.textContent = `You delivered ${state.scoreKg} kg. Tuck the arm when lifting, keep the bucket curled while travelling, lift over the tailgate and dump over the centre of the truck.`;
+          primaryBtn.textContent = 'Try again';
+          resetBtn.hidden = false;
+        }
+      }
+
+      function getInput(name) { return virtual.has(name) || keys.has(name); }
+      function getArmPoints() {
+        const base = { x: state.diggerX + 72, y: GROUND_Y - 106 };
+        const boomLength = 168;
+        const elbow = { x: base.x + Math.cos(state.boomAngle) * boomLength, y: base.y + Math.sin(state.boomAngle) * boomLength };
+        const stickAngle = state.boomAngle + state.elbowAngle;
+        const wrist = { x: elbow.x + Math.cos(stickAngle) * state.stickLength, y: elbow.y + Math.sin(stickAngle) * state.stickLength };
+        const bucketAngle = stickAngle + 0.84 + state.bucketCurl;
+        const tooth = { x: wrist.x + Math.cos(bucketAngle) * 62, y: wrist.y + Math.sin(bucketAngle) * 62 };
+        return { base, elbow, wrist, tooth, boomLength, stickAngle, bucketAngle };
+      }
+
+      function metrics(points = getArmPoints()) {
+        const reach = distance(points.base, points.tooth);
+        const load = state.bucketLoad;
+        const tuck = clamp(1.35 - Math.abs(state.elbowAngle - .15) * .55, .58, 1.42);
+        const boom = clamp(1.15 - Math.abs(state.boomAngle + .9) * .25, .75, 1.18);
+        const reachPenalty = clamp(reach / 300, .45, 1.55);
+        const ma = clamp((1.22 * tuck * boom) / reachPenalty, .38, 2.6);
+        const force = Math.round((70 + load * 1.08) * reachPenalty / ma);
+        const bucketOpen = clamp((-state.bucketCurl + .2) / 1.1, 0, 1);
+        return { reach, load, ma, force, bucketOpen, boomAngle: angleDeg(state.boomAngle), elbowAngle: angleDeg(state.elbowAngle), bucketAngle: angleDeg(state.bucketAngle || points.bucketAngle) };
+      }
+
+      function cellAtWorld(x, y) {
+        const c = Math.floor(x / CELL);
+        const r = Math.floor((y - TERRAIN_TOP) / CELL);
+        if (r < 0 || c < 0 || r >= TERRAIN_ROWS || c >= TERRAIN_COLS) return null;
+        return { r, c, value: state.terrain[r][c] };
+      }
+
+      function bucketSamplePoints(points = getArmPoints()) {
+        const mid = { x: lerp(points.wrist.x, points.tooth.x, .55), y: lerp(points.wrist.y, points.tooth.y, .55) + 4 };
+        const heel = { x: lerp(points.wrist.x, points.tooth.x, .18), y: lerp(points.wrist.y, points.tooth.y, .18) + 8 };
+        return [points.wrist, heel, mid, points.tooth];
+      }
+
+      function hasClearedTailgate(points = getArmPoints()) {
+        // Keep the tailgate as a real obstacle, but do not demand the *whole* bucket stays
+        // above it forever. Once the wrist has crossed the gate safely, the teeth are allowed
+        // to drop into the tray. This keeps the skill challenge without making dumping impossible.
+        const wrist = points.wrist;
+        const tooth = points.tooth;
+        const hingeCleared = wrist.x > TRUCK.tailgateX + 12 && wrist.y < TRUCK.tailgateBottom - 30;
+        const toothPastGate = tooth.x > TRUCK.tailgateInnerX + 4;
+        return hingeCleared && toothPastGate && !bucketHitsTailgate(points);
+      }
+
+      function isOverTruck(p, points = getArmPoints()) {
+        return p.x > TRUCK.tailgateInnerX + 5 && p.x < TRUCK.trayRight - 8 && p.y > TRUCK.trayTop - 44 && p.y < TRUCK.trayBottom + 18 && hasClearedTailgate(points);
+      }
+
+      function hasDumpArmAngle(points = getArmPoints()) {
+        // Achievable dump window: the bucket must be through the gate and sloping into the tray,
+        // but the tolerances are deliberately generous for students using keyboards or touch pads.
+        const wrist = points.wrist;
+        const tooth = points.tooth;
+        const toothInTray = tooth.x > TRUCK.tailgateInnerX + 8 && tooth.x < TRUCK.trayRight - 8 && tooth.y > TRUCK.trayTop - 26 && tooth.y < TRUCK.trayBottom + 14;
+        const wristSafe = wrist.x > TRUCK.tailgateX + 12 && wrist.y < TRUCK.tailgateBottom - 22;
+        const angledOverGate = points.elbow.x < wrist.x + 55 && tooth.y > wrist.y - 26;
+        const bucketNotBackwards = points.bucketAngle > -0.25 && points.bucketAngle < 1.75;
+        return hasClearedTailgate(points) && toothInTray && wristSafe && angledOverGate && bucketNotBackwards;
+      }
+
+      function readyToDump(points = getArmPoints()) {
+        // Dumping is allowed once the bucket is genuinely through the gate and inside the tray.
+        // The arm angle still matters: a better angle gives a cleaner dump with fewer spills.
+        return isOverTruck(points.tooth, points);
+      }
+
+      function bucketHitsTailgate(points = getArmPoints()) {
+        return bucketSamplePoints(points).some(pt => pt.x > TRUCK.tailgateX - 12 && pt.x < TRUCK.tailgateInnerX + 8 && pt.y > TRUCK.tailgateTop && pt.y < TRUCK.tailgateBottom);
+      }
+
+      function isBucketNearDig(p) { const cell = cellAtWorld(p.x, p.y); return !!cell && cell.value > 0 && p.x > 460 && p.x < 900; }
+
+      function addParticles(x, y, count, kind='soil') {
+        for (let i = 0; i < count; i++) {
+          const a = Math.random() * Math.PI * 2;
+          const speed = (kind === 'spark' ? 90 : 55) + Math.random() * 130;
+          state.particles.push({ x, y, vx: Math.cos(a) * speed, vy: Math.sin(a) * speed - 60, life: .55 + Math.random() * .5, age: 0, kind });
+        }
+      }
+
+      function dig() {
+        const p = getArmPoints().tooth;
+        const m = metrics();
+        if (!isBucketNearDig(p)) {
+          toast('Bucket teeth need to touch the mound first. Close enough is not engineering, sadly.');
+          return;
+        }
+        if (state.bucketLoad >= MAX_LOAD) {
+          toast('Bucket full. Head to the truck.');
+          return;
+        }
+        const centre = cellAtWorld(p.x, p.y);
+        if (!centre) return;
+        let removed = 0, compactHits = 0, rockHits = 0;
+        const radius = m.bucketOpen > .55 ? 2 : 3;
+        for (let yy = centre.r - radius; yy <= centre.r + radius; yy++) {
+          for (let xx = centre.c - radius - 1; xx <= centre.c + radius + 1; xx++) {
+            if (!state.terrain[yy] || state.terrain[yy][xx] === undefined) continue;
+            const dx = xx - centre.c, dy = yy - centre.r;
+            if (dx * dx + dy * dy > (radius + .8) * (radius + .8)) continue;
+            const value = state.terrain[yy][xx];
+            if (value === 1 || value === 2) {
+              state.terrain[yy][xx] = 0;
+              removed += value === 2 ? 4 : 5;
+              if (value === 2) compactHits++;
+            } else if (value >= 3) {
+              rockHits++;
+              if (Math.random() < .12) state.terrain[yy][xx] = 0;
+            }
+          }
+        }
+        if (rockHits) {
+          state.rocks += 1;
+          state.shake = Math.max(state.shake, 6);
+          addParticles(p.x, p.y, 12, 'spark');
+          toast('Rock hit. Back the bucket off and change the angle.');
+          beep('spill');
+        }
+        if (removed > 0) {
+          const gained = Math.min(MAX_LOAD - state.bucketLoad, Math.max(12, Math.round(removed * (compactHits ? 1.15 : 1))));
+          state.bucketLoad += gained;
+          state.bucketQuality = clamp(state.bucketQuality + .05, .55, 1.05);
+          state.missions.dig = true;
+          addParticles(p.x, p.y, 22, 'soil');
+          state.shake = Math.max(state.shake, 3);
+          toast(`Clean scoop: +${gained} kg`);
+          beep('dig');
+        } else if (!rockHits) {
+          toast('Skimmed over the top. Curl the bucket as the teeth enter the soil.');
+        }
+      }
+
+      function dump() {
+        const points = getArmPoints();
+        const p = points.tooth;
+        if (state.bucketLoad <= 0) { toast('Bucket is empty. Go dig first.'); return; }
+        if (!hasClearedTailgate(points)) { toast('Lift the whole bucket over the tailgate before tipping.'); return; }
+        if (!isOverTruck(p, points)) { toast('Move the bucket right into the truck tray before dumping.'); return; }
+        const m = metrics(points);
+        const centred = p.x > TRUCK.left + 58 && p.x < TRUCK.right - 58;
+        const cleanAngle = hasDumpArmAngle(points);
+        const tooHighForce = m.force > FORCE_LIMIT;
+        const fullLoad = state.bucketLoad;
+        const delivered = cleanAngle ? fullLoad : Math.max(15, Math.round(fullLoad * 0.72));
+        const spilled = fullLoad - delivered;
+        state.scoreKg += delivered;
+        if (cleanAngle && !tooHighForce) {
+          state.cleanForceKg += delivered;
+          state.missions.ma = state.cleanForceKg >= 100;
+        }
+        state.lastDumpWasClean = centred && cleanAngle && !tooHighForce;
+        state.bucketLoad = 0;
+        state.missions.dump = true;
+        addParticles(p.x, Math.max(p.y, TRUCK.top + 8), cleanAngle ? 30 : 22, 'dump');
+        if (spilled > 0) {
+          state.spills += 1;
+          addParticles(TRUCK.tailgateX + 18, TRUCK.tailgateBottom - 12, 12, 'soil');
+        }
+        state.shake = Math.max(state.shake, centred && cleanAngle ? 4 : 8);
+        if (cleanAngle) toast(centred ? `Clean dump: ${delivered} kg. Nice.` : `Dumped ${delivered} kg, but line it up better next time.`);
+        else toast(`Rough dump: ${delivered} kg in, ${spilled} kg spilled. Better arm angle = cleaner load.`);
+        beep('dump');
+        checkWinLose();
+      }
+
+      function interact() {
+        if (state.mode !== 'playing') { setMode('playing'); return; }
+        const p = getArmPoints().tooth;
+        if (state.bucketLoad > 0 && isOverTruck(p)) dump(); else dig();
+        updateUi();
+      }
+
+      function horn() {
+        if (state.hornCooldown > 0) return;
+        state.hornCooldown = .6;
+        toast('Beep beep. Important civil engineering communication.');
+        beep('horn');
+      }
+
+      function updateControls(dt) {
+        const left = getInput('arrowleft') || getInput('j') || getInput('drive-left');
+        const right = getInput('arrowright') || getInput('l') || getInput('drive-right');
+        const drive = (right ? 1 : 0) - (left ? 1 : 0);
+        const targetVel = drive * (state.bucketLoad > 80 ? 115 : 150);
+        state.driveVel = lerp(state.driveVel, targetVel, clamp(dt * 9, 0, 1));
+        state.diggerX = clamp(state.diggerX + state.driveVel * dt, DIGGER_LIMITS.left, DIGGER_LIMITS.right);
+        if (Math.abs(state.driveVel) > 30) state.tracks.push({ x: state.diggerX + 48 + Math.random() * 110, y: GROUND_Y + 12 + Math.random() * 4, life: 2.2 });
+
+        const boomInput = (getInput('arrowdown') || getInput('k') || getInput('boom-down') ? 1 : 0) - (getInput('arrowup') || getInput('i') || getInput('boom-up') ? 1 : 0);
+        const elbowInput = (getInput('d') || getInput('x') || getInput('dipper-unfold') ? 1 : 0) - (getInput('a') || getInput('z') || getInput('dipper-fold') ? 1 : 0);
+        const stickInput = (getInput('w') || getInput('stick-extend') ? 1 : 0) - (getInput('s') || getInput('stick-retract') ? 1 : 0);
+        const bucketInput = (getInput('q') || getInput('f') || getInput('bucket-curl') ? 1 : 0) - (getInput('e') || getInput('r') || getInput('bucket-open') ? 1 : 0);
+        state.boomAngle = clamp(state.boomAngle + boomInput * 1.08 * dt, -1.56, -0.20);
+        state.elbowAngle = clamp(state.elbowAngle + elbowInput * 1.18 * dt, -0.78, 1.36);
+        state.stickLength = clamp(state.stickLength + stickInput * 95 * dt, 112, 224);
+        state.bucketCurl = clamp(state.bucketCurl + bucketInput * 1.75 * dt, -0.92, 1.10);
+      }
+
+      function updateParticles(dt) {
+        state.particles.forEach(p => { p.age += dt; p.vy += 310 * dt; p.x += p.vx * dt; p.y += p.vy * dt; });
+        state.particles = state.particles.filter(p => p.age < p.life && p.y < HEIGHT + 30);
+        state.tracks.forEach(t => t.life -= dt);
+        state.tracks = state.tracks.filter(t => t.life > 0).slice(-90);
+      }
+
+      function updateSpill(dt) {
+        if (state.bucketLoad <= 0) return;
+        const m = metrics();
+        const p = getArmPoints().tooth;
+        const movingFast = Math.abs(state.driveVel) > 105;
+        const bucketTooOpen = m.bucketOpen > .50;
+        const tooLow = p.y > GROUND_Y + 25;
+        if ((movingFast && bucketTooOpen) || tooLow) {
+          const loss = Math.min(state.bucketLoad, Math.ceil(18 * dt + Math.random() * 3));
+          if (loss > 0) {
+            state.bucketLoad -= loss;
+            state.spills += loss >= 2 ? 1 : 0;
+            addParticles(p.x, p.y, 2, 'soil');
+            if (Math.random() < .08) beep('spill');
+          }
+        }
+      }
+
+      function updateTailgate(dt) {
+        const points = getArmPoints();
+        if (!bucketHitsTailgate(points)) return;
+        state.shake = Math.max(state.shake, 7);
+        state.driveVel *= -0.18;
+        state.hornCooldown = Math.max(state.hornCooldown, .18);
+        if (state.tailgateWarn <= 0) {
+          toast('Tailgate contact. Lift the bucket higher before going in or backing out.');
+          state.tailgateWarn = .55;
+          beep('spill');
+        }
+        const lossBase = state.bucketLoad > 0 ? 8 : 0;
+        const loss = Math.min(state.bucketLoad, Math.ceil(lossBase * dt * 10));
+        if (loss > 0) {
+          const p = points.tooth;
+          state.bucketLoad -= loss;
+          state.spills += 1;
+          addParticles(TRUCK.tailgateX + 8, Math.max(TRUCK.tailgateTop + 8, p.y - 10), 4, 'soil');
+        }
+      }
+
+      function updateGame(dt) {
+        if (state.mode !== 'playing') return;
+        state.timeLeft = Math.max(0, state.timeLeft - dt);
+        state.hornCooldown = Math.max(0, state.hornCooldown - dt);
+        state.tailgateWarn = Math.max(0, state.tailgateWarn - dt);
+        updateControls(dt);
+        updateTailgate(dt);
+        updateSpill(dt);
+        const m = metrics();
+        state.maxForceSeen = Math.max(state.maxForceSeen, m.force);
+        if (state.engineering) state.missions.engineering = true;
+        if (state.shake > 0) state.shake = Math.max(0, state.shake - 18 * dt);
+        updateParticles(dt);
+        checkWinLose();
+        updateUi();
+      }
+
+      function checkWinLose() {
+        if (state.scoreKg >= state.level.targetKg && state.mode === 'playing') {
+          const timeStar = state.timeLeft > state.level.time * .25 ? 1 : 0;
+          const spillStar = state.spills <= 4 ? 1 : 0;
+          const forceStar = state.cleanForceKg >= Math.min(220, state.level.targetKg * .4) ? 1 : 0;
+          state.stars = 1 + timeStar + spillStar + forceStar;
+          state.bestKg = Math.max(state.bestKg, state.scoreKg);
+          safeSet('diggerDynamicsBestKg', String(state.bestKg));
+          beep('win');
+          setMode('won');
+        } else if (state.timeLeft <= 0 && state.mode === 'playing') {
+          state.bestKg = Math.max(state.bestKg, state.scoreKg);
+          safeSet('diggerDynamicsBestKg', String(state.bestKg));
+          setMode('lost');
+        }
+      }
+
+      function updateUi() {
+        const m = metrics();
+        els.loadKg.textContent = Math.round(state.bucketLoad);
+        els.maxLoadKg.textContent = MAX_LOAD;
+        els.scoreKg.textContent = Math.round(state.scoreKg);
+        els.targetKg.textContent = state.level.targetKg;
+        els.timeLeft.textContent = Math.ceil(state.timeLeft);
+        els.bestKg.textContent = state.bestKg;
+        els.objectiveText.textContent = `${state.level.name}: ${state.level.message} Target ${state.level.targetKg} kg.`;
+        els.hudMA.textContent = `${m.ma.toFixed(2)}×`;
+        els.hudForce.textContent = `${m.force} N`;
+        els.hudBucket.textContent = m.bucketOpen > .55 ? 'open' : state.bucketCurl > .35 ? 'curled' : 'ready';
+        els.hudNow.textContent = getHint(m);
+        els.hudMission.textContent = getMissionHint();
+        els.forceBar.style.width = `${clamp(m.force / 260 * 100, 0, 100)}%`;
+        els.forceBarWrap.classList.toggle('warn', m.force > FORCE_LIMIT);
+        els.reachBar.style.width = `${clamp(m.reach / 470 * 100, 0, 100)}%`;
+        els.loadBar.style.width = `${clamp(state.bucketLoad / MAX_LOAD * 100, 0, 100)}%`;
+        els.forceMeter.textContent = `${m.force} N`;
+        els.reachMeter.textContent = `${Math.round(clamp(m.reach / 470 * 100, 0, 100))}%`;
+        els.loadMeter.textContent = `${Math.round(state.bucketLoad / MAX_LOAD * 100)}%`;
+        els.feedbackText.textContent = getFeedback(m);
+        els.feedbackText.className = `feedback ${m.force > FORCE_LIMIT ? 'warn' : m.ma > 1.25 ? 'good' : ''}`;
+        els.missionDig.classList.toggle('done', state.missions.dig);
+        els.missionDump.classList.toggle('done', state.missions.dump);
+        els.missionEngineering.classList.toggle('done', state.missions.engineering);
+        els.missionMA.classList.toggle('done', state.missions.ma);
+        els.missionEvidence.classList.toggle('done', state.missions.evidence);
+        els.starText.textContent = `${state.stars}/3`;
+        els.spillText.textContent = state.spills;
+        els.cleanForceText.textContent = `${state.cleanForceKg} kg`;
+        els.rockText.textContent = state.rocks;
+        engineeringBtn.setAttribute('aria-pressed', String(state.engineering));
+        assistBtn.setAttribute('aria-pressed', String(state.assist));
+        soundBtn.setAttribute('aria-pressed', String(state.sound));
+      }
+
+      function getHint(m) {
+        const points = getArmPoints();
+        const p = points.tooth;
+        if (state.bucketLoad <= 0) return isBucketNearDig(p) ? 'Press Space to scoop. Curl through the cut.' : 'Move the bucket teeth into the soil mound.';
+        if (!hasClearedTailgate(points) && p.x > TRUCK.tailgateX - 70) return 'Lift the bucket over the tailgate before moving in or backing out.';
+        if (isOverTruck(p, points) && !hasDumpArmAngle(points)) return 'You can tip now. Angle the arm for a cleaner dump.';
+        if (readyToDump(points)) return 'Press Space to tip into the truck tray.';
+        if (m.force > FORCE_LIMIT) return 'Force is high. Tuck the elbow or retract the stick.';
+        if (m.bucketOpen > .5) return 'Bucket is open. Curl it before travelling or you will spill.';
+        return 'Carry the load to the truck. Slow, tucked and high enough to clear the gate wins.';
+      }
+
+      function getFeedback(m) {
+        const points = getArmPoints();
+        if (bucketHitsTailgate(points)) return 'You clipped the tailgate. Lift the boom or retract and tuck before crossing the gate.';
+        if (m.force > FORCE_LIMIT) return 'Force is too high: long reach means longer load arm. Fold the dipper or retract the stick.';
+        if (state.bucketLoad > 0 && !hasClearedTailgate(points) && points.tooth.x > TRUCK.tailgateX - 80) return 'You are nearly there, but the bucket still has not cleared the tailgate.';
+        if (state.bucketLoad > 0 && isOverTruck(points.tooth, points) && !hasDumpArmAngle(points)) return 'This will dump, but roughly. Improve the arm angle for less spill.';
+        if (state.bucketLoad > 0 && m.ma > 1.25) return 'Good lifting position: the load is closer to the pivot, so the hydraulic effort is lower.';
+        if (state.bucketLoad > 0 && m.bucketOpen > .45) return 'Bucket is opening. That is how soil does a runner.';
+        return 'Tip: extend for reach, tuck for lifting power. Then clear the gate and angle the arm cleanly into the tray.';
+      }
+
+      function getMissionHint() {
+        if (!state.missions.dig) return 'Dig first scoop';
+        if (!state.missions.dump) return 'Clear tailgate, angle arm and dump into truck';
+        if (!state.missions.engineering) return 'Turn on Engineering view';
+        if (!state.missions.ma) return 'Keep force under 180 N';
+        if (!state.missions.evidence) return 'Save screenshot';
+        return 'Missions complete';
+      }
+
+      function roundedRect(x, y, w, h, r) {
+        ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+      }
+      function poly(points) { ctx.beginPath(); points.forEach((p, i) => i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y)); ctx.closePath(); }
+      function line(a, b) { ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+      function unit(angle, len) { return { x: Math.cos(angle) * len, y: Math.sin(angle) * len }; }
+      function add(a, b) { return { x: a.x + b.x, y: a.y + b.y }; }
+      function rivet(x, y, r = 3) { ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill(); }
+      function drawPanelLine(x1, y1, x2, y2, alpha = .18) { ctx.save(); ctx.strokeStyle = `rgba(255,255,255,${alpha})`; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); ctx.restore(); }
+
+      function drawBackground() {
+        const g = ctx.createLinearGradient(0, 0, 0, HEIGHT);
+        g.addColorStop(0, '#78c8ef'); g.addColorStop(.42, '#d8f0fa'); g.addColorStop(.43, '#9ebd75'); g.addColorStop(.66, '#6f9256'); g.addColorStop(1, '#5c5649');
+        ctx.fillStyle = g; ctx.fillRect(0, 0, WIDTH, HEIGHT);
+        ctx.fillStyle = 'rgba(255,236,162,.72)';
+        ctx.beginPath(); ctx.arc(1082, 80, 42, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,.82)';
+        drawCloud(145, 90, 1); drawCloud(530, 68, .74); drawCloud(1010, 106, .9);
+        ctx.fillStyle = 'rgba(77,104,126,.20)';
+        poly([{x:0,y:330},{x:120,y:230},{x:245,y:330}]); ctx.fill();
+        poly([{x:195,y:330},{x:360,y:205},{x:540,y:330}]); ctx.fill();
+        poly([{x:845,y:330},{x:1010,y:210},{x:1215,y:330}]); ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,.38)';
+        poly([{x:360,y:205},{x:330,y:228},{x:382,y:226}]); ctx.fill();
+        poly([{x:1010,y:210},{x:973,y:238},{x:1031,y:235}]); ctx.fill();
+        ctx.fillStyle = 'rgba(79,91,73,.42)';
+        poly([{x:0,y:390},{x:165,y:340},{x:340,y:392},{x:560,y:354},{x:780,y:395},{x:1030,y:345},{x:1280,y:386},{x:1280,y:510},{x:0,y:510}]); ctx.fill();
+        ctx.fillStyle = 'rgba(184,151,84,.45)';
+        for (let x = 80; x < WIDTH; x += 210) { poly([{x,y:388},{x:x+60,y:365},{x:x+120,y:388},{x:x+102,y:398},{x:x+20,y:400}]); ctx.fill(); }
+        ctx.strokeStyle = 'rgba(77,60,42,.48)'; ctx.lineWidth = 5;
+        for (let x = 40; x < WIDTH; x += 92) { ctx.beginPath(); ctx.moveTo(x, 430); ctx.lineTo(x, 505); ctx.stroke(); }
+        ctx.beginPath(); ctx.moveTo(0, 457); ctx.lineTo(WIDTH, 446); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, 491); ctx.lineTo(WIDTH, 478); ctx.stroke();
+        const road = ctx.createLinearGradient(0, GROUND_Y + 34, 0, HEIGHT);
+        road.addColorStop(0, '#7f7465'); road.addColorStop(.38, '#69645e'); road.addColorStop(1, '#4b5155');
+        ctx.fillStyle = road; ctx.fillRect(0, GROUND_Y + 38, WIDTH, HEIGHT - GROUND_Y - 38);
+        ctx.fillStyle = 'rgba(44,37,30,.16)';
+        for (let x = -30; x < WIDTH; x += 88) { ctx.beginPath(); ctx.ellipse(x, GROUND_Y + 72 + Math.sin(x) * 12, 36, 7, -.08, 0, Math.PI * 2); ctx.fill(); }
+        ctx.strokeStyle = 'rgba(255,255,255,.24)'; ctx.lineWidth = 4; ctx.setLineDash([30, 32]); ctx.beginPath(); ctx.moveTo(0, GROUND_Y + 96); ctx.lineTo(WIDTH, GROUND_Y + 82); ctx.stroke(); ctx.setLineDash([]);
+      }
+
+      function drawCloud(x, y, s) {
+        [[0,0,38], [42,-8,46], [86,8,34], [36,20,48], [68,22,36]].forEach(([dx, dy, r]) => {
+          ctx.beginPath();
+          ctx.arc(x + dx * s, y + dy * s, r * s, 0, Math.PI * 2);
+          ctx.fill();
+        });
+      }
+
+      function drawTerrain() {
+        state.tracks.forEach(t => { ctx.globalAlpha = Math.max(0, t.life / 2.2) * .22; ctx.fillStyle = '#201b16'; roundedRect(t.x - 18, t.y, 34, 5, 3); ctx.fill(); }); ctx.globalAlpha = 1;
+        for (let r = 0; r < TERRAIN_ROWS; r++) {
+          for (let c = 0; c < TERRAIN_COLS; c++) {
+            const val = state.terrain[r][c]; if (!val) continue;
+            const x = c * CELL, y = TERRAIN_TOP + r * CELL;
+            if (val === 1) ctx.fillStyle = (r + c) % 2 ? '#8b5a32' : '#966139';
+            else if (val === 2) ctx.fillStyle = (r + c) % 2 ? '#724525' : '#7c4d2c';
+            else ctx.fillStyle = '#5e6367';
+            ctx.fillRect(x, y, CELL + .8, CELL + .8);
+            if (val >= 3) { ctx.fillStyle = 'rgba(255,255,255,.18)'; ctx.beginPath(); ctx.arc(x + 4, y + 4, 3, 0, Math.PI*2); ctx.fill(); }
+          }
+        }
+        // grassy lip
+        ctx.fillStyle = '#609447';
+        for (let c = 0; c < TERRAIN_COLS; c++) {
+          for (let r = 0; r < TERRAIN_ROWS; r++) {
+            if (state.terrain[r][c]) { ctx.fillRect(c * CELL, TERRAIN_TOP + r * CELL - 5, CELL + 1, 5); break; }
+          }
+        }
+      }
+
+      function drawTruck() {
+        ctx.save();
+        ctx.fillStyle = 'rgba(0,0,0,.22)'; ctx.beginPath(); ctx.ellipse(1055, GROUND_Y + 52, 170, 20, 0, 0, Math.PI*2); ctx.fill();
+        const chassis = ctx.createLinearGradient(882, 458, 1215, 498);
+        chassis.addColorStop(0, '#202b33'); chassis.addColorStop(1, '#111820');
+        ctx.fillStyle = chassis; roundedRect(880, 461, 332, 26, 8); ctx.fill();
+        ctx.fillStyle = '#2d3841'; roundedRect(898, 486, 266, 9, 5); ctx.fill();
+
+        const trayGrad = ctx.createLinearGradient(TRUCK.trayLeft, TRUCK.trayTop, TRUCK.trayRight, TRUCK.trayBottom);
+        trayGrad.addColorStop(0, '#314351'); trayGrad.addColorStop(.5, '#263746'); trayGrad.addColorStop(1, '#182532');
+        ctx.fillStyle = trayGrad;
+        poly([{x:TRUCK.trayLeft,y:TRUCK.trayBottom},{x:TRUCK.trayLeft+22,y:TRUCK.trayTop},{x:TRUCK.trayRight,y:TRUCK.trayTop+2},{x:TRUCK.trayRight-12,y:TRUCK.trayBottom}]); ctx.fill();
+        ctx.strokeStyle = '#111820'; ctx.lineWidth = 5; ctx.stroke();
+        ctx.fillStyle = 'rgba(255,255,255,.12)';
+        poly([{x:TRUCK.trayLeft+16,y:TRUCK.trayTop+9},{x:TRUCK.trayRight-18,y:TRUCK.trayTop+10},{x:TRUCK.trayRight-24,y:TRUCK.trayTop+25},{x:TRUCK.trayLeft+13,y:TRUCK.trayTop+24}]); ctx.fill();
+        ctx.strokeStyle = 'rgba(11,18,24,.45)'; ctx.lineWidth = 3;
+        for (let x = TRUCK.trayLeft + 42; x < TRUCK.trayRight - 10; x += 38) { ctx.beginPath(); ctx.moveTo(x, TRUCK.trayTop + 3); ctx.lineTo(x - 7, TRUCK.trayBottom - 4); ctx.stroke(); }
+        ctx.fillStyle = '#111820';
+        for (let x = TRUCK.trayLeft + 34; x < TRUCK.trayRight - 8; x += 48) rivet(x, TRUCK.trayTop + 18, 3);
+
+        const cabGrad = ctx.createLinearGradient(1110, 376, 1198, 486);
+        cabGrad.addColorStop(0, '#d9573f'); cabGrad.addColorStop(1, '#8f3129');
+        ctx.fillStyle = cabGrad; roundedRect(1114, 376, 84, 109, 13); ctx.fill();
+        ctx.strokeStyle = '#111820'; ctx.lineWidth = 5; roundedRect(1114, 376, 84, 109, 13); ctx.stroke();
+        ctx.fillStyle = '#e66a4c'; roundedRect(884, 416, 244, 67, 9); ctx.fill();
+        ctx.fillStyle = 'rgba(0,0,0,.12)'; ctx.fillRect(895, 455, 224, 16);
+        ctx.strokeStyle = '#111820'; ctx.lineWidth = 4; roundedRect(884, 416, 244, 67, 9); ctx.stroke();
+        ctx.fillStyle = '#d7eef9'; roundedRect(1130, 390, 43, 37, 7); ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,.45)'; ctx.fillRect(1137, 394, 8, 30);
+        ctx.fillStyle = '#ffd45e'; roundedRect(1181, 432, 11, 14, 4); ctx.fill();
+        ctx.fillStyle = '#cf3c2d'; roundedRect(887, 438, 9, 18, 4); ctx.fill();
+
+        [934, 1010, 1110].forEach((x, i) => {
+          ctx.fillStyle = '#11161c'; ctx.beginPath(); ctx.arc(x, 493, 32, 0, Math.PI*2); ctx.fill();
+          ctx.strokeStyle = '#343f48'; ctx.lineWidth = 7; ctx.beginPath(); ctx.arc(x, 493, 24, 0, Math.PI*2); ctx.stroke();
+          ctx.fillStyle = '#b4bec5'; ctx.beginPath(); ctx.arc(x, 493, 13, 0, Math.PI*2); ctx.fill();
+          ctx.fillStyle = '#687780'; rivet(x - 5, 490, 2); rivet(x + 5, 496, 2); if (i === 1) rivet(x + 2, 485, 2);
+        });
+
+        ctx.fillStyle = '#45596a'; roundedRect(TRUCK.tailgateX, TRUCK.tailgateTop, 25, TRUCK.tailgateBottom - TRUCK.tailgateTop, 6); ctx.fill();
+        ctx.strokeStyle = '#111820'; ctx.lineWidth = 4; roundedRect(TRUCK.tailgateX, TRUCK.tailgateTop, 25, TRUCK.tailgateBottom - TRUCK.tailgateTop, 6); ctx.stroke();
+        ctx.fillStyle = 'rgba(255,255,255,.16)'; ctx.fillRect(TRUCK.tailgateX + 5, TRUCK.tailgateTop + 8, 6, TRUCK.tailgateBottom - TRUCK.tailgateTop - 16);
+        ctx.strokeStyle = '#111820'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(TRUCK.tailgateX + 22, TRUCK.tailgateTop + 8); ctx.lineTo(TRUCK.trayLeft + 34, TRUCK.trayTop + 38); ctx.stroke();
+        ctx.fillStyle = '#111820'; rivet(TRUCK.tailgateX + 13, TRUCK.tailgateTop + 20, 4); rivet(TRUCK.tailgateX + 13, TRUCK.tailgateBottom - 18, 4);
+
+        if (state.bucketLoad > 0) {
+          const points = getArmPoints();
+          if (!hasClearedTailgate(points) && points.tooth.x > TRUCK.tailgateX - 90) {
+            ctx.strokeStyle = '#ffd45e'; ctx.lineWidth = 5; ctx.setLineDash([10,8]); roundedRect(TRUCK.tailgateX - 18, TRUCK.tailgateTop - 14, 58, TRUCK.tailgateBottom - TRUCK.tailgateTop + 28, 10); ctx.stroke(); ctx.setLineDash([]);
+            floatingHint(TRUCK.tailgateX - 70, TRUCK.tailgateTop - 44, 'Lift over gate');
+          } else if (isOverTruck(points.tooth, points) && !hasDumpArmAngle(points)) {
+            ctx.strokeStyle = '#ffd45e'; ctx.lineWidth = 5; ctx.setLineDash([10,8]); roundedRect(TRUCK.trayLeft, TRUCK.trayTop - 10, TRUCK.trayRight - TRUCK.trayLeft, TRUCK.trayBottom - TRUCK.trayTop + 20, 12); ctx.stroke(); ctx.setLineDash([]);
+            ctx.strokeStyle = 'rgba(255,212,94,.95)'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(TRUCK.tailgateInnerX - 4, TRUCK.tailgateTop - 8); ctx.lineTo(TRUCK.tailgateInnerX + 78, TRUCK.tailgateTop + 44); ctx.lineTo(TRUCK.tailgateInnerX + 150, TRUCK.tailgateTop + 88); ctx.stroke();
+            floatingHint(TRUCK.tailgateX + 34, TRUCK.tailgateTop - 44, 'Angle arm in');
+          } else if (readyToDump(points)) { ctx.strokeStyle = '#ffd45e'; ctx.lineWidth = 5; ctx.setLineDash([10,8]); roundedRect(TRUCK.trayLeft, TRUCK.trayTop - 10, TRUCK.trayRight - TRUCK.trayLeft, TRUCK.trayBottom - TRUCK.trayTop + 20, 12); ctx.stroke(); ctx.setLineDash([]); }
+        }
+        ctx.restore();
+      }
+
+      function drawDigger() {
+        const p = getArmPoints();
+        ctx.save();
+        ctx.fillStyle = 'rgba(0,0,0,.25)'; ctx.beginPath(); ctx.ellipse(state.diggerX + 88, GROUND_Y + 38, 120, 18, 0, 0, Math.PI*2); ctx.fill();
+        const trackGrad = ctx.createLinearGradient(state.diggerX, GROUND_Y - 14, state.diggerX, GROUND_Y + 42);
+        trackGrad.addColorStop(0, '#313c44'); trackGrad.addColorStop(.5, '#151d24'); trackGrad.addColorStop(1, '#080d12');
+        ctx.fillStyle = trackGrad; roundedRect(state.diggerX - 4, GROUND_Y - 12, 178, 50, 24); ctx.fill();
+        ctx.strokeStyle = '#0b1117'; ctx.lineWidth = 5; roundedRect(state.diggerX - 4, GROUND_Y - 12, 178, 50, 24); ctx.stroke();
+        ctx.fillStyle = '#46545e'; roundedRect(state.diggerX + 14, GROUND_Y - 2, 142, 28, 14); ctx.fill();
+        ctx.strokeStyle = 'rgba(0,0,0,.32)'; ctx.lineWidth = 3;
+        for (let x = state.diggerX + 2; x < state.diggerX + 166; x += 16) { ctx.beginPath(); ctx.moveTo(x, GROUND_Y - 8); ctx.lineTo(x + 11, GROUND_Y + 34); ctx.stroke(); }
+        for (let x = state.diggerX + 28; x < state.diggerX + 148; x += 30) {
+          ctx.fillStyle = '#0f171d'; ctx.beginPath(); ctx.arc(x, GROUND_Y + 12, 12, 0, Math.PI*2); ctx.fill();
+          ctx.fillStyle = '#7b8a93'; ctx.beginPath(); ctx.arc(x, GROUND_Y + 12, 5, 0, Math.PI*2); ctx.fill();
+        }
+
+        const bodyGrad = ctx.createLinearGradient(state.diggerX + 25, GROUND_Y - 98, state.diggerX + 170, GROUND_Y - 30);
+        bodyGrad.addColorStop(0, '#ffdc63'); bodyGrad.addColorStop(.55, '#f1b431'); bodyGrad.addColorStop(1, '#c97912');
+        ctx.fillStyle = bodyGrad; roundedRect(state.diggerX + 26, GROUND_Y - 96, 154, 80, 18); ctx.fill();
+        ctx.strokeStyle = '#111820'; ctx.lineWidth = 5; roundedRect(state.diggerX + 26, GROUND_Y - 96, 154, 80, 18); ctx.stroke();
+        ctx.fillStyle = 'rgba(0,0,0,.12)'; roundedRect(state.diggerX + 43, GROUND_Y - 47, 116, 20, 8); ctx.fill();
+        ctx.fillStyle = '#111820'; rivet(state.diggerX + 58, GROUND_Y - 80, 3); rivet(state.diggerX + 154, GROUND_Y - 37, 3);
+        ctx.fillStyle = '#d28518'; roundedRect(state.diggerX + 5, GROUND_Y - 82, 62, 59, 17); ctx.fill(); ctx.strokeStyle = '#111820'; ctx.lineWidth = 5; ctx.stroke();
+        ctx.fillStyle = 'rgba(0,0,0,.12)'; ctx.fillRect(state.diggerX + 12, GROUND_Y - 44, 48, 9);
+        ctx.fillStyle = '#1b2732'; roundedRect(state.diggerX + 83, GROUND_Y - 152, 79, 78, 15); ctx.fill();
+        ctx.strokeStyle = '#111820'; ctx.lineWidth = 5; roundedRect(state.diggerX + 83, GROUND_Y - 152, 79, 78, 15); ctx.stroke();
+        const glass = ctx.createLinearGradient(state.diggerX + 96, GROUND_Y - 142, state.diggerX + 146, GROUND_Y - 100);
+        glass.addColorStop(0, '#c8f0ff'); glass.addColorStop(1, '#6fb5d7');
+        ctx.fillStyle = glass; roundedRect(state.diggerX + 96, GROUND_Y - 141, 43, 41, 7); ctx.fill();
+        ctx.fillStyle = '#8fd0ec'; roundedRect(state.diggerX + 140, GROUND_Y - 137, 12, 37, 5); ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,.55)'; ctx.fillRect(state.diggerX + 103, GROUND_Y - 137, 7, 31);
+        ctx.fillStyle = '#ffd45e'; roundedRect(state.diggerX + 161, GROUND_Y - 83, 12, 12, 4); ctx.fill();
+
+        drawCylinder(p.base, p.elbow, .42, .64, 12);
+        drawCylinder(p.elbow, p.wrist, .30, .68, 9);
+        drawArmSegment(p.base, p.elbow, 23, '#f1b431');
+        drawArmSegment(p.elbow, p.wrist, 20, '#f1b431');
+        drawPivot(p.base, 10); drawPivot(p.elbow, 10); drawPivot(p.wrist, 8);
+        drawBucket(p);
+        ctx.restore();
+      }
+
+      function drawArmSegment(a, b, width, colour) {
+        ctx.strokeStyle = '#16202b'; ctx.lineWidth = width + 9; ctx.lineCap = 'round'; line(a,b);
+        ctx.strokeStyle = colour; ctx.lineWidth = width; line(a,b);
+        ctx.strokeStyle = 'rgba(255,255,255,.32)'; ctx.lineWidth = 4; const va = {x:lerp(a.x,b.x,.13),y:lerp(a.y,b.y,.13)}, vb = {x:lerp(a.x,b.x,.87),y:lerp(a.y,b.y,.87)}; line(va,vb);
+        ctx.strokeStyle = 'rgba(0,0,0,.16)'; ctx.lineWidth = 3; line({x:va.x,y:va.y + 8},{x:vb.x,y:vb.y + 8});
+      }
+
+      function drawCylinder(a, b, t1, t2, width) {
+        const p1 = { x: lerp(a.x, b.x, t1), y: lerp(a.y, b.y, t1) + 22 };
+        const p2 = { x: lerp(a.x, b.x, t2), y: lerp(a.y, b.y, t2) - 18 };
+        ctx.strokeStyle = '#16202b'; ctx.lineWidth = width + 4; ctx.lineCap = 'round'; line(p1,p2);
+        ctx.strokeStyle = '#cfd8df'; ctx.lineWidth = width; line(p1,p2);
+        ctx.strokeStyle = '#667681'; ctx.lineWidth = Math.max(4, width * .38); line(p1,p2);
+      }
+
+      function drawPivot(p, r) {
+        ctx.fillStyle = '#fff'; ctx.strokeStyle = '#16202b'; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, Math.PI*2); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#61717d'; ctx.beginPath(); ctx.arc(p.x, p.y, r * .38, 0, Math.PI*2); ctx.fill();
+      }
+
+      function drawBucket(p) {
+        const a = p.bucketAngle;
+        const wrist = p.wrist;
+        const tip = p.tooth;
+        const back = add(wrist, unit(a + 2.45, 38));
+        const lip = add(tip, unit(a + 1.72, 34));
+        const heel = add(wrist, unit(a + 1.36, 50));
+        const bucketGrad = ctx.createLinearGradient(wrist.x, wrist.y - 20, tip.x, tip.y + 30);
+        bucketGrad.addColorStop(0, '#53626b'); bucketGrad.addColorStop(.42, '#2a343c'); bucketGrad.addColorStop(1, '#111820');
+        ctx.fillStyle = bucketGrad; poly([back, wrist, tip, lip, heel]); ctx.fill();
+        ctx.strokeStyle = '#0b1117'; ctx.lineWidth = 5; ctx.stroke();
+        ctx.strokeStyle = 'rgba(255,255,255,.14)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(back.x, back.y); ctx.lineTo(lip.x, lip.y); ctx.stroke();
+        ctx.fillStyle = '#9aa6ad';
+        for (let i=0;i<4;i++){ const tooth = add(tip, unit(a + 1.7, 8 + i*7)); ctx.beginPath(); ctx.moveTo(tooth.x, tooth.y); ctx.lineTo(tooth.x + Math.cos(a)*18, tooth.y + Math.sin(a)*18); ctx.lineTo(tooth.x + Math.cos(a+.45)*8, tooth.y + Math.sin(a+.45)*8); ctx.closePath(); ctx.fill(); }
+        if (state.bucketLoad > 0) {
+          ctx.save(); ctx.clip(); ctx.fillStyle = '#8b5a32'; ctx.globalAlpha = .92; ctx.beginPath(); ctx.ellipse(lerp(wrist.x, tip.x, .55), lerp(wrist.y, tip.y, .55) + 4, 42, 22, a, 0, Math.PI*2); ctx.fill(); ctx.restore(); ctx.globalAlpha = 1;
+        }
+      }
+
+      function drawParticles() {
+        for (const p of state.particles) {
+          const alpha = 1 - p.age / p.life; ctx.globalAlpha = alpha;
+          if (p.kind === 'spark') ctx.fillStyle = '#ddd8c7'; else if (p.kind === 'dump') ctx.fillStyle = '#9b6539'; else ctx.fillStyle = '#7c4d2c';
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.kind === 'spark' ? 3 : 4, 0, Math.PI*2); ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+      }
+
+      function drawEngineeringOverlay() {
+        if (!state.engineering) return;
+        const p = getArmPoints(); const m = metrics(p);
+        ctx.save();
+        drawGuideLine(p.base, p.elbow, '#2176b8', 'boom');
+        drawGuideLine(p.elbow, p.wrist, '#7a3db8', 'dipper / stick');
+        drawGuideLine(p.base, p.tooth, '#c06b1a', 'load arm');
+        drawForceArrow(p.tooth.x, p.tooth.y - 18, p.tooth.x, p.tooth.y + 70, '#c04434', 'load');
+        drawForceArrow(p.elbow.x - 30, p.elbow.y + 35, p.elbow.x + 45, p.elbow.y - 25, '#2e9f64', 'hydraulic force');
+        labelBox(p.base.x - 72, p.base.y + 34, 'pivot 1'); labelBox(p.elbow.x + 8, p.elbow.y - 32, 'pivot 2'); labelBox(p.wrist.x + 12, p.wrist.y - 36, 'pivot 3');
+        ctx.fillStyle = 'rgba(255,255,255,.93)'; ctx.strokeStyle = 'rgba(21,32,43,.18)'; ctx.lineWidth = 2; roundedRect(24, 86, 318, 184, 14); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#15202b'; ctx.font = '900 18px Arial'; ctx.fillText('Engineering View', 44, 118);
+        ctx.font = '800 14px Arial';
+        ctx.fillText(`Mechanical advantage: ${m.ma.toFixed(2)}×`, 44, 148);
+        ctx.fillText(`Estimated hydraulic force: ${m.force} N`, 44, 172);
+        ctx.fillText(`Bucket load: ${Math.round(state.bucketLoad)} kg`, 44, 196);
+        ctx.fillText(`Boom ${m.boomAngle}°  Dipper ${m.elbowAngle}°`, 44, 220);
+        ctx.fillStyle = '#dbe6ec'; roundedRect(44, 236, 186, 12, 99); ctx.fill();
+        ctx.fillStyle = m.force > FORCE_LIMIT ? '#c04434' : '#2e9f64'; roundedRect(44, 236, clamp(m.force / 260 * 186, 8, 186), 12, 99); ctx.fill();
+        ctx.fillStyle = '#596b7d'; ctx.font = '800 12px Arial'; ctx.fillText(`limit ${FORCE_LIMIT} N`, 238, 247);
+        ctx.restore();
+      }
+
+      function drawGuideLine(a, b, colour, label) {
+        ctx.strokeStyle = colour; ctx.lineWidth = 3; ctx.setLineDash([9,7]); line(a,b); ctx.setLineDash([]);
+        labelBox(lerp(a.x,b.x,.52) + 12, lerp(a.y,b.y,.52) - 16, label, colour);
+      }
+
+      function drawForceArrow(x1,y1,x2,y2,colour,label) {
+        const angle = Math.atan2(y2-y1,x2-x1); ctx.strokeStyle = colour; ctx.fillStyle = colour; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(x2,y2); ctx.lineTo(x2 - Math.cos(angle-.55)*15, y2 - Math.sin(angle-.55)*15); ctx.lineTo(x2 - Math.cos(angle+.55)*15, y2 - Math.sin(angle+.55)*15); ctx.closePath(); ctx.fill();
+        labelBox(x2+10,y2+10,label,colour);
+      }
+
+      function labelBox(x,y,text,colour='#15202b') {
+        ctx.save(); ctx.font='900 12px Arial'; const w=ctx.measureText(text).width+16; ctx.fillStyle='rgba(255,255,255,.91)'; ctx.strokeStyle='rgba(21,32,43,.16)'; roundedRect(x,y,w,24,7); ctx.fill(); ctx.stroke(); ctx.fillStyle=colour; ctx.fillText(text,x+8,y+16); ctx.restore();
+      }
+
+      function drawUiHints() {
+        const points = getArmPoints();
+        const p = points.tooth;
+        if (state.bucketLoad > 0 && !hasClearedTailgate(points) && p.x > TRUCK.tailgateX - 90) floatingHint(TRUCK.tailgateX - 84, TRUCK.tailgateTop - 44, 'Clear gate');
+        else if (state.bucketLoad > 0 && isOverTruck(p, points) && !hasDumpArmAngle(points)) floatingHint(TRUCK.tailgateX + 30, TRUCK.tailgateTop - 44, 'Space: tip');
+        else if (state.bucketLoad > 0 && readyToDump(points)) floatingHint(936, 326, 'Space: tip');
+        else if (isBucketNearDig(p) && state.bucketLoad < MAX_LOAD) floatingHint(p.x + 18, p.y - 48, 'Space: scoop');
+      }
+      function floatingHint(x,y,text) { ctx.save(); ctx.fillStyle='rgba(255,212,94,.96)'; ctx.strokeStyle='rgba(125,76,13,.35)'; ctx.lineWidth=2; roundedRect(x,y,128,34,12); ctx.fill(); ctx.stroke(); ctx.fillStyle='#17140a'; ctx.font='900 14px Arial'; ctx.fillText(text,x+15,y+22); ctx.restore(); }
+
+      function draw() {
+        ctx.save();
+        const shake = state.shake || 0;
+        if (shake > 0 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) ctx.translate((Math.random()-.5)*shake, (Math.random()-.5)*shake);
+        drawBackground(); drawTruck(); drawTerrain(); drawParticles(); drawDigger(); drawEngineeringOverlay(); drawUiHints();
+        ctx.restore();
+      }
+
+      function loop(t) {
+        const dt = Math.min(.033, (t - lastFrame) / 1000 || 0);
+        lastFrame = t;
+        updateGame(dt); draw(); requestAnimationFrame(loop);
+      }
+
+      function toggleEngineering() { state.engineering = !state.engineering; if (state.engineering) { state.missions.engineering = true; toast('Engineering view on: pivots, load arm and hydraulic force are visible.'); } else toast('Engineering view off.'); beep('click'); updateUi(); }
+      function toggleAssist() { state.assist = !state.assist; toast(`Assist ${state.assist ? 'on' : 'off'}.`); updateUi(); }
+      function toggleSound() { state.sound = !state.sound; if (state.sound) beep('click'); toast(`Sound ${state.sound ? 'on' : 'off'}.`); updateUi(); }
+      function pauseOrResume() { if (state.mode === 'playing') setMode('paused'); else setMode('playing'); }
+
+      function saveScreenshot() {
+        try {
+          const link = document.createElement('a');
+          link.download = `digger-dynamics-evidence-${Date.now()}.png`;
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+          state.missions.evidence = true;
+          els.evidenceFeedback.textContent = 'Screenshot saved. Add it to the folio with a sentence about load arm length and mechanical advantage.';
+          els.evidenceFeedback.className = 'feedback good';
+          toast('Screenshot saved for folio evidence.');
+          updateUi();
+        } catch {
+          els.evidenceFeedback.textContent = 'Screenshot could not be saved in this browser. Use the device screenshot tool instead.';
+          els.evidenceFeedback.className = 'feedback warn';
+        }
+      }
+
+      async function copyPrompt() {
+        const prompt = 'Using your screenshot, explain how the digger arm position changed the load arm length, mechanical advantage and estimated hydraulic force. Use the terms pivot, load, effort, lever arm and mechanical advantage.';
+        try { await navigator.clipboard.writeText(prompt); els.evidenceFeedback.textContent = 'Reflection prompt copied.'; els.evidenceFeedback.className = 'feedback good'; toast('Prompt copied.'); }
+        catch { els.evidenceFeedback.textContent = prompt; els.evidenceFeedback.className = 'feedback'; }
+      }
+
+      window.addEventListener('keydown', (event) => {
+        const key = event.key.toLowerCase();
+        if ([' ', 'arrowleft','arrowright','arrowup','arrowdown'].includes(key)) event.preventDefault();
+        if (key === ' ' && !event.repeat) { interact(); return; }
+        if (key === 'enter' && !event.repeat) { setMode('playing'); return; }
+        if ((key === 'p' || key === 'escape') && !event.repeat) { pauseOrResume(); return; }
+        if (key === 'v' && !event.repeat) { toggleEngineering(); return; }
+        if (key === 'h' && !event.repeat) { horn(); return; }
+        keys.add(key);
+      });
+      window.addEventListener('keyup', event => keys.delete(event.key.toLowerCase()));
+      window.addEventListener('blur', () => { keys.clear(); virtual.clear(); if (state?.mode === 'playing') setMode('paused'); });
+
+      primaryBtn.addEventListener('click', () => {
+        if (state.mode === 'won') resetGame(state.levelIndex + 1, 'playing');
+        else if (state.mode === 'lost') resetGame(state.levelIndex, 'playing');
+        else setMode('playing');
+      });
+      resetBtn.addEventListener('click', () => resetGame(state.levelIndex, 'playing'));
+      pauseBtn.addEventListener('click', pauseOrResume);
+      engineeringBtn.addEventListener('click', toggleEngineering);
+      assistBtn.addEventListener('click', toggleAssist);
+      soundBtn.addEventListener('click', toggleSound);
+      shotBtn.addEventListener('click', saveScreenshot);
+      copyPromptBtn.addEventListener('click', copyPrompt);
+
+      document.querySelectorAll('[data-hold]').forEach(btn => {
+        const value = btn.dataset.hold;
+        const start = (event) => { event.preventDefault(); virtual.add(value); try { btn.setPointerCapture(event.pointerId); } catch {} };
+        const end = (event) => { event.preventDefault(); virtual.delete(value); };
+        btn.addEventListener('pointerdown', start); btn.addEventListener('pointerup', end); btn.addEventListener('pointercancel', end); btn.addEventListener('pointerleave', end);
+      });
+      document.querySelectorAll('[data-tap]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const action = btn.dataset.tap;
+          if (action === 'interact') interact();
+          else if (action === 'engineering') toggleEngineering();
+          else if (action === 'reset') resetGame(state.levelIndex, 'playing');
+          else if (action === 'pause') pauseOrResume();
+          else if (action === 'horn') horn();
+        });
+      });
+
+      // Click/tap on the canvas sets a soft target hint by auto-moving the digger only when assist is on.
+      wrap.addEventListener('pointerdown', (event) => {
+        if (!state.assist || state.mode !== 'playing' || event.target !== canvas) return;
+        const rect = canvas.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width * WIDTH;
+        if (x < state.diggerX - 30) { virtual.add('drive-left'); setTimeout(() => virtual.delete('drive-left'), 360); }
+        else if (x > state.diggerX + 210) { virtual.add('drive-right'); setTimeout(() => virtual.delete('drive-right'), 360); }
+      });
+
+      resetGame(0, 'start');
+      requestAnimationFrame(loop);
+    })();
+  </script>
+</body>
+</html>
