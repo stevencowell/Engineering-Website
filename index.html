@@ -232,17 +232,18 @@
       gap: 1.5rem;
     }
     .classroom-section {
-      margin-top: 3rem;
+      margin: 0 auto 2.5rem;
       background: linear-gradient(135deg, #f8fbff 0%, #eef2f7 100%);
-      border: 1px solid #e0e0e0;
+      border: 1px solid #d7e3f4;
       border-radius: 16px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
-      padding: 2rem;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+      padding: 1.5rem;
+      max-width: 980px;
     }
     .classroom-section h3 {
       margin: 0;
       color: #0056b3;
-      font-size: 1.45rem;
+      font-size: 1.35rem;
     }
     .classroom-header {
       display: flex;
@@ -250,7 +251,7 @@
       align-items: flex-start;
       gap: 1.5rem;
       flex-wrap: wrap;
-      padding-bottom: 1.25rem;
+      padding-bottom: 1rem;
       border-bottom: 1px solid #d7e3f4;
     }
     .classroom-header p {
@@ -260,25 +261,26 @@
     .classroom-note {
       background: #0b63c3;
       color: #fff;
-      padding: 0.85rem 1rem;
+      padding: 0.7rem 0.9rem;
       border-radius: 10px;
-      font-weight: 600;
-      box-shadow: 0 4px 12px rgba(11,99,195,0.2);
-      min-width: 240px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(11,99,195,0.16);
+      min-width: 220px;
       text-align: center;
     }
     .classroom-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.9rem;
+      margin-top: 1.25rem;
     }
     .classroom-card {
       background: #ffffff;
       border: 1px solid #e3e7ed;
       border-radius: 12px;
-      padding: 1.1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      padding: 0.75rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
@@ -293,7 +295,7 @@
       padding: 0.9rem 1rem;
       background: linear-gradient(135deg, #0b63c3, #094f9c);
       color: #ffffff;
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: 800;
       display: flex;
       align-items: center;
@@ -318,7 +320,7 @@
     }
     .classroom-card summary h4 {
       margin: 0 -0.35rem 0;
-      padding: 0.9rem 2.75rem 0.9rem 1rem;
+      padding: 0.75rem 2.5rem 0.75rem 0.85rem;
       position: relative;
     }
     .classroom-card[open] summary h4 {
@@ -346,7 +348,7 @@
       border-radius: 999px;
       padding: 0.25rem 0.75rem;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.78rem;
       line-height: 1;
       white-space: nowrap;
       flex: 0 0 auto;
@@ -1013,37 +1015,6 @@
     <!-- Year 9 Section -->
     <section class="modules-section" aria-labelledby="year9-heading">
       <h2 id="year9-heading">Year 9</h2>
-      <div class="modules-grid">
-        <a href="year9_term1.html" class="module-card" aria-label="Year 9 Term 1 - Water Tower Project">
-          <div class="thumb-container"><span>T1</span></div>
-          <div class="module-title">
-            Term 1 – Water Tower Project
-            <div class="module-subtitle">WHS, structural concepts, design, build and test</div>
-          </div>
-        </a>
-        <a href="year9_term2.html" class="module-card" aria-label="Year 9 Term 2 - Concrete Beam Project">
-          <div class="thumb-container"><span>T2</span></div>
-          <div class="module-title">
-            Term 2 – Concrete Beam Project
-            <div class="module-subtitle">Materials, concrete, composite materials, casting and testing</div>
-          </div>
-        </a>
-        <a href="year9_term3.html" class="module-card" aria-label="Year 9 Term 3 - Hydraulic Digger Project">
-          <div class="thumb-container"><span>T3</span></div>
-          <div class="module-title">
-            Term 3 – Hydraulic Digger Project
-            <div class="module-subtitle">Fluid power, mechanisms, lever linkages, build and test</div>
-          </div>
-        </a>
-        <a href="year9_term4.html" class="module-card" aria-label="Year 9 Term 4 - Geared Lolly Dispenser Project">
-          <div class="thumb-container"><span>T4</span></div>
-          <div class="module-title">
-            Term 4 – Geared Lolly Dispenser Project
-            <div class="module-subtitle">Gear systems, CAD, mechanisms, build, test and evaluate</div>
-          </div>
-        </a>
-      </div>
-
       <div class="classroom-section" aria-labelledby="year9-classroom-links">
         <div class="classroom-header">
           <div>
@@ -1102,6 +1073,37 @@
             </ul>
           </details>
         </div>
+      </div>
+
+      <div class="modules-grid">
+        <a href="year9_term1.html" class="module-card" aria-label="Year 9 Term 1 - Water Tower Project">
+          <div class="thumb-container"><span>T1</span></div>
+          <div class="module-title">
+            Term 1 – Water Tower Project
+            <div class="module-subtitle">WHS, structural concepts, design, build and test</div>
+          </div>
+        </a>
+        <a href="year9_term2.html" class="module-card" aria-label="Year 9 Term 2 - Concrete Beam Project">
+          <div class="thumb-container"><span>T2</span></div>
+          <div class="module-title">
+            Term 2 – Concrete Beam Project
+            <div class="module-subtitle">Materials, concrete, composite materials, casting and testing</div>
+          </div>
+        </a>
+        <a href="year9_term3.html" class="module-card" aria-label="Year 9 Term 3 - Hydraulic Digger Project">
+          <div class="thumb-container"><span>T3</span></div>
+          <div class="module-title">
+            Term 3 – Hydraulic Digger Project
+            <div class="module-subtitle">Fluid power, mechanisms, lever linkages, build and test</div>
+          </div>
+        </a>
+        <a href="year9_term4.html" class="module-card" aria-label="Year 9 Term 4 - Geared Lolly Dispenser Project">
+          <div class="thumb-container"><span>T4</span></div>
+          <div class="module-title">
+            Term 4 – Geared Lolly Dispenser Project
+            <div class="module-subtitle">Gear systems, CAD, mechanisms, build, test and evaluate</div>
+          </div>
+        </a>
       </div>
     </section>
 
