@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Wind Powered USB Phone Charger Project Diagram</title>
+  <desc id="desc">Diagram showing wind moving an impellor, shaft and generator, then a USB module connected to a phone.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#eaf6ff"/>
+      <stop offset="1" stop-color="#f7fbff"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0056b3"/>
+      <stop offset="1" stop-color="#0e7adf"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0a7e2a"/>
+      <stop offset="1" stop-color="#38a169"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#1f2a3d" flood-opacity="0.16"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0056b3"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="650" rx="28" fill="url(#sky)"/>
+  <rect x="58" y="52" width="1084" height="546" rx="24" fill="#ffffff" filter="url(#shadow)"/>
+  <text x="100" y="105" font-family="Roboto, Arial, sans-serif" font-size="32" font-weight="700" fill="#1f2a3d">Wind Powered USB Phone Charger</text>
+  <text x="100" y="142" font-family="Roboto, Arial, sans-serif" font-size="18" fill="#5c667a">Wind movement -> rotation -> generator output -> USB charging</text>
+
+  <g transform="translate(96 205)">
+    <path d="M0 60 C60 18 118 18 178 60" fill="none" stroke="#76b7e8" stroke-width="18" stroke-linecap="round"/>
+    <path d="M0 118 C72 76 142 76 214 118" fill="none" stroke="#76b7e8" stroke-width="18" stroke-linecap="round"/>
+    <path d="M0 176 C52 136 116 136 168 176" fill="none" stroke="#76b7e8" stroke-width="18" stroke-linecap="round"/>
+    <text x="0" y="235" font-family="Roboto, Arial, sans-serif" font-size="22" font-weight="700" fill="#0056b3">Wind input</text>
+    <text x="0" y="265" font-family="Roboto, Arial, sans-serif" font-size="16" fill="#5c667a">moving air</text>
+  </g>
+
+  <g transform="translate(340 292)">
+    <circle cx="0" cy="0" r="88" fill="#edf7ff" stroke="#0056b3" stroke-width="6"/>
+    <circle cx="0" cy="0" r="18" fill="url(#blue)"/>
+    <path d="M0 -16 C34 -132 112 -142 154 -70 C92 -62 44 -42 12 -8 Z" fill="#0e7adf"/>
+    <path d="M14 8 C128 42 158 116 104 178 C68 124 42 54 10 12 Z" fill="#38a169"/>
+    <path d="M-14 8 C-118 62 -184 22 -180 -58 C-112 -36 -52 -26 -12 -8 Z" fill="#f59e0b"/>
+    <text x="-82" y="132" font-family="Roboto, Arial, sans-serif" font-size="22" font-weight="700" fill="#1f2a3d">Impellor</text>
+    <text x="-110" y="162" font-family="Roboto, Arial, sans-serif" font-size="16" fill="#5c667a">blade shape and angle</text>
+  </g>
+
+  <line x1="440" y1="292" x2="600" y2="292" stroke="#1f2a3d" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="520" cy="292" r="24" fill="#ffffff" stroke="#0a7e2a" stroke-width="8"/>
+  <text x="468" y="352" font-family="Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#1f2a3d">shaft / bearing</text>
+
+  <g transform="translate(610 230)">
+    <rect x="0" y="0" width="150" height="124" rx="18" fill="#f6f8fb" stroke="#1f2a3d" stroke-width="5"/>
+    <circle cx="28" cy="62" r="17" fill="#ffffff" stroke="#0056b3" stroke-width="5"/>
+    <rect x="58" y="35" width="66" height="54" rx="8" fill="url(#green)"/>
+    <path d="M132 42 L158 42 L158 82 L132 82" fill="none" stroke="#1f2a3d" stroke-width="6" stroke-linecap="round"/>
+    <text x="2" y="166" font-family="Roboto, Arial, sans-serif" font-size="22" font-weight="700" fill="#1f2a3d">Generator</text>
+    <text x="2" y="196" font-family="Roboto, Arial, sans-serif" font-size="16" fill="#5c667a">rotation to electricity</text>
+  </g>
+
+  <path d="M790 292 H902" fill="none" stroke="#0056b3" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <g transform="translate(912 214)">
+    <rect x="0" y="30" width="100" height="156" rx="18" fill="#eef6ff" stroke="#0056b3" stroke-width="5"/>
+    <rect x="27" y="60" width="46" height="18" rx="4" fill="#1f2a3d"/>
+    <rect x="24" y="104" width="52" height="46" rx="8" fill="#ffffff" stroke="#0a7e2a" stroke-width="4"/>
+    <text x="-4" y="225" font-family="Roboto, Arial, sans-serif" font-size="22" font-weight="700" fill="#1f2a3d">USB module</text>
+    <text x="-4" y="255" font-family="Roboto, Arial, sans-serif" font-size="16" fill="#5c667a">regulated output</text>
+  </g>
+
+  <path d="M1018 292 C1060 292 1068 292 1102 292" fill="none" stroke="#0056b3" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <g transform="translate(1070 208)">
+    <rect x="0" y="0" width="78" height="158" rx="16" fill="#1f2a3d"/>
+    <rect x="8" y="18" width="62" height="118" rx="8" fill="#ffffff"/>
+    <rect x="25" y="44" width="28" height="50" rx="6" fill="url(#green)"/>
+    <rect x="25" y="98" width="28" height="8" rx="4" fill="#d1fae5"/>
+    <circle cx="39" cy="146" r="5" fill="#e2e8f0"/>
+    <text x="-6" y="206" font-family="Roboto, Arial, sans-serif" font-size="22" font-weight="700" fill="#1f2a3d">Phone</text>
+    <text x="-28" y="236" font-family="Roboto, Arial, sans-serif" font-size="16" fill="#5c667a">charging evidence</text>
+  </g>
+
+  <g transform="translate(108 522)">
+    <rect x="0" y="0" width="980" height="46" rx="12" fill="#f6f8fb" stroke="#e2e8f0"/>
+    <text x="22" y="30" font-family="Roboto, Arial, sans-serif" font-size="18" fill="#1f2a3d">
+      Design focus: compact frame, safe rotating parts, efficient blade shape, good shaft alignment and repeatable output testing.
+    </text>
+  </g>
+</svg>

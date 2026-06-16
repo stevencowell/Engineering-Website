@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Blade design variables</title>
+  <desc id="desc">Infographic comparing blade pitch, blade area, blade count and balance for a wind USB charger.</desc>
+  <rect width="1200" height="760" rx="28" fill="#f6f8fb"/>
+  <text x="60" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="42" font-weight="800" fill="#10243b">Impellor design variables</text>
+  <text x="60" y="120" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#53637a">Change one variable at a time or your test data becomes mud.</text>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <g transform="translate(70 185)">
+      <rect width="500" height="220" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="3"/>
+      <text x="28" y="48" font-size="28" font-weight="800" fill="#0b3d91">Blade pitch</text>
+      <path d="M120 135 C195 78 275 80 360 136" fill="none" stroke="#0b63c3" stroke-width="12" stroke-linecap="round"/>
+      <line x1="120" y1="150" x2="360" y2="150" stroke="#94a3b8" stroke-width="5"/>
+      <path d="M258 92 A70 70 0 0 1 309 149" fill="none" stroke="#f59e0b" stroke-width="7"/>
+      <text x="326" y="122" font-size="24" fill="#d97706" font-weight="800">angle</text>
+      <text x="28" y="188" font-size="21" fill="#53637a">Too flat may not start. Too steep can stall.</text>
+    </g>
+    <g transform="translate(630 185)">
+      <rect width="500" height="220" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="3"/>
+      <text x="28" y="48" font-size="28" font-weight="800" fill="#0b3d91">Blade area</text>
+      <path d="M70 140 C138 64 206 76 226 143 C163 155 112 167 70 140Z" fill="#8ed6ff" stroke="#0b63c3" stroke-width="4"/>
+      <path d="M288 148 C382 45 452 66 468 155 C395 171 333 175 288 148Z" fill="#bae6fd" stroke="#0b63c3" stroke-width="4"/>
+      <text x="28" y="188" font-size="21" fill="#53637a">Larger catches more wind but adds mass and drag.</text>
+    </g>
+    <g transform="translate(70 445)">
+      <rect width="500" height="220" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="3"/>
+      <text x="28" y="48" font-size="28" font-weight="800" fill="#0b3d91">Blade count</text>
+      <g transform="translate(170 110)">
+        <circle r="18" fill="#10243b"/>
+        <path d="M0 0 L0 -76 C45 -60 50 -26 0 0Z" fill="#f59e0b"/>
+        <path d="M0 0 L66 38 C28 73 -4 58 0 0Z" fill="#f59e0b"/>
+        <path d="M0 0 L-66 38 C-72 -12 -43 -41 0 0Z" fill="#f59e0b"/>
+      </g>
+      <g transform="translate(335 110)">
+        <circle r="18" fill="#10243b"/>
+        <path d="M0 0 L0 -76 C45 -60 50 -26 0 0Z" fill="#0a7e2a"/>
+        <path d="M0 0 L76 0 C60 45 26 50 0 0Z" fill="#0a7e2a"/>
+        <path d="M0 0 L0 76 C-45 60 -50 26 0 0Z" fill="#0a7e2a"/>
+        <path d="M0 0 L-76 0 C-60 -45 -26 -50 0 0Z" fill="#0a7e2a"/>
+      </g>
+      <text x="28" y="188" font-size="21" fill="#53637a">More blades can start easier but may spin slower.</text>
+    </g>
+    <g transform="translate(630 445)">
+      <rect width="500" height="220" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="3"/>
+      <text x="28" y="48" font-size="28" font-weight="800" fill="#0b3d91">Balance and alignment</text>
+      <line x1="88" y1="128" x2="415" y2="128" stroke="#1f2a3d" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="250" cy="128" r="34" fill="#f59e0b" stroke="#10243b" stroke-width="5"/>
+      <path d="M83 95 L118 128 L83 161" fill="none" stroke="#0a7e2a" stroke-width="8" stroke-linecap="round"/>
+      <path d="M417 95 L382 128 L417 161" fill="none" stroke="#0a7e2a" stroke-width="8" stroke-linecap="round"/>
+      <text x="28" y="188" font-size="21" fill="#53637a">Wobble wastes energy and can damage the build.</text>
+    </g>
+  </g>
+</svg>

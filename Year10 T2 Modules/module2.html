@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 2: Wind Generator Design for the Year 10 Wind Powered USB Phone Charger project." />
+  <title>Toolkit 2: Wind Generator Design | Year 10 Semester 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root { --brand:#0056b3; --brand-dark:#003f80; --bg:#f6f8fb; --card:#fff; --text:#1f2a3d; --muted:#5c667a; --border:#e2e8f0; --shadow:0 12px 30px rgba(0,0,0,.08); --radius:12px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:'Roboto',Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible { outline:3px solid var(--brand); outline-offset:2px; border-radius:4px; }
+    header { background:linear-gradient(135deg,var(--brand-dark),#0b63c3); color:#fff; padding:2.25rem 1.25rem 2rem; text-align:center; }
+    header h1 { margin:0; font-size:clamp(1.7rem,3vw,2.55rem); line-height:1.15; }
+    header p { margin:.55rem 0 0; opacity:.92; font-size:1.05rem; }
+    nav { display:flex; flex-wrap:wrap; justify-content:center; gap:.75rem; background:#fff; border-bottom:1px solid #e2e8f0; padding:.65rem 1rem; }
+    nav a { padding:.45rem .85rem; border-radius:10px; color:var(--brand); font-weight:700; }
+    nav a.active { background:#e6f0fb; color:#0b63c3; }
+    main { max-width:1000px; margin:0 auto; padding:1.75rem 1rem 3rem; }
+    .back-link { display:inline-block; margin-bottom:1rem; color:var(--brand); font-weight:700; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:1.5rem; margin-bottom:1.25rem; display:flow-root; }
+    .card h2 { margin:0 0 .5rem; color:var(--brand); font-size:1.6rem; line-height:1.2; }
+    .card h3 { margin:1.2rem 0 .35rem; color:var(--text); font-size:1.05rem; }
+    .card p, .card ul, .card ol { color:var(--muted); }
+    .card ul, .card ol { margin:.3rem 0 .75rem; padding-left:1.15rem; }
+    .card li + li { margin-top:.35rem; }
+    .pill { display:inline-block; padding:.25rem .6rem; border-radius:999px; background:#e6f0fb; color:var(--brand); font-weight:700; font-size:.8rem; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:.9rem; }
+    .mini-card { border:1px solid var(--border); border-radius:10px; background:#fff; padding:1rem; }
+    .mini-card h3 { margin-top:0; color:var(--brand); }
+    table { width:100%; border-collapse:collapse; margin:.9rem 0; color:var(--muted); }
+    th, td { border:1px solid var(--border); padding:.7rem; text-align:left; vertical-align:top; }
+    th { background:#e6f0fb; color:var(--brand); }
+    .callout { border-left:5px solid var(--brand); background:#f8fbff; border-radius:10px; padding:.9rem 1rem; color:var(--muted); margin:.9rem 0; }
+    @media (max-width:700px) { .grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 2: Wind Generator Design</h1>
+    <p>Constraints, impellor, gears/cogs and generator layout</p>
+  </header>
+  <nav>
+    <a href="../year10_term2.html">Year 10 Semester 2</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a class="active" href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a href="module4.html">Toolkit 4</a>
+  </nav>
+  <main>
+    <a class="back-link" href="../year10_term2.html">&larr; Back to Year 10 Semester 2 Toolkits</a>
+    <section class="card">
+      <span class="pill">Design</span>
+      <h2>Learning Focus</h2>
+      <p>Students turn the energy context into a practical design. The aim is not just to make something spin, but to design a compact system that supports the impellor, transfers rotation cleanly and protects the generator and USB output.</p>
+      <div class="grid">
+        <article class="mini-card">
+          <h3>Design Constraints</h3>
+          <ul>
+            <li>Maximum size: 250 x 150 x 100 mm</li>
+            <li>Stable frame and secure rotating parts</li>
+            <li>Teacher-checked low-voltage output</li>
+            <li>Clear access to generator and USB unit</li>
+          </ul>
+        </article>
+        <article class="mini-card">
+          <h3>Design Choices</h3>
+          <ul>
+            <li>Blade number, shape, pitch and material</li>
+            <li>Direct drive or gear/cog transfer</li>
+            <li>Shaft support, bearings and alignment</li>
+            <li>Frame material and fixing method</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Design Decision Table</h2>
+      <table>
+        <tr><th>Part</th><th>Good design evidence</th></tr>
+        <tr><td>Impellor/blades</td><td>Research sketches compare at least two options and explain why the final blade design should catch wind effectively.</td></tr>
+        <tr><td>Frame</td><td>The frame is stable, square, strong enough for testing and small enough to meet the size constraint.</td></tr>
+        <tr><td>Shaft and generator</td><td>The shaft is supported, spins freely and lines up with the generator without heavy friction.</td></tr>
+        <tr><td>Electrical output</td><td>Connections are neat, insulated where needed and checked before testing a device.</td></tr>
+      </table>
+      <div class="callout"><strong>Folio evidence:</strong> Include labelled concept sketches, a final selected design, a materials list, and a short justification for your final choices.</div>
+    </section>
+    <section class="card">
+      <h2>Drive And Assessment Requirements</h2>
+      <p>The assessment task says the wind generator design challenge uses a generator and USB unit. The impellor or wind catcher is central to the design, and students are expected to experiment with gears and cogs to maximise efficient power transfer and output. This also maps to Stage 5 Engineering specialisation outcomes including EGT5-SAF-01, EGT5-COM-01, EGT5-EVL-01, EGT5-IVT-01, EGT5-USE-01 and EGT5-ENV-01, as well as the older IND5 design, production, WHS, materials and evaluation outcomes used in the assessment task.</p>
+      <table>
+        <tr><th>Requirement</th><th>Design implication</th><th>Evidence students need</th></tr>
+        <tr><td>Portable phone charging station</td><td>The build must be compact, stable and easy to move without damaging the generator or USB unit.</td><td>Final design description, finished photos and evaluation against portability.</td></tr>
+        <tr><td>250 x 150 x 100 mm size limit</td><td>Every part must fit inside a small volume, so blade diameter, frame height and generator position matter.</td><td>Dimensioned sketch, Onshape screenshot or final drawing.</td></tr>
+        <tr><td>Generator body 31 mm long and 24 mm diameter</td><td>The frame needs a secure mount that supports the generator without twisting or rubbing.</td><td>Labelled generator location and mounting method.</td></tr>
+        <tr><td>Shaft 2 mm diameter and 13 mm long</td><td>The impellor attachment must be accurate and light; poor fit creates wobble and slip.</td><td>Detail sketch or note explaining hub attachment.</td></tr>
+        <tr><td>Bearings available: 20 mm OD, 10 mm ID</td><td>Bearings can reduce friction if the design supports them properly.</td><td>Justification for using or not using bearings.</td></tr>
+        <tr><td>Laser cutting / 3D printing optional extension</td><td>Digital fabrication should improve accuracy, repeatability or presentation, not just look fancy.</td><td>CAD/CAM screenshots, exported parts or fabrication notes.</td></tr>
+        <tr><td>Peer feedback and teacher feedback</td><td>Feedback should be used before the final design is locked in.</td><td>One recorded improvement based on a specific comment.</td></tr>
+      </table>
+    </section>
+    <section class="card">
+      <h2>Design Problem: Catch Wind Without Wasting It</h2>
+      <p>A strong design converts moving air into smooth shaft rotation. The impellor needs enough surface area and blade angle to start rotating, but it also needs to stay balanced and light. A large, heavy blade set may look powerful but fail because it needs too much wind to start.</p>
+      <div class="grid">
+        <article class="mini-card">
+          <h3>High-Drag Wind Catcher</h3>
+          <p>Uses cups, scoops or broad surfaces to catch air. It can start easily at low speed, but it may rotate slowly and create more vibration.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Lift-Style Blade</h3>
+          <p>Uses angled or aerofoil-like blades. It can spin faster once moving, but it is harder to make accurately and may need better alignment.</p>
+        </article>
+      </div>
+      <div class="callout"><strong>Design judgement:</strong> The best classroom impellor is not always the most realistic wind turbine. It is the one that works safely with the available generator, wind source, materials, build time and size limit.</div>
+    </section>
+    <section class="card">
+      <h2>Blade Variables</h2>
+      <table>
+        <tr><th>Variable</th><th>What to try</th><th>Likely effect</th></tr>
+        <tr><td>Number of blades</td><td>Compare 2, 3, 4 or more blades.</td><td>More blades may start easier but can add drag and weight.</td></tr>
+        <tr><td>Blade angle / pitch</td><td>Change the angle between the blade and incoming air.</td><td>Too flat may not catch enough wind; too steep may stall or wobble.</td></tr>
+        <tr><td>Blade area</td><td>Compare narrow and wide blade profiles.</td><td>Larger area catches more air but increases weight and drag.</td></tr>
+        <tr><td>Blade material</td><td>Card, plastic sheet, thin ply, 3D printed or laser cut parts.</td><td>Material affects stiffness, weight, accuracy and durability.</td></tr>
+        <tr><td>Balance</td><td>Check whether the impellor rotates smoothly without a heavy side.</td><td>Balanced designs produce less vibration and protect the generator shaft.</td></tr>
+      </table>
+    </section>
+    <section class="card">
+      <h2>Direct Drive, Gears And Cogs</h2>
+      <p>The assessment specifically mentions gears and cogs. Students should understand that gearing is not magic. A gear train can increase generator speed, change direction or make layout easier, but it also adds friction and alignment problems.</p>
+      <table>
+        <tr><th>Drive option</th><th>Advantages</th><th>Disadvantages</th><th>When to choose it</th></tr>
+        <tr><td>Direct drive</td><td>Simple, fewer parts, less friction, easier to align.</td><td>Generator speed depends directly on impellor speed.</td><td>When the impellor can spin the generator fast enough without gearing.</td></tr>
+        <tr><td>Gear-up drive</td><td>Can make the generator spin faster than the impellor.</td><td>Reduces torque, adds friction, may stop the impellor starting.</td><td>When the impellor has enough torque but generator speed is too low.</td></tr>
+        <tr><td>Gear-down drive</td><td>Increases torque and may help under load.</td><td>Generator spins slower, which may reduce voltage.</td><td>Rare for this charger, but useful to discuss as a trade-off.</td></tr>
+        <tr><td>Belt or pulley drive</td><td>Can tolerate slight misalignment and isolate vibration.</td><td>Can slip and may be harder to fit in the size limit.</td><td>As an extension if gears are binding or too noisy.</td></tr>
+      </table>
+      <div class="callout"><strong>Simple gear language:</strong> If a large impellor gear drives a small generator gear, the generator spins faster but with less torque. If a small gear drives a large gear, speed reduces but torque increases.</div>
+    </section>
+    <section class="card">
+      <h2>Worked Design Example</h2>
+      <p><strong>Problem:</strong> A student has a 90 mm four-blade impellor that spins steadily, but the generator output is weak. The impellor has enough torque to keep spinning under light load.</p>
+      <ol>
+        <li><strong>Hypothesis:</strong> The generator may need higher rotational speed.</li>
+        <li><strong>Design change:</strong> Try a gear-up arrangement, such as a larger gear on the impellor shaft driving a smaller gear on the generator shaft.</li>
+        <li><strong>Risk:</strong> Added friction may stop the impellor starting, or poor gear mesh may create vibration.</li>
+        <li><strong>Fair test:</strong> Keep the same wind source and blade design, then compare direct drive and geared drive output.</li>
+        <li><strong>Evidence:</strong> Record voltage/output, starting behaviour, noise, vibration and whether parts stayed aligned.</li>
+      </ol>
+    </section>
+    <section class="card">
+      <h2>Materials And Construction Choices</h2>
+      <p>The assignment template asks students to discuss materials used in wind turbine blades and solar panels, including strength, weight, efficiency, recyclability and disposal. For this prototype, material choice should be scaled down to classroom reality.</p>
+      <div class="grid">
+        <article class="mini-card">
+          <h3>Blade Materials</h3>
+          <ul>
+            <li><strong>Card:</strong> quick to test, light, easy to modify, poor durability.</li>
+            <li><strong>Plastic sheet:</strong> light and water resistant, can crack or flex too much.</li>
+            <li><strong>Thin ply:</strong> stiffer and stronger, heavier and harder to shape.</li>
+            <li><strong>3D printed:</strong> accurate and repeatable, but can be slow and may need support material.</li>
+            <li><strong>Laser cut:</strong> accurate flat parts, but blade pitch must still be formed or built into the design.</li>
+          </ul>
+        </article>
+        <article class="mini-card">
+          <h3>Frame Materials</h3>
+          <ul>
+            <li><strong>Plywood/MDF:</strong> easy to cut and assemble; must be kept square.</li>
+            <li><strong>Acrylic:</strong> neat presentation; can crack if drilled poorly.</li>
+            <li><strong>Cardboard prototypes:</strong> useful for concept testing but weak for final testing.</li>
+            <li><strong>3D printed brackets:</strong> accurate mounting but can fail along layer lines.</li>
+            <li><strong>Fasteners/adhesives:</strong> should resist vibration and allow safe inspection.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Concept Sketching And Design Selection</h2>
+      <p>The master folio asks for concept sketches and a strengths/weaknesses evaluation table. This is where students prove design thinking before building.</p>
+      <table>
+        <tr><th>Concept feature</th><th>What to evaluate</th><th>Useful sentence starter</th></tr>
+        <tr><td>Impellor shape</td><td>Will it catch wind, stay balanced and fit the size limit?</td><td>This blade design should work because...</td></tr>
+        <tr><td>Generator mount</td><td>Is the generator supported without twisting or rubbing?</td><td>The generator is mounted here so...</td></tr>
+        <tr><td>Power transfer</td><td>Direct drive, gears, cogs or other transfer?</td><td>I chose this drive method because...</td></tr>
+        <tr><td>Frame shape</td><td>Stable, compact, square and easy to assemble?</td><td>The frame reduces risk by...</td></tr>
+        <tr><td>USB access</td><td>Can the USB module be reached and protected?</td><td>The USB unit is positioned here because...</td></tr>
+      </table>
+      <div class="callout"><strong>Quality target:</strong> Five sketches are better than one only if they are genuinely different. Changing colour is not a concept. Changing blade style, shaft support, gearing or frame layout is.</div>
+    </section>
+    <section class="card">
+      <h2>WHS Design Controls</h2>
+      <p>Safety starts in the design, not after the model is built. Rotating parts, cutting/drilling, small shafts, sharp edges, unstable frames and low-voltage testing all need controls.</p>
+      <table>
+        <tr><th>Hazard</th><th>Risk</th><th>Design control</th></tr>
+        <tr><td>Fast spinning impellor</td><td>Contact with fingers, hair, clothing or wires.</td><td>Place the impellor away from hands, keep a clear test zone, and avoid loose leads near blades.</td></tr>
+        <tr><td>Unbalanced shaft</td><td>Vibration, loose parts, generator damage.</td><td>Use accurate hubs, balanced blades and supported shafts.</td></tr>
+        <tr><td>Gear/cog pinch points</td><td>Fingers or wires caught between teeth.</td><td>Keep gears inside the frame, mark no-touch zones and stop testing before adjustments.</td></tr>
+        <tr><td>Low-voltage electrical output</td><td>Damaged components or device if connected incorrectly.</td><td>Teacher check, test meter first, confirm polarity and avoid personal phone testing until approved.</td></tr>
+      </table>
+    </section>
+    <section class="card">
+      <h2>Activities And Folio Evidence</h2>
+      <h3>1. Component Constraint Sheet</h3>
+      <ul>
+        <li>Record the generator body size, shaft size, available bearings and overall size limit.</li>
+        <li>Draw a labelled box showing the maximum 250 x 150 x 100 mm volume.</li>
+        <li>List what must fit inside the volume.</li>
+      </ul>
+      <h3>2. Impellor Investigation</h3>
+      <ul>
+        <li>Compare at least three blade or wind catcher ideas.</li>
+        <li>Predict which will start easiest, spin fastest and stay most stable.</li>
+        <li>Explain one sustainability or material-choice issue for each option.</li>
+      </ul>
+      <h3>3. Gear/Cog Decision</h3>
+      <ul>
+        <li>Sketch direct drive and one geared option.</li>
+        <li>Explain the speed/torque trade-off in plain language.</li>
+        <li>Choose which option you will build first and why.</li>
+      </ul>
+      <h3>4. Concept Evaluation Table</h3>
+      <ul>
+        <li>Insert sketches or photos of at least five concepts where possible.</li>
+        <li>Write strengths and weaknesses for each concept.</li>
+        <li>Choose the final design using evidence from function, safety, size, materials and build quality.</li>
+      </ul>
+    </section>
+    <section class="card">
+      <h2>Common Mistakes To Avoid</h2>
+      <ul>
+        <li><strong>Oversized blades:</strong> if the model does not fit the size limit, it fails the brief even if it spins.</li>
+        <li><strong>Ignoring the 2 mm shaft:</strong> a loose hub or heavy impellor can bend or slip on the shaft.</li>
+        <li><strong>Adding gears without testing:</strong> gears can reduce output if they add more friction than speed benefit.</li>
+        <li><strong>No real design choice:</strong> students must justify why one concept is better than another.</li>
+        <li><strong>Weak frame:</strong> a flexible frame ruins alignment and makes test data unreliable.</li>
+      </ul>
+    </section>
+    <section class="card">
+      <h2>Toolkit Self-Check</h2>
+      <div class="qa-list" data-qa-min-words="18">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why is alignment important between the impellor, shaft and generator?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t2m2_qa1">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t2m2_qa1"><p>Poor alignment increases friction, vibration and wear. It can reduce electrical output, loosen fixings and make the impellor wobble during testing. Good alignment helps the system spin smoothly and makes test results more reliable.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What design features help reduce friction in the charger prototype?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t2m2_qa2">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t2m2_qa2"><p>Useful features include straight shaft supports, accurate holes, smooth bearing surfaces, light but stiff blades, careful spacing, secure generator mounting and avoiding parts rubbing on the frame. Less friction means more wind energy reaches the generator.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What could go wrong if the frame flexes during testing?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t2m2_qa3">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t2m2_qa3"><p>A flexible frame can move the shaft out of alignment, increase vibration, let blades hit the frame and make electrical output inconsistent. It can also make the model unstable on the bench, which increases the risk during rotating tests.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why might a gear or cog system improve performance, and why might it make performance worse?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t2m2_qa4">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t2m2_qa4"><p>Gears can change speed or torque to suit the generator, which may improve output. They can also add friction, backlash, noise, alignment problems and extra failure points, so students need to test whether the gear train actually helps.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How will you prove that your final design is better than your first idea?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t2m2_qa5">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t2m2_qa5"><p>Use evidence, not vibes. Compare sketches, explain why the final option meets the size, stability, safety and output requirements better, then support the decision with test data, photos, teacher feedback or a design decision table.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why should rotating parts be guarded, spaced or positioned carefully during design?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t2m2_qa6">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t2m2_qa6"><p>Rotating blades and shafts can catch fingers, hair, loose clothing or wires. Careful spacing, clear test zones and secure mounting reduce contact risk and stop leads or frame parts from being dragged into the spinning impellor.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What should be included in the folio to justify the selected design?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t2m2_qa7">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t2m2_qa7"><p>The folio should include concept sketches, labelled design options, constraints, materials, a final selected design and a short justification explaining why the chosen solution is safer, more stable and more likely to generate useful output.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why is the 250 x 150 x 100 mm size limit an engineering constraint rather than just a classroom instruction?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t2m2_qa8">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t2m2_qa8"><p>A constraint forces design decisions. The charger must fit the available space while still holding the impellor, shaft, generator and USB module safely. Meeting the limit shows the design is controlled, compact and buildable.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="../qa-widget.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toolkit 4: Build, Test and Evaluate for the Year 10 Wind Powered USB Phone Charger project." />
+  <title>Toolkit 4: Build, Test &amp; Evaluate | Year 10 Semester 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../qa-widget.css" />
+  <style>
+    :root { --brand:#0056b3; --brand-dark:#003f80; --bg:#f6f8fb; --card:#fff; --text:#1f2a3d; --muted:#5c667a; --border:#e2e8f0; --shadow:0 12px 30px rgba(0,0,0,.08); --radius:12px; --danger:#b42318; --warning:#9a5b00; --success:#127a4a; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:'Roboto',Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible { outline:3px solid var(--brand); outline-offset:2px; border-radius:4px; }
+    header { background:linear-gradient(135deg,var(--brand-dark),#0b63c3); color:#fff; padding:2.25rem 1.25rem 2rem; text-align:center; }
+    header h1 { margin:0; font-size:clamp(1.7rem,3vw,2.55rem); line-height:1.15; }
+    header p { margin:.55rem 0 0; opacity:.92; font-size:1.05rem; }
+    nav { display:flex; flex-wrap:wrap; justify-content:center; gap:.75rem; background:#fff; border-bottom:1px solid var(--border); padding:.65rem 1rem; }
+    nav a { padding:.45rem .85rem; border-radius:10px; color:var(--brand); font-weight:700; }
+    nav a.active { background:#e6f0fb; color:#0b63c3; }
+    main { max-width:1000px; margin:0 auto; padding:1.75rem 1rem 3rem; }
+    .back-link { display:inline-block; margin-bottom:1rem; color:var(--brand); font-weight:700; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:1.5rem; margin-bottom:1.25rem; display:flow-root; }
+    .card h2 { margin:0 0 .5rem; color:var(--brand); font-size:1.6rem; line-height:1.2; }
+    .card h3 { margin:1.2rem 0 .35rem; color:var(--text); font-size:1.05rem; }
+    .card p, .card ul, .card ol { color:var(--muted); }
+    .card ul, .card ol { margin:.3rem 0 .75rem; padding-left:1.15rem; }
+    .card li + li { margin-top:.35rem; }
+    .pill { display:inline-block; padding:.25rem .6rem; border-radius:999px; background:#e6f0fb; color:var(--brand); font-weight:700; font-size:.8rem; }
+    .feature-image { width:100%; border:1px solid var(--border); border-radius:10px; box-shadow:var(--shadow); background:#fff; margin:.65rem 0 1rem; }
+    .feature-image img { display:block; width:100%; border-radius:10px; }
+    table { width:100%; border-collapse:collapse; margin:.9rem 0; color:var(--muted); }
+    th, td { border:1px solid var(--border); padding:.7rem; text-align:left; vertical-align:top; }
+    th { background:#e6f0fb; color:var(--brand); }
+    .risk-high { color:var(--danger); font-weight:700; }
+    .risk-med { color:var(--warning); font-weight:700; }
+    .risk-low { color:var(--success); font-weight:700; }
+    .callout { border-left:5px solid var(--brand); background:#f8fbff; border-radius:10px; padding:.9rem 1rem; color:var(--muted); margin:.9rem 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Toolkit 4: Build, Test &amp; Evaluate</h1>
+    <p>Prototype evidence, output testing, improvements and folio</p>
+  </header>
+  <nav>
+    <a href="../year10_term2.html">Year 10 Semester 2</a>
+    <a href="module1.html">Toolkit 1</a>
+    <a href="module2.html">Toolkit 2</a>
+    <a href="module3.html">Toolkit 3</a>
+    <a class="active" href="module4.html">Toolkit 4</a>
+  </nav>
+  <main>
+    <a class="back-link" href="../year10_term2.html">&larr; Back to Year 10 Semester 2 Toolkits</a>
+    <section class="card">
+      <span class="pill">Project</span>
+      <h2>Learning Focus</h2>
+      <div class="feature-image"><img src="../images/year10-wind-usb-charger/students-building-wind-usb-charger.png" alt="Students building and testing a wind powered USB charger prototype on a workshop bench" /></div>
+      <p>This toolkit brings the project together: build the prototype safely, test output in a controlled way, improve one or two design features, and use evidence to explain what worked.</p>
+    </section>
+    <section class="card">
+      <h2>Build And Test Sequence</h2>
+      <ol>
+        <li>Check the final design and materials before cutting or drilling.</li>
+        <li>Build the frame square and stable.</li>
+        <li>Fit the shaft, impellor and supports so the rotating parts spin freely.</li>
+        <li>Mount the generator and USB unit securely.</li>
+        <li>Complete a teacher safety check before powered output testing.</li>
+        <li>Test output, record data, photograph evidence and identify faults.</li>
+        <li>Make controlled improvements and retest using the same method.</li>
+      </ol>
+      <div class="callout"><strong>Folio evidence:</strong> Include build photos, a test table, fault-finding notes, improvement evidence and a final evaluation paragraph using test data.</div>
+    </section>
+    <section class="card">
+      <h2>Risk Controls</h2>
+      <table>
+        <tr><th>Hazard</th><th>Risk</th><th>Control</th></tr>
+        <tr><td>Cutting and drilling</td><td><span class="risk-med">Medium</span></td><td>Wear PPE, clamp work, use correct tools and follow teacher instruction.</td></tr>
+        <tr><td>Rotating impellor</td><td><span class="risk-med">Medium</span></td><td>Keep hands, hair and loose clothing clear during testing.</td></tr>
+        <tr><td>Electrical output</td><td><span class="risk-low">Low</span></td><td>Use low-voltage components only and get teacher approval before connecting devices.</td></tr>
+        <tr><td>Unstable frame</td><td><span class="risk-med">Medium</span></td><td>Test on a clear bench, secure the model and stand outside the impellor path.</td></tr>
+      </table>
+    </section>
+    <section class="card">
+      <h2>Drive And Folio Requirements</h2>
+      <p>The master folio requires an evaluation of the concept model, photos of the presentation model, testing method, test results, a success judgement and final evaluation. The assessment task also requires WHS, resources, terminology, societal/environmental implications and design processes. This page maps the build and evaluation work to Stage 5 Engineering specialisation outcomes EGT5-SAF-01, EGT5-COM-01, EGT5-EVL-01, EGT5-IVT-01, EGT5-USE-01 and EGT5-ENV-01, and to the older IND5 practical, WHS, materials, communication and evaluation outcomes.</p>
+      <table>
+        <tr><th>Folio section</th><th>Evidence required</th><th>Quality check</th></tr>
+        <tr><td>Evaluation of concept model</td><td>Performance versus expectation, problems, design changes and justifications.</td><td>Uses specific observations, not just "it worked".</td></tr>
+        <tr><td>Presentation model</td><td>At least two photos of the finished model with captions.</td><td>Photos show the whole model and important details.</td></tr>
+        <tr><td>Testing</td><td>Testing method, test results and success judgement.</td><td>Method is repeatable and results are recorded clearly.</td></tr>
+        <tr><td>Final evaluation</td><td>What went well, what did not go as planned, what would change.</td><td>Judgement links to data, construction quality, WHS and sustainability.</td></tr>
+        <tr><td>Peer feedback</td><td>One useful comment from another student or teacher before final evaluation.</td><td>Feedback leads to a recorded improvement, retest or clearer report evidence.</td></tr>
+        <tr><td>Technical graphics link</td><td>Final build is compared with the drawing or Onshape model.</td><td>Checks whether the constructed solution matches the AS 1100-style drawing intent.</td></tr>
+        <tr><td>Costing/resource reflection</td><td>Material use, waste, component choice and resource efficiency are considered.</td><td>Connects the practical model to sustainability and project-management content.</td></tr>
+      </table>
+    </section>
+    <section class="card">
+      <h2>Before Construction Starts</h2>
+      <p>A good build starts with a checked design. The charger has small rotating parts, a small generator shaft and electrical output, so rushing into construction usually creates avoidable problems.</p>
+      <div class="grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;">
+        <article class="mini-card" style="border:1px solid var(--border);border-radius:10px;background:#fff;padding:1rem;">
+          <h3 style="margin-top:0;color:var(--brand);">Teacher Check 1: Build Readiness</h3>
+          <ul>
+            <li>Final design fits inside the size limit.</li>
+            <li>Generator, shaft and impellor positions are shown.</li>
+            <li>Materials and fixings are selected.</li>
+            <li>WHS controls are identified.</li>
+            <li>Construction sequence is sensible.</li>
+          </ul>
+        </article>
+        <article class="mini-card" style="border:1px solid var(--border);border-radius:10px;background:#fff;padding:1rem;">
+          <h3 style="margin-top:0;color:var(--brand);">Teacher Check 2: Test Readiness</h3>
+          <ul>
+            <li>Frame is stable on the bench.</li>
+            <li>Rotating parts clear the frame and wires.</li>
+            <li>Generator and USB module are mounted securely.</li>
+            <li>Electrical connections are checked.</li>
+            <li>Test area and stop method are clear.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Build Quality</h2>
+      <p>Build quality affects performance. A charger with a clever blade design can still fail if the frame is crooked, the shaft rubs, the generator twists or the USB module hangs loose.</p>
+      <table>
+        <tr><th>Build feature</th><th>Good evidence</th><th>Problem sign</th></tr>
+        <tr><td>Frame</td><td>Square, stable, compact and strong enough for testing.</td><td>Rocks on the bench, flexes under load or falls outside the size limit.</td></tr>
+        <tr><td>Impellor</td><td>Balanced, secure on the shaft and clear of all supports.</td><td>Wobbles, scrapes, throws air unevenly or slips on the hub.</td></tr>
+        <tr><td>Shaft support</td><td>Rotates freely with little side movement.</td><td>Binds, bends or vibrates at higher speed.</td></tr>
+        <tr><td>Generator mount</td><td>Held firmly and aligned with the shaft or gear train.</td><td>Moves during testing or pulls wires tight.</td></tr>
+        <tr><td>Electrical output</td><td>Connections secure, polarity checked and USB module protected.</td><td>Loose wires, intermittent readings or unsafe device connection.</td></tr>
+      </table>
+    </section>
+    <section class="card">
+      <h2>Testing Method</h2>
+      <p>Testing must be fair enough to compare changes. If students change the wind source, blade angle, distance and gear setup all at once, the results will be a mess. One change at a time. Boring? Yes. Useful? Also yes.</p>
+      <ol>
+        <li><strong>Set the baseline:</strong> record the first working setup, including blade design, drive method, wind source and distance.</li>
+        <li><strong>Inspect safety:</strong> check frame stability, rotating clearances, loose wires, teacher sign-off and stop method.</li>
+        <li><strong>Run a short spin test:</strong> observe starting behaviour, wobble, rubbing and noise before measuring output.</li>
+        <li><strong>Measure output:</strong> record voltage or approved output readings if equipment is available.</li>
+        <li><strong>Change one variable:</strong> blade angle, blade number, gear ratio, frame support or wind distance.</li>
+        <li><strong>Retest under the same conditions:</strong> compare the new result with the baseline.</li>
+        <li><strong>Record the judgement:</strong> better, worse or no clear improvement, with evidence.</li>
+      </ol>
+      <div class="callout"><strong>Testing rule:</strong> If the method cannot be repeated, the data cannot be trusted.</div>
+    </section>
+    <section class="card">
+      <h2>Suggested Test Table</h2>
+      <table>
+        <tr><th>Test</th><th>Setup</th><th>Variable changed</th><th>Output/result</th><th>Observations</th><th>Next action</th></tr>
+        <tr><td>1</td><td>Baseline blade, direct drive, fan at same distance</td><td>None</td><td>Record reading or qualitative result</td><td>Starts slowly, slight wobble, no rubbing</td><td>Improve blade balance</td></tr>
+        <tr><td>2</td><td>Same as Test 1</td><td>Blade angle increased</td><td>Record result</td><td>Higher speed but more vibration</td><td>Reduce angle slightly</td></tr>
+        <tr><td>3</td><td>Same blade as best test</td><td>Gear-up drive added</td><td>Record result</td><td>Harder to start, possible friction</td><td>Check gear alignment</td></tr>
+      </table>
+      <p>Students can add rows as needed. The table should show cause and effect: what changed, what happened, and what the next design decision was.</p>
+    </section>
+    <section class="card">
+      <h2>Fault-Finding Guide</h2>
+      <table>
+        <tr><th>Problem</th><th>Likely causes</th><th>Useful fix</th></tr>
+        <tr><td>Impellor does not start</td><td>Too heavy, too much friction, poor blade angle, generator load too high.</td><td>Lighten blades, reduce friction, adjust pitch, test without gear train.</td></tr>
+        <tr><td>Impellor wobbles</td><td>Unbalanced blades, loose hub, bent shaft or unsupported frame.</td><td>Balance blades, tighten hub, add support, improve alignment.</td></tr>
+        <tr><td>Output is weak</td><td>Generator spinning too slowly, slipping drive, poor wind capture.</td><td>Improve blade design, reduce friction, try gear-up drive carefully.</td></tr>
+        <tr><td>Output cuts in and out</td><td>Loose wires, unstable USB module, vibration, poor connection.</td><td>Secure wiring, strain relief, teacher check, retest under controlled conditions.</td></tr>
+        <tr><td>Gears bind</td><td>Incorrect centre distance, poor alignment, teeth rubbing, weak frame.</td><td>Reposition gears, support shafts, check spacing, lubricate only if teacher approves.</td></tr>
+        <tr><td>Frame moves during test</td><td>Base too small, wind force too high, poor clamping or weak joints.</td><td>Widen/stiffen base, clamp safely, reduce wind speed for early tests.</td></tr>
+      </table>
+    </section>
+    <section class="card">
+      <h2>Evaluation: What Counts As Success?</h2>
+      <p>Success is not just charging a phone. The task asks for a portable phone charging station, but the classroom prototype should be evaluated across multiple criteria.</p>
+      <table>
+        <tr><th>Criterion</th><th>Strong evaluation evidence</th></tr>
+        <tr><td>Function</td><td>Impellor rotates, drives generator and produces approved output evidence.</td></tr>
+        <tr><td>Efficiency</td><td>Design changes are compared using fair test data.</td></tr>
+        <tr><td>Portability</td><td>Model is compact, self-contained and fits the required box.</td></tr>
+        <tr><td>Safety</td><td>Rotating parts, tools and low-voltage testing were controlled.</td></tr>
+        <tr><td>Construction quality</td><td>Frame is stable, parts are aligned and the finish is tidy.</td></tr>
+        <tr><td>Aesthetics</td><td>Presentation model is neat and communicates the idea clearly.</td></tr>
+        <tr><td>Sustainability</td><td>Material choices, waste, reuse, recyclability and energy context are discussed.</td></tr>
+      </table>
+    </section>
+    <section class="card">
+      <h2>Writing The Final Evaluation</h2>
+      <p>A strong evaluation links evidence, engineering theory and improvement. It should sound like an engineer reviewing a prototype, not a student trying to survive the last five minutes of the lesson.</p>
+      <div class="callout"><strong>Sentence frame:</strong> My final design was successful/partly successful because the test data showed _____. The main problem was _____, which was caused by _____. I improved this by _____. If I built a second version, I would _____ because _____.</div>
+      <h3>Include these points</h3>
+      <ul>
+        <li>Best output or best performance recorded.</li>
+        <li>Most important design feature affecting performance.</li>
+        <li>Faults found during testing and how they were fixed.</li>
+        <li>How well the model met the size, safety and function requirements.</li>
+        <li>Material and sustainability judgement.</li>
+        <li>Specific second-version improvement.</li>
+      </ul>
+    </section>
+    <section class="card">
+      <h2>Activities And Folio Evidence</h2>
+      <h3>1. Build Log</h3>
+      <ul>
+        <li>Record each major build stage with a photo and short caption.</li>
+        <li>Explain one problem or decision from each stage.</li>
+      </ul>
+      <h3>2. Safety Sign-Off</h3>
+      <ul>
+        <li>Include teacher check notes before powered testing.</li>
+        <li>Record rotating-part and electrical-output controls.</li>
+      </ul>
+      <h3>3. Test Table And Fault Log</h3>
+      <ul>
+        <li>Use a repeatable test method and record results.</li>
+        <li>Keep faults visible in the folio. Problems are evidence if you respond to them properly.</li>
+      </ul>
+      <h3>4. Final Evaluation</h3>
+      <ul>
+        <li>Write a final judgement using data, photos, WHS, sustainability and design improvement language.</li>
+        <li>Answer the folio prompts: what went well, what did not go as planned, and what would you change?</li>
+      </ul>
+    </section>
+    <section class="card">
+      <h2>Common Mistakes To Avoid</h2>
+      <ul>
+        <li><strong>Testing without a baseline:</strong> you need an original result to compare improvements against.</li>
+        <li><strong>Changing everything at once:</strong> this destroys cause-and-effect evidence.</li>
+        <li><strong>Only photographing the final model:</strong> build-process photos are part of the evidence.</li>
+        <li><strong>Hiding failures:</strong> fault-finding is engineering evidence, not embarrassment.</li>
+        <li><strong>Evaluation without data:</strong> a strong judgement must refer to observations, test results or photos.</li>
+      </ul>
+    </section>
+    <section class="card">
+      <h2>Toolkit Self-Check</h2>
+      <div class="qa-list" data-qa-min-words="18">
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why must the charger have a teacher safety check before powered output testing?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t2m4_qa1">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t2m4_qa1"><p>A teacher check confirms that the frame is stable, rotating parts are clear, wiring is secure, polarity is correct and the output will be tested with approved equipment. It reduces the chance of damage, injury or unreliable data.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why should output testing be done in controlled steps instead of one full-speed test?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t2m4_qa2">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t2m4_qa2"><p>Controlled steps let students observe wobble, vibration, loose parts, voltage changes and wiring faults before the risk increases. Small steps also produce better data because each change can be linked to the result.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What should you do if the impellor wobbles, rubs or vibrates during testing?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t2m4_qa3">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t2m4_qa3"><p>Stop the test, move clear of the spinning parts, power down or remove wind input if safe, and tell the teacher. Then inspect blade balance, shaft support, frame alignment and loose fixings before retesting.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What data should be recorded to evaluate charger performance properly?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t2m4_qa4">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t2m4_qa4"><p>Useful data includes test conditions, wind source or speed setting, voltage or output reading, blade design, gear setup, faults observed, changes made and retest results. Photos or short notes help prove what happened.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>Why should only one design feature be changed before retesting?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t2m4_qa5">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t2m4_qa5"><p>Changing one feature at a time makes the test fair. If blade angle, gearing and generator position all change together, students cannot tell which change improved or reduced performance.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>How well did the final model meet the size, safety and function requirements?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t2m4_qa6">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t2m4_qa6"><p>A strong answer uses evidence. It states whether the model stayed within 250 x 150 x 100 mm, whether it operated safely, whether it produced useful output, and what test data supports that judgement.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What evidence should appear in the folio for build, test and evaluate?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t2m4_qa7">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t2m4_qa7"><p>The folio should include build photos, teacher check notes, a test table, fault-finding notes, improvement evidence, retest results and a final evaluation paragraph that uses data rather than just saying it worked.</p></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-question">
+            <span>What would be a worthwhile change if you built a second version of the charger?</span>
+            <button class="qa-toggle" type="button" aria-expanded="false" aria-controls="y10t2m4_qa8">Reveal model answer</button>
+          </div>
+          <div class="qa-answer" id="y10t2m4_qa8"><p>A worthwhile change is linked to evidence. Examples include improving blade pitch, reducing friction, strengthening the frame, changing gear ratio, protecting wiring or improving the test setup because the first version showed a specific weakness.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="../qa-widget.js" defer></script>
+</body>
+</html>

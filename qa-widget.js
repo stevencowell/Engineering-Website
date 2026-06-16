@@ -1,4 +1,4 @@
-// qa-widget.js - interactive quiz logic (shared across toolkits)
+﻿// qa-widget.js - interactive quiz logic (shared across toolkits)
 (function () {
   const DEFAULT_MIN_WORDS_BEFORE_REVEAL = 5;
   const DEFAULT_MIN_KEY_TERMS_BEFORE_REVEAL = 0;
@@ -65,10 +65,10 @@
 
   function scoreLabel(score) {
     switch (score) {
-      case 3: return '3 – Fully correct';
-      case 2: return '2 – Mostly correct';
-      case 1: return '1 – Partly correct';
-      case 0: return '0 – Not yet';
+      case 3: return '3 - Fully correct';
+      case 2: return '2 - Mostly correct';
+      case 1: return '1 - Partly correct';
+      case 0: return '0 - Not yet';
       default: return null;
     }
   }
@@ -157,7 +157,7 @@
 
     if (avgEl) {
       if (!scores.length) {
-        avgEl.textContent = 'Average: –';
+        avgEl.textContent = 'Average: -';
       } else {
         const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
         avgEl.textContent = `Average: ${avg.toFixed(1)}/3`;
@@ -172,7 +172,7 @@
       student.className = 'qa-student';
       student.innerHTML = `
         <label for="${qaId}-student">Your answer</label>
-        <textarea id="${qaId}-student" class="qa-student-input" data-qa-id="${qaId}" placeholder="Write your answer here..."></textarea>
+        <textarea id="${qaId}-student" class="qa-student-input" data-qa-id="${qaId}" placeholder="Write your answer here before revealing the model answer..."></textarea>
         <div class="qa-meta" data-qa-meta-for="${qaId}"></div>
       `;
       const questionRow = qaItem.querySelector('.qa-question');
@@ -186,12 +186,12 @@
       scorePanel.className = 'qa-score';
       scorePanel.setAttribute('data-qa-score-panel', qaId);
       scorePanel.innerHTML = `
-        <div class="qa-score-title">Self-assess (0–3)</div>
+        <div class="qa-score-title">Self-assess (0-3)</div>
         <div class="qa-score-buttons" role="group" aria-label="Self-assess score">
-          <button type="button" class="score-btn" data-score="3" aria-pressed="false">3 – Fully correct</button>
-          <button type="button" class="score-btn" data-score="2" aria-pressed="false">2 – Mostly correct</button>
-          <button type="button" class="score-btn" data-score="1" aria-pressed="false">1 – Partly correct</button>
-          <button type="button" class="score-btn" data-score="0" aria-pressed="false">0 – Not yet</button>
+          <button type="button" class="score-btn" data-score="3" aria-pressed="false">3 - Fully correct</button>
+          <button type="button" class="score-btn" data-score="2" aria-pressed="false">2 - Mostly correct</button>
+          <button type="button" class="score-btn" data-score="1" aria-pressed="false">1 - Partly correct</button>
+          <button type="button" class="score-btn" data-score="0" aria-pressed="false">0 - Not yet</button>
         </div>
       `;
       qaItem.appendChild(scorePanel);
@@ -209,8 +209,8 @@
         <div>
           <strong>Progress:</strong>
           <span data-qa-progress-text>0/0 scored</span>
-          <span aria-hidden="true"> • </span>
-          <span data-qa-average-text>Average: –</span>
+          <span aria-hidden="true"> | </span>
+          <span data-qa-average-text>Average: -</span>
         </div>
         <div class="qa-summary-actions"></div>
       `;
@@ -236,7 +236,7 @@
 
     // Ensure the guidance note matches the "serious attempt" requirement.
     const note = card.querySelector('.card-note');
-    const requirementText = `Try answering first (aim for ${minWords}+ words). You can reveal the model answer at any time, then self-assess using the 0–3 rubric.`;
+    const requirementText = `Write your answer first. Then reveal the model answer and score yourself honestly. Saved answers stay in this browser. Aim for ${minWords}+ words.`;
     if (note) {
       note.textContent = requirementText;
     } else {
@@ -412,8 +412,8 @@
     if (printBtn) {
       printBtn.addEventListener('click', () => {
         const theme = getThemeVars();
-        const pageTitle = (document && document.title) ? document.title : '';
-        const pagePath = (window.location && window.location.pathname) ? window.location.pathname : '';
+        const pageTitle = (document && document.title) ? document.title : '-';
+        const pagePath = (window.location && window.location.pathname) ? window.location.pathname : '-';
         const generatedAt = new Date().toLocaleString();
 
         const items = qaItems.map((item, idx) => {
@@ -450,14 +450,14 @@
         const progressText = `${scoredScores.length}/${items.length} scored`;
         const avgText = scoredScores.length
           ? `${(scoredScores.reduce((a, b) => a + b, 0) / scoredScores.length).toFixed(1)}/3`
-          : '–';
+          : '-';
 
         const docHtml = `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>${escapeHtml(quizTitle)} – PDF</title>
+    <title>${escapeHtml(quizTitle)} - PDF</title>
     <style>
       :root {
         --brand: ${escapeHtml(theme.brand)};
@@ -557,7 +557,7 @@
       ${items.map((it) => {
           const scoreText = typeof it.score === 'number' ? scoreLabel(it.score) : 'Not scored';
           const responseText = String(it.response || '').trim();
-          const responseHtml = responseText ? escapeHtml(responseText) : '—';
+          const responseHtml = responseText ? escapeHtml(responseText) : '-';
           const responseClass = responseText ? 'response' : 'response empty';
           const model = it.revealed && it.modelAnswerHtml
             ? `<div class="model"><div class="label">Model answer</div><div class="model-body">${it.modelAnswerHtml}</div></div>`
@@ -571,7 +571,7 @@
           </li>`;
         }).join('')}
     </ol>
-    <div class="footer">Tip: In the print dialog choose “Save as PDF”.</div>
+    <div class="footer">Tip: In the print dialog choose "Save as PDF".</div>
   </body>
 </html>`;
 

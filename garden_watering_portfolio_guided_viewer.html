@@ -9,6 +9,7 @@
       color-scheme: light;
       --bg-top: #063f39;
       --bg-bottom: #0b6653;
+      --paper: #eef7f3;
       --panel: #dcefe7;
       --panel-2: #c9e4d8;
       --ink: #123b34;
@@ -18,11 +19,14 @@
       --accent-strong: #0a5648;
       --ok: #12704e;
       --warn: #956500;
+      --danger: #9a3412;
       --shadow: 0 10px 24px rgba(8, 54, 44, 0.22);
       --radius: 16px;
     }
 
     * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -36,7 +40,7 @@
     }
 
     .shell {
-      width: min(1200px, 96vw);
+      width: min(1220px, 96vw);
       margin: 24px auto;
       background: linear-gradient(180deg, #edf7f2, #dcefe7);
       border: 1px solid var(--line);
@@ -53,36 +57,41 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem);
+      font-size: clamp(1.35rem, 1.15rem + 1vw, 2rem);
       color: #124238;
-      letter-spacing: 0.2px;
+      letter-spacing: 0;
     }
 
     .sub {
       margin: 8px 0 0;
       color: var(--muted);
-      font-size: 1.1rem;
+      font-size: 1rem;
+      line-height: 1.45;
     }
 
     .top-grid {
       display: grid;
-      grid-template-columns: 1.3fr 1fr;
+      grid-template-columns: 1.2fr 1fr;
       gap: 16px;
-      padding: 16px 24px 8px;
+      padding: 16px 24px;
       background: var(--panel-2);
       border-bottom: 1px solid var(--line);
     }
 
-    .card {
+    .card,
+    .source-strip,
+    .folio-tools {
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 12px;
       padding: 14px;
     }
 
-    .card h2 {
+    .card h2,
+    .source-strip h2,
+    .folio-tools h2 {
       margin: 0 0 10px;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: #124238;
     }
 
@@ -95,14 +104,15 @@
     label {
       display: grid;
       gap: 6px;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: #164a40;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     input[type="text"],
     input[type="date"],
-    textarea {
+    textarea,
+    select {
       width: 100%;
       font: inherit;
       border: 1px solid var(--line);
@@ -113,9 +123,12 @@
     }
 
     textarea {
-      min-height: 110px;
+      min-height: 122px;
       resize: vertical;
+      line-height: 1.45;
     }
+
+    .short-textarea { min-height: 78px; }
 
     .actions {
       display: flex;
@@ -124,36 +137,141 @@
       margin-top: 10px;
     }
 
-    button {
+    button,
+    .button-link {
       border: 1px solid var(--accent-strong);
       background: linear-gradient(180deg, #19836b, #0f6655);
       color: #fff;
       font: inherit;
-      font-weight: 700;
+      font-weight: 800;
       border-radius: 10px;
       padding: 9px 12px;
       cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
     }
 
-    button.secondary {
+    button.secondary,
+    .button-link.secondary {
       border-color: #6c9d8c;
       background: linear-gradient(180deg, #f8fffb, #dcefe7);
       color: #164a40;
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    .hint {
-      margin-top: 10px;
-      font-size: 0.88rem;
+    .hint,
+    .mini,
+    .small {
+      margin: 0;
       color: var(--muted);
+      line-height: 1.45;
     }
+
+    .hint { margin-top: 10px; font-size: 0.88rem; }
+    .mini { font-size: 0.84rem; }
+    .small { font-size: 0.8rem; }
 
     .status {
-      margin-top: 6px;
+      margin-top: 8px;
       min-height: 1.2em;
       color: #24584e;
       font-size: 0.92rem;
-      font-weight: 600;
+      font-weight: 700;
+    }
+
+    .progress-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .progress-track {
+      height: 12px;
+      border-radius: 999px;
+      border: 1px solid #78ad9d;
+      background: #f8fffb;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #0d6d59, #d1a936);
+      transition: width 180ms ease;
+    }
+
+    .progress-text {
+      font-size: 0.85rem;
+      color: #164a40;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .source-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 16px;
+      padding: 16px 24px;
+      background: #d7ebe2;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .quality-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .quality-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 8px;
+      align-items: start;
+      padding: 8px;
+      border: 1px solid #9fc5b7;
+      border-radius: 10px;
+      background: #f3fbf7;
+    }
+
+    .badge {
+      width: 28px;
+      min-width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      color: #fff;
+      background: var(--accent);
+      font-weight: 900;
+      font-size: 0.84rem;
+    }
+
+    .rough-example {
+      display: grid;
+      gap: 10px;
+    }
+
+    .rough-box,
+    .better-box {
+      border-radius: 10px;
+      border: 1px solid #9fc5b7;
+      padding: 10px;
+      background: #f8fffb;
+    }
+
+    .rough-box {
+      border-left: 5px solid var(--warn);
+    }
+
+    .better-box {
+      border-left: 5px solid var(--ok);
     }
 
     .workbook {
@@ -169,7 +287,7 @@
       border-radius: 14px;
       padding: 12px;
       display: grid;
-      grid-template-columns: 1.35fr 1fr;
+      grid-template-columns: minmax(360px, 1.25fr) minmax(330px, 1fr);
       gap: 12px;
       align-items: start;
     }
@@ -181,6 +299,8 @@
       border-radius: 10px;
       overflow: hidden;
       min-height: 180px;
+      position: sticky;
+      top: 8px;
     }
 
     .slide-frame {
@@ -191,21 +311,30 @@
       background: #0d4037;
     }
 
+    .slide-caption {
+      padding: 9px 10px;
+      color: #dff7ee;
+      background: #0d4037;
+      font-size: 0.86rem;
+      line-height: 1.35;
+      border-top: 1px solid #4f8d7d;
+    }
+
     .response {
       background: #f3fbf7;
       border: 1px solid #9fc5b7;
       border-radius: 10px;
-      padding: 10px;
+      padding: 12px;
       display: grid;
-      gap: 8px;
+      gap: 10px;
       min-height: 100%;
     }
 
     .response-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: grid;
+      grid-template-columns: 1fr auto;
       gap: 8px;
+      align-items: start;
     }
 
     .response h3 {
@@ -218,15 +347,76 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: 0.88rem;
+      font-weight: 800;
       color: #1a5a4e;
+      white-space: nowrap;
     }
 
-    .mini {
-      margin: 0;
-      font-size: 0.83rem;
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .field-stack {
+      display: grid;
+      gap: 6px;
+    }
+
+    .starter {
+      border: 1px dashed #8cbcab;
+      border-radius: 10px;
+      padding: 9px;
+      background: #fbfffd;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      border: 1px solid #8cbcab;
+      background: #f8fffb;
+      color: #164a40;
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .word-count {
+      justify-self: end;
+      font-size: 0.78rem;
       color: var(--muted);
+      font-weight: 800;
+    }
+
+    .folio-tools {
+      margin: 0 20px 20px;
+      background: #e6f4ee;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .summary-tile {
+      border: 1px solid #9fc5b7;
+      border-radius: 10px;
+      padding: 10px;
+      background: #f8fffb;
+    }
+
+    .summary-tile strong {
+      display: block;
+      color: #124238;
+      margin-bottom: 4px;
     }
 
     .footer {
@@ -239,12 +429,47 @@
 
     @media (max-width: 980px) {
       .top-grid,
-      .aligned-block {
+      .source-wrap,
+      .aligned-block,
+      .prompt-grid,
+      .summary-grid {
         grid-template-columns: 1fr;
       }
 
-      .form-grid {
-        grid-template-columns: 1fr;
+      .form-grid { grid-template-columns: 1fr; }
+      .slide-shell { position: static; }
+      .shell { width: min(100% - 16px, 1220px); margin: 8px auto; }
+      .header,
+      .top-grid,
+      .source-wrap { padding-left: 14px; padding-right: 14px; }
+      .workbook { padding: 12px; }
+      .folio-tools { margin: 0 12px 14px; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .shell { width: 100%; margin: 0; box-shadow: none; border: 0; }
+      button,
+      .button-link,
+      .source-wrap,
+      .slide-shell,
+      .footer,
+      #uploadJsonInput { display: none !important; }
+      .top-grid,
+      .workbook,
+      .aligned-block {
+        display: block;
+        background: #fff;
+        border: 0;
+      }
+      .aligned-block {
+        page-break-inside: avoid;
+        margin: 0 0 14px;
+        padding: 0;
+      }
+      textarea {
+        min-height: 90px;
+        border: 1px solid #888;
       }
     }
   </style>
@@ -253,7 +478,7 @@
   <main class="shell">
     <header class="header">
       <h1>Garden Watering System Slides and Student Portfolio Workbook</h1>
-      <p class="sub">All 12 slides are shown with matching response cards. Save, upload, and continue in a later lesson.</p>
+      <p class="sub">Use the slide deck to build a clear engineering folio. Save your session, upload it later, or export your writing when the folio is ready.</p>
     </header>
 
     <section class="top-grid" aria-label="Workbook controls">
@@ -281,17 +506,60 @@
           <button id="downloadJson" type="button">Download Session JSON</button>
           <button id="uploadJsonBtn" class="secondary" type="button">Upload Saved Session</button>
           <input id="uploadJsonInput" type="file" accept="application/json" hidden />
+          <button id="exportText" class="secondary" type="button">Export Folio Text</button>
+          <button id="printPage" class="secondary" type="button">Print / Save PDF</button>
           <button id="clearAll" class="secondary" type="button">Clear Workbook</button>
         </div>
-        <p class="hint">Autosaves in this browser. JSON file lets students continue on another device or lesson.</p>
+        <div class="progress-row" aria-label="Portfolio progress">
+          <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+          <span id="progressText" class="progress-text">0 / 12 done</span>
+        </div>
+        <p class="hint">Autosaves in this browser. JSON is best for continuing later. Exported text is best for copying into a final Google Doc.</p>
         <p id="status" class="status" aria-live="polite"></p>
+      </article>
+    </section>
+
+    <section class="source-wrap" aria-label="Portfolio quality guide">
+      <article class="source-strip">
+        <h2>What The Old Folios Showed</h2>
+        <div class="rough-example">
+          <div class="rough-box">
+            <p class="mini"><strong>Rough note style:</strong> wiring issue, pump does not turn off, fixed.</p>
+            <p class="small">This is useful evidence, but it is too thin for a folio because it does not explain the cause, test, fix or result.</p>
+          </div>
+          <div class="better-box">
+            <p class="mini"><strong>Improved folio style:</strong> During testing, the pump stayed on after the moisture sensor changed state. We traced the fault to the relay/power wiring, insulated the exposed positive wire, then retested the system. The final test showed the pump switched off when the soil reading was above the threshold.</p>
+            <p class="small">That is the job: turn rough workshop notes into clear engineering evidence. No waffle, no mystery meat.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="source-strip">
+        <h2>Quality Check</h2>
+        <ul class="quality-list">
+          <li><span class="badge">1</span><span><strong>Claim</strong><br />Say what you designed, tested, changed or learned.</span></li>
+          <li><span class="badge">2</span><span><strong>Evidence</strong><br />Use a photo, code line, reading, test result, sketch or fault note.</span></li>
+          <li><span class="badge">3</span><span><strong>Reason</strong><br />Explain why the evidence matters for the watering system.</span></li>
+          <li><span class="badge">4</span><span><strong>Next Improvement</strong><br />Name one realistic change, not a magic perfect-world fix.</span></li>
+        </ul>
       </article>
     </section>
 
     <section id="workbook" class="workbook" aria-label="Slide workbook"></section>
 
+    <section class="folio-tools" aria-label="Folio summary">
+      <h2>Folio Summary</h2>
+      <p class="mini">Use this as a final check before submission. A strong folio should prove the project moved from problem, to design, to build, to test, to improvement.</p>
+      <div class="summary-grid">
+        <div class="summary-tile"><strong>Design brief</strong><span id="summaryBrief">Not complete yet</span></div>
+        <div class="summary-tile"><strong>Testing evidence</strong><span id="summaryTesting">Not complete yet</span></div>
+        <div class="summary-tile"><strong>Fault fixing</strong><span id="summaryFaults">Not complete yet</span></div>
+        <div class="summary-tile"><strong>Evaluation</strong><span id="summaryEvaluation">Not complete yet</span></div>
+      </div>
+    </section>
+
     <footer class="footer">
-      Garden Watering System Engineering Portfolio. Slides loaded from <code>year10_slide_pages</code> with matching response cards.
+      Garden Watering System Engineering Portfolio. Slides load from <code>year10_slide_pages</code>. Student writing saves only in this browser unless exported or downloaded.
     </footer>
   </main>
 
@@ -300,152 +568,303 @@
       {
         id: 1,
         title: "Project Brief",
-        frame: "year10_slide_pages/slide-01.html"
+        frame: "year10_slide_pages/slide-01.html",
+        focus: "Define the problem, user, constraints and success criteria.",
+        evidence: ["user need", "constraints", "success criteria"],
+        prompts: [
+          "What problem is the watering system meant to solve?",
+          "Who is the user and what does the system need to do for them?",
+          "What limits affected your design?"
+        ],
+        starters: [
+          "The watering problem was ...",
+          "A successful system needed to ...",
+          "The main limits were ..."
+        ]
       },
       {
         id: 2,
         title: "Existing Systems Research",
-        frame: "year10_slide_pages/slide-02.html"
+        frame: "year10_slide_pages/slide-02.html",
+        focus: "Connect research to design choices, not just copied facts.",
+        evidence: ["existing product", "adapted feature", "source note"],
+        prompts: [
+          "What existing irrigation or automatic watering idea helped your group?",
+          "Which feature did you adapt or avoid?",
+          "How did the research change your design?"
+        ],
+        starters: [
+          "One useful existing system was ...",
+          "This helped our design because ...",
+          "A feature we adapted was ..."
+        ]
       },
       {
         id: 3,
         title: "Inputs, Process and Outputs",
-        frame: "year10_slide_pages/slide-03.html"
+        frame: "year10_slide_pages/slide-03.html",
+        focus: "Explain the system as input, process, output and feedback.",
+        evidence: ["sensor", "controller", "pump or relay", "feedback loop"],
+        prompts: [
+          "What input does the system read?",
+          "What decision does the controller make?",
+          "What output happens, and how does feedback stop or change it?"
+        ],
+        starters: [
+          "The input in our system was ...",
+          "The process/controller did ...",
+          "The output responded by ..."
+        ]
       },
       {
         id: 4,
         title: "Safe Test Setup",
-        frame: "year10_slide_pages/slide-04.html"
+        frame: "year10_slide_pages/slide-04.html",
+        focus: "Show how water, electricity, tools and testing were controlled.",
+        evidence: ["WHS control", "teacher check", "safe test setup"],
+        prompts: [
+          "What hazards were present during testing?",
+          "How did your group control the water/electricity risk?",
+          "What teacher check or safe setup mattered most?"
+        ],
+        starters: [
+          "The main hazards were ...",
+          "We controlled the risks by ...",
+          "The teacher check was important because ..."
+        ]
       },
       {
         id: 5,
         title: "Concept Sketches",
-        frame: "year10_slide_pages/slide-05.html"
+        frame: "year10_slide_pages/slide-05.html",
+        focus: "Compare early ideas and justify the selected layout.",
+        evidence: ["concept sketch", "comparison", "chosen design"],
+        prompts: [
+          "What were two possible design ideas?",
+          "Which idea was more practical and why?",
+          "What trade-off did you accept?"
+        ],
+        starters: [
+          "My first concept used ...",
+          "My second concept changed ...",
+          "I chose the final concept because ..."
+        ]
       },
       {
         id: 6,
         title: "Final Design Plan",
-        frame: "year10_slide_pages/slide-06.html"
+        frame: "year10_slide_pages/slide-06.html",
+        focus: "Document the final physical layout, materials, circuit and water path.",
+        evidence: ["final sketch", "materials", "water path", "circuit plan"],
+        prompts: [
+          "Where are the sensor, pump, plant area and electronics?",
+          "How is the water moved and controlled?",
+          "How does the layout protect the electronics?"
+        ],
+        starters: [
+          "The final layout shows ...",
+          "The water path goes from ... to ...",
+          "The dry electronics zone is protected by ..."
+        ]
       },
       {
         id: 7,
         title: "Algorithm or Flowchart",
-        frame: "year10_slide_pages/slide-07.html"
+        frame: "year10_slide_pages/slide-07.html",
+        focus: "Explain the logic so another student could follow the system.",
+        evidence: ["pseudocode", "flowchart", "threshold", "stop condition"],
+        prompts: [
+          "What is the trigger condition for watering?",
+          "What happens when the soil is dry?",
+          "What stops the pump from running forever?"
+        ],
+        starters: [
+          "The algorithm starts when ...",
+          "If the sensor reads ... then ...",
+          "The system stops watering when ..."
+        ]
       },
       {
         id: 8,
         title: "Prototype Build Log",
-        frame: "year10_slide_pages/slide-08.html"
+        frame: "year10_slide_pages/slide-08.html",
+        focus: "Record the build sequence and practical decisions.",
+        evidence: ["build photo", "assembly step", "teacher check", "change made"],
+        prompts: [
+          "What did you build first, next and last?",
+          "What practical issue came up?",
+          "What change made the prototype work better?"
+        ],
+        starters: [
+          "During the build, we ...",
+          "One problem was ...",
+          "We fixed it by ..."
+        ]
       },
       {
         id: 9,
         title: "Subsystem Testing",
-        frame: "year10_slide_pages/slide-09.html"
+        frame: "year10_slide_pages/slide-09.html",
+        focus: "Test one part at a time before blaming the whole system.",
+        evidence: ["sensor reading", "relay test", "pump test", "fair test"],
+        prompts: [
+          "Which subsystem did you test?",
+          "What reading, behaviour or result did you observe?",
+          "What did this prove or rule out?"
+        ],
+        starters: [
+          "To test this subsystem, we ...",
+          "The test was fair because ...",
+          "The result showed ..."
+        ]
       },
       {
         id: 10,
         title: "Full-System Test Data",
-        frame: "year10_slide_pages/slide-10.html"
+        frame: "year10_slide_pages/slide-10.html",
+        focus: "Use test data to judge reliability, not vibes.",
+        evidence: ["trial data", "threshold value", "watering time", "repeat result"],
+        prompts: [
+          "What were the test conditions?",
+          "What happened in each trial?",
+          "Was the response reliable enough?"
+        ],
+        starters: [
+          "The trigger condition was ...",
+          "The system responded in ...",
+          "The repeated tests show ..."
+        ]
       },
       {
         id: 11,
         title: "Fault Log and Improvements",
-        frame: "year10_slide_pages/slide-11.html"
+        frame: "year10_slide_pages/slide-11.html",
+        focus: "Turn faults into engineering evidence: fault, cause, fix, result.",
+        evidence: ["fault", "likely cause", "fix", "retest result"],
+        prompts: [
+          "What fault did you find?",
+          "What was the most likely cause?",
+          "What fix did you apply, and what happened after retesting?"
+        ],
+        starters: [
+          "The fault was ...",
+          "The likely cause was ...",
+          "After the fix, the system ..."
+        ]
       },
       {
         id: 12,
         title: "Final Evaluation",
-        frame: "year10_slide_pages/slide-12.html"
+        frame: "year10_slide_pages/slide-12.html",
+        focus: "Make a final judgement using evidence, WHS, sustainability and improvements.",
+        evidence: ["final judgement", "best evidence", "limitation", "next improvement"],
+        prompts: [
+          "How well did the system meet the success criteria?",
+          "What is your strongest evidence?",
+          "What would you improve if you had one more lesson?"
+        ],
+        starters: [
+          "Overall, the system ...",
+          "The strongest evidence is ...",
+          "I would improve it by ..."
+        ]
       }
     ];
 
-    const STORAGE_KEY = "garden_watering_portfolio_session_v3";
-
+    const STORAGE_KEY = "garden_watering_portfolio_session_v4";
+    const OLD_STORAGE_KEYS = ["garden_watering_portfolio_session_v3"];
     const workbook = document.getElementById("workbook");
     const studentName = document.getElementById("studentName");
     const studentClass = document.getElementById("studentClass");
     const sessionDate = document.getElementById("sessionDate");
     const statusEl = document.getElementById("status");
-
-    function sentenceStarters(slideId) {
-      const startersBySlide = {
-        1: ["The watering problem was ... .", "A successful system needed to ... .", "The main limits were ... ."],
-        2: ["One useful existing system was ... .", "This helped our design because ... .", "A feature we adapted was ... ."],
-        3: ["The input in our system was ... .", "The process/controller did ... .", "The output responded by ... ."],
-        4: ["The main hazards were ... .", "We controlled the risks by ... .", "The teacher check was important because ... ."],
-        5: ["My first concept used ... .", "My second concept changed ... .", "I chose the final concept because ... ."],
-        6: ["The final layout shows ... .", "The water path goes from ... to ... .", "The dry electronics zone is protected by ... ."],
-        7: ["The algorithm starts when ... .", "If the trigger shows ... then ... .", "The system stops watering when ... ."],
-        8: ["During the build, we ... .", "One problem was ... .", "We fixed it by ... ."],
-        9: ["To test this subsystem, we ... .", "The test was fair because ... .", "The result showed ... ."],
-        10: ["The trigger condition was ... .", "The system responded in ... .", "The repeated tests show ... ."],
-        11: ["The fault was ... .", "The likely cause was ... .", "The improvement was ... ."],
-        12: ["Overall, the system ... .", "The strongest evidence is ... .", "I would improve it by ... ."]
-      };
-
-      return startersBySlide[slideId] || [
-        "This slide is mainly about ... .",
-        "The evidence shows ... .",
-        "This matters because ... ."
-      ];
-    }
-
-    function cardGuidance(slideId) {
-      const guidanceBySlide = {
-        1: "Explain the design challenge, user need, constraints and success criteria.",
-        2: "Summarise research from irrigation or automated watering systems and connect it to your design.",
-        3: "Describe the input, process, output and feedback in your control system.",
-        4: "Explain how you controlled water, electricity, tools, spills and powered-testing risks.",
-        5: "Compare concept options and justify the layout you chose.",
-        6: "Document the final layout, circuit/control plan, water path, materials and build order.",
-        7: "Write the logic clearly enough that another student could follow how the system behaves.",
-        8: "Use build evidence to explain assembly steps, teacher checks, problems and fixes.",
-        9: "Describe subsystem tests clearly enough that another group could repeat them safely.",
-        10: "Report measured test data and explain what it shows about reliability and water delivery.",
-        11: "Analyse one or more faults and explain what changed after improvement.",
-        12: "Make a final judgement using evidence, WHS, sustainability and specific improvements."
-      };
-
-      return guidanceBySlide[slideId] || "Explain the evidence shown on this slide and connect it to your engineering claim.";
-    }
+    const progressFill = document.getElementById("progressFill");
+    const progressText = document.getElementById("progressText");
 
     function renderWorkbook() {
-      const html = SLIDES.map((slide) => `
+      workbook.innerHTML = SLIDES.map((slide) => `
         <section class="aligned-block" data-slide="${slide.id}">
           <figure class="slide-shell" aria-label="Slide ${slide.id}: ${slide.title}">
-            <iframe class="slide-frame" src="${slide.frame}" title="Slide ${slide.id}" loading="lazy"></iframe>
+            <iframe class="slide-frame" src="${slide.frame}" title="Slide ${slide.id}: ${slide.title}" loading="lazy"></iframe>
+            <figcaption class="slide-caption"><strong>Slide ${slide.id}: ${slide.title}</strong><br />${slide.focus}</figcaption>
           </figure>
           <article class="response">
             <div class="response-head">
-              <h3>Slide ${slide.id} Reflection</h3>
+              <div>
+                <h3>Slide ${slide.id} Folio Section</h3>
+                <p class="mini">${slide.focus}</p>
+              </div>
               <label class="done">
                 <input type="checkbox" id="done-${slide.id}" /> Done
               </label>
             </div>
-            <p class="mini">${cardGuidance(slide.id)}</p>
-            <p class="mini"><strong>Sentence starters:</strong> ${sentenceStarters(slide.id).join(" ")}</p>
-            <textarea id="response-${slide.id}" placeholder="Your response for Slide ${slide.id}"></textarea>
+
+            <div class="tags" aria-label="Evidence tags">
+              ${slide.evidence.map((item) => `<span class="tag">${item}</span>`).join("")}
+            </div>
+
+            <div class="starter">
+              <p class="mini"><strong>Answer these:</strong> ${slide.prompts.join(" ")}</p>
+              <p class="mini"><strong>Sentence starters:</strong> ${slide.starters.join(" ")}</p>
+            </div>
+
+            <div class="field-stack">
+              <label for="response-${slide.id}">Portfolio paragraph</label>
+              <textarea id="response-${slide.id}" placeholder="Write this section of your folio. Make a claim, give evidence, and explain why it matters."></textarea>
+              <span id="count-${slide.id}" class="word-count">0 words</span>
+            </div>
+
+            <div class="prompt-grid">
+              <label class="field-stack">
+                Evidence to add later
+                <textarea class="short-textarea" id="evidence-${slide.id}" placeholder="Photo, sketch, code, reading, test table, teacher check..."></textarea>
+              </label>
+              <label class="field-stack">
+                Improvement / teacher feedback
+                <textarea class="short-textarea" id="feedback-${slide.id}" placeholder="What needs checking, fixing or improving?"></textarea>
+              </label>
+            </div>
           </article>
         </section>
       `).join("");
-      workbook.innerHTML = html;
+    }
+
+    function wordCount(text) {
+      return String(text || "").trim().split(/\s+/).filter(Boolean).length;
+    }
+
+    function getValue(id) {
+      const el = document.getElementById(id);
+      return el ? el.value : "";
+    }
+
+    function getChecked(id) {
+      const el = document.getElementById(id);
+      return el ? el.checked : false;
     }
 
     function getSessionState() {
       const responses = {};
+      const evidenceNotes = {};
+      const feedbackNotes = {};
       const completed = {};
+
       SLIDES.forEach(({ id }) => {
-        responses[id] = document.getElementById(`response-${id}`)?.value || "";
-        completed[id] = document.getElementById(`done-${id}`)?.checked || false;
+        responses[id] = getValue(`response-${id}`);
+        evidenceNotes[id] = getValue(`evidence-${id}`);
+        feedbackNotes[id] = getValue(`feedback-${id}`);
+        completed[id] = getChecked(`done-${id}`);
       });
 
       return {
-        version: 3,
+        version: 4,
         savedAt: new Date().toISOString(),
         studentName: studentName.value,
         studentClass: studentClass.value,
         sessionDate: sessionDate.value,
         responses,
+        evidenceNotes,
+        feedbackNotes,
         completed
       };
     }
@@ -457,27 +876,36 @@
 
       SLIDES.forEach(({ id }) => {
         const response = document.getElementById(`response-${id}`);
+        const evidence = document.getElementById(`evidence-${id}`);
+        const feedback = document.getElementById(`feedback-${id}`);
         const checkbox = document.getElementById(`done-${id}`);
         if (response) response.value = (data.responses && data.responses[id]) || "";
+        if (evidence) evidence.value = (data.evidenceNotes && data.evidenceNotes[id]) || "";
+        if (feedback) feedback.value = (data.feedbackNotes && data.feedbackNotes[id]) || "";
         if (checkbox) checkbox.checked = Boolean((data.completed && data.completed[id]) || (data.done && data.done[id]));
       });
+
+      refreshUi();
     }
 
     function saveLocal(showMessage = false) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(getSessionState()));
       if (showMessage) setStatus("Progress saved in this browser.");
+      refreshUi();
     }
 
     function loadLocal() {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = localStorage.getItem(STORAGE_KEY) || OLD_STORAGE_KEYS.map((key) => localStorage.getItem(key)).find(Boolean);
       if (!raw) {
         sessionDate.value = new Date().toISOString().slice(0, 10);
+        refreshUi();
         return;
       }
       try {
         applySessionState(JSON.parse(raw));
       } catch (error) {
         sessionDate.value = new Date().toISOString().slice(0, 10);
+        refreshUi();
       }
     }
 
@@ -486,22 +914,64 @@
       statusEl.style.color = isError ? "#9a3412" : "#24584e";
     }
 
-    function downloadJson() {
-      const payload = JSON.stringify(getSessionState(), null, 2);
-      const blob = new Blob([payload], { type: "application/json" });
+    function downloadFile(filename, content, type) {
+      const blob = new Blob([content], { type });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
-      const stamp = new Date().toISOString().slice(0, 10);
-      const safeName = (studentName.value || "student")
-        .replace(/[^a-z0-9]+/gi, "_")
-        .replace(/^_+|_+$/g, "");
       a.href = url;
-      a.download = `garden_watering_session_${safeName || "student"}_${stamp}.json`;
+      a.download = filename;
       document.body.appendChild(a);
       a.click();
       a.remove();
       URL.revokeObjectURL(url);
+    }
+
+    function safeStudentName() {
+      return (studentName.value || "student")
+        .replace(/[^a-z0-9]+/gi, "_")
+        .replace(/^_+|_+$/g, "") || "student";
+    }
+
+    function downloadJson() {
+      const payload = JSON.stringify(getSessionState(), null, 2);
+      const stamp = new Date().toISOString().slice(0, 10);
+      downloadFile(`garden_watering_session_${safeStudentName()}_${stamp}.json`, payload, "application/json");
       setStatus("Session JSON downloaded.");
+    }
+
+    function buildFolioText() {
+      const state = getSessionState();
+      const lines = [
+        "Garden Watering System Engineering Portfolio",
+        "",
+        `Student: ${state.studentName || ""}`,
+        `Class / Group: ${state.studentClass || ""}`,
+        `Date: ${state.sessionDate || ""}`,
+        `Saved: ${state.savedAt}`,
+        "",
+        "Quality rule: each section should make a claim, give evidence, explain why it matters, and name an improvement where relevant.",
+        ""
+      ];
+
+      SLIDES.forEach((slide) => {
+        lines.push(`Slide ${slide.id}: ${slide.title}`);
+        lines.push(`Focus: ${slide.focus}`);
+        lines.push("");
+        lines.push(state.responses[slide.id] || "[No paragraph written yet]");
+        lines.push("");
+        lines.push(`Evidence to add: ${state.evidenceNotes[slide.id] || "[None listed]"}`);
+        lines.push(`Improvement / feedback: ${state.feedbackNotes[slide.id] || "[None listed]"}`);
+        lines.push(`Done: ${state.completed[slide.id] ? "Yes" : "No"}`);
+        lines.push("");
+      });
+
+      return lines.join("\n");
+    }
+
+    function exportText() {
+      const stamp = new Date().toISOString().slice(0, 10);
+      downloadFile(`garden_watering_folio_${safeStudentName()}_${stamp}.txt`, buildFolioText(), "text/plain");
+      setStatus("Folio text exported.");
     }
 
     function uploadJson(file) {
@@ -514,9 +984,10 @@
           saveLocal(false);
           setStatus("Saved session loaded.");
         } catch (error) {
-          setStatus("Could not read this file. Please upload a valid session JSON.", true);
+          setStatus("Could not read this file. Upload a valid session JSON.", true);
         }
       };
+      reader.onerror = () => setStatus("Could not read this file.", true);
       reader.readAsText(file);
     }
 
@@ -528,11 +999,60 @@
       sessionDate.value = new Date().toISOString().slice(0, 10);
       SLIDES.forEach(({ id }) => {
         const response = document.getElementById(`response-${id}`);
+        const evidence = document.getElementById(`evidence-${id}`);
+        const feedback = document.getElementById(`feedback-${id}`);
         const checkbox = document.getElementById(`done-${id}`);
         if (response) response.value = "";
+        if (evidence) evidence.value = "";
+        if (feedback) feedback.value = "";
         if (checkbox) checkbox.checked = false;
       });
+      refreshUi();
       setStatus("Workbook cleared.");
+    }
+
+    function updateWordCounts() {
+      SLIDES.forEach(({ id }) => {
+        const count = wordCount(getValue(`response-${id}`));
+        const countEl = document.getElementById(`count-${id}`);
+        if (countEl) {
+          countEl.textContent = `${count} word${count === 1 ? "" : "s"}`;
+          countEl.style.color = count >= 45 ? "#12704e" : "#956500";
+        }
+      });
+    }
+
+    function updateProgress() {
+      const done = SLIDES.filter(({ id }) => getChecked(`done-${id}`)).length;
+      const percent = Math.round((done / SLIDES.length) * 100);
+      progressFill.style.width = `${percent}%`;
+      progressText.textContent = `${done} / ${SLIDES.length} done`;
+    }
+
+    function updateSummary() {
+      const state = getSessionState();
+      const set = (id, text, good) => {
+        const el = document.getElementById(id);
+        el.textContent = text;
+        el.style.color = good ? "#12704e" : "#956500";
+        el.style.fontWeight = "800";
+      };
+
+      const briefDone = Boolean(state.completed[1] && wordCount(state.responses[1]) >= 35);
+      const testingDone = Boolean((state.completed[9] || state.completed[10]) && (wordCount(state.responses[9]) + wordCount(state.responses[10])) >= 50);
+      const faultsDone = Boolean(state.completed[11] && wordCount(state.responses[11]) >= 35);
+      const evaluationDone = Boolean(state.completed[12] && wordCount(state.responses[12]) >= 45);
+
+      set("summaryBrief", briefDone ? "Clear enough" : "Needs claim and criteria", briefDone);
+      set("summaryTesting", testingDone ? "Evidence included" : "Needs data or test result", testingDone);
+      set("summaryFaults", faultsDone ? "Fault loop explained" : "Needs fault, cause, fix, result", faultsDone);
+      set("summaryEvaluation", evaluationDone ? "Ready to polish" : "Needs final judgement", evaluationDone);
+    }
+
+    function refreshUi() {
+      updateWordCounts();
+      updateProgress();
+      updateSummary();
     }
 
     function bindAutosave() {
@@ -549,6 +1069,8 @@
       bindAutosave();
 
       document.getElementById("downloadJson").addEventListener("click", downloadJson);
+      document.getElementById("exportText").addEventListener("click", exportText);
+      document.getElementById("printPage").addEventListener("click", () => window.print());
       document.getElementById("uploadJsonBtn").addEventListener("click", () => {
         document.getElementById("uploadJsonInput").click();
       });

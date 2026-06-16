@@ -1,0 +1,40 @@
+Year 10 Water Control + Wind USB Charger GitHub upload package
+
+Root files:
+index.html
+build-search-index.js
+search-index.json
+qa-widget.css
+qa-widget.js
+page-nav.js
+collapsible-panels.js
+year10_term1.html
+year10_term1_assessment.html
+garden_watering_project.html
+garden_watering_portfolio_guided_viewer.html
+garden_watering_info_sheets.html
+year10_term2.html
+wind_usb_charger_portfolio_guided_viewer.html
+wind_usb_charger_info_sheets.html
+Year 10 Water Control System Scope and Sequence.docx
+Year 10 Water Control System Scope and Sequence.pdf
+Year 10 Water Control System Lesson Plans.docx
+Year 10 Water Control System Lesson Plans.pdf
+Year 10 Wind USB Charger Scope and Sequence.docx
+Year 10 Wind USB Charger Scope and Sequence.pdf
+Year 10 Wind USB Charger Lesson Plans.docx
+Year 10 Wind USB Charger Lesson Plans.pdf
+
+Folders:
+Year10 T1 Modules\
+Year10 T2 Modules\
+year10_slide_pages\
+images\year10-garden-watering\
+images\year10-wind-usb-charger\
+Engineering Pictures\
+Syllabus\
+Youtube clips\
+
+Verification:
+- search-index.json rebuilt with node build-search-index.js before packaging.
+- Package includes the local assets referenced by the Year 10 water-control and USB charger pages/modules.

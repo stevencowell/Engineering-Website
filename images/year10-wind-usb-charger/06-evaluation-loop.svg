@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Evaluate and improve loop</title>
+  <desc id="desc">Infographic showing the design, build, test, improve and evaluate loop for a wind USB charger folio.</desc>
+  <rect width="1200" height="760" rx="28" fill="#fff7ed"/>
+  <text x="60" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="42" font-weight="800" fill="#10243b">Evaluation loop</text>
+  <text x="60" y="120" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#6b5a43">Good folios show decisions, evidence and improvement, not just pretty photos.</text>
+  <defs>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <path d="M1,1 L13,7 L1,13 Z" fill="#d97706"/>
+    </marker>
+  </defs>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <circle cx="600" cy="390" r="185" fill="#fff" stroke="#f0b35a" stroke-width="5"/>
+    <g font-size="24" font-weight="800" fill="#10243b">
+      <rect x="475" y="190" width="250" height="76" rx="18" fill="#dbeafe" stroke="#0b63c3" stroke-width="3"/>
+      <text x="600" y="238" text-anchor="middle">Design</text>
+      <rect x="790" y="350" width="250" height="76" rx="18" fill="#e8f7ee" stroke="#0a7e2a" stroke-width="3"/>
+      <text x="915" y="398" text-anchor="middle">Build</text>
+      <rect x="475" y="535" width="250" height="76" rx="18" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+      <text x="600" y="583" text-anchor="middle">Test</text>
+      <rect x="160" y="350" width="250" height="76" rx="18" fill="#fee2e2" stroke="#b91c1c" stroke-width="3"/>
+      <text x="285" y="398" text-anchor="middle">Improve</text>
+    </g>
+    <path d="M696 252 C800 278 868 300 902 347" fill="none" stroke="#d97706" stroke-width="8" marker-end="url(#arrow)"/>
+    <path d="M915 426 C878 506 801 556 729 572" fill="none" stroke="#d97706" stroke-width="8" marker-end="url(#arrow)"/>
+    <path d="M472 572 C390 552 326 506 291 429" fill="none" stroke="#d97706" stroke-width="8" marker-end="url(#arrow)"/>
+    <path d="M285 350 C320 275 393 236 471 226" fill="none" stroke="#d97706" stroke-width="8" marker-end="url(#arrow)"/>
+    <text x="600" y="375" text-anchor="middle" font-size="30" font-weight="800" fill="#10243b">Final evaluation</text>
+    <text x="600" y="414" text-anchor="middle" font-size="22" fill="#53637a">What worked?</text>
+    <text x="600" y="446" text-anchor="middle" font-size="22" fill="#53637a">What failed?</text>
+    <text x="600" y="478" text-anchor="middle" font-size="22" fill="#53637a">What would you change?</text>
+  </g>
+  <rect x="110" y="650" width="980" height="62" rx="16" fill="#fff" stroke="#f0b35a" stroke-width="3"/>
+  <text x="140" y="690" font-family="Segoe UI, Arial, sans-serif" font-size="23" font-weight="800" fill="#10243b">Use evidence:</text>
+  <text x="292" y="690" font-family="Segoe UI, Arial, sans-serif" font-size="23" fill="#53637a">photos, test table, graph, teacher feedback and your final judgement.</text>
+</svg>

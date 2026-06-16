@@ -150,3 +150,14 @@
   border-color: #b8d5f6;
   color: var(--brand);
 }
+
+@media (max-width: 760px) {
+  .qa-question {
+    display: block;
+  }
+
+  .qa-toggle {
+    margin-top: 0.75rem;
+    white-space: normal;
+  }
+}

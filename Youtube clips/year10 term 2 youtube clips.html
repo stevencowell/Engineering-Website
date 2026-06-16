@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Year 10 Semester 2 - Video Clip Index</title>
+  <style>
+    :root{
+      --bg: #0b1220;
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 18px 60px rgba(0,0,0,0.45);
+      --radius: 16px;
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:
+        radial-gradient(1200px 700px at 15% -10%, rgba(217,119,6,0.34), transparent 60%),
+        radial-gradient(1100px 800px at 90% 0%, rgba(14,165,233,0.22), transparent 55%),
+        radial-gradient(900px 700px at 50% 110%, rgba(34,197,94,0.18), transparent 55%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    .wrap{
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+
+    header{
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 14px;
+      backdrop-filter: blur(10px);
+    }
+
+    h1{
+      font-size: clamp(20px, 3vw, 30px);
+      margin: 0 0 8px;
+      letter-spacing: 0.2px;
+    }
+
+    .sub{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .back-link{
+      display: inline-flex;
+      margin: 14px 0 0;
+      color: rgba(255,255,255,0.86);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .tableCard{
+      margin-top: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    table{
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    thead th{
+      text-align: left;
+      font-weight: 650;
+      font-size: 12.5px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.78);
+      background: rgba(0,0,0,0.25);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 14px;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    tbody td{
+      padding: 14px;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    tbody tr:hover{ background: rgba(255,255,255,0.04); }
+
+    .toolkit{
+      display: inline-flex;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.82);
+      font-size: 12.5px;
+      white-space: nowrap;
+    }
+
+    .title{
+      margin: 0 0 6px;
+      font-weight: 700;
+      line-height: 1.25;
+      font-size: 14.5px;
+    }
+
+    .overview{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 13.5px;
+    }
+
+    .thumb{
+      width: 220px;
+      max-width: 100%;
+      min-height: 124px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(217,119,6,0.28), rgba(14,165,233,0.18)),
+        rgba(0,0,0,0.28);
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,0.92);
+      font-weight: 900;
+      font-size: 34px;
+      letter-spacing: 1px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .thumb img{
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .playBadge{
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+    }
+    .playBadge span{
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.18);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    .playBadge svg{
+      width: 20px; height: 20px;
+      margin-left: 2px;
+      fill: rgba(255,255,255,0.92);
+    }
+
+    .actions{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.88);
+      text-decoration: none;
+      font-size: 13px;
+      cursor: not-allowed;
+      user-select: none;
+    }
+    a.btn{
+      cursor: pointer;
+    }
+    .btn.primary{
+      background: rgba(217,119,6,0.22);
+      border-color: rgba(217,119,6,0.38);
+    }
+
+    .note{
+      margin-top: 14px;
+      color: rgba(255,255,255,0.66);
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px){
+      thead{ display: none; }
+      table, tbody, tr, td{ display: block; width: 100%; }
+      tbody td{ border-bottom: 0; padding: 12px 14px; }
+      tbody tr{ border-bottom: 1px solid rgba(255,255,255,0.10); }
+      .thumb{ width: 100%; min-height: 170px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Year 10 Semester 2 - Video Clip Index</h1>
+      <p class="sub">
+        Quick-access video links and placeholders aligned to the Wind Powered USB Phone Charger and Alternate Energy unit.
+      </p>
+      <a class="back-link" href="../year10_term2.html">&larr; Back to Year 10 Semester 2</a>
+    </header>
+
+    <div class="tableCard" role="region" aria-label="Year 10 Semester 2 video table">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 150px;">Topic</th>
+            <th style="width: 260px;">Thumbnail</th>
+            <th>Clip overview</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><span class="toolkit">Topic 1</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=w16-Uems2Qo" target="_blank" rel="noopener" aria-label="Open renewable and non-renewable energy video">
+                <img src="https://i.ytimg.com/vi/w16-Uems2Qo/hqdefault.jpg" alt="Renewable and non-renewable energy video thumbnail" loading="lazy">
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Comparing Alternate Energy Options</p>
+              <p class="overview">Use to introduce renewable and non-renewable options, trade-offs, reliability, cost and suitability for different situations.</p>
+              <div class="actions">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=w16-Uems2Qo" target="_blank" rel="noopener">Play Clip</a>
+                <a class="btn" href="https://www.youtube.com/watch?v=w16-Uems2Qo" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Topic 1</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=jZvDhb8AgtI" target="_blank" rel="noopener" aria-label="Open electric cars Behind the News video">
+                <img src="https://i.ytimg.com/vi/jZvDhb8AgtI/hqdefault.jpg" alt="Electric cars Behind the News video thumbnail" loading="lazy">
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Electric Cars in Regional Australia</p>
+              <p class="overview">Use for the regional transport discussion: range, charging, infrastructure, cost, battery limits and practical user needs.</p>
+              <div class="actions">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=jZvDhb8AgtI" target="_blank" rel="noopener">Play Clip</a>
+                <a class="btn" href="https://www.youtube.com/watch?v=jZvDhb8AgtI" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Topic 1</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=UjJKJp_CHgI" target="_blank" rel="noopener" aria-label="Open levelized cost of energy video">
+                <img src="https://i.ytimg.com/vi/UjJKJp_CHgI/hqdefault.jpg" alt="Levelized cost of energy video thumbnail" loading="lazy">
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Energy Production Costing</p>
+              <p class="overview">Use before costing tasks so students can compare output, efficiency, payback, maintenance and whole-system cost.</p>
+              <div class="actions">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=UjJKJp_CHgI" target="_blank" rel="noopener">Play Clip</a>
+                <a class="btn" href="https://www.youtube.com/watch?v=UjJKJp_CHgI" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Topic 1</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=LmfL9RUTvPg" target="_blank" rel="noopener" aria-label="Open F-150 Lightning towing in Australia video">
+                <img src="https://i.ytimg.com/vi/LmfL9RUTvPg/hqdefault.jpg" alt="F-150 Lightning towing in Australia video thumbnail" loading="lazy">
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">F150 Electric Vehicle Case Study</p>
+              <p class="overview">Use as a real-world product analysis clip for battery capacity, towing, charging load, user requirements and engineering compromise.</p>
+              <div class="actions">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=LmfL9RUTvPg" target="_blank" rel="noopener">Play Clip</a>
+                <a class="btn" href="https://www.youtube.com/watch?v=LmfL9RUTvPg" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Topic 2</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=Hf875eOVrVI" target="_blank" rel="noopener" aria-label="Open how wind turbines work video">
+                <img src="https://i.ytimg.com/vi/Hf875eOVrVI/hqdefault.jpg" alt="How wind turbines work video thumbnail" loading="lazy">
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Wind Generator Design</p>
+              <p class="overview">Use before students sketch blade shape, blade angle, shaft support, generator position and USB module layout.</p>
+              <div class="actions">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=Hf875eOVrVI" target="_blank" rel="noopener">Play Clip</a>
+                <a class="btn" href="https://www.youtube.com/watch?v=Hf875eOVrVI" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Topic 2</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=ozdE8NvKYr8" target="_blank" rel="noopener" aria-label="Open KidWind wind turbine basics video">
+                <img src="https://i.ytimg.com/vi/ozdE8NvKYr8/hqdefault.jpg" alt="KidWind wind turbine basics video thumbnail" loading="lazy">
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Small Wind Turbine Efficiency Prompt</p>
+              <p class="overview">Use as a quick discussion starter for turbine efficiency, blade design, drag, gearing and whether the idea would actually produce useful power.</p>
+              <div class="actions">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=ozdE8NvKYr8" target="_blank" rel="noopener">Play Clip</a>
+                <a class="btn" href="https://www.youtube.com/watch?v=ozdE8NvKYr8" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Topic 2</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=AGjMYDzPyOo" target="_blank" rel="noopener" aria-label="Open portable wind turbine charger video">
+                <img src="https://i.ytimg.com/vi/AGjMYDzPyOo/hqdefault.jpg" alt="Portable wind turbine charger video thumbnail" loading="lazy">
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Portable Wind Turbine Charger Concept</p>
+              <p class="overview">Use as a real-world concept clip for portable charging, camping use, user needs, stability, output limits and design trade-offs.</p>
+              <div class="actions">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=AGjMYDzPyOo" target="_blank" rel="noopener">Play Clip</a>
+                <a class="btn" href="https://www.youtube.com/watch?v=AGjMYDzPyOo" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Topic 3</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=iw63hngE75g" target="_blank" rel="noopener" aria-label="Open Arduino input output basics video">
+                <img src="https://i.ytimg.com/vi/iw63hngE75g/hqdefault.jpg" alt="Arduino input output basics video thumbnail" loading="lazy">
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">Arduino Board Basics</p>
+              <p class="overview">Use if the class needs a quick control-systems bridge: inputs, outputs, pins, power, ground and safe wiring checks.</p>
+              <div class="actions">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=iw63hngE75g" target="_blank" rel="noopener">Play Clip</a>
+                <a class="btn" href="https://www.youtube.com/watch?v=iw63hngE75g" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Topic 3</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=CBf-jIn44X0" target="_blank" rel="noopener" aria-label="Open input process output video">
+                <img src="https://i.ytimg.com/vi/CBf-jIn44X0/hqdefault.jpg" alt="Input process output video thumbnail" loading="lazy">
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">IPO and Pseudocode</p>
+              <p class="overview">Use to support students turning a system problem into inputs, processing decisions, outputs and clear control logic.</p>
+              <div class="actions">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=CBf-jIn44X0" target="_blank" rel="noopener">Play Clip</a>
+                <a class="btn" href="https://www.youtube.com/watch?v=CBf-jIn44X0" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><span class="toolkit">Testing</span></td>
+            <td>
+              <a class="thumb" href="https://www.youtube.com/watch?v=o3Jn8qMmlnE" target="_blank" rel="noopener" aria-label="Open USB voltage and current testing video">
+                <img src="https://i.ytimg.com/vi/o3Jn8qMmlnE/hqdefault.jpg" alt="USB voltage and current testing video thumbnail" loading="lazy">
+                <div class="playBadge" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></span></div>
+              </a>
+            </td>
+            <td>
+              <p class="title">USB Charger Testing and Evaluation</p>
+              <p class="overview">Use when students test voltage, current, speed, blade changes and explain why the prototype did or did not meet the brief.</p>
+              <div class="actions">
+                <a class="btn primary" href="https://www.youtube.com/watch?v=o3Jn8qMmlnE" target="_blank" rel="noopener">Play Clip</a>
+                <a class="btn" href="https://www.youtube.com/watch?v=o3Jn8qMmlnE" target="_blank" rel="noopener">Open on YouTube</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note">YouTube clips and thumbnails are included as quick-access teaching prompts. Check availability before class in case a video is removed, blocked or age-restricted.</p>
+  </div>
+</body>
+</html>

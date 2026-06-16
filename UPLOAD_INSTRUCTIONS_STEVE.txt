@@ -1,0 +1,34 @@
+GitHub Pages upload instructions
+
+Upload the CONTENTS of this folder into the root of the GitHub repository.
+
+Repository location:
+stevencowell / Engineering-Website-main
+
+What to do:
+1. Open the GitHub repository.
+2. Choose Add file / Upload files.
+3. Drag all files and folders from inside this upload folder into GitHub.
+4. Let GitHub replace existing files when names match.
+5. Commit the upload.
+
+Important:
+- Upload the folder contents, not the folder itself.
+- Keep the folder structure exactly as it is here.
+- The folders with spaces in their names must stay named exactly:
+  Year10 T1 Modules
+  Year10 T2 Modules
+  Youtube clips
+
+This package updates:
+- main Year 10 website card/menu access
+- Year 10 Semester 1 Water Control / Garden Watering System pages
+- Year 10 Semester 2 Wind USB Charger pages
+- Year 10 T1 and T2 student modules
+- printable info sheets
+- guided portfolio workbook pages
+- generated lesson plan and scope/sequence files
+- images used by the Water Control and USB Charger sections
+- shared navigation and collapsible-panel scripts
+- syllabus/support files linked from the Year 10 pages
+- search-index.json

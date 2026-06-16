@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wind Powered USB Phone Charger Student Portfolio Workbook</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg-top: #003f80;
+      --bg-bottom: #0a7e2a;
+      --paper: #f4f8fc;
+      --panel: #e8f1fa;
+      --panel-2: #dcecf7;
+      --ink: #10243b;
+      --muted: #53637a;
+      --line: #9fb8d0;
+      --accent: #0b63c3;
+      --accent-strong: #0b3d91;
+      --green: #0a7e2a;
+      --warn: #d97706;
+      --shadow: 0 10px 24px rgba(10, 43, 78, 0.22);
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(1100px 460px at 8% -12%, #7fc8ff4a 0%, transparent 70%),
+        radial-gradient(950px 420px at 94% -12%, #7ed98b44 0%, transparent 70%),
+        linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    }
+    .shell {
+      width: min(1220px, 96vw);
+      margin: 24px auto;
+      background: linear-gradient(180deg, #f8fbff, #e7f0f8);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .header {
+      padding: 22px 24px 16px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fbfdff, #e8f1fa);
+    }
+    .back-link { color: var(--accent-strong); font-weight: 800; text-decoration: none; display: inline-block; margin-bottom: 10px; }
+    h1 { margin: 0; font-size: clamp(1.35rem, 1.15rem + 1vw, 2rem); color: #10243b; letter-spacing: 0; }
+    .sub { margin: 8px 0 0; color: var(--muted); font-size: 1rem; line-height: 1.45; }
+    .top-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 16px;
+      padding: 16px 24px;
+      background: var(--panel-2);
+      border-bottom: 1px solid var(--line);
+    }
+    .card, .folio-tools, .summary-panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+    }
+    .card h2, .folio-tools h2, .summary-panel h2 { margin: 0 0 10px; font-size: 1.05rem; color: #0b3d91; }
+    .form-grid { display: grid; grid-template-columns: repeat(3, minmax(120px, 1fr)); gap: 10px; }
+    label { display: grid; gap: 6px; font-size: 0.88rem; color: #173457; font-weight: 700; }
+    input[type="text"], input[type="date"], textarea, select {
+      width: 100%;
+      font: inherit;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 9px 10px;
+      color: var(--ink);
+      background: #fbfdff;
+    }
+    textarea { min-height: 122px; resize: vertical; line-height: 1.45; }
+    .short-textarea { min-height: 78px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    button, .button-link {
+      border: 1px solid var(--accent-strong);
+      background: linear-gradient(180deg, #0b63c3, #0b3d91);
+      color: #fff;
+      font: inherit;
+      font-weight: 800;
+      border-radius: 10px;
+      padding: 9px 12px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+    }
+    button.secondary, .button-link.secondary {
+      border-color: #82a6c9;
+      background: linear-gradient(180deg, #fbfdff, #e8f1fa);
+      color: #173457;
+      font-weight: 700;
+    }
+    .hint, .mini, .small { margin: 0; color: var(--muted); line-height: 1.45; }
+    .hint { margin-top: 10px; font-size: 0.88rem; }
+    .mini { font-size: 0.84rem; }
+    .small { font-size: 0.8rem; }
+    .status { margin-top: 8px; min-height: 1.2em; color: #24476c; font-size: 0.92rem; font-weight: 700; }
+    .progress-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; margin-top: 10px; }
+    .progress-track { height: 12px; border-radius: 999px; border: 1px solid #82a6c9; background: #fbfdff; overflow: hidden; }
+    .progress-fill { width: 0%; height: 100%; background: linear-gradient(90deg, #0b63c3, #0a7e2a, #d97706); transition: width 180ms ease; }
+    .progress-text { font-size: 0.85rem; color: #173457; font-weight: 800; white-space: nowrap; }
+    .resource-strip {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 16px;
+      padding: 16px 24px;
+      background: #edf5fb;
+      border-bottom: 1px solid var(--line);
+    }
+    .resource-box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+    }
+    .resource-box h2 { margin: 0 0 8px; font-size: 1.05rem; color: #0b3d91; }
+    .resource-box ul { margin: 8px 0 0 1rem; padding: 0; color: var(--muted); }
+    .resource-box li + li { margin-top: 5px; }
+    .summary-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 7px; }
+    .summary-list li { display: flex; justify-content: space-between; gap: 10px; border-bottom: 1px dashed #9fb8d0; padding-bottom: 6px; color: var(--muted); }
+    .summary-list strong { color: var(--ink); }
+    .workbook { display: grid; gap: 18px; padding: 18px 24px 24px; }
+    .aligned-block {
+      display: grid;
+      grid-template-columns: minmax(330px, 0.9fr) minmax(360px, 1.1fr);
+      gap: 16px;
+      align-items: start;
+    }
+    .graphic-shell, .response-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 8px 18px rgba(10, 43, 78, 0.08);
+      overflow: hidden;
+    }
+    .graphic-shell img { display: block; width: 100%; height: auto; background: #fff; }
+    .graphic-caption { padding: 10px 12px; color: var(--muted); font-size: 0.9rem; line-height: 1.4; border-top: 1px solid #d5e1ee; }
+    .response-card { padding: 14px; }
+    .response-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #d5e1ee;
+    }
+    .response-header h2 { margin: 0; font-size: 1.2rem; color: #10243b; }
+    .badge { display: inline-flex; align-items: center; justify-content: center; min-width: 42px; min-height: 34px; padding: 5px 10px; border-radius: 10px; background: var(--accent); color: #fff; font-weight: 900; }
+    .focus { margin: 0 0 10px; color: var(--muted); line-height: 1.45; }
+    .checklist {
+      display: grid;
+      gap: 6px;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 10px;
+      background: #f7fbff;
+      border: 1px solid #d5e1ee;
+    }
+    .checklist h3 { margin: 0; font-size: 0.95rem; color: #0b3d91; }
+    .checklist ul { margin: 0 0 0 1.1rem; padding: 0; color: var(--muted); }
+    .field-stack { display: grid; gap: 6px; margin-top: 10px; }
+    .prompt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .complete-row { margin-top: 10px; display: flex; gap: 8px; align-items: center; color: #173457; font-weight: 800; }
+    .complete-row input { width: 18px; height: 18px; }
+    .word-count { color: var(--muted); font-size: 0.82rem; justify-self: end; }
+    .footer { padding: 16px 24px; background: #dcecf7; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+    @media (max-width: 900px) {
+      .top-grid, .resource-strip, .aligned-block, .form-grid, .prompt-grid { grid-template-columns: 1fr; }
+      .shell { width: calc(100% - 12px); margin: 6px auto; }
+      .header, .top-grid, .resource-strip, .workbook, .footer { padding-left: 14px; padding-right: 14px; }
+    }
+    @media print {
+      body { background: white; }
+      .shell { width: 100%; margin: 0; border: 0; box-shadow: none; }
+      button, .actions, .back-link { display: none; }
+      .aligned-block { break-inside: avoid; grid-template-columns: 1fr 1fr; }
+      textarea { min-height: 90px; border: 1px solid #888; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="header">
+      <a class="back-link" href="year10_term2.html">&larr; Back to Year 10 Semester 2</a>
+      <h1>Wind Powered USB Phone Charger Student Portfolio Workbook</h1>
+      <p class="sub">Use the infographics and prompts to build a complete engineering folio matched to the original Wind-Powered USB Phone Charger Word folio. Save your session, upload it later, or export your writing when the folio is ready.</p>
+    </header>
+
+    <section class="top-grid" aria-label="Workbook controls">
+      <article class="card">
+        <h2>Student Details</h2>
+        <div class="form-grid">
+          <label>Student Name <input id="studentName" type="text" placeholder="Enter full name" /></label>
+          <label>Class / Group <input id="studentClass" type="text" placeholder="e.g. 10ENGE1" /></label>
+          <label>Session Date <input id="sessionDate" type="date" /></label>
+        </div>
+      </article>
+
+      <article class="folio-tools">
+        <h2>Progress and Saving</h2>
+        <div class="actions">
+          <button id="downloadJson" type="button">Download Session JSON</button>
+          <button id="uploadJsonBtn" class="secondary" type="button">Upload Saved Session</button>
+          <input id="uploadJsonInput" type="file" accept="application/json" hidden />
+          <button id="exportText" class="secondary" type="button">Export Folio Text</button>
+          <button id="printPage" class="secondary" type="button">Print / Save PDF</button>
+          <button id="clearAll" class="secondary" type="button">Clear Workbook</button>
+        </div>
+        <div class="progress-row" aria-label="Portfolio progress">
+          <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+          <span id="progressText" class="progress-text">0 / 8 done</span>
+        </div>
+        <p class="hint">Autosaves in this browser. JSON is best for continuing later. Exported text is best for copying into a final Google Doc.</p>
+        <p id="status" class="status" aria-live="polite"></p>
+      </article>
+    </section>
+
+    <section class="resource-strip">
+      <article class="resource-box">
+        <h2>What The Folio Must Prove</h2>
+        <ul>
+          <li>You respond to every section from the original Word folio.</li>
+          <li>You document the generator parameters, design constraints, research and costing evidence.</li>
+          <li>You show concept sketches, final Onshape design, dimensioned drawings and presentation photos.</li>
+          <li>You test safely, record results, explain problems and evaluate using evidence, not vibes. Vibes are not a marking criterion.</li>
+        </ul>
+      </article>
+      <article class="summary-panel">
+        <h2>Session Summary</h2>
+        <ul id="summaryList" class="summary-list">
+          <li><strong>Student</strong><span>Not entered</span></li>
+          <li><strong>Completed</strong><span>0 sections</span></li>
+          <li><strong>Words</strong><span>0</span></li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="workbook" class="workbook" aria-label="Portfolio sections"></section>
+
+    <footer class="footer">
+      Wind Powered USB Phone Charger Engineering Portfolio. Student writing saves only in this browser unless exported or downloaded.
+    </footer>
+  </main>
+
+  <script>
+    const SECTIONS = [
+      {
+        id: 1,
+        title: "Wind Generator Parameters",
+        graphic: "images/year10-wind-usb-charger/wind-usb-charger-project-diagram.png",
+        caption: "Overall project layout: impellor, shaft, generator, USB module and output device.",
+        focus: "Record the original design brief, compulsory size limit and the exact generator parts you had to design around.",
+        evidence: ["portable, compact and well-constructed brief", "size limit: 250 x 150 x 100 mm", "generator body: 31 mm long and 24 mm diameter", "shaft: 2 mm diameter and 13 mm long", "bearings available: 20 mm OD, 10 mm ID", "laser cutting and 3D printing noted as optional higher-mark processes"],
+        starters: ["The brief required me to design and construct...", "The main size constraint was...", "The generator dimensions affected my design because..."]
+      },
+      {
+        id: 2,
+        title: "Research and Costing",
+        graphic: "images/year10-wind-usb-charger/01-energy-pathway.png",
+        caption: "Research evidence should show how alternate energy ideas and cost decisions informed the project.",
+        focus: "Add or summarise the Compare Alternate Energies worksheet, Alternative Energy Assignment and Energy Production Costing sheet.",
+        evidence: ["Compare Alternate Energies worksheet", "Alternative Energy Assignment evidence", "Energy Production Costing sheet", "short explanation of what the research changed or confirmed"],
+        starters: ["My research showed that...", "The costing task helped me understand...", "One idea I used from the research was..."]
+      },
+      {
+        id: 3,
+        title: "Concept Sketching",
+        graphic: "images/year10-wind-usb-charger/02-blade-design.png",
+        caption: "Concept sketches let you compare possible solutions before committing to a final design.",
+        focus: "Insert or describe up to five concepts, then evaluate each one using strengths and weaknesses.",
+        evidence: ["photos or scans of concept sketches", "Concept 1-5 table", "strengths for each useful concept", "weaknesses or risks for each concept"],
+        starters: ["Concept 1 was...", "The strongest feature of this concept was...", "The main weakness was..."]
+      },
+      {
+        id: 4,
+        title: "Final Design Choice",
+        graphic: "images/year10-wind-usb-charger/wind-usb-charger-project-diagram.png",
+        caption: "A final design choice should explain why one idea was selected over the others.",
+        focus: "Insert your final Onshape design, describe it clearly and justify why it was chosen.",
+        evidence: ["final Onshape design screenshot", "chosen design description", "why this design was chosen", "link between final choice and brief constraints"],
+        starters: ["I chose this design because...", "Compared with my other concepts, this design...", "This design met the brief by..."]
+      },
+      {
+        id: 5,
+        title: "Final Drawings",
+        graphic: "images/year10-wind-usb-charger/03-mechanical-drive.png",
+        caption: "Dimensioned drawings prove that the final design could be manufactured and checked.",
+        focus: "Insert your Onshape drawing with dimensions and explain the key measurements.",
+        evidence: ["Onshape drawing view", "important dimensions", "part names or labels", "evidence that the design fits the required box"],
+        starters: ["My final drawing shows...", "The most important dimension was...", "The drawing proves the model fits because..."]
+      },
+      {
+        id: 6,
+        title: "Energy Pathway",
+        graphic: "images/year10-wind-usb-charger/01-energy-pathway.png",
+        caption: "Wind energy changes form as it passes through the mechanical and electrical parts.",
+        focus: "Describe how wind movement becomes rotation, then electrical output, then a regulated USB load.",
+        evidence: ["labelled energy pathway", "input, transfer, conversion and output", "where energy losses could happen"],
+        starters: ["The energy input for my system was...", "The impellor transferred energy by...", "Energy was lost when..."]
+      },
+      {
+        id: 7,
+        title: "Impellor and Blade Design",
+        graphic: "images/year10-wind-usb-charger/02-blade-design.png",
+        caption: "Blade pitch, area, count and balance affect starting torque, speed and stability.",
+        focus: "Justify your blade shape and explain what variable you changed or tested.",
+        evidence: ["blade sketches or photos", "pitch, size, number of blades", "why the design should catch wind effectively"],
+        starters: ["My blade design used...", "I chose this blade shape because...", "The main variable I wanted to test was..."]
+      },
+      {
+        id: 8,
+        title: "Mechanical Drive and Frame",
+        graphic: "images/year10-wind-usb-charger/03-mechanical-drive.png",
+        caption: "Direct drive is simpler. Geared drive may increase generator rpm but adds friction and alignment problems.",
+        focus: "Explain how rotation reached the generator and how the frame kept everything aligned.",
+        evidence: ["direct or geared drive choice", "shaft support and bearing notes", "frame stability and alignment evidence"],
+        starters: ["I used a direct/geared drive because...", "The shaft was supported by...", "One alignment issue I had to manage was..."]
+      },
+      {
+        id: 9,
+        title: "Electrical Connection and Safety",
+        graphic: "images/year10-wind-usb-charger/04-electrical-testing.png",
+        caption: "Use a teacher check, confirm polarity and measure output before connecting a USB load.",
+        focus: "Record the safe test setup, teacher checks and how the generator connected to the USB module.",
+        evidence: ["teacher wiring check", "polarity and low-voltage notes", "safe testing photo or diagram"],
+        starters: ["Before testing the electrical output, I...", "The main electrical safety checks were...", "The generator connected to..."]
+      },
+      {
+        id: 10,
+        title: "Evaluation of Concept Model",
+        graphic: "images/year10-wind-usb-charger/06-evaluation-loop.png",
+        caption: "The concept model section explains what happened before the final presentation model.",
+        focus: "Evaluate performance against expectation, identify problems and justify the design changes you made.",
+        evidence: ["performance versus expectation", "problems encountered", "design changes and justifications", "before and after photos if available"],
+        starters: ["I expected the model to...", "The main problem I encountered was...", "I changed the design because..."]
+      },
+      {
+        id: 11,
+        title: "Presentation Model",
+        graphic: "images/year10-wind-usb-charger/students-building-wind-usb-charger.png",
+        caption: "Presentation model evidence should show the finished build clearly from more than one angle.",
+        focus: "Attach at least two photos of the finished model and add brief captions explaining what each photo shows.",
+        evidence: ["at least two finished model photos", "brief captions", "generator holder, blades, frame or USB output shown", "build quality and presentation evidence"],
+        starters: ["Photo 1 shows...", "Photo 2 shows...", "The finished model was presented well because..."]
+      },
+      {
+        id: 12,
+        title: "Testing Method and Results",
+        graphic: "images/year10-wind-usb-charger/05-test-data.png",
+        caption: "A fair test keeps the wind source and distance consistent while one design variable changes.",
+        focus: "Describe your testing method, record results and state whether the device successfully powered the intended output.",
+        evidence: ["testing method", "wind source and distance", "voltage/output readings or observations", "test result", "clear statement of success or failure"],
+        starters: ["To test the device, I...", "The results showed...", "The device was/was not successful because..."]
+      },
+      {
+        id: 13,
+        title: "Final Evaluation",
+        graphic: "images/year10-wind-usb-charger/wind-usb-charger-workshop-testing.png",
+        caption: "Final judgement should connect build quality, test evidence, problems and future redesign.",
+        focus: "Explain what went well, what did not go as planned and what you would change if building it again.",
+        evidence: ["what went well", "what did not go as planned", "what you would change", "best evidence from the finished project"],
+        starters: ["Overall, my project met/did not meet the brief because...", "What went well was...", "If I built it again, I would..."]
+      }
+    ];
+
+    const STORAGE_KEY = "windUsbChargerPortfolioWorkbook.v2";
+    const workbook = document.getElementById("workbook");
+    const progressFill = document.getElementById("progressFill");
+    const progressText = document.getElementById("progressText");
+    const statusEl = document.getElementById("status");
+    const summaryList = document.getElementById("summaryList");
+    const studentName = document.getElementById("studentName");
+    const studentClass = document.getElementById("studentClass");
+    const sessionDate = document.getElementById("sessionDate");
+
+    function renderWorkbook() {
+      workbook.innerHTML = SECTIONS.map((section) => `
+        <section class="aligned-block" data-section="${section.id}">
+          <figure class="graphic-shell" aria-label="Infographic ${section.id}: ${section.title}">
+            <img src="${section.graphic}" alt="${section.title} infographic" loading="lazy">
+            <figcaption class="graphic-caption"><strong>${section.title}</strong><br>${section.caption}</figcaption>
+          </figure>
+          <article class="response-card">
+            <div class="response-header">
+              <div>
+                <h2>${section.title}</h2>
+                <p class="focus">${section.focus}</p>
+              </div>
+              <span class="badge">${section.id}</span>
+            </div>
+            <div class="checklist">
+              <h3>Evidence to include</h3>
+              <ul>${section.evidence.map((item) => `<li>${item}</li>`).join("")}</ul>
+            </div>
+            <div class="checklist">
+              <h3>Sentence starters</h3>
+              <ul>${section.starters.map((item) => `<li>${item}</li>`).join("")}</ul>
+            </div>
+            <div class="field-stack">
+              <label for="response-${section.id}">Portfolio paragraph</label>
+              <textarea id="response-${section.id}" placeholder="Write this section of your folio. Make a claim, give evidence, and explain why it matters."></textarea>
+              <span id="count-${section.id}" class="word-count">0 words</span>
+            </div>
+            <div class="prompt-grid">
+              <label class="field-stack">
+                Evidence to add later
+                <textarea class="short-textarea" id="evidence-${section.id}" placeholder="Photo, sketch, test table, teacher check..."></textarea>
+              </label>
+              <label class="field-stack">
+                Improvement / teacher feedback
+                <textarea class="short-textarea" id="feedback-${section.id}" placeholder="What needs checking, fixing or improving?"></textarea>
+              </label>
+            </div>
+            <label class="complete-row">
+              <input id="done-${section.id}" type="checkbox">
+              Mark this folio section as complete
+            </label>
+          </article>
+        </section>
+      `).join("");
+    }
+
+    function setStatus(message) {
+      statusEl.textContent = message;
+      if (message) setTimeout(() => { statusEl.textContent = ""; }, 3500);
+    }
+
+    function getValue(id) {
+      const element = document.getElementById(id);
+      return element ? element.value.trim() : "";
+    }
+
+    function getChecked(id) {
+      const element = document.getElementById(id);
+      return element ? element.checked : false;
+    }
+
+    function wordCount(text) {
+      return (text.match(/\b[\w'-]+\b/g) || []).length;
+    }
+
+    function getSessionState() {
+      const responses = {};
+      const evidenceNotes = {};
+      const feedbackNotes = {};
+      const completed = {};
+      SECTIONS.forEach(({ id }) => {
+        responses[id] = getValue(`response-${id}`);
+        evidenceNotes[id] = getValue(`evidence-${id}`);
+        feedbackNotes[id] = getValue(`feedback-${id}`);
+        completed[id] = getChecked(`done-${id}`);
+      });
+      return {
+        project: "Wind Powered USB Phone Charger",
+        savedAt: new Date().toISOString(),
+        student: {
+          name: studentName.value.trim(),
+          classGroup: studentClass.value.trim(),
+          sessionDate: sessionDate.value
+        },
+        responses,
+        evidenceNotes,
+        feedbackNotes,
+        completed
+      };
+    }
+
+    function applySessionState(data) {
+      studentName.value = data.student?.name || "";
+      studentClass.value = data.student?.classGroup || "";
+      sessionDate.value = data.student?.sessionDate || data.sessionDate || "";
+      SECTIONS.forEach(({ id }) => {
+        const response = document.getElementById(`response-${id}`);
+        const evidence = document.getElementById(`evidence-${id}`);
+        const feedback = document.getElementById(`feedback-${id}`);
+        const checkbox = document.getElementById(`done-${id}`);
+        if (response) response.value = data.responses?.[id] || "";
+        if (evidence) evidence.value = data.evidenceNotes?.[id] || "";
+        if (feedback) feedback.value = data.feedbackNotes?.[id] || "";
+        if (checkbox) checkbox.checked = Boolean(data.completed?.[id]);
+      });
+      refreshUi();
+    }
+
+    function saveLocal(showMessage = false) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(getSessionState()));
+      if (showMessage) setStatus("Progress saved in this browser.");
+      refreshUi();
+    }
+
+    function loadLocal() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) {
+        sessionDate.value = new Date().toISOString().slice(0, 10);
+        refreshUi();
+        return;
+      }
+      try {
+        applySessionState(JSON.parse(raw));
+        setStatus("Saved progress loaded.");
+      } catch {
+        sessionDate.value = new Date().toISOString().slice(0, 10);
+        setStatus("Saved data could not be loaded.");
+      }
+    }
+
+    function safeStudentName() {
+      return (studentName.value.trim() || "student").replace(/[^a-z0-9_-]+/gi, "_").replace(/^_+|_+$/g, "");
+    }
+
+    function downloadFile(filename, content, type) {
+      const blob = new Blob([content], { type });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function downloadJson() {
+      const payload = JSON.stringify(getSessionState(), null, 2);
+      const stamp = new Date().toISOString().slice(0, 10);
+      downloadFile(`wind_usb_charger_session_${safeStudentName()}_${stamp}.json`, payload, "application/json");
+      setStatus("Session JSON downloaded.");
+    }
+
+    function buildFolioText() {
+      const state = getSessionState();
+      const lines = [
+        "Wind Powered USB Phone Charger Folio",
+        "",
+        `Student: ${state.student.name || "[Not entered]"}`,
+        `Class: ${state.student.classGroup || "[Not entered]"}`,
+        `Date: ${state.student.sessionDate || "[Not entered]"}`,
+        ""
+      ];
+      SECTIONS.forEach((section) => {
+        lines.push(`${section.id}. ${section.title}`);
+        lines.push(`Focus: ${section.focus}`);
+        lines.push("");
+        lines.push(state.responses[section.id] || "[No paragraph written yet]");
+        lines.push("");
+        lines.push(`Evidence to add: ${state.evidenceNotes[section.id] || "[None listed]"}`);
+        lines.push(`Improvement / feedback: ${state.feedbackNotes[section.id] || "[None listed]"}`);
+        lines.push("");
+      });
+      return lines.join("\n");
+    }
+
+    function exportText() {
+      const stamp = new Date().toISOString().slice(0, 10);
+      downloadFile(`wind_usb_charger_folio_${safeStudentName()}_${stamp}.txt`, buildFolioText(), "text/plain");
+      setStatus("Folio text exported.");
+    }
+
+    function uploadJson(file) {
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const data = JSON.parse(reader.result);
+          applySessionState(data);
+          saveLocal(false);
+          setStatus("Saved session uploaded.");
+        } catch {
+          setStatus("Could not read that JSON file.");
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function clearAll() {
+      if (!confirm("Clear all responses and progress?")) return;
+      localStorage.removeItem(STORAGE_KEY);
+      studentName.value = "";
+      studentClass.value = "";
+      sessionDate.value = new Date().toISOString().slice(0, 10);
+      SECTIONS.forEach(({ id }) => {
+        document.getElementById(`response-${id}`).value = "";
+        document.getElementById(`evidence-${id}`).value = "";
+        document.getElementById(`feedback-${id}`).value = "";
+        document.getElementById(`done-${id}`).checked = false;
+      });
+      refreshUi();
+      setStatus("Workbook cleared.");
+    }
+
+    function updateWordCounts() {
+      SECTIONS.forEach(({ id }) => {
+        const count = wordCount(getValue(`response-${id}`));
+        const countEl = document.getElementById(`count-${id}`);
+        if (countEl) countEl.textContent = `${count} word${count === 1 ? "" : "s"}`;
+      });
+    }
+
+    function updateProgress() {
+      const done = SECTIONS.filter(({ id }) => getChecked(`done-${id}`)).length;
+      const percent = Math.round((done / SECTIONS.length) * 100);
+      progressFill.style.width = `${percent}%`;
+      progressText.textContent = `${done} / ${SECTIONS.length} done`;
+    }
+
+    function updateSummary() {
+      const state = getSessionState();
+      const done = Object.values(state.completed).filter(Boolean).length;
+      const words = Object.values(state.responses).reduce((sum, text) => sum + wordCount(text || ""), 0);
+      summaryList.innerHTML = `
+        <li><strong>Student</strong><span>${state.student.name || "Not entered"}</span></li>
+        <li><strong>Completed</strong><span>${done} sections</span></li>
+        <li><strong>Words</strong><span>${words}</span></li>
+      `;
+    }
+
+    function refreshUi() {
+      updateWordCounts();
+      updateProgress();
+      updateSummary();
+    }
+
+    function bindAutosave() {
+      document.querySelectorAll("textarea, input[type='text'], input[type='date'], input[type='checkbox']")
+        .forEach((field) => {
+          field.addEventListener("input", () => saveLocal(false));
+          field.addEventListener("change", () => saveLocal(false));
+        });
+    }
+
+    function init() {
+      renderWorkbook();
+      bindAutosave();
+      document.getElementById("downloadJson").addEventListener("click", downloadJson);
+      document.getElementById("exportText").addEventListener("click", exportText);
+      document.getElementById("printPage").addEventListener("click", () => window.print());
+      document.getElementById("uploadJsonBtn").addEventListener("click", () => document.getElementById("uploadJsonInput").click());
+      document.getElementById("uploadJsonInput").addEventListener("change", (event) => uploadJson(event.target.files[0]));
+      document.getElementById("clearAll").addEventListener("click", clearAll);
+      loadLocal();
+    }
+
+    init();
+  </script>
+</body>
+</html>

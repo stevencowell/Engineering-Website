@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Year 10 Semester 2 Engineering: Wind Powered USB Phone Charger unit covering alternative energy, wind generator design, technical drawing, construction, testing and evaluation." />
+  <meta name="keywords" content="engineering, wind powered usb phone charger, wind generator, alternative energy, year 10, stage 5" />
+  <title>Year 10 Semester 2 - Wind Powered USB Phone Charger | Stage 5 Engineering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <script src="collapsible-panels.js" defer></script>
+  <script src="page-nav.js" defer></script>
+  <style>
+    :root {
+      --brand: #0056b3;
+      --brand-2: #0a7e2a;
+      --accent: #d97706;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      padding: 2.75rem 1.25rem 2rem;
+      text-align: center;
+    }
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1rem 0 0.5rem;
+    }
+    .top-nav a,
+    .top-nav span {
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.12);
+      color: #e8f2ff;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .top-nav span {
+      opacity: 0.75;
+      cursor: not-allowed;
+    }
+    .top-nav a.active,
+    .top-nav span.active {
+      background: #fff;
+      color: #0b63c3;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+      opacity: 1;
+    }
+    .hero-title { margin: 0.25rem 0; font-size: clamp(2.1rem, 4vw, 2.8rem); font-weight: 700; }
+    .hero-sub { margin: 0.3rem 0; opacity: 0.9; font-size: 1.05rem; }
+    main { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+    .crumbs { display: inline-flex; gap: 0.75rem; margin: 1rem 0 1.5rem; align-items: center; }
+    .crumbs a { color: var(--brand); font-weight: 600; }
+    .panel, .assessment-panel {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    .panel h3, .assessment-panel h3 { margin-top: 0; color: var(--brand); font-size: 1.35rem; }
+    .panel p,
+    .panel li,
+    .assessment-panel li { color: var(--muted); }
+    .panel ul, .assessment-panel ul { margin: 0; padding-left: 1.1rem; }
+    .panel li + li, .assessment-panel li + li { margin-top: 0.35rem; }
+    .panel a { color: var(--brand); text-decoration: underline; }
+    .notice {
+      border-left: 5px solid var(--accent);
+      background: #fff7ed;
+    }
+    .project-instructions h4 { margin: 0 0 0.35rem; color: var(--text); }
+    .instruction-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 1rem;
+    }
+    .requirements-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.35rem 0 0;
+      display: grid;
+      gap: 0.25rem;
+    }
+    .requirements-list li {
+      background: #f6f8fb;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.5rem 0.75rem;
+      color: var(--text);
+    }
+    .instruction-note { color: var(--muted); margin: 0.25rem 0 0; }
+    .inline-project-photo {
+      margin: 1rem 0 0;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.65rem;
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.06);
+    }
+    .inline-project-photo img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+    .inline-project-photo figcaption {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 0.45rem;
+    }
+    .instruction-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .instruction-gallery figure {
+      margin: 0;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.65rem;
+      box-shadow: var(--shadow);
+    }
+    .instruction-gallery img {
+      display: block;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+    .instruction-gallery figcaption {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 0.45rem;
+    }
+    .build-steps-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.35rem;
+    }
+    .build-step-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.06);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .build-step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--brand);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(0, 86, 179, 0.18);
+    }
+    .build-step-body h5 {
+      margin: 0 0 0.25rem;
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+    .build-step-body p { margin: 0; color: var(--muted); }
+    .step-details { margin-top: 0.55rem; color: var(--muted); }
+    .step-details summary {
+      cursor: pointer;
+      color: var(--brand);
+      font-weight: 700;
+      list-style: none;
+    }
+    .step-details summary::-webkit-details-marker { display: none; }
+    .step-details summary::before {
+      content: ">";
+      display: inline-block;
+      margin-right: 0.5rem;
+      font-size: 0.85rem;
+    }
+    .step-details[open] summary::before { transform: rotate(90deg); }
+    .step-details ul { margin-top: 0.5rem; padding-left: 1rem; }
+    .quick-check {
+      margin-top: 0.5rem;
+      padding: 0.55rem 0.7rem;
+      border-radius: 10px;
+      background: #eef6ff;
+      color: #0b3d91;
+      font-weight: 700;
+    }
+    .instruction-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+    .instruction-links a { text-decoration: underline; color: var(--brand); font-weight: 700; }
+    .start-here-card {
+      text-decoration: none !important;
+      color: var(--text) !important;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 86, 179, 0.2);
+      background: linear-gradient(135deg, rgba(0, 86, 179, 0.08), rgba(10, 126, 42, 0.08));
+      box-shadow: 0 10px 22px rgba(0, 86, 179, 0.08);
+      min-width: min(100%, 360px);
+    }
+    .start-here-card-label { display: flex; flex-direction: column; gap: 0.15rem; line-height: 1.25; min-width: 0; }
+    .start-here-card-title { font-size: 1.05rem; color: #0b3d91; font-weight: 800; }
+    .start-here-card-sub { font-size: 0.9rem; color: var(--muted); font-weight: 500; }
+    .start-here-card-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #0b3d91;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .resource-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+    }
+    .resource-card h4 { margin: 0 0 0.4rem; color: var(--text); }
+    .resource-card p { margin: 0 0 0.8rem; color: var(--muted); }
+    .resource-card a { color: var(--brand); font-weight: 700; text-decoration: underline; }
+    .tag {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 700;
+      font-size: 0.78rem;
+      margin-bottom: 0.55rem;
+    }
+    .youtube-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 1.35rem 1.5rem;
+      margin: 0 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .youtube-card-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 0;
+    }
+    .youtube-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #ff2a2a, #b10000);
+      color: #fff;
+      font-weight: 900;
+      flex: 0 0 auto;
+      box-shadow: 0 10px 20px rgba(177, 0, 0, 0.18);
+    }
+    .youtube-card-title { margin: 0; color: var(--text); font-size: 1.35rem; }
+    .youtube-card-sub { margin: 0.25rem 0 0; color: var(--muted); }
+    .youtube-action {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 86, 179, 0.22);
+      background: rgba(0, 86, 179, 0.06);
+      color: rgba(0, 86, 179, 0.95);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      flex: 0 0 auto;
+      box-shadow: var(--shadow);
+      text-decoration: none;
+    }
+    .assessment-panel {
+      background: #fff8e1;
+      border-left: 5px solid #ffc107;
+    }
+    .assessment-header {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .assessment-header-item {
+      background: rgba(255,255,255,0.75);
+      border-radius: 8px;
+      padding: 0.85rem;
+      border: 1px solid rgba(133, 100, 4, 0.15);
+    }
+    .assessment-header-item strong { display: block; color: #856404; }
+    .assessment-header-item span { color: #333; }
+    .assessment-link {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #856404;
+      color: #fff;
+      padding: 0.7rem 1rem;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .modules { margin-top: 2rem; }
+    .modules h2 { color: var(--brand); }
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+    .module-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .module-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+    }
+    .module-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, var(--brand), #0e7adf);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .module-title { font-weight: 600; color: var(--text); }
+    .module-sub { font-size: 0.95rem; color: var(--muted); }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e6f0fb;
+      color: var(--brand);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+    .footer {
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+    @media (max-width: 640px) {
+      .youtube-card { align-items: flex-start; }
+      .youtube-card-left { align-items: flex-start; }
+      .assessment-panel,
+      .panel { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
+  <header role="banner">
+    <h1 class="hero-title">Year 10 Semester 2: Wind Powered USB Phone Charger</h1>
+    <p class="hero-sub">20-week semester unit: alternative energy, wind generator design, impellors, gears, construction, testing and evaluation</p>
+    <div class="top-nav">
+      <a href="index.html">Back to Engineering Home</a>
+      <a href="year10_term1.html">Semester 1 - Water Control System</a>
+      <span class="active">Semester 2 - Wind USB Charger</span>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+    <div class="crumbs">
+      <a href="index.html">&lt;- Back to Main Index</a>
+      <span>/</span>
+      <span>Year 10 Semester 2</span>
+    </div>
+
+    <section class="panel project-instructions" aria-labelledby="project-instructions-heading">
+      <div class="instruction-grid">
+        <div>
+          <h3 id="project-instructions-heading">Wind Powered USB Phone Charger Project Instructions</h3>
+          <h4>Project brief</h4>
+          <p style="color: #4b5563; margin: 0 0 0.5rem;">Design, build and test a portable wind-powered USB phone charger that converts moving air into useful electrical output.</p>
+          <ul class="requirements-list" aria-label="Non-negotiable requirements">
+            <li><strong>Energy input:</strong> Use wind movement to turn an impellor or wind catcher.</li>
+            <li><strong>Energy transfer:</strong> Drive the generator shaft directly or through gears/cogs.</li>
+            <li><strong>Electrical output:</strong> Connect the generator and USB charging unit safely.</li>
+            <li><strong>Size limit:</strong> Fit the final project inside a 250 x 150 x 100 mm box.</li>
+            <li><strong>Evidence:</strong> Record research, sketches, final drawing, build photos, tests and evaluation.</li>
+          </ul>
+          <p class="instruction-note"><strong>What good looks like:</strong> a compact build, stable frame, efficient blade design, tidy shaft/generator alignment, repeated testing data and honest improvement notes.</p>
+        </div>
+
+        <div>
+          <h4>System requirements</h4>
+          <ul>
+            <li>Show how air movement becomes rotation, then electrical output.</li>
+            <li>Use the generator body and shaft dimensions in the design.</li>
+            <li>Plan how the impellor is supported, attached and tested.</li>
+            <li>Keep moving parts guarded or positioned to reduce risk.</li>
+            <li>Use data to judge output, stability, efficiency and possible improvements.</li>
+          </ul>
+          <p class="instruction-note"><strong>Teacher note:</strong> The Drive evidence points to alternate energy, generator design, impellor shape, gears/cogs, technical drawing and evaluation as the core teaching path.</p>
+          <figure class="inline-project-photo">
+            <img src="images/year10-wind-usb-charger/wind-usb-charger-workshop-testing.png" alt="Students testing a small wind powered USB charger prototype on a workshop bench" loading="lazy">
+            <figcaption>Testing the idea at bench scale: blade shape, shaft alignment, USB output and real improvement notes.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="instruction-gallery" aria-label="Wind powered USB charger project diagram">
+        <figure>
+          <img src="images/year10-wind-usb-charger/wind-usb-charger-project-diagram.png" alt="Wind powered USB charger diagram showing impellor, shaft, generator, USB module and phone" loading="lazy">
+          <figcaption>Wind powered USB charger project: impellor, shaft, generator, USB module and phone output.</figcaption>
+        </figure>
+      </div>
+
+      <div class="instruction-grid" style="margin-top: 1.25rem;">
+        <div>
+          <h4>Step-by-step build process</h4>
+          <div class="build-steps-card-grid" role="list">
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">1</div>
+              <div class="build-step-body">
+                <h5>Confirm the brief and limits</h5>
+                <p>Read the folio parameters before designing anything: size, generator, shaft, bearings and evidence.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Final model must fit inside a 250 x 150 x 100 mm box.</li>
+                    <li>Generator body: 31 mm long, 24 mm diameter; shaft: 2 mm diameter, 13 mm long.</li>
+                    <li>Available bearings are 20 mm outside diameter and 10 mm inside diameter.</li>
+                    <li>Highlight the folio sections you must prove: sketches, final design, photos, testing and evaluation.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Can your idea physically fit the parts and the size limit?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">2</div>
+              <div class="build-step-body">
+                <h5>Research how the system works</h5>
+                <p>Explain how moving air turns an impellor, rotates a shaft, spins a generator and feeds the USB unit.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Use correct terms: wind energy, rotation, generator, voltage, current, USB output and efficiency.</li>
+                    <li>Use the alternate energy and costing worksheets as supporting research.</li>
+                    <li>Keep notes on why blade shape, wind speed, friction and alignment change the output.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Can you explain wind to rotation to electrical output without waffle?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">3</div>
+              <div class="build-step-body">
+                <h5>Sketch and compare concepts</h5>
+                <p>Develop several layouts for the impellor, frame, shaft support, generator position and USB module.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Include at least three concept sketches, then note strengths and weaknesses for each one.</li>
+                    <li>Compare direct drive with gears or cogs if they help increase generator speed.</li>
+                    <li>Label blade angle, shaft location, bearings, frame, generator, USB unit and phone lead path.</li>
+                    <li>Choose the final design using function, safety, compactness and build quality, not just looks.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Did you justify the final concept, not just pick the prettiest one?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">4</div>
+              <div class="build-step-body">
+                <h5>Create the final drawing or CAD model</h5>
+                <p>Turn the chosen idea into an Onshape model or labelled drawing with enough detail to build from.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Include key dimensions, component positions and the overall bounding size.</li>
+                    <li>Show how the impellor attaches to the 2 mm shaft and how the generator is supported.</li>
+                    <li>Show where the USB module sits and how wires/leads are protected from moving parts.</li>
+                    <li>Optional laser cutting or 3D printing should clearly improve accuracy, not just look fancy.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Could this drawing guide the build without guessing?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">5</div>
+              <div class="build-step-body">
+                <h5>Build the mechanical system first</h5>
+                <p>Construct the frame, fit the impellor, align the shaft and check the rotation before connecting electronics.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Check shaft alignment by spinning the impellor by hand; it should rotate freely without wobble.</li>
+                    <li>Secure bearings, brackets and the generator body before running wind tests.</li>
+                    <li>Keep fingers, loose clothing, hair and leads clear of moving blades.</li>
+                    <li>Photograph the frame, shaft support and impellor before the wiring hides the details.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Does the impellor spin smoothly before any electrical testing?</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="build-step-card" role="listitem">
+              <div class="build-step-number">6</div>
+              <div class="build-step-body">
+                <h5>Connect, test, improve and evaluate</h5>
+                <p>Connect the generator and USB unit, record output data, change one variable at a time, then finish the folio.</p>
+                <details class="step-details">
+                  <summary>More tips</summary>
+                  <ul>
+                    <li>Teacher-check the wiring before attaching a phone or USB device. No heroics. Electricity is fussy.</li>
+                    <li>Record wind source, blade setup, gear/direct-drive setup, voltage/output result and faults.</li>
+                    <li>Test one change at a time: blade angle, number of blades, gear ratio, wind speed or frame stiffness.</li>
+                    <li>Evaluate output, stability, portability, safety, construction quality and sustainability.</li>
+                    <li>Use photos, test data and problem notes to prove what worked and what you would change.</li>
+                  </ul>
+                  <p class="quick-check">Quick check: Does your evaluation use actual test evidence, not vibes?</p>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4>Quick checks</h4>
+          <ul>
+            <li>Can you explain the energy chain: wind, impellor, shaft, generator, USB output?</li>
+            <li>Does the model fit inside the 250 x 150 x 100 mm limit?</li>
+            <li>Are the generator, shaft, bearings and impellor aligned and secure?</li>
+            <li>Has the electrical connection been teacher-checked before any phone/device test?</li>
+            <li>Have you captured research, concept sketches, final drawing/CAD, build photos, test data and evaluation?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="instruction-links">
+        <a href="https://docs.google.com/document/d/1VIHiH2aKRBqZ7buyGGTg0zg943iMfN9fvzL7hQw-wHY/edit?usp=drivesdk" target="_blank" rel="noopener">Open the master project folio</a>
+        <a href="wind_usb_charger_info_sheets.html" target="_blank" rel="noopener">Open printable USB charger info sheets</a>
+        <a class="start-here-card" href="wind_usb_charger_portfolio_guided_viewer.html" target="_blank" rel="noopener" aria-label="Create your wind USB charger folio - start here">
+          <span class="start-here-card-label">
+            <span class="start-here-card-title">Create your project folio - START HERE</span>
+            <span class="start-here-card-sub">Open the guided Wind USB Charger portfolio workbook</span>
+          </span>
+          <span class="start-here-card-icon" aria-hidden="true">&rarr;</span>
+        </a>
+        <a href="https://docs.google.com/document/d/17_01FLkqKlLKSKvHLbKJBL3fvbFtL-BwogKdmY67N3s/edit?usp=drivesdk" target="_blank" rel="noopener">Open wind generator drawing</a>
+      </div>
+      <div class="instruction-gallery" aria-label="Students building a wind powered USB charger">
+        <figure>
+          <img src="images/year10-wind-usb-charger/students-building-wind-usb-charger.png" alt="Students building and testing a wind powered USB charger prototype on a workshop bench" loading="lazy">
+          <figcaption>Students building and testing a wind powered USB charger prototype.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="youtube-card" role="region" aria-label="Year 10 Semester 2 video note">
+      <div class="youtube-card-left">
+        <div class="youtube-badge" aria-hidden="true">&gt;</div>
+        <div style="min-width:0;">
+          <h2 class="youtube-card-title">Video clips</h2>
+          <p class="youtube-card-sub">Placeholder video index for alternate energy, wind generator design, Arduino/IPO support and prototype testing clips.</p>
+        </div>
+      </div>
+      <a class="youtube-action" href="Youtube clips/year10 term 2 youtube clips.html" aria-label="Open Year 10 Semester 2 YouTube clip index">&rarr;</a>
+    </div>
+
+    <section class="assessment-panel" aria-labelledby="assessment-heading">
+      <h3 id="assessment-heading">Semester 2 Assessment Task: Alternate Energy Project</h3>
+      <p style="color: #856404; margin-bottom: 1rem; font-weight: 600;">Students complete the wind generator/USB charger design project as part of the alternate energy assessment. The Drive task also references a solar powered car component.</p>
+      <div class="assessment-header">
+        <div class="assessment-header-item">
+          <strong>Date of Issue</strong>
+          <span>Teacher to confirm</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Build & Testing</strong>
+          <span>Weeks 13-18, Semester 2</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Folio Submission</strong>
+          <span>Week 20, Semester 2</span>
+        </div>
+        <div class="assessment-header-item">
+          <strong>Weighting</strong>
+          <span>40%</span>
+        </div>
+      </div>
+      <div style="background: rgba(255,255,255,0.7); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+        <h4 style="margin-top: 0; color: #856404; font-size: 1.1rem;">Task Overview</h4>
+        <p style="margin-bottom: 0.75rem; color: #333;">Investigate alternate energy, design a compact wind-powered USB phone charger, build and test the model, and document the process in a project folio.</p>
+        <ul style="margin-bottom: 0; color: #333; padding-left: 1.5rem;">
+          <li>Research renewable energy and wind generation</li>
+          <li>Develop and justify impellor, frame and power-transfer design ideas</li>
+          <li>Create final drawings or Onshape evidence</li>
+          <li>Build and test the project safely</li>
+          <li>Evaluate output, portability, construction quality and sustainability</li>
+        </ul>
+      </div>
+      <a href="https://docs.google.com/document/d/1KPbCELB6YAjyquruWss2ZGXozxbjVT2Ls0LDD6oBWv8/edit?usp=drivesdk" class="assessment-link" target="_blank" rel="noopener">View Assessment Task &rarr;</a>
+    </section>
+
+    <section class="panel" aria-labelledby="classroom-term2">
+      <h3 id="classroom-term2">Google Classroom Topics (Semester 2)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;"><strong>How to use these topics:</strong> Each topic supports one stage of the project. Add Google Classroom links when the class topics are created.</p>
+      <ul>
+        <li><strong>Orientation:</strong> Wind Powered USB Phone Charger overview and project expectations</li>
+        <li><strong>Topic 1 - Alternative Energy:</strong> Renewable/non-renewable comparison, wind generation and energy storage</li>
+        <li><strong>Topic 2 - Wind Generator Design:</strong> Generator dimensions, blade/impellor options, gears/cogs and constraints</li>
+        <li><strong>Topic 3 - Concept Development:</strong> Research, sketches, design choice and justification</li>
+        <li><strong>Topic 4 - Technical Drawing &amp; Onshape:</strong> Final drawings, dimensions, parts and assembly thinking</li>
+        <li><strong>Topic 5 - Build, Test &amp; Evaluate:</strong> Construction photos, output testing, fault-finding, improvements and folio evidence</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Core Drive Resources</h3>
+      <div class="resource-grid">
+        <article class="resource-card">
+          <span class="tag">Student workbook</span>
+          <h4>Guided USB Charger Portfolio Workbook</h4>
+          <p>Local guided folio with save/load, export, writing prompts and project infographics.</p>
+          <a href="wind_usb_charger_portfolio_guided_viewer.html" target="_blank" rel="noopener">Open workbook</a>
+        </article>
+        <article class="resource-card">
+          <span class="tag">Info sheets</span>
+          <h4>Wind USB Charger Info Sheets</h4>
+          <p>Printable student sheets covering energy pathway, blade design, drive choice, electrical testing and evaluation.</p>
+          <a href="wind_usb_charger_info_sheets.html" target="_blank" rel="noopener">Open info sheets</a>
+        </article>
+        <article class="resource-card">
+          <span class="tag">Master folio</span>
+          <h4>Wind-Powered USB Phone Charger Folio</h4>
+          <p>Main student folio sequence for the project.</p>
+          <a href="https://docs.google.com/document/d/1VIHiH2aKRBqZ7buyGGTg0zg943iMfN9fvzL7hQw-wHY/edit?usp=drivesdk" target="_blank" rel="noopener">Open folio</a>
+        </article>
+        <article class="resource-card">
+          <span class="tag">Assessment</span>
+          <h4>Y10 Assessment Task 2 - Alternate Energy</h4>
+          <p>Assessment context for the wind generator and solar car project area.</p>
+          <a href="https://docs.google.com/document/d/1KPbCELB6YAjyquruWss2ZGXozxbjVT2Ls0LDD6oBWv8/edit?usp=drivesdk" target="_blank" rel="noopener">Open assessment task</a>
+        </article>
+        <article class="resource-card">
+          <span class="tag">Drawing</span>
+          <h4>Wind Generator Drawing</h4>
+          <p>Technical drawing reference for the wind generator task.</p>
+          <a href="https://docs.google.com/document/d/17_01FLkqKlLKSKvHLbKJBL3fvbFtL-BwogKdmY67N3s/edit?usp=drivesdk" target="_blank" rel="noopener">Open drawing</a>
+        </article>
+        <article class="resource-card">
+          <span class="tag">Evidence</span>
+          <h4>USB Wind Generator Folio Folder</h4>
+          <p>Student examples and project photos. Use for reference, not as the core teaching sequence.</p>
+          <a href="https://drive.google.com/drive/folders/1kGRnCSF1lz8PdpUqmm9zoOTdLs9kdKAIR0MoclaAwQaLLR85yrr2emFHZ0pLGZcaFou_M2Ns" target="_blank" rel="noopener">Open evidence folder</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3>Overview of Requirements</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">Throughout Semester 2, students develop alternative-energy understanding through a practical wind generator project. The unit moves from energy context, to design constraints, to concept development, to construction, testing and evaluation.</p>
+      <ul>
+        <li><strong>Safety First:</strong> Manage cutting, drilling, rotating parts, low-voltage output testing and workshop behaviour.</li>
+        <li><strong>Energy Concepts:</strong> Understand renewable energy, wind energy, energy transfer, generator output and intermittent supply.</li>
+        <li><strong>Design Process:</strong> Research, sketch alternatives, choose and justify a final concept, then plan the build sequence.</li>
+        <li><strong>Technical Graphics:</strong> Produce final drawings or Onshape evidence showing dimensions, components and assembly logic.</li>
+        <li><strong>Build, Test &amp; Evaluate:</strong> Assemble the model, test output, record data, diagnose problems and improve performance.</li>
+        <li><strong>Project Documentation:</strong> Maintain a folio with research, sketches, drawings, photos, testing data, evaluation and sustainability reflection.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Assessment & Folio Checklist</h3>
+      <ul>
+        <li><strong>Research:</strong> Renewable/non-renewable comparison, wind energy explanation, material and sustainability notes.</li>
+        <li><strong>Project Report:</strong> Design brief, constraints, generator dimensions, concept sketches and final design choice.</li>
+        <li><strong>Technical Documentation:</strong> Final drawing or Onshape evidence, dimensions, component labels and build plan.</li>
+        <li><strong>Testing Evidence:</strong> Test method, output data, photos, observations, changes and retest results.</li>
+        <li><strong>Evaluation:</strong> Efficiency, portability, safety, construction quality, sustainability and realistic improvements.</li>
+        <li><strong>Optional Extension:</strong> Laser cutting or 3D printing where it improves accuracy, strength or presentation.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Hands-on &amp; Theory (Semester 2 Program)</h3>
+      <ul>
+        <li><strong>Weeks 1-4:</strong> Alternative energy, renewable/non-renewable comparison, wind generation and energy-cost context.</li>
+        <li><strong>Weeks 5-8:</strong> Wind generator brief, component analysis, impellor research, gears/cogs and size constraints.</li>
+        <li><strong>Weeks 9-12:</strong> Concept sketches, final design choice, final drawing/Onshape, materials and build planning.</li>
+        <li><strong>Weeks 13-16:</strong> Construction, mechanical alignment, electrical connection, safe output testing and fault-finding.</li>
+        <li><strong>Weeks 17-20:</strong> Controlled improvements, final testing, folio evidence, sustainability reflection and final evaluation.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Resources &amp; Differentiation</h3>
+      <ul>
+        <li>Workshop access: generator/USB units, bearings, gears/cogs, blade materials, frame materials, hand tools and low-voltage test equipment.</li>
+        <li>Scaffolds: renewable energy comparison, generator constraint sheet, concept sketch template, test table, fault log and evaluation prompts.</li>
+        <li>Differentiation: labelled diagrams, vocabulary list with images, partially completed final drawing and teacher-approved simplified impellor design.</li>
+        <li>Extension: compare direct drive and geared drive, test different blade angles, or fabricate accurate parts using laser cutting or 3D printing.</li>
+        <li><a href="https://docs.google.com/document/d/1gcbLpzmbZxUY_dE3tCg1dR49uoMAhCqVIjhWu_7hCnc/edit?usp=drivesdk" target="_blank" rel="noopener">Alternative Energy Assignment Template</a> - written theory and sustainability support.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Week Plan Snapshot (Guide)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">This timeline is a working sequence built from the Drive evidence, not an official scope and sequence. Adjust dates and assessment timing to match the school calendar.</p>
+      <ul>
+        <li><strong>Week 1:</strong> Unit introduction, alternative energy overview, renewable/non-renewable comparison and project context.</li>
+        <li><strong>Week 2:</strong> Wind turbine operation, energy transfer chain, storage/charging limits and worksheet evidence.</li>
+        <li><strong>Week 3:</strong> Renewable energy advantages, limitations, intermittency, storage and charging infrastructure.</li>
+        <li><strong>Week 4:</strong> Energy costing, sustainability, lifecycle impact and folio research evidence.</li>
+        <li><strong>Week 5:</strong> Project brief, generator/USB unit analysis, dimensions, size limit and safety risks.</li>
+        <li><strong>Week 6:</strong> Impellor research, blade materials, blade angle, number of blades and wind-catcher options.</li>
+        <li><strong>Week 7:</strong> Mechanical transfer options: direct drive, gears/cogs, shaft support, bearings and friction.</li>
+        <li><strong>Week 8:</strong> Design constraints, test variables and teacher check before concept selection.</li>
+        <li><strong>Week 9:</strong> Concept sketches for frame, impellor, shaft support, generator location and USB module placement.</li>
+        <li><strong>Week 10:</strong> Compare concepts using function, safety, compactness, efficiency and build quality.</li>
+        <li><strong>Week 11:</strong> Final design selection, justification, materials list and build sequence planning.</li>
+        <li><strong>Week 12:</strong> Final drawing or Onshape model with dimensions, labels and assembly thinking.</li>
+        <li><strong>Week 13:</strong> Begin construction: frame, shaft support, impellor attachment and generator location.</li>
+        <li><strong>Week 14:</strong> Mechanical alignment: spin test, bearing support, wobble reduction and guarded moving parts.</li>
+        <li><strong>Week 15:</strong> Connect generator/USB unit safely, teacher-check wiring and test output with approved equipment.</li>
+        <li><strong>Week 16:</strong> Record data, identify faults and document construction photos for the folio.</li>
+        <li><strong>Week 17:</strong> Controlled improvements: blade angle, drive ratio, alignment, frame stability or wind source.</li>
+        <li><strong>Week 18:</strong> Retest improvements, compare results and complete final output testing.</li>
+        <li><strong>Week 19:</strong> Sustainability reflection, portability review, construction quality review and evaluation drafting.</li>
+        <li><strong>Week 20:</strong> Final testing photos, folio completion, evaluation and submission checkpoint.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h3>Outcomes Alignment (IND5)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">This unit aligns with the existing Industrial Technology Engineering outcomes through WHS, design, production, communication, testing and evaluation.</p>
+      <ul>
+        <li><strong>IND5-1:</strong> Identify and manage WHS risks when using tools, rotating parts and low-voltage testing.</li>
+        <li><strong>IND5-2:</strong> Apply design principles to develop and modify a functional wind-powered USB charger.</li>
+        <li><strong>IND5-3:</strong> Select and use tools, equipment and processes to produce a working model or prototype.</li>
+        <li><strong>IND5-4:</strong> Select and justify materials and components including blades, frame, shaft support, gears/cogs and housing.</li>
+        <li><strong>IND5-5:</strong> Communicate ideas through sketches, technical drawings, folio notes and testing data.</li>
+        <li><strong>IND5-6, IND5-7:</strong> Work collaboratively, follow a planned build sequence and transfer skills across mechanisms, electricity and technical graphics.</li>
+        <li><strong>IND5-8, IND5-9, IND5-10:</strong> Evaluate function, efficiency, sustainability, cost, construction quality and broader use of renewable energy systems.</li>
+      </ul>
+    </section>
+
+    <section class="panel" id="post-2027-outcomes" aria-labelledby="post-2027-outcomes-heading">
+      <h3 id="post-2027-outcomes-heading">Post-2027 Outcomes Alignment (EGT5)</h3>
+      <p style="color: #4b5563; margin-bottom: 1rem;">This project also fits the post-2027 Engineering Technology structure by asking students to design, construct, test, troubleshoot and evaluate a working alternative-energy system.</p>
+      <ul>
+        <li><strong>EGT5-SAF-01:</strong> Apply risk management and safe work practices during practical construction and testing.</li>
+        <li><strong>EGT5-ENV-01:</strong> Analyse renewable energy, recyclability, material choice, waste and environmental impacts.</li>
+        <li><strong>EGT5-COM-01:</strong> Communicate the engineering solution through folio writing, drawings, tables and evaluation.</li>
+        <li><strong>EGT5-GRP-01:</strong> Develop technical graphics including sketches, final drawings, Onshape modelling and labelled diagrams.</li>
+        <li><strong>EGT5-EVL-01:</strong> Investigate and evaluate prototype performance through structured tests and troubleshooting records.</li>
+        <li><strong>EGT5-MEA-01:</strong> Analyse practical system behaviour such as shaft rotation, gearing, impellor design and power transfer.</li>
+        <li><strong>EGT5-USE-01:</strong> Select and apply materials and components suitable for blades, frame, supports and housing.</li>
+        <li><strong>EGT5-IVT-01:</strong> Connect classroom prototypes to renewable energy technologies, charging infrastructure and societal impacts.</li>
+      </ul>
+    </section>
+
+    <section class="modules">
+      <h2>Toolkits</h2>
+      <div class="modules-grid">
+        <a class="module-card" href="Year10%20T2%20Modules/module1.html">
+          <div class="module-num">1</div>
+          <div class="module-title">Alternative Energy Context</div>
+          <div class="module-sub">Renewables, wind energy, energy storage and impacts</div>
+          <span class="pill">Theory</span>
+        </a>
+        <a class="module-card" href="Year10%20T2%20Modules/module2.html">
+          <div class="module-num">2</div>
+          <div class="module-title">Wind Generator Design</div>
+          <div class="module-sub">Constraints, impellor, gears/cogs and generator layout</div>
+          <span class="pill">Design</span>
+        </a>
+        <a class="module-card" href="Year10%20T2%20Modules/module3.html">
+          <div class="module-num">3</div>
+          <div class="module-title">Technical Drawing</div>
+          <div class="module-sub">Final drawings, dimensions, components and assembly</div>
+          <span class="pill">Graphics</span>
+        </a>
+        <a class="module-card" href="Year10%20T2%20Modules/module4.html">
+          <div class="module-num">4</div>
+          <div class="module-title">Build, Test &amp; Evaluate</div>
+          <div class="module-sub">Prototype evidence, output testing, improvements and folio</div>
+          <span class="pill">Project</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3>Key Documents</h3>
+      <ul>
+        <li><a href="Year%2010%20Wind%20USB%20Charger%20Scope%20and%20Sequence.docx" target="_blank" rel="noopener">Year 10 Wind USB Charger Scope and Sequence (DOCX)</a></li>
+        <li><a href="Year%2010%20Wind%20USB%20Charger%20Lesson%20Plans.docx" target="_blank" rel="noopener">Year 10 Wind USB Charger Lesson Plans (DOCX)</a></li>
+        <li><a href="Year%2010%20Wind%20USB%20Charger%20Scope%20and%20Sequence.pdf" target="_blank" rel="noopener">Year 10 Wind USB Charger Scope and Sequence (PDF)</a></li>
+        <li><a href="Year%2010%20Wind%20USB%20Charger%20Lesson%20Plans.pdf" target="_blank" rel="noopener">Year 10 Wind USB Charger Lesson Plans (PDF)</a></li>
+        <li><a href="wind_usb_charger_portfolio_guided_viewer.html" target="_blank" rel="noopener">Guided Wind USB Charger Portfolio Workbook</a></li>
+        <li><a href="wind_usb_charger_info_sheets.html" target="_blank" rel="noopener">Wind USB Charger Info Sheets</a></li>
+        <li><a href="https://docs.google.com/document/d/1VIHiH2aKRBqZ7buyGGTg0zg943iMfN9fvzL7hQw-wHY/edit?usp=drivesdk" target="_blank" rel="noopener">Wind-Powered USB Phone Charger Folio</a></li>
+        <li><a href="https://docs.google.com/document/d/1KPbCELB6YAjyquruWss2ZGXozxbjVT2Ls0LDD6oBWv8/edit?usp=drivesdk" target="_blank" rel="noopener">Y10 Assessment Task 2 - Alternate Energy</a></li>
+        <li><a href="https://docs.google.com/document/d/17_01FLkqKlLKSKvHLbKJBL3fvbFtL-BwogKdmY67N3s/edit?usp=drivesdk" target="_blank" rel="noopener">Wind Generator Drawing</a></li>
+        <li><a href="https://docs.google.com/document/d/1bCFzvGUgo6Nutwd58p0EEnOLqm_vc6GO3gOjQJRtMkk/edit?usp=drivesdk" target="_blank" rel="noopener">Mr Elliott's USB Wind Generator Screenshot</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20(S4,%20S5,%20LS).docx" target="_blank" rel="noopener">NESA Engineering Technology 7-10 Syllabus (Stage 4/5)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20syllabus%20support%20(S4,%20S5,%20LS).docx" target="_blank" rel="noopener">NESA Syllabus Support (Stage 4/5)</a></li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      <strong>Notice:</strong> All images and resources are provided solely for teaching and learning with our enrolled students.<br />
+      <strong>WARNING:</strong> This material has been reproduced and communicated by or on behalf of Wagga Wagga High School pursuant to Part VB of the Copyright Act 1968 (Cth). Further copying or communication may be subject to copyright protection under the Act.
+    </div>
+  </main>
+</body>
+</html>
