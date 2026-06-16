@@ -14,6 +14,7 @@ const pagesToIndex = [
   { url: 'year9_term4.html', title: 'Year 9 Term 4: Geared Lolly Dispenser Project' },
   { url: 'year10_term1.html', title: 'Year 10 Semester 1: Garden Watering System' },
   { url: 'year10_term2.html', title: 'Year 10 Semester 2: Wind Powered USB Phone Charger' },
+  { url: 'year10_program_complete.html', title: 'Year 10 Complete Program - Scope & Sequence' },
   { url: 'garden_watering_project.html', title: 'Garden Watering System Student Guide' },
   { url: 'garden_watering_portfolio_guided_viewer.html', title: 'Garden Watering System Portfolio Workbook' },
   { url: 'garden_watering_info_sheets.html', title: 'Garden Watering System Info Sheets' },

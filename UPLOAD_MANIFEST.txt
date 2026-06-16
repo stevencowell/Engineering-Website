@@ -1,29 +1,17 @@
-Year 10 Garden Watering System upload manifest
+﻿Recent Program, Card Layout, Classroom Links and Symbol Fix - GitHub Upload Package
 
-Root files:
-UPLOAD_INSTRUCTIONS.txt
-UPLOAD_MANIFEST.txt
-build-search-index.js
-index.html
-year10_term1.html
-year10_term1_assessment.html
-garden_watering_project.html
-garden_watering_portfolio_guided_viewer.html
-garden_watering_info_sheets.html
-search-index.json
-Year 10 Water Control System Scope and Sequence.docx
-Year 10 Water Control System Scope and Sequence.pdf
-Year 10 Water Control System Lesson Plans.docx
-Year 10 Water Control System Lesson Plans.pdf
+Root files included:
+- index.html
+  Home page updates: Year 9/Year 10 unit cards moved above program cards, equal-sized Year 9 Classroom buttons, new Year 10 Google Classroom links section, and cleaned card symbols.
 
-Folders:
-Year10 T1 Modules\
-year10_slide_pages\
-images\year10-garden-watering\
+- year10_program_complete.html
+  Full Year 10 Engineering complete scope and sequence page.
 
-Single folder file:
-Youtube clips\year10 term 1 youtube clips.html
+- build-search-index.js
+  Search build script includes year10_program_complete.html.
 
-Verification completed:
-- search-index.json rebuilt with node build-search-index.js
-- Year 10 pages, module pages, slide pages and workbook frame links checked for missing local targets
+- search-index.json
+  Rebuilt search index including the updated home page and Year 10 complete program page.
+
+Destination:
+- Upload all files directly into the GitHub repository root.

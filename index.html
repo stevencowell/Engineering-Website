@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -158,7 +158,7 @@
       color: #003f80;
     }
     .program-hero-link::after {
-      content: '→';
+      content: '->';
       font-size: 1.3rem;
       transition: transform 0.2s ease;
     }
@@ -181,7 +181,7 @@
       font-size: 0.95rem;
     }
     .program-feature::before {
-      content: '✓';
+      content: '-';
       background: rgba(255, 255, 255, 0.2);
       color: #ffffff;
       width: 24px;
@@ -276,6 +276,7 @@
     .classroom-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      align-items: stretch;
       gap: 0.9rem;
       margin-top: 1.25rem;
     }
@@ -288,6 +289,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
+      min-height: 112px;
       transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
     .classroom-card:hover {
@@ -303,16 +305,19 @@
       font-weight: 800;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 0.75rem;
       border-radius: 12px;
       box-shadow: 0 6px 14px rgba(11, 99, 195, 0.18);
+      text-align: center;
     }
     .classroom-card summary {
       list-style: none;
       cursor: pointer;
-      display: block;
+      display: flex;
       padding: 0;
       margin: 0;
+      flex: 0 0 auto;
     }
     .classroom-card summary::-webkit-details-marker {
       display: none;
@@ -323,6 +328,8 @@
       border-radius: 12px;
     }
     .classroom-card summary h4 {
+      width: calc(100% + 0.7rem);
+      min-height: 74px;
       margin: 0 -0.35rem 0;
       padding: 0.75rem 2.5rem 0.75rem 0.85rem;
       position: relative;
@@ -331,7 +338,7 @@
       margin: 0 -0.35rem 0.85rem;
     }
     .classroom-card summary h4::after {
-      content: '▾';
+      content: '+';
       position: absolute;
       right: 1rem;
       top: 50%;
@@ -340,8 +347,11 @@
       opacity: 0.95;
       transition: transform 0.18s ease;
     }
+    .classroom-card[open] summary h4::after {
+      content: '-';
+    }
     .classroom-card:not([open]) summary h4::after {
-      transform: translateY(-50%) rotate(-90deg);
+      transform: translateY(-50%);
     }
     .term-chip {
       display: inline-flex;
@@ -860,6 +870,63 @@
       <p style="margin-top: 1rem;"><strong>Getting Started:</strong> Begin with Term 1 to build foundational knowledge in structures, materials, and workplace health and safety. Each term builds upon previous learning, so we recommend following the sequence.</p>
     </section>
 
+    <!-- Year 9 Section -->
+    <section class="modules-section" aria-labelledby="year9-heading">
+      <h2 id="year9-heading">Year 9</h2>
+      <div class="modules-grid">
+        <a href="year9_term1.html" class="module-card" aria-label="Year 9 Term 1 - Water Tower Project">
+          <div class="thumb-container"><span>T1</span></div>
+          <div class="module-title">
+            Term 1 &ndash; Water Tower Project
+            <div class="module-subtitle">WHS, structural concepts, design, build and test</div>
+          </div>
+        </a>
+        <a href="year9_term2.html" class="module-card" aria-label="Year 9 Term 2 - Concrete Beam Project">
+          <div class="thumb-container"><span>T2</span></div>
+          <div class="module-title">
+            Term 2 &ndash; Concrete Beam Project
+            <div class="module-subtitle">Materials, concrete, composite materials, casting and testing</div>
+          </div>
+        </a>
+        <a href="year9_term3.html" class="module-card" aria-label="Year 9 Term 3 - Hydraulic Digger Project">
+          <div class="thumb-container"><span>T3</span></div>
+          <div class="module-title">
+            Term 3 &ndash; Hydraulic Digger Project
+            <div class="module-subtitle">Fluid power, mechanisms, lever linkages, build and test</div>
+          </div>
+        </a>
+        <a href="year9_term4.html" class="module-card" aria-label="Year 9 Term 4 - Geared Lolly Dispenser Project">
+          <div class="thumb-container"><span>T4</span></div>
+          <div class="module-title">
+            Term 4 &ndash; Geared Lolly Dispenser Project
+            <div class="module-subtitle">Gear systems, CAD, mechanisms, build, test and evaluate</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Year 10 Section -->
+    <section class="modules-section" aria-labelledby="year10-heading">
+      <h2 id="year10-heading">Year 10</h2>
+      <p style="text-align: center; color: #6c757d; margin-bottom: 2rem; font-style: italic;">Year 10 is organised as two 20-week semester units. Semester 1 covers the Water Control System and Semester 2 covers the Wind Powered USB Phone Charger project.</p>
+      <div class="modules-grid">
+        <a href="year10_term1.html" class="module-card" aria-label="Year 10 Semester 1 - Water Control System">
+          <div class="thumb-container"><span>S1</span></div>
+          <div class="module-title">
+            Semester 1 - Water Control System
+            <div class="module-subtitle">20 weeks: control systems, sensors, irrigation design, build and test</div>
+          </div>
+        </a>
+        <a href="year10_term2.html" class="module-card" aria-label="Year 10 Semester 2 - Wind Powered USB Phone Charger">
+          <div class="thumb-container"><span>S2</span></div>
+          <div class="module-title">
+            Semester 2 - Wind Powered USB Phone Charger
+            <div class="module-subtitle">20 weeks: alternative energy, impellor design, gears, build and test</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
     <section class="program-hero" aria-labelledby="program-heading">
       <div class="program-hero-content">
         <h3 id="program-heading">Complete Year 9 Engineering Program</h3>
@@ -872,6 +939,22 @@
           <div class="program-feature">Direct links to toolkit sections</div>
           <div class="program-feature">Complete outcomes mapping</div>
           <div class="program-feature">Assessment schedules & requirements</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="program-hero" aria-labelledby="year10-program-heading">
+      <div class="program-hero-content">
+        <h3 id="year10-program-heading">Complete Year 10 Engineering Program</h3>
+        <p>Access the full Year 10 semester program with week-by-week scope and sequence, toolkit links, assessment information, outcomes mapping, Google Classroom topic structure, support documents, portfolio resources, and practical teaching notes.</p>
+        <a href="year10_program_complete.html" class="program-hero-link">
+          View Complete Year 10 Program Document
+        </a>
+        <div class="program-features">
+          <div class="program-feature">20-week sequence for both semesters</div>
+          <div class="program-feature">Direct links to Year 10 toolkits</div>
+          <div class="program-feature">IND5 and EGT5 outcomes mapping</div>
+          <div class="program-feature">Assessment, folio and resource links</div>
         </div>
       </div>
     </section>
@@ -903,7 +986,7 @@
             <a class="syllabus-card" href="industrial-technology-years-7-10-syllabus-2019%20(4).pdf" target="_blank" rel="noopener">
               <div class="syllabus-icon">PDF</div>
               <div class="syllabus-content">
-                <div class="syllabus-title">Industrial Technology Years 7–10 Syllabus (2019)</div>
+                <div class="syllabus-title">Industrial Technology Years 7-10 Syllabus (2019)</div>
                 <div class="syllabus-subtitle">Official 2019 syllabus reference document (PDF)</div>
                 <span class="syllabus-tag">Pre-2027</span>
               </div>
@@ -911,8 +994,8 @@
             <a class="syllabus-card" href="9%20Structures_Mechanism%20Program%20draft.docx" target="_blank" rel="noopener">
               <div class="syllabus-icon">DOC</div>
               <div class="syllabus-content">
-                <div class="syllabus-title">Stage 5 Industrial Technology – Engineering (2019 Syllabus)</div>
-                <div class="syllabus-subtitle">Current Year 9/10 Structures &amp; Mechanisms program – used until end of 2026 (DOCX)</div>
+                <div class="syllabus-title">Stage 5 Industrial Technology - Engineering (2019 Syllabus)</div>
+                <div class="syllabus-subtitle">Current Year 9/10 Structures &amp; Mechanisms program - used until end of 2026 (DOCX)</div>
                 <span class="syllabus-tag">Pre-2027</span>
               </div>
             </a>
@@ -929,6 +1012,14 @@
               <div class="syllabus-content">
                 <div class="syllabus-title">Year 9 Complete Program - Scope &amp; Sequence</div>
                 <div class="syllabus-subtitle">Comprehensive week-by-week program with outcomes mapping and website links</div>
+                <span class="syllabus-tag">Pre-2027</span>
+              </div>
+            </a>
+            <a class="syllabus-card" href="year10_program_complete.html">
+              <div class="syllabus-icon">WEB</div>
+              <div class="syllabus-content">
+                <div class="syllabus-title">Year 10 Complete Program - Scope &amp; Sequence</div>
+                <div class="syllabus-subtitle">Complete semester program with week-by-week scope, outcomes, assessments and resource links</div>
                 <span class="syllabus-tag">Pre-2027</span>
               </div>
             </a>
@@ -959,8 +1050,8 @@
             <a class="syllabus-card" href="New%20Engineering%20Program%20from%20new%20syllabus.docx" target="_blank" rel="noopener">
               <div class="syllabus-icon">DOC</div>
               <div class="syllabus-content">
-                <div class="syllabus-title">Stage 5 Engineering Technology 7–10 – Program (2024 Syllabus, from 2027)</div>
-                <div class="syllabus-subtitle">Draft Year 9/10 Engineering Technology program – for implementation from 2027 (DOCX)</div>
+                <div class="syllabus-title">Stage 5 Engineering Technology 7-10 - Program (2024 Syllabus, from 2027)</div>
+                <div class="syllabus-subtitle">Draft Year 9/10 Engineering Technology program - for implementation from 2027 (DOCX)</div>
                 <span class="syllabus-tag">Post-2027</span>
               </div>
             </a>
@@ -972,7 +1063,7 @@
     <section class="assessments-section" aria-labelledby="assessments-heading">
       <div class="assessments-header">
         <h2 id="assessments-heading">Assessments</h2>
-        <p class="assessment-note">Plan ahead with the published schedule. In-class activities also contribute to a student’s overall grade.</p>
+        <p class="assessment-note">Plan ahead with the published schedule. In-class activities also contribute to a student's overall grade.</p>
       </div>
 
       <div class="assessment-grid">
@@ -1016,9 +1107,8 @@
       </div>
     </section>
 
-    <!-- Year 9 Section -->
-    <section class="modules-section" aria-labelledby="year9-heading">
-      <h2 id="year9-heading">Year 9</h2>
+    <section class="modules-section" aria-labelledby="classroom-links-heading">
+      <h2 id="classroom-links-heading">Google Classroom Links</h2>
       <div class="classroom-section" aria-labelledby="year9-classroom-links">
         <div class="classroom-header">
           <div>
@@ -1079,59 +1169,48 @@
         </div>
       </div>
 
-      <div class="modules-grid">
-        <a href="year9_term1.html" class="module-card" aria-label="Year 9 Term 1 - Water Tower Project">
-          <div class="thumb-container"><span>T1</span></div>
-          <div class="module-title">
-            Term 1 – Water Tower Project
-            <div class="module-subtitle">WHS, structural concepts, design, build and test</div>
+      <div class="classroom-section" aria-labelledby="year10-classroom-links">
+        <div class="classroom-header">
+          <div>
+            <h3 id="year10-classroom-links">Year 10 Google Classroom Topics</h3>
+            <p>Quick links to matching Google Classroom topics for the two Year 10 semester units. All links open in a new tab.</p>
           </div>
-        </a>
-        <a href="year9_term2.html" class="module-card" aria-label="Year 9 Term 2 - Concrete Beam Project">
-          <div class="thumb-container"><span>T2</span></div>
-          <div class="module-title">
-            Term 2 – Concrete Beam Project
-            <div class="module-subtitle">Materials, concrete, composite materials, casting and testing</div>
-          </div>
-        </a>
-        <a href="year9_term3.html" class="module-card" aria-label="Year 9 Term 3 - Hydraulic Digger Project">
-          <div class="thumb-container"><span>T3</span></div>
-          <div class="module-title">
-            Term 3 – Hydraulic Digger Project
-            <div class="module-subtitle">Fluid power, mechanisms, lever linkages, build and test</div>
-          </div>
-        </a>
-        <a href="year9_term4.html" class="module-card" aria-label="Year 9 Term 4 - Geared Lolly Dispenser Project">
-          <div class="thumb-container"><span>T4</span></div>
-          <div class="module-title">
-            Term 4 – Geared Lolly Dispenser Project
-            <div class="module-subtitle">Gear systems, CAD, mechanisms, build, test and evaluate</div>
-          </div>
-        </a>
+          <div class="classroom-note">Use these with the Year 10 semester pages and project toolkits.</div>
+        </div>
+
+        <div class="classroom-grid">
+          <details class="classroom-card">
+            <summary>
+              <h4><span class="term-chip">S1</span> Water Control System</h4>
+            </summary>
+            <ul class="classroom-links">
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDcy" target="_blank" rel="noopener"><span class="topic-icon">WHS</span> <span class="topic-title">Work, Health &amp; Safety</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDg2" target="_blank" rel="noopener"><span class="topic-icon">SAFE</span> <span class="topic-title">Safety &amp; OnGuard</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDgx" target="_blank" rel="noopener"><span class="topic-icon">RISK</span> <span class="topic-title">WHS &amp; Risk Management</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDgw" target="_blank" rel="noopener"><span class="topic-icon">CTRL</span> <span class="topic-title">Control Systems</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc2" target="_blank" rel="noopener"><span class="topic-icon">CAD</span> <span class="topic-title">CAD Tutorials</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc5" target="_blank" rel="noopener"><span class="topic-icon">ON</span> <span class="topic-title">Onshape Tutorials</span></a></li>
+              <li><a href="https://classroom.google.com" target="_blank" rel="noopener"><span class="topic-icon">GWS</span> <span class="topic-title">Garden Watering System project - add topic link when created</span></a></li>
+            </ul>
+          </details>
+
+          <details class="classroom-card">
+            <summary>
+              <h4><span class="term-chip">S2</span> Wind USB Charger</h4>
+            </summary>
+            <ul class="classroom-links">
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc3" target="_blank" rel="noopener"><span class="topic-icon">ALT</span> <span class="topic-title">Alternate Energies</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc4" target="_blank" rel="noopener"><span class="topic-icon">MAT</span> <span class="topic-title">Materials &amp; Corrosion</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc2" target="_blank" rel="noopener"><span class="topic-icon">CAD</span> <span class="topic-title">CAD Tutorials</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDc5" target="_blank" rel="noopener"><span class="topic-icon">ON</span> <span class="topic-title">Onshape Tutorials</span></a></li>
+              <li><a href="https://classroom.google.com/w/ODMxNzU4NDg5MDY1/tc/ODMxNzU4NDg5MDgy" target="_blank" rel="noopener"><span class="topic-icon">CAM</span> <span class="topic-title">CAMs &amp; Gears</span></a></li>
+              <li><a href="https://classroom.google.com" target="_blank" rel="noopener"><span class="topic-icon">USB</span> <span class="topic-title">Wind USB Charger project - add topic link when created</span></a></li>
+            </ul>
+          </details>
+        </div>
       </div>
     </section>
 
-    <!-- Year 10 Section -->
-    <section class="modules-section" aria-labelledby="year10-heading">
-      <h2 id="year10-heading">Year 10</h2>
-      <p style="text-align: center; color: #6c757d; margin-bottom: 2rem; font-style: italic;">Year 10 is organised as two 20-week semester units. Semester 1 covers the Water Control System and Semester 2 covers the Wind Powered USB Phone Charger project.</p>
-      <div class="modules-grid">
-        <a href="year10_term1.html" class="module-card" aria-label="Year 10 Semester 1 - Water Control System">
-          <div class="thumb-container"><span>S1</span></div>
-          <div class="module-title">
-            Semester 1 - Water Control System
-            <div class="module-subtitle">20 weeks: control systems, sensors, irrigation design, build and test</div>
-          </div>
-        </a>
-        <a href="year10_term2.html" class="module-card" aria-label="Year 10 Semester 2 - Wind Powered USB Phone Charger">
-          <div class="thumb-container"><span>S2</span></div>
-          <div class="module-title">
-            Semester 2 - Wind Powered USB Phone Charger
-            <div class="module-subtitle">20 weeks: alternative energy, impellor design, gears, build and test</div>
-          </div>
-        </a>
-      </div>
-    </section>
   </main>
   <footer class="copyright-footer">
     <div class="copyright-content">

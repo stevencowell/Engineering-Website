@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Year 10 Engineering complete program with semester scope and sequence, assessment schedule, outcomes mapping, teaching sequence and resource links." />
+  <title>Year 10 Engineering Program - Complete Scope and Sequence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0056b3;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2a3d;
+      --muted: #5c667a;
+      --border: #e2e8f0;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    header {
+      background: linear-gradient(135deg, #003f80, #0b63c3);
+      color: #fff;
+      text-align: center;
+      padding: 2.5rem 1rem 2rem;
+    }
+    header h1 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.5rem); }
+    header p { margin: 0.5rem 0 0; opacity: 0.9; font-size: 1.1rem; }
+    .back-link {
+      display: inline-block;
+      margin: 1rem 0 0 1rem;
+      color: var(--brand);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .back-link:hover { text-decoration: underline; }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+    .intro, .toc, .section {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+    .intro, .section { padding: 2rem; }
+    .toc { padding: 1.5rem; }
+    .intro h2, .section h2, .toc h3 {
+      margin-top: 0;
+      color: var(--brand);
+    }
+    .section h2 {
+      font-size: 1.8rem;
+      border-bottom: 3px solid var(--brand);
+      padding-bottom: 0.5rem;
+    }
+    .section h3 { color: var(--text); font-size: 1.4rem; margin-top: 2rem; }
+    .section h4 { color: var(--text); font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+    .section h5 { color: var(--muted); font-size: 1rem; margin: 1rem 0 0.5rem; font-weight: 600; }
+    p, li { color: var(--muted); }
+    strong { color: var(--text); font-weight: 600; }
+    a { color: var(--brand); text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+    .toc ul { list-style: none; padding-left: 0; margin-bottom: 0; }
+    .toc li { margin: 0.5rem 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: var(--card);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th {
+      background: var(--brand);
+      color: #fff;
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover { background: #f8f9fa; }
+    .week-block {
+      background: #f8f9fa;
+      border-left: 4px solid var(--brand);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .week-block h4 { margin-top: 0; color: var(--brand); }
+    .outcome-block {
+      background: #f0f7ff;
+      border-left: 4px solid var(--brand);
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+    .outcome-block h5 { margin-top: 0; color: var(--brand); }
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .link-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      padding: 1rem;
+    }
+    .link-card h4 { margin-top: 0; }
+    .note {
+      background: #fff7ed;
+      border-left: 4px solid #d97706;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+    }
+    @media (max-width: 768px) {
+      main { padding: 1rem 0.5rem 2rem; }
+      .section, .intro { padding: 1.25rem; }
+      table { display: block; overflow-x: auto; white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-link">&larr; Back to Main Index</a>
+  <header>
+    <h1>Year 10 Industrial Technology - Engineering</h1>
+    <p>Complete Scope and Sequence Program</p>
+  </header>
+  <main>
+    <section class="intro" id="overview">
+      <h2>PROGRAM OVERVIEW</h2>
+      <h3>Course Structure</h3>
+      <p>Year 10 Engineering is organised as two 20-week semester units. Semester 1 develops control systems through the Garden Watering System project. Semester 2 develops alternative energy, mechanical transfer and technical graphics through the Wind Powered USB Phone Charger project.</p>
+      <ul>
+        <li><strong>Semester 1:</strong> Garden Watering System - control systems, safe low-voltage testing, sensors, actuators, irrigation layout, prototype construction and evaluation.</li>
+        <li><strong>Semester 2:</strong> Wind Powered USB Phone Charger - alternative energy, wind generation, impellor design, technical drawing, construction, output testing and sustainability evaluation.</li>
+      </ul>
+
+      <h3>Assessment Schedule</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Nature of Task</th>
+            <th>Timing</th>
+            <th>Outcomes</th>
+            <th>Weighting</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Task 1</td>
+            <td>Garden Watering System prototype and folio</td>
+            <td>Build and test Weeks 9-16; folio submission teacher to confirm</td>
+            <td>IND5-1 to IND5-10</td>
+            <td>Teacher to confirm</td>
+          </tr>
+          <tr>
+            <td>Task 2</td>
+            <td>Alternate Energy Project - Wind Powered USB Phone Charger</td>
+            <td>Build and test Weeks 13-18; folio submission Week 20, Semester 2</td>
+            <td>IND5-1 to IND5-10</td>
+            <td>40%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Website Links</h3>
+      <ul>
+        <li><strong>Main Index:</strong> <a href="index.html">index.html</a></li>
+        <li><strong>Semester 1 Overview:</strong> <a href="year10_term1.html">year10_term1.html</a></li>
+        <li><strong>Semester 2 Overview:</strong> <a href="year10_term2.html">year10_term2.html</a></li>
+        <li><strong>Semester 1 Assessment:</strong> <a href="year10_term1_assessment.html">year10_term1_assessment.html</a></li>
+        <li><strong>Garden Watering Portfolio:</strong> <a href="garden_watering_portfolio_guided_viewer.html">garden_watering_portfolio_guided_viewer.html</a></li>
+        <li><strong>Wind USB Charger Portfolio:</strong> <a href="wind_usb_charger_portfolio_guided_viewer.html">wind_usb_charger_portfolio_guided_viewer.html</a></li>
+      </ul>
+    </section>
+
+    <nav class="toc" aria-label="Table of contents">
+      <h3>Table of Contents</h3>
+      <ul>
+        <li><a href="#overview">Program Overview</a></li>
+        <li><a href="#semester1">Semester 1: Garden Watering System</a></li>
+        <li><a href="#semester2">Semester 2: Wind Powered USB Phone Charger</a></li>
+        <li><a href="#outcomes">Outcomes Mapping</a></li>
+        <li><a href="#assessment">Assessment Schedule Detailed</a></li>
+        <li><a href="#resources">Resources and Support Materials</a></li>
+        <li><a href="#notes">Program Notes</a></li>
+      </ul>
+    </nav>
+
+    <section class="section" id="semester1">
+      <h2>SEMESTER 1: GARDEN WATERING SYSTEM</h2>
+      <p><strong>Duration:</strong> 20 weeks</p>
+      <p><strong>Assessment:</strong> Prototype and folio - timing to be confirmed by teacher</p>
+      <p><strong>Website:</strong> <a href="year10_term1.html">year10_term1.html</a></p>
+
+      <h3>Semester 1 Overview</h3>
+      <p>Semester 1 uses a garden watering problem to teach control systems in a practical, workshop-based way. Students move from WHS and input-process-output theory into design, wiring/circuit planning, irrigation layout, prototyping, testing, fault-finding and evaluation.</p>
+
+      <h3>Toolkit Links</h3>
+      <ul>
+        <li><strong>Toolkit 1:</strong> WHS &amp; Control Systems Safety - <a href="Year10%20T1%20Modules/module1.html">Year10 T1 Modules/module1.html</a></li>
+        <li><strong>Toolkit 2:</strong> Control Systems Concepts - <a href="Year10%20T1%20Modules/module2.html">Year10 T1 Modules/module2.html</a></li>
+        <li><strong>Toolkit 3:</strong> Garden Watering Design &amp; Planning - <a href="Year10%20T1%20Modules/module3.html">Year10 T1 Modules/module3.html</a></li>
+        <li><strong>Toolkit 4:</strong> Build, Test &amp; Evaluate - <a href="Year10%20T1%20Modules/module4.html">Year10 T1 Modules/module4.html</a></li>
+        <li><strong>Tutorial:</strong> Design &amp; Test Tutorial - <a href="Year10%20T1%20Modules/tutorial.html">Year10 T1 Modules/tutorial.html</a></li>
+        <li><strong>Checklist:</strong> Observation and Testing Checklist - <a href="Year10%20T1%20Modules/observation-checklist.html">Year10 T1 Modules/observation-checklist.html</a></li>
+      </ul>
+
+      <h3>SEMESTER 1 - WEEK-BY-WEEK SCOPE AND SEQUENCE</h3>
+
+      <div class="week-block">
+        <h4>Week 1: Unit Introduction, WHS and the Watering Problem</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T1%20Modules/module1.html">Toolkit 1: WHS &amp; Control Systems Safety</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Introduce the project brief: design and build a safe garden watering control-system prototype.</li>
+          <li>Revise workshop expectations, PPE, teacher check points and safe behaviour around water and electricity.</li>
+          <li>Identify the user need: watering plants efficiently, reliably and with controlled water use.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Set up folio sections for brief, research, designs, build log, testing and evaluation.</li>
+          <li>Create an initial risk list for water, low-voltage electronics, tools, spills and moving parts.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Folio setup, project brief notes and initial WHS evidence.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-1, IND5-5, IND5-6, IND5-10</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 2: Inputs, Process, Outputs and Feedback</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T1%20Modules/module2.html">Toolkit 2: Control Systems Concepts</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Define input, process, output and feedback using familiar automated systems.</li>
+          <li>Connect the vocabulary to moisture sensors, rain sensors, switches, pumps, valves and indicators.</li>
+          <li>Discuss open-loop and closed-loop control in student-friendly terms.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Draw an input-process-output diagram for a basic watering system.</li>
+          <li>Sort components into input, process and output categories.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Annotated IPO diagram and vocabulary notes.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-2, IND5-5, IND5-7, IND5-9</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 3: Safe Test Setup</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T1%20Modules/module1.html">Toolkit 1: WHS &amp; Control Systems Safety</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Separate wet zones, dry electronics zones and tool zones.</li>
+          <li>Apply safe low-voltage testing rules and teacher approval before powering circuits.</li>
+          <li>Use risk controls: eliminate, isolate, engineer, administer and PPE.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Create a bench layout showing where water, electronics and tools will sit during testing.</li>
+          <li>Complete a risk table for the prototype test environment.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Safe test setup sketch and risk-control table.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-1, IND5-3, IND5-6</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 4: Irrigation Need, Success Criteria and Folio Direction</h4>
+        <p><strong>Website Links:</strong> <a href="year10_term1.html">Semester 1 Overview</a>, <a href="garden_watering_info_sheets.html">Info Sheets</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Describe what makes a watering system successful: reliability, controlled flow, safe operation and sensible water use.</li>
+          <li>Turn the brief into measurable success criteria.</li>
+          <li>Identify what evidence the folio needs to prove design thinking and testing.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Write design criteria and constraints for the project.</li>
+          <li>Plan a simple evidence checklist for photos, diagrams, test tables and evaluation notes.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Success criteria, constraints and folio evidence checklist.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-2, IND5-5, IND5-8</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 5: Sensors and Actuators</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T1%20Modules/module2.html">Toolkit 2: Control Systems Concepts</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Compare sensor and switch options: moisture sensor, rain sensor, float switch, push button and manual override.</li>
+          <li>Compare output options: pump, valve, LED indicator, buzzer or relay-controlled device.</li>
+          <li>Explain why each component must match voltage, current and safe testing limits.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Inspect sample components and record function, wiring needs, risks and likely problems.</li>
+          <li>Draft a component selection table.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Component research and selection notes.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-3, IND5-4, IND5-5, IND5-9</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 6: Control-System Diagrams</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T1%20Modules/module2.html">Toolkit 2: Control Systems Concepts</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Use block diagrams to show how information and energy move through the system.</li>
+          <li>Connect feedback to threshold decisions and repeated testing.</li>
+          <li>Use clear labels so another person can understand the design.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Create a neat block diagram for the planned watering system.</li>
+          <li>Annotate each block with its job and evidence needed in the folio.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Block diagram and labelled system explanation.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-2, IND5-5, IND5-7</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 7: Algorithms and Control Logic</h4>
+        <p><strong>Website Links:</strong> <a href="Year10%20T1%20Modules/module2.html">Toolkit 2</a>, <a href="Year10%20T1%20Modules/tutorial.html">Design &amp; Test Tutorial</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Use flowcharts or pseudocode to explain watering decisions.</li>
+          <li>Include thresholds, yes/no decisions, timed watering and stop conditions.</li>
+          <li>Discuss how logic improves reliability and reduces wasted water.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Draft a watering algorithm for the chosen design.</li>
+          <li>Peer-check whether the algorithm has a clear start, decision and stop.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Flowchart or pseudocode with peer feedback.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-2, IND5-5, IND5-8, IND5-9</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 8: Component Research and Safe Testing Sequence</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T1%20Modules/module3.html">Toolkit 3: Design &amp; Planning</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Plan subsystem testing before full-system testing.</li>
+          <li>Identify likely faults: leaks, poor pump flow, loose wiring, unreliable triggering and blocked tubing.</li>
+          <li>Prepare teacher check points before water and power are combined.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Write a safe testing sequence for water path, input circuit, output device and full integration.</li>
+          <li>Update the risk table based on selected components.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Safe testing sequence and updated risk table.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-1, IND5-3, IND5-5</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 9: Concept Sketches</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T1%20Modules/module3.html">Toolkit 3: Design &amp; Planning</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Use sketches to explore reservoir position, tubing route, plant area, sensor position and electronics protection.</li>
+          <li>Compare concepts against success criteria, safety and build practicality.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Sketch two or three possible system layouts.</li>
+          <li>Annotate strengths, limitations, risks and likely improvements.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Annotated concept sketches.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-2, IND5-4, IND5-5, IND5-8</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 10: Final Design, Wiring Plan and Irrigation Layout</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T1%20Modules/module3.html">Toolkit 3: Design &amp; Planning</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Turn the chosen concept into a final labelled design.</li>
+          <li>Show the relationship between physical layout, wiring/circuit plan and watering path.</li>
+          <li>Justify the final design against safety, function, reliability and water efficiency.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Complete a final design drawing with labels, dimensions and component positions.</li>
+          <li>Create or refine the wiring/circuit plan.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Final design drawing, wiring plan and design justification.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-2, IND5-4, IND5-5, IND5-7</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 11: Materials, Build Sequence and Approval</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T1%20Modules/module3.html">Toolkit 3: Design &amp; Planning</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Select materials and components for the base, reservoir, tubing, control circuit and output device.</li>
+          <li>Sequence the build to reduce rework and avoid unsafe testing.</li>
+          <li>Use teacher approval before construction begins.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Complete a materials/component list and build sequence.</li>
+          <li>Confirm final risk controls and approval checkpoint.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Materials list, build plan and teacher approval evidence.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-1, IND5-3, IND5-4, IND5-5</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 12: Test Tables, Fault Log and Prototype Setup Plan</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T1%20Modules/observation-checklist.html">Observation and Testing Checklist</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Prepare valid testing evidence before the build becomes messy.</li>
+          <li>Decide what to measure: water delivered, response time, repeated cycles, leaks, triggering reliability and faults.</li>
+          <li>Use fair testing by changing one variable at a time.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Create a test table, fault log and photo checklist.</li>
+          <li>Plan how build photos will show progress and problem solving.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Prepared testing templates and evidence checklist.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-5, IND5-8, IND5-9</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 13: Build the Water Path</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T1%20Modules/module4.html">Toolkit 4: Build, Test &amp; Evaluate</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Build the low-risk physical water path before integrating electronics.</li>
+          <li>Check reservoir stability, tubing route, water outlet and spill control.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Construct base, reservoir, tubing route and water outlet.</li>
+          <li>Test water flow with power disconnected and record issues.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Build photos, water-path test notes and fault log entries.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-1, IND5-3, IND5-4, IND5-6</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 14: Build and Check the Input/Control Circuit</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T1%20Modules/module4.html">Toolkit 4: Build, Test &amp; Evaluate</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Test input behaviour without water flow where possible.</li>
+          <li>Use teacher checks before powering unfamiliar circuits.</li>
+          <li>Identify wiring faults using systematic checking rather than guessing.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Build and test the input/control circuit.</li>
+          <li>Record circuit behaviour and any changes needed.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Control-circuit photos, test results and teacher check evidence.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-1, IND5-3, IND5-5, IND5-9</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 15: Connect the Output Device</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T1%20Modules/module4.html">Toolkit 4: Build, Test &amp; Evaluate</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Understand output behaviour: pump/valve activation, indicator feedback and safe operating time.</li>
+          <li>Use short subsystem tests before full integration.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Connect and test the output device using approved procedures.</li>
+          <li>Record water delivery, reliability and immediate faults.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Subsystem test table and output-device observations.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-1, IND5-3, IND5-8, IND5-9</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 16: Full-System Integration and Fault-Finding</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T1%20Modules/module4.html">Toolkit 4: Build, Test &amp; Evaluate</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Integrate water path, sensor/input, process/control and output device.</li>
+          <li>Diagnose leaks, loose wiring, unreliable triggering, poor water delivery or unsafe bench layout.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Run short full-system tests under teacher supervision.</li>
+          <li>Record faults, possible causes and proposed fixes.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Integration photos, full-system test records and fault log.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-1, IND5-3, IND5-6, IND5-8</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 17: Reliability Testing</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T1%20Modules/observation-checklist.html">Observation and Testing Checklist</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Use repeated test cycles to judge whether the system is reliable.</li>
+          <li>Measure response time, water delivered, number of successful cycles and recurring faults.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Complete structured reliability tests.</li>
+          <li>Photograph and annotate the final prototype condition before modifications.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Reliability test table and performance summary.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-5, IND5-8, IND5-9</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 18: Controlled Improvements and Retesting</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T1%20Modules/module4.html">Toolkit 4: Build, Test &amp; Evaluate</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Make controlled improvements based on evidence, not random tinkering.</li>
+          <li>Compare original and improved performance using the same test method.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Modify one or two features such as tubing route, sensor position, code/logic, output position or leak prevention.</li>
+          <li>Retest and compare results.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Modification notes, before/after evidence and retest data.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-2, IND5-7, IND5-8</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 19: Sustainability, Cost and Final Evaluation Draft</h4>
+        <p><strong>Website Links:</strong> <a href="garden_watering_portfolio_guided_viewer.html">Guided Portfolio Workbook</a>, <a href="garden_watering_info_sheets.html">Info Sheets</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Evaluate water efficiency, material choice, energy use, cost, reliability and realistic improvement.</li>
+          <li>Link the prototype to real irrigation, agriculture, smart-home systems and environmental impacts.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Draft the final evaluation using test data and specific evidence.</li>
+          <li>Check that folio sections include research, sketches, diagrams, build log, testing and reflection.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Evaluation draft and folio completion checklist.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-8, IND5-9, IND5-10</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 20: Folio Completion, Submission and Reflection</h4>
+        <p><strong>Website Link:</strong> <a href="year10_term1_assessment.html">Semester 1 Assessment Notification</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Use evidence to explain the design process, build quality, testing results and improvements.</li>
+          <li>Reflect on what worked, what failed and how the system could be improved in a real context.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Submit final folio and prototype evidence according to teacher instructions.</li>
+          <li>Complete class reflection and peer feedback.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Final folio, project evidence and evaluation.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-5, IND5-6, IND5-8, IND5-10</li></ul>
+      </div>
+    </section>
+
+    <section class="section" id="semester2">
+      <h2>SEMESTER 2: WIND POWERED USB PHONE CHARGER</h2>
+      <p><strong>Duration:</strong> 20 weeks</p>
+      <p><strong>Assessment:</strong> Summative - Alternate Energy Project, 40%</p>
+      <p><strong>Website:</strong> <a href="year10_term2.html">year10_term2.html</a></p>
+
+      <h3>Semester 2 Overview</h3>
+      <p>Semester 2 uses a compact wind generator to connect alternative energy theory with a practical engineered product. Students investigate renewable energy, design a wind-powered USB charger within constraints, produce final drawings or Onshape evidence, build and test the prototype, and evaluate performance, sustainability and design quality.</p>
+
+      <h3>Toolkit Links</h3>
+      <ul>
+        <li><strong>Toolkit 1:</strong> Alternative Energy Context - <a href="Year10%20T2%20Modules/module1.html">Year10 T2 Modules/module1.html</a></li>
+        <li><strong>Toolkit 2:</strong> Wind Generator Design - <a href="Year10%20T2%20Modules/module2.html">Year10 T2 Modules/module2.html</a></li>
+        <li><strong>Toolkit 3:</strong> Technical Drawing - <a href="Year10%20T2%20Modules/module3.html">Year10 T2 Modules/module3.html</a></li>
+        <li><strong>Toolkit 4:</strong> Build, Test &amp; Evaluate - <a href="Year10%20T2%20Modules/module4.html">Year10 T2 Modules/module4.html</a></li>
+      </ul>
+
+      <h3>SEMESTER 2 - WEEK-BY-WEEK SCOPE AND SEQUENCE</h3>
+
+      <div class="week-block">
+        <h4>Week 1: Alternative Energy Introduction</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T2%20Modules/module1.html">Toolkit 1: Alternative Energy Context</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Introduce the wind-powered USB phone charger project and the broader alternate energy assessment.</li>
+          <li>Compare renewable and non-renewable energy sources.</li>
+          <li>Explain why energy systems are judged by reliability, cost, environmental impact and context.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Set up the folio structure for research, design, drawing, build, testing and evaluation.</li>
+          <li>Begin an alternative energy comparison table.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Folio setup and renewable/non-renewable comparison notes.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-5, IND5-9, IND5-10</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 2: Wind Turbine Operation and Energy Transfer</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T2%20Modules/module1.html">Toolkit 1: Alternative Energy Context</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Trace the energy pathway: wind movement to blade rotation, shaft rotation, generator output and USB charging.</li>
+          <li>Discuss limits of small-scale wind generation and realistic charging expectations.</li>
+          <li>Introduce vocabulary: impellor, generator, shaft, voltage, current, output and efficiency.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Create a labelled energy-transfer diagram.</li>
+          <li>Annotate where energy losses may occur.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Energy pathway diagram and vocabulary evidence.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-5, IND5-8, IND5-9</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 3: Renewable Energy Advantages, Limits and Storage</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T2%20Modules/module1.html">Toolkit 1: Alternative Energy Context</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Investigate intermittency, energy storage, battery charging and grid reliability.</li>
+          <li>Analyse advantages and limitations of wind energy in local and global contexts.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Complete a pros/cons/impacts table for wind, solar and fossil fuel energy.</li>
+          <li>Connect research to the project brief and user context.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Research table and sustainability notes.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-9, IND5-10</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 4: Energy Costing and Lifecycle Thinking</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T2%20Modules/module1.html">Toolkit 1: Alternative Energy Context</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Consider energy cost, material lifecycle, repairability and waste.</li>
+          <li>Link sustainability to design decisions, not just written research.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Draft a short sustainability statement for the project folio.</li>
+          <li>Identify material choices likely to affect waste, durability and repair.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Sustainability statement and material-impact notes.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-4, IND5-8, IND5-10</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 5: Project Brief, Generator Analysis and Constraints</h4>
+        <p><strong>Website Links:</strong> <a href="year10_term2.html">Semester 2 Overview</a>, <a href="https://docs.google.com/document/d/1VIHiH2aKRBqZ7buyGGTg0zg943iMfN9fvzL7hQw-wHY/edit?usp=drivesdk" target="_blank" rel="noopener">Master Project Folio</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Define the design brief: compact wind-powered USB charger with safe construction and testable output.</li>
+          <li>Review size limits, component limits, rotating part risks and low-voltage testing procedures.</li>
+          <li>Analyse the generator/USB unit and what the frame must support.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Record project constraints, safety risks and success criteria.</li>
+          <li>Inspect available components and identify design implications.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Brief analysis, constraints and risk notes.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-1, IND5-2, IND5-4, IND5-5</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 6: Impellor Research</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T2%20Modules/module2.html">Toolkit 2: Wind Generator Design</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Compare blade shape, blade angle, number of blades, blade material and wind-catcher options.</li>
+          <li>Explain how impellor design affects starting torque, speed, stability and safety.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Research and sketch impellor options.</li>
+          <li>Annotate likely strengths, weaknesses and construction difficulty.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Impellor research sketches and notes.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-2, IND5-4, IND5-5, IND5-9</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 7: Mechanical Transfer, Gears and Shaft Support</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T2%20Modules/module2.html">Toolkit 2: Wind Generator Design</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Compare direct drive and geared/cogged drive options.</li>
+          <li>Discuss friction, shaft alignment, bearings/supports, wobble and guarded moving parts.</li>
+          <li>Explain why mechanical accuracy affects electrical output.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Sketch possible drive layouts and shaft-support methods.</li>
+          <li>Identify risks around rotating parts and unstable frames.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Drive layout sketches and mechanical design notes.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-1, IND5-2, IND5-3, IND5-8</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 8: Test Variables and Concept Selection Checkpoint</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T2%20Modules/module2.html">Toolkit 2: Wind Generator Design</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Identify variables that may affect output: blade angle, blade number, gearing, wind source, frame stability and alignment.</li>
+          <li>Prepare for concept selection by using function, safety, compactness, efficiency and construction quality criteria.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Create a concept-selection matrix.</li>
+          <li>Complete teacher check before final concept development.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Selection matrix and teacher feedback notes.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-2, IND5-5, IND5-8</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 9: Concept Sketches</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T2%20Modules/module2.html">Toolkit 2: Wind Generator Design</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Develop visual ideas for frame, impellor, generator position, USB module placement and shaft support.</li>
+          <li>Use annotations to explain why design choices matter.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Sketch multiple design concepts with labels and notes.</li>
+          <li>Identify likely construction sequence and risks for each concept.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Annotated concept sketches and design thinking notes.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-2, IND5-4, IND5-5</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 10: Compare Concepts and Choose Final Design</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T2%20Modules/module2.html">Toolkit 2: Wind Generator Design</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Evaluate design ideas using criteria rather than appearance alone.</li>
+          <li>Justify design selection using safety, function, compactness, construction quality and likely output.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Complete a concept comparison table.</li>
+          <li>Write a final design justification.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Concept comparison and final design choice.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-2, IND5-5, IND5-8</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 11: Materials List and Build Sequence</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T2%20Modules/module3.html">Toolkit 3: Technical Drawing</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Select materials and components for blades, frame, shaft support, gearing/cogs and generator mount.</li>
+          <li>Sequence construction to protect accuracy, safety and component access.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Complete materials/component list and build sequence.</li>
+          <li>Update WHS plan for cutting, drilling, rotating parts and output testing.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Materials list, build sequence and updated safety notes.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-1, IND5-3, IND5-4, IND5-5</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 12: Final Drawing or Onshape Model</h4>
+        <p><strong>Website Links:</strong> <a href="Year10%20T2%20Modules/module3.html">Toolkit 3: Technical Drawing</a>, <a href="https://docs.google.com/document/d/17_01FLkqKlLKSKvHLbKJBL3fvbFtL-BwogKdmY67N3s/edit?usp=drivesdk" target="_blank" rel="noopener">Wind Generator Drawing</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Use technical graphics to communicate dimensions, components, assembly logic and design intent.</li>
+          <li>Show enough detail for another person to understand the build.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Complete final drawing or Onshape model evidence.</li>
+          <li>Label dimensions, blade/shaft/generator positions and assembly notes.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Final drawing or CAD evidence with labels and dimensions.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-2, IND5-5, IND5-7</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 13: Begin Construction</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T2%20Modules/module4.html">Toolkit 4: Build, Test &amp; Evaluate</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Follow the approved build sequence and check accuracy before permanent assembly.</li>
+          <li>Prioritise frame stability, shaft support and safe blade clearance.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Build frame, shaft support, impellor attachment and generator location.</li>
+          <li>Photograph progress and record construction issues.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Build log, progress photos and problem-solving notes.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-1, IND5-3, IND5-4, IND5-6</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 14: Mechanical Alignment and Spin Testing</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T2%20Modules/module4.html">Toolkit 4: Build, Test &amp; Evaluate</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Diagnose wobble, friction, poor bearing support and weak frame alignment.</li>
+          <li>Understand why a smooth mechanical system is needed before output testing.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Complete hand spin and fan/wind-source checks where appropriate.</li>
+          <li>Record mechanical faults and make safe adjustments.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Spin-test results, fault log and adjustment evidence.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-1, IND5-3, IND5-8</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 15: Generator/USB Connection and Safe Output Testing</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T2%20Modules/module4.html">Toolkit 4: Build, Test &amp; Evaluate</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Connect the generator/USB unit safely and use approved low-voltage test equipment.</li>
+          <li>Record output without overstating charging performance.</li>
+          <li>Use teacher checks before testing electrical output.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Connect generator/USB unit and perform supervised output tests.</li>
+          <li>Record voltage/output observations and test conditions.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Output test table, teacher check and testing photos.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-1, IND5-3, IND5-5, IND5-9</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 16: Construction Evidence and Fault Diagnosis</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T2%20Modules/module4.html">Toolkit 4: Build, Test &amp; Evaluate</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Identify causes of poor performance: blade angle, drive ratio, friction, misalignment, unstable frame or weak wind source.</li>
+          <li>Record faults clearly enough to justify improvements.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Update build log, construction photos and fault table.</li>
+          <li>Choose improvement targets based on evidence.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Construction photo log and fault diagnosis table.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-5, IND5-7, IND5-8</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 17: Controlled Improvements</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T2%20Modules/module4.html">Toolkit 4: Build, Test &amp; Evaluate</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Improve one or two variables at a time so evidence remains useful.</li>
+          <li>Connect modifications to design criteria and test results.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Modify blade angle, drive ratio, alignment, frame stability, blade balance or generator position.</li>
+          <li>Record why each modification was made.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Modification notes and before/after evidence.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-2, IND5-7, IND5-8</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 18: Retesting and Performance Comparison</h4>
+        <p><strong>Website Link:</strong> <a href="Year10%20T2%20Modules/module4.html">Toolkit 4: Build, Test &amp; Evaluate</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Use the same testing method to compare original and improved performance.</li>
+          <li>Explain whether modifications improved output, reliability, safety or construction quality.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Retest output and mechanical reliability.</li>
+          <li>Summarise performance using data, photos and observations.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Retest results and performance comparison.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-5, IND5-8, IND5-9</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 19: Sustainability Reflection and Evaluation Draft</h4>
+        <p><strong>Website Links:</strong> <a href="wind_usb_charger_portfolio_guided_viewer.html">Guided USB Charger Portfolio Workbook</a>, <a href="wind_usb_charger_info_sheets.html">Info Sheets</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Evaluate efficiency, portability, safety, construction quality, sustainability and realistic improvements.</li>
+          <li>Use evidence rather than broad claims about renewable energy.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Draft evaluation using test data, photos and design criteria.</li>
+          <li>Complete sustainability and lifecycle reflection.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Evaluation draft and sustainability reflection.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-8, IND5-9, IND5-10</li></ul>
+      </div>
+
+      <div class="week-block">
+        <h4>Week 20: Final Testing, Folio Completion and Submission</h4>
+        <p><strong>Website Link:</strong> <a href="https://docs.google.com/document/d/1KPbCELB6YAjyquruWss2ZGXozxbjVT2Ls0LDD6oBWv8/edit?usp=drivesdk" target="_blank" rel="noopener">Assessment Task</a></p>
+        <h5>Key Theory / Learning:</h5>
+        <ul>
+          <li>Bring research, design, drawing, construction, testing and evaluation evidence together into a complete folio.</li>
+          <li>Reflect honestly on performance limits and improvements.</li>
+        </ul>
+        <h5>Practical / Activities:</h5>
+        <ul>
+          <li>Complete final testing photos and folio checklist.</li>
+          <li>Submit final folio evidence according to teacher instructions.</li>
+        </ul>
+        <h5>Assessment &amp; Evidence:</h5>
+        <ul><li>Final folio, final testing evidence and evaluation.</li></ul>
+        <h5>Outcomes Focus:</h5>
+        <ul><li>IND5-5, IND5-6, IND5-8, IND5-10</li></ul>
+      </div>
+    </section>
+
+    <section class="section" id="outcomes">
+      <h2>OUTCOMES MAPPING</h2>
+      <h3>Stage 5 Industrial Technology - Engineering Outcomes (IND5)</h3>
+
+      <div class="outcome-block">
+        <h5>IND5-1: Identifies, assesses, applies and manages WHS risks</h5>
+        <ul>
+          <li><strong>Semester 1:</strong> Water/electronics separation, low-voltage testing, spill control, tool safety and teacher check points.</li>
+          <li><strong>Semester 2:</strong> Cutting/drilling safety, rotating part controls, generator/USB output testing and supervised mechanical testing.</li>
+        </ul>
+        <p><strong>Website Links:</strong> <a href="Year10%20T1%20Modules/module1.html">Semester 1 Toolkit 1</a>, <a href="Year10%20T2%20Modules/module4.html">Semester 2 Toolkit 4</a></p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>IND5-2: Applies design principles in project development</h5>
+        <ul>
+          <li><strong>Semester 1:</strong> User need, success criteria, irrigation layout, control logic and prototype refinement.</li>
+          <li><strong>Semester 2:</strong> Renewable energy context, impellor options, frame design, drive choice and final design justification.</li>
+        </ul>
+        <p><strong>Website Links:</strong> <a href="Year10%20T1%20Modules/module3.html">Semester 1 Toolkit 3</a>, <a href="Year10%20T2%20Modules/module2.html">Semester 2 Toolkit 2</a></p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>IND5-3: Uses tools, equipment and processes to produce quality projects</h5>
+        <ul>
+          <li><strong>Semester 1:</strong> Build base, tubing, reservoir, circuit/control setup and prototype integration.</li>
+          <li><strong>Semester 2:</strong> Build frame, shaft support, impellor, generator mount and test setup.</li>
+        </ul>
+        <p><strong>Website Links:</strong> <a href="Year10%20T1%20Modules/module4.html">Semester 1 Toolkit 4</a>, <a href="Year10%20T2%20Modules/module4.html">Semester 2 Toolkit 4</a></p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>IND5-4: Selects and justifies materials for specific applications</h5>
+        <ul>
+          <li><strong>Semester 1:</strong> Tubing, reservoir, structure/base material, pump/valve option, wiring and sensor selection.</li>
+          <li><strong>Semester 2:</strong> Blade materials, frame material, shaft support, gear/cog options, generator housing and fasteners.</li>
+        </ul>
+        <p><strong>Website Links:</strong> <a href="Year10%20T1%20Modules/module3.html">Semester 1 Materials Planning</a>, <a href="Year10%20T2%20Modules/module2.html">Semester 2 Design Planning</a></p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>IND5-5: Communicates ideas and project development</h5>
+        <ul>
+          <li><strong>Semester 1:</strong> IPO diagrams, wiring plans, flowcharts, build log, test tables and evaluation.</li>
+          <li><strong>Semester 2:</strong> Energy pathway diagrams, concept sketches, final drawings/Onshape, test records and evaluation.</li>
+        </ul>
+        <p><strong>Website Links:</strong> <a href="garden_watering_portfolio_guided_viewer.html">Garden Watering Portfolio</a>, <a href="wind_usb_charger_portfolio_guided_viewer.html">Wind USB Charger Portfolio</a></p>
+      </div>
+
+      <div class="outcome-block">
+        <h5>IND5-6 and IND5-7: Collaborative practice and transfer of skills</h5>
+        <ul>
+          <li><strong>Semester 1:</strong> Peer checks, shared testing, transferable control-system vocabulary and fault-finding routines.</li>
+          <li><strong>Semester 2:</strong> Shared mechanical testing, critique of designs and transfer of graphics, testing and evaluation skills.</li>
+        </ul>
+      </div>
+
+      <div class="outcome-block">
+        <h5>IND5-8, IND5-9 and IND5-10: Evaluation, emerging technologies and impact</h5>
+        <ul>
+          <li><strong>Semester 1:</strong> Reliability, water efficiency, smart irrigation, automation, agriculture and sustainability.</li>
+          <li><strong>Semester 2:</strong> Renewable energy, small-scale generation, charging limits, lifecycle impact and design improvements.</li>
+        </ul>
+        <p><strong>Website Links:</strong> <a href="Year10%20T1%20Modules/module4.html">Semester 1 Evaluation</a>, <a href="Year10%20T2%20Modules/module1.html">Semester 2 Energy Context</a>, <a href="Year10%20T2%20Modules/module4.html">Semester 2 Evaluation</a></p>
+      </div>
+
+      <h3>Post-2027 Outcomes Alignment (EGT5)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Outcome Area</th>
+            <th>Semester 1 Coverage</th>
+            <th>Semester 2 Coverage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>EGT5-SAF-01</td>
+            <td>Safe low-voltage electronics, water management and workshop risk control.</td>
+            <td>Rotating part safety, cutting/drilling controls and output-testing supervision.</td>
+          </tr>
+          <tr>
+            <td>EGT5-ENV-01</td>
+            <td>Water efficiency, energy use, component choice and waste reduction.</td>
+            <td>Renewable energy, lifecycle impact, material selection and sustainability.</td>
+          </tr>
+          <tr>
+            <td>EGT5-COM-01</td>
+            <td>Folio writing, IPO diagrams, algorithms, test tables and evaluation.</td>
+            <td>Research, sketches, final drawings, testing records and evaluation.</td>
+          </tr>
+          <tr>
+            <td>EGT5-GRP-01</td>
+            <td>System block diagrams, wiring/circuit plans and irrigation layout drawings.</td>
+            <td>Technical drawing, Onshape evidence, dimensions and assembly communication.</td>
+          </tr>
+          <tr>
+            <td>EGT5-EVL-01</td>
+            <td>Reliability testing, fault logs, modifications and retesting.</td>
+            <td>Output testing, mechanical diagnosis, controlled improvements and retesting.</td>
+          </tr>
+          <tr>
+            <td>EGT5-MEA-01</td>
+            <td>Pump flow, valve action, water delivery and control response.</td>
+            <td>Shaft rotation, blade design, gearing, friction and power transfer.</td>
+          </tr>
+          <tr>
+            <td>EGT5-USE-01</td>
+            <td>Materials and components for a working garden watering prototype.</td>
+            <td>Materials and components for blades, frame, supports and housing.</td>
+          </tr>
+          <tr>
+            <td>EGT5-IVT-01</td>
+            <td>Links to smart irrigation, agriculture, automation and IoT-style systems.</td>
+            <td>Links to renewable energy, charging infrastructure and sustainable design.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section" id="assessment">
+      <h2>ASSESSMENT SCHEDULE DETAILED</h2>
+
+      <h3>Task 1: Garden Watering System Prototype and Folio</h3>
+      <p><strong>Timing:</strong> Build and test Weeks 9-16; final submission timing teacher to confirm.</p>
+      <p><strong>Website:</strong> <a href="year10_term1_assessment.html">year10_term1_assessment.html</a></p>
+      <p><strong>Supporting Workbook:</strong> <a href="garden_watering_portfolio_guided_viewer.html">Garden Watering System Portfolio Workbook</a></p>
+      <ul>
+        <li>Design brief and user need analysis.</li>
+        <li>Control-system diagram, wiring/circuit plan and algorithm/flowchart.</li>
+        <li>Prototype construction evidence and safety documentation.</li>
+        <li>Testing evidence including water delivery, reliability, faults, modifications and retesting.</li>
+        <li>Evaluation of reliability, water efficiency, construction quality, sustainability and improvements.</li>
+      </ul>
+
+      <h3>Task 2: Alternate Energy Project - Wind Powered USB Phone Charger</h3>
+      <p><strong>Timing:</strong> Build and testing Weeks 13-18; folio submission Week 20, Semester 2.</p>
+      <p><strong>Weighting:</strong> 40%</p>
+      <p><strong>Website:</strong> <a href="year10_term2.html">year10_term2.html</a></p>
+      <p><strong>Assessment Link:</strong> <a href="https://docs.google.com/document/d/1KPbCELB6YAjyquruWss2ZGXozxbjVT2Ls0LDD6oBWv8/edit?usp=drivesdk" target="_blank" rel="noopener">Y10 Assessment Task 2 - Alternate Energy</a></p>
+      <ul>
+        <li>Renewable energy research and project brief analysis.</li>
+        <li>Concept sketches, final design justification and technical drawing or Onshape evidence.</li>
+        <li>Construction evidence showing frame, impellor, shaft support and generator/USB placement.</li>
+        <li>Output testing, fault diagnosis, controlled improvements and retesting.</li>
+        <li>Evaluation of efficiency, portability, safety, construction quality, sustainability and realistic improvements.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="resources">
+      <h2>RESOURCES AND SUPPORT MATERIALS</h2>
+
+      <h3>Website Resources</h3>
+      <div class="link-grid">
+        <div class="link-card">
+          <h4>Semester 1 Hub</h4>
+          <p><a href="year10_term1.html">Year 10 Semester 1: Garden Watering System</a></p>
+          <p>Project instructions, assessment panel, topic structure, week plan, outcomes and toolkit cards.</p>
+        </div>
+        <div class="link-card">
+          <h4>Semester 2 Hub</h4>
+          <p><a href="year10_term2.html">Year 10 Semester 2: Wind Powered USB Phone Charger</a></p>
+          <p>Project instructions, Drive resources, week plan, outcomes and toolkit cards.</p>
+        </div>
+        <div class="link-card">
+          <h4>Main Site</h4>
+          <p><a href="index.html">Stage 5 Engineering Home</a></p>
+          <p>Student-facing entry point for Year 9 and Year 10 Engineering resources.</p>
+        </div>
+      </div>
+
+      <h3>Semester 1 Documents and Student Supports</h3>
+      <ul>
+        <li><a href="Year%2010%20Water%20Control%20System%20Scope%20and%20Sequence.docx" target="_blank" rel="noopener">Year 10 Water Control System Scope and Sequence (DOCX)</a></li>
+        <li><a href="Year%2010%20Water%20Control%20System%20Scope%20and%20Sequence.pdf" target="_blank" rel="noopener">Year 10 Water Control System Scope and Sequence (PDF)</a></li>
+        <li><a href="Year%2010%20Water%20Control%20System%20Lesson%20Plans.docx" target="_blank" rel="noopener">Year 10 Water Control System Lesson Plans (DOCX)</a></li>
+        <li><a href="Year%2010%20Water%20Control%20System%20Lesson%20Plans.pdf" target="_blank" rel="noopener">Year 10 Water Control System Lesson Plans (PDF)</a></li>
+        <li><a href="garden_watering_project.html">Garden Watering System Student Guide</a></li>
+        <li><a href="garden_watering_portfolio_guided_viewer.html">Garden Watering System Portfolio Workbook</a></li>
+        <li><a href="garden_watering_info_sheets.html">Garden Watering System Info Sheets</a></li>
+        <li><a href="Youtube%20clips/year10%20term%201%20youtube%20clips.html">Year 10 Semester 1 YouTube Clips</a></li>
+      </ul>
+
+      <h3>Semester 2 Documents and Student Supports</h3>
+      <ul>
+        <li><a href="Year%2010%20Wind%20USB%20Charger%20Scope%20and%20Sequence.docx" target="_blank" rel="noopener">Year 10 Wind USB Charger Scope and Sequence (DOCX)</a></li>
+        <li><a href="Year%2010%20Wind%20USB%20Charger%20Scope%20and%20Sequence.pdf" target="_blank" rel="noopener">Year 10 Wind USB Charger Scope and Sequence (PDF)</a></li>
+        <li><a href="Year%2010%20Wind%20USB%20Charger%20Lesson%20Plans.docx" target="_blank" rel="noopener">Year 10 Wind USB Charger Lesson Plans (DOCX)</a></li>
+        <li><a href="Year%2010%20Wind%20USB%20Charger%20Lesson%20Plans.pdf" target="_blank" rel="noopener">Year 10 Wind USB Charger Lesson Plans (PDF)</a></li>
+        <li><a href="wind_usb_charger_portfolio_guided_viewer.html">Guided Wind USB Charger Portfolio Workbook</a></li>
+        <li><a href="wind_usb_charger_info_sheets.html">Wind USB Charger Info Sheets</a></li>
+        <li><a href="https://docs.google.com/document/d/1VIHiH2aKRBqZ7buyGGTg0zg943iMfN9fvzL7hQw-wHY/edit?usp=drivesdk" target="_blank" rel="noopener">Wind-Powered USB Phone Charger Folio</a></li>
+        <li><a href="https://docs.google.com/document/d/1KPbCELB6YAjyquruWss2ZGXozxbjVT2Ls0LDD6oBWv8/edit?usp=drivesdk" target="_blank" rel="noopener">Y10 Assessment Task 2 - Alternate Energy</a></li>
+        <li><a href="https://docs.google.com/document/d/17_01FLkqKlLKSKvHLbKJBL3fvbFtL-BwogKdmY67N3s/edit?usp=drivesdk" target="_blank" rel="noopener">Wind Generator Drawing</a></li>
+        <li><a href="Youtube%20clips/year10%20term%202%20youtube%20clips.html">Year 10 Semester 2 YouTube Clips</a></li>
+      </ul>
+
+      <h3>Syllabus Documents</h3>
+      <ul>
+        <li><a href="industrial-technology-years-7-10-syllabus-2019%20(4).pdf" target="_blank" rel="noopener">Industrial Technology Years 7-10 Syllabus (2019)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20(S4,%20S5,%20LS).docx" target="_blank" rel="noopener">NESA Engineering Technology 7-10 Syllabus (Stage 4/5)</a></li>
+        <li><a href="Syllabus/NESA%20-%20engineering_technology_7_10_2024%20syllabus%20support%20(S4,%20S5,%20LS).docx" target="_blank" rel="noopener">NESA Syllabus Support (Stage 4/5)</a></li>
+      </ul>
+
+      <h3>Google Classroom Topics</h3>
+      <div class="note">
+        <p><strong>Note:</strong> The current Year 10 semester pages list Google Classroom topic structures but do not include live topic URLs. Add the live Classroom links here once those topics are created.</p>
+      </div>
+      <ul>
+        <li><strong>Semester 1:</strong> Orientation; WHS &amp; Control Systems Safety; Inputs, Outputs &amp; Feedback; Algorithms &amp; Control Logic; Design &amp; Planning; Build, Test &amp; Evaluate.</li>
+        <li><strong>Semester 2:</strong> Orientation; Alternative Energy; Wind Generator Design; Concept Development; Technical Drawing &amp; Onshape; Build, Test &amp; Evaluate.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="notes">
+      <h2>PROGRAM NOTES</h2>
+
+      <h3>Teaching Approach</h3>
+      <ul>
+        <li><strong>Project-first learning:</strong> Each semester uses a practical product to anchor theory, safety, design, production and evaluation.</li>
+        <li><strong>Evidence-rich folios:</strong> Students should collect diagrams, sketches, photos, test tables, fault logs and evaluation notes as the project develops.</li>
+        <li><strong>Test before polish:</strong> The strongest evidence comes from testing, faults, modifications and retesting, not just a neat final product.</li>
+        <li><strong>Teacher check points:</strong> Use explicit approval points before powered testing, water/electronics integration and rotating output testing.</li>
+      </ul>
+
+      <h3>Differentiation Strategies</h3>
+      <ul>
+        <li>Provide labelled diagrams, vocabulary lists, worked examples and partially completed test tables for students who need structure.</li>
+        <li>Use simplified approved circuits or mechanical layouts where safety and success need protecting.</li>
+        <li>Offer extension through controlled variable testing, improved CAD/technical drawing, refined mechanisms or deeper sustainability analysis.</li>
+        <li>Allow evidence through photos, diagrams, short written responses and teacher conference notes where appropriate.</li>
+      </ul>
+
+      <h3>Safety Considerations</h3>
+      <ul>
+        <li><strong>Semester 1:</strong> Keep water and electronics separated until approved; use low-voltage systems only; control spills; test subsystems before integration.</li>
+        <li><strong>Semester 2:</strong> Guard rotating parts where needed; supervise output testing; manage cutting/drilling risks; check blade stability and frame support.</li>
+        <li><strong>Both semesters:</strong> Maintain PPE, tool rules, tidy workspaces, teacher check points and documented risk controls.</li>
+      </ul>
+
+      <h3>Resource Requirements</h3>
+      <ul>
+        <li><strong>Semester 1:</strong> Low-voltage electronics, sensors/switches, pumps or valves, tubing, reservoirs, base materials, hand tools and test equipment.</li>
+        <li><strong>Semester 2:</strong> Generator/USB units, blade materials, shafts, bearings/supports, gears/cogs where used, frame materials, hand tools and low-voltage test equipment.</li>
+        <li><strong>Digital:</strong> Website toolkits, guided portfolios, info sheets, Google Classroom topics, Onshape where appropriate and teacher-provided Drive resources.</li>
+      </ul>
+
+      <h3>PROGRAM ALIGNMENT SUMMARY</h3>
+      <ul>
+        <li><strong>Course Progression:</strong> Semester 1 builds control-system thinking; Semester 2 extends design, mechanical transfer, energy systems and technical graphics.</li>
+        <li><strong>Assessment Alignment:</strong> Both semester projects require research, design development, safe construction, testing evidence and evaluation.</li>
+        <li><strong>Website Alignment:</strong> Each unit links to a semester hub, toolkit pages, assessment/support documents, portfolio resources and printable info sheets.</li>
+        <li><strong>Student Readiness:</strong> The sequence deliberately moves from brief and theory to design, build, test, improve and evaluate.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
