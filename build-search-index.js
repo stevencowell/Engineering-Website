@@ -16,6 +16,7 @@ const pagesToIndex = [
   { url: 'year10_term2.html', title: 'Year 10 Semester 2: Wind Powered USB Phone Charger' },
   { url: 'year10_program_complete.html', title: 'Year 10 Complete Program - Scope & Sequence' },
   { url: 'garden_watering_project.html', title: 'Garden Watering System Student Guide' },
+  { url: 'concrete_beam_portfolio_guided_viewer.html', title: 'Concrete Beam Portfolio Workbook' },
   { url: 'garden_watering_portfolio_guided_viewer.html', title: 'Garden Watering System Portfolio Workbook' },
   { url: 'garden_watering_info_sheets.html', title: 'Garden Watering System Info Sheets' },
   { url: 'wind_usb_charger_portfolio_guided_viewer.html', title: 'Wind Powered USB Phone Charger Portfolio Workbook' },

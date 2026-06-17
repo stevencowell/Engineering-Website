@@ -208,6 +208,26 @@
       text-decoration: underline;
     }
 
+    .section-resource {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      margin-top: 8px;
+      border: 1px solid #1d5f4e;
+      border-radius: 10px;
+      padding: 8px 10px;
+      background: #f9fffc;
+      color: #1f5147;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .section-resource:focus,
+    .section-resource:hover {
+      background: #e4f0ea;
+      text-decoration: underline;
+    }
+
     .intro-grid {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
@@ -666,6 +686,7 @@
               <h2 id="brief-heading">Design Brief and Success Criteria</h2>
               <p>Design, cast, cure, and destructively test a reinforced concrete beam. Your folio needs to show the engineering decisions you made, the evidence you collected, and how your test results prove how well the beam performed.</p>
               <a class="intro-resource" href="assets/workbooks/concrete-beam-best-practice-answers.pptx" download>Download best practice answer slides</a>
+              <a class="intro-resource" href="assets/workbooks/year9_concrete_beam_test_slides.pdf" target="_blank" rel="noopener">Open beam test record sheet</a>
               <a class="intro-resource" href="concrete_beam_experiment_instruction_sheets.html" target="_blank" rel="noopener">Open interactive beam setup sheets</a>
             </div>
             <div class="criteria-grid" aria-label="Concrete beam criteria">
@@ -793,7 +814,11 @@
         title: "Results and Data",
         image: "images/term2-infographics/10-results-data.png",
         alt: "Infographic explaining results, data tables, and graphs",
-        points: ["Report first crack load.", "Report failure load.", "Summarise load, deflection, and observations in a table or graph."]
+        points: ["Report first crack load.", "Report failure load.", "Use the test record sheet to record prediction, crack location, observations, and what happened during the tractor rear wheel load test.", "Summarise load, deflection, and observations in a table or graph."],
+        resource: {
+          href: "assets/workbooks/year9_concrete_beam_test_slides.pdf",
+          label: "Open beam test record sheet"
+        }
       },
       {
         id: 11,
@@ -959,6 +984,7 @@
               <h2>${section.title}</h2>
               <p>Evidence to include:</p>
               <ul>${section.points.map((point) => `<li>${point}</li>`).join("")}</ul>
+              ${section.resource ? `<a class="section-resource" href="${section.resource.href}" target="_blank" rel="noopener">${section.resource.label}</a>` : ""}
             </figcaption>
           </figure>
           <article class="response">
