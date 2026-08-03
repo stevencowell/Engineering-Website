@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Year 9 Industrial Technology – Engineering Final Digital Examination">
+  <title>Year 9 Industrial Technology – Engineering | Final Digital Examination</title>
+  <link rel="stylesheet" href="exam.css">
+</head>
+<body>
+  <div class="password-gate" id="passwordGate">
+    <form class="gate-card" id="gateForm">
+      <p class="exam-kicker" style="color:var(--brand)">Teacher-controlled access</p>
+      <h1>Unlock exam</h1>
+      <p>Enter the password supplied by your teacher. Your answers will save only in this browser on this device.</p>
+      <label for="gatePassword"><strong>Exam password</strong></label>
+      <input id="gatePassword" type="password" inputmode="numeric" autocomplete="off" required>
+      <button class="btn" type="submit">Open exam</button>
+      <p class="gate-error" id="gateError" role="alert"></p>
+    </form>
+  </div>
+  <div id="examPage" hidden>
+    <header class="exam-header">
+      <div class="exam-shell">
+        <p><a id="backLink" href="../index.html">Back to course home</a></p>
+        <p class="exam-kicker" id="courseName"></p>
+        <h1 id="examTitle"></h1>
+        <p id="examSubtitle"></p>
+      </div>
+    </header>
+    <main class="exam-main">
+      <div class="exam-shell">
+        <section class="exam-card">
+          <h2>Exam information</h2>
+          <div class="notice-grid">
+            <div class="notice-item"><span>Course stage</span><strong id="metaStage"></strong></div>
+            <div class="notice-item"><span>Recommended time</span><strong id="metaTime"></strong></div>
+            <div class="notice-item"><span>Total marks</span><strong id="metaMarks"></strong></div>
+            <div class="notice-item"><span>Assessment status</span><strong id="metaStatus"></strong></div>
+            <div class="notice-item"><span>Task</span><strong id="metaTask"></strong></div>
+            <div class="notice-item"><span>Scheduled date</span><strong id="metaDate"></strong></div>
+            <div class="notice-item notice-wide"><span>Assessed outcomes</span><strong id="metaOutcomes"></strong></div>
+          </div>
+          <p class="exam-note" id="examDirections"></p>
+          <p><strong>PDF submission:</strong> When finished, use <em>Print / Save PDF</em>, choose <em>Save as PDF</em>, and name the file <strong id="pdfFilename"></strong>. Check the saved PDF before turning it in.</p>
+        </section>
+        <form id="examForm" novalidate>
+          <section class="exam-card">
+            <h2>Student details</h2>
+            <div class="student-grid">
+              <label>Student name<input data-student id="studentName" name="studentName" autocomplete="name"></label>
+              <label>Class<input data-student name="studentClass" autocomplete="off"></label>
+              <label>Teacher<input data-student name="teacherName" autocomplete="off"></label>
+              <label>Date completed<input data-student name="completedDate" type="date"></label>
+            </div>
+          </section>
+          <div class="exam-toolbar screen-only">
+            <div class="exam-progress">
+              <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+              <span class="progress-label" id="progressLabel"></span>
+            </div>
+            <button class="btn secondary" id="saveBtn" type="button">Save now</button>
+            <button class="btn" id="printBtn" type="button">Print / Save PDF</button>
+            <button class="btn secondary" id="lockBtn" type="button">Lock exam</button>
+            <button class="btn danger" id="clearBtn" type="button">Clear saved work</button>
+            <div class="save-status" id="saveStatus">Answers autosave on this device.</div>
+          </div>
+          <div id="examSections"></div>
+        </form>
+        <p class="exam-footer">This page stores work locally in this browser and device. Saving a PDF is the submission copy; local autosave is not a cloud submission.</p>
+      </div>
+    </main>
+  </div>
+  <script>window.EXAM_CONFIG = {"id":"wwhs-y9-engineering-eoy-2026","course":"Year 9 Industrial Technology – Engineering","title":"Final Digital Examination","subtitle":"Structures, materials, hydraulics, mechanisms and engineering evaluation","stage":"Stage 5 · Year 9","time":"60 minutes","status":"2026 handbook: Final Examination · Term 4 Week 5 · 30%","backLabel":"Engineering","pdfFilename":"Surname_Firstname_Year9_Engineering_Final_Exam.pdf","directions":"Answer every question. Select one answer for each multiple-choice item and type concise, justified responses. Apply knowledge from the water tower, concrete beam, hydraulic digger and geared mechanism contexts. No sketches are required.","sections":[{"label":"Section A","title":"Knowledge and understanding","instructions":"Select the best answer.","questions":[{"kind":"choice","marks":1,"prompt":"Which force pulls a structural member apart?","options":["Compression","Tension","Torsion only","Friction"]},{"kind":"choice","marks":1,"prompt":"Why are triangular forms common in trusses?","options":["They remove all compression","They require no testing","They make every material stronger","They resist shape change when joints are fixed"]},{"kind":"choice","marks":1,"prompt":"Why is reinforcement added to a concrete beam?","options":["Concrete is strong in compression but comparatively weak in tension","Concrete cannot carry compression","Reinforcement reduces curing time to zero","It removes the need for formwork"]},{"kind":"choice","marks":1,"prompt":"What should be controlled during a fair beam test?","options":["Only the final breaking load","The colour of the formwork","Beam dimensions, mix, curing and test method","The order students stand nearby"]},{"kind":"choice","marks":1,"prompt":"Pascal\u0027s principle states that pressure applied to a confined fluid is:","options":["Destroyed at the input","Transmitted throughout the fluid","Always converted to heat","Independent of force and area"]},{"kind":"choice","marks":1,"prompt":"A hydraulic system uses a smaller input piston and larger output piston mainly to:","options":["Create energy from nothing","Eliminate pressure","Reverse fluid flow automatically","Increase output force while trading distance"]},{"kind":"choice","marks":1,"prompt":"What is mechanical advantage?","options":["The ratio of output force to input force","The speed of an electric motor only","The number of parts in a system","The cost of a mechanism"]},{"kind":"choice","marks":1,"prompt":"What happens when a small driver gear turns a larger driven gear?","options":["Output speed always increases","Direction remains unchanged for external gears","Output speed decreases and torque can increase","Mechanical advantage becomes zero"]},{"kind":"choice","marks":1,"prompt":"What is the main function of a cam?","options":["Store hydraulic fluid","Convert rotary motion into a controlled follower motion","Reinforce concrete","Measure tensile strength"]},{"kind":"choice","marks":1,"prompt":"Which variable should be changed in a controlled design investigation?","options":["Every variable at once","No variables","Only the written conclusion","One independent variable while other relevant factors are kept consistent"]},{"kind":"choice","marks":1,"prompt":"Which response to a failed prototype is most engineering-focused?","options":["Use test evidence to identify the cause, modify one relevant feature and retest","Hide the failure","Change several features without recording them","Judge success by appearance only"]},{"kind":"choice","marks":1,"prompt":"What makes a sustainability judgement credible?","options":["Choosing the newest technology automatically","Considering purchase price only","Considering material, energy, waste, service life and end-of-life impacts","Assuming all recycled materials perform identically"]}]},{"label":"Section B","title":"Short responses","instructions":"Use relevant engineering terminology and evidence.","questions":[{"kind":"short","marks":3,"prompt":"Explain the difference between tension and compression using one structural example."},{"kind":"short","marks":3,"prompt":"Explain how reinforcement position influences the performance of a concrete beam under bending."},{"kind":"short","marks":3,"prompt":"A hydraulic output is weak and jerky. Identify two possible causes and explain a suitable check for each."},{"kind":"short","marks":3,"prompt":"Explain how gear ratio affects speed, torque and direction in a simple external gear train."},{"kind":"short","marks":3,"prompt":"Describe a fair test for one variable in a water tower, beam, hydraulic or geared-system investigation."},{"kind":"short","marks":3,"prompt":"Explain how a folio can show the link between test evidence, redesign and improved performance."}]},{"label":"Section C","title":"Extended application","instructions":"Develop a structured engineering analysis.","questions":[{"kind":"long","marks":10,"prompt":"A model tower carries vertical load but fails when a small sideways force is applied. Analyse the force path, joint behaviour, bracing and base geometry. Propose and justify modifications, including how the improved design would be tested fairly."},{"kind":"long","marks":10,"prompt":"A hydraulic digger moves but cannot lift its intended load reliably. Analyse the system using pressure, piston area, mechanical leverage, friction, trapped air, leakage and structure stiffness. Recommend a staged fault-finding and retesting process."}]}]};</script>
+  <script>Object.assign(window.EXAM_CONFIG, {"taskLabel":"Task 3 – Final Examination","scheduledDate":"Teacher to confirm (handbook specifies Term 4 Week 5)","outcomes":"IND5-1, IND5-5, IND5-6, IND5-9, IND5-10","status":"Formal scheduled assessment · 2026 handbook · Term 4 Week 5 · 30%","backLabel":"Engineering course home"});</script>
+  <script src="exam.js"></script>
+</body>
+</html>

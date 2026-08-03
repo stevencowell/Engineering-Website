@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Year 10 Industrial Technology – Engineering Final Digital Examination">
+  <title>Year 10 Industrial Technology – Engineering | Final Digital Examination</title>
+  <link rel="stylesheet" href="exam.css">
+</head>
+<body>
+  <div class="password-gate" id="passwordGate">
+    <form class="gate-card" id="gateForm">
+      <p class="exam-kicker" style="color:var(--brand)">Teacher-controlled access</p>
+      <h1>Unlock exam</h1>
+      <p>Enter the password supplied by your teacher. Your answers will save only in this browser on this device.</p>
+      <label for="gatePassword"><strong>Exam password</strong></label>
+      <input id="gatePassword" type="password" inputmode="numeric" autocomplete="off" required>
+      <button class="btn" type="submit">Open exam</button>
+      <p class="gate-error" id="gateError" role="alert"></p>
+    </form>
+  </div>
+  <div id="examPage" hidden>
+    <header class="exam-header">
+      <div class="exam-shell">
+        <p><a id="backLink" href="../index.html">Back to course home</a></p>
+        <p class="exam-kicker" id="courseName"></p>
+        <h1 id="examTitle"></h1>
+        <p id="examSubtitle"></p>
+      </div>
+    </header>
+    <main class="exam-main">
+      <div class="exam-shell">
+        <section class="exam-card">
+          <h2>Exam information</h2>
+          <div class="notice-grid">
+            <div class="notice-item"><span>Course stage</span><strong id="metaStage"></strong></div>
+            <div class="notice-item"><span>Recommended time</span><strong id="metaTime"></strong></div>
+            <div class="notice-item"><span>Total marks</span><strong id="metaMarks"></strong></div>
+            <div class="notice-item"><span>Assessment status</span><strong id="metaStatus"></strong></div>
+            <div class="notice-item"><span>Task</span><strong id="metaTask"></strong></div>
+            <div class="notice-item"><span>Scheduled date</span><strong id="metaDate"></strong></div>
+            <div class="notice-item notice-wide"><span>Assessed outcomes</span><strong id="metaOutcomes"></strong></div>
+          </div>
+          <p class="exam-note" id="examDirections"></p>
+          <p><strong>PDF submission:</strong> When finished, use <em>Print / Save PDF</em>, choose <em>Save as PDF</em>, and name the file <strong id="pdfFilename"></strong>. Check the saved PDF before turning it in.</p>
+        </section>
+        <form id="examForm" novalidate>
+          <section class="exam-card">
+            <h2>Student details</h2>
+            <div class="student-grid">
+              <label>Student name<input data-student id="studentName" name="studentName" autocomplete="name"></label>
+              <label>Class<input data-student name="studentClass" autocomplete="off"></label>
+              <label>Teacher<input data-student name="teacherName" autocomplete="off"></label>
+              <label>Date completed<input data-student name="completedDate" type="date"></label>
+            </div>
+          </section>
+          <div class="exam-toolbar screen-only">
+            <div class="exam-progress">
+              <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+              <span class="progress-label" id="progressLabel"></span>
+            </div>
+            <button class="btn secondary" id="saveBtn" type="button">Save now</button>
+            <button class="btn" id="printBtn" type="button">Print / Save PDF</button>
+            <button class="btn secondary" id="lockBtn" type="button">Lock exam</button>
+            <button class="btn danger" id="clearBtn" type="button">Clear saved work</button>
+            <div class="save-status" id="saveStatus">Answers autosave on this device.</div>
+          </div>
+          <div id="examSections"></div>
+        </form>
+        <p class="exam-footer">This page stores work locally in this browser and device. Saving a PDF is the submission copy; local autosave is not a cloud submission.</p>
+      </div>
+    </main>
+  </div>
+  <script>window.EXAM_CONFIG = {"id":"wwhs-y10-engineering-eoy-2026","course":"Year 10 Industrial Technology – Engineering","title":"Final Digital Examination","subtitle":"Control systems, water management, alternate energy and reliable engineering design","stage":"Stage 5 · Year 10","time":"75 minutes","status":"2026 handbook: Examination · Term 4 Week 3 · 20%","backLabel":"Engineering","pdfFilename":"Surname_Firstname_Year10_Engineering_Final_Exam.pdf","directions":"Answer every question. Select one answer for each multiple-choice item and type well-justified responses. Apply knowledge from the garden-watering and wind-powered USB charger projects. No sketches are required.","sections":[{"label":"Section A","title":"Knowledge and understanding","instructions":"Select the best answer.","questions":[{"kind":"choice","marks":1,"prompt":"In a control system, a soil-moisture sensor is primarily a:","options":["Process","Input","Output actuator","Power supply"]},{"kind":"choice","marks":1,"prompt":"What is the role of the process/controller in an input-process-output system?","options":["Measure moisture directly","Move water without a decision","Provide mechanical guarding","Interpret input information and decide what output action is required"]},{"kind":"choice","marks":1,"prompt":"Why is feedback useful in an automatic watering system?","options":["It lets the system compare the result with the desired condition and adjust","It removes every sensor","It guarantees zero water use","It replaces testing"]},{"kind":"choice","marks":1,"prompt":"What is hysteresis in a threshold-control system used to reduce?","options":["Water pressure","Electrical isolation","Rapid switching around a single threshold","Blade drag"]},{"kind":"choice","marks":1,"prompt":"Why should wet and dry/electrical zones be separated?","options":["To improve soil moisture","To reduce the risk of water contacting electrical components","To increase voltage","To remove the need for teacher checks"]},{"kind":"choice","marks":1,"prompt":"Which test best measures reliability?","options":["One successful demonstration","Visual inspection only","Changing several variables each trial","Repeated trials under defined conditions with failures recorded"]},{"kind":"choice","marks":1,"prompt":"What is the energy chain in a wind-powered USB charger?","options":["Wind kinetic energy to rotational mechanical energy to electrical energy","Electrical energy to wind to heat only","Chemical energy to nuclear energy","Light energy directly to pressure"]},{"kind":"choice","marks":1,"prompt":"Changing blade angle is an example of changing which experimental variable?","options":["Dependent variable only","A constant","Independent variable, if other relevant factors are controlled","An uncontrolled error"]},{"kind":"choice","marks":1,"prompt":"What is a likely advantage of gearing between a turbine and generator?","options":["It creates energy","It can better match generator speed and torque requirements","It eliminates friction","It guarantees the highest output in all wind conditions"]},{"kind":"choice","marks":1,"prompt":"Why is rectification or voltage regulation sometimes required before USB charging?","options":["USB devices require raw mechanical motion","It increases blade area","It removes the need for a circuit","Generator output may vary or have unsuitable polarity/voltage"]},{"kind":"choice","marks":1,"prompt":"Which is the strongest design decision?","options":["Selecting a component because test evidence shows it meets output, safety and resource constraints","Selecting the newest component without checking","Selecting the cheapest component only","Copying another group\u0027s choice"]},{"kind":"choice","marks":1,"prompt":"Which evaluation uses system evidence most effectively?","options":["The system was good","The design looked advanced","The pump activated at the intended threshold in 9 of 10 trials; shielding the sensor connection may improve the failed trial","More testing might help"]}]},{"label":"Section B","title":"Short responses","instructions":"Explain the engineering relationship in each answer.","questions":[{"kind":"short","marks":4,"prompt":"Explain the roles of input, process, output and feedback in an automatic garden-watering system."},{"kind":"short","marks":4,"prompt":"Explain how threshold choice and hysteresis can affect water use, plant health and relay/pump cycling."},{"kind":"short","marks":4,"prompt":"Describe a safe test sequence that keeps water, low-voltage electronics, tools and people appropriately controlled."},{"kind":"short","marks":4,"prompt":"Explain how blade area, angle, rotational speed and load can affect wind-generator electrical output."},{"kind":"short","marks":4,"prompt":"Compare direct drive and geared drive for connecting a wind rotor to a generator."},{"kind":"short","marks":4,"prompt":"Explain how a test table and fault log together support evidence-based redesign."}]},{"label":"Section C","title":"Extended application","instructions":"Integrate design, testing, safety and sustainability.","questions":[{"kind":"long","marks":12,"prompt":"A garden-watering system switches the pump on and off rapidly near the moisture threshold and sometimes waters when the sensor is already wet. Diagnose possible sensor, logic, placement, wiring and test-method causes. Propose a safe staged improvement and reliability-test plan."},{"kind":"long","marks":12,"prompt":"A wind-powered USB charger produces voltage with no load but cannot charge a device reliably. Analyse possible causes involving wind conditions, blades, mechanical losses, gearing, generator behaviour, regulation, storage and load. Recommend design changes and a controlled test plan, then comment on the system\u0027s realistic sustainability limits."}]}]};</script>
+  <script>Object.assign(window.EXAM_CONFIG, {"taskLabel":"Task 3 – Examination","scheduledDate":"Teacher to confirm (handbook specifies Term 4 Week 3)","outcomes":"IND5-1 to IND5-10","status":"Formal scheduled assessment · 2026 handbook · Term 4 Week 3 · 20%","backLabel":"Engineering course home"});</script>
+  <script src="exam.js"></script>
+</body>
+</html>
