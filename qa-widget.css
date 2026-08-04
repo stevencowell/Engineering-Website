@@ -185,12 +185,13 @@
 
 @media (max-width: 760px) {
   .qa-question {
-    display: block;
+    display: block !important;
   }
 
   .qa-toggle {
     margin-top: 0.75rem;
-    white-space: normal;
+    max-width: 100%;
+    white-space: normal !important;
   }
 }
 
