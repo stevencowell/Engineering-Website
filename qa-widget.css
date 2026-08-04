@@ -42,6 +42,38 @@
   display: none;
 }
 
+.qa-clarification {
+  margin-top: 0.65rem;
+}
+
+.qa-clarification-toggle {
+  min-height: 44px;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #f8fbff;
+  color: var(--brand);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.qa-clarification-toggle:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+}
+
+.qa-clarification-panel {
+  max-width: 68ch;
+  margin-top: 0.6rem;
+  padding: 0.7rem 0.85rem;
+  border-left: 4px solid var(--brand);
+  border-radius: 0 8px 8px 0;
+  background: #f8fbff;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
 .qa-summary {
   display: flex;
   flex-wrap: wrap;
@@ -160,4 +192,8 @@
     margin-top: 0.75rem;
     white-space: normal;
   }
+}
+
+@media print {
+  .qa-clarification-toggle { display: none !important; }
 }

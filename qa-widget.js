@@ -90,6 +90,41 @@
     return String(text || '').trim().split(/\s+/).filter(Boolean).length;
   }
 
+  function clarificationFor(questionText) {
+    const question = String(questionText || '').replace(/^\s*\d+\.\s*/, '').trim();
+    const withoutStop = question.replace(/[?.!]+$/, '');
+    const lowerFirst = text => text.charAt(0).toLowerCase() + text.slice(1);
+    if (/\bcalculate\b/i.test(question)) return `For “${withoutStop}”, show the working and units, then explain what the result means.`;
+    if (/\b(difference|compare|similar|different)\b/i.test(question)) return `Compare the things named in “${withoutStop}”. Say what is similar or different and why it matters.`;
+    if (/^why\s+/i.test(question)) return `Explain why ${lowerFirst(withoutStop.replace(/^why\s+/i, ''))}. Give the main reason and why it matters.`;
+    if (/^how\s+/i.test(question)) return `Explain how ${lowerFirst(withoutStop.replace(/^how\s+/i, ''))}. Describe the steps or cause and link them to the result.`;
+    if (/^what\s+/i.test(question)) return `Identify ${lowerFirst(withoutStop.replace(/^what\s+/i, ''))}. Then explain its job or effect.`;
+    if (/^which\s+/i.test(question)) return `Choose ${lowerFirst(withoutStop.replace(/^which\s+/i, ''))}. Explain the reason for your choice.`;
+    return `For “${withoutStop}”, answer each part and explain your reason using the project details.`;
+  }
+
+  function ensureClarificationUI(qaItem, qaId, questionText) {
+    if (qaItem.querySelector(`[data-qa-clarification-for="${qaId}"]`)) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'qa-clarification';
+    wrap.setAttribute('data-qa-clarification-for', qaId);
+    wrap.innerHTML = `
+      <button type="button" class="qa-clarification-toggle" aria-expanded="false" aria-controls="${qaId}-clarification">What is this asking?</button>
+      <div class="qa-clarification-panel" id="${qaId}-clarification" hidden><strong>In simpler words:</strong> ${escapeHtml(clarificationFor(questionText))}</div>
+    `;
+    const questionRow = qaItem.querySelector('.qa-question');
+    if (questionRow) questionRow.insertAdjacentElement('afterend', wrap);
+    else qaItem.insertAdjacentElement('afterbegin', wrap);
+    const button = wrap.querySelector('.qa-clarification-toggle');
+    const panel = wrap.querySelector('.qa-clarification-panel');
+    button.addEventListener('click', () => {
+      const isOpening = panel.hidden;
+      panel.hidden = !isOpening;
+      button.setAttribute('aria-expanded', String(isOpening));
+      button.textContent = isOpening ? 'Hide simpler wording' : 'What is this asking?';
+    });
+  }
+
   function normaliseWord(w) {
     return String(w || '')
       .toLowerCase()
@@ -172,7 +207,7 @@
       student.className = 'qa-student';
       student.innerHTML = `
         <label for="${qaId}-student">Your answer</label>
-        <textarea id="${qaId}-student" class="qa-student-input" data-qa-id="${qaId}" placeholder="Write your answer here before revealing the model answer..."></textarea>
+        <textarea id="${qaId}-student" class="qa-student-input" data-qa-id="${qaId}" placeholder="Write your answer here before viewing the appropriate response example..."></textarea>
         <div class="qa-meta" data-qa-meta-for="${qaId}"></div>
       `;
       const questionRow = qaItem.querySelector('.qa-question');
@@ -236,7 +271,7 @@
 
     // Ensure the guidance note matches the "serious attempt" requirement.
     const note = card.querySelector('.card-note');
-    const requirementText = `Write your answer first. Then reveal the model answer and score yourself honestly. Saved answers stay in this browser. Aim for ${minWords}+ words.`;
+    const requirementText = `Write your answer first. Then view the appropriate response example and score yourself honestly. Saved answers stay in this browser. Aim for ${minWords}+ words.`;
     if (note) {
       note.textContent = requirementText;
     } else {
@@ -273,10 +308,11 @@
       if (!qaId) return;
 
       const btn = item.querySelector('.qa-toggle');
-      if (btn && (!btn.textContent || btn.textContent.trim().toLowerCase() === 'show answer')) {
-        btn.textContent = 'Reveal model answer';
-      }
+      if (btn) btn.textContent = 'Appropriate response example';
 
+      const qTextEl = item.querySelector('.qa-question span');
+      const questionText = qTextEl ? qTextEl.textContent.trim() : '';
+      ensureClarificationUI(item, qaId, questionText);
       ensureQuestionUI(item, qaId);
     });
 
@@ -340,7 +376,7 @@
         }
 
         btn.setAttribute('aria-expanded', String(!isOpen));
-        btn.textContent = isOpen ? 'Reveal model answer' : 'Hide model answer';
+        btn.textContent = isOpen ? 'Appropriate response example' : 'Hide appropriate response example';
         answerEl.style.display = isOpen ? 'none' : 'block';
 
         const scorePanel = qaItem.querySelector(`[data-qa-score-panel="${answerId}"]`);
@@ -560,7 +596,7 @@
           const responseHtml = responseText ? escapeHtml(responseText) : '-';
           const responseClass = responseText ? 'response' : 'response empty';
           const model = it.revealed && it.modelAnswerHtml
-            ? `<div class="model"><div class="label">Model answer</div><div class="model-body">${it.modelAnswerHtml}</div></div>`
+            ? `<div class="model"><div class="label">Appropriate response example</div><div class="model-body">${it.modelAnswerHtml}</div></div>`
             : '';
           return `<li class="item">
             <div class="q">${it.idx + 1}. ${escapeHtml(it.questionText)}</div>
