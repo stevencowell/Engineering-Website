@@ -52,30 +52,38 @@
       transform: translateY(0);
     }
     header {
-      background: url('Engineering Banner.jpg') center center/cover;
-      color: #003366;
-      padding: 5rem 1rem 3rem;
-      text-align: center;
+      background:
+        linear-gradient(90deg, rgba(8, 31, 38, .96) 0%, rgba(8, 31, 38, .82) 42%, rgba(8, 31, 38, .24) 76%, rgba(8, 31, 38, .12) 100%),
+        url('assets/engineering-workshop-hero.webp') center / cover;
+      color: #fff;
+      padding: clamp(6rem, 12vw, 10rem) max(1.4rem, calc((100vw - 1120px) / 2)) clamp(4rem, 8vw, 7rem);
+      text-align: left;
       position: relative;
-      min-height: 60vh;
+      min-height: min(660px, 72vh);
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       z-index: 1;
     }
+    header::before { content: 'STAGE 5 ENGINEERING'; margin-bottom: 1rem; color: #f0d49f; font-size: .78rem; font-weight: 800; letter-spacing: .14em; }
     header h1 {
-      font-size: 2.5rem;
+      max-width: 11ch;
+      font-size: clamp(3rem, 7vw, 6.2rem);
       margin: 0;
       font-weight: 700;
-      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+      line-height: .98;
+      letter-spacing: -.055em;
+      text-shadow: none;
     }
-    header p { 
-      margin: 0.25rem 0 0 0; 
-      font-size: 1.125rem; 
-      opacity: 0.9; 
-      text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+    header p {
+      max-width: 53ch;
+      margin: 1.15rem 0 0;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      opacity: .92;
+      text-shadow: none;
     }
+    header p + p { margin-top: .25rem; font-size: 1rem; opacity: .78; }
     main { 
       max-width: 1200px; 
       margin: 0 auto; 
@@ -851,9 +859,9 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <header role="banner">
-    <h1 style="color: #0056b3; font-size: 3.5rem; margin: 1rem 0;">STAGE 5 ENGINEERING</h1>
-    <p style="color: #003366; font-size: 1.2rem; margin: 0.5rem 0;">Course Material & Resources</p>
-    <p style="color: #003366;">Select a topic below to access materials</p>
+    <h1>Engineering</h1>
+    <p>Design, test and improve ideas across structures, mechanisms, control systems and engineering specialisation.</p>
+    <p>Choose a Year 9 or Year 10 topic below to access course materials.</p>
   </header>
   <main id="main-content" role="main">
     <section class="overview" aria-labelledby="welcome-heading">
