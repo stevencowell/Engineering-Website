@@ -707,9 +707,13 @@
     }
     .assessment-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.25rem;
       margin-top: 1rem;
+      align-items: start;
+    }
+    .assessment-card:first-child {
+      grid-column: 1 / -1;
     }
     .assessment-card {
       background: linear-gradient(135deg, #f8fbff 0%, #f1f5f9 100%);
@@ -723,8 +727,15 @@
       color: #0b63c3;
       font-size: 1.35rem;
     }
+    .assessment-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: 10px;
+      -webkit-overflow-scrolling: touch;
+    }
     .assessment-table {
       width: 100%;
+      min-width: 700px;
       border-collapse: collapse;
       margin-top: 0.75rem;
       background: #fff;
@@ -753,10 +764,15 @@
       gap: 0.35rem;
       background: #e6f0fa;
       color: #0b63c3;
-      padding: 0.35rem 0.75rem;
-      border-radius: 999px;
+      padding: 0.45rem 0.75rem;
+      border-radius: 10px;
       font-weight: 700;
       font-size: 0.92rem;
+      line-height: 1.35;
+      max-width: 100%;
+    }
+    .assessment-card:not(:first-child) .assessment-badge {
+      width: fit-content;
     }
     .notification-card {
       background: #fff;
@@ -837,6 +853,17 @@
       color: #1f2937;
     }
     .criteria-table tr:last-child td { border-bottom: none; }
+    @media (max-width: 820px) {
+      .assessments-section {
+        padding: 1.25rem;
+      }
+      .assessment-grid {
+        grid-template-columns: 1fr;
+      }
+      .assessment-card:first-child {
+        grid-column: auto;
+      }
+    }
     @media (max-width: 768px) {
       .search-container {
         flex-direction: column;
@@ -1077,7 +1104,8 @@
       <div class="assessment-grid">
         <div class="assessment-card" aria-labelledby="assessment-schedule-heading">
           <h3 id="assessment-schedule-heading">Assessment Schedule</h3>
-          <table class="assessment-table" aria-describedby="assessment-schedule-heading">
+          <div class="assessment-table-wrap" role="region" aria-label="Assessment schedule" tabindex="0">
+            <table class="assessment-table" aria-describedby="assessment-schedule-heading">
             <thead>
               <tr>
                 <th scope="col">Task</th>
@@ -1111,6 +1139,7 @@
               </tr>
             </tbody>
           </table>
+          </div>
         </div>
         <div class="assessment-card">
           <h3>Digital Final Examinations</h3>
