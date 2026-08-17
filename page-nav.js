@@ -1,5 +1,57 @@
 (() => {
   const STYLE_ID = 'page-nav-style';
+  const COURSE_NAV_STYLE_ID = 'course-family-navigation-style';
+  const script = document.currentScript;
+  const courseRoot = new URL('./', script && script.src ? script.src : location.href);
+
+  function ensureCourseNavigation() {
+    if (document.querySelector('.course-family-nav')) return;
+
+    if (!document.getElementById(COURSE_NAV_STYLE_ID)) {
+      const stylesheet = document.createElement('link');
+      stylesheet.id = COURSE_NAV_STYLE_ID;
+      stylesheet.rel = 'stylesheet';
+      stylesheet.href = new URL('course-family-navigation.css?v=20260818', courseRoot).href;
+      document.head.append(stylesheet);
+    }
+
+    const path = location.pathname.toLowerCase();
+    const rootPath = courseRoot.pathname.replace(/\/$/, '').toLowerCase();
+    const isHome = path === `${rootPath}/` || path === `${rootPath}/index.html`;
+    const nav = document.createElement('nav');
+    nav.className = 'course-family-nav screen-only';
+    nav.setAttribute('aria-label', 'Engineering course navigation');
+
+    const inner = document.createElement('div');
+    inner.className = 'course-family-nav__inner';
+    const brand = document.createElement('a');
+    brand.className = 'course-family-nav__brand';
+    brand.href = new URL('index.html', courseRoot).href;
+    brand.innerHTML = '<span class="course-family-nav__mark" aria-hidden="true">ENG</span><span>Engineering</span>';
+
+    const links = document.createElement('div');
+    links.className = 'course-family-nav__links';
+    const items = [
+      ['Course', 'index.html', isHome],
+      ['Modules', 'index.html#year9-heading', !isHome],
+      ['Puzzles', 'https://stevencowell.github.io/busy-worksheets/?library=engineering', false, true],
+      ['Assessment', 'index.html#assessments-heading', false],
+      ['Teacher resources', 'index.html#program-heading', false],
+      ['Main Menu', 'https://stevencowell.github.io/Main-Page/', false, true]
+    ];
+
+    items.forEach(([label, href, current, external]) => {
+      const link = document.createElement('a');
+      link.textContent = label;
+      link.href = external ? href : new URL(href, courseRoot).href;
+      if (current) link.setAttribute('aria-current', 'page');
+      links.append(link);
+    });
+
+    inner.append(brand, links);
+    nav.append(inner);
+    document.body.prepend(nav);
+  }
 
   function ensureStyles() {
     if (document.getElementById(STYLE_ID)) return;
@@ -128,6 +180,7 @@
   }
 
   function init() {
+    ensureCourseNavigation();
     ensureStyles();
 
     const { file, dir } = getPathInfo();
